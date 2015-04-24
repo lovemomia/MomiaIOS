@@ -1,0 +1,605 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		087C98AEC54638860E9ACAB0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9DF4BE98C18CC18BDADCD8 /* libPods.a */; };
+		BC8540911ADF74E9005A7C54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540901ADF74E9005A7C54 /* main.m */; };
+		BC8540941ADF74E9005A7C54 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540931ADF74E9005A7C54 /* AppDelegate.m */; };
+		BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC85409B1ADF74E9005A7C54 /* Images.xcassets */; };
+		BC8540AB1ADF74E9005A7C54 /* MomiaIOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540AA1ADF74E9005A7C54 /* MomiaIOSTests.m */; };
+		BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540BC1ADF8A09005A7C54 /* MOViewController.m */; };
+		BC8540C11ADF8A76005A7C54 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540BF1ADF8A76005A7C54 /* HomeViewController.m */; };
+		BCA272FD1AE8A2C7002E7534 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA272FB1AE8A2C7002E7534 /* MineViewController.m */; };
+		BCA272FE1AE8A2C7002E7534 /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA272FC1AE8A2C7002E7534 /* MineViewController.xib */; };
+		BCA273001AE8B085002E7534 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA272FF1AE8B085002E7534 /* HomeViewController.xib */; };
+		BCA273061AE8D0E9002E7534 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273051AE8D0E9002E7534 /* Launch Screen.xib */; };
+		BCA2730A1AE8DE95002E7534 /* HomeTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273081AE8DE95002E7534 /* HomeTopicCell.m */; };
+		BCA2730B1AE8DE95002E7534 /* HomeTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273091AE8DE95002E7534 /* HomeTopicCell.xib */; };
+		BCA273101AE9D79F002E7534 /* scheme.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCA2730F1AE9D79F002E7534 /* scheme.plist */; };
+		BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273151AE9F6F0002E7534 /* URLMappingManager.m */; };
+		BCA2731E1AE9FB1D002E7534 /* NSString+MOURLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA2731D1AE9FB1D002E7534 /* NSString+MOURLEncode.m */; };
+		BCA273211AE9FB78002E7534 /* NSURL+MOURL.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273201AE9FB78002E7534 /* NSURL+MOURL.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BC8540A51ADF74E9005A7C54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BC8540831ADF74E9005A7C54 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BC85408A1ADF74E9005A7C54;
+			remoteInfo = MomiaIOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		081C0A2B3B84523909EC659D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		36BF39E53B6AA82DBC50D3EB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		5B9DF4BE98C18CC18BDADCD8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC85408B1ADF74E9005A7C54 /* MomiaIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MomiaIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC85408F1ADF74E9005A7C54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC8540901ADF74E9005A7C54 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BC8540921ADF74E9005A7C54 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BC8540931ADF74E9005A7C54 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BC85409B1ADF74E9005A7C54 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BC8540A41ADF74E9005A7C54 /* MomiaIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MomiaIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC8540A91ADF74E9005A7C54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC8540AA1ADF74E9005A7C54 /* MomiaIOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MomiaIOSTests.m; sourceTree = "<group>"; };
+		BC8540BB1ADF8A09005A7C54 /* MOViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOViewController.h; path = Common/Base/MOViewController.h; sourceTree = "<group>"; };
+		BC8540BC1ADF8A09005A7C54 /* MOViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOViewController.m; path = Common/Base/MOViewController.m; sourceTree = "<group>"; };
+		BC8540BE1ADF8A76005A7C54 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Business/Home/HomeViewController.h; sourceTree = "<group>"; };
+		BC8540BF1ADF8A76005A7C54 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = Business/Home/HomeViewController.m; sourceTree = "<group>"; };
+		BC8540C41AE2121E005A7C54 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Common/Base/Constants.h; sourceTree = "<group>"; };
+		BCA272FA1AE8A2C7002E7534 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineViewController.h; path = Business/Mine/MineViewController.h; sourceTree = "<group>"; };
+		BCA272FB1AE8A2C7002E7534 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineViewController.m; path = Business/Mine/MineViewController.m; sourceTree = "<group>"; };
+		BCA272FC1AE8A2C7002E7534 /* MineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MineViewController.xib; path = Business/Mine/MineViewController.xib; sourceTree = "<group>"; };
+		BCA272FF1AE8B085002E7534 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = Business/Home/HomeViewController.xib; sourceTree = "<group>"; };
+		BCA273051AE8D0E9002E7534 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		BCA273071AE8DE95002E7534 /* HomeTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeTopicCell.h; path = Business/Home/Views/HomeTopicCell.h; sourceTree = "<group>"; };
+		BCA273081AE8DE95002E7534 /* HomeTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeTopicCell.m; path = Business/Home/Views/HomeTopicCell.m; sourceTree = "<group>"; };
+		BCA273091AE8DE95002E7534 /* HomeTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeTopicCell.xib; path = Business/Home/Views/HomeTopicCell.xib; sourceTree = "<group>"; };
+		BCA2730F1AE9D79F002E7534 /* scheme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = scheme.plist; path = Common/scheme.plist; sourceTree = "<group>"; };
+		BCA273141AE9F6F0002E7534 /* URLMappingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = URLMappingManager.h; path = Common/URLMappingManager.h; sourceTree = "<group>"; };
+		BCA273151AE9F6F0002E7534 /* URLMappingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = URLMappingManager.m; path = Common/URLMappingManager.m; sourceTree = "<group>"; };
+		BCA2731C1AE9FB1D002E7534 /* NSString+MOURLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MOURLEncode.h"; path = "Common/Categorys/NSString+MOURLEncode.h"; sourceTree = "<group>"; };
+		BCA2731D1AE9FB1D002E7534 /* NSString+MOURLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MOURLEncode.m"; path = "Common/Categorys/NSString+MOURLEncode.m"; sourceTree = "<group>"; };
+		BCA2731F1AE9FB78002E7534 /* NSURL+MOURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+MOURL.h"; path = "Common/Categorys/NSURL+MOURL.h"; sourceTree = "<group>"; };
+		BCA273201AE9FB78002E7534 /* NSURL+MOURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+MOURL.m"; path = "Common/Categorys/NSURL+MOURL.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BC8540881ADF74E9005A7C54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				087C98AEC54638860E9ACAB0 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC8540A11ADF74E9005A7C54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		26D758803C76A62629C50A39 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B9DF4BE98C18CC18BDADCD8 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A6F45CE3FFFD30E793606A24 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				081C0A2B3B84523909EC659D /* Pods.debug.xcconfig */,
+				36BF39E53B6AA82DBC50D3EB /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BC8540821ADF74E9005A7C54 = {
+			isa = PBXGroup;
+			children = (
+				BC85408D1ADF74E9005A7C54 /* MomiaIOS */,
+				BC8540A71ADF74E9005A7C54 /* MomiaIOSTests */,
+				BC85408C1ADF74E9005A7C54 /* Products */,
+				A6F45CE3FFFD30E793606A24 /* Pods */,
+				26D758803C76A62629C50A39 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BC85408C1ADF74E9005A7C54 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BC85408B1ADF74E9005A7C54 /* MomiaIOS.app */,
+				BC8540A41ADF74E9005A7C54 /* MomiaIOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC85408D1ADF74E9005A7C54 /* MomiaIOS */ = {
+			isa = PBXGroup;
+			children = (
+				BC8540B51ADF8649005A7C54 /* Business */,
+				BC8540B41ADF8614005A7C54 /* Common */,
+				BC8540921ADF74E9005A7C54 /* AppDelegate.h */,
+				BC8540931ADF74E9005A7C54 /* AppDelegate.m */,
+				BCA273051AE8D0E9002E7534 /* Launch Screen.xib */,
+				BC85409B1ADF74E9005A7C54 /* Images.xcassets */,
+				BC8540B61ADF86CD005A7C54 /* Resources */,
+				BC85408E1ADF74E9005A7C54 /* Supporting Files */,
+			);
+			path = MomiaIOS;
+			sourceTree = "<group>";
+		};
+		BC85408E1ADF74E9005A7C54 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BC85408F1ADF74E9005A7C54 /* Info.plist */,
+				BC8540901ADF74E9005A7C54 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BC8540A71ADF74E9005A7C54 /* MomiaIOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				BC8540AA1ADF74E9005A7C54 /* MomiaIOSTests.m */,
+				BC8540A81ADF74E9005A7C54 /* Supporting Files */,
+			);
+			path = MomiaIOSTests;
+			sourceTree = "<group>";
+		};
+		BC8540A81ADF74E9005A7C54 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BC8540A91ADF74E9005A7C54 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BC8540B41ADF8614005A7C54 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BCA2731B1AE9FA83002E7534 /* Categorys */,
+				BCA273171AE9F90C002E7534 /* Utils */,
+				BC8540BA1ADF8976005A7C54 /* Base */,
+				BCA2730F1AE9D79F002E7534 /* scheme.plist */,
+				BCA273141AE9F6F0002E7534 /* URLMappingManager.h */,
+				BCA273151AE9F6F0002E7534 /* URLMappingManager.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		BC8540B51ADF8649005A7C54 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				BCA272F91AE8A27C002E7534 /* Mine */,
+				BC8540C31ADF90B1005A7C54 /* Discover */,
+				BC8540B71ADF881A005A7C54 /* Home */,
+			);
+			name = Business;
+			sourceTree = "<group>";
+		};
+		BC8540B61ADF86CD005A7C54 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		BC8540B71ADF881A005A7C54 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BC8D3CEB1AE21CF500A2F319 /* Views */,
+				BC8540BE1ADF8A76005A7C54 /* HomeViewController.h */,
+				BC8540BF1ADF8A76005A7C54 /* HomeViewController.m */,
+				BCA272FF1AE8B085002E7534 /* HomeViewController.xib */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		BC8540BA1ADF8976005A7C54 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				BC8540BB1ADF8A09005A7C54 /* MOViewController.h */,
+				BC8540BC1ADF8A09005A7C54 /* MOViewController.m */,
+				BC8540C41AE2121E005A7C54 /* Constants.h */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		BC8540C31ADF90B1005A7C54 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Discover;
+			sourceTree = "<group>";
+		};
+		BC8D3CEB1AE21CF500A2F319 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BCA273071AE8DE95002E7534 /* HomeTopicCell.h */,
+				BCA273081AE8DE95002E7534 /* HomeTopicCell.m */,
+				BCA273091AE8DE95002E7534 /* HomeTopicCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		BCA272F91AE8A27C002E7534 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				BCA272FA1AE8A2C7002E7534 /* MineViewController.h */,
+				BCA272FB1AE8A2C7002E7534 /* MineViewController.m */,
+				BCA272FC1AE8A2C7002E7534 /* MineViewController.xib */,
+			);
+			name = Mine;
+			sourceTree = "<group>";
+		};
+		BCA273171AE9F90C002E7534 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		BCA2731B1AE9FA83002E7534 /* Categorys */ = {
+			isa = PBXGroup;
+			children = (
+				BCA2731F1AE9FB78002E7534 /* NSURL+MOURL.h */,
+				BCA273201AE9FB78002E7534 /* NSURL+MOURL.m */,
+				BCA2731C1AE9FB1D002E7534 /* NSString+MOURLEncode.h */,
+				BCA2731D1AE9FB1D002E7534 /* NSString+MOURLEncode.m */,
+			);
+			name = Categorys;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BC85408A1ADF74E9005A7C54 /* MomiaIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC8540AE1ADF74E9005A7C54 /* Build configuration list for PBXNativeTarget "MomiaIOS" */;
+			buildPhases = (
+				B26D383844E3596D80052DD3 /* Check Pods Manifest.lock */,
+				BC8540871ADF74E9005A7C54 /* Sources */,
+				BC8540881ADF74E9005A7C54 /* Frameworks */,
+				BC8540891ADF74E9005A7C54 /* Resources */,
+				91CD6E65FCEFADE01BCD64A5 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MomiaIOS;
+			productName = MomiaIOS;
+			productReference = BC85408B1ADF74E9005A7C54 /* MomiaIOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BC8540A31ADF74E9005A7C54 /* MomiaIOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC8540B11ADF74E9005A7C54 /* Build configuration list for PBXNativeTarget "MomiaIOSTests" */;
+			buildPhases = (
+				BC8540A01ADF74E9005A7C54 /* Sources */,
+				BC8540A11ADF74E9005A7C54 /* Frameworks */,
+				BC8540A21ADF74E9005A7C54 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BC8540A61ADF74E9005A7C54 /* PBXTargetDependency */,
+			);
+			name = MomiaIOSTests;
+			productName = MomiaIOSTests;
+			productReference = BC8540A41ADF74E9005A7C54 /* MomiaIOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BC8540831ADF74E9005A7C54 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Deng Jun";
+				TargetAttributes = {
+					BC85408A1ADF74E9005A7C54 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					BC8540A31ADF74E9005A7C54 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = BC85408A1ADF74E9005A7C54;
+					};
+				};
+			};
+			buildConfigurationList = BC8540861ADF74E9005A7C54 /* Build configuration list for PBXProject "MomiaIOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BC8540821ADF74E9005A7C54;
+			productRefGroup = BC85408C1ADF74E9005A7C54 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BC85408A1ADF74E9005A7C54 /* MomiaIOS */,
+				BC8540A31ADF74E9005A7C54 /* MomiaIOSTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BC8540891ADF74E9005A7C54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCA2730B1AE8DE95002E7534 /* HomeTopicCell.xib in Resources */,
+				BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */,
+				BCA273001AE8B085002E7534 /* HomeViewController.xib in Resources */,
+				BCA273101AE9D79F002E7534 /* scheme.plist in Resources */,
+				BCA272FE1AE8A2C7002E7534 /* MineViewController.xib in Resources */,
+				BCA273061AE8D0E9002E7534 /* Launch Screen.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC8540A21ADF74E9005A7C54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		91CD6E65FCEFADE01BCD64A5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B26D383844E3596D80052DD3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BC8540871ADF74E9005A7C54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */,
+				BC8540941ADF74E9005A7C54 /* AppDelegate.m in Sources */,
+				BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */,
+				BCA272FD1AE8A2C7002E7534 /* MineViewController.m in Sources */,
+				BCA273211AE9FB78002E7534 /* NSURL+MOURL.m in Sources */,
+				BC8540911ADF74E9005A7C54 /* main.m in Sources */,
+				BC8540C11ADF8A76005A7C54 /* HomeViewController.m in Sources */,
+				BCA2731E1AE9FB1D002E7534 /* NSString+MOURLEncode.m in Sources */,
+				BCA2730A1AE8DE95002E7534 /* HomeTopicCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC8540A01ADF74E9005A7C54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC8540AB1ADF74E9005A7C54 /* MomiaIOSTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BC8540A61ADF74E9005A7C54 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BC85408A1ADF74E9005A7C54 /* MomiaIOS */;
+			targetProxy = BC8540A51ADF74E9005A7C54 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BC8540AC1ADF74E9005A7C54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BC8540AD1ADF74E9005A7C54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BC8540AF1ADF74E9005A7C54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 081C0A2B3B84523909EC659D /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MomiaIOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BC8540B01ADF74E9005A7C54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36BF39E53B6AA82DBC50D3EB /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MomiaIOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BC8540B21ADF74E9005A7C54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MomiaIOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MomiaIOS.app/MomiaIOS";
+			};
+			name = Debug;
+		};
+		BC8540B31ADF74E9005A7C54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MomiaIOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MomiaIOS.app/MomiaIOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BC8540861ADF74E9005A7C54 /* Build configuration list for PBXProject "MomiaIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC8540AC1ADF74E9005A7C54 /* Debug */,
+				BC8540AD1ADF74E9005A7C54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC8540AE1ADF74E9005A7C54 /* Build configuration list for PBXNativeTarget "MomiaIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC8540AF1ADF74E9005A7C54 /* Debug */,
+				BC8540B01ADF74E9005A7C54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC8540B11ADF74E9005A7C54 /* Build configuration list for PBXNativeTarget "MomiaIOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC8540B21ADF74E9005A7C54 /* Debug */,
+				BC8540B31ADF74E9005A7C54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BC8540831ADF74E9005A7C54 /* Project object */;
+}

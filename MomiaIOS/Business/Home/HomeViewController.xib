@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
+            <connections>
+                <outlet property="tableView" destination="GnE-6i-VUU" id="uQv-hm-iF8"/>
+                <outlet property="view" destination="UiG-dl-I07" id="1bg-KO-J9g"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="UiG-dl-I07">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GnE-6i-VUU">
+                    <rect key="frame" x="-16" y="0.0" width="352" height="568"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="TWL-KS-Ltt"/>
+                        <outlet property="delegate" destination="-1" id="RhP-NG-LhE"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="GnE-6i-VUU" secondAttribute="bottom" id="4Ip-up-LNi"/>
+                <constraint firstItem="GnE-6i-VUU" firstAttribute="top" secondItem="UiG-dl-I07" secondAttribute="top" id="9hP-7a-cOp"/>
+                <constraint firstItem="GnE-6i-VUU" firstAttribute="leading" secondItem="UiG-dl-I07" secondAttribute="leading" constant="-16" id="ZhU-gK-e3F"/>
+                <constraint firstAttribute="trailing" secondItem="GnE-6i-VUU" secondAttribute="trailing" constant="-16" id="aiV-0r-jy4"/>
+            </constraints>
+            <point key="canvasLocation" x="340" y="218"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

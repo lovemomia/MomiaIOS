@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>home</key>
+	<dict>
+		<key>controller</key>
+		<string>HomeViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>name</key>
+		<string>首页</string>
+	</dict>
+	<key>mine</key>
+	<dict>
+		<key>controller</key>
+		<string>MineViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>name</key>
+		<string>我的</string>
+	</dict>
+</dict>
+</plist>
