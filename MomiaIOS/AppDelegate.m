@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "HomeViewController.h"
 #import "URLMappingManager.h"
+#import "MONavigationController.h"
 
 @interface AppDelegate ()
 
@@ -23,10 +24,11 @@
     // Override point for customization after application launch.
     HomeViewController *home = [[HomeViewController alloc]initWithParams:nil];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.root = [[UINavigationController alloc]init];
+    self.root = [[MONavigationController alloc]init];
     self.window.rootViewController = self.root;
     
     [self.root pushViewController:home animated:NO];
+    [self.window makeKeyAndVisible];
 
     return YES;
 }
@@ -49,7 +51,7 @@
 {
     NSLog(@"openURL with url: %@", [url absoluteString]);
     
-    [[URLMappingManager sharedManager] handleOpenURL:url byNav:self.root];
+    [[URLMappingManager mappingManager] handleOpenURL:url byNav:self.root];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

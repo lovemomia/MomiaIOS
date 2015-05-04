@@ -15,9 +15,9 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GnE-6i-VUU">
-                    <rect key="frame" x="-16" y="0.0" width="352" height="568"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GnE-6i-VUU">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="TWL-KS-Ltt"/>
                         <outlet property="delegate" destination="-1" id="RhP-NG-LhE"/>
@@ -26,10 +26,10 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="GnE-6i-VUU" secondAttribute="bottom" id="4Ip-up-LNi"/>
-                <constraint firstItem="GnE-6i-VUU" firstAttribute="top" secondItem="UiG-dl-I07" secondAttribute="top" id="9hP-7a-cOp"/>
-                <constraint firstItem="GnE-6i-VUU" firstAttribute="leading" secondItem="UiG-dl-I07" secondAttribute="leading" constant="-16" id="ZhU-gK-e3F"/>
-                <constraint firstAttribute="trailing" secondItem="GnE-6i-VUU" secondAttribute="trailing" constant="-16" id="aiV-0r-jy4"/>
+                <constraint firstItem="GnE-6i-VUU" firstAttribute="top" secondItem="UiG-dl-I07" secondAttribute="top" id="AkS-pQ-PSc"/>
+                <constraint firstAttribute="bottom" secondItem="GnE-6i-VUU" secondAttribute="bottom" id="EK1-5v-lXO"/>
+                <constraint firstItem="GnE-6i-VUU" firstAttribute="leading" secondItem="UiG-dl-I07" secondAttribute="leading" id="khN-D8-D62"/>
+                <constraint firstAttribute="trailing" secondItem="GnE-6i-VUU" secondAttribute="trailing" id="pd9-6r-2IO"/>
             </constraints>
             <point key="canvasLocation" x="340" y="218"/>
         </view>

@@ -8,6 +8,8 @@
 
 #import "HomeViewController.h"
 #import "MineViewController.h"
+#import "HomeTopicCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface HomeViewController ()
 
@@ -88,12 +90,13 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 210;
+    return 278;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    NSURL *url = [NSURL URLWithString:@"momia://articlelist"];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -105,11 +108,12 @@
     static NSString *CellGoods = @"CellGoods";
     static NSString *CellPromotion = @"CellPromotion";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellArticle];
+    HomeTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:CellArticle];
     if (cell == nil) {
         NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"HomeTopicCell" owner:self options:nil];
         cell = [arr objectAtIndex:0];
     }
+    [cell.backImage sd_setImageWithURL:[NSURL URLWithString:@"http://b1.hucdn.com/upload/oversea/1503/17/98292375114078_640x300.jpg"]];
     return cell;
 }
 

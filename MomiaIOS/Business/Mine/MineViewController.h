@@ -8,6 +8,6 @@
 
 #import "MOViewController.h"
 
-@interface MineViewController : MOViewController
+@interface MineViewController : MOViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

@@ -10,4 +10,6 @@
 
 @interface HomeTopicCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *backImage;
+
 @end

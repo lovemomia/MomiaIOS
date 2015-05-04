@@ -24,6 +24,11 @@
 		BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273151AE9F6F0002E7534 /* URLMappingManager.m */; };
 		BCA2731E1AE9FB1D002E7534 /* NSString+MOURLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA2731D1AE9FB1D002E7534 /* NSString+MOURLEncode.m */; };
 		BCA273211AE9FB78002E7534 /* NSURL+MOURL.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273201AE9FB78002E7534 /* NSURL+MOURL.m */; };
+		BCA273241AEB166E002E7534 /* MONavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273231AEB166E002E7534 /* MONavigationController.m */; };
+		BCA273271AEB1EBA002E7534 /* MineInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */; };
+		BCA273321AEB4A5A002E7534 /* ArticleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273301AEB4A59002E7534 /* ArticleListViewController.m */; };
+		BCA273331AEB4A5A002E7534 /* ArticleListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273311AEB4A59002E7534 /* ArticleListViewController.xib */; };
+		BCA273361AEB7EC4002E7534 /* ArticleListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273351AEB7EC4002E7534 /* ArticleListHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +74,13 @@
 		BCA2731D1AE9FB1D002E7534 /* NSString+MOURLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MOURLEncode.m"; path = "Common/Categorys/NSString+MOURLEncode.m"; sourceTree = "<group>"; };
 		BCA2731F1AE9FB78002E7534 /* NSURL+MOURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+MOURL.h"; path = "Common/Categorys/NSURL+MOURL.h"; sourceTree = "<group>"; };
 		BCA273201AE9FB78002E7534 /* NSURL+MOURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+MOURL.m"; path = "Common/Categorys/NSURL+MOURL.m"; sourceTree = "<group>"; };
+		BCA273221AEB166E002E7534 /* MONavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MONavigationController.h; path = Common/Base/MONavigationController.h; sourceTree = "<group>"; };
+		BCA273231AEB166E002E7534 /* MONavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MONavigationController.m; path = Common/Base/MONavigationController.m; sourceTree = "<group>"; };
+		BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MineInfoCell.xib; path = Business/Mine/Views/MineInfoCell.xib; sourceTree = "<group>"; };
+		BCA2732F1AEB4A59002E7534 /* ArticleListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleListViewController.h; path = Business/Article/ArticleListViewController.h; sourceTree = "<group>"; };
+		BCA273301AEB4A59002E7534 /* ArticleListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleListViewController.m; path = Business/Article/ArticleListViewController.m; sourceTree = "<group>"; };
+		BCA273311AEB4A59002E7534 /* ArticleListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArticleListViewController.xib; path = Business/Article/ArticleListViewController.xib; sourceTree = "<group>"; };
+		BCA273351AEB7EC4002E7534 /* ArticleListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArticleListHeaderView.xib; path = Business/Article/Views/ArticleListHeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,9 +196,11 @@
 		BC8540B51ADF8649005A7C54 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				BC8540B71ADF881A005A7C54 /* Home */,
+				BCA273281AEB4990002E7534 /* Article */,
+				BCA273291AEB49A0002E7534 /* Goods */,
 				BCA272F91AE8A27C002E7534 /* Mine */,
 				BC8540C31ADF90B1005A7C54 /* Discover */,
-				BC8540B71ADF881A005A7C54 /* Home */,
 			);
 			name = Business;
 			sourceTree = "<group>";
@@ -215,6 +229,8 @@
 				BC8540BB1ADF8A09005A7C54 /* MOViewController.h */,
 				BC8540BC1ADF8A09005A7C54 /* MOViewController.m */,
 				BC8540C41AE2121E005A7C54 /* Constants.h */,
+				BCA273221AEB166E002E7534 /* MONavigationController.h */,
+				BCA273231AEB166E002E7534 /* MONavigationController.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -239,6 +255,7 @@
 		BCA272F91AE8A27C002E7534 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				BCA273251AEB1E6D002E7534 /* Views */,
 				BCA272FA1AE8A2C7002E7534 /* MineViewController.h */,
 				BCA272FB1AE8A2C7002E7534 /* MineViewController.m */,
 				BCA272FC1AE8A2C7002E7534 /* MineViewController.xib */,
@@ -262,6 +279,40 @@
 				BCA2731D1AE9FB1D002E7534 /* NSString+MOURLEncode.m */,
 			);
 			name = Categorys;
+			sourceTree = "<group>";
+		};
+		BCA273251AEB1E6D002E7534 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		BCA273281AEB4990002E7534 /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				BCA273341AEB7E92002E7534 /* Views */,
+				BCA2732F1AEB4A59002E7534 /* ArticleListViewController.h */,
+				BCA273301AEB4A59002E7534 /* ArticleListViewController.m */,
+				BCA273311AEB4A59002E7534 /* ArticleListViewController.xib */,
+			);
+			name = Article;
+			sourceTree = "<group>";
+		};
+		BCA273291AEB49A0002E7534 /* Goods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Goods;
+			sourceTree = "<group>";
+		};
+		BCA273341AEB7E92002E7534 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BCA273351AEB7EC4002E7534 /* ArticleListHeaderView.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,6 +369,7 @@
 					};
 					BC8540A31ADF74E9005A7C54 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = P2YX7NM9FK;
 						TestTargetID = BC85408A1ADF74E9005A7C54;
 					};
 				};
@@ -347,9 +399,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCA2730B1AE8DE95002E7534 /* HomeTopicCell.xib in Resources */,
+				BCA273271AEB1EBA002E7534 /* MineInfoCell.xib in Resources */,
 				BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */,
 				BCA273001AE8B085002E7534 /* HomeViewController.xib in Resources */,
+				BCA273361AEB7EC4002E7534 /* ArticleListHeaderView.xib in Resources */,
 				BCA273101AE9D79F002E7534 /* scheme.plist in Resources */,
+				BCA273331AEB4A5A002E7534 /* ArticleListViewController.xib in Resources */,
 				BCA272FE1AE8A2C7002E7534 /* MineViewController.xib in Resources */,
 				BCA273061AE8D0E9002E7534 /* Launch Screen.xib in Resources */,
 			);
@@ -403,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */,
+				BCA273321AEB4A5A002E7534 /* ArticleListViewController.m in Sources */,
 				BC8540941ADF74E9005A7C54 /* AppDelegate.m in Sources */,
 				BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */,
 				BCA272FD1AE8A2C7002E7534 /* MineViewController.m in Sources */,
@@ -411,6 +467,7 @@
 				BC8540C11ADF8A76005A7C54 /* HomeViewController.m in Sources */,
 				BCA2731E1AE9FB1D002E7534 /* NSString+MOURLEncode.m in Sources */,
 				BCA2730A1AE8DE95002E7534 /* HomeTopicCell.m in Sources */,
+				BCA273241AEB166E002E7534 /* MONavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,7 +507,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jun Deng (95N2U8T77Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jun Deng (95N2U8T77Y)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -472,6 +530,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "c4f113be-b8db-47b5-9904-269ed1551c44";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -493,7 +552,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jun Deng (95N2U8T77Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jun Deng (95N2U8T77Y)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -508,6 +568,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "c4f113be-b8db-47b5-9904-269ed1551c44";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -518,9 +579,11 @@
 			baseConfigurationReference = 081C0A2B3B84523909EC659D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jun Deng (95N2U8T77Y)";
 				INFOPLIST_FILE = MomiaIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c4f113be-b8db-47b5-9904-269ed1551c44";
 			};
 			name = Debug;
 		};
@@ -529,9 +592,11 @@
 			baseConfigurationReference = 36BF39E53B6AA82DBC50D3EB /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jun Deng (95N2U8T77Y)";
 				INFOPLIST_FILE = MomiaIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c4f113be-b8db-47b5-9904-269ed1551c44";
 			};
 			name = Release;
 		};
@@ -539,6 +604,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -550,6 +617,7 @@
 				INFOPLIST_FILE = MomiaIOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MomiaIOS.app/MomiaIOS";
 			};
 			name = Debug;
@@ -558,6 +626,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -565,6 +635,7 @@
 				INFOPLIST_FILE = MomiaIOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MomiaIOS.app/MomiaIOS";
 			};
 			name = Release;

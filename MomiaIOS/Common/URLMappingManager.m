@@ -15,7 +15,7 @@
 
 NSString * const pageKeyController    = @"controller";
 NSString * const pageKeyNeedLogin     = @"needlogin";
-NSString * const pageKeyName          = @"name";
+NSString * const pageKeyDesc          = @"desc";
 
 @interface URLMappingManager()
 
@@ -25,14 +25,14 @@ NSString * const pageKeyName          = @"name";
 
 @implementation URLMappingManager
 
-+ (URLMappingManager *)sharedManager {
-    static URLMappingManager *_sharedManager = nil;
++ (URLMappingManager *)mappingManager {
+    static URLMappingManager *_mappingManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedManager = [[URLMappingManager alloc] init];
+        _mappingManager = [[URLMappingManager alloc] init];
     });
     
-    return _sharedManager;
+    return _mappingManager;
 }
 
 - (instancetype)init {

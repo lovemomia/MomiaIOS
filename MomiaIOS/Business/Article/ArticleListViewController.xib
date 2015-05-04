@@ -4,9 +4,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MineViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArticleListViewController">
             <connections>
-                <outlet property="tableView" destination="qt7-Ii-yrs" id="xOW-kn-5Tu"/>
+                <outlet property="tableView" destination="FGf-zl-nb1" id="KDg-gw-BPq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,23 +15,23 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="qt7-Ii-yrs">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="FGf-zl-nb1">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="hzT-7d-tWZ"/>
-                        <outlet property="delegate" destination="-1" id="vJc-EE-SMU"/>
+                        <outlet property="dataSource" destination="-1" id="WEP-TA-iu8"/>
+                        <outlet property="delegate" destination="-1" id="O4p-Lz-Zan"/>
                     </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="qt7-Ii-yrs" secondAttribute="bottom" id="0qR-XL-jwT"/>
-                <constraint firstItem="qt7-Ii-yrs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Hw1-PO-Mm7"/>
-                <constraint firstAttribute="trailing" secondItem="qt7-Ii-yrs" secondAttribute="trailing" id="IDJ-ea-rw2"/>
-                <constraint firstItem="qt7-Ii-yrs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kM7-Bf-X4f"/>
+                <constraint firstItem="FGf-zl-nb1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4aN-Fu-EFA"/>
+                <constraint firstItem="FGf-zl-nb1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jlQ-hL-yvK"/>
+                <constraint firstAttribute="trailing" secondItem="FGf-zl-nb1" secondAttribute="trailing" id="t6i-aJ-uaz"/>
+                <constraint firstAttribute="bottom" secondItem="FGf-zl-nb1" secondAttribute="bottom" id="usM-l5-bAu"/>
             </constraints>
-            <point key="canvasLocation" x="312" y="304"/>
+            <point key="canvasLocation" x="247" y="250"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

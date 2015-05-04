@@ -8,7 +8,7 @@
 		<string>HomeViewController</string>
 		<key>needlogin</key>
 		<false/>
-		<key>name</key>
+		<key>desc</key>
 		<string>首页</string>
 	</dict>
 	<key>mine</key>
@@ -17,8 +17,17 @@
 		<string>MineViewController</string>
 		<key>needlogin</key>
 		<false/>
-		<key>name</key>
+		<key>desc</key>
 		<string>我的</string>
+	</dict>
+	<key>articlelist</key>
+	<dict>
+		<key>controller</key>
+		<string>ArticleListViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>文章列表</string>
 	</dict>
 </dict>
 </plist>

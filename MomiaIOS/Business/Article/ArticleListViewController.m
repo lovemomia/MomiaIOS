@@ -1,26 +1,24 @@
 //
-//  MineViewController.m
+//  ArticleListViewController.m
 //  MomiaIOS
 //
-//  Created by Deng Jun on 15/4/23.
+//  Created by Deng Jun on 15/4/25.
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "MineViewController.h"
+#import "ArticleListViewController.h"
 
-@interface MineViewController ()
+@interface ArticleListViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
-@implementation MineViewController
+@implementation ArticleListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    self.navigationItem.title = @"我的";
 }
 
 - (void)didReceiveMemoryWarning {

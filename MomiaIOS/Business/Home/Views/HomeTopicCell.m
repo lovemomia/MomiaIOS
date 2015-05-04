@@ -9,6 +9,7 @@
 #import "HomeTopicCell.h"
 
 @implementation HomeTopicCell
+@synthesize backImage;
 
 - (void)awakeFromNib {
     // Initialization code
