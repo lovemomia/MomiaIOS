@@ -10,5 +10,6 @@
 
 @interface MONavigationController : UINavigationController
 
+@property(nonatomic, retain)UIView *backView;
 
 @end

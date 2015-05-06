@@ -26,9 +26,9 @@
 		BCA273211AE9FB78002E7534 /* NSURL+MOURL.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273201AE9FB78002E7534 /* NSURL+MOURL.m */; };
 		BCA273241AEB166E002E7534 /* MONavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273231AEB166E002E7534 /* MONavigationController.m */; };
 		BCA273271AEB1EBA002E7534 /* MineInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */; };
-		BCA273321AEB4A5A002E7534 /* ArticleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273301AEB4A59002E7534 /* ArticleListViewController.m */; };
-		BCA273331AEB4A5A002E7534 /* ArticleListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273311AEB4A59002E7534 /* ArticleListViewController.xib */; };
-		BCA273361AEB7EC4002E7534 /* ArticleListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273351AEB7EC4002E7534 /* ArticleListHeaderView.xib */; };
+		BCA273321AEB4A5A002E7534 /* ArticleTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273301AEB4A59002E7534 /* ArticleTopicViewController.m */; };
+		BCA273331AEB4A5A002E7534 /* ArticleTopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273311AEB4A59002E7534 /* ArticleTopicViewController.xib */; };
+		BCA273361AEB7EC4002E7534 /* ArticleTopicCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273351AEB7EC4002E7534 /* ArticleTopicCells.xib */; };
 		BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFC2C321AF9C09400164BC2 /* MOWebViewController.m */; };
 		BCFC2C371AF9C6B800164BC2 /* ActivityWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFC2C361AF9C6B800164BC2 /* ActivityWebViewController.m */; };
 /* End PBXBuildFile section */
@@ -79,10 +79,10 @@
 		BCA273221AEB166E002E7534 /* MONavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MONavigationController.h; path = Common/Base/MONavigationController.h; sourceTree = "<group>"; };
 		BCA273231AEB166E002E7534 /* MONavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MONavigationController.m; path = Common/Base/MONavigationController.m; sourceTree = "<group>"; };
 		BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MineInfoCell.xib; path = Business/Mine/Views/MineInfoCell.xib; sourceTree = "<group>"; };
-		BCA2732F1AEB4A59002E7534 /* ArticleListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleListViewController.h; path = Business/Article/ArticleListViewController.h; sourceTree = "<group>"; };
-		BCA273301AEB4A59002E7534 /* ArticleListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleListViewController.m; path = Business/Article/ArticleListViewController.m; sourceTree = "<group>"; };
-		BCA273311AEB4A59002E7534 /* ArticleListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArticleListViewController.xib; path = Business/Article/ArticleListViewController.xib; sourceTree = "<group>"; };
-		BCA273351AEB7EC4002E7534 /* ArticleListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArticleListHeaderView.xib; path = Business/Article/Views/ArticleListHeaderView.xib; sourceTree = "<group>"; };
+		BCA2732F1AEB4A59002E7534 /* ArticleTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleTopicViewController.h; path = Business/Article/ArticleTopicViewController.h; sourceTree = "<group>"; };
+		BCA273301AEB4A59002E7534 /* ArticleTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleTopicViewController.m; path = Business/Article/ArticleTopicViewController.m; sourceTree = "<group>"; };
+		BCA273311AEB4A59002E7534 /* ArticleTopicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArticleTopicViewController.xib; path = Business/Article/ArticleTopicViewController.xib; sourceTree = "<group>"; };
+		BCA273351AEB7EC4002E7534 /* ArticleTopicCells.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArticleTopicCells.xib; path = Business/Article/Views/ArticleTopicCells.xib; sourceTree = "<group>"; };
 		BCFC2C311AF9C09400164BC2 /* MOWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOWebViewController.h; path = Common/Base/MOWebViewController.h; sourceTree = "<group>"; };
 		BCFC2C321AF9C09400164BC2 /* MOWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOWebViewController.m; path = Common/Base/MOWebViewController.m; sourceTree = "<group>"; };
 		BCFC2C351AF9C6B800164BC2 /* ActivityWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityWebViewController.h; path = Business/Web/ActivityWebViewController.h; sourceTree = "<group>"; };
@@ -294,9 +294,9 @@
 			isa = PBXGroup;
 			children = (
 				BCA273341AEB7E92002E7534 /* Views */,
-				BCA2732F1AEB4A59002E7534 /* ArticleListViewController.h */,
-				BCA273301AEB4A59002E7534 /* ArticleListViewController.m */,
-				BCA273311AEB4A59002E7534 /* ArticleListViewController.xib */,
+				BCA2732F1AEB4A59002E7534 /* ArticleTopicViewController.h */,
+				BCA273301AEB4A59002E7534 /* ArticleTopicViewController.m */,
+				BCA273311AEB4A59002E7534 /* ArticleTopicViewController.xib */,
 			);
 			name = Article;
 			sourceTree = "<group>";
@@ -311,7 +311,7 @@
 		BCA273341AEB7E92002E7534 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BCA273351AEB7EC4002E7534 /* ArticleListHeaderView.xib */,
+				BCA273351AEB7EC4002E7534 /* ArticleTopicCells.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -412,9 +412,9 @@
 				BCA273271AEB1EBA002E7534 /* MineInfoCell.xib in Resources */,
 				BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */,
 				BCA273001AE8B085002E7534 /* HomeViewController.xib in Resources */,
-				BCA273361AEB7EC4002E7534 /* ArticleListHeaderView.xib in Resources */,
+				BCA273361AEB7EC4002E7534 /* ArticleTopicCells.xib in Resources */,
 				BCA273101AE9D79F002E7534 /* scheme.plist in Resources */,
-				BCA273331AEB4A5A002E7534 /* ArticleListViewController.xib in Resources */,
+				BCA273331AEB4A5A002E7534 /* ArticleTopicViewController.xib in Resources */,
 				BCA272FE1AE8A2C7002E7534 /* MineViewController.xib in Resources */,
 				BCA273061AE8D0E9002E7534 /* Launch Screen.xib in Resources */,
 			);
@@ -468,7 +468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */,
-				BCA273321AEB4A5A002E7534 /* ArticleListViewController.m in Sources */,
+				BCA273321AEB4A5A002E7534 /* ArticleTopicViewController.m in Sources */,
 				BC8540941ADF74E9005A7C54 /* AppDelegate.m in Sources */,
 				BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */,
 				BCA272FD1AE8A2C7002E7534 /* MineViewController.m in Sources */,

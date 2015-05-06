@@ -95,7 +95,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSURL *url = [NSURL URLWithString:@"momia://articlelist"];
+    NSURL *url = [NSURL URLWithString:@"momia://articletopic"];
     [[UIApplication sharedApplication] openURL:url];
 }
 
@@ -105,8 +105,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellArticle = @"CellArticle";
-    static NSString *CellGoods = @"CellGoods";
-    static NSString *CellPromotion = @"CellPromotion";
+    //static NSString *CellGoods = @"CellGoods";
+    //static NSString *CellPromotion = @"CellPromotion";
     
     HomeTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:CellArticle];
     if (cell == nil) {
@@ -114,6 +114,7 @@
         cell = [arr objectAtIndex:0];
     }
     [cell.backImage sd_setImageWithURL:[NSURL URLWithString:@"http://b1.hucdn.com/upload/oversea/1503/17/98292375114078_640x300.jpg"]];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

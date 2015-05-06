@@ -13,4 +13,6 @@
 
 - (instancetype)initWithParams:(NSDictionary *)params;
 
+- (BOOL)isNavTransparent;
+
 @end

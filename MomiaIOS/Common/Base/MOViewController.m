@@ -7,8 +7,10 @@
 //
 
 #import "MOViewController.h"
+#import "MONavigationController.h"
 
 @interface MOViewController ()
+
 
 @end
 
@@ -19,13 +21,10 @@
     // Do any additional setup after loading the view.
     if(MO_OS_VERSION >= 7.0)
     {
-        self.edgesForExtendedLayout =UIRectEdgeNone;
+        if([self isNavTransparent] == NO) {
+            self.edgesForExtendedLayout =UIRectEdgeNone;
+        }
         self.automaticallyAdjustsScrollViewInsets = NO;
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
-        [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil]];
-        [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:232/255.0f green:83/255.0f  blue:133/255.0f alpha:1.0f]];
-        self.navigationController.navigationBar.barStyle = UIStatusBarStyleDefault;
-        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     }
 }
 
@@ -51,6 +50,9 @@
     return self;
 }
 
-
+/* 是否透明导航栏 */
+- (BOOL)isNavTransparent {
+    return NO;
+}
 
 @end

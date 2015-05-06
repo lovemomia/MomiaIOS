@@ -20,10 +20,10 @@
 		<key>desc</key>
 		<string>我的</string>
 	</dict>
-	<key>articlelist</key>
+	<key>articletopic</key>
 	<dict>
 		<key>controller</key>
-		<string>ArticleListViewController</string>
+		<string>ArticleTopicViewController</string>
 		<key>needlogin</key>
 		<false/>
 		<key>desc</key>

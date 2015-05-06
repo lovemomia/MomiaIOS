@@ -24,6 +24,7 @@
     // Override point for customization after application launch.
     HomeViewController *home = [[HomeViewController alloc]initWithParams:nil];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
     self.root = [[MONavigationController alloc]init];
     self.window.rootViewController = self.root;
     

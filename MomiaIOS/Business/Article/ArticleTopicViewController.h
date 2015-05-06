@@ -8,6 +8,6 @@
 
 #import "MOViewController.h"
 
-@interface ArticleListViewController : MOViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ArticleTopicViewController : MOViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
@@ -15,8 +15,9 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="FGf-zl-nb1">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="FGf-zl-nb1">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="WEP-TA-iu8"/>
@@ -25,13 +26,7 @@
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="FGf-zl-nb1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4aN-Fu-EFA"/>
-                <constraint firstItem="FGf-zl-nb1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jlQ-hL-yvK"/>
-                <constraint firstAttribute="trailing" secondItem="FGf-zl-nb1" secondAttribute="trailing" id="t6i-aJ-uaz"/>
-                <constraint firstAttribute="bottom" secondItem="FGf-zl-nb1" secondAttribute="bottom" id="usM-l5-bAu"/>
-            </constraints>
-            <point key="canvasLocation" x="247" y="250"/>
+            <point key="canvasLocation" x="-8" y="-11"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
