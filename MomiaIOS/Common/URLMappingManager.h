@@ -11,7 +11,7 @@
 
 @interface URLMappingManager : NSObject
 
-+ (URLMappingManager *)mappingManager;
++ (URLMappingManager *)sharedManager;
 
 - (BOOL)openURL:(NSURL *)url byNav:(UINavigationController *)nav;
 

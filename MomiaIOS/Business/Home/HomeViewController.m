@@ -81,16 +81,16 @@
 }
 
 - (void)onPullDownToRefresh:(UIRefreshControl *)refreshs {
-    if (refreshs.refreshing) {
-        refreshs.attributedTitle = [[NSAttributedString alloc]initWithString:@"正在刷新"];
-    }
+//    if (refreshs.refreshing) {
+//        refreshs.attributedTitle = [[NSAttributedString alloc]initWithString:@"正在刷新"];
+//    }
 }
 
 #pragma mark - tableview delegate & datasource
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 278;
+    return SCREEN_WIDTH / 1.23;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

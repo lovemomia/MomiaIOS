@@ -25,7 +25,7 @@ NSString * const pageKeyDesc          = @"desc";
 
 @implementation URLMappingManager
 
-+ (URLMappingManager *)mappingManager {
++ (URLMappingManager *)sharedManager {
     static URLMappingManager *_mappingManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

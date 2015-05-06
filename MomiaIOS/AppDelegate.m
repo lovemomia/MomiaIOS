@@ -51,7 +51,7 @@
 {
     NSLog(@"openURL with url: %@", [url absoluteString]);
     
-    [[URLMappingManager mappingManager] handleOpenURL:url byNav:self.root];
+    [[URLMappingManager sharedManager] handleOpenURL:url byNav:self.root];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

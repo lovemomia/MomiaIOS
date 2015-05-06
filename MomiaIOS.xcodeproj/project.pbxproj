@@ -29,6 +29,8 @@
 		BCA273321AEB4A5A002E7534 /* ArticleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273301AEB4A59002E7534 /* ArticleListViewController.m */; };
 		BCA273331AEB4A5A002E7534 /* ArticleListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273311AEB4A59002E7534 /* ArticleListViewController.xib */; };
 		BCA273361AEB7EC4002E7534 /* ArticleListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273351AEB7EC4002E7534 /* ArticleListHeaderView.xib */; };
+		BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFC2C321AF9C09400164BC2 /* MOWebViewController.m */; };
+		BCFC2C371AF9C6B800164BC2 /* ActivityWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFC2C361AF9C6B800164BC2 /* ActivityWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,10 @@
 		BCA273301AEB4A59002E7534 /* ArticleListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleListViewController.m; path = Business/Article/ArticleListViewController.m; sourceTree = "<group>"; };
 		BCA273311AEB4A59002E7534 /* ArticleListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArticleListViewController.xib; path = Business/Article/ArticleListViewController.xib; sourceTree = "<group>"; };
 		BCA273351AEB7EC4002E7534 /* ArticleListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArticleListHeaderView.xib; path = Business/Article/Views/ArticleListHeaderView.xib; sourceTree = "<group>"; };
+		BCFC2C311AF9C09400164BC2 /* MOWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOWebViewController.h; path = Common/Base/MOWebViewController.h; sourceTree = "<group>"; };
+		BCFC2C321AF9C09400164BC2 /* MOWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOWebViewController.m; path = Common/Base/MOWebViewController.m; sourceTree = "<group>"; };
+		BCFC2C351AF9C6B800164BC2 /* ActivityWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityWebViewController.h; path = Business/Web/ActivityWebViewController.h; sourceTree = "<group>"; };
+		BCFC2C361AF9C6B800164BC2 /* ActivityWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityWebViewController.m; path = Business/Web/ActivityWebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,11 +202,11 @@
 		BC8540B51ADF8649005A7C54 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				BCFC2C341AF9C10400164BC2 /* Web */,
 				BC8540B71ADF881A005A7C54 /* Home */,
 				BCA273281AEB4990002E7534 /* Article */,
 				BCA273291AEB49A0002E7534 /* Goods */,
 				BCA272F91AE8A27C002E7534 /* Mine */,
-				BC8540C31ADF90B1005A7C54 /* Discover */,
 			);
 			name = Business;
 			sourceTree = "<group>";
@@ -231,15 +237,10 @@
 				BC8540C41AE2121E005A7C54 /* Constants.h */,
 				BCA273221AEB166E002E7534 /* MONavigationController.h */,
 				BCA273231AEB166E002E7534 /* MONavigationController.m */,
+				BCFC2C311AF9C09400164BC2 /* MOWebViewController.h */,
+				BCFC2C321AF9C09400164BC2 /* MOWebViewController.m */,
 			);
 			name = Base;
-			sourceTree = "<group>";
-		};
-		BC8540C31ADF90B1005A7C54 /* Discover */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Discover;
 			sourceTree = "<group>";
 		};
 		BC8D3CEB1AE21CF500A2F319 /* Views */ = {
@@ -313,6 +314,15 @@
 				BCA273351AEB7EC4002E7534 /* ArticleListHeaderView.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		BCFC2C341AF9C10400164BC2 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				BCFC2C351AF9C6B800164BC2 /* ActivityWebViewController.h */,
+				BCFC2C361AF9C6B800164BC2 /* ActivityWebViewController.m */,
+			);
+			name = Web;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -466,8 +476,10 @@
 				BC8540911ADF74E9005A7C54 /* main.m in Sources */,
 				BC8540C11ADF8A76005A7C54 /* HomeViewController.m in Sources */,
 				BCA2731E1AE9FB1D002E7534 /* NSString+MOURLEncode.m in Sources */,
+				BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */,
 				BCA2730A1AE8DE95002E7534 /* HomeTopicCell.m in Sources */,
 				BCA273241AEB166E002E7534 /* MONavigationController.m in Sources */,
+				BCFC2C371AF9C6B800164BC2 /* ActivityWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

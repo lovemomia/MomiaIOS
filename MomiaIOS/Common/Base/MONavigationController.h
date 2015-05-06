@@ -8,14 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MONavigationController : UINavigationController {
-    BOOL _changing;
-}
+@interface MONavigationController : UINavigationController
 
-@property(nonatomic, retain)UIView *alphaView;
-
--(void)setAlph;
-//- (void)showNavigationBar;
-//- (void)hideNavigationBar;
 
 @end
