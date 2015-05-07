@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "MOViewController.h"
+#import "MOTableViewController.h"
 
-@interface ArticleTopicViewController : MOViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ArticleTopicViewController : MOTableViewController
 
 @end

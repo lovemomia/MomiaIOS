@@ -10,11 +10,13 @@
 
 @interface MineViewController ()
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @end
 
 @implementation MineViewController
+
+- (UITableViewStyle)tableViewStyle {
+    return UITableViewStyleGrouped;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

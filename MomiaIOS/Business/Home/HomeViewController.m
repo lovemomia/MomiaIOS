@@ -17,19 +17,15 @@
 - (void)onDiscoverClicked;
 - (void)onPullDownToRefresh:(UIRefreshControl *)refreshs;
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
 @implementation HomeViewController
 
-- (instancetype)initViewController {
-    if (self = [super initWithNibName:@"HomeViewController" bundle:nil]) {
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-            [self.tableView setSeparatorInset:UIEdgeInsetsZero];
-        }
+- (instancetype)initWithParams:(NSDictionary *)params {
+    if (self = [super initWithParams:params]) {
+        
     }
     return self;
 }
@@ -41,11 +37,6 @@
     [self.navigationItem setTitle:@"麻麻蜜丫"];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"发现" style:UIBarButtonItemStylePlain target:self action:@selector(onDiscoverClicked)];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"我的" style:UIBarButtonItemStylePlain target:self action:@selector(onMineClicked)];
-    
-    if ([self.tableView superview] == nil) {
-        [self.tableView setFrame:self.view.bounds];
-        [self.view addSubview:self.tableView];
-    }
     
     self.refreshControl = [[UIRefreshControl alloc]init];
     self.refreshControl.tintColor = [UIColor lightGrayColor];

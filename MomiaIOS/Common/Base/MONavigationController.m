@@ -7,6 +7,7 @@
 //
 
 #import "MONavigationController.h"
+#import "Constants.h"
 
 @implementation MONavigationController
 @synthesize backView;
@@ -19,12 +20,13 @@
         [self.navigationBar setTintColor:[UIColor whiteColor]];
         
         // background color
-        [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation_bar_background.png"] forBarMetrics:UIBarMetricsCompact];
-        self.navigationBar.layer.masksToBounds = YES;
+        [self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+        self.navigationBar.shadowImage = [UIImage new];
+        self.navigationBar.translucent = YES;
         
         CGRect frame = self.navigationBar.frame;
         backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height+20)];
-        backView.backgroundColor = [UIColor colorWithRed:232/255.0f green:83/255.0f  blue:133/255.0f alpha:1.0f];
+        backView.backgroundColor = MO_APP_NaviColor;
         [[[UIApplication sharedApplication].delegate window] insertSubview:backView atIndex:0];
     }
     return self;

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		087C98AEC54638860E9ACAB0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9DF4BE98C18CC18BDADCD8 /* libPods.a */; };
+		BC7708511AFAFD54000068A8 /* MOTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7708501AFAFD54000068A8 /* MOTableViewController.m */; };
 		BC8540911ADF74E9005A7C54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540901ADF74E9005A7C54 /* main.m */; };
 		BC8540941ADF74E9005A7C54 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540931ADF74E9005A7C54 /* AppDelegate.m */; };
 		BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC85409B1ADF74E9005A7C54 /* Images.xcassets */; };
@@ -15,8 +16,6 @@
 		BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540BC1ADF8A09005A7C54 /* MOViewController.m */; };
 		BC8540C11ADF8A76005A7C54 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540BF1ADF8A76005A7C54 /* HomeViewController.m */; };
 		BCA272FD1AE8A2C7002E7534 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA272FB1AE8A2C7002E7534 /* MineViewController.m */; };
-		BCA272FE1AE8A2C7002E7534 /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA272FC1AE8A2C7002E7534 /* MineViewController.xib */; };
-		BCA273001AE8B085002E7534 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA272FF1AE8B085002E7534 /* HomeViewController.xib */; };
 		BCA273061AE8D0E9002E7534 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273051AE8D0E9002E7534 /* Launch Screen.xib */; };
 		BCA2730A1AE8DE95002E7534 /* HomeTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273081AE8DE95002E7534 /* HomeTopicCell.m */; };
 		BCA2730B1AE8DE95002E7534 /* HomeTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273091AE8DE95002E7534 /* HomeTopicCell.xib */; };
@@ -27,7 +26,6 @@
 		BCA273241AEB166E002E7534 /* MONavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273231AEB166E002E7534 /* MONavigationController.m */; };
 		BCA273271AEB1EBA002E7534 /* MineInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */; };
 		BCA273321AEB4A5A002E7534 /* ArticleTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273301AEB4A59002E7534 /* ArticleTopicViewController.m */; };
-		BCA273331AEB4A5A002E7534 /* ArticleTopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273311AEB4A59002E7534 /* ArticleTopicViewController.xib */; };
 		BCA273361AEB7EC4002E7534 /* ArticleTopicCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273351AEB7EC4002E7534 /* ArticleTopicCells.xib */; };
 		BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFC2C321AF9C09400164BC2 /* MOWebViewController.m */; };
 		BCFC2C371AF9C6B800164BC2 /* ActivityWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFC2C361AF9C6B800164BC2 /* ActivityWebViewController.m */; };
@@ -47,6 +45,8 @@
 		081C0A2B3B84523909EC659D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		36BF39E53B6AA82DBC50D3EB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5B9DF4BE98C18CC18BDADCD8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC77084F1AFAFD54000068A8 /* MOTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOTableViewController.h; path = Common/Base/MOTableViewController.h; sourceTree = "<group>"; };
+		BC7708501AFAFD54000068A8 /* MOTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOTableViewController.m; path = Common/Base/MOTableViewController.m; sourceTree = "<group>"; };
 		BC85408B1ADF74E9005A7C54 /* MomiaIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MomiaIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC85408F1ADF74E9005A7C54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC8540901ADF74E9005A7C54 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -63,8 +63,6 @@
 		BC8540C41AE2121E005A7C54 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Common/Base/Constants.h; sourceTree = "<group>"; };
 		BCA272FA1AE8A2C7002E7534 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineViewController.h; path = Business/Mine/MineViewController.h; sourceTree = "<group>"; };
 		BCA272FB1AE8A2C7002E7534 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineViewController.m; path = Business/Mine/MineViewController.m; sourceTree = "<group>"; };
-		BCA272FC1AE8A2C7002E7534 /* MineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MineViewController.xib; path = Business/Mine/MineViewController.xib; sourceTree = "<group>"; };
-		BCA272FF1AE8B085002E7534 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = Business/Home/HomeViewController.xib; sourceTree = "<group>"; };
 		BCA273051AE8D0E9002E7534 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		BCA273071AE8DE95002E7534 /* HomeTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeTopicCell.h; path = Business/Home/Views/HomeTopicCell.h; sourceTree = "<group>"; };
 		BCA273081AE8DE95002E7534 /* HomeTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeTopicCell.m; path = Business/Home/Views/HomeTopicCell.m; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 		BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MineInfoCell.xib; path = Business/Mine/Views/MineInfoCell.xib; sourceTree = "<group>"; };
 		BCA2732F1AEB4A59002E7534 /* ArticleTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleTopicViewController.h; path = Business/Article/ArticleTopicViewController.h; sourceTree = "<group>"; };
 		BCA273301AEB4A59002E7534 /* ArticleTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleTopicViewController.m; path = Business/Article/ArticleTopicViewController.m; sourceTree = "<group>"; };
-		BCA273311AEB4A59002E7534 /* ArticleTopicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArticleTopicViewController.xib; path = Business/Article/ArticleTopicViewController.xib; sourceTree = "<group>"; };
 		BCA273351AEB7EC4002E7534 /* ArticleTopicCells.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArticleTopicCells.xib; path = Business/Article/Views/ArticleTopicCells.xib; sourceTree = "<group>"; };
 		BCFC2C311AF9C09400164BC2 /* MOWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOWebViewController.h; path = Common/Base/MOWebViewController.h; sourceTree = "<group>"; };
 		BCFC2C321AF9C09400164BC2 /* MOWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOWebViewController.m; path = Common/Base/MOWebViewController.m; sourceTree = "<group>"; };
@@ -224,7 +221,6 @@
 				BC8D3CEB1AE21CF500A2F319 /* Views */,
 				BC8540BE1ADF8A76005A7C54 /* HomeViewController.h */,
 				BC8540BF1ADF8A76005A7C54 /* HomeViewController.m */,
-				BCA272FF1AE8B085002E7534 /* HomeViewController.xib */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -239,6 +235,8 @@
 				BCA273231AEB166E002E7534 /* MONavigationController.m */,
 				BCFC2C311AF9C09400164BC2 /* MOWebViewController.h */,
 				BCFC2C321AF9C09400164BC2 /* MOWebViewController.m */,
+				BC77084F1AFAFD54000068A8 /* MOTableViewController.h */,
+				BC7708501AFAFD54000068A8 /* MOTableViewController.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -259,7 +257,6 @@
 				BCA273251AEB1E6D002E7534 /* Views */,
 				BCA272FA1AE8A2C7002E7534 /* MineViewController.h */,
 				BCA272FB1AE8A2C7002E7534 /* MineViewController.m */,
-				BCA272FC1AE8A2C7002E7534 /* MineViewController.xib */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -296,7 +293,6 @@
 				BCA273341AEB7E92002E7534 /* Views */,
 				BCA2732F1AEB4A59002E7534 /* ArticleTopicViewController.h */,
 				BCA273301AEB4A59002E7534 /* ArticleTopicViewController.m */,
-				BCA273311AEB4A59002E7534 /* ArticleTopicViewController.xib */,
 			);
 			name = Article;
 			sourceTree = "<group>";
@@ -411,11 +407,8 @@
 				BCA2730B1AE8DE95002E7534 /* HomeTopicCell.xib in Resources */,
 				BCA273271AEB1EBA002E7534 /* MineInfoCell.xib in Resources */,
 				BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */,
-				BCA273001AE8B085002E7534 /* HomeViewController.xib in Resources */,
 				BCA273361AEB7EC4002E7534 /* ArticleTopicCells.xib in Resources */,
 				BCA273101AE9D79F002E7534 /* scheme.plist in Resources */,
-				BCA273331AEB4A5A002E7534 /* ArticleTopicViewController.xib in Resources */,
-				BCA272FE1AE8A2C7002E7534 /* MineViewController.xib in Resources */,
 				BCA273061AE8D0E9002E7534 /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,6 +467,7 @@
 				BCA272FD1AE8A2C7002E7534 /* MineViewController.m in Sources */,
 				BCA273211AE9FB78002E7534 /* NSURL+MOURL.m in Sources */,
 				BC8540911ADF74E9005A7C54 /* main.m in Sources */,
+				BC7708511AFAFD54000068A8 /* MOTableViewController.m in Sources */,
 				BC8540C11ADF8A76005A7C54 /* HomeViewController.m in Sources */,
 				BCA2731E1AE9FB1D002E7534 /* NSString+MOURLEncode.m in Sources */,
 				BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */,
