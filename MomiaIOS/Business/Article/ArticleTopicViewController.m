@@ -41,26 +41,20 @@
 
 #pragma mark - tableview delegate & datasource
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row == 0) {
-        return 286;
-    }
-    return 44;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 5;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    NSURL *url = [NSURL URLWithString:@"momia://articledetail"];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellHeader = @"CellHeader";
+    static NSString *CellArticle = @"CellArticle";
     
     UITableViewCell *cell;
     if (indexPath.row == 0) {
@@ -69,9 +63,15 @@
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"ArticleTopicCells" owner:self options:nil];
             cell = [arr objectAtIndex:0];
         }
-    } else {
         
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:CellArticle];
+        if (cell == nil) {
+            NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"ArticleTopicCells" owner:self options:nil];
+            cell = [arr objectAtIndex:1];
+        }
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

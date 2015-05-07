@@ -20,7 +20,7 @@
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        self.tableView.separatorStyle = [self tableViewCellSeparatorStyle];
         self.tableView.backgroundView = [[UIView alloc] init];
         self.tableView.backgroundView.backgroundColor = MO_APP_VCBackgroundColor;
     }
@@ -29,6 +29,10 @@
 
 - (UITableViewStyle)tableViewStyle {
     return UITableViewStylePlain;
+}
+
+- (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle {
+    return UITableViewCellSeparatorStyleNone;
 }
 
 - (void)viewDidLoad {
@@ -78,12 +82,40 @@
     return nil;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return cell.frame.size.height;
+}
+
 
 #pragma mark -
 #pragma mark Override
 
 - (UIEdgeInsets)tableViewOriginalContentInset {
     return UIEdgeInsetsMake(0, 0, 0, 0);
+}
+
+-(void)viewDidLayoutSubviews
+{
+    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self.tableView setSeparatorInset:UIEdgeInsetsMake(0,0,0,0)];
+    }
+    
+    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [self.tableView setLayoutMargins:UIEdgeInsetsMake(0,0,0,0)];
+    }
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
 }
 
 @end

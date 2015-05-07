@@ -12,7 +12,11 @@
 
 @property (nonatomic, retain) UITableView *tableView;
 
+/* tableView风格，默认列表 */
 - (UITableViewStyle)tableViewStyle;
+
+/* tableView分割线，默认无 */
+- (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle;
 
 /**
  *  TableView初始ContentInset
