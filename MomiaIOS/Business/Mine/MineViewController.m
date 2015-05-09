@@ -23,6 +23,7 @@
     // Do any additional setup after loading the view from its nib.
     
     self.navigationItem.title = @"我的";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(onSettingClicked)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,19 +41,22 @@
 }
 */
 
+- (void)onSettingClicked {
+}
+
 #pragma mark - tableview delegate & datasource
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.section == 0) {
-        return 59;
-    }
-    return 44;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if (indexPath.section == 0) {
+//        return 59;
+//    }
+//    return 44;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 1 || section == 3) {
+    if (section >= 1) {
         return 2;
     }
     return 1;
@@ -60,7 +64,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 4;
+    return 3;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,6 +83,7 @@
         if (cell == nil) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"MineInfoCell" owner:self options:nil];
             cell = [arr objectAtIndex:0];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:CellInfo];
@@ -96,16 +101,12 @@
                 }
                 break;
             case 2:
-                cell.textLabel.text = @"我的订单";
-                break;
-            case 3:
                 if (row == 0) {
                     cell.textLabel.text = @"意见反馈";
                 } else {
                     cell.textLabel.text = @"推荐给好友";
                 }
                 break;
-                
             default:
                 break;
         }

@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomeTopic.h"
 
 @interface HomeTopicCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *backImage;
+@property (weak, nonatomic) IBOutlet UIImageView *coverImage;
+@property (nonatomic, weak) IBOutlet UILabel *titleLable;
+@property (nonatomic, weak) IBOutlet UILabel *timeLabel;
+
++ (instancetype)cellWithTableView:(UITableView *)tableView;
+
+- (void)setData:(HomeTopic *)data;
 
 @end

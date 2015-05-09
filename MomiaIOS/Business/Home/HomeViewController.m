@@ -10,8 +10,12 @@
 #import "MineViewController.h"
 #import "HomeTopicCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "HomeModel.h"
 
 @interface HomeViewController ()
+
+@property (nonatomic) int startIndex;
+@property (nonatomic, strong) HomeModel *homeModel;
 
 - (void)onMineClicked;
 - (void)onDiscoverClicked;
@@ -35,13 +39,14 @@
     // Do any additional setup after loading the view from its nib.
     
     [self.navigationItem setTitle:@"麻麻蜜丫"];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"发现" style:UIBarButtonItemStylePlain target:self action:@selector(onDiscoverClicked)];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"我的" style:UIBarButtonItemStylePlain target:self action:@selector(onMineClicked)];
     
     self.refreshControl = [[UIRefreshControl alloc]init];
     self.refreshControl.tintColor = [UIColor lightGrayColor];
     [self.refreshControl addTarget:self action:@selector(onPullDownToRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
+    
+    [self requestData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,12 +82,27 @@
 //    }
 }
 
+- (void)requestData {
+    [self.view showLoadingBee];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:@"http://120.55.102.12:8080/home?v=1.0&teminal=iphone&os=8.0&device=iphone6&channel=xxx&net=3g&sign=xxxx" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.homeModel = [[HomeModel alloc]initWithDictionary:responseObject error:nil];
+        [self.tableView reloadData];
+        [self.view removeLoadingBee];
+        
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
 #pragma mark - tableview delegate & datasource
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return SCREEN_WIDTH / 1.23;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    return 276;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -91,21 +111,16 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    if (self.homeModel == nil) {
+        return 0;
+    }
+    return [self.homeModel.data.list count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellArticle = @"CellArticle";
-    //static NSString *CellGoods = @"CellGoods";
-    //static NSString *CellPromotion = @"CellPromotion";
-    
-    HomeTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:CellArticle];
-    if (cell == nil) {
-        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"HomeTopicCell" owner:self options:nil];
-        cell = [arr objectAtIndex:0];
-    }
-    [cell.backImage sd_setImageWithURL:[NSURL URLWithString:@"http://b1.hucdn.com/upload/oversea/1503/17/98292375114078_640x300.jpg"]];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    HomeTopicCell *cell = [HomeTopicCell cellWithTableView:tableView];
+    HomeTopic *data = [self.homeModel.data.list objectAtIndex:indexPath.row];
+    [cell setData:data];
     return cell;
 }
 
