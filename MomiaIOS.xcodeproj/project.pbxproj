@@ -172,6 +172,13 @@
 			name = Http;
 			sourceTree = "<group>";
 		};
+		BC38D2141AFE0FD60051C7E9 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
 		BC7708601AFC56F3000068A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +259,7 @@
 		BC8540B41ADF8614005A7C54 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BC38D2141AFE0FD60051C7E9 /* Utility */,
 				BC2FAA121AFCB1CB00E2071E /* Services */,
 				BC7708601AFC56F3000068A8 /* Models */,
 				BCA2731B1AE9FA83002E7534 /* Categorys */,

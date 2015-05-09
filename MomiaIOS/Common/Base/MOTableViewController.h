@@ -8,7 +8,9 @@
 
 #import "MOViewController.h"
 
-@interface MOTableViewController : MOViewController<UITableViewDelegate, UITableViewDataSource>
+@interface MOTableViewController : MOViewController<UITableViewDelegate, UITableViewDataSource> {
+    
+}
 
 @property (nonatomic, retain) UITableView *tableView;
 
