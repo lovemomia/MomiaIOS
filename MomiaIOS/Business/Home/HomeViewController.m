@@ -56,16 +56,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 #pragma mark - title button listener
 
 - (void)onMineClicked {
@@ -81,14 +71,11 @@
 - (void)requestData {
 //    [self.view showLoadingBee];
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:@"http://120.55.102.12:8080/home?v=1.0&teminal=iphone&os=8.0&device=iphone6&channel=xxx&net=3g&sign=xxxx" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.homeModel = [[HomeModel alloc]initWithDictionary:responseObject error:nil];
+    [[HttpService defaultService] GET:@"http://120.55.102.12:8080/home?v=1.0&teminal=iphone&os=8.0&device=iphone6&channel=xxx&net=3g&sign=xxxx" parameters:nil cacheType:CacheTypeDisable JSONModelClass:[HomeModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.homeModel = responseObject;
         [self.tableView reloadData];
-//        [self.view removeLoadingBee];
         [self.tableView.legendHeader endRefreshing];
         
-        NSLog(@"JSON: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
@@ -99,7 +86,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    return 267;
+    return [HomeTopicCell height];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

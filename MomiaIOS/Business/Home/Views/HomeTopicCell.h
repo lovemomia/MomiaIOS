@@ -17,6 +17,8 @@
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 
++ (CGFloat)height;
+
 - (void)setData:(HomeTopic *)data;
 
 @end
