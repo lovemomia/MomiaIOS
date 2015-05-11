@@ -7,11 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ArticleTopicModel.h"
 
 @interface ArticleTopicHeaderCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *coverIv;
 @property (weak, nonatomic) IBOutlet UILabel *titleTv;
 @property (weak, nonatomic) IBOutlet UILabel *introTv;
+
++ (instancetype)cellWithTableView:(UITableView *)tableView;
+
++ (CGFloat)height;
+
++ (CGFloat)coverHeight;
+
+- (void)setData:(ArticleTopicData *)data;
 
 @end

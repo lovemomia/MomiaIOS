@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ArticleDetailModel.h"
 
 @interface ArticleDetailContentCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *textLable;
+@property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 
++ (instancetype)cellWithTableView:(UITableView *)tableView;
+
++ (CGFloat)height;
+
+- (void)setData:(ArticleDetailContentItem *)data;
 
 @end

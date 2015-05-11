@@ -8,6 +8,14 @@
 
 #import "ArticleTopicModel.h"
 
+@implementation ArticleTopicItem
+
+@end
+
+@implementation ArticleTopicData
+
+@end
+
 @implementation ArticleTopicModel
 
 @end

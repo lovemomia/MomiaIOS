@@ -7,7 +7,6 @@
 //
 
 #import "HomeTopicCell.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 
 #define TitleFont [UIFont systemFontOfSize:21]
 #define TimeFont [UIFont systemFontOfSize:15]
@@ -21,7 +20,6 @@
     static NSString *identifier = @"CellArticle";
     HomeTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
-//        cell = [[HomeTopicCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"HomeTopicCell" owner:self options:nil];
         cell = [arr objectAtIndex:0];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;

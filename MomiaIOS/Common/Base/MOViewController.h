@@ -12,6 +12,9 @@
 
 @interface MOViewController : UIViewController
 
+@property (nonatomic, strong) UIView *navBackView; // 导航条背景
+- (void)addNavBackView;
+
 - (instancetype)initWithParams:(NSDictionary *)params;
 
 - (BOOL)isNavTransparent;

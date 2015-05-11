@@ -11,7 +11,6 @@
 
 @interface MOViewController ()
 
-
 @end
 
 @implementation MOViewController
@@ -42,6 +41,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)addNavBackView {
+    CGRect frame = self.navigationController.navigationBar.frame;
+    self.navBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height+20)];
+    self.navBackView.backgroundColor = MO_APP_NaviColor;
+    self.navBackView.alpha = 0;
+    [self.view addSubview:self.navBackView];
+}
 
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithNibName:nil bundle:nil]) {

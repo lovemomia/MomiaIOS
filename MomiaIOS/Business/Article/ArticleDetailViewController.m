@@ -11,8 +11,7 @@
 
 @interface ArticleDetailViewController ()
 
-@property (weak, nonatomic) UIWebView *content;
-@property (nonatomic, assign) NSInteger contentHeight;
+@property (nonatomic, strong) UIImageView *coverImageView;
 
 @end
 
@@ -21,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self addNavBackView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,12 +31,6 @@
 
 - (BOOL)isNavTransparent {
     return YES;
-}
-
-- (void)dealloc {
-    if (self.content != nil) {
-        self.content.delegate = nil;
-    }
 }
 
 - (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle {
@@ -109,6 +104,23 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat offsetY = scrollView.contentOffset.y;
+    if (offsetY < 0) {
+        if (self.coverImageView != nil) {
+            self.coverImageView.top = offsetY;
+//            self.coverImageView.height = [ArticleTopicHeaderCell coverHeight] - offsetY;
+        }
+        self.navBackView.alpha = 0;
+        
+    } else if (offsetY > 200) {
+        self.navBackView.alpha = 1;
+        
+    } else {
+        self.navBackView.alpha = offsetY / 200;
+    }
 }
 
 @end

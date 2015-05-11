@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HomeTopic.h"
+#import "HomeModel.h"
 
 @interface HomeTopicCell : UITableViewCell
 

@@ -8,6 +8,14 @@
 
 #import "HomeModel.h"
 
+@implementation HomeTopic
+
+@end
+
+@implementation HomeTopicList
+
+@end
+
 @implementation HomeModel
 
 @end

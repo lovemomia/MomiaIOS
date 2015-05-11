@@ -9,14 +9,12 @@
 #import "HomeViewController.h"
 #import "MineViewController.h"
 #import "HomeTopicCell.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "HomeModel.h"
-#import "MJRefresh.h"
 
 @interface HomeViewController ()
 
 @property (nonatomic) int startIndex;
-@property (nonatomic, strong) HomeModel *homeModel;
+@property (nonatomic, strong) HomeModel *model;
 
 - (void)onMineClicked;
 - (void)onDiscoverClicked;
@@ -69,10 +67,16 @@
 }
 
 - (void)requestData {
-//    [self.view showLoadingBee];
+    if (self.model == nil) {
+        [self.view showLoadingBee];
+    }
     
     [[HttpService defaultService] GET:@"http://120.55.102.12:8080/home?v=1.0&teminal=iphone&os=8.0&device=iphone6&channel=xxx&net=3g&sign=xxxx" parameters:nil cacheType:CacheTypeDisable JSONModelClass:[HomeModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.homeModel = responseObject;
+        if (self.model == nil) {
+            [self.view removeLoadingBee];
+        }
+        
+        self.model = responseObject;
         [self.tableView reloadData];
         [self.tableView.legendHeader endRefreshing];
         
@@ -85,7 +89,6 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     return [HomeTopicCell height];
 }
 
@@ -96,15 +99,15 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.homeModel == nil) {
+    if (self.model == nil) {
         return 0;
     }
-    return [self.homeModel.data.list count];
+    return [self.model.data.list count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HomeTopicCell *cell = [HomeTopicCell cellWithTableView:tableView];
-    HomeTopic *data = [self.homeModel.data.list objectAtIndex:indexPath.row];
+    HomeTopic *data = [self.model.data.list objectAtIndex:indexPath.row];
     [cell setData:data];
     return cell;
 }

@@ -27,4 +27,24 @@
     // Configure the view for the selected state
 }
 
+- (void)setData:(ArticleDetailContentItem *)data {
+    [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:data.image]];
+    [self.textLabel setText:data.text];
+}
+
++ (instancetype)cellWithTableView:(UITableView *)tableView {
+    static NSString *identifier = @"CellContent";
+    ArticleDetailContentCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (cell == nil) {
+        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"ArticleDetailCells" owner:self options:nil];
+        cell = [arr objectAtIndex:1];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    return cell;
+}
+
++ (CGFloat)height {
+    return 254;
+}
+
 @end

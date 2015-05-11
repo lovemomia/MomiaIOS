@@ -7,7 +7,24 @@
 //
 
 #import "BaseModel.h"
-#import "HomeTopicList.h"
+
+@interface HomeTopic : JSONModel
+
+@property (assign, nonatomic) int type;
+@property (strong, nonatomic) NSString* title;
+@property (strong, nonatomic) NSString* photo;
+@property (strong, nonatomic) NSString* action;
+
+@end
+
+@protocol HomeTopic
+@end
+
+@interface HomeTopicList : JSONModel
+
+@property (strong, nonatomic) NSArray<HomeTopic>* list;
+
+@end
 
 @interface HomeModel : BaseModel
 

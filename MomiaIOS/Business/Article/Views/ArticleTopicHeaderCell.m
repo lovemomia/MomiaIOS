@@ -17,20 +17,37 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    
-//    CGFloat coverIvHeight = SCREEN_WIDTH * 0.72;
-//    [coverIv setFrame:CGRectMake(0, 0, SCREEN_WIDTH, coverIvHeight)];
-//    
-//    [introTv setFrame: CGRectMake(introTv.frame.origin.x, introTv.frame.origin.y, [introTv contentSize].width, [introTv contentSize].height)];
-//    
-//    NSLog(@"coverIvHeight:%f", coverIvHeight);
-//    [self setFrame:CGRectMake(0, 0, SCREEN_WIDTH, coverIvHeight + [introTv contentSize].height)];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)setData:(ArticleTopicData *)data {
+    [self.coverIv sd_setImageWithURL:[NSURL URLWithString:data.topicPhoto]];
+    [self.titleTv setText:data.topicTitle];
+    [self.introTv setText:data.abstracts];
+}
+
++ (instancetype)cellWithTableView:(UITableView *)tableView {
+    static NSString *identifier = @"CellHeader";
+    ArticleTopicHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (cell == nil) {
+        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"ArticleTopicCells" owner:self options:nil];
+        cell = [arr objectAtIndex:0];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    return cell;
+}
+
++ (CGFloat)height {
+    return 300;
+}
+
++ (CGFloat)coverHeight {
+    return 217;
 }
 
 @end
