@@ -38,6 +38,42 @@
 		<key>desc</key>
 		<string>文章详情</string>
 	</dict>
+	<key>setting</key>
+	<dict>
+		<key>controller</key>
+		<string>SettingViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>设置</string>
+	</dict>
+	<key>personinfo</key>
+	<dict>
+		<key>controller</key>
+		<string>PersonInfoViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>个人信息</string>
+	</dict>
+	<key>mycollection</key>
+	<dict>
+		<key>controller</key>
+		<string>MyCollectionViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>我的收藏</string>
+	</dict>
+	<key>mysuggest</key>
+	<dict>
+		<key>controller</key>
+		<string>MySuggestViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>我的推荐</string>
+	</dict>
 	<key>web</key>
 	<dict>
 		<key>controller</key>

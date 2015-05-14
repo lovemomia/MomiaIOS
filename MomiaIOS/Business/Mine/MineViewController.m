@@ -41,7 +41,11 @@
 }
 */
 
+// 单击设置
 - (void)onSettingClicked {
+    
+    NSURL *url = [NSURL URLWithString:@"momia://setting"];
+    [[UIApplication sharedApplication ] openURL:url];
 }
 
 #pragma mark - tableview delegate & datasource
@@ -69,6 +73,36 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    
+    switch (section) {
+        case 0:
+        {
+            NSURL *url = [NSURL URLWithString:@"momia://personinfo"];
+            [[UIApplication sharedApplication ] openURL:url];
+        }
+            break;
+        case 1:
+            if(row == 0) {
+                NSURL *url = [NSURL URLWithString:@"momia://mycollection"];
+                [[UIApplication sharedApplication ] openURL:url];
+            } else {
+                NSURL *url = [NSURL URLWithString:@"momia://mysuggest"];
+                [[UIApplication sharedApplication ] openURL:url];
+            }
+            break;
+        case 2:
+            if(row == 0) {
+                
+            } else {
+                
+            }
+            break;
+            
+        default:
+            break;
+    }
     
 }
 
@@ -97,7 +131,7 @@
                 if (row == 0) {
                     cell.textLabel.text = @"我的收藏";
                 } else {
-                    cell.textLabel.text = @"我的经验";
+                    cell.textLabel.text = @"我的推荐";
                 }
                 break;
             case 2:
