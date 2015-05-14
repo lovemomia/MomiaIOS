@@ -23,6 +23,7 @@
 @interface HomeTopicList : JSONModel
 
 @property (strong, nonatomic) NSArray<HomeTopic>* list;
+@property (assign, nonatomic) int nextPage;
 
 @end
 
