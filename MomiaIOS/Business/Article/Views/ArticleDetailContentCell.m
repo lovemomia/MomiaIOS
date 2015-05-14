@@ -28,8 +28,22 @@
 }
 
 - (void)setData:(ArticleDetailContentItem *)data {
-    [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:data.image]];
-    [self.textLabel setText:data.text];
+    if (data.text) {
+        [self.textLabel setText:data.text];
+        self.textLabel.hidden = NO;
+        
+    } else {
+        self.textLabel.hidden = YES;
+//        self.photoImageView.top = 0;
+    }
+    
+    if (data.image) {
+        [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:data.image]];
+        self.photoImageView.hidden = NO;
+        
+    } else {
+        self.photoImageView.hidden = YES;
+    }
 }
 
 + (instancetype)cellWithTableView:(UITableView *)tableView {
@@ -43,8 +57,19 @@
     return cell;
 }
 
-+ (CGFloat)height {
-    return 254;
++ (CGFloat)heightWithData:(ArticleDetailContentItem *)data {
+    CGFloat height;
+    if (data.text) {
+        CGRect textFrame = [UILabel heightForMutableString:data.text withWidth:(SCREEN_WIDTH - 16) andFontSize:16.0];
+        height += textFrame.size.height;
+        
+    }
+    
+    if (data.image) {
+        height += 170;
+        
+    }
+    return height + 25;
 }
 
 @end

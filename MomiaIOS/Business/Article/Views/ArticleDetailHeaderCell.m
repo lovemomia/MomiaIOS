@@ -24,7 +24,7 @@
 - (void)setData:(ArticleDetailData *)data {
     [self.coverImageView sd_setImageWithURL:[NSURL URLWithString:data.coverPhoto]];
     [self.titleLabel setText:data.title];
-    [self.authorLabel setText:data.abstracts];
+    [self.authorLabel setText:[NSString stringWithFormat:@"作者：%@", data.author]];
 }
 
 + (instancetype)cellWithTableView:(UITableView *)tableView {

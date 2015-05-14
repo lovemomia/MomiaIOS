@@ -16,7 +16,7 @@
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 
-+ (CGFloat)height;
++ (CGFloat)heightWithData:(ArticleDetailContentItem *)data;
 
 - (void)setData:(ArticleDetailContentItem *)data;
 

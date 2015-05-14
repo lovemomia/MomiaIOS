@@ -86,8 +86,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSURL *url = [NSURL URLWithString:@"momia://articledetail"];
-    [[UIApplication sharedApplication] openURL:url];
+    if (indexPath.row == 0) {
+        return;
+    }
+    
+    if (self.model) {
+        ArticleTopicItem *data = [self.model.data.list objectAtIndex:indexPath.row - 1];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"momia://articledetail?id=%d", data.articleId]];
+        [[UIApplication sharedApplication] openURL:url];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

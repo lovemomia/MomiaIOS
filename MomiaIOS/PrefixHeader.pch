@@ -8,5 +8,6 @@
 
 #import "Constants.h"
 #import "UIView+Frame.h"
+#import "UILabel+ContentSize.h"
 #import "HttpService.h"
 #import <SDWebImage/UIImageView+WebCache.h>

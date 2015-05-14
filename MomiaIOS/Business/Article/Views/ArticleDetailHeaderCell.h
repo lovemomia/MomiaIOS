@@ -21,6 +21,6 @@
 
 + (CGFloat)coverHeight;
 
-- (void)setData:(ArticleDetailModel *)data;
+- (void)setData:(ArticleDetailData *)data;
 
 @end

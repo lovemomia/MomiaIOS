@@ -40,23 +40,20 @@
             </connections>
             <point key="canvasLocation" x="160" y="132"/>
         </tableViewCell>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellContent" rowHeight="254" id="3UI-Wj-ZdX" customClass="ArticleDetailContentCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="254"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellContent" rowHeight="308" id="3UI-Wj-ZdX" customClass="ArticleDetailContentCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="308"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3UI-Wj-ZdX" id="6od-ks-aWF">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="253"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="307"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cover" id="6jb-MC-Log">
-                        <rect key="frame" x="8" y="117" width="304" height="128"/>
+                        <rect key="frame" x="8" y="129" width="304" height="170"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Ci-KB-pwi">
-                        <rect key="frame" x="8" y="8" width="304" height="98.5"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                        <string key="text">      当你怀着宝宝的时候，你会听到很多过来人的「建议」。你肯定听到过这个：「怀男孩肚子尖怀女孩肚子圆」（当然，这很傻，要知道，古人可没有超声）。
- 
-然而，不是所有有关怀孕的「建议」都是有趣的。有些可能会造成孕妈妈不必要的担心，而还有一些，甚至会影响到孕妈妈和胎儿的健康。</string>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Ci-KB-pwi">
+                        <rect key="frame" x="8" y="8" width="304" height="113"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -67,7 +64,7 @@
                 <outlet property="photoImageView" destination="6jb-MC-Log" id="mJ0-HU-ku4"/>
                 <outlet property="textLable" destination="1Ci-KB-pwi" id="ZCQ-Bc-Jg1"/>
             </connections>
-            <point key="canvasLocation" x="532" y="159"/>
+            <point key="canvasLocation" x="532" y="132"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellAuthor" rowHeight="183" id="Ifg-kI-evB" customClass="ArticleDetailAuthorCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="183"/>
@@ -148,7 +145,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这个世界很小，什么都没留下" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="93h-TF-zp2">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这个世界很小，什么都没留下" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="93h-TF-zp2">
                         <rect key="frame" x="13" y="60" width="299" height="21.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>

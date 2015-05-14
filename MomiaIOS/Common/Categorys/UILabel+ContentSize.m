@@ -7,6 +7,7 @@
 //
 
 #import "UILabel+ContentSize.h"
+#import <CoreText/CoreText.h>
 
 @implementation UILabel (ContentSize)
 
@@ -23,6 +24,22 @@
                                               attributes:attributes
                                                  context:nil].size;
     return contentSize;
+}
+
++ (CGRect)heightForMutableString:(NSString *)contentString withWidth:(CGFloat)width andFontSize:(CGFloat)fontSize{
+    if (!contentString) {
+        return CGRectZero;
+    }
+    
+    NSMutableAttributedString *mutString = [[NSMutableAttributedString alloc] initWithString:contentString];
+    
+    UIFont *aUiFont = [UIFont systemFontOfSize:fontSize];
+    NSRange range = {0, contentString.length};
+    [mutString addAttribute:(id)kCTFontAttributeName value:aUiFont range:range];
+    
+    CGRect rect = [mutString boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
+    
+    return rect;
 }
 
 @end

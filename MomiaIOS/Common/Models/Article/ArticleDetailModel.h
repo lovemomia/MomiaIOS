@@ -10,8 +10,8 @@
 
 @interface ArticleDetailContentItem : JSONModel
 
-@property (strong, nonatomic) NSString *image;
-@property (strong, nonatomic) NSString *text;
+@property (strong, nonatomic) NSString<Optional> *image;
+@property (strong, nonatomic) NSString<Optional> *text;
 
 @end
 
@@ -37,5 +37,7 @@
 @end
 
 @interface ArticleDetailModel : BaseModel
+
+@property (strong, nonatomic) ArticleDetailData *data;
 
 @end

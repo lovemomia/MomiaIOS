@@ -8,6 +8,11 @@
 
 #import "ArticleDetailModel.h"
 
-@implementation ArticleDetailModel
+@implementation ArticleDetailContentItem
+@end
 
+@implementation ArticleDetailData
+@end
+
+@implementation ArticleDetailModel
 @end
