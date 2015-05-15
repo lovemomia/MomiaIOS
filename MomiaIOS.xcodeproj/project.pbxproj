@@ -15,6 +15,7 @@
 		5A6806FB1B01D9EA00D02A60 /* MyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806FA1B01D9EA00D02A60 /* MyCollectionViewController.m */; };
 		5A6806FD1B01DA5100D02A60 /* MyCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A6806FC1B01DA5100D02A60 /* MyCollectionCell.xib */; };
 		5A6807001B01FBDD00D02A60 /* MySuggestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806FF1B01FBDD00D02A60 /* MySuggestViewController.m */; };
+		5A9511991B058B4700D757CD /* ArticleCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9511981B058B4700D757CD /* ArticleCommentModel.m */; };
 		BC2FAA0F1AFCA92D00E2071E /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA0E1AFCA92D00E2071E /* UIView+Frame.m */; };
 		BC2FAA111AFCAE8C00E2071E /* HomeTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2FAA101AFCAE8C00E2071E /* HomeTopicCell.xib */; };
 		BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA151AFCB2EE00E2071E /* BaseModel.m */; };
@@ -77,6 +78,8 @@
 		5A6806FC1B01DA5100D02A60 /* MyCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyCollectionCell.xib; path = Business/Mine/Views/MyCollectionCell.xib; sourceTree = "<group>"; };
 		5A6806FE1B01FBDD00D02A60 /* MySuggestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySuggestViewController.h; path = Business/Mine/MySuggestViewController.h; sourceTree = "<group>"; };
 		5A6806FF1B01FBDD00D02A60 /* MySuggestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySuggestViewController.m; path = Business/Mine/MySuggestViewController.m; sourceTree = "<group>"; };
+		5A9511971B058B4700D757CD /* ArticleCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleCommentModel.h; path = Common/Models/Article/ArticleCommentModel.h; sourceTree = "<group>"; };
+		5A9511981B058B4700D757CD /* ArticleCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleCommentModel.m; path = Common/Models/Article/ArticleCommentModel.m; sourceTree = "<group>"; };
 		5B9DF4BE98C18CC18BDADCD8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC2FAA0C1AFC8E9600E2071E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		BC2FAA0D1AFCA92D00E2071E /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Frame.h"; path = "Common/Categorys/UIView+Frame.h"; sourceTree = "<group>"; };
@@ -243,6 +246,8 @@
 				BC38D2341AFEE28A0051C7E9 /* ArticleTopicModel.m */,
 				BC38D24C1B00BBA70051C7E9 /* ArticleDetailModel.h */,
 				BC38D24D1B00BBA70051C7E9 /* ArticleDetailModel.m */,
+				5A9511971B058B4700D757CD /* ArticleCommentModel.h */,
+				5A9511981B058B4700D757CD /* ArticleCommentModel.m */,
 			);
 			name = Article;
 			sourceTree = "<group>";
@@ -648,6 +653,7 @@
 				BC38D2511B00C8760051C7E9 /* ArticleDetailAuthorCell.m in Sources */,
 				BC77085C1AFC54F3000068A8 /* ArticleTopicHeaderCell.m in Sources */,
 				BC7708591AFB5047000068A8 /* ArticleDetailContentCell.m in Sources */,
+				5A9511991B058B4700D757CD /* ArticleCommentModel.m in Sources */,
 				BC2FAA0F1AFCA92D00E2071E /* UIView+Frame.m in Sources */,
 				BC7708511AFAFD54000068A8 /* MOTableViewController.m in Sources */,
 				BC8540C11ADF8A76005A7C54 /* HomeViewController.m in Sources */,

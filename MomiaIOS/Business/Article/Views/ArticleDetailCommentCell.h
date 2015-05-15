@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ArticleCommentModel.h"
 
 @interface ArticleDetailCommentCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
@@ -14,5 +15,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLable;
 @property (weak, nonatomic) IBOutlet UILabel *commentLable;
 
++ (instancetype)cellWithTableView:(UITableView *)tableView;
+
++ (CGFloat)heightWithData:(ArticleCommentItem *)data;
+
+- (void)setData:(ArticleCommentItem *)data;
 
 @end

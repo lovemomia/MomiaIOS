@@ -11,10 +11,11 @@
 
 @interface ArticleDetailContentCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *textLable;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 
-+ (instancetype)cellWithTableView:(UITableView *)tableView;
++ (instancetype)cellWithTableView:(UITableView *)tableView withData:(ArticleDetailContentItem *)data;
 
 + (CGFloat)heightWithData:(ArticleDetailContentItem *)data;
 
