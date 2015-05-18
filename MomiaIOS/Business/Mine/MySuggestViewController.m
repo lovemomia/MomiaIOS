@@ -49,8 +49,7 @@
  */
 
 - (void)onSuggestClicked {
-    
-    NSLog(@"推荐");
+    [self openURL:@"momia://sugsubmit"];
 }
 
 

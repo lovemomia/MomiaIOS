@@ -11,3 +11,9 @@
 #import "UILabel+ContentSize.h"
 #import "HttpService.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+
+#ifndef __OPTIMIZE__
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...) {}
+#endif
