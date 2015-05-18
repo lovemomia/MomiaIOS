@@ -60,10 +60,6 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
-            <connections>
-                <outlet property="contentLabel" destination="1Ci-KB-pwi" id="RIG-GL-sja"/>
-                <outlet property="photoImageView" destination="6jb-MC-Log" id="mJ0-HU-ku4"/>
-            </connections>
             <point key="canvasLocation" x="592" y="127"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellAuthor" rowHeight="183" id="Ifg-kI-evB" customClass="ArticleDetailAuthorCell">
@@ -198,7 +194,7 @@
                         <rect key="frame" x="8" y="8" width="304" height="79"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>

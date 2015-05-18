@@ -198,7 +198,6 @@
         
     } else {//此处表明model的显示完全了，剩下的其他部分要显示，不包括加载更多评论
         if(self.commentModel) {
-
             
             if(row == self.model.data.content.count + self.commentModel.data.commentList.count + 2) {
                 static NSString *moreIdentifier = @"CellMore";

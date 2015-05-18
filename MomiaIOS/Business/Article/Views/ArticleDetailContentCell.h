@@ -11,9 +11,9 @@
 
 @interface ArticleDetailContentCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (strong, nonatomic) UILabel *contentLabel;
 
-@property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
+@property (strong, nonatomic) UIImageView *photoImageView;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView withData:(ArticleDetailContentItem *)data;
 
