@@ -8,6 +8,7 @@
 
 #import "ArticleDetailContentCell.h"
 #import "Constants.h"
+#import "Masonry.h"
 
 @interface ArticleDetailContentCell()
 
@@ -33,96 +34,103 @@
 
 - (void)setData:(ArticleDetailContentItem *)data {
     
-    if(data.text && !data.image) {//只有文字的情况
-        
-        [(UILabel *)[self viewWithTag:1001] setText:data.text];
-//        [self setBackgroundColor:[UIColor redColor]];
-        
-    } else if(data.text && data.image){//有文字有图片
-        
-        [self.contentLabel setText:data.text];
-        self.contentLabel.hidden = NO;
-        [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:data.image]];
-        self.photoImageView.hidden = NO;
-        
-//        [self setBackgroundColor:[UIColor greenColor]];
+    self.contentLabel.numberOfLines = 0;
+    self.contentLabel.font = [UIFont systemFontOfSize:16.0f];
+    self.contentLabel.text = data.text;
+    [self.photoImageView setContentMode:UIViewContentModeScaleToFill];
 
-        
-    } else if(!data.text && data.image){//只有图片
-        
-        [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:data.image]];
-        self.photoImageView.hidden = NO;
-        self.contentLabel.hidden = YES;
-        
-//        [self setBackgroundColor:[UIColor blueColor]];
+    [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:data.image]];
 
-        
-    } else {
-    
-    //        if (data.text) {
-//            [self.contentLabel setText:data.text];
-//            self.contentLabel.hidden = NO;
-//            
-//        } else {
-//            self.contentLabel.hidden = YES;
-//            //        self.photoImageView.top = 0;
-//        }
-//        
-//        if (data.image) {
-//            [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:data.image]];
-//            self.photoImageView.hidden = NO;
-//            
-//            
-//        } else {
-//            self.photoImageView.hidden = YES;
-//            
-//        }
-        
-        
-    }
+
 }
 
 + (instancetype)cellWithTableView:(UITableView *)tableView withData:(ArticleDetailContentItem *)data{
     static NSString *identifier = @"CellContent";
-    static NSString * textIdentifier = @"CellContentText";
     ArticleDetailContentCell *cell;
-    NSUInteger index;
-    if(data.text&&!data.image) {
-        cell = [tableView dequeueReusableCellWithIdentifier:textIdentifier];
-        index = 5;
+    cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if(cell == nil) {
+        cell = [[ArticleDetailContentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell.contentLabel = [[UILabel alloc] init];
+        cell.photoImageView = [[UIImageView alloc] init];
+        
+        [cell.contentView addSubview:cell.contentLabel];
+        [cell.contentView addSubview:cell.photoImageView];
+        
+    }
+  
 
-    } else {
-        cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-        index = 1;
+    if(data.text && !data.image) {//只有文字
+     
 
+        [cell.contentLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(cell.contentView.mas_top).with.offset(8);
+            make.left.equalTo(cell.contentView.mas_left).with.offset(8);
+            make.bottom.equalTo(cell.contentView.mas_bottom).with.offset(-8);
+            make.right.equalTo(cell.contentView.mas_right).with.offset(-8);
+
+        }];
+        
+        [cell.photoImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        }];
+       
+        
+    } else if(!data.text && data.image) {//只有图片
+        [cell.contentLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        }];
+        [cell.photoImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(cell.contentView.mas_top).with.offset(8);
+            make.left.equalTo(cell.contentView.mas_left).with.offset(8);
+            make.bottom.equalTo(cell.contentView.mas_bottom).with.offset(-8);
+            make.right.equalTo(cell.contentView.mas_right).with.offset(-8);
+        }];
+       
+    } else {//图文混排
+        NSLog(@"图文混排");
+        [cell.contentLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(cell.contentView.mas_top).with.offset(8);
+            make.left.equalTo(cell.contentView.mas_left).with.offset(8);
+            make.bottom.equalTo(cell.photoImageView.mas_top).with.offset(-16);
+            make.right.equalTo(cell.contentView.mas_right).with.offset(-8);
+            
+        }];
+        [cell.photoImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(cell.contentView.mas_left).with.offset(8);
+            make.bottom.equalTo(cell.contentView.mas_bottom).with.offset(-8);
+            make.right.equalTo(cell.contentView.mas_right).with.offset(-8);
+            make.height.equalTo(@170);
+        }];
     }
     
-    if (cell == nil) {
-        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"ArticleDetailCells" owner:self options:nil];
-        if(index < [arr count]) {
-            cell = [arr objectAtIndex:index];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        } else {
-            NSLog(@"无法从xib载入Cell");
-        }
-    }
     return cell;
 }
 
 + (CGFloat)heightWithData:(ArticleDetailContentItem *)data {
     CGFloat height;
     
-    if (data.text) {
+    if(data.text && !data.image) {//只有文字
         CGRect textFrame = [UILabel heightForMutableString:data.text withWidth:(SCREEN_WIDTH - 16) andFontSize:16.0];
         height += textFrame.size.height;
-
-    }
+        height += 16;
+            
+    } else if(!data.text && data.image) {//只有图片
+        
+        height += 170;
+        height +=16;
+        
+    } else {//图文混排
     
-    if (data.image) {
+        height += 8;
+        CGRect textFrame = [UILabel heightForMutableString:data.text withWidth:(SCREEN_WIDTH - 16) andFontSize:16.0];
+        height += textFrame.size.height;
+        
+        height += 16;
+        
         height += 170;
         
+        height +=8;
+        
     }
-    return height + 25;
+    return height;
 }
 
 @end
