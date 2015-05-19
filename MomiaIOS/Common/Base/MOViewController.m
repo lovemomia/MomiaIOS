@@ -62,4 +62,9 @@
     return NO;
 }
 
+- (BOOL)openURL:(NSString *)urlStr {
+    NSURL *url = [NSURL URLWithString:urlStr];
+    return [[UIApplication sharedApplication ] openURL:url];
+}
+
 @end

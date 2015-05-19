@@ -19,4 +19,6 @@
 
 - (BOOL)isNavTransparent;
 
+- (BOOL)openURL:(NSString *)urlStr;
+
 @end
