@@ -98,7 +98,7 @@
         [self.view showLoadingBee];
     }
     
-    [[HttpService defaultService] GET:@"http://120.55.102.12:8080/articledetail?v=1.0&teminal=iphone&os=8.0&device=iphone6&channel=xxx&net=3g&sign=xxxx&articleid=1" parameters:nil cacheType:CacheTypeDisable JSONModelClass:[ArticleDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[HttpService defaultService] GET:@"http://120.55.102.12:8080/articledetail?v=1.0&teminal=iphone&os=8.0&device=iphone6&channel=xxx&net=3g&sign=xxxx&articleid=2" parameters:nil cacheType:CacheTypeDisable JSONModelClass:[ArticleDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.model == nil) {
             [self.view removeLoadingBee];
         }
@@ -146,7 +146,6 @@
         
     }
     
-    return 116; //comment
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -165,7 +164,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSInteger row = indexPath.row;
     
+    if(self.commentModel) {
+        if(row == self.model.data.content.count + self.commentModel.data.commentList.count + 2) {
+            //跳转到评论页面
+            NSURL *url = [NSURL URLWithString:@"momia://articledetailcomment"];
+            [[UIApplication sharedApplication ] openURL:url];
+        }
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -184,21 +191,16 @@
         ArticleDetailContentItem *item = [self.model.data.content objectAtIndex:(row - 1)];
         
         ArticleDetailContentCell *content = [ArticleDetailContentCell cellWithTableView:tableView withData:item];
-
-        [content setData:item];
         
         cell = content;
-        
         
     } else if (row == [self.model.data.content count] + 1) {
         ArticleDetailAuthorCell *author = [ArticleDetailAuthorCell cellWithTableView:tableView];
         [author setData:self.model.data];
         cell = author;
         
-        
     } else {//此处表明model的显示完全了，剩下的其他部分要显示，不包括加载更多评论
         if(self.commentModel) {
-
             
             if(row == self.model.data.content.count + self.commentModel.data.commentList.count + 2) {
                 static NSString *moreIdentifier = @"CellMore";
@@ -207,6 +209,10 @@
                     NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"ArticleDetailCells" owner:self options:nil];
                     cell = [arr objectAtIndex:4];
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                }
+                if(self.commentModel.data.commentList.count == 0) {
+                    UILabel * label = (UILabel *)[cell viewWithTag:2001];
+                    [label setText:@"暂无评论，说点什么吧"];
                 }
                 
             } else {

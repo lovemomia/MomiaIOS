@@ -60,10 +60,6 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
-            <connections>
-                <outlet property="contentLabel" destination="1Ci-KB-pwi" id="RIG-GL-sja"/>
-                <outlet property="photoImageView" destination="6jb-MC-Log" id="mJ0-HU-ku4"/>
-            </connections>
             <point key="canvasLocation" x="592" y="127"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellAuthor" rowHeight="183" id="Ifg-kI-evB" customClass="ArticleDetailAuthorCell">
@@ -170,14 +166,14 @@
             <point key="canvasLocation" x="141" y="405.5"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellMore" rowHeight="54" id="ijj-4R-mVO">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+            <rect key="frame" x="0.0" y="0.0" width="319" height="54"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ijj-4R-mVO" id="OXw-dL-heN">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
+                <rect key="frame" x="0.0" y="0.0" width="319" height="53"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="查看更多评论" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6da-wk-EuM">
-                        <rect key="frame" x="192.00000014305112" y="8" width="120" height="38"/>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="2001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="查看更多评论" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6da-wk-EuM">
+                        <rect key="frame" x="122" y="8" width="189" height="38"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -185,7 +181,7 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="532" y="490"/>
+            <point key="canvasLocation" x="531.5" y="490"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellContentText" rowHeight="96" id="DiX-Kq-QsI" customClass="ArticleDetailContentCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
@@ -198,7 +194,7 @@
                         <rect key="frame" x="8" y="8" width="304" height="79"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
