@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
@@ -163,7 +164,7 @@
                 <outlet property="iconImageView" destination="d5l-GF-Ugd" id="TDD-8l-4Wg"/>
                 <outlet property="nameLable" destination="zoJ-b7-0U2" id="UCe-Uz-WXS"/>
             </connections>
-            <point key="canvasLocation" x="141" y="405.5"/>
+            <point key="canvasLocation" x="93" y="629.5"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellMore" rowHeight="54" id="ijj-4R-mVO">
             <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
@@ -173,7 +174,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="查看更多评论" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6da-wk-EuM">
-                        <rect key="frame" x="192.00000014305112" y="8" width="120" height="38"/>
+                        <rect key="frame" x="192" y="8" width="120.00000028977023" height="38"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

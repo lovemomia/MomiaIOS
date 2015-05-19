@@ -57,6 +57,10 @@
 		BCA273271AEB1EBA002E7534 /* MineInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */; };
 		BCA273321AEB4A5A002E7534 /* ArticleTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273301AEB4A59002E7534 /* ArticleTopicViewController.m */; };
 		BCA273361AEB7EC4002E7534 /* ArticleTopicCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273351AEB7EC4002E7534 /* ArticleTopicCells.xib */; };
+		BCCDF5D91B09E345008BAE12 /* SugSubmitProductNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCDF5D81B09E345008BAE12 /* SugSubmitProductNameCell.m */; };
+		BCCDF5DC1B09E368008BAE12 /* SugSubmitTagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCDF5DB1B09E368008BAE12 /* SugSubmitTagsCell.m */; };
+		BCCDF5DF1B09E6C7008BAE12 /* SugSubmitProductContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCDF5DE1B09E6C7008BAE12 /* SugSubmitProductContentCell.m */; };
+		BCCDF5E51B09EBF8008BAE12 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCDF5E41B09EBF8008BAE12 /* UITextView+Placeholder.m */; };
 		BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFC2C321AF9C09400164BC2 /* MOWebViewController.m */; };
 		BCFC2C371AF9C6B800164BC2 /* ActivityWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFC2C361AF9C6B800164BC2 /* ActivityWebViewController.m */; };
 /* End PBXBuildFile section */
@@ -161,6 +165,14 @@
 		BCA2732F1AEB4A59002E7534 /* ArticleTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleTopicViewController.h; path = Business/Article/ArticleTopicViewController.h; sourceTree = "<group>"; };
 		BCA273301AEB4A59002E7534 /* ArticleTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleTopicViewController.m; path = Business/Article/ArticleTopicViewController.m; sourceTree = "<group>"; };
 		BCA273351AEB7EC4002E7534 /* ArticleTopicCells.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArticleTopicCells.xib; path = Business/Article/Views/ArticleTopicCells.xib; sourceTree = "<group>"; };
+		BCCDF5D71B09E345008BAE12 /* SugSubmitProductNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SugSubmitProductNameCell.h; path = Business/Mine/Views/SugSubmitProductNameCell.h; sourceTree = "<group>"; };
+		BCCDF5D81B09E345008BAE12 /* SugSubmitProductNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SugSubmitProductNameCell.m; path = Business/Mine/Views/SugSubmitProductNameCell.m; sourceTree = "<group>"; };
+		BCCDF5DA1B09E368008BAE12 /* SugSubmitTagsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SugSubmitTagsCell.h; path = Business/Mine/Views/SugSubmitTagsCell.h; sourceTree = "<group>"; };
+		BCCDF5DB1B09E368008BAE12 /* SugSubmitTagsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SugSubmitTagsCell.m; path = Business/Mine/Views/SugSubmitTagsCell.m; sourceTree = "<group>"; };
+		BCCDF5DD1B09E6C7008BAE12 /* SugSubmitProductContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SugSubmitProductContentCell.h; path = Business/Mine/Views/SugSubmitProductContentCell.h; sourceTree = "<group>"; };
+		BCCDF5DE1B09E6C7008BAE12 /* SugSubmitProductContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SugSubmitProductContentCell.m; path = Business/Mine/Views/SugSubmitProductContentCell.m; sourceTree = "<group>"; };
+		BCCDF5E31B09EBF8008BAE12 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
+		BCCDF5E41B09EBF8008BAE12 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
 		BCFC2C311AF9C09400164BC2 /* MOWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOWebViewController.h; path = Common/Base/MOWebViewController.h; sourceTree = "<group>"; };
 		BCFC2C321AF9C09400164BC2 /* MOWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOWebViewController.m; path = Common/Base/MOWebViewController.m; sourceTree = "<group>"; };
 		BCFC2C351AF9C6B800164BC2 /* ActivityWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityWebViewController.h; path = Business/Web/ActivityWebViewController.h; sourceTree = "<group>"; };
@@ -452,6 +464,8 @@
 		BCA2731B1AE9FA83002E7534 /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
+				BCCDF5E31B09EBF8008BAE12 /* UITextView+Placeholder.h */,
+				BCCDF5E41B09EBF8008BAE12 /* UITextView+Placeholder.m */,
 				BC2FAA0D1AFCA92D00E2071E /* UIView+Frame.h */,
 				BC2FAA0E1AFCA92D00E2071E /* UIView+Frame.m */,
 				BCA2731F1AE9FB78002E7534 /* NSURL+MOURL.h */,
@@ -470,6 +484,12 @@
 				BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */,
 				5A6806F41B01CEF700D02A60 /* PersonLogoCell.xib */,
 				5A6806FC1B01DA5100D02A60 /* MyCollectionCell.xib */,
+				BCCDF5D71B09E345008BAE12 /* SugSubmitProductNameCell.h */,
+				BCCDF5D81B09E345008BAE12 /* SugSubmitProductNameCell.m */,
+				BCCDF5DD1B09E6C7008BAE12 /* SugSubmitProductContentCell.h */,
+				BCCDF5DE1B09E6C7008BAE12 /* SugSubmitProductContentCell.m */,
+				BCCDF5DA1B09E368008BAE12 /* SugSubmitTagsCell.h */,
+				BCCDF5DB1B09E368008BAE12 /* SugSubmitTagsCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -680,10 +700,12 @@
 				BC8540941ADF74E9005A7C54 /* AppDelegate.m in Sources */,
 				BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */,
 				5A6806F31B01C9C700D02A60 /* PersonInfoViewController.m in Sources */,
+				BCCDF5DF1B09E6C7008BAE12 /* SugSubmitProductContentCell.m in Sources */,
 				5A6806EE1B01A48300D02A60 /* SettingViewController.m in Sources */,
 				BCA272FD1AE8A2C7002E7534 /* MineViewController.m in Sources */,
 				BCA273211AE9FB78002E7534 /* NSURL+MOURL.m in Sources */,
 				BC8540911ADF74E9005A7C54 /* main.m in Sources */,
+				BCCDF5DC1B09E368008BAE12 /* SugSubmitTagsCell.m in Sources */,
 				BC38D2511B00C8760051C7E9 /* ArticleDetailAuthorCell.m in Sources */,
 				BC77085C1AFC54F3000068A8 /* ArticleTopicHeaderCell.m in Sources */,
 				BC7708591AFB5047000068A8 /* ArticleDetailContentCell.m in Sources */,
@@ -697,6 +719,7 @@
 				BC38D2351AFEE28A0051C7E9 /* ArticleTopicModel.m in Sources */,
 				BC38D24B1B00BB660051C7E9 /* ArticleDetailHeaderCell.m in Sources */,
 				5A6806FB1B01D9EA00D02A60 /* MyCollectionViewController.m in Sources */,
+				BCCDF5E51B09EBF8008BAE12 /* UITextView+Placeholder.m in Sources */,
 				BC7708541AFB1600000068A8 /* ArticleDetailViewController.m in Sources */,
 				BCA2730A1AE8DE95002E7534 /* HomeTopicCell.m in Sources */,
 				BCA273241AEB166E002E7534 /* MONavigationController.m in Sources */,
@@ -705,6 +728,7 @@
 				BCFC2C371AF9C6B800164BC2 /* ActivityWebViewController.m in Sources */,
 				BC38D2891B099D0B0051C7E9 /* SuggestSubmitViewController.m in Sources */,
 				BC38D23C1AFEE2B50051C7E9 /* HomeModel.m in Sources */,
+				BCCDF5D91B09E345008BAE12 /* SugSubmitProductNameCell.m in Sources */,
 				BC38D2541B00C8AD0051C7E9 /* ArticleDetailCommentCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -829,6 +853,7 @@
 					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
 				);
 				INFOPLIST_FILE = MomiaIOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(SRCROOT)/include\"",
@@ -856,6 +881,7 @@
 					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
 				);
 				INFOPLIST_FILE = MomiaIOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(SRCROOT)/include\"",
