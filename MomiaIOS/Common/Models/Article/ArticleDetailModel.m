@@ -7,6 +7,8 @@
 //
 
 #import "ArticleDetailModel.h"
+@implementation ArticleDetailContentImage : JSONModel
+@end
 
 @implementation ArticleDetailContentItem
 @end

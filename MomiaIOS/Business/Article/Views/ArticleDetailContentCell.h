@@ -2,7 +2,7 @@
 //  ArticleDetailContentCell.h
 //  MomiaIOS
 //
-//  Created by Deng Jun on 15/5/7.
+//  Created by Owen on 15/5/18.
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
@@ -19,6 +19,5 @@
 
 + (CGFloat)heightWithData:(ArticleDetailContentItem *)data;
 
-- (void)setData:(ArticleDetailContentItem *)data;
-
 @end
+

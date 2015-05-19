@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		087C98AEC54638860E9ACAB0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9DF4BE98C18CC18BDADCD8 /* libPods.a */; };
+		5A1E0DB01B09CC2D000EC137 /* ArticleDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1E0DAF1B09CC2D000EC137 /* ArticleDetailContentCell.m */; };
+		5A1E0DB31B09D014000EC137 /* ArticleDetailCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1E0DB21B09D014000EC137 /* ArticleDetailCommentViewController.m */; };
 		5A6806EE1B01A48300D02A60 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806ED1B01A48300D02A60 /* SettingViewController.m */; };
 		5A6806F01B01A9BD00D02A60 /* SettingMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A6806EF1B01A9BD00D02A60 /* SettingMsgCell.xib */; };
 		5A6806F31B01C9C700D02A60 /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806F21B01C9C700D02A60 /* PersonInfoViewController.m */; };
@@ -37,7 +39,6 @@
 		BC7708511AFAFD54000068A8 /* MOTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7708501AFAFD54000068A8 /* MOTableViewController.m */; };
 		BC7708541AFB1600000068A8 /* ArticleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7708531AFB1600000068A8 /* ArticleDetailViewController.m */; };
 		BC7708561AFB3B57000068A8 /* ArticleDetailCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7708551AFB3B57000068A8 /* ArticleDetailCells.xib */; };
-		BC7708591AFB5047000068A8 /* ArticleDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7708581AFB5047000068A8 /* ArticleDetailContentCell.m */; };
 		BC77085C1AFC54F3000068A8 /* ArticleTopicHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77085B1AFC54F3000068A8 /* ArticleTopicHeaderCell.m */; };
 		BC77085F1AFC5685000068A8 /* UILabel+ContentSize.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77085E1AFC5685000068A8 /* UILabel+ContentSize.m */; };
 		BC8540911ADF74E9005A7C54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540901ADF74E9005A7C54 /* main.m */; };
@@ -102,6 +103,10 @@
 /* Begin PBXFileReference section */
 		081C0A2B3B84523909EC659D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		36BF39E53B6AA82DBC50D3EB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		5A1E0DAE1B09CC2D000EC137 /* ArticleDetailContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleDetailContentCell.h; path = Business/Article/Views/ArticleDetailContentCell.h; sourceTree = "<group>"; };
+		5A1E0DAF1B09CC2D000EC137 /* ArticleDetailContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleDetailContentCell.m; path = Business/Article/Views/ArticleDetailContentCell.m; sourceTree = "<group>"; };
+		5A1E0DB11B09D014000EC137 /* ArticleDetailCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleDetailCommentViewController.h; path = Business/Article/ArticleDetailCommentViewController.h; sourceTree = "<group>"; };
+		5A1E0DB21B09D014000EC137 /* ArticleDetailCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleDetailCommentViewController.m; path = Business/Article/ArticleDetailCommentViewController.m; sourceTree = "<group>"; };
 		5A6806EC1B01A48300D02A60 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = Business/Setting/SettingViewController.h; sourceTree = "<group>"; };
 		5A6806ED1B01A48300D02A60 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = Business/Setting/SettingViewController.m; sourceTree = "<group>"; };
 		5A6806EF1B01A9BD00D02A60 /* SettingMsgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingMsgCell.xib; path = Business/Setting/Views/SettingMsgCell.xib; sourceTree = "<group>"; };
@@ -151,8 +156,6 @@
 		BC7708521AFB1600000068A8 /* ArticleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleDetailViewController.h; path = Business/Article/ArticleDetailViewController.h; sourceTree = "<group>"; };
 		BC7708531AFB1600000068A8 /* ArticleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleDetailViewController.m; path = Business/Article/ArticleDetailViewController.m; sourceTree = "<group>"; };
 		BC7708551AFB3B57000068A8 /* ArticleDetailCells.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ArticleDetailCells.xib; path = Business/Article/Views/ArticleDetailCells.xib; sourceTree = "<group>"; };
-		BC7708571AFB5047000068A8 /* ArticleDetailContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleDetailContentCell.h; path = Business/Article/Views/ArticleDetailContentCell.h; sourceTree = "<group>"; };
-		BC7708581AFB5047000068A8 /* ArticleDetailContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleDetailContentCell.m; path = Business/Article/Views/ArticleDetailContentCell.m; sourceTree = "<group>"; };
 		BC77085A1AFC54F3000068A8 /* ArticleTopicHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleTopicHeaderCell.h; path = Business/Article/Views/ArticleTopicHeaderCell.h; sourceTree = "<group>"; };
 		BC77085B1AFC54F3000068A8 /* ArticleTopicHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleTopicHeaderCell.m; path = Business/Article/Views/ArticleTopicHeaderCell.m; sourceTree = "<group>"; };
 		BC77085D1AFC5685000068A8 /* UILabel+ContentSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+ContentSize.h"; path = "Common/Categorys/UILabel+ContentSize.h"; sourceTree = "<group>"; };
@@ -573,6 +576,8 @@
 				BCA273301AEB4A59002E7534 /* ArticleTopicViewController.m */,
 				BC7708521AFB1600000068A8 /* ArticleDetailViewController.h */,
 				BC7708531AFB1600000068A8 /* ArticleDetailViewController.m */,
+				5A1E0DB11B09D014000EC137 /* ArticleDetailCommentViewController.h */,
+				5A1E0DB21B09D014000EC137 /* ArticleDetailCommentViewController.m */,
 			);
 			name = Article;
 			sourceTree = "<group>";
@@ -595,12 +600,12 @@
 				BC38D2461B0050770051C7E9 /* ArticleTopicItemCell.m */,
 				BC38D2491B00BB660051C7E9 /* ArticleDetailHeaderCell.h */,
 				BC38D24A1B00BB660051C7E9 /* ArticleDetailHeaderCell.m */,
-				BC7708571AFB5047000068A8 /* ArticleDetailContentCell.h */,
-				BC7708581AFB5047000068A8 /* ArticleDetailContentCell.m */,
 				BC38D24F1B00C8760051C7E9 /* ArticleDetailAuthorCell.h */,
 				BC38D2501B00C8760051C7E9 /* ArticleDetailAuthorCell.m */,
 				BC38D2521B00C8AD0051C7E9 /* ArticleDetailCommentCell.h */,
 				BC38D2531B00C8AD0051C7E9 /* ArticleDetailCommentCell.m */,
+				5A1E0DAE1B09CC2D000EC137 /* ArticleDetailContentCell.h */,
+				5A1E0DAF1B09CC2D000EC137 /* ArticleDetailContentCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -851,14 +856,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCCDF6531B0B1CFF008BAE12 /* WeiboSDK.h in Sources */,
-				BCCDF6541B0B1CFF008BAE12 /* WXApi.h in Sources */,
-				BCCDF6551B0B1CFF008BAE12 /* WXApiObject.h in Sources */,
+				5A1E0DB01B09CC2D000EC137 /* ArticleDetailContentCell.m in Sources */,
 				BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */,
 				BC77085F1AFC5685000068A8 /* UILabel+ContentSize.m in Sources */,
 				BCA273321AEB4A5A002E7534 /* ArticleTopicViewController.m in Sources */,
 				BC38D24E1B00BBA70051C7E9 /* ArticleDetailModel.m in Sources */,
 				BC38D2471B0050770051C7E9 /* ArticleTopicItemCell.m in Sources */,
+				5A1E0DB31B09D014000EC137 /* ArticleDetailCommentViewController.m in Sources */,
 				BC8540941ADF74E9005A7C54 /* AppDelegate.m in Sources */,
 				BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */,
 				5A6806F31B01C9C700D02A60 /* PersonInfoViewController.m in Sources */,
@@ -870,7 +874,6 @@
 				BCCDF5DC1B09E368008BAE12 /* SugSubmitTagsCell.m in Sources */,
 				BC38D2511B00C8760051C7E9 /* ArticleDetailAuthorCell.m in Sources */,
 				BC77085C1AFC54F3000068A8 /* ArticleTopicHeaderCell.m in Sources */,
-				BC7708591AFB5047000068A8 /* ArticleDetailContentCell.m in Sources */,
 				5A9511991B058B4700D757CD /* ArticleCommentModel.m in Sources */,
 				BC2FAA0F1AFCA92D00E2071E /* UIView+Frame.m in Sources */,
 				BC7708511AFAFD54000068A8 /* MOTableViewController.m in Sources */,

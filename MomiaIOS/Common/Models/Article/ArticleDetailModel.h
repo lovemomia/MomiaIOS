@@ -8,10 +8,19 @@
 
 #import "BaseModel.h"
 
+@interface ArticleDetailContentImage : JSONModel
+
+@property (strong, nonatomic) NSString *url;
+@property (assign, nonatomic) int width;
+@property (assign, nonatomic) int height;
+
+@end
+
 @interface ArticleDetailContentItem : JSONModel
 
-@property (strong, nonatomic) NSString<Optional> *image;
+@property (strong, nonatomic) ArticleDetailContentImage<Optional> *image;
 @property (strong, nonatomic) NSString<Optional> *text;
+
 
 @end
 

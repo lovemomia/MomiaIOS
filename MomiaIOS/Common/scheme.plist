@@ -92,5 +92,14 @@
 		<key>desc</key>
 		<string>活动web页面</string>
 	</dict>
+	<key>articledetailcomment</key>
+	<dict>
+		<key>controller</key>
+		<string>ArticleDetailCommentViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>文章详情评论页面</string>
+	</dict>
 </dict>
 </plist>
