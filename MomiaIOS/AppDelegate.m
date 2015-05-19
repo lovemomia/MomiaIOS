@@ -11,6 +11,14 @@
 #import "URLMappingManager.h"
 #import "MONavigationController.h"
 
+#import <ShareSDK/ShareSDK.h>
+
+//第三方平台的SDK头文件，根据需要的平台导入。
+#import "WXApi.h"
+#import "WeiboSDK.h"
+#import <TencentOpenAPI/QQApi.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+
 // dev
 #define kAppId           @"xHJWU4TNcm7qaq0GzMNwg7"
 #define kAppKey          @"BPjUJH4Z8a9d4pSfv9AWA2"
@@ -35,6 +43,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // share sdk
+    //1.初始化ShareSDK应用,字符串"iosv1101"是应该换成你申请的ShareSDK应用中的Appkey
+    [ShareSDK registerApp:@"iosv1101"];
+    
+    //2. 初始化社交平台
+    //2.1 代码初始化社交平台的方法
+    [self initializePlat];
+    
     HomeViewController *home = [[HomeViewController alloc]initWithParams:nil];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
@@ -65,6 +82,36 @@
 
     return YES;
 }
+
+#pragma mark - ShareSDK init
+
+- (void)initializePlat {
+    /**
+     连接新浪微博开放平台应用以使用相关功能，此应用需要引用SinaWeiboConnection.framework
+     http://open.weibo.com上注册新浪微博开放平台应用，并将相关信息填写到以下字段
+     **/
+    [ShareSDK connectSinaWeiboWithAppKey:@"2849276776"
+                               appSecret:@"1d0da16ce00a1ba4b8f501a81e81a4bf"
+                             redirectUri:@"http://www.momia.cn"];
+    
+    /**
+     连接微信应用以使用相关功能，此应用需要引用WeChatConnection.framework和微信官方SDK
+     http://open.weixin.qq.com上注册应用，并将相关信息填写以下字段
+     **/
+    [ShareSDK connectWeChatWithAppId:@"wx4868b35061f87885"
+                           appSecret:@"64020361b8ec4c99936c0e3999a9f249"
+                           wechatCls:[WXApi class]];
+    
+//    /**
+//     连接QQ应用以使用相关功能，此应用需要引用QQConnection.framework和QQApi.framework库
+//     http://mobile.qq.com/api/上注册应用，并将相关信息填写到以下字段
+//     **/
+//    [ShareSDK connectQQWithQZoneAppKey:@"100371282"
+//                     qqApiInterfaceCls:[QQApiInterface class]
+//                       tencentOAuthCls:[TencentOAuth class]];
+}
+
+#pragma mark - 'GeTui' push sdk manager
 
 - (void)handleRemoteNotification:(NSDictionary *)dict {
     if (dict) {
@@ -130,18 +177,27 @@
     }
 }
 
+#pragma mark - URL Scheme
+
 /* For iOS 4.1 and earlier */
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    [self handleOpenURL:url];
+    if ([url.scheme isEqualToString:@"momia"]) {
+        [self handleOpenURL:url];
+    }
     
-    return YES;
+    return [ShareSDK handleOpenURL:url wxDelegate:self];
 }
 
 /* For iOS 4.2 and later */
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    [self handleOpenURL:url];
+    if ([url.scheme isEqualToString:@"momia"]) {
+        [self handleOpenURL:url];
+    }
     
-    return YES;
+    return [ShareSDK handleOpenURL:url
+                 sourceApplication:sourceApplication
+                        annotation:annotation
+                        wxDelegate:self];
 }
 
 - (void)handleOpenURL:(NSURL *)url
@@ -150,6 +206,8 @@
     
     [[URLMappingManager sharedManager] handleOpenURL:url byNav:self.root];
 }
+
+#pragma mark - lifecyle
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

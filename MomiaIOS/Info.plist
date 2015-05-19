@@ -27,6 +27,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>wb2849276776</string>
 				<string>momia</string>
 			</array>
 		</dict>
