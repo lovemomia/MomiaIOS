@@ -41,3 +41,20 @@
  *  页面背景颜色
  */
 #define MO_APP_VCBackgroundColor            (UIColorFromRGB(0xEEEEEE))
+
+// getui push dev
+#define kAppId           @"xHJWU4TNcm7qaq0GzMNwg7"
+#define kAppKey          @"BPjUJH4Z8a9d4pSfv9AWA2"
+#define kAppSecret       @"gRWoi5S1hv5gkaJhrGXYs9"
+
+// getui push production
+//#define kAppId           @"iMahVVxurw6BNr7XSn9EF2"
+//#define kAppKey          @"yIPfqwq6OMAPp6dkqgLpG5"
+//#define kAppSecret       @"G0aBqAD6t79JfzTB6Z5lo5"
+
+// sina
+#define kSinaAppKey         @"2849276776"
+#define kSinaRedirectURI    @"https://api.weibo.com/oauth2/default.html"
+
+// wechat
+#define kWechatAppKey         @"wxf4b4b8411a1c7b77"
