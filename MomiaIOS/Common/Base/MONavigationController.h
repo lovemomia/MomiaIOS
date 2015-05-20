@@ -12,4 +12,6 @@
 
 @property(nonatomic, retain)UIView *backView;
 
+- (void)setTitleTextStyle;
+
 @end

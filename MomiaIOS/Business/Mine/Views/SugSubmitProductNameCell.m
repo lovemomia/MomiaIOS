@@ -11,6 +11,7 @@
 
 
 @implementation SugSubmitProductNameCell
+@synthesize nameTv;
 
 - (void)awakeFromNib {
     // Initialization code
@@ -24,7 +25,7 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        UITextView *nameTv = [[UITextView alloc]init];
+        nameTv = [[UITextView alloc]init];
         [nameTv addPlaceHolder:@"请输入商品名"];
         nameTv.height = 40;
         nameTv.width = SCREEN_WIDTH - 20;

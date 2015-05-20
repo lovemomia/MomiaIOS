@@ -8,7 +8,9 @@
 
 #import "HttpService.h"
 #import "AFHTTPRequestOperation.h"
+#import "AFURLSessionManager.h"
 #import "BaseModel.h"
+#import "UploadImageModel.h"
 
 @implementation HttpService
 
@@ -37,10 +39,14 @@
     BlockMOHTTPRequestSuccess onSuccess = ^(AFHTTPRequestOperation *operation, id responseObject) {
         id result = [(BaseModel *)[responseModelClass alloc]initWithDictionary:responseObject error:nil];
         success(operation, result);
+        
+        NSLog(@"http (GET) success: %@", responseObject);
     };
     
     BlockMOHTTPRequestFail onFail = ^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(operation, error);
+        
+        NSLog(@"http (GET) fail: %@", error);
     };
     
     AFHTTPRequestOperation *operation = [self.httpClient GET:URLString parameters:parameters success:onSuccess failure:onFail];
@@ -52,8 +58,50 @@
                   JSONModelClass:(Class)responseModelClass
                          success:(BlockMOHTTPRequestSuccess)success
                          failure:(BlockMOHTTPRequestFail)failure {
-    AFHTTPRequestOperation *operation = [self.httpClient POST:URLString parameters:parameters success:success failure:failure];
+    BlockMOHTTPRequestSuccess onSuccess = ^(AFHTTPRequestOperation *operation, id responseObject) {
+        id result = [(BaseModel *)[responseModelClass alloc]initWithDictionary:responseObject error:nil];
+        success(operation, result);
+        
+        NSLog(@"http (POST) success: %@", responseObject);
+    };
+    
+    BlockMOHTTPRequestFail onFail = ^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(operation, error);
+        
+        NSLog(@"http (POST) fail: %@", error);
+    };
+    
+    AFHTTPRequestOperation *operation = [self.httpClient POST:URLString parameters:parameters success:onSuccess failure:onFail];
     return operation;
+}
+
+- (NSURLSessionUploadTask *)uploadImageWithFilePath:(NSString *)path
+                                           fileName:(NSString *)fileName
+                                            handler:(BlockMOUploadImageHandler)handler {
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:@"http://i.momia.cn/upload/image" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileURL:[NSURL fileURLWithPath:path] name:@"file" fileName:fileName mimeType:@"image/jpeg" error:nil];
+    } error:nil];
+    
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    NSProgress *progress = nil;
+    
+    BlockMOUploadImageHandler blockHandler = ^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            
+            NSLog(@"http (Upload Image) fail: %@", error);
+            
+        } else {
+            id result = [[UploadImageModel alloc]initWithDictionary:responseObject error:nil];
+            handler(response, result, error);
+            
+            NSLog(@"http (Upload Image) success: %@", responseObject);
+        }
+    };
+    
+    NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithStreamedRequest:request progress:&progress completionHandler:blockHandler];
+    
+    [uploadTask resume];
+    return uploadTask;
 }
 
 @end

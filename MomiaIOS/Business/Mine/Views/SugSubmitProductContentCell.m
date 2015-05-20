@@ -11,14 +11,12 @@
 
 @interface SugSubmitProductContentCell()
 
-@property (strong, nonatomic) UITextView *nameTv;
-
 @property (assign, nonatomic) int photoViewCount;
 
 @end
 
 @implementation SugSubmitProductContentCell
-@synthesize nameTv;
+@synthesize contentTv;
 
 - (void)awakeFromNib {
     // Initialization code
@@ -32,18 +30,18 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        nameTv = [[UITextView alloc]init];
-        nameTv.returnKeyType = UIReturnKeyDone;
-        [nameTv addPlaceHolder:@"说说你的使用心得吧..."];
-        nameTv.height = 100;
-        nameTv.width = SCREEN_WIDTH - 20;
-        nameTv.top = 5;
-        nameTv.left = 10;
+        contentTv = [[UITextView alloc]init];
+        contentTv.returnKeyType = UIReturnKeyDone;
+        [contentTv addPlaceHolder:@"说说你的使用心得吧..."];
+        contentTv.height = 100;
+        contentTv.width = SCREEN_WIDTH - 20;
+        contentTv.top = 5;
+        contentTv.left = 10;
         
         [self addPhotoViewAtIndex:0];
         
-        [nameTv setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:nameTv];
+        [contentTv setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:contentTv];
     }
     return self;
 }

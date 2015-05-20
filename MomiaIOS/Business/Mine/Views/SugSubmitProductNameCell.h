@@ -10,6 +10,8 @@
 
 @interface SugSubmitProductNameCell : UITableViewCell
 
+@property (strong, nonatomic)UITextView *nameTv;
+
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 
 + (CGFloat)height;

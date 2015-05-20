@@ -11,6 +11,8 @@
 #import "UILabel+ContentSize.h"
 #import "HttpService.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "Environment.h"
+#import "MBProgressHUD.h"
 
 #ifndef __OPTIMIZE__
 #define NSLog(...) NSLog(__VA_ARGS__)

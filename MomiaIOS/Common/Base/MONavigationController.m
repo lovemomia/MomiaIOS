@@ -15,9 +15,7 @@
 -(id)init {
     if (self = [super init]) {
         // text color
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
-        [self.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil]];
-        [self.navigationBar setTintColor:[UIColor whiteColor]];
+        [self setTitleTextStyle];
         
         // background color
         [self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
@@ -38,6 +36,12 @@
     UIBarButtonItem *item = [[UIBarButtonItem alloc] init];
     item.title = @"返回";
     viewController.navigationItem.backBarButtonItem = item;
+}
+
+- (void)setTitleTextStyle {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+    [self.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil]];
+    [self.navigationBar setTintColor:[UIColor whiteColor]];
 }
 
 @end
