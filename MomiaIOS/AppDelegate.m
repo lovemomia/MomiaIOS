@@ -11,16 +11,6 @@
 #import "URLMappingManager.h"
 #import "MONavigationController.h"
 
-// dev
-#define kAppId           @"xHJWU4TNcm7qaq0GzMNwg7"
-#define kAppKey          @"BPjUJH4Z8a9d4pSfv9AWA2"
-#define kAppSecret       @"gRWoi5S1hv5gkaJhrGXYs9"
-
-// production
-//#define kAppId           @"iMahVVxurw6BNr7XSn9EF2"
-//#define kAppKey          @"yIPfqwq6OMAPp6dkqgLpG5"
-//#define kAppSecret       @"G0aBqAD6t79JfzTB6Z5lo5"
-
 @interface AppDelegate () {
 @private
     NSString *_deviceToken;
@@ -35,6 +25,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
     HomeViewController *home = [[HomeViewController alloc]initWithParams:nil];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
@@ -43,6 +34,9 @@
     
     [self.root pushViewController:home animated:NO];
     [self.window makeKeyAndVisible];
+    
+    // 微信注册
+    [WXApi registerApp:kWechatAppKey];
     
     // [1]:使用APPID/APPKEY/APPSECRENT创建个推实例
     [self startSdkWith:kAppId appKey:kAppKey appSecret:kAppSecret];
@@ -65,6 +59,12 @@
 
     return YES;
 }
+
+#pragma mark - ShareSDK init
+
+
+
+#pragma mark - 'GeTui' push sdk manager
 
 - (void)handleRemoteNotification:(NSDictionary *)dict {
     if (dict) {
@@ -130,16 +130,22 @@
     }
 }
 
+#pragma mark - URL Scheme
+
 /* For iOS 4.1 and earlier */
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    [self handleOpenURL:url];
+    if ([url.scheme isEqualToString:@"momia"]) {
+        [self handleOpenURL:url];
+    }
     
     return YES;
 }
 
 /* For iOS 4.2 and later */
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    [self handleOpenURL:url];
+    if ([url.scheme isEqualToString:@"momia"]) {
+        [self handleOpenURL:url];
+    }
     
     return YES;
 }
@@ -150,6 +156,8 @@
     
     [[URLMappingManager sharedManager] handleOpenURL:url byNav:self.root];
 }
+
+#pragma mark - lifecyle
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -268,6 +276,25 @@
 {
     // [EXT]:个推错误报告，集成步骤发生的任何错误都在这里通知，如果集成后，无法正常收到消息，查看这里的通知。
     NSLog(@"payloadMsg:%@", [NSString stringWithFormat:@">>>[GexinSdk error]:%@", [error localizedDescription]]);
+}
+
+
+#pragma mark - wechat delegate
+
+-(void) onReq:(BaseReq*)req {
+    
+}
+
+-(void) onResp:(BaseResp*)resp {
+    
+}
+
+- (void)didReceiveWeiboRequest:(WBBaseRequest *)request {
+    
+}
+
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
+    
 }
 
 @end

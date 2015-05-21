@@ -16,6 +16,8 @@
 
 @interface SugSubmitProductContentCell : UITableViewCell
 
+@property (strong, nonatomic) UITextView *contentTv;
+
 @property(assign,nonatomic)id<ProductPhotoPickDelegate> delegate;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;

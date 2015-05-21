@@ -96,7 +96,7 @@
             if(row == 0) {
                 
             } else {
-                
+                [self shareToFriend];
             }
             break;
             
@@ -148,5 +148,10 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
+
+- (void)shareToFriend {
+    
+}
+
 
 @end

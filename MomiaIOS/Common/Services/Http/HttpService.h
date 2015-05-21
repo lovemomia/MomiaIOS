@@ -11,8 +11,10 @@
 #import <Foundation/Foundation.h>
 #import "AFHTTPRequestOperationManager.h"
 
+
 typedef void (^BlockMOHTTPRequestSuccess)(AFHTTPRequestOperation *operation, id responseObject);
 typedef void (^BlockMOHTTPRequestFail)(AFHTTPRequestOperation *operation, NSError *error);
+typedef void (^BlockMOUploadImageHandler)(NSURLResponse *response, id responseObject, NSError *error);
 
 /**
  *  缓存类型
@@ -69,5 +71,18 @@ typedef enum {
                   JSONModelClass:(Class)responseModelClass
                          success:(BlockMOHTTPRequestSuccess)success
                          failure:(BlockMOHTTPRequestFail)failure;
+
+/**
+ *  封装的图片上传请求
+ *
+ *  @param path             本地图片地址
+ *  @param fileName         文件名
+ *  @param handler          回调
+ *
+ *  @return 已发送的request 可以为nil
+ */
+- (NSURLSessionUploadTask *)uploadImageWithFilePath:(NSString *)path
+                                       fileName:(NSString *)fileName
+                                        handler:(BlockMOUploadImageHandler)handler;
 
 @end

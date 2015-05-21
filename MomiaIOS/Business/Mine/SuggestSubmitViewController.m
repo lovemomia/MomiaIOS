@@ -10,11 +10,38 @@
 #import "SugSubmitProductNameCell.h"
 #import "SugSubmitProductContentCell.h"
 #import "SugSubmitTagsCell.h"
+#import "MONavigationController.h"
+#import "UploadImageModel.h"
+#import "BaseModel.h"
+
+typedef enum {
+    UploadStatusFail   = -1,
+    UploadStatusIdle   = 0,
+    UploadStatusGoing  = 1,
+    UploadStatusFinish = 2
+} UploadStatus; // 图片上传状态
+
+@interface SelectImage : NSObject
+
+@property (strong, nonatomic) UIImageView *imageView;
+@property (strong, nonatomic) NSString *filePath;
+@property (strong, nonatomic) NSString *fileName;
+@property (assign, nonatomic) UploadStatus uploadStatus;
+@property (assign, nonatomic) UploadImageData *respData;
+
+@end
+@implementation SelectImage
+@end
 
 @interface SuggestSubmitViewController ()
 
+@property (strong, nonatomic) SugSubmitProductNameCell *nameCell;
 @property (strong, nonatomic) SugSubmitProductContentCell *contentCell;
-@property (strong, nonatomic) UIImageView *selectImageView;
+@property (strong, nonatomic) NSMutableArray *uploadImages;
+
+@property (strong, nonatomic) UITextView *nameTextView;
+@property (strong, nonatomic) UITextView *contentTextView;
+@property (strong, nonatomic) SelectImage *selectImage;
 
 @end
 
@@ -27,13 +54,82 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(onSubmitClicked)];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [((MONavigationController *)self.navigationController) setTitleTextStyle];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 - (void)onSubmitClicked {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    for (SelectImage *si in self.uploadImages) {
+        if (si.uploadStatus <= UploadStatusIdle) {
+            [self uploadImage:si];
+        }
+    }
+}
 
+// 提交
+- (void)submit {
+    NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+    [params setObject:@"name" forKey:self.nameCell.nameTv.text];
+    [params setObject:@"content" forKey:self.contentCell.contentTv.text];
+    [params setObject:@"photos" forKey:[self makePhotosJsonString]];
+    [[HttpService defaultService] POST:URL_APPEND_PATH(@"/goods") parameters:params JSONModelClass:[BaseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+    }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }];
+}
+
+- (NSString *)makePhotosJsonString {
+    NSMutableString *jsonStr = [[NSMutableString alloc]init];
+    [jsonStr appendString:@"["];
+    int i = 0;
+    for (SelectImage *si in self.uploadImages) {
+        if (si.uploadStatus == UploadStatusFinish) {
+            if (i != 0) {
+                [jsonStr appendString:@","];
+            }
+            [jsonStr appendString:[si.respData toJSONString]];
+            i++;
+        }
+    }
+    [jsonStr appendString:@"]"];
+    return jsonStr;
+}
+
+- (void)uploadImage:(SelectImage *)image {
+    image.uploadStatus = UploadStatusGoing;
+    [[HttpService defaultService] uploadImageWithFilePath:image.filePath fileName:image.fileName handler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            image.uploadStatus = UploadStatusFail;
+            
+        } else {
+            image.uploadStatus = UploadStatusFinish;
+            image.respData = responseObject;
+            if ([self isAllImagesUploadFinish]) {
+                [self submit];
+            }
+        }
+    }];
+}
+
+- (BOOL)isAllImagesUploadFinish {
+    for (SelectImage *si in self.uploadImages) {
+        if (si.uploadStatus != UploadStatusFinish) {
+            return NO;
+        }
+    }
+    return YES;
 }
 
 - (UITableViewStyle)tableViewStyle {
@@ -87,11 +183,13 @@
     UITableViewCell *cell;
     if (section == 0) {
         if (row == 0) {
-            cell = [SugSubmitProductNameCell cellWithTableView:tableView];
+            SugSubmitProductNameCell *nameCell = [SugSubmitProductNameCell cellWithTableView:tableView];
+            cell = self.nameCell = nameCell;
+            
         } else {
-            cell = [SugSubmitProductContentCell cellWithTableView:tableView];
+            SugSubmitProductContentCell *contentCell = [SugSubmitProductContentCell cellWithTableView:tableView];
             ((SugSubmitProductContentCell *)cell).delegate = self;
-            self.contentCell = ((SugSubmitProductContentCell *)cell);
+            cell = self.contentCell = contentCell;
         }
         
     } else {
@@ -193,11 +291,27 @@
         success = [fileManager removeItemAtPath:imageFilePath error:&error];
     }
     //    UIImage *smallImage=[self scaleFromImage:image toSize:CGSizeMake(80.0f, 80.0f)];//将图片尺寸改为80*80
-    UIImage *smallImage = [self thumbnailWithImageWithoutScale:[self croppImage:image] size:CGSizeMake(self.selectImageView.size.width, self.selectImageView.size.height)];
+    UIImage *smallImage = [self thumbnailWithImageWithoutScale:[self croppImage:image] size:CGSizeMake(self.selectImage.imageView.size.width, self.selectImage.imageView.size.height)];
     [UIImageJPEGRepresentation(smallImage, 1.0f) writeToFile:imageFilePath atomically:YES];//写入文件
     UIImage *selfPhoto = [UIImage imageWithContentsOfFile:imageFilePath];//读取图片文件
     //    [userPhotoButton setImage:selfPhoto forState:UIControlStateNormal];
-    self.selectImageView.image = selfPhoto;
+    self.selectImage.imageView.image = selfPhoto;
+    
+    if ([[Environment singleton].networkType isEqualToString:@"wifi"]) {
+        self.selectImage.uploadStatus = UploadStatusGoing;
+        [[HttpService defaultService] uploadImageWithFilePath:imageFilePath fileName:@"selfPhoto.jpg" handler:^(NSURLResponse *response, id responseObject, NSError *error) {
+            if (error) {
+                self.selectImage.uploadStatus = UploadStatusFail;
+                
+            } else {
+                self.selectImage.uploadStatus = UploadStatusFinish;
+                self.selectImage.respData = responseObject;
+                if ([self isAllImagesUploadFinish]) {
+                    [self submit];
+                }
+            }
+        }];
+    }
 }
 
 // 改变图像的尺寸，方便上传服务器
@@ -262,7 +376,13 @@
 }
 
 -(void)onPhotoViewClick:(UIImageView *)photoView {
-    self.selectImageView = photoView;
+    if (self.selectImage == nil || self.selectImage.imageView != photoView) {
+        SelectImage *si = [[SelectImage alloc]init];
+        si.imageView = photoView;
+        self.selectImage = si;
+        [self.uploadImages addObject:si];
+    }
+    
     [self takePictureClick];
 }
 

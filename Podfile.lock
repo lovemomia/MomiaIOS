@@ -22,6 +22,7 @@ PODS:
     - AFNetworking/NSURLSession
   - JSONModel (1.1.0)
   - Masonry (0.6.1)
+  - MBProgressHUD (0.9.1)
   - MJRefresh (1.4.6)
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - JSONModel
   - Masonry
+  - MBProgressHUD (~> 0.9.1)
   - MJRefresh
   - SDWebImage
 
@@ -38,6 +40,7 @@ SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   JSONModel: ec77e9865236a7a09d9cf7668df6b4b328d9ec1d
   Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MJRefresh: 2eaa3fd8f67fbb86497840fb0167446f7eb61dc7
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
 
