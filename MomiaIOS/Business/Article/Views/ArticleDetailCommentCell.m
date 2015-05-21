@@ -21,9 +21,10 @@
 }
 
 - (void)setData:(ArticleCommentItem *)data {
-    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:data.authorIcon]];
+    if(data.authorIcon)[self.iconImageView sd_setImageWithURL:[NSURL URLWithString:data.authorIcon]];
     [self.nameLable setText:data.author];
     [self.dateLable setText:data.time];
+    
     [self.commentLable setText:data.content];
 }
 
@@ -42,12 +43,12 @@
     CGFloat height;
     
     if (data.content) {
-        CGRect textFrame = [UILabel heightForMutableString:data.content withWidth:(SCREEN_WIDTH - 16) andFontSize:15.0];
+        CGRect textFrame = [UILabel heightForMutableString:data.content withWidth:(SCREEN_WIDTH - 78) andFontSize:15.0];
         height += textFrame.size.height;
         
     }
     
-    return height + 44 +24;//44为固定图片高度
+    return height + 49;//44为固定图片高度
 }
 
 

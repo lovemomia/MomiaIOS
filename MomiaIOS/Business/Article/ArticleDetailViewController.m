@@ -243,6 +243,8 @@
         
         
     }
+    
+    cell.backgroundColor = MO_APP_VCBackgroundColor;
 
     return cell;
 }

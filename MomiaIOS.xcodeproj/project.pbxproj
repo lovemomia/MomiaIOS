@@ -10,6 +10,9 @@
 		087C98AEC54638860E9ACAB0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9DF4BE98C18CC18BDADCD8 /* libPods.a */; };
 		5A1E0DB01B09CC2D000EC137 /* ArticleDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1E0DAF1B09CC2D000EC137 /* ArticleDetailContentCell.m */; };
 		5A1E0DB31B09D014000EC137 /* ArticleDetailCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1E0DB21B09D014000EC137 /* ArticleDetailCommentViewController.m */; };
+		5A2144581B0C6A8A0072682F /* AlertNotice.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2144571B0C6A8A0072682F /* AlertNotice.m */; };
+		5A21445C1B0C6D000072682F /* ArticleCommentPostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A21445B1B0C6D000072682F /* ArticleCommentPostModel.m */; };
+		5A62B62F1B0B432D00C30798 /* SendCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A62B62E1B0B432D00C30798 /* SendCommentView.m */; };
 		5A6806EE1B01A48300D02A60 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806ED1B01A48300D02A60 /* SettingViewController.m */; };
 		5A6806F01B01A9BD00D02A60 /* SettingMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A6806EF1B01A9BD00D02A60 /* SettingMsgCell.xib */; };
 		5A6806F31B01C9C700D02A60 /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806F21B01C9C700D02A60 /* PersonInfoViewController.m */; };
@@ -83,6 +86,12 @@
 		5A1E0DAF1B09CC2D000EC137 /* ArticleDetailContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleDetailContentCell.m; path = Business/Article/Views/ArticleDetailContentCell.m; sourceTree = "<group>"; };
 		5A1E0DB11B09D014000EC137 /* ArticleDetailCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleDetailCommentViewController.h; path = Business/Article/ArticleDetailCommentViewController.h; sourceTree = "<group>"; };
 		5A1E0DB21B09D014000EC137 /* ArticleDetailCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleDetailCommentViewController.m; path = Business/Article/ArticleDetailCommentViewController.m; sourceTree = "<group>"; };
+		5A2144561B0C6A8A0072682F /* AlertNotice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertNotice.h; path = Common/Base/AlertNotice.h; sourceTree = "<group>"; };
+		5A2144571B0C6A8A0072682F /* AlertNotice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertNotice.m; path = Common/Base/AlertNotice.m; sourceTree = "<group>"; };
+		5A21445A1B0C6D000072682F /* ArticleCommentPostModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleCommentPostModel.h; path = Common/Models/Article/ArticleCommentPostModel.h; sourceTree = "<group>"; };
+		5A21445B1B0C6D000072682F /* ArticleCommentPostModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleCommentPostModel.m; path = Common/Models/Article/ArticleCommentPostModel.m; sourceTree = "<group>"; };
+		5A62B62D1B0B432D00C30798 /* SendCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SendCommentView.h; path = Business/Article/Views/SendCommentView.h; sourceTree = "<group>"; };
+		5A62B62E1B0B432D00C30798 /* SendCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SendCommentView.m; path = Business/Article/Views/SendCommentView.m; sourceTree = "<group>"; };
 		5A6806EC1B01A48300D02A60 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = Business/Setting/SettingViewController.h; sourceTree = "<group>"; };
 		5A6806ED1B01A48300D02A60 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = Business/Setting/SettingViewController.m; sourceTree = "<group>"; };
 		5A6806EF1B01A9BD00D02A60 /* SettingMsgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingMsgCell.xib; path = Business/Setting/Views/SettingMsgCell.xib; sourceTree = "<group>"; };
@@ -290,6 +299,8 @@
 				BC38D24D1B00BBA70051C7E9 /* ArticleDetailModel.m */,
 				5A9511971B058B4700D757CD /* ArticleCommentModel.h */,
 				5A9511981B058B4700D757CD /* ArticleCommentModel.m */,
+				5A21445A1B0C6D000072682F /* ArticleCommentPostModel.h */,
+				5A21445B1B0C6D000072682F /* ArticleCommentPostModel.m */,
 			);
 			name = Article;
 			sourceTree = "<group>";
@@ -425,6 +436,8 @@
 				BCFC2C321AF9C09400164BC2 /* MOWebViewController.m */,
 				BC77084F1AFAFD54000068A8 /* MOTableViewController.h */,
 				BC7708501AFAFD54000068A8 /* MOTableViewController.m */,
+				5A2144561B0C6A8A0072682F /* AlertNotice.h */,
+				5A2144571B0C6A8A0072682F /* AlertNotice.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -535,6 +548,8 @@
 				BC38D2531B00C8AD0051C7E9 /* ArticleDetailCommentCell.m */,
 				5A1E0DAE1B09CC2D000EC137 /* ArticleDetailContentCell.h */,
 				5A1E0DAF1B09CC2D000EC137 /* ArticleDetailContentCell.m */,
+				5A62B62D1B0B432D00C30798 /* SendCommentView.h */,
+				5A62B62E1B0B432D00C30798 /* SendCommentView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -709,6 +724,7 @@
 				5A6806F31B01C9C700D02A60 /* PersonInfoViewController.m in Sources */,
 				BCCDF5DF1B09E6C7008BAE12 /* SugSubmitProductContentCell.m in Sources */,
 				5A6806EE1B01A48300D02A60 /* SettingViewController.m in Sources */,
+				5A62B62F1B0B432D00C30798 /* SendCommentView.m in Sources */,
 				BCA272FD1AE8A2C7002E7534 /* MineViewController.m in Sources */,
 				BCA273211AE9FB78002E7534 /* NSURL+MOURL.m in Sources */,
 				BC8540911ADF74E9005A7C54 /* main.m in Sources */,
@@ -725,6 +741,7 @@
 				BC38D2351AFEE28A0051C7E9 /* ArticleTopicModel.m in Sources */,
 				BC38D24B1B00BB660051C7E9 /* ArticleDetailHeaderCell.m in Sources */,
 				5A6806FB1B01D9EA00D02A60 /* MyCollectionViewController.m in Sources */,
+				5A2144581B0C6A8A0072682F /* AlertNotice.m in Sources */,
 				BCCDF5E51B09EBF8008BAE12 /* UITextView+Placeholder.m in Sources */,
 				BC7708541AFB1600000068A8 /* ArticleDetailViewController.m in Sources */,
 				BCA2730A1AE8DE95002E7534 /* HomeTopicCell.m in Sources */,
@@ -735,6 +752,7 @@
 				BC38D2891B099D0B0051C7E9 /* SuggestSubmitViewController.m in Sources */,
 				BC38D23C1AFEE2B50051C7E9 /* HomeModel.m in Sources */,
 				BCCDF5D91B09E345008BAE12 /* SugSubmitProductNameCell.m in Sources */,
+				5A21445C1B0C6D000072682F /* ArticleCommentPostModel.m in Sources */,
 				BC38D2541B00C8AD0051C7E9 /* ArticleDetailCommentCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
