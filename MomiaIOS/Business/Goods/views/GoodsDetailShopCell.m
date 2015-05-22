@@ -61,12 +61,14 @@ static NSString * identifier = @"CellGoodsDetailShop";
             make.width.equalTo(@100);
             make.height.equalTo(@30);
             make.right.equalTo(_priceLabel.superview.mas_right).with.offset(-8);
-            make.top.equalTo(_priceLabel.superview);
+            make.bottom.equalTo(_priceLabel.superview.mas_centerY).with.offset(-3);
         }];
         
         [_buyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(@100);
             make.height.equalTo(@30);
+            make.right.equalTo(_buyBtn.superview.mas_right).with.offset(-8);
+            make.top.equalTo(_buyBtn.superview.mas_centerY).with.offset(3);
         }];
         
         
