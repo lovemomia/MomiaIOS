@@ -96,6 +96,7 @@
     [self.textField setValue:[UIColor blackColor] forKeyPath:@"_placeholderLabel.textColor"];
     [self.textField setValue:[UIFont systemFontOfSize:15.0f] forKeyPath:@"_placeholderLabel.font"];
     [self.textField setClearsOnBeginEditing:YES];
+    [self.textField setClearButtonMode:UITextFieldViewModeWhileEditing];
     
     [self.sendBtn setTitle:@"发送" forState:UIControlStateNormal];
     [self.sendBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];

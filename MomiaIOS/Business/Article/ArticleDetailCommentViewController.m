@@ -74,13 +74,19 @@
             [AlertNotice showNotice:@"评论不能超过200字符"];
         } else {
             //开始发送
-            NSLog(@"开始发送:%@",textContentView.text);
             NSDictionary * dic = @{@"type":@"0",@"content":textContentView.text,@"refid":@"1"};
-            NSLog(@"开始发送:%@",[dic objectForKey:@"content"]);
 
+            [MBProgressHUD showHUDAddedTo:weakSelf.view animated:YES];
+            [weakSelf.sendCommentView setUserInteractionEnabled:NO];
             
             [[HttpService defaultService] POST:@"http://i.momia.cn/comment" parameters:dic JSONModelClass:[ArticleCommentPostModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 ArticleCommentPostModel * result = [[ArticleCommentPostModel alloc] initWithDictionary:responseObject error:nil];
+                
+                
+                [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+                [weakSelf.sendCommentView setUserInteractionEnabled:YES];
+                [textContentView resignFirstResponder];
+                
                 
                 if(result.errNo == 0) {
                     [weakSelf requestData];
@@ -89,6 +95,14 @@
                     NSLog(@"%d",result.errNo);
                 }
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                
+                
+                [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+                [weakSelf.sendCommentView setUserInteractionEnabled:YES];
+
+                [textContentView resignFirstResponder];
+                
+                
                 NSLog(@"error:%@",[error localizedDescription]);
             }];
         }
