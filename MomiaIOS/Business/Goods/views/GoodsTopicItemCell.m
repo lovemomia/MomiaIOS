@@ -7,7 +7,6 @@
 //
 
 #import "GoodsTopicItemCell.h"
-#import "Masonry.h"
 static NSString * identifier = @"CellGoodsItem";
 #define imageFactor 0.7
 

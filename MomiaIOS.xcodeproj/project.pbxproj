@@ -30,6 +30,7 @@
 		5AB7B3A81B0EC11700044DFE /* GoodsDetailHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7B3A71B0EC11700044DFE /* GoodsDetailHeaderCell.m */; };
 		5AB7B3AB1B0EC1B800044DFE /* GoodsDetailImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7B3AA1B0EC1B800044DFE /* GoodsDetailImgCell.m */; };
 		5AB7B3AE1B0EC1E800044DFE /* GoodsDetailShopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7B3AD1B0EC1E800044DFE /* GoodsDetailShopCell.m */; };
+		5AB7B3B11B0EFF7400044DFE /* GoodsDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7B3B01B0EFF7400044DFE /* GoodsDetailContentCell.m */; };
 		BC2FAA0F1AFCA92D00E2071E /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA0E1AFCA92D00E2071E /* UIView+Frame.m */; };
 		BC2FAA111AFCAE8C00E2071E /* HomeTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2FAA101AFCAE8C00E2071E /* HomeTopicCell.xib */; };
 		BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA151AFCB2EE00E2071E /* BaseModel.m */; };
@@ -147,6 +148,8 @@
 		5AB7B3AA1B0EC1B800044DFE /* GoodsDetailImgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailImgCell.m; path = Business/Goods/views/GoodsDetailImgCell.m; sourceTree = "<group>"; };
 		5AB7B3AC1B0EC1E800044DFE /* GoodsDetailShopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsDetailShopCell.h; path = Business/Goods/views/GoodsDetailShopCell.h; sourceTree = "<group>"; };
 		5AB7B3AD1B0EC1E800044DFE /* GoodsDetailShopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailShopCell.m; path = Business/Goods/views/GoodsDetailShopCell.m; sourceTree = "<group>"; };
+		5AB7B3AF1B0EFF7400044DFE /* GoodsDetailContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsDetailContentCell.h; path = Business/Goods/views/GoodsDetailContentCell.h; sourceTree = "<group>"; };
+		5AB7B3B01B0EFF7400044DFE /* GoodsDetailContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailContentCell.m; path = Business/Goods/views/GoodsDetailContentCell.m; sourceTree = "<group>"; };
 		5B9DF4BE98C18CC18BDADCD8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC2FAA0C1AFC8E9600E2071E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		BC2FAA0D1AFCA92D00E2071E /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Frame.h"; path = "Common/Categorys/UIView+Frame.h"; sourceTree = "<group>"; };
@@ -345,6 +348,8 @@
 				5AB7B3AA1B0EC1B800044DFE /* GoodsDetailImgCell.m */,
 				5AB7B3AC1B0EC1E800044DFE /* GoodsDetailShopCell.h */,
 				5AB7B3AD1B0EC1E800044DFE /* GoodsDetailShopCell.m */,
+				5AB7B3AF1B0EFF7400044DFE /* GoodsDetailContentCell.h */,
+				5AB7B3B01B0EFF7400044DFE /* GoodsDetailContentCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -906,6 +911,7 @@
 				BC8540941ADF74E9005A7C54 /* AppDelegate.m in Sources */,
 				5A04EF1F1B0D84EC00A88D3B /* GoodsTopicViewController.m in Sources */,
 				BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */,
+				5AB7B3B11B0EFF7400044DFE /* GoodsDetailContentCell.m in Sources */,
 				5A6806F31B01C9C700D02A60 /* PersonInfoViewController.m in Sources */,
 				BCCDF5DF1B09E6C7008BAE12 /* SugSubmitProductContentCell.m in Sources */,
 				5A6806EE1B01A48300D02A60 /* SettingViewController.m in Sources */,

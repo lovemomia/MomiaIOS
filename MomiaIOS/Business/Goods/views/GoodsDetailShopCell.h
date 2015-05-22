@@ -10,4 +10,9 @@
 
 @interface GoodsDetailShopCell : UITableViewCell
 
+@property(nonatomic,strong) UILabel * shopLabel;
+@property(nonatomic,strong) UILabel * contentLabel;
+@property(nonatomic,strong) UILabel * priceLabel;
+@property(nonatomic,strong) UIButton * buyBtn;
+
 @end

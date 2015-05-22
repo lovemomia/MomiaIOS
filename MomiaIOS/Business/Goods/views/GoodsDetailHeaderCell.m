@@ -7,7 +7,6 @@
 //
 
 #import "GoodsDetailHeaderCell.h"
-#import "Masonry.h"
 
 #define imgFactor 0.7
 

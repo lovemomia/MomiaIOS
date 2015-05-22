@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+@class GoodsDetailImgItem;
 
 @interface GoodsDetailImgCell : UITableViewCell
+
+@property(nonatomic,strong) UIImageView * photoImgView;
+
+-(instancetype)cellWithTableView:(UITableView *)tableView withData:(GoodsDetailImgItem *)data;
+
++ (CGFloat)heightWithData:(GoodsDetailImgItem *)data;
+
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "GoodsTopicHeaderCell.h"
-#import "Masonry.h"
 
 static NSString *identifier = @"CellGoods";
 

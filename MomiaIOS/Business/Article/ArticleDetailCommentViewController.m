@@ -10,7 +10,6 @@
 #import "ArticleCommentModel.h"
 #import "ArticleDetailCommentCell.h"
 #import "SendCommentView.h"
-#import "Masonry.h"
 #import "ArticleCommentPostModel.h"
 
 @interface ArticleDetailCommentViewController ()

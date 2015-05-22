@@ -7,7 +7,6 @@
 //
 
 #import "SendCommentView.h"
-#import "Masonry.h"
 
 @interface SendCommentView()
 

@@ -44,11 +44,17 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if(section == 0) {
-        NSLog(@"section is 0");
         return 0.01;
     }
     return 0;
 }
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    
+    return nil;
+}
+
 
 
 #pragma mark - tableview datasource

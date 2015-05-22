@@ -14,6 +14,7 @@
 #import "AlertNotice.h"
 #import "Environment.h"
 #import "MBProgressHUD.h"
+#import "Masonry.h"
 
 #ifndef __OPTIMIZE__
 #define NSLog(...) NSLog(__VA_ARGS__)
