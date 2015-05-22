@@ -109,6 +109,23 @@
 		<false/>
 		<key>desc</key>
 		<string>推荐标签</string>
+	<key>goodstopic</key>
+	<dict>
+		<key>controller</key>
+		<string>GoodsTopicViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>商品列表页面</string>
+	</dict>
+	<key>goodsdetail</key>
+	<dict>
+		<key>controller</key>
+		<string>GoodsDetailViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>商品详情页面</string>
 	</dict>
 </dict>
 </plist>

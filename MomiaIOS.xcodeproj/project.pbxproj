@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		087C98AEC54638860E9ACAB0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9DF4BE98C18CC18BDADCD8 /* libPods.a */; };
+		5A04EF1F1B0D84EC00A88D3B /* GoodsTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A04EF1E1B0D84EC00A88D3B /* GoodsTopicViewController.m */; };
+		5A04EF231B0D887800A88D3B /* GoodsTopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A04EF221B0D887800A88D3B /* GoodsTopicModel.m */; };
+		5A04EF271B0D8CBE00A88D3B /* GoodsTopicHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A04EF261B0D8CBE00A88D3B /* GoodsTopicHeaderCell.m */; };
+		5A04EF2A1B0D8D1A00A88D3B /* GoodsTopicItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A04EF291B0D8D1A00A88D3B /* GoodsTopicItemCell.m */; };
+		5A04EF2D1B0DCD4E00A88D3B /* GoodsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A04EF2C1B0DCD4E00A88D3B /* GoodsDetailModel.m */; };
+		5A04EF301B0DE8EE00A88D3B /* GoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A04EF2F1B0DE8EE00A88D3B /* GoodsDetailViewController.m */; };
 		5A1E0DB01B09CC2D000EC137 /* ArticleDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1E0DAF1B09CC2D000EC137 /* ArticleDetailContentCell.m */; };
 		5A1E0DB31B09D014000EC137 /* ArticleDetailCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1E0DB21B09D014000EC137 /* ArticleDetailCommentViewController.m */; };
 		5A2144581B0C6A8A0072682F /* AlertNotice.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2144571B0C6A8A0072682F /* AlertNotice.m */; };
@@ -21,6 +27,9 @@
 		5A6806FD1B01DA5100D02A60 /* MyCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A6806FC1B01DA5100D02A60 /* MyCollectionCell.xib */; };
 		5A6807001B01FBDD00D02A60 /* MySuggestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806FF1B01FBDD00D02A60 /* MySuggestViewController.m */; };
 		5A9511991B058B4700D757CD /* ArticleCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9511981B058B4700D757CD /* ArticleCommentModel.m */; };
+		5AB7B3A81B0EC11700044DFE /* GoodsDetailHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7B3A71B0EC11700044DFE /* GoodsDetailHeaderCell.m */; };
+		5AB7B3AB1B0EC1B800044DFE /* GoodsDetailImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7B3AA1B0EC1B800044DFE /* GoodsDetailImgCell.m */; };
+		5AB7B3AE1B0EC1E800044DFE /* GoodsDetailShopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7B3AD1B0EC1E800044DFE /* GoodsDetailShopCell.m */; };
 		BC2FAA0F1AFCA92D00E2071E /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA0E1AFCA92D00E2071E /* UIView+Frame.m */; };
 		BC2FAA111AFCAE8C00E2071E /* HomeTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2FAA101AFCAE8C00E2071E /* HomeTopicCell.xib */; };
 		BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA151AFCB2EE00E2071E /* BaseModel.m */; };
@@ -99,6 +108,18 @@
 /* Begin PBXFileReference section */
 		081C0A2B3B84523909EC659D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		36BF39E53B6AA82DBC50D3EB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		5A04EF1D1B0D84EC00A88D3B /* GoodsTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsTopicViewController.h; path = Business/Goods/GoodsTopicViewController.h; sourceTree = "<group>"; };
+		5A04EF1E1B0D84EC00A88D3B /* GoodsTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsTopicViewController.m; path = Business/Goods/GoodsTopicViewController.m; sourceTree = "<group>"; };
+		5A04EF211B0D887800A88D3B /* GoodsTopicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsTopicModel.h; path = Common/Models/Goods/GoodsTopicModel.h; sourceTree = "<group>"; };
+		5A04EF221B0D887800A88D3B /* GoodsTopicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsTopicModel.m; path = Common/Models/Goods/GoodsTopicModel.m; sourceTree = "<group>"; };
+		5A04EF251B0D8CBE00A88D3B /* GoodsTopicHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsTopicHeaderCell.h; path = Business/Goods/views/GoodsTopicHeaderCell.h; sourceTree = "<group>"; };
+		5A04EF261B0D8CBE00A88D3B /* GoodsTopicHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsTopicHeaderCell.m; path = Business/Goods/views/GoodsTopicHeaderCell.m; sourceTree = "<group>"; };
+		5A04EF281B0D8D1A00A88D3B /* GoodsTopicItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsTopicItemCell.h; path = Business/Goods/views/GoodsTopicItemCell.h; sourceTree = "<group>"; };
+		5A04EF291B0D8D1A00A88D3B /* GoodsTopicItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsTopicItemCell.m; path = Business/Goods/views/GoodsTopicItemCell.m; sourceTree = "<group>"; };
+		5A04EF2B1B0DCD4E00A88D3B /* GoodsDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsDetailModel.h; path = Common/Models/Goods/GoodsDetailModel.h; sourceTree = "<group>"; };
+		5A04EF2C1B0DCD4E00A88D3B /* GoodsDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailModel.m; path = Common/Models/Goods/GoodsDetailModel.m; sourceTree = "<group>"; };
+		5A04EF2E1B0DE8EE00A88D3B /* GoodsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsDetailViewController.h; path = Business/Goods/GoodsDetailViewController.h; sourceTree = "<group>"; };
+		5A04EF2F1B0DE8EE00A88D3B /* GoodsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailViewController.m; path = Business/Goods/GoodsDetailViewController.m; sourceTree = "<group>"; };
 		5A1E0DAE1B09CC2D000EC137 /* ArticleDetailContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleDetailContentCell.h; path = Business/Article/Views/ArticleDetailContentCell.h; sourceTree = "<group>"; };
 		5A1E0DAF1B09CC2D000EC137 /* ArticleDetailContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleDetailContentCell.m; path = Business/Article/Views/ArticleDetailContentCell.m; sourceTree = "<group>"; };
 		5A1E0DB11B09D014000EC137 /* ArticleDetailCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleDetailCommentViewController.h; path = Business/Article/ArticleDetailCommentViewController.h; sourceTree = "<group>"; };
@@ -122,6 +143,12 @@
 		5A6806FF1B01FBDD00D02A60 /* MySuggestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySuggestViewController.m; path = Business/Mine/MySuggestViewController.m; sourceTree = "<group>"; };
 		5A9511971B058B4700D757CD /* ArticleCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleCommentModel.h; path = Common/Models/Article/ArticleCommentModel.h; sourceTree = "<group>"; };
 		5A9511981B058B4700D757CD /* ArticleCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleCommentModel.m; path = Common/Models/Article/ArticleCommentModel.m; sourceTree = "<group>"; };
+		5AB7B3A61B0EC11700044DFE /* GoodsDetailHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsDetailHeaderCell.h; path = Business/Goods/views/GoodsDetailHeaderCell.h; sourceTree = "<group>"; };
+		5AB7B3A71B0EC11700044DFE /* GoodsDetailHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailHeaderCell.m; path = Business/Goods/views/GoodsDetailHeaderCell.m; sourceTree = "<group>"; };
+		5AB7B3A91B0EC1B800044DFE /* GoodsDetailImgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsDetailImgCell.h; path = Business/Goods/views/GoodsDetailImgCell.h; sourceTree = "<group>"; };
+		5AB7B3AA1B0EC1B800044DFE /* GoodsDetailImgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailImgCell.m; path = Business/Goods/views/GoodsDetailImgCell.m; sourceTree = "<group>"; };
+		5AB7B3AC1B0EC1E800044DFE /* GoodsDetailShopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsDetailShopCell.h; path = Business/Goods/views/GoodsDetailShopCell.h; sourceTree = "<group>"; };
+		5AB7B3AD1B0EC1E800044DFE /* GoodsDetailShopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailShopCell.m; path = Business/Goods/views/GoodsDetailShopCell.m; sourceTree = "<group>"; };
 		5B9DF4BE98C18CC18BDADCD8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC2FAA0C1AFC8E9600E2071E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		BC2FAA0D1AFCA92D00E2071E /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Frame.h"; path = "Common/Categorys/UIView+Frame.h"; sourceTree = "<group>"; };
@@ -300,6 +327,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5A04EF201B0D883800A88D3B /* Goods */ = {
+			isa = PBXGroup;
+			children = (
+				5A04EF211B0D887800A88D3B /* GoodsTopicModel.h */,
+				5A04EF221B0D887800A88D3B /* GoodsTopicModel.m */,
+				5A04EF2B1B0DCD4E00A88D3B /* GoodsDetailModel.h */,
+				5A04EF2C1B0DCD4E00A88D3B /* GoodsDetailModel.m */,
+			);
+			name = Goods;
+			sourceTree = "<group>";
+		};
+		5A04EF241B0D8C4A00A88D3B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5A04EF251B0D8CBE00A88D3B /* GoodsTopicHeaderCell.h */,
+				5A04EF261B0D8CBE00A88D3B /* GoodsTopicHeaderCell.m */,
+				5A04EF281B0D8D1A00A88D3B /* GoodsTopicItemCell.h */,
+				5A04EF291B0D8D1A00A88D3B /* GoodsTopicItemCell.m */,
+				5AB7B3A61B0EC11700044DFE /* GoodsDetailHeaderCell.h */,
+				5AB7B3A71B0EC11700044DFE /* GoodsDetailHeaderCell.m */,
+				5AB7B3A91B0EC1B800044DFE /* GoodsDetailImgCell.h */,
+				5AB7B3AA1B0EC1B800044DFE /* GoodsDetailImgCell.m */,
+				5AB7B3AC1B0EC1E800044DFE /* GoodsDetailShopCell.h */,
+				5AB7B3AD1B0EC1E800044DFE /* GoodsDetailShopCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		5A6806E41B019EFD00D02A60 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +463,7 @@
 			isa = PBXGroup;
 			children = (
 				BC41ABB21B0D8D2F00A419DA /* Suggest */,
+				5A04EF201B0D883800A88D3B /* Goods */,
 				BC38D2321AFEDFEC0051C7E9 /* Article */,
 				BC38D2311AFEDFDD0051C7E9 /* Home */,
 				BC41ABAA1B0C7A8C00A419DA /* Mine */,
@@ -635,6 +691,11 @@
 		BCA273291AEB49A0002E7534 /* Goods */ = {
 			isa = PBXGroup;
 			children = (
+				5A04EF241B0D8C4A00A88D3B /* Views */,
+				5A04EF1D1B0D84EC00A88D3B /* GoodsTopicViewController.h */,
+				5A04EF1E1B0D84EC00A88D3B /* GoodsTopicViewController.m */,
+				5A04EF2E1B0DE8EE00A88D3B /* GoodsDetailViewController.h */,
+				5A04EF2F1B0DE8EE00A88D3B /* GoodsDetailViewController.m */,
 			);
 			name = Goods;
 			sourceTree = "<group>";
@@ -852,13 +913,16 @@
 			files = (
 				5A1E0DB01B09CC2D000EC137 /* ArticleDetailContentCell.m in Sources */,
 				BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */,
+				5AB7B3A81B0EC11700044DFE /* GoodsDetailHeaderCell.m in Sources */,
 				BC77085F1AFC5685000068A8 /* UILabel+ContentSize.m in Sources */,
 				BCA273321AEB4A5A002E7534 /* ArticleTopicViewController.m in Sources */,
 				BC41ABA91B0C715400A419DA /* Environment.m in Sources */,
+				5A04EF271B0D8CBE00A88D3B /* GoodsTopicHeaderCell.m in Sources */,
 				BC38D24E1B00BBA70051C7E9 /* ArticleDetailModel.m in Sources */,
 				BC38D2471B0050770051C7E9 /* ArticleTopicItemCell.m in Sources */,
 				5A1E0DB31B09D014000EC137 /* ArticleDetailCommentViewController.m in Sources */,
 				BC8540941ADF74E9005A7C54 /* AppDelegate.m in Sources */,
+				5A04EF1F1B0D84EC00A88D3B /* GoodsTopicViewController.m in Sources */,
 				BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */,
 				5A6806F31B01C9C700D02A60 /* PersonInfoViewController.m in Sources */,
 				BCCDF5DF1B09E6C7008BAE12 /* SugSubmitProductContentCell.m in Sources */,
@@ -868,6 +932,9 @@
 				BCA273211AE9FB78002E7534 /* NSURL+MOURL.m in Sources */,
 				BC8540911ADF74E9005A7C54 /* main.m in Sources */,
 				BCCDF5DC1B09E368008BAE12 /* SugTagsCell.m in Sources */,
+				5A04EF2D1B0DCD4E00A88D3B /* GoodsDetailModel.m in Sources */,
+				5A04EF231B0D887800A88D3B /* GoodsTopicModel.m in Sources */,
+				BCCDF5DC1B09E368008BAE12 /* SugSubmitTagsCell.m in Sources */,
 				BC38D2511B00C8760051C7E9 /* ArticleDetailAuthorCell.m in Sources */,
 				BC77085C1AFC54F3000068A8 /* ArticleTopicHeaderCell.m in Sources */,
 				5A9511991B058B4700D757CD /* ArticleCommentModel.m in Sources */,
@@ -881,7 +948,9 @@
 				BC38D24B1B00BB660051C7E9 /* ArticleDetailHeaderCell.m in Sources */,
 				5A6806FB1B01D9EA00D02A60 /* MyCollectionViewController.m in Sources */,
 				5A2144581B0C6A8A0072682F /* AlertNotice.m in Sources */,
+				5AB7B3AB1B0EC1B800044DFE /* GoodsDetailImgCell.m in Sources */,
 				BCCDF5E51B09EBF8008BAE12 /* UITextView+Placeholder.m in Sources */,
+				5A04EF301B0DE8EE00A88D3B /* GoodsDetailViewController.m in Sources */,
 				BC41ABAD1B0C7ABF00A419DA /* UploadImageModel.m in Sources */,
 				BC7708541AFB1600000068A8 /* ArticleDetailViewController.m in Sources */,
 				BCA2730A1AE8DE95002E7534 /* HomeTopicCell.m in Sources */,
@@ -890,6 +959,8 @@
 				BCA273241AEB166E002E7534 /* MONavigationController.m in Sources */,
 				5A6807001B01FBDD00D02A60 /* MySuggestViewController.m in Sources */,
 				BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */,
+				5A04EF2A1B0D8D1A00A88D3B /* GoodsTopicItemCell.m in Sources */,
+				5AB7B3AE1B0EC1E800044DFE /* GoodsDetailShopCell.m in Sources */,
 				BCFC2C371AF9C6B800164BC2 /* ActivityWebViewController.m in Sources */,
 				BC38D2891B099D0B0051C7E9 /* SuggestSubmitViewController.m in Sources */,
 				BC38D23C1AFEE2B50051C7E9 /* HomeModel.m in Sources */,

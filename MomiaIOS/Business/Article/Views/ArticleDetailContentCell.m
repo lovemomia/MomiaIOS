@@ -65,6 +65,8 @@ static NSString *identifier = @"CellContent";
     cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if(cell == nil) {
         cell = [[ArticleDetailContentCell alloc] init];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     }
     cell.data = data;
     return cell;

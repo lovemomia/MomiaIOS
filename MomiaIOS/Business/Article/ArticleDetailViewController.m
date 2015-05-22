@@ -97,8 +97,9 @@
     if (self.model == nil) {
         [self.view showLoadingBee];
     }
+    NSDictionary * dic = @{@"articleid":@(self.articleId)};
     
-    [[HttpService defaultService] GET:@"http://120.55.102.12:8080/articledetail?v=1.0&teminal=iphone&os=8.0&device=iphone6&channel=xxx&net=3g&sign=xxxx&articleid=2" parameters:nil cacheType:CacheTypeDisable JSONModelClass:[ArticleDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/articledetail") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[ArticleDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.model == nil) {
             [self.view removeLoadingBee];
         }
