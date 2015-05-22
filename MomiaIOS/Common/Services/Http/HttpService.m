@@ -87,7 +87,7 @@
     
     BlockMOUploadImageHandler blockHandler = ^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
-            
+            handler(response, responseObject, error);
             NSLog(@"http (Upload Image) fail: %@", error);
             
         } else {

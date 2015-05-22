@@ -8,6 +8,10 @@
 
 #import "UploadImageModel.h"
 
+@implementation UploadImageData
+
+@end
+
 @implementation UploadImageModel
 
 @end

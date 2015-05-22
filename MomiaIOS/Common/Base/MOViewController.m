@@ -8,6 +8,7 @@
 
 #import "MOViewController.h"
 #import "MONavigationController.h"
+#import "URLMappingManager.h"
 
 @interface MOViewController ()
 
@@ -65,6 +66,20 @@
 - (BOOL)openURL:(NSString *)urlStr {
     NSURL *url = [NSURL URLWithString:urlStr];
     return [[UIApplication sharedApplication ] openURL:url];
+}
+
+- (BOOL)presentURL:(NSString *)urlStr {
+    NSURL *url = [NSURL URLWithString:urlStr];
+    return [[URLMappingManager sharedManager] presentURL:url byParent:self animated:YES];
+}
+
+- (void)showDialogWithTitle:(NSString *)title message:(NSString *)message {
+    UIAlertView *alter = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    [alter show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
 }
 
 @end

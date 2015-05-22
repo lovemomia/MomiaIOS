@@ -45,33 +45,49 @@ NSString * const pageKeyDesc          = @"desc";
     return self;
 }
 
+// called by AppDelegate
+- (void)handleOpenURL:(NSURL *)url byNav:(UINavigationController *)nav {
+    [self openURL:url byNav:nav];
+}
+
 - (BOOL)openURL:(NSURL *)url byNav:(UINavigationController *)nav {
-    if (url == nil) {
+    MOViewController *controller = [self createControllerFromURL:url];
+    if (controller == nil) {
         return NO;
     }
-    
-    NSString *host = [[url host] lowercaseString];
-    NSDictionary *params = [url queryDictionary];
-    
-    NSDictionary *pageDic = self.urlMapping[host];
-    if (pageDic == nil) {
-        return NO;
-    }
-    
-    [self pushController:pageDic[pageKeyController] withParams:params byNav:nav];
+    [nav pushViewController:controller animated:YES];
     
     return YES;
 }
 
-- (void)pushController:(NSString *)name withParams:(NSDictionary *)params byNav:(UINavigationController *)nav {
-    MOViewController *controller = [[NSClassFromString(name) alloc]initWithParams:params];
-    
-    [nav pushViewController:controller animated:YES];
+- (BOOL)presentURL:(NSURL *)url byParent:(UIViewController *)parent animated:(BOOL)animated {
+    MOViewController *controller = [self createControllerFromURL:url];
+    if (controller == nil) {
+        return NO;
+    }
+    [parent presentViewController:controller animated:animated completion:nil];
+    return YES;
 }
 
-// called by AppDelegate
-- (void)handleOpenURL:(NSURL *)url byNav:(UINavigationController *)nav {
-    [self openURL:url byNav:nav];
+- (NSDictionary *)parsePageWithURL:(NSURL *)url {
+    if (url == nil) {
+        return nil;
+    }
+    NSString *host = [[url host] lowercaseString];
+    NSDictionary *pageDic = self.urlMapping[host];
+    return pageDic;
+}
+
+- (MOViewController *)createControllerFromURL:(NSURL *)url {
+    NSDictionary *pageDic = [self parsePageWithURL:url];
+    if (pageDic == nil) {
+        NSLog(@"URLMapping fail (not found page with url:%@", url);
+        return nil;
+    }
+    
+    NSDictionary *params = [url queryDictionary];
+    MOViewController *controller = [[NSClassFromString(pageDic[pageKeyController]) alloc]initWithParams:params];
+    return controller;
 }
 
 @end

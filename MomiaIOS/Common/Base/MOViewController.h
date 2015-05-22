@@ -10,7 +10,7 @@
 #import "AFHTTPRequestOperationManager.h"
 
 
-@interface MOViewController : UIViewController
+@interface MOViewController : UIViewController <UIAlertViewDelegate>
 
 @property (nonatomic, strong) UIView *navBackView; // 导航条背景
 - (void)addNavBackView;
@@ -20,5 +20,9 @@
 - (BOOL)isNavTransparent;
 
 - (BOOL)openURL:(NSString *)urlStr;
+
+- (BOOL)presentURL:(NSString *)urlStr;
+
+- (void)showDialogWithTitle:(NSString *)title message:(NSString *)message;
 
 @end

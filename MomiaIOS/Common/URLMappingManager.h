@@ -8,13 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "MOViewController.h"
 
 @interface URLMappingManager : NSObject
 
 + (URLMappingManager *)sharedManager;
 
+- (void)handleOpenURL:(NSURL *)url byNav:(UINavigationController *)nav;
+
 - (BOOL)openURL:(NSURL *)url byNav:(UINavigationController *)nav;
 
-- (void)handleOpenURL:(NSURL *)url byNav:(UINavigationController *)nav;
+- (BOOL)presentURL:(NSURL *)url byParent:(UIViewController *)parent animated:(BOOL)animated;
+
+- (MOViewController *)createControllerFromURL:(NSURL *)url;
 
 @end

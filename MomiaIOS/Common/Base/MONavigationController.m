@@ -14,18 +14,14 @@
 
 -(id)init {
     if (self = [super init]) {
-        // text color
-        [self setTitleTextStyle];
-        
-        // background color
-        [self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-        self.navigationBar.shadowImage = [UIImage new];
-        self.navigationBar.translucent = YES;
-        
-        CGRect frame = self.navigationBar.frame;
-        backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height+20)];
-        backView.backgroundColor = MO_APP_NaviColor;
-        [[[UIApplication sharedApplication].delegate window] insertSubview:backView atIndex:0];
+        [self setTitleStyle];
+    }
+    return self;
+}
+
+-(id)initWithRootViewController:(UIViewController *)rootViewController {
+    if (self = [super initWithRootViewController:rootViewController]) {
+        [self setTitleStyle];
     }
     return self;
 }
@@ -36,6 +32,21 @@
     UIBarButtonItem *item = [[UIBarButtonItem alloc] init];
     item.title = @"返回";
     viewController.navigationItem.backBarButtonItem = item;
+}
+
+- (void)setTitleStyle {
+    // text color
+    [self setTitleTextStyle];
+    
+    // background color
+    [self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    self.navigationBar.shadowImage = [UIImage new];
+    self.navigationBar.translucent = YES;
+    
+    CGRect frame = self.navigationBar.frame;
+    backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height+20)];
+    backView.backgroundColor = MO_APP_NaviColor;
+    [[[UIApplication sharedApplication].delegate window] insertSubview:backView atIndex:0];
 }
 
 - (void)setTitleTextStyle {
