@@ -13,13 +13,20 @@
 
 @interface ArticleTopicViewController ()
 
+@property (nonatomic, assign) NSInteger topicId;
 @property (nonatomic, strong) ArticleTopicModel *model;
-
 @property (nonatomic, strong) UIImageView *coverImageView;
 
 @end
 
 @implementation ArticleTopicViewController
+
+- (instancetype)initWithParams:(NSDictionary *)params {
+    if (self = [super initWithParams:params]) {
+        self.topicId = [[params objectForKey:@"id"] integerValue];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,7 +62,8 @@
         [self.view showLoadingBee];
     }
     
-    [[HttpService defaultService] GET:@"http://120.55.102.12:8080/articletopic?v=1.0&teminal=iphone&os=8.0&device=iphone6&channel=xxx&net=3g&sign=xxxx&topicid=1" parameters:nil cacheType:CacheTypeDisable JSONModelClass:[ArticleTopicModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSDictionary * dic = @{@"topicid":@(self.topicId)};
+    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/articletopic") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[ArticleTopicModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.model == nil) {
             [self.view removeLoadingBee];
         }

@@ -15,7 +15,7 @@
 @implementation MOWebViewController
 
 - (instancetype)initWithParams:(NSDictionary *)params {
-    if (self = [super initWithNibName:nil bundle:nil]) {
+    if (self = [super initWithParams:params]) {
         self.url = [[params objectForKey:@"url"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         self.navTitle = [params objectForKey:@"title"];
     }
