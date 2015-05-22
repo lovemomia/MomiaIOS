@@ -101,5 +101,14 @@
 		<key>desc</key>
 		<string>文章详情评论页面</string>
 	</dict>
+	<key>sugtags</key>
+	<dict>
+		<key>controller</key>
+		<string>SuggestTagsViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>推荐标签</string>
+	</dict>
 </dict>
 </plist>

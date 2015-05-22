@@ -9,10 +9,12 @@
 #import "SuggestSubmitViewController.h"
 #import "SugSubmitProductNameCell.h"
 #import "SugSubmitProductContentCell.h"
-#import "SugSubmitTagsCell.h"
 #import "MONavigationController.h"
 #import "UploadImageModel.h"
 #import "BaseModel.h"
+#import "SuggestTagsViewController.h"
+#import "URLMappingManager.h"
+#import "SugTagsModel.h"
 
 typedef enum {
     UploadStatusFail   = -1,
@@ -37,11 +39,17 @@ typedef enum {
 
 @property (strong, nonatomic) SugSubmitProductNameCell *nameCell;
 @property (strong, nonatomic) SugSubmitProductContentCell *contentCell;
+@property (strong, nonatomic) UITableViewCell *tagsCell;
 @property (strong, nonatomic) NSMutableArray *uploadImages;
 
 @property (strong, nonatomic) UITextView *nameTextView;
 @property (strong, nonatomic) UITextView *contentTextView;
 @property (strong, nonatomic) SelectImage *selectImage;
+
+@property (strong, nonatomic) NSArray *assortArray;
+@property (strong, nonatomic) NSArray *crowdArray;
+
+@property (assign, nonatomic) BOOL isSubmitSuccess;
 
 @end
 
@@ -64,10 +72,60 @@ typedef enum {
 }
 
 - (void)onSubmitClicked {
+    // 参数判断
+    if (self.nameCell.nameTv.text.length == 0) {
+        [self showDialogWithTitle:nil message:@"请输入商品名称！"];
+        return;
+    }
+    
+    if (self.contentCell.contentTv.text.length == 0) {
+        [self showDialogWithTitle:nil message:@"请输入商品简介！"];
+        return;
+    }
+    
+    if (self.uploadImages == nil) {
+        [self showDialogWithTitle:nil message:@"请至少上传一张商品图片！"];
+        return;
+    }
+    
+    
+    if (self.assortArray == nil || ![self isTagsSelected:self.assortArray]) {
+        [self showDialogWithTitle:nil message:@"您还未选择标签分类！"];
+        return;
+    }
+    
+    if (self.crowdArray == nil || ![self isTagsSelected:self.crowdArray]) {
+        [self showDialogWithTitle:nil message:@"您还未选择标签适用人群！"];
+        return;
+    }
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    BOOL imagesUploaded = YES;
     for (SelectImage *si in self.uploadImages) {
         if (si.uploadStatus <= UploadStatusIdle) {
             [self uploadImage:si];
+            imagesUploaded = NO;
+//            break;
+        }
+    }
+    if (imagesUploaded) {
+        [self submit];
+    }
+}
+
+- (BOOL)isTagsSelected:(NSArray *)tags {
+    for (Tag *tag in tags) {
+        if (tag.isSelected) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        if (self.isSubmitSuccess) {
+            [self.navigationController popViewControllerAnimated:YES];
         }
     }
 }
@@ -75,16 +133,18 @@ typedef enum {
 // 提交
 - (void)submit {
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-    [params setObject:@"name" forKey:self.nameCell.nameTv.text];
-    [params setObject:@"content" forKey:self.contentCell.contentTv.text];
-    [params setObject:@"photos" forKey:[self makePhotosJsonString]];
+    [params setObject:self.nameCell.nameTv.text forKey:@"name"];
+    [params setObject:self.contentCell.contentTv.text forKey:@"content"];
+    [params setObject:[self makePhotosJsonString] forKey:@"photos"];
+    [params setObject:[self makeAssortsString] forKey:@"assorts"];
+    [params setObject:[self makeCrowdsString] forKey:@"crowds"];
     [[HttpService defaultService] POST:URL_APPEND_PATH(@"/goods") parameters:params JSONModelClass:[BaseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        
+        [self showDialogWithTitle:nil message:@"发布成功！"];
+        self.isSubmitSuccess = YES;
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
+        [self showDialogWithTitle:nil message:@"发布失败，请稍后再试"];
         
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
@@ -99,6 +159,7 @@ typedef enum {
             if (i != 0) {
                 [jsonStr appendString:@","];
             }
+
             [jsonStr appendString:[si.respData toJSONString]];
             i++;
         }
@@ -107,15 +168,47 @@ typedef enum {
     return jsonStr;
 }
 
+- (NSString *)makeAssortsString {
+    NSMutableString *jsonStr = [[NSMutableString alloc]init];
+    int i = 0;
+    for (Tag *tag in self.assortArray) {
+        if (tag.isSelected) {
+            if (i != 0) {
+                [jsonStr appendString:@","];
+            }
+            [jsonStr appendString:[NSString stringWithFormat:@"%d",tag.pairID]];
+            i++;
+        }
+    }
+    return jsonStr;
+}
+
+- (NSString *)makeCrowdsString {
+    NSMutableString *jsonStr = [[NSMutableString alloc]init];
+    int i = 0;
+    for (Tag *tag in self.crowdArray) {
+        if (tag.isSelected) {
+            if (i != 0) {
+                [jsonStr appendString:@","];
+            }
+            [jsonStr appendString:[NSString stringWithFormat:@"%d",tag.pairID]];
+            i++;
+        }
+    }
+    return jsonStr;
+}
+
 - (void)uploadImage:(SelectImage *)image {
     image.uploadStatus = UploadStatusGoing;
     [[HttpService defaultService] uploadImageWithFilePath:image.filePath fileName:image.fileName handler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
             image.uploadStatus = UploadStatusFail;
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [self showDialogWithTitle:nil message:@"图片上传失败，请稍后重新尝试"];
             
         } else {
             image.uploadStatus = UploadStatusFinish;
-            image.respData = responseObject;
+            image.respData = ((UploadImageModel *)responseObject).data;
             if ([self isAllImagesUploadFinish]) {
                 [self submit];
             }
@@ -126,6 +219,7 @@ typedef enum {
 - (BOOL)isAllImagesUploadFinish {
     for (SelectImage *si in self.uploadImages) {
         if (si.uploadStatus != UploadStatusFinish) {
+            [self uploadImage:si];
             return NO;
         }
     }
@@ -150,6 +244,26 @@ typedef enum {
 }
 */
 
+#pragma mark - tableview delegate & datasource
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1) {
+        SuggestTagsViewController *controller = (SuggestTagsViewController *)[[URLMappingManager sharedManager]createControllerFromURL:[NSURL URLWithString:@"momia://sugtags"]];
+        controller.delegate = self;
+        if (self.assortArray && self.crowdArray) {
+            controller.assorts = self.assortArray;
+            controller.crowds = self.crowdArray;
+        }
+        
+        MONavigationController *navController = [[MONavigationController alloc]initWithRootViewController:controller];
+        [self presentViewController:navController animated:YES completion:nil];
+        
+//        [self openURL:@"momia://sugtags"];
+
+    }
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger row = indexPath.row;
@@ -161,7 +275,7 @@ typedef enum {
             return [SugSubmitProductContentCell height];
         }
     }
-    return [SugSubmitTagsCell height];
+    return 44;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -178,6 +292,7 @@ typedef enum {
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellTags = @"CellTags";
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     UITableViewCell *cell;
@@ -188,12 +303,19 @@ typedef enum {
             
         } else {
             SugSubmitProductContentCell *contentCell = [SugSubmitProductContentCell cellWithTableView:tableView];
-            ((SugSubmitProductContentCell *)cell).delegate = self;
+            contentCell.delegate = self;
             cell = self.contentCell = contentCell;
         }
         
     } else {
-        cell = [SugSubmitTagsCell cellWithTableView:tableView];
+        cell = [tableView dequeueReusableCellWithIdentifier:CellTags];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellTags];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.textLabel.text = @"添加标签";
+        }
+        self.tagsCell = cell;
     }
     return cell;
 }
@@ -203,18 +325,6 @@ typedef enum {
 //从相册获取图片
 -(void)takePictureClick
 {
-    //    /*注：使用，需要实现以下协议：UIImagePickerControllerDelegate,
-    //     UINavigationControllerDelegate
-    //     */
-    //    UIImagePickerController *picker = [[UIImagePickerController alloc]init];
-    //    //设置图片源(相簿)
-    //    picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-    //    //设置代理
-    //    picker.delegate = self;
-    //    //设置可以编辑
-    //    picker.allowsEditing = YES;
-    //    //打开拾取器界面
-    //    [self presentViewController:picker animated:YES completion:nil];
     UIActionSheet* actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:@"请选择图片来源"
                                   delegate:self
@@ -290,33 +400,44 @@ typedef enum {
     if(success) {
         success = [fileManager removeItemAtPath:imageFilePath error:&error];
     }
-    //    UIImage *smallImage=[self scaleFromImage:image toSize:CGSizeMake(80.0f, 80.0f)];//将图片尺寸改为80*80
-    UIImage *smallImage = [self thumbnailWithImageWithoutScale:[self croppImage:image] size:CGSizeMake(self.selectImage.imageView.size.width, self.selectImage.imageView.size.height)];
-    [UIImageJPEGRepresentation(smallImage, 1.0f) writeToFile:imageFilePath atomically:YES];//写入文件
-    UIImage *selfPhoto = [UIImage imageWithContentsOfFile:imageFilePath];//读取图片文件
-    //    [userPhotoButton setImage:selfPhoto forState:UIControlStateNormal];
-    self.selectImage.imageView.image = selfPhoto;
     
-    if ([[Environment singleton].networkType isEqualToString:@"wifi"]) {
-        self.selectImage.uploadStatus = UploadStatusGoing;
-        [[HttpService defaultService] uploadImageWithFilePath:imageFilePath fileName:@"selfPhoto.jpg" handler:^(NSURLResponse *response, id responseObject, NSError *error) {
-            if (error) {
-                self.selectImage.uploadStatus = UploadStatusFail;
-                
-            } else {
-                self.selectImage.uploadStatus = UploadStatusFinish;
-                self.selectImage.respData = responseObject;
-                if ([self isAllImagesUploadFinish]) {
-                    [self submit];
-                }
-            }
-        }];
-    }
+    UIImage *smallImage = [self thumbnailWithImageWithoutScale:[self croppImage:image] size:CGSizeMake(self.selectImage.imageView.size.width, self.selectImage.imageView.size.height)];
+    
+    self.selectImage.imageView.image = smallImage;
+    
+    NSString *uploadImageName = [NSString stringWithFormat:@"upload_%d.jpg", (int)self.uploadImages.count];
+    NSString *uploadImagePath = [documentsDirectory stringByAppendingPathComponent:uploadImageName];
+    UIImage *uploadImage=[self scaleFromImage:image];
+    [UIImageJPEGRepresentation(uploadImage, 1.0f) writeToFile:uploadImagePath atomically:YES];//写入文件
+    self.selectImage.fileName = uploadImageName;
+    self.selectImage.filePath = uploadImagePath;
+    
+    // 提前上传
+//    if ([[Environment singleton].networkType isEqualToString:@"wifi"]) {
+//        self.selectImage.uploadStatus = UploadStatusGoing;
+//        
+//        [[HttpService defaultService] uploadImageWithFilePath:uploadImagePath fileName:uploadImageName handler:^(NSURLResponse *response, id responseObject, NSError *error) {
+//            if (error) {
+//                self.selectImage.uploadStatus = UploadStatusFail;
+//                
+//            } else {
+//                self.selectImage.respData = ((UploadImageModel *)responseObject).data;
+//                self.selectImage.uploadStatus = UploadStatusFinish;
+//            }
+//        }];
+//    }
 }
 
 // 改变图像的尺寸，方便上传服务器
-- (UIImage *) scaleFromImage: (UIImage *) image toSize: (CGSize) size
+- (UIImage *) scaleFromImage: (UIImage *) image
 {
+    CGSize size = CGSizeMake(800, 800);
+    int scaleWidth = 800;
+    if (image.size.width < size.width) {
+        return image;
+    }
+    size.height = scaleWidth * image.size.height / image.size.width;
+    
     UIGraphicsBeginImageContext(size);
     [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -380,10 +501,41 @@ typedef enum {
         SelectImage *si = [[SelectImage alloc]init];
         si.imageView = photoView;
         self.selectImage = si;
+        if (self.uploadImages == nil) {
+            self.uploadImages = [[NSMutableArray alloc]init];
+        }
         [self.uploadImages addObject:si];
     }
     
     [self takePictureClick];
+}
+
+#pragma mark - suggest tags choose delegate
+
+-(void)onChooseFinishWithAssorts:(NSArray *)assorts andCrowds:(NSArray *)crowds {
+    self.assortArray = assorts;
+    self.crowdArray = crowds;
+    
+    NSMutableString *ms = [[NSMutableString alloc]init];
+    for (Tag *tag in assorts) {
+        if (tag.isSelected) {
+            [ms appendString:tag.name];
+            [ms appendString:@" "];
+        }
+    }
+    for (Tag *tag in crowds) {
+        if (tag.isSelected) {
+            [ms appendString:tag.name];
+            [ms appendString:@" "];
+        }
+    }
+    self.tagsCell.textLabel.text = ms;
+    
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
+
+-(void)onCancel {
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 @end

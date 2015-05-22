@@ -8,7 +8,8 @@
 
 #import "MOTableViewController.h"
 #import "SugSubmitProductContentCell.h"
+#import "SuggestTagsViewController.h"
 
-@interface SuggestSubmitViewController : MOTableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, ProductPhotoPickDelegate, UIActionSheetDelegate>
+@interface SuggestSubmitViewController : MOTableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, ProductPhotoPickDelegate, UIActionSheetDelegate, SuggestTagsChooseDelegate>
 
 @end
