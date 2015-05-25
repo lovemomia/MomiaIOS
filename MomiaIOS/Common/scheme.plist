@@ -101,14 +101,14 @@
 		<key>desc</key>
 		<string>活动web页面</string>
 	</dict>
-	<key>articledetailcomment</key>
+	<key>comment</key>
 	<dict>
 		<key>controller</key>
-		<string>ArticleDetailCommentViewController</string>
+		<string>CommentViewController</string>
 		<key>needlogin</key>
 		<false/>
 		<key>desc</key>
-		<string>文章详情评论页面</string>
+		<string>评论页面</string>
 	</dict>
 	<key>goodstopic</key>
 	<dict>

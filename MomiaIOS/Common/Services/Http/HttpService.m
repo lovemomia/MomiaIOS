@@ -40,7 +40,7 @@
         id result = [(BaseModel *)[responseModelClass alloc]initWithDictionary:responseObject error:nil];
         success(operation, result);
         
-        NSLog(@"http (GET) success: %@", responseObject);
+//        NSLog(@"http (GET) success: %@", responseObject);
     };
     
     BlockMOHTTPRequestFail onFail = ^(AFHTTPRequestOperation *operation, NSError *error) {

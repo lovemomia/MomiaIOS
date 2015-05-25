@@ -1,25 +1,25 @@
 //
-//  ArticleDetailCommentViewController.m
+//  CommentViewController.m
 //  MomiaIOS
 //
-//  Created by Owen on 15/5/18.
+//  Created by Owen on 15/5/25.
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "ArticleDetailCommentViewController.h"
-#import "ArticleCommentModel.h"
-#import "ArticleDetailCommentCell.h"
+#import "CommentViewController.h"
+#import "CommentModel.h"
+#import "CommentCell.h"
 #import "SendCommentView.h"
-#import "ArticleCommentPostModel.h"
+#import "CommentPostModel.h"
 
-@interface ArticleDetailCommentViewController ()
+@interface CommentViewController ()
 
-@property (nonatomic, strong) ArticleCommentModel * commentModel;
+@property (nonatomic, strong) CommentModel * commentModel;
 @property (nonatomic, strong) SendCommentView * sendCommentView;
 
 @end
 
-@implementation ArticleDetailCommentViewController
+@implementation CommentViewController
 
 
 /* tableView分割线，默认无 */
@@ -50,12 +50,12 @@
         make.bottom.equalTo(self.view.mas_bottom).with.offset(-50);
         make.right.equalTo(self.view.mas_right).with.offset(0);
     }];
-   
+    
     //当单元格数目少于屏幕时会出现多余分割线，直接设置tableFooterView用以删除
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self.view addSubview:self.sendCommentView];
-
+    
     [self.sendCommentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(0);
         make.bottom.equalTo(self.view.mas_bottom).with.offset(0);
@@ -64,7 +64,7 @@
     }];
     [self.sendCommentView setBackgroundColor:[UIColor whiteColor]];
     
-    __weak ArticleDetailCommentViewController * weakSelf = self;
+    __weak CommentViewController * weakSelf = self;
     
     [self.sendCommentView set_sentCommentBlock:^(UIButton *sender, UITextField *textContentView) {
         if([[textContentView text] isEqualToString:@""]) {
@@ -74,12 +74,12 @@
         } else {
             //开始发送
             NSDictionary * dic = @{@"type":@"0",@"content":textContentView.text,@"refid":@"1"};
-
+            
             [MBProgressHUD showHUDAddedTo:weakSelf.view animated:YES];
             [weakSelf.sendCommentView setUserInteractionEnabled:NO];
             
-            [[HttpService defaultService] POST:@"http://i.momia.cn/comment" parameters:dic JSONModelClass:[ArticleCommentPostModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                ArticleCommentPostModel * result = [[ArticleCommentPostModel alloc] initWithDictionary:responseObject error:nil];
+            [[HttpService defaultService] POST:@"http://i.momia.cn/comment" parameters:dic JSONModelClass:[CommentPostModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                CommentPostModel * result = [[CommentPostModel alloc] initWithDictionary:responseObject error:nil];
                 
                 
                 [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
@@ -98,7 +98,7 @@
                 
                 [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
                 [weakSelf.sendCommentView setUserInteractionEnabled:YES];
-
+                
                 [textContentView resignFirstResponder];
                 
                 
@@ -118,14 +118,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 #pragma mark - requestData
 //请求评论详情数据
@@ -134,7 +134,7 @@
         [self.view showLoadingBee];
     }
     
-    [[HttpService defaultService] GET:@"http://120.55.102.12:8080/comment/article?v=1.0&teminal=iphone&os=8.0&device=iphone6&channel=xxx&net=3g&sign=xxxx&refid=1&start=0&count=10" parameters:nil cacheType:CacheTypeDisable JSONModelClass:[ArticleCommentModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[HttpService defaultService] GET:@"http://120.55.102.12:8080/comment/article?v=1.0&teminal=iphone&os=8.0&device=iphone6&channel=xxx&net=3g&sign=xxxx&refid=1&start=0&count=10" parameters:nil cacheType:CacheTypeDisable JSONModelClass:[CommentModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.commentModel == nil) {
             [self.view removeLoadingBee];
         }
@@ -154,8 +154,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ArticleCommentItem * item = [self.commentModel.data.commentList objectAtIndex:indexPath.row];
-    return [ArticleDetailCommentCell heightWithData:item];
+    CommentItem * item = [self.commentModel.data.commentList objectAtIndex:indexPath.row];
+    return [CommentCell heightWithData:item];
 }
 
 
@@ -170,8 +170,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    ArticleCommentItem * item = [self.commentModel.data.commentList objectAtIndex:indexPath.row];
-    ArticleDetailCommentCell * comment = [ArticleDetailCommentCell cellWithTableView:tableView];
+    CommentItem * item = [self.commentModel.data.commentList objectAtIndex:indexPath.row];
+    CommentCell * comment = [CommentCell cellWithTableView:tableView];
     [comment setData:item];
     comment.backgroundColor = MO_APP_VCBackgroundColor;
     return comment;
@@ -180,3 +180,4 @@
 
 
 @end
+

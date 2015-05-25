@@ -124,7 +124,7 @@
             </connections>
             <point key="canvasLocation" x="160" y="425.5"/>
         </tableViewCell>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellComment" rowHeight="103" id="lcI-av-atM" customClass="ArticleDetailCommentCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellComment" rowHeight="103" id="lcI-av-atM" customClass="CommentCell">
             <rect key="frame" x="0.0" y="0.0" width="325" height="103"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lcI-av-atM" id="gB6-Jb-QAN">
@@ -159,10 +159,10 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="commentLable" destination="93h-TF-zp2" id="qKF-Oh-JFv"/>
-                <outlet property="dateLable" destination="ogA-e4-kKY" id="osG-Kg-vpa"/>
-                <outlet property="iconImageView" destination="d5l-GF-Ugd" id="TDD-8l-4Wg"/>
-                <outlet property="nameLable" destination="zoJ-b7-0U2" id="UCe-Uz-WXS"/>
+                <outlet property="commentLable" destination="93h-TF-zp2" id="72P-1t-Q3K"/>
+                <outlet property="dateLable" destination="ogA-e4-kKY" id="VJN-8O-FCC"/>
+                <outlet property="iconImageView" destination="d5l-GF-Ugd" id="0jK-FS-XN4"/>
+                <outlet property="nameLable" destination="zoJ-b7-0U2" id="bzY-Wd-0F0"/>
             </connections>
             <point key="canvasLocation" x="95.5" y="631.5"/>
         </tableViewCell>
@@ -174,7 +174,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" tag="2001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="查看更多评论" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6da-wk-EuM">
-                        <rect key="frame" x="121.99999968126475" y="8" width="189" height="38"/>
+                        <rect key="frame" x="121.9999994696646" y="8" width="189" height="38"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

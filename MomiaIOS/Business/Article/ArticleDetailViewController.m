@@ -9,11 +9,11 @@
 #import "ArticleDetailViewController.h"
 #import "ArticleDetailContentCell.h"
 #import "ArticleDetailModel.h"
-#import "ArticleCommentModel.h"
+#import "CommentModel.h"
 #import "ArticleDetailHeaderCell.h"
 #import "ArticleDetailContentCell.h"
 #import "ArticleDetailAuthorCell.h"
-#import "ArticleDetailCommentCell.h"
+#import "CommentCell.h"
 
 @interface ArticleDetailViewController ()
 
@@ -22,7 +22,7 @@
 
 @property (nonatomic, strong) ArticleDetailModel *model;
 
-@property (nonatomic, strong) ArticleCommentModel * commentModel;
+@property (nonatomic, strong) CommentModel * commentModel;
 
 @property (nonatomic, assign)BOOL firstRequest;//评论的第一次请求
 
@@ -79,7 +79,7 @@
 //        [self.view showLoadingBee];
 //    }
     
-    [[HttpService defaultService] GET:@"http://120.55.102.12:8080/comment/article?v=1.0&teminal=iphone&os=8.0&device=iphone6&channel=xxx&net=3g&sign=xxxx&refid=1&start=0&count=4" parameters:nil cacheType:CacheTypeDisable JSONModelClass:[ArticleCommentModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[HttpService defaultService] GET:@"http://120.55.102.12:8080/comment/article?v=1.0&teminal=iphone&os=8.0&device=iphone6&channel=xxx&net=3g&sign=xxxx&refid=1&start=0&count=4" parameters:nil cacheType:CacheTypeDisable JSONModelClass:[CommentModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        if (self.commentModel == nil) {
 //            [self.view removeLoadingBee];
 //        }
@@ -137,8 +137,8 @@
             if(row == self.model.data.content.count + self.commentModel.data.commentList.count + 2) {//在有了评论的时候弱到了最后一个，表明是加载更多评论标签
                 return 40;
             } else {
-                ArticleCommentItem * item = [self.commentModel.data.commentList objectAtIndex:(row - 2 - self.model.data.content.count)];
-                return [ArticleDetailCommentCell heightWithData:item];
+                CommentItem * item = [self.commentModel.data.commentList objectAtIndex:(row - 2 - self.model.data.content.count)];
+                return [CommentCell heightWithData:item];
             }
 
         } else {
@@ -170,7 +170,7 @@
     if(self.commentModel) {
         if(row == self.model.data.content.count + self.commentModel.data.commentList.count + 2) {
             //跳转到评论页面
-            NSURL *url = [NSURL URLWithString:@"momia://articledetailcomment"];
+            NSURL *url = [NSURL URLWithString:@"momia://comment"];
             [[UIApplication sharedApplication ] openURL:url];
         }
     }
@@ -218,8 +218,8 @@
                 
             } else {
                 
-                ArticleCommentItem * item = [self.commentModel.data.commentList objectAtIndex:(row - 2 - self.model.data.content.count) ];
-                ArticleDetailCommentCell * comment = [ArticleDetailCommentCell cellWithTableView:tableView];
+                CommentItem * item = [self.commentModel.data.commentList objectAtIndex:(row - 2 - self.model.data.content.count) ];
+                CommentCell * comment = [CommentCell cellWithTableView:tableView];
                 [comment setData:item];
                 cell = comment;
             }
@@ -228,7 +228,7 @@
             
         } else {//表明不存在commentModel，要立马进行loading
 
-            static NSString * loadIdentifier = @"CellLoading";
+            static NSString * loadIdentifier = @"CellArticleDetailCommentLoading";
             cell = [tableView dequeueReusableCellWithIdentifier:loadIdentifier];
             if(cell == nil) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:loadIdentifier];

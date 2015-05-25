@@ -1,14 +1,14 @@
 //
-//  ArticlePostModel.h
+//  CommentModel.h
 //  MomiaIOS
 //
-//  Created by Owen on 15/5/20.
+//  Created by Owen on 15/5/25.
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
 #import "BaseModel.h"
 
-@interface ArticlePostData : JSONModel
+@interface CommentItem : JSONModel
 
 @property (strong, nonatomic) NSString<Optional> *author;
 @property (strong, nonatomic) NSString<Optional> *authorIcon;
@@ -16,11 +16,23 @@
 @property (strong, nonatomic) NSString<Optional> *time;
 @property (assign, nonatomic) int commentId;
 
+
+@end
+
+@protocol CommentItem
+@end
+
+@interface CommentData : JSONModel
+
+@property (strong, nonatomic) NSArray<CommentItem>* commentList;
+
 @end
 
 
-@interface ArticleCommentPostModel : BaseModel
+@interface CommentModel : BaseModel
 
-@property(nonatomic,strong) ArticlePostData * data;
+@property (strong, nonatomic) CommentData *data;
+
 
 @end
+

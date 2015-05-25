@@ -2,7 +2,7 @@
 //  SendCommentView.m
 //  MomiaIOS
 //
-//  Created by Owen on 15/5/19.
+//  Created by Owen on 15/5/25.
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
@@ -19,12 +19,12 @@
 @implementation SendCommentView
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 
 
@@ -44,7 +44,7 @@
             make.right.equalTo(_sendBtn.mas_left).with.offset(-10);
         }];
         
-       
+        
         [_sendBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.mas_top).with.offset(8);
             make.right.equalTo(self.mas_right).with.offset(-8);
@@ -54,7 +54,7 @@
         
         //defaultSetting
         [self defaultSetting];
-       
+        
         [_sendBtn addTarget:self action:@selector(sendBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -64,7 +64,7 @@
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(keyboardWillHide:)
-                                                     name:UIKeyboardWillHideNotification 
+                                                     name:UIKeyboardWillHideNotification
                                                    object:nil];
         
     }
@@ -117,7 +117,7 @@
     [[note.userInfo valueForKey:UIKeyboardFrameEndUserInfoKey] getValue: &keyboardBounds];
     NSNumber *duration = [note.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
     NSNumber *curve = [note.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
-//    
+    //
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationDuration:[duration doubleValue]];
@@ -138,7 +138,7 @@
     NSNumber *duration = [note.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
     NSNumber *curve = [note.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
     
-   
+    
     
     // animations settings
     [UIView beginAnimations:nil context:NULL];
@@ -164,3 +164,4 @@
 }
 
 @end
+

@@ -94,15 +94,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*
+    
     id item = [self.model.data.list objectAtIndex:indexPath.row];
     if([item isKindOfClass:[HomeTopic class]]) {
         HomeTopic * topic = item;
         NSURL *url = [NSURL URLWithString:topic.action];
         [[UIApplication sharedApplication] openURL:url];
-    }*/
-    NSURL *url = [NSURL URLWithString:@"momia://goodstopic"];
-    [[UIApplication sharedApplication ] openURL:url];
+    }
+//    NSURL *url = [NSURL URLWithString:@"momia://goodstopic"];
+//    [[UIApplication sharedApplication ] openURL:url];
     
     
   

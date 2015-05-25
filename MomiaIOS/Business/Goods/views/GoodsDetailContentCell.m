@@ -32,6 +32,12 @@ static NSString * identifier = @"CellGoodsDetailContent";
     return self;
 }
 
+-(void)setStr:(NSString *)data
+{
+    self.contentLabel.text = data;
+}
+
+
 -(void)setData:(GoodsDetailData *)data
 {
     self.contentLabel.text = data.abstracts;
@@ -43,10 +49,23 @@ static NSString * identifier = @"CellGoodsDetailContent";
     GoodsDetailContentCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if(cell == nil) {
         cell = [[GoodsDetailContentCell alloc] init];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     }
     cell.data = data;
     return cell;
     
+}
+
++(CGFloat) textHeightWithString:(NSString *) data
+{
+    CGFloat height = 0;
+    
+    if(data) {
+        CGRect textFrame = [UILabel heightForMutableString:data withWidth:(SCREEN_WIDTH - 16) andFont:contentFont];
+        height += textFrame.size.height;
+    }
+    return height;
 }
 
 +(CGFloat) textHeightWithData:(GoodsDetailData *)data
@@ -67,7 +86,32 @@ static NSString * identifier = @"CellGoodsDetailContent";
     height += 8;
     height += [GoodsDetailContentCell textHeightWithData:data];
     height += 8;
+    height +=1;
    
+    return height;
+}
+
++ (instancetype)cellWithTableView:(UITableView *)tableView withString:(NSString *)data
+{
+    GoodsDetailContentCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if(cell == nil) {
+        cell = [[GoodsDetailContentCell alloc] init];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+    }
+    cell.str = data;
+    return cell;
+
+}
+
++ (CGFloat)heightWithString:(NSString *)data
+{
+    CGFloat height = 0;
+    
+    height += 8;
+    height += [GoodsDetailContentCell textHeightWithString:data];
+    height += 8;
+    
     return height;
 }
 

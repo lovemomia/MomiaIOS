@@ -18,4 +18,8 @@
 
 + (CGFloat)heightWithData:(GoodsDetailData *)data;
 
++ (instancetype)cellWithTableView:(UITableView *)tableView withString:(NSString *)data;
+
++ (CGFloat)heightWithString:(NSString *)data;
+
 @end

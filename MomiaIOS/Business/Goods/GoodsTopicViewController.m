@@ -16,10 +16,18 @@
 
 @property(nonatomic,strong) GoodsTopicModel * model;
 @property (nonatomic, strong) UIImageView *coverImageView;
+@property(nonatomic,assign) NSInteger topicId;
 
 @end
 
 @implementation GoodsTopicViewController
+
+- (instancetype)initWithParams:(NSDictionary *)params {
+    if (self = [super initWithParams:params]) {
+        self.topicId = [[params objectForKey:@"id"] integerValue];
+    }
+    return self;
+}
 
 /* tableView分割线，默认无 */
 - (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle
@@ -65,7 +73,9 @@
         [self.view showLoadingBee];
     }
     
-    [[HttpService defaultService] GET:@"http://120.55.102.12:8080/goodstopic?v=1.0&teminal=iphone&os=8.0&device=iphone6&channel=xxx&net=3g&sign=xxxx&topicid=2" parameters:nil cacheType:CacheTypeDisable JSONModelClass:[GoodsTopicModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+     NSDictionary * dic = @{@"topicid":@(self.topicId)};
+    
+    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/goodstopic") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[GoodsTopicModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.model == nil) {
             [self.view removeLoadingBee];
         }
@@ -101,7 +111,10 @@
 //        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"momia://articledetail?id=%d", data.articleId]];
 //        [[UIApplication sharedApplication] openURL:url];
 //    }
-    NSURL *url = [NSURL URLWithString:@"momia://goodsdetail"];
+    GoodsTopicItem * data = self.model.data.list[indexPath.row - 1];
+    
+    NSString * urlStr = [NSString stringWithFormat:@"momia://goodsdetail?id=%d",data.goodsId];
+    NSURL *url = [NSURL URLWithString:urlStr];
     [[UIApplication sharedApplication ] openURL:url];
     
 }

@@ -1,14 +1,14 @@
 //
-//  ArticleDetailCommentCell.m
+//  CommentCell.m
 //  MomiaIOS
 //
-//  Created by Deng Jun on 15/5/11.
+//  Created by Owen on 15/5/25.
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "ArticleDetailCommentCell.h"
+#import "CommentCell.h"
 
-@implementation ArticleDetailCommentCell
+@implementation CommentCell
 
 - (void)awakeFromNib {
     // Initialization code
@@ -16,11 +16,11 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 
-- (void)setData:(ArticleCommentItem *)data {
+- (void)setData:(CommentItem *)data {
     if(data.authorIcon)[self.iconImageView sd_setImageWithURL:[NSURL URLWithString:data.authorIcon]];
     [self.nameLable setText:data.author];
     [self.dateLable setText:data.time];
@@ -30,7 +30,7 @@
 
 + (instancetype)cellWithTableView:(UITableView *)tableView {
     static NSString *commentIdentifier = @"CellComment";
-    ArticleDetailCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:commentIdentifier];
+    CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:commentIdentifier];
     if (cell == nil) {
         NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"ArticleDetailCells" owner:self options:nil];
         cell = [arr objectAtIndex:3];
@@ -39,7 +39,7 @@
     return cell;
 }
 
-+ (CGFloat)heightWithData:(ArticleCommentItem *)data {
++ (CGFloat)heightWithData:(CommentItem *)data {
     CGFloat height;
     
     if (data.content) {

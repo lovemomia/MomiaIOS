@@ -91,6 +91,8 @@ static NSString *identifier = @"CellGoods";
     
     height += 8;
     
+    height +=1;
+    
     return height;
 }
 

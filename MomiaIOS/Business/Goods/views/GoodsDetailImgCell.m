@@ -46,11 +46,13 @@ static NSString * identifier = @"CellGoodsDetailImg";
     
 }
 
--(instancetype)cellWithTableView:(UITableView *)tableView withData:(GoodsDetailImgItem *)data
++(instancetype)cellWithTableView:(UITableView *)tableView withData:(GoodsDetailImgItem *)data
 {
     GoodsDetailImgCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if(cell == nil) {
         cell = [[GoodsDetailImgCell alloc] init];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     }
     cell.data = data;
     return cell;

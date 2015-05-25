@@ -14,11 +14,13 @@
 		5A04EF2A1B0D8D1A00A88D3B /* GoodsTopicItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A04EF291B0D8D1A00A88D3B /* GoodsTopicItemCell.m */; };
 		5A04EF2D1B0DCD4E00A88D3B /* GoodsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A04EF2C1B0DCD4E00A88D3B /* GoodsDetailModel.m */; };
 		5A04EF301B0DE8EE00A88D3B /* GoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A04EF2F1B0DE8EE00A88D3B /* GoodsDetailViewController.m */; };
+		5A1B35E81B12BBAC00E1D31B /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1B35E71B12BBAC00E1D31B /* CommentModel.m */; };
+		5A1B35EB1B12BBC900E1D31B /* CommentPostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1B35EA1B12BBC900E1D31B /* CommentPostModel.m */; };
+		5A1B35EF1B12BD0500E1D31B /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1B35EE1B12BD0500E1D31B /* CommentViewController.m */; };
+		5A1B35F31B12BE2400E1D31B /* SendCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1B35F21B12BE2400E1D31B /* SendCommentView.m */; };
+		5A1B35F61B12C0D200E1D31B /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1B35F51B12C0D200E1D31B /* CommentCell.m */; };
 		5A1E0DB01B09CC2D000EC137 /* ArticleDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1E0DAF1B09CC2D000EC137 /* ArticleDetailContentCell.m */; };
-		5A1E0DB31B09D014000EC137 /* ArticleDetailCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1E0DB21B09D014000EC137 /* ArticleDetailCommentViewController.m */; };
 		5A2144581B0C6A8A0072682F /* AlertNotice.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2144571B0C6A8A0072682F /* AlertNotice.m */; };
-		5A21445C1B0C6D000072682F /* ArticleCommentPostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A21445B1B0C6D000072682F /* ArticleCommentPostModel.m */; };
-		5A62B62F1B0B432D00C30798 /* SendCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A62B62E1B0B432D00C30798 /* SendCommentView.m */; };
 		5A6806EE1B01A48300D02A60 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806ED1B01A48300D02A60 /* SettingViewController.m */; };
 		5A6806F01B01A9BD00D02A60 /* SettingMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A6806EF1B01A9BD00D02A60 /* SettingMsgCell.xib */; };
 		5A6806F31B01C9C700D02A60 /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806F21B01C9C700D02A60 /* PersonInfoViewController.m */; };
@@ -26,7 +28,6 @@
 		5A6806FB1B01D9EA00D02A60 /* MyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806FA1B01D9EA00D02A60 /* MyCollectionViewController.m */; };
 		5A6806FD1B01DA5100D02A60 /* MyCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A6806FC1B01DA5100D02A60 /* MyCollectionCell.xib */; };
 		5A6807001B01FBDD00D02A60 /* MySuggestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806FF1B01FBDD00D02A60 /* MySuggestViewController.m */; };
-		5A9511991B058B4700D757CD /* ArticleCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9511981B058B4700D757CD /* ArticleCommentModel.m */; };
 		5AB7B3A81B0EC11700044DFE /* GoodsDetailHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7B3A71B0EC11700044DFE /* GoodsDetailHeaderCell.m */; };
 		5AB7B3AB1B0EC1B800044DFE /* GoodsDetailImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7B3AA1B0EC1B800044DFE /* GoodsDetailImgCell.m */; };
 		5AB7B3AE1B0EC1E800044DFE /* GoodsDetailShopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7B3AD1B0EC1E800044DFE /* GoodsDetailShopCell.m */; };
@@ -41,7 +42,6 @@
 		BC38D24B1B00BB660051C7E9 /* ArticleDetailHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38D24A1B00BB660051C7E9 /* ArticleDetailHeaderCell.m */; };
 		BC38D24E1B00BBA70051C7E9 /* ArticleDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38D24D1B00BBA70051C7E9 /* ArticleDetailModel.m */; };
 		BC38D2511B00C8760051C7E9 /* ArticleDetailAuthorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38D2501B00C8760051C7E9 /* ArticleDetailAuthorCell.m */; };
-		BC38D2541B00C8AD0051C7E9 /* ArticleDetailCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38D2531B00C8AD0051C7E9 /* ArticleDetailCommentCell.m */; };
 		BC38D2891B099D0B0051C7E9 /* SuggestSubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38D2881B099D0B0051C7E9 /* SuggestSubmitViewController.m */; };
 		BC38D28B1B09B8740051C7E9 /* libGexinSdk-1.1.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC38D28A1B09B8740051C7E9 /* libGexinSdk-1.1.1.a */; };
 		BC38D28D1B09B8960051C7E9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC38D28C1B09B8960051C7E9 /* libz.dylib */; };
@@ -121,16 +121,20 @@
 		5A04EF2C1B0DCD4E00A88D3B /* GoodsDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailModel.m; path = Common/Models/Goods/GoodsDetailModel.m; sourceTree = "<group>"; };
 		5A04EF2E1B0DE8EE00A88D3B /* GoodsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsDetailViewController.h; path = Business/Goods/GoodsDetailViewController.h; sourceTree = "<group>"; };
 		5A04EF2F1B0DE8EE00A88D3B /* GoodsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailViewController.m; path = Business/Goods/GoodsDetailViewController.m; sourceTree = "<group>"; };
+		5A1B35E61B12BBAC00E1D31B /* CommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentModel.h; path = Common/Models/Comment/CommentModel.h; sourceTree = "<group>"; };
+		5A1B35E71B12BBAC00E1D31B /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentModel.m; path = Common/Models/Comment/CommentModel.m; sourceTree = "<group>"; };
+		5A1B35E91B12BBC900E1D31B /* CommentPostModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentPostModel.h; path = Common/Models/Comment/CommentPostModel.h; sourceTree = "<group>"; };
+		5A1B35EA1B12BBC900E1D31B /* CommentPostModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentPostModel.m; path = Common/Models/Comment/CommentPostModel.m; sourceTree = "<group>"; };
+		5A1B35ED1B12BD0500E1D31B /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentViewController.h; path = Business/Comment/CommentViewController.h; sourceTree = "<group>"; };
+		5A1B35EE1B12BD0500E1D31B /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentViewController.m; path = Business/Comment/CommentViewController.m; sourceTree = "<group>"; };
+		5A1B35F11B12BE2400E1D31B /* SendCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SendCommentView.h; path = Business/Comment/views/SendCommentView.h; sourceTree = "<group>"; };
+		5A1B35F21B12BE2400E1D31B /* SendCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SendCommentView.m; path = Business/Comment/views/SendCommentView.m; sourceTree = "<group>"; };
+		5A1B35F41B12C0D200E1D31B /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentCell.h; path = Business/Comment/views/CommentCell.h; sourceTree = "<group>"; };
+		5A1B35F51B12C0D200E1D31B /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentCell.m; path = Business/Comment/views/CommentCell.m; sourceTree = "<group>"; };
 		5A1E0DAE1B09CC2D000EC137 /* ArticleDetailContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleDetailContentCell.h; path = Business/Article/Views/ArticleDetailContentCell.h; sourceTree = "<group>"; };
 		5A1E0DAF1B09CC2D000EC137 /* ArticleDetailContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleDetailContentCell.m; path = Business/Article/Views/ArticleDetailContentCell.m; sourceTree = "<group>"; };
-		5A1E0DB11B09D014000EC137 /* ArticleDetailCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleDetailCommentViewController.h; path = Business/Article/ArticleDetailCommentViewController.h; sourceTree = "<group>"; };
-		5A1E0DB21B09D014000EC137 /* ArticleDetailCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleDetailCommentViewController.m; path = Business/Article/ArticleDetailCommentViewController.m; sourceTree = "<group>"; };
 		5A2144561B0C6A8A0072682F /* AlertNotice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertNotice.h; path = Common/Base/AlertNotice.h; sourceTree = "<group>"; };
 		5A2144571B0C6A8A0072682F /* AlertNotice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertNotice.m; path = Common/Base/AlertNotice.m; sourceTree = "<group>"; };
-		5A21445A1B0C6D000072682F /* ArticleCommentPostModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleCommentPostModel.h; path = Common/Models/Article/ArticleCommentPostModel.h; sourceTree = "<group>"; };
-		5A21445B1B0C6D000072682F /* ArticleCommentPostModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleCommentPostModel.m; path = Common/Models/Article/ArticleCommentPostModel.m; sourceTree = "<group>"; };
-		5A62B62D1B0B432D00C30798 /* SendCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SendCommentView.h; path = Business/Article/Views/SendCommentView.h; sourceTree = "<group>"; };
-		5A62B62E1B0B432D00C30798 /* SendCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SendCommentView.m; path = Business/Article/Views/SendCommentView.m; sourceTree = "<group>"; };
 		5A6806EC1B01A48300D02A60 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = Business/Setting/SettingViewController.h; sourceTree = "<group>"; };
 		5A6806ED1B01A48300D02A60 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = Business/Setting/SettingViewController.m; sourceTree = "<group>"; };
 		5A6806EF1B01A9BD00D02A60 /* SettingMsgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingMsgCell.xib; path = Business/Setting/Views/SettingMsgCell.xib; sourceTree = "<group>"; };
@@ -142,8 +146,6 @@
 		5A6806FC1B01DA5100D02A60 /* MyCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyCollectionCell.xib; path = Business/Mine/Views/MyCollectionCell.xib; sourceTree = "<group>"; };
 		5A6806FE1B01FBDD00D02A60 /* MySuggestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySuggestViewController.h; path = Business/Mine/MySuggestViewController.h; sourceTree = "<group>"; };
 		5A6806FF1B01FBDD00D02A60 /* MySuggestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySuggestViewController.m; path = Business/Mine/MySuggestViewController.m; sourceTree = "<group>"; };
-		5A9511971B058B4700D757CD /* ArticleCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleCommentModel.h; path = Common/Models/Article/ArticleCommentModel.h; sourceTree = "<group>"; };
-		5A9511981B058B4700D757CD /* ArticleCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleCommentModel.m; path = Common/Models/Article/ArticleCommentModel.m; sourceTree = "<group>"; };
 		5AB7B3A61B0EC11700044DFE /* GoodsDetailHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsDetailHeaderCell.h; path = Business/Goods/views/GoodsDetailHeaderCell.h; sourceTree = "<group>"; };
 		5AB7B3A71B0EC11700044DFE /* GoodsDetailHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailHeaderCell.m; path = Business/Goods/views/GoodsDetailHeaderCell.m; sourceTree = "<group>"; };
 		5AB7B3A91B0EC1B800044DFE /* GoodsDetailImgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsDetailImgCell.h; path = Business/Goods/views/GoodsDetailImgCell.h; sourceTree = "<group>"; };
@@ -173,8 +175,6 @@
 		BC38D24D1B00BBA70051C7E9 /* ArticleDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleDetailModel.m; path = Common/Models/Article/ArticleDetailModel.m; sourceTree = "<group>"; };
 		BC38D24F1B00C8760051C7E9 /* ArticleDetailAuthorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleDetailAuthorCell.h; path = Business/Article/Views/ArticleDetailAuthorCell.h; sourceTree = "<group>"; };
 		BC38D2501B00C8760051C7E9 /* ArticleDetailAuthorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleDetailAuthorCell.m; path = Business/Article/Views/ArticleDetailAuthorCell.m; sourceTree = "<group>"; };
-		BC38D2521B00C8AD0051C7E9 /* ArticleDetailCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleDetailCommentCell.h; path = Business/Article/Views/ArticleDetailCommentCell.h; sourceTree = "<group>"; };
-		BC38D2531B00C8AD0051C7E9 /* ArticleDetailCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleDetailCommentCell.m; path = Business/Article/Views/ArticleDetailCommentCell.m; sourceTree = "<group>"; };
 		BC38D2871B099D0B0051C7E9 /* SuggestSubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuggestSubmitViewController.h; path = Business/Mine/SuggestSubmitViewController.h; sourceTree = "<group>"; };
 		BC38D2881B099D0B0051C7E9 /* SuggestSubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SuggestSubmitViewController.m; path = Business/Mine/SuggestSubmitViewController.m; sourceTree = "<group>"; };
 		BC38D28A1B09B8740051C7E9 /* libGexinSdk-1.1.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libGexinSdk-1.1.1.a"; path = "include/libGexinSdk-1.1.1.a"; sourceTree = "<group>"; };
@@ -360,6 +360,38 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		5A1B35E51B12BB5F00E1D31B /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				5A1B35E61B12BBAC00E1D31B /* CommentModel.h */,
+				5A1B35E71B12BBAC00E1D31B /* CommentModel.m */,
+				5A1B35E91B12BBC900E1D31B /* CommentPostModel.h */,
+				5A1B35EA1B12BBC900E1D31B /* CommentPostModel.m */,
+			);
+			name = Comment;
+			sourceTree = "<group>";
+		};
+		5A1B35EC1B12BCD000E1D31B /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				5A1B35F01B12BE0100E1D31B /* views */,
+				5A1B35ED1B12BD0500E1D31B /* CommentViewController.h */,
+				5A1B35EE1B12BD0500E1D31B /* CommentViewController.m */,
+			);
+			name = Comment;
+			sourceTree = "<group>";
+		};
+		5A1B35F01B12BE0100E1D31B /* views */ = {
+			isa = PBXGroup;
+			children = (
+				5A1B35F11B12BE2400E1D31B /* SendCommentView.h */,
+				5A1B35F21B12BE2400E1D31B /* SendCommentView.m */,
+				5A1B35F41B12C0D200E1D31B /* CommentCell.h */,
+				5A1B35F51B12C0D200E1D31B /* CommentCell.m */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
 		5A6806E41B019EFD00D02A60 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,10 +459,6 @@
 				BC38D2341AFEE28A0051C7E9 /* ArticleTopicModel.m */,
 				BC38D24C1B00BBA70051C7E9 /* ArticleDetailModel.h */,
 				BC38D24D1B00BBA70051C7E9 /* ArticleDetailModel.m */,
-				5A9511971B058B4700D757CD /* ArticleCommentModel.h */,
-				5A9511981B058B4700D757CD /* ArticleCommentModel.m */,
-				5A21445A1B0C6D000072682F /* ArticleCommentPostModel.h */,
-				5A21445B1B0C6D000072682F /* ArticleCommentPostModel.m */,
 			);
 			name = Article;
 			sourceTree = "<group>";
@@ -468,6 +496,7 @@
 		BC7708601AFC56F3000068A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5A1B35E51B12BB5F00E1D31B /* Comment */,
 				BC41ABB61B0F25AB00A419DA /* Suggest */,
 				5A04EF201B0D883800A88D3B /* Goods */,
 				BC38D2321AFEDFEC0051C7E9 /* Article */,
@@ -561,6 +590,7 @@
 		BC8540B51ADF8649005A7C54 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				5A1B35EC1B12BCD000E1D31B /* Comment */,
 				5A6806E41B019EFD00D02A60 /* Setting */,
 				BCFC2C341AF9C10400164BC2 /* Web */,
 				BC8540B71ADF881A005A7C54 /* Home */,
@@ -688,8 +718,6 @@
 				BCA273301AEB4A59002E7534 /* ArticleTopicViewController.m */,
 				BC7708521AFB1600000068A8 /* ArticleDetailViewController.h */,
 				BC7708531AFB1600000068A8 /* ArticleDetailViewController.m */,
-				5A1E0DB11B09D014000EC137 /* ArticleDetailCommentViewController.h */,
-				5A1E0DB21B09D014000EC137 /* ArticleDetailCommentViewController.m */,
 			);
 			name = Article;
 			sourceTree = "<group>";
@@ -719,12 +747,8 @@
 				BC38D24A1B00BB660051C7E9 /* ArticleDetailHeaderCell.m */,
 				BC38D24F1B00C8760051C7E9 /* ArticleDetailAuthorCell.h */,
 				BC38D2501B00C8760051C7E9 /* ArticleDetailAuthorCell.m */,
-				BC38D2521B00C8AD0051C7E9 /* ArticleDetailCommentCell.h */,
-				BC38D2531B00C8AD0051C7E9 /* ArticleDetailCommentCell.m */,
 				5A1E0DAE1B09CC2D000EC137 /* ArticleDetailContentCell.h */,
 				5A1E0DAF1B09CC2D000EC137 /* ArticleDetailContentCell.m */,
-				5A62B62D1B0B432D00C30798 /* SendCommentView.h */,
-				5A62B62E1B0B432D00C30798 /* SendCommentView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -921,29 +945,30 @@
 				BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */,
 				5AB7B3A81B0EC11700044DFE /* GoodsDetailHeaderCell.m in Sources */,
 				BC77085F1AFC5685000068A8 /* UILabel+ContentSize.m in Sources */,
+				5A1B35EB1B12BBC900E1D31B /* CommentPostModel.m in Sources */,
 				BCA273321AEB4A5A002E7534 /* ArticleTopicViewController.m in Sources */,
 				BC41ABA91B0C715400A419DA /* Environment.m in Sources */,
 				5A04EF271B0D8CBE00A88D3B /* GoodsTopicHeaderCell.m in Sources */,
 				BC38D24E1B00BBA70051C7E9 /* ArticleDetailModel.m in Sources */,
 				BC38D2471B0050770051C7E9 /* ArticleTopicItemCell.m in Sources */,
-				5A1E0DB31B09D014000EC137 /* ArticleDetailCommentViewController.m in Sources */,
 				BC41ABB91B0F25AB00A419DA /* SugTagsModel.m in Sources */,
 				BC8540941ADF74E9005A7C54 /* AppDelegate.m in Sources */,
 				5A04EF1F1B0D84EC00A88D3B /* GoodsTopicViewController.m in Sources */,
+				5A1B35E81B12BBAC00E1D31B /* CommentModel.m in Sources */,
 				BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */,
 				5AB7B3B11B0EFF7400044DFE /* GoodsDetailContentCell.m in Sources */,
 				5A6806F31B01C9C700D02A60 /* PersonInfoViewController.m in Sources */,
 				BCCDF5DF1B09E6C7008BAE12 /* SugSubmitProductContentCell.m in Sources */,
 				5A6806EE1B01A48300D02A60 /* SettingViewController.m in Sources */,
-				5A62B62F1B0B432D00C30798 /* SendCommentView.m in Sources */,
 				BCA272FD1AE8A2C7002E7534 /* MineViewController.m in Sources */,
+				5A1B35EF1B12BD0500E1D31B /* CommentViewController.m in Sources */,
 				BCA273211AE9FB78002E7534 /* NSURL+MOURL.m in Sources */,
+				5A1B35F61B12C0D200E1D31B /* CommentCell.m in Sources */,
 				BC8540911ADF74E9005A7C54 /* main.m in Sources */,
 				5A04EF2D1B0DCD4E00A88D3B /* GoodsDetailModel.m in Sources */,
 				5A04EF231B0D887800A88D3B /* GoodsTopicModel.m in Sources */,
 				BC38D2511B00C8760051C7E9 /* ArticleDetailAuthorCell.m in Sources */,
 				BC77085C1AFC54F3000068A8 /* ArticleTopicHeaderCell.m in Sources */,
-				5A9511991B058B4700D757CD /* ArticleCommentModel.m in Sources */,
 				BC2FAA0F1AFCA92D00E2071E /* UIView+Frame.m in Sources */,
 				BC7708511AFAFD54000068A8 /* MOTableViewController.m in Sources */,
 				BC8540C11ADF8A76005A7C54 /* HomeViewController.m in Sources */,
@@ -957,6 +982,7 @@
 				5A6806FB1B01D9EA00D02A60 /* MyCollectionViewController.m in Sources */,
 				5A2144581B0C6A8A0072682F /* AlertNotice.m in Sources */,
 				5AB7B3AB1B0EC1B800044DFE /* GoodsDetailImgCell.m in Sources */,
+				5A1B35F31B12BE2400E1D31B /* SendCommentView.m in Sources */,
 				BCCDF5E51B09EBF8008BAE12 /* UITextView+Placeholder.m in Sources */,
 				5A04EF301B0DE8EE00A88D3B /* GoodsDetailViewController.m in Sources */,
 				BC41ABAD1B0C7ABF00A419DA /* UploadImageModel.m in Sources */,
@@ -972,8 +998,6 @@
 				BC38D2891B099D0B0051C7E9 /* SuggestSubmitViewController.m in Sources */,
 				BC38D23C1AFEE2B50051C7E9 /* HomeModel.m in Sources */,
 				BCCDF5D91B09E345008BAE12 /* SugSubmitProductNameCell.m in Sources */,
-				5A21445C1B0C6D000072682F /* ArticleCommentPostModel.m in Sources */,
-				BC38D2541B00C8AD0051C7E9 /* ArticleDetailCommentCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

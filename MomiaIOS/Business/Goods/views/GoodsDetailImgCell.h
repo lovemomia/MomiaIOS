@@ -13,7 +13,7 @@
 
 @property(nonatomic,strong) UIImageView * photoImgView;
 
--(instancetype)cellWithTableView:(UITableView *)tableView withData:(GoodsDetailImgItem *)data;
++(instancetype)cellWithTableView:(UITableView *)tableView withData:(GoodsDetailImgItem *)data;
 
 + (CGFloat)heightWithData:(GoodsDetailImgItem *)data;
 
