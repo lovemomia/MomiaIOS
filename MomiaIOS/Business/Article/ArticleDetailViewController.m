@@ -75,11 +75,10 @@
 
 //请求文章评论数据
 -(void)requestCommentData {
-//    if (self.commentModel == nil) {
-//        [self.view showLoadingBee];
-//    }
+    NSDictionary * dic = @{@"articleid":@(self.articleId), @"start":@"0", @"count":@"3"};
     
-    [[HttpService defaultService] GET:@"http://120.55.102.12:8080/comment/article?v=1.0&teminal=iphone&os=8.0&device=iphone6&channel=xxx&net=3g&sign=xxxx&refid=1&start=0&count=4" parameters:nil cacheType:CacheTypeDisable JSONModelClass:[CommentModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/comment/article") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[ArticleCommentModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        if (self.commentModel == nil) {
 //            [self.view removeLoadingBee];
 //        }
