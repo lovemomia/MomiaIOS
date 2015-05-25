@@ -78,7 +78,7 @@
     NSDictionary * dic = @{@"articleid":@(self.articleId), @"start":@"0", @"count":@"3"};
     
 
-    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/comment/article") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[ArticleCommentModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/comment/article") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[CommentModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        if (self.commentModel == nil) {
 //            [self.view removeLoadingBee];
 //        }
