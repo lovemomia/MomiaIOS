@@ -173,8 +173,6 @@
         [self.tableView reloadData];
     }
     
-    
-    
     self.continueLoading = NO;
     
     if (self.commentModel == nil) {
@@ -232,7 +230,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if(self.dataArray.count&&self.dataArray.count == self.currentPage * pageSize)
+    if(self.dataArray.count&&self.dataArray.count >= self.currentPage * pageSize)
         return self.dataArray.count + 1;
     return self.dataArray.count;
 }
