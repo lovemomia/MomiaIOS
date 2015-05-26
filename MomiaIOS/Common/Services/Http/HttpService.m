@@ -37,14 +37,29 @@
                         success:(BlockMOHTTPRequestSuccess)success
                         failure:(BlockMOHTTPRequestFail)failure {
     BlockMOHTTPRequestSuccess onSuccess = ^(AFHTTPRequestOperation *operation, id responseObject) {
-        id result = [(BaseModel *)[responseModelClass alloc]initWithDictionary:responseObject error:nil];
-        success(operation, result);
+        if (responseModelClass == nil) {
+            success(operation, responseObject);
+            return;
+        }
         
-//        NSLog(@"http (GET) success: %@", responseObject);
+        BaseModel *result = [(BaseModel *)[responseModelClass alloc]initWithDictionary:responseObject error:nil];
+        if (result == nil) {
+            result = [[BaseModel alloc]initWithDictionary:responseObject error:nil];
+        }
+        if (result.errNo == 0) {
+            success(operation, result);
+            
+        } else {
+            NSError *err = [[NSError alloc]initWithDomain:result.errMsg code:result.errNo userInfo:nil];
+            failure(operation, err);
+        }
+        
+        NSLog(@"http (GET) success: %@", responseObject);
     };
     
     BlockMOHTTPRequestFail onFail = ^(AFHTTPRequestOperation *operation, NSError *error) {
-        failure(operation, error);
+        NSError *err = [[NSError alloc]initWithDomain:@"网络异常，请稍后再试" code:-1 userInfo:nil];
+        failure(operation, err);
         
         NSLog(@"http (GET) fail: %@", error);
     };
@@ -59,14 +74,29 @@
                          success:(BlockMOHTTPRequestSuccess)success
                          failure:(BlockMOHTTPRequestFail)failure {
     BlockMOHTTPRequestSuccess onSuccess = ^(AFHTTPRequestOperation *operation, id responseObject) {
-        id result = [(BaseModel *)[responseModelClass alloc]initWithDictionary:responseObject error:nil];
-        success(operation, result);
+        if (responseModelClass == nil) {
+            success(operation, responseObject);
+            return;
+        }
+        
+        BaseModel *result = [(BaseModel *)[responseModelClass alloc]initWithDictionary:responseObject error:nil];
+        if (result == nil) {
+            result = [[BaseModel alloc]initWithDictionary:responseObject error:nil];
+        }
+        if (result.errNo == 0) {
+            success(operation, result);
+            
+        } else {
+            NSError *err = [[NSError alloc]initWithDomain:result.errMsg code:result.errNo userInfo:nil];
+            failure(operation, err);
+        }
         
 //        NSLog(@"http (POST) success: %@", responseObject);
     };
     
     BlockMOHTTPRequestFail onFail = ^(AFHTTPRequestOperation *operation, NSError *error) {
-        failure(operation, error);
+        NSError *err = [[NSError alloc]initWithDomain:@"网络异常，请稍后再试" code:-1 userInfo:nil];
+        failure(operation, err);
         
         NSLog(@"http (POST) fail: %@", error);
     };

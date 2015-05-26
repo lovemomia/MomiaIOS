@@ -16,7 +16,7 @@
 		<key>controller</key>
 		<string>MineViewController</string>
 		<key>needlogin</key>
-		<false/>
+		<true/>
 		<key>desc</key>
 		<string>我的</string>
 	</dict>
@@ -127,6 +127,24 @@
 		<false/>
 		<key>desc</key>
 		<string>商品详情页面</string>
+	</dict>
+	<key>login</key>
+	<dict>
+		<key>controller</key>
+		<string>LoginViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>登录页</string>
+	</dict>
+	<key>register</key>
+	<dict>
+		<key>controller</key>
+		<string>RegisterViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>注册页</string>
 	</dict>
 </dict>
 </plist>

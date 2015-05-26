@@ -14,6 +14,19 @@
 
 @implementation MOTableViewController
 
+-(instancetype)init {
+    if (self = [super init]) {
+        self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:[self tableViewStyle]];
+        self.tableView.delegate = self;
+        self.tableView.dataSource = self;
+        
+        self.tableView.separatorStyle = [self tableViewCellSeparatorStyle];
+        self.tableView.backgroundView = [[UIView alloc] init];
+        self.tableView.backgroundView.backgroundColor = MO_APP_VCBackgroundColor;
+    }
+    return self;
+}
+
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
         self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:[self tableViewStyle]];
@@ -66,6 +79,28 @@
 }
 
 #pragma mark tableView delegate, dataSource
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    if ([self tableViewStyle] == UITableViewStyleGrouped) {
+        UIView *content = [[UIView alloc]init];
+        UIImageView *view = [[UIImageView alloc]init];
+        view.contentMode = UIViewContentModeScaleToFill;
+        view.height = 6;
+        view.width = SCREEN_WIDTH;
+        view.top = -2;
+        view.image = [UIImage imageNamed:@"bg_card"];
+        [content addSubview:view];
+        return content;
+    }
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if ([self tableViewStyle] == UITableViewStyleGrouped) {
+        return 20;
+    }
+    return 0;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 0;
