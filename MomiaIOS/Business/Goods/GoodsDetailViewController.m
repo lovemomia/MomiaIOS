@@ -31,12 +31,7 @@
 
 @implementation GoodsDetailViewController
 
-- (instancetype)initWithParams:(NSDictionary *)params {
-    if (self = [super initWithParams:params]) {
-        self.goodsId = [[params objectForKey:@"id"] integerValue];
-    }
-    return self;
-}
+#pragma mark - alter tableview settings
 
 //系统默认将嵌在navigation里的controller的view顶满整个视图，MOViewController里边将controller的view默认放到navigationbar下边，此处返回yes让其默认回到系统状态
 - (BOOL)isNavTransparent {
@@ -49,6 +44,41 @@
     return UITableViewStyleGrouped;
 }
 
+
+#pragma mark - ViewController cycle
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    [self addNavBackView];
+
+    [self requestData];
+    
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
+
+- (instancetype)initWithParams:(NSDictionary *)params {
+    if (self = [super initWithParams:params]) {
+        self.goodsId = [[params objectForKey:@"id"] integerValue];
+    }
+    return self;
+}
+
+
 #pragma mark - tableview delegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -56,7 +86,8 @@
     NSInteger row = indexPath.row;
     if(section == 3) {
         if(row == 0) {//跳转到评论页面
-            NSURL *url = [NSURL URLWithString:@"momia://comment"];
+            NSString * urlStr = [NSString stringWithFormat:@"momia://comment?id=%ld&type=1",self.goodsId];
+            NSURL *url = [NSURL URLWithString:urlStr];
             [[UIApplication sharedApplication ] openURL:url];
         }
     }
@@ -220,39 +251,16 @@
 
 }
 
-#pragma mark - ViewController cycle
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    [self requestData];
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - request data
 
-//请求文章评论数据
+//请求评论数据
 -(void)requestCommentData {
-    //    if (self.commentModel == nil) {
-    //        [self.view showLoadingBee];
-    //    }
+    NSDictionary * dic = @{@"goodsid":@(self.goodsId), @"start":@"0", @"count":@"3"};
     
-    [[HttpService defaultService] GET:@"http://120.55.102.12:8080/comment/goods?v=1.0&teminal=iphone&os=8.0&device=iphone6&channel=xxx&net=3g&sign=xxxx&goodsid=2&start=0&count=4" parameters:nil cacheType:CacheTypeDisable JSONModelClass:[CommentModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/comment/goods") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[CommentModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //        if (self.commentModel == nil) {
         //            [self.view removeLoadingBee];
         //        }
@@ -263,6 +271,7 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
+
 }
 
 

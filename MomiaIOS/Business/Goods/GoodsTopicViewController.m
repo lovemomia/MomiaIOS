@@ -30,10 +30,10 @@
 }
 
 /* tableView分割线，默认无 */
-- (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle
-{
-    return UITableViewCellSeparatorStyleSingleLine;
-}
+//- (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle
+//{
+//    return UITableViewCellSeparatorStyleSingleLine;
+//}
 
 
 //系统默认将嵌在navigation里的controller的view顶满整个视图，MOViewController里边将controller的view默认放到navigationbar下边，此处返回yes让其默认回到系统状态

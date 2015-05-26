@@ -87,6 +87,7 @@
 -(void)defaultSetting
 {
     [self.textField setBorderStyle:UITextBorderStyleRoundedRect];
+    
     [self.textField setPlaceholder:@"说点什么吧。。。"];
     [self.textField setReturnKeyType:UIReturnKeyDone];
     [self.textField setDelegate:self];

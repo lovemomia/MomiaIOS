@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLable;
 @property (weak, nonatomic) IBOutlet UILabel *commentLable;
 
+@property (weak, nonatomic) IBOutlet UIView *lineView;
+
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 
 + (CGFloat)heightWithData:(CommentItem *)data;

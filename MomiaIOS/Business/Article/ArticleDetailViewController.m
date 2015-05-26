@@ -13,6 +13,7 @@
 #import "ArticleDetailHeaderCell.h"
 #import "ArticleDetailContentCell.h"
 #import "ArticleDetailAuthorCell.h"
+#import "ArticleDetailConstantCell.h"
 #import "CommentCell.h"
 
 @interface ArticleDetailViewController ()
@@ -30,6 +31,25 @@
 @end
 
 @implementation ArticleDetailViewController
+
+#pragma mark - alter default settings
+
+- (BOOL)isNavTransparent {
+    return YES;
+}
+
+
+-(UITableViewStyle)tableViewStyle
+{
+    return UITableViewStyleGrouped;
+}
+
+//- (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle {
+//    return UITableViewCellSeparatorStyleSingleLine;
+//}
+
+
+#pragma mark - life cycle
 
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
@@ -53,13 +73,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (BOOL)isNavTransparent {
-    return YES;
-}
-
-//- (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle {
-//    return UITableViewCellSeparatorStyleSingleLine;
-//}
 
 /*
 #pragma mark - Navigation
@@ -73,7 +86,7 @@
 
 #pragma mark - requestWebData
 
-//请求文章评论数据
+//请求评论数据
 -(void)requestCommentData {
     NSDictionary * dic = @{@"articleid":@(self.articleId), @"start":@"0", @"count":@"3"};
     
@@ -114,140 +127,170 @@
 
 
 
-#pragma mark - tableview delegate & datasource
+#pragma mark - tableview delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    if(section == 3) {
+        if(row == 0) {//跳转到评论页面
+            NSString * urlStr = [NSString stringWithFormat:@"momia://comment?id=%ld&type=0",self.articleId];
+            NSURL *url = [NSURL URLWithString:urlStr];
+            [[UIApplication sharedApplication ] openURL:url];
+            
+        }
+    }
+}
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
-    if (row == 0) {
-        return [ArticleDetailHeaderCell height]; //header
-        
-    } else if (row < [self.model.data.content count] + 1) {
-        ArticleDetailContentItem *item = [self.model.data.content objectAtIndex:(row - 1)];
-        return [ArticleDetailContentCell heightWithData:item]; //content
-        
-    } else if (row == [self.model.data.content count] + 1) {
-        return [ArticleDetailAuthorCell height]; //author
-        
-    } else {
-        
-        if(self.commentModel) {
-            
-            if(row == self.model.data.content.count + self.commentModel.data.commentList.count + 2) {//在有了评论的时候弱到了最后一个，表明是加载更多评论标签
-                return 40;
-            } else {
-                CommentItem * item = [self.commentModel.data.commentList objectAtIndex:(row - 2 - self.model.data.content.count)];
-                return [CommentCell heightWithData:item];
-            }
-
+    if(section == 0) {
+        return [ArticleDetailHeaderCell height];
+    } else if(section == 1) {
+        if(row == self.model.data.content.count) {
+            return [ArticleDetailConstantCell height];
         } else {
-            return 40;
+            return [ArticleDetailContentCell heightWithData:self.model.data.content[row]];
         }
         
+    } else if(section == 2) {
+        return [ArticleDetailAuthorCell height];
+    } else if(section == 3) {
+        if(row == 0) {
+            return 44.0f;
+        } else {
+            return [CommentCell heightWithData:self.commentModel.data.commentList[row - 1]];
+        }
     }
-    
+    return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if(section == 0) {
+        return 0.01;
+    } else if(section == 1) {
+        return 1;
+    } else if(section == 2) {
+        return 1;
+    } else if(section == 3) {
+        return 5;
+    }
+    return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if(section == 0) {
+        return 0.01;
+    } else if(section == 1) {
+        return 0.01;
+    } else if(section == 2) {
+        return 5;
+    }
+    return 0;
+}
+
+
+#pragma mark - tableview datasource
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    if(self.model == nil) return 0;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (self.model == nil) {
-        return 0;
-    }
-    
-    if(self.commentModel == nil) {//表明有model后，但是没有评论model，此时需要多加一个loading
-        self.firstRequest = YES;
-        return 3 + [self.model.data.content count];
-    }
-    //表明model和commentmodel都存在，可以全部显示
-    return 3 + [self.model.data.content count] + [self.commentModel.data.commentList count];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSInteger row = indexPath.row;
-    
-    if(self.commentModel) {
-        if(row == self.model.data.content.count + self.commentModel.data.commentList.count + 2) {
-            //跳转到评论页面
-            NSURL *url = [NSURL URLWithString:@"momia://comment"];
-            [[UIApplication sharedApplication ] openURL:url];
+    if(section == 0) {
+        return 1;
+    } else if(section == 1) {
+        return self.model.data.content.count +1;
+    } else if(section == 2) {
+        return 1;
+    } else if(section == 3) {
+        if(self.commentModel == nil) {
+            self.firstRequest = YES;
+            return 2;//多了一个loading视图
+        } else {
+            return self.commentModel.data.commentList.count + 1;
         }
     }
+    return 0;
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
+    NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
-    if (row == 0) {
+    
+    if(section == 0) {
         ArticleDetailHeaderCell *header = [ArticleDetailHeaderCell cellWithTableView:tableView];
-        [header setData:self.model.data];
-        cell = header;
+        header.data = self.model.data;
         self.coverImageView = header.coverImageView;
+        cell = header;
+    } else if(section == 1) {
+        if(row == self.model.data.content.count) {
+            ArticleDetailConstantCell * constant = [ArticleDetailConstantCell cellWithTableView:tableView];
+            cell = constant;
+        } else {
+            ArticleDetailContentCell * content = [ArticleDetailContentCell cellWithTableView:tableView withData:self.model.data.content[row]];
+            cell = content;
+        }
         
-    } else if (row < [self.model.data.content count] + 1) {
-        //显示文章内容
-        
-        
-        ArticleDetailContentItem *item = [self.model.data.content objectAtIndex:(row - 1)];
-        
-        ArticleDetailContentCell *content = [ArticleDetailContentCell cellWithTableView:tableView withData:item];
-        
+    } else if(section == 2){
+        ArticleDetailAuthorCell * content = [ArticleDetailAuthorCell cellWithTableView:tableView];
+        content.data = self.model.data;
         cell = content;
-        
-    } else if (row == [self.model.data.content count] + 1) {
-        ArticleDetailAuthorCell *author = [ArticleDetailAuthorCell cellWithTableView:tableView];
-        [author setData:self.model.data];
-        cell = author;
-        
-    } else {//此处表明model的显示完全了，剩下的其他部分要显示，不包括加载更多评论
-        if(self.commentModel) {
+    } else if(section == 3) {
+        if(row == 0) {
+            static NSString * titleIdentifier = @"CellArticleDetailCommentTitle";
+            UITableViewCell * value1 = [tableView dequeueReusableCellWithIdentifier:titleIdentifier];
+            if(value1 == nil) {
+                value1 = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:titleIdentifier];
+                value1.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                value1.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            value1.textLabel.text = @"麻麻说";
+            value1.detailTextLabel.text = @"更多评论";
+            value1.backgroundColor = [UIColor whiteColor];
+            cell = value1;
             
-            if(row == self.model.data.content.count + self.commentModel.data.commentList.count + 2) {
-                static NSString *moreIdentifier = @"CellMore";
-                cell = [tableView dequeueReusableCellWithIdentifier:moreIdentifier];
-                if (cell == nil) {
-                    NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"ArticleDetailCells" owner:self options:nil];
-                    cell = [arr objectAtIndex:4];
-                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                }
-                if(self.commentModel.data.commentList.count == 0) {
-                    UILabel * label = (UILabel *)[cell viewWithTag:2001];
-                    [label setText:@"暂无评论，说点什么吧"];
-                }
-                
-            } else {
-                
-                CommentItem * item = [self.commentModel.data.commentList objectAtIndex:(row - 2 - self.model.data.content.count) ];
+        } else {
+            if(self.commentModel) {//表明有评论
+                CommentItem * item = [self.commentModel.data.commentList objectAtIndex:row - 1];
                 CommentCell * comment = [CommentCell cellWithTableView:tableView];
                 [comment setData:item];
                 cell = comment;
-            }
-            
-            
-            
-        } else {//表明不存在commentModel，要立马进行loading
-
-            static NSString * loadIdentifier = @"CellArticleDetailCommentLoading";
-            cell = [tableView dequeueReusableCellWithIdentifier:loadIdentifier];
-            if(cell == nil) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:loadIdentifier];
-            }
-            [cell showLoadingBee];
-            if(self.firstRequest) {
                 
-                [self requestCommentData];
-                self.firstRequest = NO;
+            } else {//表明还未开始刷评论数据
+                static NSString * loadIdentifier = @"CellArticleDetailCommentLoading";
+                UITableViewCell * load = [tableView dequeueReusableCellWithIdentifier:loadIdentifier];
+                if(load == nil) {
+                    load = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:loadIdentifier];
+                }
+                [load showLoadingBee];
+                cell = load;
+                
+                if(self.firstRequest) {
+                    [self requestCommentData];
+                    self.firstRequest = NO;
+                }
+                
             }
-            
         }
-        
-        
     }
-    
-    cell.backgroundColor = MO_APP_VCBackgroundColor;
+
 
     return cell;
 }
+
+#pragma mark - uiscrollview delegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offsetY = scrollView.contentOffset.y;

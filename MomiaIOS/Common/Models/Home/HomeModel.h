@@ -24,6 +24,7 @@
 
 @property (strong, nonatomic) NSArray<HomeTopic>* list;
 @property (assign, nonatomic) int nextPage;
+@property (assign, nonatomic) int pageSize;
 
 @end
 

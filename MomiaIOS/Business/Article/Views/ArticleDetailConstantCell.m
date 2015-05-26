@@ -1,14 +1,14 @@
 //
-//  ArticleDetailAuthorCell.m
+//  ArticleDetailConstantCell.m
 //  MomiaIOS
 //
-//  Created by Deng Jun on 15/5/11.
+//  Created by Owen on 15/5/25.
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "ArticleDetailAuthorCell.h"
+#import "ArticleDetailConstantCell.h"
 
-@implementation ArticleDetailAuthorCell
+@implementation ArticleDetailConstantCell
 
 - (void)awakeFromNib {
     // Initialization code
@@ -20,26 +20,20 @@
     // Configure the view for the selected state
 }
 
-- (void)setData:(ArticleDetailData *)data {
-    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:data.authorIcon]];
-    [self.nameLable setText:data.author];
-    [self.accountLable setText:data.authorAccount];
-    [self.descLable setText:data.authorDesc];
-}
-
 + (instancetype)cellWithTableView:(UITableView *)tableView {
-    static NSString *identifier = @"CellAuthor";
-    ArticleDetailAuthorCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    static NSString *identifier = @"CellConstant";
+    ArticleDetailConstantCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
         NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"ArticleDetailCells" owner:self options:nil];
-        cell = [arr objectAtIndex:1];
+        cell = [arr objectAtIndex:4];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return cell;
 }
 
 + (CGFloat)height {
-    return 105;
+    return 82;
 }
+
 
 @end

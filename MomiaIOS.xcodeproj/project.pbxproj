@@ -28,6 +28,8 @@
 		5A6806FB1B01D9EA00D02A60 /* MyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806FA1B01D9EA00D02A60 /* MyCollectionViewController.m */; };
 		5A6806FD1B01DA5100D02A60 /* MyCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A6806FC1B01DA5100D02A60 /* MyCollectionCell.xib */; };
 		5A6807001B01FBDD00D02A60 /* MySuggestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806FF1B01FBDD00D02A60 /* MySuggestViewController.m */; };
+		5AA2170D1B1310B300E85D0D /* ArticleDetailAbstractCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA2170C1B1310B300E85D0D /* ArticleDetailAbstractCell.m */; };
+		5AA217101B1317CE00E85D0D /* ArticleDetailConstantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA2170F1B1317CE00E85D0D /* ArticleDetailConstantCell.m */; };
 		5AB7B3A81B0EC11700044DFE /* GoodsDetailHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7B3A71B0EC11700044DFE /* GoodsDetailHeaderCell.m */; };
 		5AB7B3AB1B0EC1B800044DFE /* GoodsDetailImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7B3AA1B0EC1B800044DFE /* GoodsDetailImgCell.m */; };
 		5AB7B3AE1B0EC1E800044DFE /* GoodsDetailShopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7B3AD1B0EC1E800044DFE /* GoodsDetailShopCell.m */; };
@@ -156,6 +158,10 @@
 		5A6806FC1B01DA5100D02A60 /* MyCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyCollectionCell.xib; path = Business/Mine/Views/MyCollectionCell.xib; sourceTree = "<group>"; };
 		5A6806FE1B01FBDD00D02A60 /* MySuggestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySuggestViewController.h; path = Business/Mine/MySuggestViewController.h; sourceTree = "<group>"; };
 		5A6806FF1B01FBDD00D02A60 /* MySuggestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySuggestViewController.m; path = Business/Mine/MySuggestViewController.m; sourceTree = "<group>"; };
+		5AA2170B1B1310B300E85D0D /* ArticleDetailAbstractCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleDetailAbstractCell.h; path = Business/Article/Views/ArticleDetailAbstractCell.h; sourceTree = "<group>"; };
+		5AA2170C1B1310B300E85D0D /* ArticleDetailAbstractCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleDetailAbstractCell.m; path = Business/Article/Views/ArticleDetailAbstractCell.m; sourceTree = "<group>"; };
+		5AA2170E1B1317CE00E85D0D /* ArticleDetailConstantCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleDetailConstantCell.h; path = Business/Article/Views/ArticleDetailConstantCell.h; sourceTree = "<group>"; };
+		5AA2170F1B1317CE00E85D0D /* ArticleDetailConstantCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleDetailConstantCell.m; path = Business/Article/Views/ArticleDetailConstantCell.m; sourceTree = "<group>"; };
 		5AB7B3A61B0EC11700044DFE /* GoodsDetailHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsDetailHeaderCell.h; path = Business/Goods/views/GoodsDetailHeaderCell.h; sourceTree = "<group>"; };
 		5AB7B3A71B0EC11700044DFE /* GoodsDetailHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailHeaderCell.m; path = Business/Goods/views/GoodsDetailHeaderCell.m; sourceTree = "<group>"; };
 		5AB7B3A91B0EC1B800044DFE /* GoodsDetailImgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsDetailImgCell.h; path = Business/Goods/views/GoodsDetailImgCell.h; sourceTree = "<group>"; };
@@ -827,6 +833,10 @@
 				BC38D2501B00C8760051C7E9 /* ArticleDetailAuthorCell.m */,
 				5A1E0DAE1B09CC2D000EC137 /* ArticleDetailContentCell.h */,
 				5A1E0DAF1B09CC2D000EC137 /* ArticleDetailContentCell.m */,
+				5AA2170B1B1310B300E85D0D /* ArticleDetailAbstractCell.h */,
+				5AA2170C1B1310B300E85D0D /* ArticleDetailAbstractCell.m */,
+				5AA2170E1B1317CE00E85D0D /* ArticleDetailConstantCell.h */,
+				5AA2170F1B1317CE00E85D0D /* ArticleDetailConstantCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1049,6 +1059,7 @@
 				BCA273211AE9FB78002E7534 /* NSURL+MOURL.m in Sources */,
 				5A1B35F61B12C0D200E1D31B /* CommentCell.m in Sources */,
 				BC8540911ADF74E9005A7C54 /* main.m in Sources */,
+				5AA217101B1317CE00E85D0D /* ArticleDetailConstantCell.m in Sources */,
 				5A04EF2D1B0DCD4E00A88D3B /* GoodsDetailModel.m in Sources */,
 				5A04EF231B0D887800A88D3B /* GoodsTopicModel.m in Sources */,
 				BC38D2511B00C8760051C7E9 /* ArticleDetailAuthorCell.m in Sources */,
@@ -1082,6 +1093,7 @@
 				BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */,
 				5A04EF2A1B0D8D1A00A88D3B /* GoodsTopicItemCell.m in Sources */,
 				5AB7B3AE1B0EC1E800044DFE /* GoodsDetailShopCell.m in Sources */,
+				5AA2170D1B1310B300E85D0D /* ArticleDetailAbstractCell.m in Sources */,
 				BCFC2C371AF9C6B800164BC2 /* ActivityWebViewController.m in Sources */,
 				BC38D2891B099D0B0051C7E9 /* SuggestSubmitViewController.m in Sources */,
 				BC38D23C1AFEE2B50051C7E9 /* HomeModel.m in Sources */,

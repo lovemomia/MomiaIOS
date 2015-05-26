@@ -91,7 +91,7 @@
             failure(operation, err);
         }
         
-        NSLog(@"http (POST) success: %@", responseObject);
+//        NSLog(@"http (POST) success: %@", responseObject);
     };
     
     BlockMOHTTPRequestFail onFail = ^(AFHTTPRequestOperation *operation, NSError *error) {

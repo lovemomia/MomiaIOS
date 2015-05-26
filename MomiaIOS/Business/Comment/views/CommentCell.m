@@ -24,7 +24,7 @@
     if(data.authorIcon)[self.iconImageView sd_setImageWithURL:[NSURL URLWithString:data.authorIcon]];
     [self.nameLable setText:data.author];
     [self.dateLable setText:data.time];
-    
+    [self.lineView setBackgroundColor:MO_APP_VCBackgroundColor];
     [self.commentLable setText:data.content];
 }
 
@@ -33,7 +33,7 @@
     CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:commentIdentifier];
     if (cell == nil) {
         NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"ArticleDetailCells" owner:self options:nil];
-        cell = [arr objectAtIndex:3];
+        cell = [arr objectAtIndex:2];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return cell;
@@ -43,7 +43,7 @@
     CGFloat height;
     
     if (data.content) {
-        CGRect textFrame = [UILabel heightForMutableString:data.content withWidth:(SCREEN_WIDTH - 78) andFontSize:15.0];
+        CGRect textFrame = [UILabel heightForMutableString:data.content withWidth:(SCREEN_WIDTH - 79) andFontSize:15.0];
         height += textFrame.size.height;
         
     }
