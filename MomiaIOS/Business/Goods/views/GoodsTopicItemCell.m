@@ -40,6 +40,7 @@ static NSString * identifier = @"CellGoodsItem";
         [_detailBtn setBackgroundImage:[UIImage imageNamed:@"goodsrounct"] forState:UIControlStateNormal];
         [_detailBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_detailBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:21]];
+        [_detailBtn setUserInteractionEnabled:NO];
 
         
         [self.contentView addSubview:_numImgView];
