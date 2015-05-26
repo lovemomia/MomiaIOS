@@ -32,6 +32,16 @@
 		5AB7B3AB1B0EC1B800044DFE /* GoodsDetailImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7B3AA1B0EC1B800044DFE /* GoodsDetailImgCell.m */; };
 		5AB7B3AE1B0EC1E800044DFE /* GoodsDetailShopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7B3AD1B0EC1E800044DFE /* GoodsDetailShopCell.m */; };
 		5AB7B3B11B0EFF7400044DFE /* GoodsDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7B3B01B0EFF7400044DFE /* GoodsDetailContentCell.m */; };
+		BC2C0C521B1303BA00E2446E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
+		BC2C0C531B1303BA00E2446E /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2C0C511B1303BA00E2446E /* LoginViewController.xib */; };
+		BC2C0C571B1309A800E2446E /* MOButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C561B1309A800E2446E /* MOButton.m */; };
+		BC2C0C611B130C9300E2446E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C601B130C9300E2446E /* User.m */; };
+		BC2C0C641B130CDB00E2446E /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C631B130CDB00E2446E /* Account.m */; };
+		BC2C0C681B131ED500E2446E /* AccountService.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C671B131ED500E2446E /* AccountService.m */; };
+		BC2C0C761B140BF100E2446E /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C741B140BF100E2446E /* RegisterViewController.m */; };
+		BC2C0C771B140BF100E2446E /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2C0C751B140BF100E2446E /* RegisterViewController.xib */; };
+		BC2C0C7A1B141A3D00E2446E /* AccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C791B141A3D00E2446E /* AccountModel.m */; };
+		BC2C0C801B14659400E2446E /* MyStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C7F1B14659400E2446E /* MyStatusViewController.m */; };
 		BC2FAA0F1AFCA92D00E2071E /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA0E1AFCA92D00E2071E /* UIView+Frame.m */; };
 		BC2FAA111AFCAE8C00E2071E /* HomeTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2FAA101AFCAE8C00E2071E /* HomeTopicCell.xib */; };
 		BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA151AFCB2EE00E2071E /* BaseModel.m */; };
@@ -155,6 +165,24 @@
 		5AB7B3AF1B0EFF7400044DFE /* GoodsDetailContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsDetailContentCell.h; path = Business/Goods/views/GoodsDetailContentCell.h; sourceTree = "<group>"; };
 		5AB7B3B01B0EFF7400044DFE /* GoodsDetailContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailContentCell.m; path = Business/Goods/views/GoodsDetailContentCell.m; sourceTree = "<group>"; };
 		5B9DF4BE98C18CC18BDADCD8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC2C0C4F1B1303BA00E2446E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Business/Login/LoginViewController.h; sourceTree = "<group>"; };
+		BC2C0C501B1303BA00E2446E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Business/Login/LoginViewController.m; sourceTree = "<group>"; };
+		BC2C0C511B1303BA00E2446E /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = Business/Login/LoginViewController.xib; sourceTree = "<group>"; };
+		BC2C0C551B1309A800E2446E /* MOButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOButton.h; path = Common/Views/MOButton.h; sourceTree = "<group>"; };
+		BC2C0C561B1309A800E2446E /* MOButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOButton.m; path = Common/Views/MOButton.m; sourceTree = "<group>"; };
+		BC2C0C5F1B130C9300E2446E /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Common/Models/User/User.h; sourceTree = "<group>"; };
+		BC2C0C601B130C9300E2446E /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Common/Models/User/User.m; sourceTree = "<group>"; };
+		BC2C0C621B130CDB00E2446E /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Account.h; path = Common/Models/User/Account.h; sourceTree = "<group>"; };
+		BC2C0C631B130CDB00E2446E /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Account.m; path = Common/Models/User/Account.m; sourceTree = "<group>"; };
+		BC2C0C661B131ED500E2446E /* AccountService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountService.h; path = Common/Services/Account/AccountService.h; sourceTree = "<group>"; };
+		BC2C0C671B131ED500E2446E /* AccountService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountService.m; path = Common/Services/Account/AccountService.m; sourceTree = "<group>"; };
+		BC2C0C731B140BF100E2446E /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = Business/Login/RegisterViewController.h; sourceTree = "<group>"; };
+		BC2C0C741B140BF100E2446E /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = Business/Login/RegisterViewController.m; sourceTree = "<group>"; };
+		BC2C0C751B140BF100E2446E /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RegisterViewController.xib; path = Business/Login/RegisterViewController.xib; sourceTree = "<group>"; };
+		BC2C0C781B141A3D00E2446E /* AccountModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountModel.h; path = Common/Models/User/AccountModel.h; sourceTree = "<group>"; };
+		BC2C0C791B141A3D00E2446E /* AccountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountModel.m; path = Common/Models/User/AccountModel.m; sourceTree = "<group>"; };
+		BC2C0C7E1B14659400E2446E /* MyStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyStatusViewController.h; path = Business/Login/MyStatusViewController.h; sourceTree = "<group>"; };
+		BC2C0C7F1B14659400E2446E /* MyStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyStatusViewController.m; path = Business/Login/MyStatusViewController.m; sourceTree = "<group>"; };
 		BC2FAA0C1AFC8E9600E2071E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		BC2FAA0D1AFCA92D00E2071E /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Frame.h"; path = "Common/Categorys/UIView+Frame.h"; sourceTree = "<group>"; };
 		BC2FAA0E1AFCA92D00E2071E /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Frame.m"; path = "Common/Categorys/UIView+Frame.m"; sourceTree = "<group>"; };
@@ -419,9 +447,56 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BC2C0C4E1B13033000E2446E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BC2C0C4F1B1303BA00E2446E /* LoginViewController.h */,
+				BC2C0C501B1303BA00E2446E /* LoginViewController.m */,
+				BC2C0C511B1303BA00E2446E /* LoginViewController.xib */,
+				BC2C0C731B140BF100E2446E /* RegisterViewController.h */,
+				BC2C0C741B140BF100E2446E /* RegisterViewController.m */,
+				BC2C0C751B140BF100E2446E /* RegisterViewController.xib */,
+				BC2C0C7E1B14659400E2446E /* MyStatusViewController.h */,
+				BC2C0C7F1B14659400E2446E /* MyStatusViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		BC2C0C541B13095A00E2446E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BC2C0C551B1309A800E2446E /* MOButton.h */,
+				BC2C0C561B1309A800E2446E /* MOButton.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		BC2C0C5E1B130C6600E2446E /* User */ = {
+			isa = PBXGroup;
+			children = (
+				BC2C0C5F1B130C9300E2446E /* User.h */,
+				BC2C0C601B130C9300E2446E /* User.m */,
+				BC2C0C621B130CDB00E2446E /* Account.h */,
+				BC2C0C631B130CDB00E2446E /* Account.m */,
+				BC2C0C781B141A3D00E2446E /* AccountModel.h */,
+				BC2C0C791B141A3D00E2446E /* AccountModel.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		BC2C0C651B131EAC00E2446E /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				BC2C0C661B131ED500E2446E /* AccountService.h */,
+				BC2C0C671B131ED500E2446E /* AccountService.m */,
+			);
+			name = Account;
+			sourceTree = "<group>";
+		};
 		BC2FAA121AFCB1CB00E2071E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				BC2C0C651B131EAC00E2446E /* Account */,
 				BC2FAA171AFCB65400E2071E /* Http */,
 			);
 			name = Services;
@@ -496,6 +571,7 @@
 		BC7708601AFC56F3000068A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BC2C0C5E1B130C6600E2446E /* User */,
 				5A1B35E51B12BB5F00E1D31B /* Comment */,
 				BC41ABB61B0F25AB00A419DA /* Suggest */,
 				5A04EF201B0D883800A88D3B /* Goods */,
@@ -580,6 +656,7 @@
 				BCA2731B1AE9FA83002E7534 /* Categorys */,
 				BCA273171AE9F90C002E7534 /* Utils */,
 				BC8540BA1ADF8976005A7C54 /* Base */,
+				BC2C0C541B13095A00E2446E /* Views */,
 				BCA2730F1AE9D79F002E7534 /* scheme.plist */,
 				BCA273141AE9F6F0002E7534 /* URLMappingManager.h */,
 				BCA273151AE9F6F0002E7534 /* URLMappingManager.m */,
@@ -590,6 +667,7 @@
 		BC8540B51ADF8649005A7C54 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				BC2C0C4E1B13033000E2446E /* Login */,
 				5A1B35EC1B12BCD000E1D31B /* Comment */,
 				5A6806E41B019EFD00D02A60 /* Setting */,
 				BCFC2C341AF9C10400164BC2 /* Web */,
@@ -888,6 +966,8 @@
 				BCA273101AE9D79F002E7534 /* scheme.plist in Resources */,
 				BC2FAA111AFCAE8C00E2071E /* HomeTopicCell.xib in Resources */,
 				BCA273061AE8D0E9002E7534 /* Launch Screen.xib in Resources */,
+				BC2C0C531B1303BA00E2446E /* LoginViewController.xib in Resources */,
+				BC2C0C771B140BF100E2446E /* RegisterViewController.xib in Resources */,
 				5A6806FD1B01DA5100D02A60 /* MyCollectionCell.xib in Resources */,
 				BC41ABA61B0C69BE00A419DA /* read_me.txt in Resources */,
 				BCCDF66E1B0B4E4C008BAE12 /* WeiboSDK.bundle in Resources */,
@@ -941,13 +1021,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC2C0C521B1303BA00E2446E /* LoginViewController.m in Sources */,
 				5A1E0DB01B09CC2D000EC137 /* ArticleDetailContentCell.m in Sources */,
 				BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */,
+				BC2C0C801B14659400E2446E /* MyStatusViewController.m in Sources */,
 				5AB7B3A81B0EC11700044DFE /* GoodsDetailHeaderCell.m in Sources */,
 				BC77085F1AFC5685000068A8 /* UILabel+ContentSize.m in Sources */,
+				BC2C0C571B1309A800E2446E /* MOButton.m in Sources */,
 				5A1B35EB1B12BBC900E1D31B /* CommentPostModel.m in Sources */,
 				BCA273321AEB4A5A002E7534 /* ArticleTopicViewController.m in Sources */,
 				BC41ABA91B0C715400A419DA /* Environment.m in Sources */,
+				BC2C0C641B130CDB00E2446E /* Account.m in Sources */,
 				5A04EF271B0D8CBE00A88D3B /* GoodsTopicHeaderCell.m in Sources */,
 				BC38D24E1B00BBA70051C7E9 /* ArticleDetailModel.m in Sources */,
 				BC38D2471B0050770051C7E9 /* ArticleTopicItemCell.m in Sources */,
@@ -973,14 +1057,17 @@
 				BC7708511AFAFD54000068A8 /* MOTableViewController.m in Sources */,
 				BC8540C11ADF8A76005A7C54 /* HomeViewController.m in Sources */,
 				BCA2731E1AE9FB1D002E7534 /* NSString+MOURLEncode.m in Sources */,
+				BC2C0C681B131ED500E2446E /* AccountService.m in Sources */,
 				BC41ABBF1B0F269100A419DA /* SugTagsCell.m in Sources */,
 				BC41ABBC1B0F266F00A419DA /* SuggestTagsViewController.m in Sources */,
 				BC38D2441AFEEA300051C7E9 /* HttpService.m in Sources */,
+				BC2C0C7A1B141A3D00E2446E /* AccountModel.m in Sources */,
 				BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */,
 				BC38D2351AFEE28A0051C7E9 /* ArticleTopicModel.m in Sources */,
 				BC38D24B1B00BB660051C7E9 /* ArticleDetailHeaderCell.m in Sources */,
 				5A6806FB1B01D9EA00D02A60 /* MyCollectionViewController.m in Sources */,
 				5A2144581B0C6A8A0072682F /* AlertNotice.m in Sources */,
+				BC2C0C611B130C9300E2446E /* User.m in Sources */,
 				5AB7B3AB1B0EC1B800044DFE /* GoodsDetailImgCell.m in Sources */,
 				5A1B35F31B12BE2400E1D31B /* SendCommentView.m in Sources */,
 				BCCDF5E51B09EBF8008BAE12 /* UITextView+Placeholder.m in Sources */,
@@ -990,6 +1077,7 @@
 				BCA2730A1AE8DE95002E7534 /* HomeTopicCell.m in Sources */,
 				BCCDF6801B0C331B008BAE12 /* ThirdAccountHelper.m in Sources */,
 				BCA273241AEB166E002E7534 /* MONavigationController.m in Sources */,
+				BC2C0C761B140BF100E2446E /* RegisterViewController.m in Sources */,
 				5A6807001B01FBDD00D02A60 /* MySuggestViewController.m in Sources */,
 				BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */,
 				5A04EF2A1B0D8D1A00A88D3B /* GoodsTopicItemCell.m in Sources */,

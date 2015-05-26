@@ -21,6 +21,8 @@
 
 - (BOOL)openURL:(NSString *)urlStr;
 
+- (BOOL)openURL:(NSString *)urlStr byNav:(UINavigationController *)nav;
+
 - (BOOL)presentURL:(NSString *)urlStr;
 
 - (void)showDialogWithTitle:(NSString *)title message:(NSString *)message;

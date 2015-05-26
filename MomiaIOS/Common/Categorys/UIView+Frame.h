@@ -52,4 +52,6 @@
 
 - (void)removeAllSubviews;
 
+- (void)setBackgroundImage:(UIImage *)image;
+
 @end

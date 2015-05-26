@@ -176,4 +176,16 @@
     }
 }
 
+- (void)setBackgroundImage:(UIImage *)image {
+    UIView *view = self.subviews.lastObject;
+    if ([view isKindOfClass:[UIImageView class]]) {
+        UIImageView *imageView = (UIImageView *)view;
+        imageView.image = image;
+    } else {
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.bounds];
+        imageView.image = image;
+        [self addSubview:imageView];
+    }
+}
+
 @end

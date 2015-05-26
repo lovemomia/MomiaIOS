@@ -26,6 +26,8 @@
         }
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+    
+    self.view.backgroundColor = MO_APP_VCBackgroundColor;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,6 +68,11 @@
 - (BOOL)openURL:(NSString *)urlStr {
     NSURL *url = [NSURL URLWithString:urlStr];
     return [[UIApplication sharedApplication ] openURL:url];
+}
+
+- (BOOL)openURL:(NSString *)urlStr byNav:(UINavigationController *)nav {
+    NSURL *url = [NSURL URLWithString:urlStr];
+    return [[URLMappingManager sharedManager] handleOpenURL:url byNav:nav];
 }
 
 - (BOOL)presentURL:(NSString *)urlStr {

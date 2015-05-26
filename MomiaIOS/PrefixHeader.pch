@@ -7,9 +7,13 @@
 //
 
 #import "Constants.h"
+
 #import "UIView+Frame.h"
 #import "UILabel+ContentSize.h"
+
 #import "HttpService.h"
+#import "AccountService.h"
+
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "AlertNotice.h"
 #import "Environment.h"

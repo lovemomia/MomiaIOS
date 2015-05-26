@@ -57,7 +57,6 @@
 #pragma mark - title button listener
 
 - (void)onMineClicked {
-//    [self.navigationController pushViewController:[[MineViewController alloc]initViewController] animated:true];
     NSURL *url = [NSURL URLWithString:@"momia://mine"];
     [[UIApplication sharedApplication ] openURL:url];
 }

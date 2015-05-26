@@ -10,6 +10,8 @@
 #import "NSURL+MOURL.h"
 #import "MOViewController.h"
 #import "Constants.h"
+#import "LoginViewController.h"
+#import "MONavigationController.h"
 
 #define INIT_VIEW(name) [[name alloc] initWithNibName:@#name bundle:nil]
 
@@ -46,16 +48,48 @@ NSString * const pageKeyDesc          = @"desc";
 }
 
 // called by AppDelegate
-- (void)handleOpenURL:(NSURL *)url byNav:(UINavigationController *)nav {
-    [self openURL:url byNav:nav];
+- (BOOL)handleOpenURL:(NSURL *)url byNav:(UINavigationController *)nav {
+    return [self openURL:url byNav:nav];
 }
 
 - (BOOL)openURL:(NSURL *)url byNav:(UINavigationController *)nav {
-    MOViewController *controller = [self createControllerFromURL:url];
-    if (controller == nil) {
+    NSDictionary *pageDic = [self parsePageWithURL:url];
+    if (pageDic == nil) {
+        NSLog(@"URLMapping fail (not found page with url:%@", url);
         return NO;
     }
-    [nav pushViewController:controller animated:YES];
+    
+    // 判断是否需要登录
+    BOOL needLogin = [[pageDic objectForKey:pageKeyNeedLogin] boolValue];
+    if (needLogin) {
+        UIViewController *currentController = [nav.viewControllers objectAtIndex:[nav.viewControllers count] - 1];
+        LoginViewController *controller = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+        
+        controller.loginSuccessBlock = ^(){
+            [currentController dismissViewControllerAnimated:NO completion:nil];
+            NSDictionary *params = [url queryDictionary];
+            MOViewController *controller = [[NSClassFromString(pageDic[pageKeyController]) alloc]initWithParams:params];
+            [nav pushViewController:controller animated:YES];
+        };
+        controller.loginFailBlock = ^(NSInteger code, NSString* message){
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+        };
+        controller.loginCancelBlock = ^(){
+            [currentController dismissViewControllerAnimated:YES completion:nil];
+        };
+        
+        MONavigationController *navController = [[MONavigationController alloc]initWithRootViewController:controller];
+        [currentController presentViewController:navController animated:YES completion:nil];
+        
+    } else {
+        NSDictionary *params = [url queryDictionary];
+        MOViewController *controller = [[NSClassFromString(pageDic[pageKeyController]) alloc]initWithParams:params];
+        if (controller == nil) {
+            return NO;
+        }
+        [nav pushViewController:controller animated:YES];
+    }
     
     return YES;
 }

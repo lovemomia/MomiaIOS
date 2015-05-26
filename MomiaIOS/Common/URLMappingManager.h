@@ -14,7 +14,7 @@
 
 + (URLMappingManager *)sharedManager;
 
-- (void)handleOpenURL:(NSURL *)url byNav:(UINavigationController *)nav;
+- (BOOL)handleOpenURL:(NSURL *)url byNav:(UINavigationController *)nav;
 
 - (BOOL)openURL:(NSURL *)url byNav:(UINavigationController *)nav;
 

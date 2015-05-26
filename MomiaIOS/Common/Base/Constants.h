@@ -51,7 +51,7 @@
 /**
  *  页面背景颜色
  */
-#define MO_APP_VCBackgroundColor            (UIColorFromRGB(0xEEEEEE))
+#define MO_APP_VCBackgroundColor            (UIColorFromRGB(0xEDEDED))
 
 // getui push dev
 #define kAppId           @"xHJWU4TNcm7qaq0GzMNwg7"
