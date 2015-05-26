@@ -144,7 +144,7 @@
 {
     NSInteger row = indexPath.row;
     if(row < self.dataArray.count) {
-        id item = [self.model.data.list objectAtIndex:row];
+        id item = [self.dataArray objectAtIndex:row];
         if([item isKindOfClass:[HomeTopic class]]) {
             HomeTopic * topic = item;
             NSURL *url = [NSURL URLWithString:topic.action];
