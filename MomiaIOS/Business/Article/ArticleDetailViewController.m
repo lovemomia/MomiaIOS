@@ -62,7 +62,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self addHeaderMaskView];
     [self addNavBackView];
+    
     
     // 请求数据
     [self requestData];

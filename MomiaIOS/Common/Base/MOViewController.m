@@ -53,6 +53,13 @@
     [self.view addSubview:self.navBackView];
 }
 
+- (void)addHeaderMaskView {
+    CGRect frame = self.navigationController.navigationBar.frame;
+    UIImageView *muskView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 64)];
+    muskView.image = [UIImage imageNamed:@"bg_nav_mask"];
+    [self.view addSubview:muskView];
+}
+
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithNibName:nil bundle:nil]) {
         // todo

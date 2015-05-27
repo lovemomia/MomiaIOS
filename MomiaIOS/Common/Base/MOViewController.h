@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) UIView *navBackView; // 导航条背景
 - (void)addNavBackView;
+- (void)addHeaderMaskView;
 
 - (instancetype)initWithParams:(NSDictionary *)params;
 
