@@ -80,28 +80,6 @@
 
 #pragma mark tableView delegate, dataSource
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    if ([self tableViewStyle] == UITableViewStyleGrouped) {
-        UIView *content = [[UIView alloc]init];
-        UIImageView *view = [[UIImageView alloc]init];
-        view.contentMode = UIViewContentModeScaleToFill;
-        view.height = 6;
-        view.width = SCREEN_WIDTH;
-        view.top = -2;
-        view.image = [UIImage imageNamed:@"bg_card"];
-        [content addSubview:view];
-        return content;
-    }
-    return nil;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if ([self tableViewStyle] == UITableViewStyleGrouped) {
-        return 20;
-    }
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 0;
 }
@@ -124,25 +102,29 @@
     return UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
+- (UIEdgeInsets)separatorInset {
+    return UIEdgeInsetsMake(0,0,0,0);
+}
+
 -(void)viewDidLayoutSubviews
 {
     if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-        [self.tableView setSeparatorInset:UIEdgeInsetsMake(0,0,0,0)];
+        [self.tableView setSeparatorInset:[self separatorInset]];
     }
     
     if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-        [self.tableView setLayoutMargins:UIEdgeInsetsMake(0,0,0,0)];
+        [self.tableView setLayoutMargins:[self separatorInset]];
     }
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
+        [cell setSeparatorInset:[self separatorInset]];
     }
     
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
+        [cell setLayoutMargins:[self separatorInset]];
     }
 }
 

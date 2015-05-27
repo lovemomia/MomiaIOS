@@ -46,6 +46,7 @@
 		BC2C0C801B14659400E2446E /* MyStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C7F1B14659400E2446E /* MyStatusViewController.m */; };
 		BC2C0C861B15668000E2446E /* DatePickerSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C851B15668000E2446E /* DatePickerSheet.m */; };
 		BC2C0C891B15698B00E2446E /* NSError+MOError.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C881B15698B00E2446E /* NSError+MOError.m */; };
+		BC2C0C8C1B15AF6E00E2446E /* MOGroupStyleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C8B1B15AF6E00E2446E /* MOGroupStyleTableViewController.m */; };
 		BC2FAA0F1AFCA92D00E2071E /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA0E1AFCA92D00E2071E /* UIView+Frame.m */; };
 		BC2FAA111AFCAE8C00E2071E /* HomeTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2FAA101AFCAE8C00E2071E /* HomeTopicCell.xib */; };
 		BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA151AFCB2EE00E2071E /* BaseModel.m */; };
@@ -195,6 +196,8 @@
 		BC2C0C851B15668000E2446E /* DatePickerSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerSheet.m; sourceTree = "<group>"; };
 		BC2C0C871B15698B00E2446E /* NSError+MOError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSError+MOError.h"; path = "Common/Categorys/NSError+MOError.h"; sourceTree = "<group>"; };
 		BC2C0C881B15698B00E2446E /* NSError+MOError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSError+MOError.m"; path = "Common/Categorys/NSError+MOError.m"; sourceTree = "<group>"; };
+		BC2C0C8A1B15AF6E00E2446E /* MOGroupStyleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOGroupStyleTableViewController.h; path = Common/Base/MOGroupStyleTableViewController.h; sourceTree = "<group>"; };
+		BC2C0C8B1B15AF6E00E2446E /* MOGroupStyleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOGroupStyleTableViewController.m; path = Common/Base/MOGroupStyleTableViewController.m; sourceTree = "<group>"; };
 		BC2FAA0C1AFC8E9600E2071E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		BC2FAA0D1AFCA92D00E2071E /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Frame.h"; path = "Common/Categorys/UIView+Frame.h"; sourceTree = "<group>"; };
 		BC2FAA0E1AFCA92D00E2071E /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Frame.m"; path = "Common/Categorys/UIView+Frame.m"; sourceTree = "<group>"; };
@@ -726,6 +729,8 @@
 				5A2144571B0C6A8A0072682F /* AlertNotice.m */,
 				BC41ABA71B0C715400A419DA /* Environment.h */,
 				BC41ABA81B0C715400A419DA /* Environment.m */,
+				BC2C0C8A1B15AF6E00E2446E /* MOGroupStyleTableViewController.h */,
+				BC2C0C8B1B15AF6E00E2446E /* MOGroupStyleTableViewController.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -1110,6 +1115,7 @@
 				BC38D2891B099D0B0051C7E9 /* SuggestSubmitViewController.m in Sources */,
 				BC38D23C1AFEE2B50051C7E9 /* HomeModel.m in Sources */,
 				BCCDF5D91B09E345008BAE12 /* SugSubmitProductNameCell.m in Sources */,
+				BC2C0C8C1B15AF6E00E2446E /* MOGroupStyleTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
