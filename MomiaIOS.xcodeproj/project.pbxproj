@@ -44,6 +44,8 @@
 		BC2C0C771B140BF100E2446E /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2C0C751B140BF100E2446E /* RegisterViewController.xib */; };
 		BC2C0C7A1B141A3D00E2446E /* AccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C791B141A3D00E2446E /* AccountModel.m */; };
 		BC2C0C801B14659400E2446E /* MyStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C7F1B14659400E2446E /* MyStatusViewController.m */; };
+		BC2C0C861B15668000E2446E /* DatePickerSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C851B15668000E2446E /* DatePickerSheet.m */; };
+		BC2C0C891B15698B00E2446E /* NSError+MOError.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C881B15698B00E2446E /* NSError+MOError.m */; };
 		BC2FAA0F1AFCA92D00E2071E /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA0E1AFCA92D00E2071E /* UIView+Frame.m */; };
 		BC2FAA111AFCAE8C00E2071E /* HomeTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2FAA101AFCAE8C00E2071E /* HomeTopicCell.xib */; };
 		BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA151AFCB2EE00E2071E /* BaseModel.m */; };
@@ -189,6 +191,10 @@
 		BC2C0C791B141A3D00E2446E /* AccountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountModel.m; path = Common/Models/User/AccountModel.m; sourceTree = "<group>"; };
 		BC2C0C7E1B14659400E2446E /* MyStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyStatusViewController.h; path = Business/Login/MyStatusViewController.h; sourceTree = "<group>"; };
 		BC2C0C7F1B14659400E2446E /* MyStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyStatusViewController.m; path = Business/Login/MyStatusViewController.m; sourceTree = "<group>"; };
+		BC2C0C841B15668000E2446E /* DatePickerSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerSheet.h; sourceTree = "<group>"; };
+		BC2C0C851B15668000E2446E /* DatePickerSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerSheet.m; sourceTree = "<group>"; };
+		BC2C0C871B15698B00E2446E /* NSError+MOError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSError+MOError.h"; path = "Common/Categorys/NSError+MOError.h"; sourceTree = "<group>"; };
+		BC2C0C881B15698B00E2446E /* NSError+MOError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSError+MOError.m"; path = "Common/Categorys/NSError+MOError.m"; sourceTree = "<group>"; };
 		BC2FAA0C1AFC8E9600E2071E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		BC2FAA0D1AFCA92D00E2071E /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Frame.h"; path = "Common/Categorys/UIView+Frame.h"; sourceTree = "<group>"; };
 		BC2FAA0E1AFCA92D00E2071E /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Frame.m"; path = "Common/Categorys/UIView+Frame.m"; sourceTree = "<group>"; };
@@ -471,6 +477,8 @@
 		BC2C0C541B13095A00E2446E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BC2C0C841B15668000E2446E /* DatePickerSheet.h */,
+				BC2C0C851B15668000E2446E /* DatePickerSheet.m */,
 				BC2C0C551B1309A800E2446E /* MOButton.h */,
 				BC2C0C561B1309A800E2446E /* MOButton.m */,
 			);
@@ -774,6 +782,8 @@
 				BCA2731D1AE9FB1D002E7534 /* NSString+MOURLEncode.m */,
 				BC77085D1AFC5685000068A8 /* UILabel+ContentSize.h */,
 				BC77085E1AFC5685000068A8 /* UILabel+ContentSize.m */,
+				BC2C0C871B15698B00E2446E /* NSError+MOError.h */,
+				BC2C0C881B15698B00E2446E /* NSError+MOError.m */,
 			);
 			name = Categorys;
 			sourceTree = "<group>";
@@ -1033,6 +1043,7 @@
 			files = (
 				BC2C0C521B1303BA00E2446E /* LoginViewController.m in Sources */,
 				5A1E0DB01B09CC2D000EC137 /* ArticleDetailContentCell.m in Sources */,
+				BC2C0C891B15698B00E2446E /* NSError+MOError.m in Sources */,
 				BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */,
 				BC2C0C801B14659400E2446E /* MyStatusViewController.m in Sources */,
 				5AB7B3A81B0EC11700044DFE /* GoodsDetailHeaderCell.m in Sources */,
@@ -1060,6 +1071,7 @@
 				5A1B35F61B12C0D200E1D31B /* CommentCell.m in Sources */,
 				BC8540911ADF74E9005A7C54 /* main.m in Sources */,
 				5AA217101B1317CE00E85D0D /* ArticleDetailConstantCell.m in Sources */,
+				BC2C0C861B15668000E2446E /* DatePickerSheet.m in Sources */,
 				5A04EF2D1B0DCD4E00A88D3B /* GoodsDetailModel.m in Sources */,
 				5A04EF231B0D887800A88D3B /* GoodsTopicModel.m in Sources */,
 				BC38D2511B00C8760051C7E9 /* ArticleDetailAuthorCell.m in Sources */,

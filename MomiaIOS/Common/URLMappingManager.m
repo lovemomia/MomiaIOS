@@ -61,7 +61,7 @@ NSString * const pageKeyDesc          = @"desc";
     
     // 判断是否需要登录
     BOOL needLogin = [[pageDic objectForKey:pageKeyNeedLogin] boolValue];
-    if (needLogin) {
+    if (needLogin && ![[AccountService defaultService] isLogin]) {
         UIViewController *currentController = [nav.viewControllers objectAtIndex:[nav.viewControllers count] - 1];
         LoginViewController *controller = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
         

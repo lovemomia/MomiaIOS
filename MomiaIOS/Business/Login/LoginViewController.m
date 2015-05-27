@@ -84,7 +84,7 @@
                              }
                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                 [self showDialogWithTitle:nil message:error.domain];
+                                 [self showDialogWithTitle:nil message:error.message];
                              }];
 }
 

@@ -7,8 +7,9 @@
 //
 
 #import "MyStatusViewController.h"
+#import "DatePickerSheet.h"
 
-@interface MyStatusViewController ()
+@interface MyStatusViewController () <DatePickerSheetDelegate>
 
 @end
 
@@ -55,7 +56,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellDefault"];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellDefault"];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"CellDefault"];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
@@ -74,5 +75,54 @@
     
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        [self updateBabyDate:nil];
+        
+    } else if (indexPath.row == 1) {
+        [self showDatePicker];
+    } else {
+        [self showDatePicker];
+    }
+}
+
+- (void)updateBabyDate:(NSString *)date {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    NSDictionary *params = @{@"babydate" : (date == nil ? @"":date)};
+    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/babydate")
+                           parameters:params JSONModelClass:[BaseModel class]
+                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  self.operateSuccessBlock();
+                              }
+     
+                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  [self showDialogWithTitle:nil message:error.message];
+                              }];
+}
+
+- (void)showDatePicker {
+    DatePickerSheet * datePickerSheet = [DatePickerSheet getInstance];
+    [datePickerSheet initializationWithMaxDate:nil
+                                   withMinDate:nil
+                            withDatePickerMode:UIDatePickerModeDate
+                                  withDelegate:self];
+    [datePickerSheet showDatePickerSheet];
+}
+
+#pragma mark - DatePickerSheetDelegate method
+- (void) datePickerSheet:(DatePickerSheet*)datePickerSheet chosenDate:(NSDate*)date
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyy-MM-dd";
+    NSString *dateString = [formatter stringFromDate:date];
+    NSLog(@"dateString:%@", dateString);
+    
+    [self updateBabyDate:dateString];
+}
+
 
 @end
