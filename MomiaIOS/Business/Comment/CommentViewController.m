@@ -10,7 +10,7 @@
 #import "CommentModel.h"
 #import "CommentCell.h"
 #import "SendCommentView.h"
-#import "CommentPostModel.h"
+#import "SubmitPostModel.h"
 #define pageSize 10
 
 @interface CommentViewController ()
@@ -108,31 +108,20 @@
             
             
             
-            [[HttpService defaultService] POST:URL_APPEND_PATH(@"/comment") parameters:dic JSONModelClass:[CommentPostModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                CommentPostModel * result = responseObject;
-                
+            [[HttpService defaultService] POST:URL_APPEND_PATH(@"/comment") parameters:dic JSONModelClass:[SubmitPostModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
                 [weakSelf.sendCommentView setUserInteractionEnabled:YES];
                 [textContentView resignFirstResponder];
-                
-                
-                if(result.errNo == 0) {//发送成功
-                    weakSelf.isRefresh = YES;
-                    [weakSelf requestData];
-                }
-                else {
-                    NSLog(@"%d",result.errNo);
-                }
+                weakSelf.isRefresh = YES;
+                [weakSelf requestData];
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 
-                
                 [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
                 [weakSelf.sendCommentView setUserInteractionEnabled:YES];
                 
                 [textContentView resignFirstResponder];
                 
-                
-                NSLog(@"error:%@",[error localizedDescription]);
+                NSLog(@"error:%@",[error domain]);
             }];
         }
     }];

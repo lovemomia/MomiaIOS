@@ -16,5 +16,5 @@
 
 + (CGRect)heightForMutableString:(NSString *)contentString withWidth:(CGFloat)width andFont:(UIFont *)font;
 
-
++ (CGRect)widthForMutableString:(NSString *)contentString withHeight:(CGFloat)height andFont:(UIFont *)font;
 @end

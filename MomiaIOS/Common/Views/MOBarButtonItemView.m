@@ -10,7 +10,7 @@
 
 #define iconLength 25
 #define kPadding 5
-
+#define contentFont [UIFont systemFontOfSize:14.0f]
 
 @interface MOBarButtonItemView ()
 
@@ -26,6 +26,8 @@
         _iconImgView = [[UIImageView alloc] init];
         _contentLabel = [[UILabel alloc] init];
         [_contentLabel setTextColor:[UIColor whiteColor]];
+        [_contentLabel setFont:contentFont];
+        
         [self addSubview:_iconImgView];
         [self addSubview:_contentLabel];
         
@@ -39,9 +41,17 @@
             make.left.equalTo(_iconImgView.mas_right).with.offset(kPadding);
             make.centerY.equalTo(_iconImgView);
         }];
+        
+        UITapGestureRecognizer * gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickMe:)];
+        [self addGestureRecognizer:gesture];
     
     }
     return self;
+}
+
+-(void)onClickMe:(UITapGestureRecognizer *)gesture
+{
+    [self.delegate tapMOBarButtonItemView:(MOBarButtonItemView *)gesture.view];
 }
 
 /*
@@ -51,6 +61,27 @@
     // Drawing code
 }
 */
+
++(CGFloat) widthWithData:(ArticleDetailData *)data withContentStyle:(ContentStyle) style
+{
+    CGFloat width = 0;
+    width += iconLength;
+    width += kPadding;
+    NSString * contentStr = @"";
+    if(style == ContentStyleFavourite) {
+        contentStr = [NSString stringWithFormat:@"%d",data.favNum];
+    } else if(style == ContentStyleUp){
+        contentStr = [NSString stringWithFormat:@"%d",data.upNum];
+    }
+    CGRect textRect = [UILabel widthForMutableString:contentStr withHeight:20 andFont:contentFont];
+    width += textRect.size.width;
+    return width;
+
+}
+
+
+
+
 
 
 @end

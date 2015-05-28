@@ -15,7 +15,7 @@
 #import "ArticleDetailAuthorCell.h"
 #import "ArticleDetailConstantCell.h"
 #import "CommentCell.h"
-#import "MOBarButtonItemView.h"
+#import "SubmitPostModel.h"
 
 @interface ArticleDetailViewController ()
 
@@ -28,6 +28,11 @@
 
 @property (nonatomic, assign)BOOL firstRequest;//评论的第一次请求
 
+@property (nonatomic, assign)BOOL upStatus;
+@property (nonatomic, assign)int upNum;
+
+@property (nonatomic, assign)BOOL favStatus;
+@property (nonatomic, assign)int favNum;
 
 @end
 
@@ -66,20 +71,7 @@
     [self addHeaderMaskView];
     [self addNavBackView];
     
-    
-    
-    MOBarButtonItemView * collectionView = [[MOBarButtonItemView alloc] init];
-    
-    collectionView.iconImgView.image = [UIImage imageNamed:@"UserHeaderButtonFavorites"];
-    collectionView.contentLabel.text = @"5677";
-    
-    collectionView.frame = CGRectMake(0, 0, 80, 44);
    
-    UIBarButtonItem * collectionItem = [[UIBarButtonItem alloc] initWithCustomView:collectionView];
-    
-    self.navigationItem.rightBarButtonItems = @[collectionItem];
-    
-
     // 请求数据
     [self requestData];
 }
@@ -99,6 +91,49 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark - MOBarButtonItemViewDelegate
+-(void)tapMOBarButtonItemView:(MOBarButtonItemView *)itemView
+{
+    if([[AccountService defaultService] isLogin]) {
+        if(itemView.tag == 201501) {//单击点赞了
+            if(self.upStatus) {
+                //
+            } else {
+                //开始点赞
+                [itemView setUserInteractionEnabled:NO];
+                
+            }
+            
+        } else if(itemView.tag == 201502){//点击收藏了
+            if(self.favStatus) {
+                //
+            } else {
+                //开始收藏
+                
+                [itemView setUserInteractionEnabled:NO];
+                NSDictionary * dic = @{@"type":@"0",@"title":self.model.data.title,@"refid":@(self.model.data.articleId)};
+                [[HttpService defaultService] POST:URL_APPEND_PATH(@"/favorite") parameters:dic JSONModelClass:[SubmitPostModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    //收藏成功
+                    [itemView setUserInteractionEnabled:YES];
+                    self.favStatus = YES;
+                    self.favNum = 100;
+                    //开始更新视图
+                    [itemView.contentLabel setText:[NSString stringWithFormat:@"%d",self.favNum]];
+                    
+                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    NSLog(@"error:%@",[error message]);
+                    [AlertNotice showNotice:[error message]];
+                }];
+                
+            }
+            
+        }
+
+    } else {
+        
+    }
+    
+}
 
 #pragma mark - requestWebData
 
@@ -106,7 +141,6 @@
 -(void)requestCommentData {
     NSDictionary * dic = @{@"articleid":@(self.articleId), @"start":@"0", @"count":@"3"};
     
-
     [[HttpService defaultService] GET:URL_APPEND_PATH(@"/comment/article") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[CommentModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        if (self.commentModel == nil) {
 //            [self.view removeLoadingBee];
@@ -133,12 +167,53 @@
         }
         
         self.model = responseObject;
+        [self setUpNav];
         [self.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
 }
+
+#pragma mark - navigationBarItem
+
+-(void)setUpNav
+{
+    MOBarButtonItemView * upView = [[MOBarButtonItemView alloc] init];
+    upView.tag = 201501;
+    [upView.contentLabel setText:[NSString stringWithFormat:@"%d",self.model.data.upNum]];
+    
+    self.upStatus = self.model.data.upStatus;
+    self.upNum = self.model.data.upNum;
+    self.favStatus = self.model.data.favStatus;
+    self.favNum = self.model.data.favNum;
+    
+    if(self.upStatus) {
+        [upView.iconImgView setImage:[UIImage imageNamed:@"nav_up_ok"]];
+    } else {
+        [upView.iconImgView setImage:[UIImage imageNamed:@"nav_up"]];
+    }
+    upView.frame = CGRectMake(0, 0, [MOBarButtonItemView widthWithData:self.model.data withContentStyle:ContentStyleUp], 44);
+    [upView setDelegate:self];
+    
+    MOBarButtonItemView * favView = [[MOBarButtonItemView alloc] init];
+    favView.tag = 201502;
+    [favView.contentLabel setText:[NSString stringWithFormat:@"%d",self.model.data.favNum]];
+    if(self.favStatus) {
+        [favView.iconImgView setImage:[UIImage imageNamed:@"nav_fav_ok"]];
+    } else {
+        [favView.iconImgView setImage:[UIImage imageNamed:@"nav_fav"]];
+    }
+    favView.frame = CGRectMake(0, 0, [MOBarButtonItemView widthWithData:self.model.data withContentStyle:ContentStyleFavourite], 44);
+    [favView setDelegate:self];
+    
+    UIBarButtonItem * upItem = [[UIBarButtonItem alloc] initWithCustomView:upView];
+    UIBarButtonItem * favItem = [[UIBarButtonItem alloc] initWithCustomView:favView];
+    self.navigationItem.rightBarButtonItems = @[upItem,favItem];
+    
+}
+
+
 
 
 

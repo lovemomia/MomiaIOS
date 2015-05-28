@@ -55,5 +55,18 @@
     return rect;
 }
 
++ (CGRect)widthForMutableString:(NSString *)contentString withHeight:(CGFloat)height andFont:(UIFont *)font
+{
+    NSMutableAttributedString *mutString = [[NSMutableAttributedString alloc] initWithString:contentString];
+    
+    UIFont *aUiFont = font;
+    NSRange range = {0, contentString.length};
+    [mutString addAttribute:(id)kCTFontAttributeName value:aUiFont range:range];
+    
+    CGRect rect = [mutString boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, height) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
+    
+    return rect;
+}
+
 
 @end
