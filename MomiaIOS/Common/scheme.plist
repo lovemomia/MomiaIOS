@@ -16,7 +16,7 @@
 		<key>controller</key>
 		<string>MineViewController</string>
 		<key>needlogin</key>
-		<false/>
+		<true/>
 		<key>desc</key>
 		<string>我的</string>
 	</dict>

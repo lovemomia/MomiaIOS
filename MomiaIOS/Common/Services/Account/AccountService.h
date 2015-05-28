@@ -25,6 +25,6 @@
  */
 - (BOOL)isLogin;
 
-
+- (void)login:(UIViewController *)controller;
 
 @end
