@@ -69,7 +69,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self.view setBackgroundColor:MO_APP_VCBackgroundColor];
+//    [self.view setBackgroundColor:MO_APP_VCBackgroundColor];
     self.navigationItem.title = @"评论";
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {

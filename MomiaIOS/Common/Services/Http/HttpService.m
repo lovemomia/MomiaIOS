@@ -55,6 +55,9 @@
             failure(operation, err);
             NSLog(@"http (POST) fail: %@", responseObject);
         }
+        
+        NSLog(@"http (GET) success: %@", responseObject);
+
     };
     
     BlockMOHTTPRequestFail onFail = ^(AFHTTPRequestOperation *operation, NSError *error) {

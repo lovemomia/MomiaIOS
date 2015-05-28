@@ -10,7 +10,7 @@
 
 @interface Account : JSONModel<NSCoding>
 
-@property (nonatomic, assign) int userId;
+@property (nonatomic, assign) NSInteger userId;
 @property (nonatomic, strong) NSString *token;
 
 @property (nonatomic, strong) NSString *address;

@@ -48,6 +48,8 @@
  */
 #define MO_APP_NaviColor                    (UIColorFromRGB(0xFF6699))
 
+
+
 /**
  *  页面背景颜色
  */
