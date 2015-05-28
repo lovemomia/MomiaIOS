@@ -83,7 +83,7 @@ typedef enum {
         return;
     }
     
-    if (self.uploadImages == nil) {
+    if (self.uploadImages == nil || ([self.uploadImages count] == 1 && ((SelectImage *)[self.uploadImages objectAtIndex:0]).filePath == nil)) {
         [self showDialogWithTitle:nil message:@"请至少上传一张商品图片！"];
         return;
     }
@@ -199,6 +199,10 @@ typedef enum {
 }
 
 - (void)uploadImage:(SelectImage *)image {
+    if (image.fileName == nil || image.filePath == nil) {
+        return;
+    }
+    
     image.uploadStatus = UploadStatusGoing;
     [[HttpService defaultService] uploadImageWithFilePath:image.filePath fileName:image.fileName handler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {

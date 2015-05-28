@@ -26,7 +26,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"个人信息";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"退出登录" style:UIBarButtonItemStyleDone target:self action:@selector(onLogoutClicked)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"退出登录" style:UIBarButtonItemStyleDone target:self action:@selector(onLogoutClicked:)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,7 +79,7 @@
         logoutButton.top = 30;
         [logoutButton setTitle:@"退出登录" forState:UIControlStateNormal];
         [logoutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [logoutButton addTarget:self action:@selector(onLogoutClicked) forControlEvents:UIControlEventTouchUpInside];
+        [logoutButton addTarget:self action:@selector(onLogoutClicked:) forControlEvents:UIControlEventTouchUpInside];
         [logoutButton setBackgroundImage:[UIImage imageNamed:@"bg_button"] forState:UIControlStateNormal];
         [view addSubview:logoutButton];
     }
@@ -99,6 +99,7 @@
     
     if (indexPath.section == 0) {
         [self takePictureClick];
+        
     } else if (indexPath.section == 1) {
         NSString *title;
         int tag;
@@ -119,7 +120,6 @@
         }
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"修改%@", title] message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认修改", nil];
         alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-        [alert textFieldAtIndex:0].keyboardType = UIKeyboardTypeNumberPad;
         alert.tag = tag;
         [alert show];
     }
@@ -189,7 +189,7 @@
 }
 
 
-- (void)onLogoutClicked {
+- (IBAction)onLogoutClicked:(id)sender {
     [AccountService defaultService].account = nil;
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
@@ -205,7 +205,6 @@
                                   destructiveButtonTitle:nil
                                   otherButtonTitles:@"照相机", @"本地相簿",nil];
     [actionSheet showInView:self.view];
-    
 }
 
 #pragma mark -
