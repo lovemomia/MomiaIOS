@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view from its nib.
     
     self.navigationItem.title = @"我的";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(onSettingClicked)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(onSettingClicked)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -90,6 +90,7 @@
             break;
         case 2:
             if(row == 0) {
+                
                 
             } else {
                 [self shareToFriend];

@@ -48,7 +48,7 @@
         }
         if (result.errNo == 0) {
             success(operation, result);
-            NSLog(@"http (POST) success: %@", responseObject);
+//            NSLog(@"http (POST) success: %@", responseObject);
             
         } else {
             NSError *err = [[NSError alloc]initWithCode:result.errNo message:result.errMsg];
@@ -56,7 +56,7 @@
             NSLog(@"http (POST) fail: %@", responseObject);
         }
         
-        NSLog(@"http (GET) success: %@", responseObject);
+//        NSLog(@"http (GET) success: %@", responseObject);
 
     };
     
@@ -92,7 +92,7 @@
         if (result.errNo == 0) {
 
             success(operation, result);
-            NSLog(@"http (POST) success: %@", responseObject);
+//            NSLog(@"http (POST) success: %@", responseObject);
             
         } else {
             NSError *err = [[NSError alloc]initWithCode:result.errNo message:result.errMsg];

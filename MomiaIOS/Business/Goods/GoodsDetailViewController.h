@@ -7,7 +7,8 @@
 //
 
 #import "MOTableViewController.h"
+#import "MOBarButtonItemView.h"
 
-@interface GoodsDetailViewController : MOTableViewController
+@interface GoodsDetailViewController : MOTableViewController<MOBarButtonItemViewDelegate>
 
 @end

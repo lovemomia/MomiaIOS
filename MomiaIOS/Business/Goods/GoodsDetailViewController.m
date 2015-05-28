@@ -14,6 +14,7 @@
 #import "GoodsDetailShopCell.h"
 #import "CommentModel.h"
 #import "CommentCell.h"
+#import "SubmitPostModel.h"
 
 #define shopStr @"您可以通过以下方式购买"
 
@@ -25,7 +26,11 @@
 @property (nonatomic, assign)BOOL firstRequest;//评论的第一次请求
 
 @property (nonatomic,assign) NSInteger goodsId;
+@property (nonatomic, assign)BOOL upStatus;
+@property (nonatomic, assign)int upNum;
 
+@property (nonatomic, assign)BOOL favStatus;
+@property (nonatomic, assign)int favNum;
 
 @end
 
@@ -78,6 +83,8 @@
     }
     return self;
 }
+
+
 
 
 #pragma mark - tableview delegate
@@ -252,6 +259,120 @@
 
 }
 
+#pragma mark - MOBarButtonItemViewDelegate
+-(void)tapMOBarButtonItemView:(MOBarButtonItemView *)itemView
+{
+    if([[AccountService defaultService] isLogin]) {
+        if(itemView.tag == 201501) {//点击点赞
+            if(self.upStatus) {
+                //取消点赞
+                
+                [itemView setUserInteractionEnabled:NO];
+                NSDictionary * dic = @{@"goodsid":@(self.model.data.goodsId)};
+                [[HttpService defaultService] POST:URL_APPEND_PATH(@"/goods/praise/delete") parameters:dic JSONModelClass:[SubmitPostModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    [itemView setUserInteractionEnabled:YES];
+                    self.upStatus = NO;
+                    self.upNum--;
+                    NSString * upStr;
+                    if(self.upNum >= 10000)
+                        upStr = @"9999+";
+                    else upStr = [NSString stringWithFormat:@"%d",self.upNum];
+                    [itemView.contentLabel setText:upStr];
+                    itemView.frame = CGRectMake(0, 0, [MOBarButtonItemView widthWithContent:upStr], 44);
+                    
+                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    [itemView setUserInteractionEnabled:YES];
+                    NSLog(@"error:%@",[error message]);
+                    [AlertNotice showNotice:[error message]];
+                }];
+                
+                
+                
+            } else {
+                //开始点赞
+                [itemView setUserInteractionEnabled:NO];
+                NSDictionary * dic = @{@"goodsid":@(self.model.data.goodsId)};
+                [[HttpService defaultService] POST:URL_APPEND_PATH(@"/goods/praise/add") parameters:dic JSONModelClass:[SubmitPostModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    
+                    [itemView setUserInteractionEnabled:YES];
+                    self.upStatus = YES;
+                    self.upNum++;
+                    NSString * upStr;
+                    if(self.upNum >= 10000)
+                        upStr = @"9999+";
+                    else upStr = [NSString stringWithFormat:@"%d",self.upNum];
+                    //开始更新视图
+                    //                    upStr = @"324";
+                    [itemView.contentLabel setText:upStr];
+                    itemView.frame = CGRectMake(0, 0, [MOBarButtonItemView widthWithContent:upStr], 44);
+                    
+                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    [itemView setUserInteractionEnabled:YES];
+                    NSLog(@"error:%@",[error message]);
+                    [AlertNotice showNotice:[error message]];
+                }];
+                
+                
+                
+            }
+            
+        } else if(itemView.tag == 201502){//点击收藏
+            if(self.favStatus) {
+                //取消收藏
+                [itemView setUserInteractionEnabled:NO];
+                NSDictionary * dic = @{@"type":@"1",@"refid":@(self.model.data.goodsId)};
+                [[HttpService defaultService] POST:URL_APPEND_PATH(@"/favorite/delete") parameters:dic JSONModelClass:[SubmitPostModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    [itemView setUserInteractionEnabled:YES];
+                    self.favStatus = NO;
+                    self.favNum--;
+                    NSString * favStr;
+                    if(self.favNum >= 10000)
+                        favStr = @"9999+";
+                    else favStr = [NSString stringWithFormat:@"%d",self.favNum];
+                    [itemView.contentLabel setText:favStr];
+                    itemView.frame = CGRectMake(0, 0, [MOBarButtonItemView widthWithContent:favStr], 44);
+                    
+                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    [itemView setUserInteractionEnabled:YES];
+                    NSLog(@"error:%@",[error message]);
+                    [AlertNotice showNotice:[error message]];
+                }];
+                
+                
+            } else {
+                //添加收藏
+                [itemView setUserInteractionEnabled:NO];
+                NSDictionary * dic = @{@"type":@"1",@"title":self.model.data.title,@"refid":@(self.model.data.goodsId)};
+                [[HttpService defaultService] POST:URL_APPEND_PATH(@"/favorite/add") parameters:dic JSONModelClass:[SubmitPostModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    //收藏成功
+                    [itemView setUserInteractionEnabled:YES];
+                    self.favStatus = YES;
+                    self.favNum++;
+                    NSString * favStr;
+                    if(self.favNum >= 10000)
+                        favStr = @"9999+";
+                    else favStr = [NSString stringWithFormat:@"%d",self.favNum];
+                    //开始更新视图
+                    //                    favStr = @"9999+";
+                    [itemView.contentLabel setText:favStr];
+                    itemView.frame = CGRectMake(0, 0, [MOBarButtonItemView widthWithContent:favStr], 44);
+                    
+                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    [itemView setUserInteractionEnabled:YES];
+                    NSLog(@"error:%@",[error message]);
+                    [AlertNotice showNotice:[error message]];
+                }];
+                
+            }
+            
+        }
+        
+    } else {
+        [[AccountService defaultService] login:self];
+    }
+    
+}
+
 
 
 #pragma mark - request data
@@ -289,6 +410,8 @@
         }
         
         self.model = responseObject;
+        [self setUpNav];
+
         [self.tableView reloadData];
        
         
@@ -296,6 +419,36 @@
         NSLog(@"Error: %@", error);
     }];
 }
+
+#pragma mark - navigationBarItem
+
+-(void)setUpNav
+{
+    MOBarButtonItemView * upView = [[MOBarButtonItemView alloc] init];
+    upView.tag = 201501;
+    [upView.contentLabel setText:[NSString stringWithFormat:@"%d",self.model.data.upNum]];
+    
+    self.upStatus = self.model.data.upStatus;
+    self.upNum = self.model.data.upNum;
+    self.favStatus = self.model.data.favStatus;
+    self.favNum = self.model.data.favNum;
+    [upView.iconImgView setImage:[UIImage imageNamed:@"nav_up"]];
+    upView.frame = CGRectMake(0, 0, [MOBarButtonItemView widthWithGoodsData:self.model.data withContentStyle:ContentStyleUp], 44);
+    [upView setDelegate:self];
+    
+    MOBarButtonItemView * favView = [[MOBarButtonItemView alloc] init];
+    favView.tag = 201502;
+    [favView.contentLabel setText:[NSString stringWithFormat:@"%d",self.model.data.favNum]];
+    [favView.iconImgView setImage:[UIImage imageNamed:@"nav_fav"]];
+    favView.frame = CGRectMake(0, 0, [MOBarButtonItemView widthWithGoodsData:self.model.data withContentStyle:ContentStyleFavourite], 44);
+    [favView setDelegate:self];
+    
+    UIBarButtonItem * upItem = [[UIBarButtonItem alloc] initWithCustomView:upView];
+    UIBarButtonItem * favItem = [[UIBarButtonItem alloc] initWithCustomView:favView];
+    self.navigationItem.rightBarButtonItems = @[favItem,upItem];
+    
+}
+
 
 
 #pragma mark - UIScrollView Delegate

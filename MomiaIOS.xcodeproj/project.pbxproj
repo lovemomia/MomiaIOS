@@ -35,6 +35,8 @@
 		5AB7B3AE1B0EC1E800044DFE /* GoodsDetailShopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7B3AD1B0EC1E800044DFE /* GoodsDetailShopCell.m */; };
 		5AB7B3B11B0EFF7400044DFE /* GoodsDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7B3B01B0EFF7400044DFE /* GoodsDetailContentCell.m */; };
 		5AC9FFC91B17020300C769EF /* SubmitPostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9FFC81B17020300C769EF /* SubmitPostModel.m */; };
+		5AC9FFCD1B17298C00C769EF /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9FFCB1B17298C00C769EF /* FeedbackViewController.m */; };
+		5AC9FFCE1B17298C00C769EF /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AC9FFCC1B17298C00C769EF /* FeedbackViewController.xib */; };
 		BC2C0C521B1303BA00E2446E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
 		BC2C0C531B1303BA00E2446E /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2C0C511B1303BA00E2446E /* LoginViewController.xib */; };
 		BC2C0C571B1309A800E2446E /* MOButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C561B1309A800E2446E /* MOButton.m */; };
@@ -176,6 +178,9 @@
 		5AB7B3B01B0EFF7400044DFE /* GoodsDetailContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailContentCell.m; path = Business/Goods/views/GoodsDetailContentCell.m; sourceTree = "<group>"; };
 		5AC9FFC71B17020300C769EF /* SubmitPostModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubmitPostModel.h; path = Common/Models/SubmitPost/SubmitPostModel.h; sourceTree = "<group>"; };
 		5AC9FFC81B17020300C769EF /* SubmitPostModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubmitPostModel.m; path = Common/Models/SubmitPost/SubmitPostModel.m; sourceTree = "<group>"; };
+		5AC9FFCA1B17298C00C769EF /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedbackViewController.h; path = Business/Mine/FeedbackViewController.h; sourceTree = "<group>"; };
+		5AC9FFCB1B17298C00C769EF /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedbackViewController.m; path = Business/Mine/FeedbackViewController.m; sourceTree = "<group>"; };
+		5AC9FFCC1B17298C00C769EF /* FeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FeedbackViewController.xib; path = Business/Mine/FeedbackViewController.xib; sourceTree = "<group>"; };
 		5B9DF4BE98C18CC18BDADCD8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC2C0C4F1B1303BA00E2446E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Business/Login/LoginViewController.h; sourceTree = "<group>"; };
 		BC2C0C501B1303BA00E2446E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Business/Login/LoginViewController.m; sourceTree = "<group>"; };
@@ -774,6 +779,9 @@
 				BC38D2881B099D0B0051C7E9 /* SuggestSubmitViewController.m */,
 				BC41ABBA1B0F266F00A419DA /* SuggestTagsViewController.h */,
 				BC41ABBB1B0F266F00A419DA /* SuggestTagsViewController.m */,
+				5AC9FFCA1B17298C00C769EF /* FeedbackViewController.h */,
+				5AC9FFCB1B17298C00C769EF /* FeedbackViewController.m */,
+				5AC9FFCC1B17298C00C769EF /* FeedbackViewController.xib */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -999,6 +1007,7 @@
 				5A6806F51B01CEF700D02A60 /* PersonLogoCell.xib in Resources */,
 				BCA273271AEB1EBA002E7534 /* MineInfoCell.xib in Resources */,
 				BC7708561AFB3B57000068A8 /* ArticleDetailCells.xib in Resources */,
+				5AC9FFCE1B17298C00C769EF /* FeedbackViewController.xib in Resources */,
 				BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */,
 				BCA273361AEB7EC4002E7534 /* ArticleTopicCells.xib in Resources */,
 				BCA273101AE9D79F002E7534 /* scheme.plist in Resources */,
@@ -1130,6 +1139,7 @@
 				BC38D23C1AFEE2B50051C7E9 /* HomeModel.m in Sources */,
 				BCCDF5D91B09E345008BAE12 /* SugSubmitProductNameCell.m in Sources */,
 				BC2C0C8C1B15AF6E00E2446E /* MOGroupStyleTableViewController.m in Sources */,
+				5AC9FFCD1B17298C00C769EF /* FeedbackViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,8 +9,8 @@
 #import "MOBarButtonItemView.h"
 
 #define iconLength 25
-#define kPadding 5
-#define contentFont [UIFont systemFontOfSize:14.0f]
+#define kPadding 10
+#define contentFont [UIFont systemFontOfSize:15.0f]
 
 @interface MOBarButtonItemView ()
 
@@ -61,8 +61,19 @@
     // Drawing code
 }
 */
++(CGFloat) widthWithContent:(NSString *)content
+{
+    CGFloat width = 0;
+    width += iconLength;
+    width += kPadding;
+    CGRect textRect = [UILabel widthForMutableString:content withHeight:20 andFont:contentFont];
+    width += textRect.size.width;
+    return width;
 
-+(CGFloat) widthWithData:(ArticleDetailData *)data withContentStyle:(ContentStyle) style
+}
+
+
++(CGFloat) widthWithArticleData:(ArticleDetailData *)data withContentStyle:(ContentStyle) style
 {
     CGFloat width = 0;
     width += iconLength;
@@ -79,7 +90,46 @@
 
 }
 
++(CGFloat) widthWithGoodsData:(GoodsDetailData *)data withContentStyle:(ContentStyle) style
+{
+    CGFloat width = 0;
+    width += iconLength;
+    width += kPadding;
+    NSString * contentStr = @"";
+    if(style == ContentStyleFavourite) {
+        contentStr = [NSString stringWithFormat:@"%d",data.favNum];
+    } else if(style == ContentStyleUp){
+        contentStr = [NSString stringWithFormat:@"%d",data.upNum];
+    }
+    CGRect textRect = [UILabel widthForMutableString:contentStr withHeight:20 andFont:contentFont];
+    width += textRect.size.width;
+    return width;
+    
+}
 
++(CGFloat) widthWithArticleTopicData:(ArticleTopicData *)data
+{
+    CGFloat width = 0;
+    width += iconLength;
+    width += kPadding;
+    NSString * contentStr = @"";
+    contentStr = [NSString stringWithFormat:@"%d",data.favNum];
+    CGRect textRect = [UILabel widthForMutableString:contentStr withHeight:20 andFont:contentFont];
+    width += textRect.size.width;
+    return width;
+}
+
++(CGFloat) widthWithGoodsTopicData:(GoodsTopicData *)data
+{
+    CGFloat width = 0;
+    width += iconLength;
+    width += kPadding;
+    NSString * contentStr = @"";
+    contentStr = [NSString stringWithFormat:@"%d",data.favNum];
+    CGRect textRect = [UILabel widthForMutableString:contentStr withHeight:20 andFont:contentFont];
+    width += textRect.size.width;
+    return width;
+}
 
 
 

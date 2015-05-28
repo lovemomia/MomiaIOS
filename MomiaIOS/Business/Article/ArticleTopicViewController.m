@@ -10,12 +10,16 @@
 #import "ArticleTopicModel.h"
 #import "ArticleTopicHeaderCell.h"
 #import "ArticleTopicItemCell.h"
+#import "SubmitPostModel.h"
 
 @interface ArticleTopicViewController ()
 
 @property (nonatomic, assign) NSInteger topicId;
 @property (nonatomic, strong) ArticleTopicModel *model;
 @property (nonatomic, strong) UIImageView *coverImageView;
+
+@property (nonatomic, assign)BOOL favStatus;
+@property (nonatomic, assign)int favNum;
 
 @end
 
@@ -58,6 +62,87 @@
 }
 */
 
+#pragma mark - MOBarButtonItemViewDelegate
+-(void)tapMOBarButtonItemView:(MOBarButtonItemView *)itemView
+{
+    if([[AccountService defaultService] isLogin]) {
+        
+        if(self.favStatus) {
+            //取消收藏
+            [itemView setUserInteractionEnabled:NO];
+            NSDictionary * dic = @{@"type":@"2",@"refid":@(self.model.data.topicId)};
+            [[HttpService defaultService] POST:URL_APPEND_PATH(@"/favorite/delete") parameters:dic JSONModelClass:[SubmitPostModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                [itemView setUserInteractionEnabled:YES];
+                self.favStatus = NO;
+                self.favNum--;
+                NSString * favStr;
+                if(self.favNum >= 10000)
+                    favStr = @"9999+";
+                else favStr = [NSString stringWithFormat:@"%d",self.favNum];
+                [itemView.contentLabel setText:favStr];
+                itemView.frame = CGRectMake(0, 0, [MOBarButtonItemView widthWithContent:favStr], 44);
+                
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [itemView setUserInteractionEnabled:YES];
+                NSLog(@"error:%@",[error message]);
+                [AlertNotice showNotice:[error message]];
+            }];
+            
+            
+        } else {
+            //添加收藏
+            [itemView setUserInteractionEnabled:NO];
+            NSDictionary * dic = @{@"type":@"2",@"title":self.model.data.topicTitle,@"refid":@(self.model.data.topicId)};
+            [[HttpService defaultService] POST:URL_APPEND_PATH(@"/favorite/add") parameters:dic JSONModelClass:[SubmitPostModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                //收藏成功
+                [itemView setUserInteractionEnabled:YES];
+                self.favStatus = YES;
+                self.favNum++;
+                NSString * favStr;
+                if(self.favNum >= 10000)
+                    favStr = @"9999+";
+                else favStr = [NSString stringWithFormat:@"%d",self.favNum];
+                //开始更新视图
+                //                    favStr = @"9999+";
+                [itemView.contentLabel setText:favStr];
+                itemView.frame = CGRectMake(0, 0, [MOBarButtonItemView widthWithContent:favStr], 44);
+                
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [itemView setUserInteractionEnabled:YES];
+                NSLog(@"error:%@",[error message]);
+                [AlertNotice showNotice:[error message]];
+            }];
+            
+        }
+        
+        
+    } else {
+        [[AccountService defaultService] login:self];
+    }
+    
+}
+
+
+#pragma mark - navigationBarItem
+
+-(void)setUpNav
+{
+    self.favStatus = self.model.data.favStatus;
+    self.favNum = self.model.data.favNum;
+    
+    MOBarButtonItemView * favView = [[MOBarButtonItemView alloc] init];
+    [favView.contentLabel setText:[NSString stringWithFormat:@"%d",self.model.data.favNum]];
+    [favView.iconImgView setImage:[UIImage imageNamed:@"nav_fav"]];
+    favView.frame = CGRectMake(0, 0, [MOBarButtonItemView widthWithArticleTopicData:self.model.data], 44);
+    [favView setDelegate:self];
+    
+    UIBarButtonItem * favItem = [[UIBarButtonItem alloc] initWithCustomView:favView];
+    self.navigationItem.rightBarButtonItems = @[favItem];
+    
+}
+
+#pragma mark - webData Request
+
 - (void)requestData {
     if (self.model == nil) {
         [self.view showLoadingBee];
@@ -70,6 +155,8 @@
         }
         
         self.model = responseObject;
+        [self setUpNav];
+
         [self.tableView reloadData];
         [self.tableView.legendHeader endRefreshing];
         [self initNavBackView];
