@@ -15,6 +15,7 @@
 #import "ArticleDetailAuthorCell.h"
 #import "ArticleDetailConstantCell.h"
 #import "CommentCell.h"
+#import "MOBarButtonItemView.h"
 
 @interface ArticleDetailViewController ()
 
@@ -63,6 +64,19 @@
     // Do any additional setup after loading the view.
     
     [self addNavBackView];
+    
+    
+    
+    MOBarButtonItemView * collectionView = [[MOBarButtonItemView alloc] init];
+    
+    collectionView.iconImgView.image = [UIImage imageNamed:@"UserHeaderButtonFavorites"];
+    collectionView.contentLabel.text = @"5677";
+    
+    collectionView.frame = CGRectMake(0, 0, 80, 44);
+   
+    UIBarButtonItem * collectionItem = [[UIBarButtonItem alloc] initWithCustomView:collectionView];
+    
+    self.navigationItem.rightBarButtonItems = @[collectionItem];
     
     // 请求数据
     [self requestData];
@@ -135,7 +149,7 @@
     NSInteger row = indexPath.row;
     if(section == 3) {
         if(row == 0) {//跳转到评论页面
-            NSString * urlStr = [NSString stringWithFormat:@"momia://comment?id=%ld&type=0",self.articleId];
+            NSString * urlStr = [NSString stringWithFormat:@"momia://comment?id=%ld&type=0",(long)self.articleId];
             NSURL *url = [NSURL URLWithString:urlStr];
             [[UIApplication sharedApplication ] openURL:url];
             

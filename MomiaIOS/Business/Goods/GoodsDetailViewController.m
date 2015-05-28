@@ -86,7 +86,7 @@
     NSInteger row = indexPath.row;
     if(section == 3) {
         if(row == 0) {//跳转到评论页面
-            NSString * urlStr = [NSString stringWithFormat:@"momia://comment?id=%ld&type=1",self.goodsId];
+            NSString * urlStr = [NSString stringWithFormat:@"momia://comment?id=%ld&type=1",(long)self.goodsId];
             NSURL *url = [NSURL URLWithString:urlStr];
             [[UIApplication sharedApplication ] openURL:url];
         }

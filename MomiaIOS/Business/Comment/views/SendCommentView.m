@@ -118,8 +118,12 @@
     [[note.userInfo valueForKey:UIKeyboardFrameEndUserInfoKey] getValue: &keyboardBounds];
     NSNumber *duration = [note.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
     NSNumber *curve = [note.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
+    
+    
+    
+    
     //
-    [UIView beginAnimations:nil context:NULL];
+    [UIView beginAnimations:nil context:nil];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationDuration:[duration doubleValue]];
     [UIView setAnimationCurve:[curve intValue]];
@@ -128,6 +132,9 @@
     [self mas_updateConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo([self superview].mas_bottom).with.offset(-keyboardBounds.size.height);
     }];
+    
+    [self layoutIfNeeded];
+
     
     // commit animations
     [UIView commitAnimations];
@@ -151,6 +158,7 @@
     [self mas_updateConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo([self superview].mas_bottom).with.offset(0);
     }];
+    [self layoutIfNeeded];
     
     // commit animations
     [UIView commitAnimations];
