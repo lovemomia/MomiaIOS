@@ -47,9 +47,7 @@
         [myDefault removeObjectForKey:@"account"];
         
     } else {
-        NSData *archiveData = [NSKeyedArchiver archivedDataWithRootObject:account];
-        NSUserDefaults *myDefault =[NSUserDefaults standardUserDefaults];
-        [myDefault setObject:archiveData forKey:@"account"];
+        [account save];
     }
     _account = account;
 }

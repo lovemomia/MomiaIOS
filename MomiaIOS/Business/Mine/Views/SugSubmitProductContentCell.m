@@ -64,7 +64,7 @@
     imageView.tag = index;
     UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onClickImage:)];
     [imageView addGestureRecognizer:singleTap];
-    [imageView setBackgroundColor:[UIColor blueColor]];
+    imageView.image = [UIImage imageNamed:@"suggest_add"];
     
     [self addSubview:imageView];
     self.photoViewCount ++;

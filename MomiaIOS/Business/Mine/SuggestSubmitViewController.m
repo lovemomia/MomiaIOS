@@ -403,21 +403,6 @@ typedef enum {
     [UIImageJPEGRepresentation(uploadImage, 1.0f) writeToFile:uploadImagePath atomically:YES];//写入文件
     self.selectImage.fileName = uploadImageName;
     self.selectImage.filePath = uploadImagePath;
-    
-    // 提前上传
-//    if ([[Environment singleton].networkType isEqualToString:@"wifi"]) {
-//        self.selectImage.uploadStatus = UploadStatusGoing;
-//        
-//        [[HttpService defaultService] uploadImageWithFilePath:uploadImagePath fileName:uploadImageName handler:^(NSURLResponse *response, id responseObject, NSError *error) {
-//            if (error) {
-//                self.selectImage.uploadStatus = UploadStatusFail;
-//                
-//            } else {
-//                self.selectImage.respData = ((UploadImageModel *)responseObject).data;
-//                self.selectImage.uploadStatus = UploadStatusFinish;
-//            }
-//        }];
-//    }
 }
 
 // 改变图像的尺寸，方便上传服务器

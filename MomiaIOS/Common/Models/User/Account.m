@@ -10,7 +10,63 @@
 
 @implementation Account
 
--(void)encodeWithCoder:(NSCoder *)encoder//编码
+- (void)setUserId:(NSInteger)userId {
+    _userId = userId;
+    [self save];
+}
+
+- (void)setToken:(NSString *)token {
+    _token = token;
+    [self save];
+}
+
+- (void)setAddress:(NSString *)address {
+    _address = address;
+    [self save];
+}
+
+- (void)setBabyAge:(NSString *)babyAge {
+    _babyAge = babyAge;
+    [self save];
+}
+
+- (void)setBabySex:(NSString *)babySex {
+    _babySex = babySex;
+    [self save];
+}
+
+- (void)setNickName:(NSString *)nickName {
+    _nickName = nickName;
+    [self save];
+}
+
+- (void)setPhone:(NSString *)phone {
+    _phone = phone;
+    [self save];
+}
+
+- (void)setPicUrl:(NSString *)picUrl {
+    _picUrl = picUrl;
+    [self save];
+}
+
+- (void)setQqNo:(NSString<Optional> *)qqNo {
+    _qqNo = qqNo;
+    [self save];
+}
+
+- (void)setWechatNo:(NSString *)wechatNo {
+    _wechatNo = wechatNo;
+    [self save];
+}
+
+- (void)setWeiboNo:(NSString *)weiboNo {
+    _weiboNo = weiboNo;
+    [self save];
+}
+
+
+- (void)encodeWithCoder:(NSCoder *)encoder//编码
 {
     [encoder encodeInteger:self.userId forKey:@"userId"];
     [encoder encodeObject:self.token forKey:@"token"];
@@ -43,6 +99,16 @@
         self.weiboNo = [decoder decodeObjectForKey:@"weiboNo"];
     }
     return self;
+}
+
+- (void)save {
+    NSData *archiveData = [NSKeyedArchiver archivedDataWithRootObject:self];
+    NSUserDefaults *myDefault =[NSUserDefaults standardUserDefaults];
+    [myDefault setObject:archiveData forKey:@"account"];
+}
+
+- (void)clear {
+    
 }
 
 @end

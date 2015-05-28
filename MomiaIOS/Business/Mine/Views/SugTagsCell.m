@@ -56,7 +56,7 @@
             
             Tag *tag = [tags objectAtIndex:i];
             if (tag.isSelected) {
-                label.backgroundColor = [UIColor blueColor];
+                label.backgroundColor = MO_APP_NaviColor;
                 label.textColor = [UIColor whiteColor];
                 
             } else {
@@ -85,7 +85,7 @@
         
     } else {
         tag.isSelected = YES;
-        label.backgroundColor = [UIColor blueColor];
+        label.backgroundColor = MO_APP_NaviColor;
         label.textColor = [UIColor whiteColor];
     }
 }
