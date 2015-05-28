@@ -25,6 +25,9 @@ static NSString * identifier = @"CellGoodsDetailHeader";
         _photoImgView = [[UIImageView alloc] init];
         [_photoImgView setContentMode:UIViewContentModeScaleAspectFill];
         
+        UIImageView *titleMask = [[UIImageView alloc]init];
+        titleMask.image = [UIImage imageNamed:@"bg_cover_mask"];
+        
         _titleLabel = [[UILabel alloc] init];
         [_titleLabel setTextColor:[UIColor whiteColor]];
         [_titleLabel setFont:[UIFont boldSystemFontOfSize:21.0f]];
@@ -40,6 +43,7 @@ static NSString * identifier = @"CellGoodsDetailHeader";
         _authorLabel.font = [UIFont systemFontOfSize:14.0f];
         
         [self.contentView addSubview:_photoImgView];
+        [self.contentView addSubview:titleMask];
         [self.contentView addSubview:_titleLabel];
         [self.contentView addSubview:_priceLabel];
         [self.contentView addSubview:_authorImgView];
@@ -52,6 +56,11 @@ static NSString * identifier = @"CellGoodsDetailHeader";
             make.left.equalTo(_photoImgView.superview.mas_left).with.offset(0);
             make.width.equalTo(@SCREEN_WIDTH);
             make.height.equalTo(@(SCREEN_WIDTH * imgFactor));
+        }];
+        
+        [titleMask mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.bottom.and.right.equalTo(_photoImgView);
+            make.height.equalTo(@(64));
         }];
         
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {

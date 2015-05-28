@@ -14,21 +14,6 @@
 
 @implementation PersonInfoViewController
 
-/* tableView风格，默认列表 */
-- (UITableViewStyle)tableViewStyle
-{
-    return UITableViewStyleGrouped;
-}
-
-/* tableView分割线，默认无 */
-- (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle
-{
-    return UITableViewCellSeparatorStyleSingleLine;
-}
-
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

@@ -63,6 +63,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self addHeaderMaskView];
     [self addNavBackView];
     
     
@@ -78,6 +79,7 @@
     
     self.navigationItem.rightBarButtonItems = @[collectionItem];
     
+
     // 请求数据
     [self requestData];
 }

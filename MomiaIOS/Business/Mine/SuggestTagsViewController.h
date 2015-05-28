@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "MOTableViewController.h"
+#import "MOGroupStyleTableViewController.h"
 
 @protocol SuggestTagsChooseDelegate <NSObject>
 
@@ -16,7 +16,7 @@
 @end
 
 
-@interface SuggestTagsViewController : MOTableViewController
+@interface SuggestTagsViewController : MOGroupStyleTableViewController
 
 @property (strong, nonatomic) NSArray *assorts;
 @property (strong, nonatomic) NSArray *crowds;

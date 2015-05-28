@@ -14,10 +14,6 @@
 
 @implementation MineViewController
 
-- (UITableViewStyle)tableViewStyle {
-    return UITableViewStyleGrouped;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -119,6 +115,7 @@
             cell = [arr objectAtIndex:0];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
+        
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:CellInfo];
         if (cell == nil) {

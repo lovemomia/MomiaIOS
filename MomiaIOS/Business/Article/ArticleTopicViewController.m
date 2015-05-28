@@ -32,6 +32,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    [self addHeaderMaskView];
     [self addNavBackView];
     
     // 请求数据

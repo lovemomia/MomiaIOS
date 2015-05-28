@@ -226,14 +226,6 @@ typedef enum {
     return YES;
 }
 
-- (UITableViewStyle)tableViewStyle {
-    return UITableViewStyleGrouped;
-}
-
-- (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle {
-    return UITableViewCellSeparatorStyleSingleLine;
-}
-
 /*
 #pragma mark - Navigation
 

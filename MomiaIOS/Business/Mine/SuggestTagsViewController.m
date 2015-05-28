@@ -41,14 +41,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle {
-    return UITableViewCellSeparatorStyleSingleLine;
-}
-
-- (UITableViewStyle)tableViewStyle {
-    return UITableViewStyleGrouped;
-}
-
 // 确定按钮点击
 - (void)onFinishClicked {
     if (self.assorts == nil || self.crowds == nil) {
