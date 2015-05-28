@@ -11,11 +11,14 @@
 #define MO_API_DOMAIN_OL  @"http://i.momia.cn"
 // 开发环境
 #define MO_API_DOMAIN_DEV @"http://dev.momia.cn"
+
 #ifndef __OPTIMIZE__
 #define MO_API_DOMAIN MO_API_DOMAIN_OL
 #else
 #define MO_API_DOMAIN MO_API_DOMAIN_DEV
 #endif
+
+
 
 // 请求url拼接
 #define URL_APPEND_PATH(__path__)  ([MO_API_DOMAIN stringByAppendingString:__path__])

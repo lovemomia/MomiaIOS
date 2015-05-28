@@ -8,6 +8,7 @@
 
 #import "MyStatusViewController.h"
 #import "DatePickerSheet.h"
+#import "AccountModel.h"
 
 @interface MyStatusViewController () <DatePickerSheetDelegate>
 
@@ -92,10 +93,12 @@
     
     NSDictionary *params = @{@"babydate" : (date == nil ? @"":date)};
     [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/babydate")
-                           parameters:params JSONModelClass:[BaseModel class]
+                           parameters:params JSONModelClass:[AccountModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
                                   self.operateSuccessBlock();
+                                  AccountModel *result = (AccountModel *)responseObject;
+                                  [AccountService defaultService].account = result.data;
                               }
      
                               failure:^(AFHTTPRequestOperation *operation, NSError *error) {

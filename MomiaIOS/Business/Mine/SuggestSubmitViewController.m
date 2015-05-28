@@ -83,7 +83,7 @@ typedef enum {
         return;
     }
     
-    if (self.uploadImages == nil) {
+    if (self.uploadImages == nil || ([self.uploadImages count] == 1 && ((SelectImage *)[self.uploadImages objectAtIndex:0]).filePath == nil)) {
         [self showDialogWithTitle:nil message:@"请至少上传一张商品图片！"];
         return;
     }
@@ -199,6 +199,10 @@ typedef enum {
 }
 
 - (void)uploadImage:(SelectImage *)image {
+    if (image.fileName == nil || image.filePath == nil) {
+        return;
+    }
+    
     image.uploadStatus = UploadStatusGoing;
     [[HttpService defaultService] uploadImageWithFilePath:image.filePath fileName:image.fileName handler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
@@ -403,21 +407,6 @@ typedef enum {
     [UIImageJPEGRepresentation(uploadImage, 1.0f) writeToFile:uploadImagePath atomically:YES];//写入文件
     self.selectImage.fileName = uploadImageName;
     self.selectImage.filePath = uploadImagePath;
-    
-    // 提前上传
-//    if ([[Environment singleton].networkType isEqualToString:@"wifi"]) {
-//        self.selectImage.uploadStatus = UploadStatusGoing;
-//        
-//        [[HttpService defaultService] uploadImageWithFilePath:uploadImagePath fileName:uploadImageName handler:^(NSURLResponse *response, id responseObject, NSError *error) {
-//            if (error) {
-//                self.selectImage.uploadStatus = UploadStatusFail;
-//                
-//            } else {
-//                self.selectImage.respData = ((UploadImageModel *)responseObject).data;
-//                self.selectImage.uploadStatus = UploadStatusFinish;
-//            }
-//        }];
-//    }
 }
 
 // 改变图像的尺寸，方便上传服务器

@@ -8,6 +8,6 @@
 
 #import "MOGroupStyleTableViewController.h"
 
-@interface PersonInfoViewController : MOGroupStyleTableViewController
+@interface PersonInfoViewController : MOGroupStyleTableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 
 @end

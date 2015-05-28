@@ -69,6 +69,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     
@@ -117,6 +119,23 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
         
+        Account *account = [AccountService defaultService].account;
+        
+        UIImageView *userPic = (UIImageView *)[cell viewWithTag:1];
+        if (account.picUrl) {
+            [userPic sd_setImageWithURL:[NSURL URLWithString:account.picUrl]];
+        }
+        
+        UILabel *titleLabel = (UILabel *)[cell viewWithTag:2];
+        if (account.nickName) {
+            [titleLabel setText:account.nickName];
+        }
+        
+        UILabel *subTitleLabel = (UILabel *)[cell viewWithTag:3];
+        if (account.babyAge) {
+            [subTitleLabel setText:[NSString stringWithFormat:@"宝宝%@", account.babyAge]];
+        }
+        
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:CellInfo];
         if (cell == nil) {
@@ -143,7 +162,6 @@
                 break;
         }
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

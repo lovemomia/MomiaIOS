@@ -24,4 +24,8 @@
 @property (nonatomic, strong) NSString *wechatNo;
 @property (nonatomic, strong) NSString *weiboNo;
 
+- (void)save;
+
+- (void)clear;
+
 @end
