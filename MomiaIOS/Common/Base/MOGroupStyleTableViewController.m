@@ -56,7 +56,7 @@
         view.contentMode = UIViewContentModeScaleToFill;
         view.height = 6;
         view.width = SCREEN_WIDTH;
-        view.top = -2;
+        view.top = 0;
         view.image = [UIImage imageNamed:@"bg_card"];
         [content addSubview:view];
         return content;

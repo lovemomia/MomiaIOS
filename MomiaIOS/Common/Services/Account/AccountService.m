@@ -7,6 +7,8 @@
 //
 
 #import "AccountService.h"
+#import "LoginViewController.h"
+#import "MONavigationController.h"
 
 @implementation AccountService
 @synthesize account = _account;
@@ -50,6 +52,24 @@
         [myDefault setObject:archiveData forKey:@"account"];
     }
     _account = account;
+}
+
+- (void)login:(UIViewController *)currentController {
+    LoginViewController *controller = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+    
+    controller.loginSuccessBlock = ^(){
+        [currentController dismissViewControllerAnimated:NO completion:nil];
+    };
+    controller.loginFailBlock = ^(NSInteger code, NSString* message){
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+    };
+    controller.loginCancelBlock = ^(){
+        [currentController dismissViewControllerAnimated:YES completion:nil];
+    };
+    
+    MONavigationController *navController = [[MONavigationController alloc]initWithRootViewController:controller];
+    [currentController presentViewController:navController animated:YES completion:nil];
 }
 
 @end

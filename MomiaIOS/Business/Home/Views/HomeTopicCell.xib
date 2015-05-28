@@ -15,20 +15,26 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" id="o4M-7t-thS">
-                        <rect key="frame" x="10" y="5" width="337" height="237"/>
+                        <rect key="frame" x="0.0" y="0.0" width="357" height="237"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lmf-qG-bGK">
-                                <rect key="frame" x="8" y="192" width="321" height="45"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <color key="textColor" red="0.013435132575757569" green="0.013435132575757569" blue="0.013435132575757569" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="hBY-CR-QCe">
-                                <rect key="frame" x="0.0" y="0.0" width="337" height="190"/>
+                                <rect key="frame" x="0.0" y="0.0" width="357" height="237"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_cover_mask" id="yeI-le-Xqf">
+                                <rect key="frame" x="0.0" y="173" width="357" height="64"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lmf-qG-bGK">
+                                <rect key="frame" x="8" y="189" width="341" height="48"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" red="0.45150726009999997" green="0.45150726009999997" blue="0.45150726009999997" alpha="0.48999999999999999" colorSpace="calibratedRGB"/>
+                                <color key="shadowColor" red="0.45150726009999997" green="0.45150726009999997" blue="0.45150726009999997" alpha="0.52000000000000002" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="2"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -42,6 +48,9 @@
             <point key="canvasLocation" x="294.5" y="253"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="bg_cover_mask" width="10" height="64"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
