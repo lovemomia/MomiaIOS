@@ -40,10 +40,15 @@
 }
 
 - (void)setAccount:(Account *)account {
-    NSData *archiveData = [NSKeyedArchiver archivedDataWithRootObject:account];
-    NSUserDefaults *myDefault =[NSUserDefaults standardUserDefaults];
-    [myDefault setObject:archiveData forKey:@"account"];
-    
+    if (account == nil) {
+        NSUserDefaults *myDefault =[NSUserDefaults standardUserDefaults];
+        [myDefault removeObjectForKey:@"account"];
+        
+    } else {
+        NSData *archiveData = [NSKeyedArchiver archivedDataWithRootObject:account];
+        NSUserDefaults *myDefault =[NSUserDefaults standardUserDefaults];
+        [myDefault setObject:archiveData forKey:@"account"];
+    }
     _account = account;
 }
 

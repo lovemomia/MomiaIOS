@@ -10,6 +10,8 @@
 
 @interface PersonInfoViewController ()
 
+@property (nonatomic, strong) Account *account;
+
 @end
 
 @implementation PersonInfoViewController
@@ -18,6 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"个人信息";
+    self.account = [AccountService defaultService].account;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,6 +63,30 @@
     return 4;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *view = [super tableView:tableView viewForFooterInSection:section];
+    if (section == 3) {
+        UIButton *logoutButton = [[UIButton alloc]init];
+        logoutButton.height = 45;
+        logoutButton.width = SCREEN_WIDTH - 2 * 18;
+        logoutButton.left = 18;
+        logoutButton.top = 30;
+        [logoutButton setTitle:@"退出登录" forState:UIControlStateNormal];
+        [logoutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [logoutButton addTarget:self action:@selector(onLogoutClicked) forControlEvents:UIControlEventTouchUpInside];
+        [logoutButton setBackgroundImage:[UIImage imageNamed:@"bg_button"] forState:UIControlStateNormal];
+        [view addSubview:logoutButton];
+    }
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (section == 3) {
+        return 80;
+    }
+    return [super tableView:tableView heightForFooterInSection:section];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -78,6 +105,10 @@
             cell = [arr objectAtIndex:0];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
+        
+        UIImageView *icon = (UIImageView *)[cell viewWithTag:1];
+        [icon sd_setImageWithURL:[NSURL URLWithString:self.account.picUrl]];
+        
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:CellDefault];
         if (cell == nil) {
@@ -89,18 +120,22 @@
             case 1:
                 if (row == 0) {
                     cell.textLabel.text = @"昵称";
+                    cell.detailTextLabel.text = self.account.nickName;
                 } else if(row == 1){
                     cell.textLabel.text = @"宝宝年龄";
+                    cell.detailTextLabel.text = self.account.babyAge;
                 } else {
                     cell.textLabel.text = @"常住地";
+                    cell.detailTextLabel.text = self.account.address;
                 }
                 break;
             case 2:
                 if (row == 0) {
                     cell.textLabel.text = @"手机号";
-                    cell.detailTextLabel.text = @"15929403020";
+                    cell.detailTextLabel.text = self.account.phone;
                 } else {
                     cell.textLabel.text = @"第三方账号绑定";
+                    cell.detailTextLabel.text = self.account.wechatNo;
                 }
                 break;
             case 3:
@@ -113,7 +148,10 @@
 }
 
 
-
+- (void)onLogoutClicked {
+    [AccountService defaultService].account = nil;
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 
 
