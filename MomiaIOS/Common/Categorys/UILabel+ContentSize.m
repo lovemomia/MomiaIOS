@@ -26,12 +26,16 @@
     return contentSize;
 }
 
-+ (CGRect)heightForMutableString:(NSString *)contentString withWidth:(CGFloat)width andFontSize:(CGFloat)fontSize{
++ (CGRect)heightForMutableString:(NSString *)contentString withWidth:(CGFloat)width lineSpace:(CGFloat)space andFontSize:(CGFloat)fontSize{
     if (!contentString) {
         return CGRectZero;
     }
     
     NSMutableAttributedString *mutString = [[NSMutableAttributedString alloc] initWithString:contentString];
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:space];
+    [mutString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [contentString length])];
     
     UIFont *aUiFont = [UIFont systemFontOfSize:fontSize];
     NSRange range = {0, contentString.length};
@@ -42,9 +46,13 @@
     return rect;
 }
 
-+ (CGRect)heightForMutableString:(NSString *)contentString withWidth:(CGFloat)width andFont:(UIFont *)font
++ (CGRect)heightForMutableString:(NSString *)contentString withWidth:(CGFloat)width lineSpace:(CGFloat)space andFont:(UIFont *)font
 {
     NSMutableAttributedString *mutString = [[NSMutableAttributedString alloc] initWithString:contentString];
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:space];
+    [mutString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [contentString length])];
     
     UIFont *aUiFont = font;
     NSRange range = {0, contentString.length};
@@ -55,9 +63,13 @@
     return rect;
 }
 
-+ (CGRect)widthForMutableString:(NSString *)contentString withHeight:(CGFloat)height andFont:(UIFont *)font
++ (CGRect)widthForMutableString:(NSString *)contentString withHeight:(CGFloat)height lineSpace:(CGFloat)space andFont:(UIFont *)font
 {
     NSMutableAttributedString *mutString = [[NSMutableAttributedString alloc] initWithString:contentString];
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:space];
+    [mutString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [contentString length])];
     
     UIFont *aUiFont = font;
     NSRange range = {0, contentString.length};

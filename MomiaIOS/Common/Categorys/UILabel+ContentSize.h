@@ -12,9 +12,9 @@
 
 - (CGSize)contentSize;
 
-+ (CGRect)heightForMutableString:(NSString *)contentString withWidth:(CGFloat)width andFontSize:(CGFloat)fontSize;
++ (CGRect)heightForMutableString:(NSString *)contentString withWidth:(CGFloat)width lineSpace:(CGFloat)space andFontSize:(CGFloat)fontSize;
 
-+ (CGRect)heightForMutableString:(NSString *)contentString withWidth:(CGFloat)width andFont:(UIFont *)font;
++ (CGRect)heightForMutableString:(NSString *)contentString withWidth:(CGFloat)width lineSpace:(CGFloat)space andFont:(UIFont *)font;
 
-+ (CGRect)widthForMutableString:(NSString *)contentString withHeight:(CGFloat)height andFont:(UIFont *)font;
++ (CGRect)widthForMutableString:(NSString *)contentString withHeight:(CGFloat)height lineSpace:(CGFloat)space andFont:(UIFont *)font;
 @end

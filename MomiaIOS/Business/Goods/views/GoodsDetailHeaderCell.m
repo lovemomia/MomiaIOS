@@ -7,6 +7,7 @@
 //
 
 #import "GoodsDetailHeaderCell.h"
+#import "AvatarImageView.h"
 
 #define imgFactor 0.7
 
@@ -36,7 +37,7 @@ static NSString * identifier = @"CellGoodsDetailHeader";
         _priceLabel.textColor = [UIColor redColor];
         _priceLabel.font = [UIFont boldSystemFontOfSize:25.0f];
         
-        _authorImgView = [[UIImageView alloc] init];
+        _authorImgView = [[AvatarImageView alloc] init];
 
         _authorLabel = [[UILabel alloc] init];
         _authorLabel.textColor = [UIColor lightGrayColor];
@@ -99,7 +100,7 @@ static NSString * identifier = @"CellGoodsDetailHeader";
 {
     [self.photoImgView sd_setImageWithURL:[NSURL URLWithString:data.coverPhoto]];
     [self.titleLabel setText:data.title];
-    [self.priceLabel setText:[NSString stringWithFormat:@"%f",data.price]];
+    [self.priceLabel setText:[NSString stringWithFormat:@"%.2lf",data.price]];
     [self.authorImgView sd_setImageWithURL:[NSURL URLWithString:data.authorIcon]];
     [self.authorLabel setText:data.author];
 }

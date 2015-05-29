@@ -12,6 +12,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.iconImageView.layer.masksToBounds = YES;
+    self.iconImageView.layer.cornerRadius = self.iconImageView.bounds.size.width * 0.5;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -12,6 +12,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.iconImageView.layer.masksToBounds = YES;
+    self.iconImageView.layer.cornerRadius = self.iconImageView.bounds.size.width * 0.5;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -21,7 +23,7 @@
 }
 
 - (void)setData:(CommentItem *)data {
-    if(data.authorIcon)[self.iconImageView sd_setImageWithURL:[NSURL URLWithString:data.authorIcon]];
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:data.authorIcon]];
     [self.nameLable setText:data.author];
     [self.dateLable setText:data.time];
     [self.lineView setBackgroundColor:MO_APP_VCBackgroundColor];
@@ -43,7 +45,7 @@
     CGFloat height;
     
     if (data.content) {
-        CGRect textFrame = [UILabel heightForMutableString:data.content withWidth:(SCREEN_WIDTH - 79) andFontSize:15.0];
+        CGRect textFrame = [UILabel heightForMutableString:data.content withWidth:(SCREEN_WIDTH - 79)  lineSpace:0 andFontSize:15.0];
         height += textFrame.size.height;
         
     }

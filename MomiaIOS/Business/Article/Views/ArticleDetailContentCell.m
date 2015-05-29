@@ -8,6 +8,7 @@
 
 #import "ArticleDetailContentCell.h"
 #import "Constants.h"
+#import "MOLabel.h"
 
 static NSString *identifier = @"CellContent";
 
@@ -25,7 +26,7 @@ static NSString *identifier = @"CellContent";
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     if (self) {
         
-        _contentLabel = [[UILabel alloc] init];
+        _contentLabel = [[MOLabel alloc] init];
         _contentLabel.numberOfLines = 0;
         _contentLabel.font = [UIFont systemFontOfSize:16.0f];
         
@@ -77,7 +78,7 @@ static NSString *identifier = @"CellContent";
     CGFloat height = 0;
     
     if(data.text) {
-        CGRect textFrame = [UILabel heightForMutableString:data.text withWidth:(SCREEN_WIDTH - 16) andFontSize:16.0];
+        CGRect textFrame = [UILabel heightForMutableString:data.text withWidth:(SCREEN_WIDTH - 16) lineSpace:MO_LABEL_LINE_SPACE andFontSize:16.0];
         height += textFrame.size.height;
     }
     return height;

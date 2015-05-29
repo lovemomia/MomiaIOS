@@ -28,7 +28,7 @@
 }
 
 + (CGFloat)height {
-    return 267;
+    return 178;
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {

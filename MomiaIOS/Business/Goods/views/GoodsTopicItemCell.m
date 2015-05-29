@@ -7,7 +7,11 @@
 //
 
 #import "GoodsTopicItemCell.h"
+#import "MOLabel.h"
+
 static NSString * identifier = @"CellGoodsItem";
+#define titleFontSize 17.0
+#define contentFontSize 14
 #define imageFactor 0.7
 
 #define titleInsetTop 20
@@ -28,11 +32,12 @@ static NSString * identifier = @"CellGoodsItem";
         
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.textColor = [UIColor blackColor];
-        _titleLabel.font = [UIFont boldSystemFontOfSize:21];
+        _titleLabel.font = [UIFont boldSystemFontOfSize:titleFontSize];
         
-        _contentLabel = [[UILabel alloc] init];
+        _contentLabel = [[MOLabel alloc] init];
         _contentLabel.numberOfLines = 2;
-        _contentLabel.font = [UIFont systemFontOfSize:16.0f];
+        _contentLabel.font = [UIFont systemFontOfSize:contentFontSize];
+        _contentLabel.textColor = MO_APP_TextColor_gray;
         
         _photoImgView = [[UIImageView alloc] init];
         _priceLabel = [[UILabel alloc] init];
@@ -104,7 +109,7 @@ static NSString * identifier = @"CellGoodsItem";
     CGFloat height = 0;
     
     if(data.abstracts) {
-        CGRect textFrame = [UILabel heightForMutableString:data.abstracts withWidth:(SCREEN_WIDTH - 16) andFontSize:16.0];
+        CGRect textFrame = [UILabel heightForMutableString:data.abstracts withWidth:(SCREEN_WIDTH - 16) lineSpace:MO_LABEL_LINE_SPACE andFontSize:contentFontSize];
         height += textFrame.size.height;
     }
     return height;
@@ -116,7 +121,7 @@ static NSString * identifier = @"CellGoodsItem";
     [self.titleLabel setText:data.title];
     [self.contentLabel setText:data.abstracts];
     [self.numImgView setImage:[UIImage imageNamed:@"goodsnum"]];
-    [self.priceLabel setText:[NSString stringWithFormat:@"%f",data.price]];
+    [self.priceLabel setText:[NSString stringWithFormat:@"%.2lf",data.price]];
     [self.detailBtn setTitle:@"查看详情" forState:UIControlStateNormal];
     
 }
@@ -150,7 +155,6 @@ static NSString * identifier = @"CellGoodsItem";
     if(cell == nil) {
         cell = [[GoodsTopicItemCell alloc] init];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
     }
     cell.data = data;
     return cell;

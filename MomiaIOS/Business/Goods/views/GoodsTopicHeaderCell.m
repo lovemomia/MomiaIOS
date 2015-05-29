@@ -7,9 +7,11 @@
 //
 
 #import "GoodsTopicHeaderCell.h"
+#import "MOLabel.h"
 
 static NSString *identifier = @"CellGoods";
 
+#define contentFontSize 14.0
 #define imgFactor 0.7
 
 @implementation GoodsTopicHeaderCell
@@ -19,9 +21,10 @@ static NSString *identifier = @"CellGoods";
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     if (self) {
         
-        _contentLabel = [[UILabel alloc] init];
+        _contentLabel = [[MOLabel alloc] init];
         _contentLabel.numberOfLines = 0;
-        _contentLabel.font = [UIFont systemFontOfSize:16.0f];
+        _contentLabel.font = [UIFont systemFontOfSize:contentFontSize];
+        _contentLabel.textColor = MO_APP_TextColor_gray;
         
         _titleLabel = [[UILabel alloc] init];
         [_titleLabel setTextColor:[UIColor whiteColor]];
@@ -75,7 +78,7 @@ static NSString *identifier = @"CellGoods";
     CGFloat height = 0;
     
     if(data.abstracts) {
-        CGRect textFrame = [UILabel heightForMutableString:data.abstracts withWidth:(SCREEN_WIDTH - 16) andFontSize:16.0];
+        CGRect textFrame = [UILabel heightForMutableString:data.abstracts withWidth:(SCREEN_WIDTH - 16)  lineSpace:MO_LABEL_LINE_SPACE andFontSize:contentFontSize];
         height += textFrame.size.height;
     }
     return height;
