@@ -8,7 +8,7 @@
 
 #import "MOBarButtonItemView.h"
 
-#define iconLength 25
+#define iconLength 16
 #define kPadding 10
 #define contentFont [UIFont systemFontOfSize:15.0f]
 
