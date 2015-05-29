@@ -12,7 +12,7 @@
 
 @interface MOViewController : UIViewController <UIAlertViewDelegate>
 
-@property (nonatomic, strong) UIView *navBackView; // 导航条背景
+@property (nonatomic, strong) UIImageView *navBackView; // 导航条背景
 - (void)addNavBackView;
 - (void)addHeaderMaskView;
 
