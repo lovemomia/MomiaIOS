@@ -7,6 +7,7 @@
 //
 
 #import "MineViewController.h"
+#import "FeedbackViewController.h"
 
 @interface MineViewController ()
 
@@ -92,7 +93,10 @@
             break;
         case 2:
             if(row == 0) {
-                
+//                FeedbackViewController * controller = [[FeedbackViewController alloc] initWithNibName:@"FeedbackViewController" bundle:nil];
+//                [self.navigationController pushViewController:controller animated:YES];
+                NSURL *url = [NSURL URLWithString:@"momia://feedback"];
+                [[UIApplication sharedApplication ] openURL:url];
                 
             } else {
                 [self shareToFriend];
