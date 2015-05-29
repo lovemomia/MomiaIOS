@@ -50,6 +50,7 @@
 		BC2C0C861B15668000E2446E /* DatePickerSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C851B15668000E2446E /* DatePickerSheet.m */; };
 		BC2C0C891B15698B00E2446E /* NSError+MOError.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C881B15698B00E2446E /* NSError+MOError.m */; };
 		BC2C0C8C1B15AF6E00E2446E /* MOGroupStyleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C8B1B15AF6E00E2446E /* MOGroupStyleTableViewController.m */; };
+		BC2C0C8F1B18075D00E2446E /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C8E1B18075D00E2446E /* UIImage+Color.m */; };
 		BC2FAA0F1AFCA92D00E2071E /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA0E1AFCA92D00E2071E /* UIView+Frame.m */; };
 		BC2FAA111AFCAE8C00E2071E /* HomeTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2FAA101AFCAE8C00E2071E /* HomeTopicCell.xib */; };
 		BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA151AFCB2EE00E2071E /* BaseModel.m */; };
@@ -206,6 +207,8 @@
 		BC2C0C881B15698B00E2446E /* NSError+MOError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSError+MOError.m"; path = "Common/Categorys/NSError+MOError.m"; sourceTree = "<group>"; };
 		BC2C0C8A1B15AF6E00E2446E /* MOGroupStyleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOGroupStyleTableViewController.h; path = Common/Base/MOGroupStyleTableViewController.h; sourceTree = "<group>"; };
 		BC2C0C8B1B15AF6E00E2446E /* MOGroupStyleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOGroupStyleTableViewController.m; path = Common/Base/MOGroupStyleTableViewController.m; sourceTree = "<group>"; };
+		BC2C0C8D1B18075D00E2446E /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Color.h"; path = "Common/Categorys/UIImage+Color.h"; sourceTree = "<group>"; };
+		BC2C0C8E1B18075D00E2446E /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Color.m"; path = "Common/Categorys/UIImage+Color.m"; sourceTree = "<group>"; };
 		BC2FAA0C1AFC8E9600E2071E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		BC2FAA0D1AFCA92D00E2071E /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Frame.h"; path = "Common/Categorys/UIView+Frame.h"; sourceTree = "<group>"; };
 		BC2FAA0E1AFCA92D00E2071E /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Frame.m"; path = "Common/Categorys/UIView+Frame.m"; sourceTree = "<group>"; };
@@ -810,6 +813,8 @@
 				BC77085E1AFC5685000068A8 /* UILabel+ContentSize.m */,
 				BC2C0C871B15698B00E2446E /* NSError+MOError.h */,
 				BC2C0C881B15698B00E2446E /* NSError+MOError.m */,
+				BC2C0C8D1B18075D00E2446E /* UIImage+Color.h */,
+				BC2C0C8E1B18075D00E2446E /* UIImage+Color.m */,
 			);
 			name = Categorys;
 			sourceTree = "<group>";
@@ -1114,6 +1119,7 @@
 				BC38D2441AFEEA300051C7E9 /* HttpService.m in Sources */,
 				BC2C0C7A1B141A3D00E2446E /* AccountModel.m in Sources */,
 				BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */,
+				BC2C0C8F1B18075D00E2446E /* UIImage+Color.m in Sources */,
 				BC38D2351AFEE28A0051C7E9 /* ArticleTopicModel.m in Sources */,
 				BC38D24B1B00BB660051C7E9 /* ArticleDetailHeaderCell.m in Sources */,
 				5A6806FB1B01D9EA00D02A60 /* MyCollectionViewController.m in Sources */,

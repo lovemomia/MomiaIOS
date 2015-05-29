@@ -21,8 +21,14 @@
     // Do any additional setup after loading the view.
     if(MO_OS_VERSION >= 7.0)
     {
+        MONavigationController *navController = (MONavigationController *)self.navigationController;
         if([self isNavTransparent] == NO) {
-            self.edgesForExtendedLayout =UIRectEdgeNone;
+            self.edgesForExtendedLayout = UIRectEdgeNone;
+            [navController showNavigationBar];
+            
+        } else {
+            [navController hideNavigationBar];
+            
         }
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
@@ -47,8 +53,9 @@
 
 - (void)addNavBackView {
     CGRect frame = self.navigationController.navigationBar.frame;
-    self.navBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height+20)];
-    self.navBackView.backgroundColor = MO_APP_NaviColor;
+    self.navBackView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height+20)];
+//    self.navBackView.backgroundColor = MO_APP_NaviColor;
+    self.navBackView.image = [UIImage imageNamed:@"bg_nav"];
     self.navBackView.alpha = 0;
     [self.view addSubview:self.navBackView];
 }

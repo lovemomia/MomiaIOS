@@ -8,6 +8,7 @@
 
 #import "MONavigationController.h"
 #import "Constants.h"
+#import "UIImage+Color.h"
 
 @implementation MONavigationController
 @synthesize backView;
@@ -34,18 +35,31 @@
     viewController.navigationItem.backBarButtonItem = item;
 }
 
+- (void)showNavigationBar {
+    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_nav"] forBarMetrics:UIBarMetricsDefault];
+    self.navigationBar.shadowImage = [UIImage imageWithColor:[UIColor clearColor] size:CGSizeMake(1, 1)];
+    self.navigationBar.translucent = NO;
+}
+
+- (void)hideNavigationBar {
+    [self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    self.navigationBar.shadowImage = [UIImage new];
+    self.navigationBar.translucent = YES;
+}
+
 - (void)setTitleStyle {
     // text color
     [self setTitleTextStyle];
     
     // background color
-    [self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    self.navigationBar.shadowImage = [UIImage new];
-    self.navigationBar.translucent = YES;
+    [self hideNavigationBar];
     
     CGRect frame = self.navigationBar.frame;
-    backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height+20)];
-    backView.backgroundColor = MO_APP_NaviColor;
+    backView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height+20)];
+    backView.backgroundColor = MO_APP_VCBackgroundColor;
+    UIImageView *bgImage = [[UIImageView alloc]initWithFrame:backView.frame];
+    bgImage.image = [UIImage imageNamed:@"bg_nav"];
+    [backView addSubview:bgImage];
     [[[UIApplication sharedApplication].delegate window] insertSubview:backView atIndex:0];
 }
 
