@@ -7,8 +7,9 @@
 //
 
 #import "MOViewController.h"
+#import "UITextView+Placeholder.h"
 
-@interface FeedbackViewController : MOViewController<UITextFieldDelegate,UITextViewDelegate>
+@interface FeedbackViewController : MOViewController<UITextFieldDelegate,MOTextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (weak, nonatomic) IBOutlet UITextField *infoTextField;

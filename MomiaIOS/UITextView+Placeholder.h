@@ -9,8 +9,16 @@
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
 
+@protocol MOTextViewDelegate <NSObject>
+
+- (void)moTextViewDidBeginEditing:(UITextView *)textView;
+- (void)moTextViewDidEndEditing:(UITextView *)textView;
+
+@end
+
 @interface UITextView (PlaceHolder) <UITextViewDelegate>
 
+@property (nonatomic, strong) id<MOTextViewDelegate> moDelegate;
 @property (nonatomic, strong) UITextView *placeHolderTextView;
 //@property (nonatomic, assign) id <UITextViewDelegate> textViewDelegate;
 - (void)addPlaceHolder:(NSString *)placeHolder;

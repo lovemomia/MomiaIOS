@@ -20,6 +20,8 @@
 		5A1B35F61B12C0D200E1D31B /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1B35F51B12C0D200E1D31B /* CommentCell.m */; };
 		5A1E0DB01B09CC2D000EC137 /* ArticleDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1E0DAF1B09CC2D000EC137 /* ArticleDetailContentCell.m */; };
 		5A2144581B0C6A8A0072682F /* AlertNotice.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2144571B0C6A8A0072682F /* AlertNotice.m */; };
+		5A3DBE5A1B18577900E708AC /* FavouriteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DBE591B18577900E708AC /* FavouriteModel.m */; };
+		5A3DBE5D1B185BE500E708AC /* MyCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DBE5C1B185BE500E708AC /* MyCollectionCell.m */; };
 		5A6806EE1B01A48300D02A60 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806ED1B01A48300D02A60 /* SettingViewController.m */; };
 		5A6806F01B01A9BD00D02A60 /* SettingMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A6806EF1B01A9BD00D02A60 /* SettingMsgCell.xib */; };
 		5A6806F31B01C9C700D02A60 /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806F21B01C9C700D02A60 /* PersonInfoViewController.m */; };
@@ -37,6 +39,7 @@
 		5AC9FFC91B17020300C769EF /* SubmitPostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9FFC81B17020300C769EF /* SubmitPostModel.m */; };
 		5AC9FFCD1B17298C00C769EF /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9FFCB1B17298C00C769EF /* FeedbackViewController.m */; };
 		5AC9FFCE1B17298C00C769EF /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AC9FFCC1B17298C00C769EF /* FeedbackViewController.xib */; };
+		5AEB188A1B1865F90098FD5F /* MySuggestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB18891B1865F90098FD5F /* MySuggestModel.m */; };
 		BC2C0C521B1303BA00E2446E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
 		BC2C0C531B1303BA00E2446E /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2C0C511B1303BA00E2446E /* LoginViewController.xib */; };
 		BC2C0C571B1309A800E2446E /* MOButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C561B1309A800E2446E /* MOButton.m */; };
@@ -152,6 +155,10 @@
 		5A1E0DAF1B09CC2D000EC137 /* ArticleDetailContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleDetailContentCell.m; path = Business/Article/Views/ArticleDetailContentCell.m; sourceTree = "<group>"; };
 		5A2144561B0C6A8A0072682F /* AlertNotice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertNotice.h; path = Common/Base/AlertNotice.h; sourceTree = "<group>"; };
 		5A2144571B0C6A8A0072682F /* AlertNotice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertNotice.m; path = Common/Base/AlertNotice.m; sourceTree = "<group>"; };
+		5A3DBE581B18577900E708AC /* FavouriteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavouriteModel.h; path = Common/Models/Favourite/FavouriteModel.h; sourceTree = "<group>"; };
+		5A3DBE591B18577900E708AC /* FavouriteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavouriteModel.m; path = Common/Models/Favourite/FavouriteModel.m; sourceTree = "<group>"; };
+		5A3DBE5B1B185BE500E708AC /* MyCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCollectionCell.h; path = Business/Mine/Views/MyCollectionCell.h; sourceTree = "<group>"; };
+		5A3DBE5C1B185BE500E708AC /* MyCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCollectionCell.m; path = Business/Mine/Views/MyCollectionCell.m; sourceTree = "<group>"; };
 		5A6806EC1B01A48300D02A60 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = Business/Setting/SettingViewController.h; sourceTree = "<group>"; };
 		5A6806ED1B01A48300D02A60 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = Business/Setting/SettingViewController.m; sourceTree = "<group>"; };
 		5A6806EF1B01A9BD00D02A60 /* SettingMsgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingMsgCell.xib; path = Business/Setting/Views/SettingMsgCell.xib; sourceTree = "<group>"; };
@@ -182,6 +189,8 @@
 		5AC9FFCA1B17298C00C769EF /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedbackViewController.h; path = Business/Mine/FeedbackViewController.h; sourceTree = "<group>"; };
 		5AC9FFCB1B17298C00C769EF /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedbackViewController.m; path = Business/Mine/FeedbackViewController.m; sourceTree = "<group>"; };
 		5AC9FFCC1B17298C00C769EF /* FeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FeedbackViewController.xib; path = Business/Mine/FeedbackViewController.xib; sourceTree = "<group>"; };
+		5AEB18881B1865F90098FD5F /* MySuggestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySuggestModel.h; path = Common/Models/MySuggest/MySuggestModel.h; sourceTree = "<group>"; };
+		5AEB18891B1865F90098FD5F /* MySuggestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySuggestModel.m; path = Common/Models/MySuggest/MySuggestModel.m; sourceTree = "<group>"; };
 		5B9DF4BE98C18CC18BDADCD8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC2C0C4F1B1303BA00E2446E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Business/Login/LoginViewController.h; sourceTree = "<group>"; };
 		BC2C0C501B1303BA00E2446E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Business/Login/LoginViewController.m; sourceTree = "<group>"; };
@@ -444,6 +453,15 @@
 			name = views;
 			sourceTree = "<group>";
 		};
+		5A3DBE571B18573900E708AC /* Favourite */ = {
+			isa = PBXGroup;
+			children = (
+				5A3DBE581B18577900E708AC /* FavouriteModel.h */,
+				5A3DBE591B18577900E708AC /* FavouriteModel.m */,
+			);
+			name = Favourite;
+			sourceTree = "<group>";
+		};
 		5A6806E41B019EFD00D02A60 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +487,15 @@
 				5AC9FFC81B17020300C769EF /* SubmitPostModel.m */,
 			);
 			name = SubmitPost;
+			sourceTree = "<group>";
+		};
+		5AEB18871B1865CB0098FD5F /* MySuggest */ = {
+			isa = PBXGroup;
+			children = (
+				5AEB18881B1865F90098FD5F /* MySuggestModel.h */,
+				5AEB18891B1865F90098FD5F /* MySuggestModel.m */,
+			);
+			name = MySuggest;
 			sourceTree = "<group>";
 		};
 		A6F45CE3FFFD30E793606A24 /* Pods */ = {
@@ -608,6 +635,8 @@
 		BC7708601AFC56F3000068A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5AEB18871B1865CB0098FD5F /* MySuggest */,
+				5A3DBE571B18573900E708AC /* Favourite */,
 				5AC9FFC61B17003500C769EF /* SubmitPost */,
 				BC2C0C5E1B130C6600E2446E /* User */,
 				5A1B35E51B12BB5F00E1D31B /* Comment */,
@@ -831,6 +860,8 @@
 				BCCDF5DE1B09E6C7008BAE12 /* SugSubmitProductContentCell.m */,
 				BC41ABBD1B0F269100A419DA /* SugTagsCell.h */,
 				BC41ABBE1B0F269100A419DA /* SugTagsCell.m */,
+				5A3DBE5B1B185BE500E708AC /* MyCollectionCell.h */,
+				5A3DBE5C1B185BE500E708AC /* MyCollectionCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1085,6 +1116,7 @@
 				BC41ABA91B0C715400A419DA /* Environment.m in Sources */,
 				BC2C0C641B130CDB00E2446E /* Account.m in Sources */,
 				5A04EF271B0D8CBE00A88D3B /* GoodsTopicHeaderCell.m in Sources */,
+				5AEB188A1B1865F90098FD5F /* MySuggestModel.m in Sources */,
 				5A6C34CB1B15B57B001252C5 /* MOBarButtonItemView.m in Sources */,
 				BC38D24E1B00BBA70051C7E9 /* ArticleDetailModel.m in Sources */,
 				BC38D2471B0050770051C7E9 /* ArticleTopicItemCell.m in Sources */,
@@ -1108,6 +1140,7 @@
 				5A04EF2D1B0DCD4E00A88D3B /* GoodsDetailModel.m in Sources */,
 				5A04EF231B0D887800A88D3B /* GoodsTopicModel.m in Sources */,
 				BC38D2511B00C8760051C7E9 /* ArticleDetailAuthorCell.m in Sources */,
+				5A3DBE5D1B185BE500E708AC /* MyCollectionCell.m in Sources */,
 				BC77085C1AFC54F3000068A8 /* ArticleTopicHeaderCell.m in Sources */,
 				BC2FAA0F1AFCA92D00E2071E /* UIView+Frame.m in Sources */,
 				BC7708511AFAFD54000068A8 /* MOTableViewController.m in Sources */,
@@ -1116,6 +1149,7 @@
 				BC2C0C681B131ED500E2446E /* AccountService.m in Sources */,
 				BC41ABBF1B0F269100A419DA /* SugTagsCell.m in Sources */,
 				BC41ABBC1B0F266F00A419DA /* SuggestTagsViewController.m in Sources */,
+				5A3DBE5A1B18577900E708AC /* FavouriteModel.m in Sources */,
 				BC38D2441AFEEA300051C7E9 /* HttpService.m in Sources */,
 				BC2C0C7A1B141A3D00E2446E /* AccountModel.m in Sources */,
 				BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */,

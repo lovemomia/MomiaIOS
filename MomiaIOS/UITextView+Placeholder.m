@@ -9,9 +9,18 @@
 #import "UITextView+PlaceHolder.h"
 
 static const char *phTextView = "placeHolderTextView";
+static const char *moTextView = "moTextView";
 
 
 @implementation UITextView (PlaceHolder)
+
+- (id<MOTextViewDelegate>) moDelegate {
+    return objc_getAssociatedObject(self, moTextView);
+}
+
+- (void)setMoDelegate:(id<MOTextViewDelegate>)moDelegate{
+    objc_setAssociatedObject(self, moTextView, moDelegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 - (UITextView *)placeHolderTextView {
     return objc_getAssociatedObject(self, phTextView);
@@ -36,6 +45,7 @@ static const char *phTextView = "placeHolderTextView";
         
         [self setPlaceHolderTextView:textView];
     }
+    
 }
 
 # pragma mark -
@@ -45,12 +55,14 @@ static const char *phTextView = "placeHolderTextView";
     //    if (self.textViewDelegate) {
     //
     //    }
+    [self.moDelegate moTextViewDidBeginEditing:textView];
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView {
     if (textView.text && [textView.text isEqualToString:@""]) {
         self.placeHolderTextView.hidden = NO;
     }
+    [self.moDelegate moTextViewDidEndEditing:textView];
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{

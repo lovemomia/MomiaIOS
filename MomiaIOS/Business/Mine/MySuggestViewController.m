@@ -7,12 +7,60 @@
 //
 
 #import "MySuggestViewController.h"
+#import "MySuggestModel.h"
+#import "MyCollectionCell.h"
+#define pageSize 10
 
 @interface MySuggestViewController ()
+
+@property (nonatomic, strong) MySuggestModel * suggestModel;
+@property (nonatomic, assign) NSInteger currentPage;//表示当前页，缺省为0
+@property (nonatomic, assign) BOOL continueLoading;//控制request请求在执行的期间只执行一次，缺省为NO
+@property (nonatomic, strong) NSMutableArray * dataArray;
 
 @end
 
 @implementation MySuggestViewController
+
+-(NSMutableArray *)dataArray
+{
+    if(_dataArray == nil) {
+        _dataArray = [[NSMutableArray alloc] init];
+    }
+    return _dataArray;
+}
+
+
+#pragma mark - requestData
+//请求评论详情数据
+- (void)requestData {
+    
+    self.continueLoading = NO;
+    
+    if (self.suggestModel == nil) {
+        [self.view showLoadingBee];
+    }
+    
+    NSDictionary * paramDic = @{@"start":@(self.currentPage++ * pageSize),@"count":@(pageSize)};
+    
+    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/goods/user") parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[MySuggestModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (self.suggestModel == nil) {
+            [self.view removeLoadingBee];
+        }
+        
+        self.continueLoading = YES;
+        
+        self.suggestModel = responseObject;
+        
+        [self.dataArray addObjectsFromArray:self.suggestModel.data.goodsList];
+        
+        [self.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
 
 /* tableView分割线，默认无 */
 - (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle
@@ -24,10 +72,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"好物";
+    self.navigationItem.title = @"我的推荐";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"我要推荐" style:UIBarButtonItemStylePlain target:self action:@selector(onSuggestClicked)];
     //当单元格数目少于屏幕时会出现多余分割线，直接设置tableFooterView用以删除
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self requestData];
     
 }
 
@@ -58,29 +107,49 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    if(self.dataArray.count&&self.dataArray.count >= self.currentPage * pageSize)
+        return self.dataArray.count + 1;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     //注：我的推荐视图跟我的收藏一样，直接使用收藏的xib
-    static NSString *identifier = @"CollectionCell";
-    
+    NSInteger row = indexPath.row;
     UITableViewCell * cell;
-    cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if(row == self.dataArray.count) {
+        static NSString * loadIdentifier = @"CellMySuggestLoading";
+        UITableViewCell * load = [tableView dequeueReusableCellWithIdentifier:loadIdentifier];
+        if(load == nil) {
+            load = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:loadIdentifier];
+        }
+        [load showLoadingBee];
+        cell = load;
+        if(self.continueLoading) {
+            [self requestData];
+        }
+    } else {
+        MysuggestItem * item = [self.dataArray objectAtIndex:indexPath.row];
+        MyCollectionCell * collection = [MyCollectionCell cellWithTableView:tableView withData:item];
+        cell = collection;
+    }
+    return cell;
+
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger row = indexPath.row;
     
-    if (cell == nil) {
-        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"MyCollectionCell" owner:self options:nil];
-        cell = [arr objectAtIndex:0];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.backgroundColor = MO_APP_VCBackgroundColor;
+    if(row == self.dataArray.count) {
+        return 44.0f;
     }
     
-    return cell;
+    return [MyCollectionCell height];
 }
 
 
