@@ -37,6 +37,8 @@
         contentTv.width = SCREEN_WIDTH - 20;
         contentTv.top = 5;
         contentTv.left = 10;
+        [contentTv setFont:[UIFont systemFontOfSize:16]];
+        contentTv.placeHolderTextView.font = [UIFont systemFontOfSize:16];
         
         [self addPhotoViewAtIndex:0];
         
