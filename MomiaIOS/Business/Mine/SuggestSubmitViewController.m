@@ -29,7 +29,7 @@ typedef enum {
 @property (strong, nonatomic) NSString *filePath;
 @property (strong, nonatomic) NSString *fileName;
 @property (assign, nonatomic) UploadStatus uploadStatus;
-@property (assign, nonatomic) UploadImageData *respData;
+@property (strong, nonatomic) UploadImageData *respData;
 
 @end
 @implementation SelectImage
@@ -105,7 +105,7 @@ typedef enum {
         if (si.uploadStatus <= UploadStatusIdle) {
             [self uploadImage:si];
             imagesUploaded = NO;
-//            break;
+            break;
         }
     }
     if (imagesUploaded) {

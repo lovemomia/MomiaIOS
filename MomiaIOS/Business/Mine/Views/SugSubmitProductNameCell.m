@@ -32,6 +32,8 @@
         nameTv.top = 5;
         nameTv.left = 10;
         [nameTv setBackgroundColor:[UIColor clearColor]];
+        [nameTv setFont:[UIFont systemFontOfSize:16]];
+        nameTv.placeHolderTextView.font = [UIFont systemFontOfSize:16];
         [self addSubview:nameTv];
     }
     return self;
