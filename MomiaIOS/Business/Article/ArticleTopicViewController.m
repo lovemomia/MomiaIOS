@@ -52,6 +52,12 @@
     return YES;
 }
 
+/* tableView分割线，默认无 */
+- (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle
+{
+    return UITableViewCellSeparatorStyleSingleLine;
+}
+
 /*
 #pragma mark - Navigation
 
@@ -187,6 +193,7 @@
     }
     
     if (self.model) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
         ArticleTopicItem *data = [self.model.data.list objectAtIndex:indexPath.row - 1];
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"momia://articledetail?id=%d", data.articleId]];
         [[UIApplication sharedApplication] openURL:url];

@@ -62,7 +62,7 @@ static NSString * identifier = @"CellGoodsDetailContent";
     CGFloat height = 0;
     
     if(data) {
-        CGRect textFrame = [UILabel heightForMutableString:data withWidth:(SCREEN_WIDTH - 16) andFont:contentFont];
+        CGRect textFrame = [UILabel heightForMutableString:data withWidth:(SCREEN_WIDTH - 16) lineSpace:MO_LABEL_LINE_SPACE andFont:contentFont];
         height += textFrame.size.height;
     }
     return height;
@@ -73,7 +73,7 @@ static NSString * identifier = @"CellGoodsDetailContent";
     CGFloat height = 0;
     
     if(data.abstracts) {
-        CGRect textFrame = [UILabel heightForMutableString:data.abstracts withWidth:(SCREEN_WIDTH - 16) andFont:contentFont];
+        CGRect textFrame = [UILabel heightForMutableString:data.abstracts withWidth:(SCREEN_WIDTH - 16) lineSpace:MO_LABEL_LINE_SPACE andFont:contentFont];
         height += textFrame.size.height;
     }
     return height;

@@ -66,7 +66,7 @@
     CGFloat width = 0;
     width += iconLength;
     width += kPadding;
-    CGRect textRect = [UILabel widthForMutableString:content withHeight:20 andFont:contentFont];
+    CGRect textRect = [UILabel widthForMutableString:content withHeight:20  lineSpace:0 andFont:contentFont];
     width += textRect.size.width;
     return width;
 
@@ -84,7 +84,7 @@
     } else if(style == ContentStyleUp){
         contentStr = [NSString stringWithFormat:@"%d",data.upNum];
     }
-    CGRect textRect = [UILabel widthForMutableString:contentStr withHeight:20 andFont:contentFont];
+    CGRect textRect = [UILabel widthForMutableString:contentStr withHeight:20  lineSpace:0 andFont:contentFont];
     width += textRect.size.width;
     return width;
 
@@ -101,7 +101,7 @@
     } else if(style == ContentStyleUp){
         contentStr = [NSString stringWithFormat:@"%d",data.upNum];
     }
-    CGRect textRect = [UILabel widthForMutableString:contentStr withHeight:20 andFont:contentFont];
+    CGRect textRect = [UILabel widthForMutableString:contentStr withHeight:20  lineSpace:0 andFont:contentFont];
     width += textRect.size.width;
     return width;
     
@@ -114,7 +114,7 @@
     width += kPadding;
     NSString * contentStr = @"";
     contentStr = [NSString stringWithFormat:@"%d",data.favNum];
-    CGRect textRect = [UILabel widthForMutableString:contentStr withHeight:20 andFont:contentFont];
+    CGRect textRect = [UILabel widthForMutableString:contentStr withHeight:20  lineSpace:0 andFont:contentFont];
     width += textRect.size.width;
     return width;
 }
@@ -126,7 +126,7 @@
     width += kPadding;
     NSString * contentStr = @"";
     contentStr = [NSString stringWithFormat:@"%d",data.favNum];
-    CGRect textRect = [UILabel widthForMutableString:contentStr withHeight:20 andFont:contentFont];
+    CGRect textRect = [UILabel widthForMutableString:contentStr withHeight:20  lineSpace:0 andFont:contentFont];
     width += textRect.size.width;
     return width;
 }

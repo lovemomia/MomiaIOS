@@ -21,7 +21,7 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" id="sMR-bm-Qdw">
+                    <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="sMR-bm-Qdw" customClass="AvatarImageView">
                         <rect key="frame" x="226" y="15" width="60" height="60"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
                     </imageView>
@@ -30,9 +30,6 @@
             <point key="canvasLocation" x="265" y="223"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="user" width="126" height="126"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -46,17 +46,24 @@
 // 屏幕高度
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 
+
+// 文章内容行间距
+#define MO_LABEL_LINE_SPACE 5
+
 /**
  *  NavigationBar背景色
  */
 #define MO_APP_NaviColor                    (UIColorFromRGB(0xFF6699))
 
-
-
 /**
  *  页面背景颜色
  */
 #define MO_APP_VCBackgroundColor            (UIColorFromRGB(0xEDEDED))
+
+/**
+ *  字体颜色（灰色）
+ */
+#define MO_APP_TextColor_gray                    (UIColorFromRGB(0x737373))
 
 // getui push dev
 #define kAppId           @"xHJWU4TNcm7qaq0GzMNwg7"

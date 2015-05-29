@@ -97,7 +97,7 @@ static NSString * identifier = @"CellGoodsDetailShop";
 -(void)setData:(GoodsDetailShopItem *)data
 {
     self.shopLabel.text = data.name;
-    self.priceLabel.text = [NSString stringWithFormat:@"%f",data.price];
+    self.priceLabel.text = [NSString stringWithFormat:@"%.2lf",data.price];
     self.contentLabel.text = data.desc;
     [self.buyBtn setTitle:@"购买" forState:UIControlStateNormal];
 }
@@ -120,7 +120,7 @@ static NSString * identifier = @"CellGoodsDetailShop";
     CGFloat height = 0;
     
     if(data.desc) {
-        CGRect textFrame = [UILabel heightForMutableString:data.desc withWidth:(SCREEN_WIDTH - 8 - 3 - 100 - 8) andFont:contentFont];
+        CGRect textFrame = [UILabel heightForMutableString:data.desc withWidth:(SCREEN_WIDTH - 8 - 3 - 100 - 8)  lineSpace:MO_LABEL_LINE_SPACE andFont:contentFont];
         height += textFrame.size.height;
     }
     return height;

@@ -19,6 +19,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = MO_APP_VCBackgroundColor;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     if(MO_OS_VERSION >= 7.0)
     {
         MONavigationController *navController = (MONavigationController *)self.navigationController;
@@ -32,8 +36,6 @@
         }
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
-    
-    self.view.backgroundColor = MO_APP_VCBackgroundColor;
 }
 
 - (void)didReceiveMemoryWarning {
