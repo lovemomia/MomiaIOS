@@ -13,9 +13,11 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="63G-m9-zcH" id="fXn-d8-bMS">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="hOd-pA-3eB">
+                    <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UserAvatarBackground" translatesAutoresizingMaskIntoConstraints="NO" id="hOd-pA-3eB">
                         <rect key="frame" x="16" y="19" width="44" height="44"/>
-                        <color key="backgroundColor" red="1" green="0.1360773871" blue="0.16101458630000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UserAvatarPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="xIe-6Q-pp0">
+                        <rect key="frame" x="16" y="19" width="44" height="44"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="个人信息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXD-zr-IlJ">
                         <rect key="frame" x="77" y="19" width="235" height="21"/>
@@ -29,13 +31,18 @@
                         <color key="textColor" red="0.45150726009999997" green="0.45150726009999997" blue="0.45150726009999997" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UserAvatarBorder" translatesAutoresizingMaskIntoConstraints="NO" id="0AR-sD-gjw">
+                        <rect key="frame" x="16" y="19" width="44" height="44"/>
+                    </imageView>
                 </subviews>
             </tableViewCellContentView>
             <point key="canvasLocation" x="208" y="120"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="user" width="126" height="126"/>
+        <image name="UserAvatarBackground" width="41" height="41"/>
+        <image name="UserAvatarBorder" width="36" height="36"/>
+        <image name="UserAvatarPlaceholder" width="36" height="36"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
