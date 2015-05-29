@@ -17,6 +17,8 @@
 @property (nonatomic, assign) NSInteger currentPage;//表示当前页，缺省为0
 @property (nonatomic, assign) BOOL continueLoading;//控制request请求在执行的期间只执行一次，缺省为NO
 @property (nonatomic, strong) NSMutableArray * dataArray;
+@property (nonatomic, assign) BOOL isRefresh;
+
 
 @end
 
@@ -35,6 +37,14 @@
 //请求评论详情数据
 - (void)requestData {
     
+    if(self.isRefresh) {//表明是发送成功后的请求
+        self.isRefresh = NO;
+        [self.dataArray removeAllObjects];
+        self.currentPage = 0;
+        [self.tableView reloadData];
+    }
+
+    
     self.continueLoading = NO;
     
     if (self.suggestModel == nil) {
@@ -52,9 +62,13 @@
         
         self.suggestModel = responseObject;
         
+        NSLog(@"suggestModel:%@",self.suggestModel);
+        
         [self.dataArray addObjectsFromArray:self.suggestModel.data.goodsList];
         
         [self.tableView reloadData];
+        [self.tableView.legendHeader endRefreshing];
+
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
@@ -76,6 +90,14 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"我要推荐" style:UIBarButtonItemStylePlain target:self action:@selector(onSuggestClicked)];
     //当单元格数目少于屏幕时会出现多余分割线，直接设置tableFooterView用以删除
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    __weak MySuggestViewController * weakSelf = self;
+    
+    [self.tableView addLegendHeaderWithRefreshingBlock:^{
+        weakSelf.isRefresh = YES;
+        [weakSelf requestData];
+    }];
+
     [self requestData];
     
 }

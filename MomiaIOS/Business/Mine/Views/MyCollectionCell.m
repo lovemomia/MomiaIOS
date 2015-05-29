@@ -36,7 +36,7 @@ static NSString * identifier = @"CellMyCollection";
     [self.picImgView sd_setImageWithURL:[NSURL URLWithString:data.picUrl]];
     [self.timeLabel setText:data.time];
     [self.titleLabel setText:data.title];
-    [self.typeLabel setText:@""];
+    [self.typeLabel setText:[data.assortments componentsJoinedByString:@" "]];
 }
 
 

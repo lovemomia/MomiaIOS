@@ -98,6 +98,15 @@
             NSURL *url = [NSURL URLWithString:urlStr];
             [[UIApplication sharedApplication ] openURL:url];
         }
+    } else if(section == 2) {
+        if(row == 0) {
+            
+        } else {
+            GoodsDetailShopItem * item = self.model.data.shopList[row - 1];
+            NSURL *url = [NSURL URLWithString:item.url];
+            [[UIApplication sharedApplication] openURL:url];
+            
+        }
     }
 }
 
