@@ -27,7 +27,6 @@ PODS:
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
   - SDWebImage/Core (3.7.2)
-  - TTTAttributedLabel (1.13.3)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
@@ -36,7 +35,6 @@ DEPENDENCIES:
   - MBProgressHUD (~> 0.9.1)
   - MJRefresh
   - SDWebImage
-  - TTTAttributedLabel
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
@@ -45,6 +43,5 @@ SPEC CHECKSUMS:
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MJRefresh: 2eaa3fd8f67fbb86497840fb0167446f7eb61dc7
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
-  TTTAttributedLabel: 6f3174aef8e738f44dff97c2eb7d8184f6ab6277
 
 COCOAPODS: 0.37.1
