@@ -170,7 +170,7 @@
     if(row == self.dataArray.count) {
         return 44.0f;
     }
-   
+    
     return [MyCollectionCell height];
 }
 
