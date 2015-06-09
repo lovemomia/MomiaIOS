@@ -79,7 +79,7 @@
 #pragma mark - title button listener
 
 - (void)onMineClicked {
-    NSURL *url = [NSURL URLWithString:@"momia://mine"];
+    NSURL *url = [NSURL URLWithString:@"momia://fillorder"];
     [[UIApplication sharedApplication ] openURL:url];
 }
 

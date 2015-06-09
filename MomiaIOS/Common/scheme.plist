@@ -155,5 +155,14 @@
 		<key>desc</key>
 		<string>意见反馈页</string>
 	</dict>
+	<key>fillorder</key>
+	<dict>
+		<key>controller</key>
+		<string>FillOrderViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>填写订单页</string>
+	</dict>
 </dict>
 </plist>
