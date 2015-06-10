@@ -1,18 +1,16 @@
 //
-//  FillOrderPersonCell.h
+//  CashPayTopCell.h
 //  MomiaIOS
 //
-//  Created by Owen on 15/6/9.
+//  Created by Owen on 15/6/10.
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-typedef void(^ChooseBlock)(UIButton * sender);
 
-@interface FillOrderPersonCell : UITableViewCell
+@interface CashPayTopCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UIButton *chooseBtn;
-@property (nonatomic,strong) ChooseBlock chooseBlock;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
 +(instancetype)cellWithTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath;
 

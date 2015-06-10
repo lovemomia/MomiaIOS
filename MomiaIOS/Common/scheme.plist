@@ -159,10 +159,37 @@
 	<dict>
 		<key>controller</key>
 		<string>FillOrderViewController</string>
+		<key>desc</key>
+		<string>填写订单页</string>
+		<key>needlogin</key>
+		<false/>
+	</dict>
+	<key>orderperson</key>
+	<dict>
+		<key>controller</key>
+		<string>OrderPersonViewController</string>
 		<key>needlogin</key>
 		<false/>
 		<key>desc</key>
-		<string>填写订单页</string>
+		<string>选择出行人</string>
+	</dict>
+	<key>orderaddperson</key>
+	<dict>
+		<key>controller</key>
+		<string>OrderAddPersonViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>添加出行人</string>
+	</dict>
+	<key>cashpay</key>
+	<dict>
+		<key>controller</key>
+		<string>CashPayViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>收银台</string>
 	</dict>
 </dict>
 </plist>

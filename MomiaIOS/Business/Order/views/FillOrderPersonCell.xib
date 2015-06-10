@@ -26,6 +26,9 @@
                         <state key="normal" title="去选择">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="onChooseClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8Dh-Y9-3Ud"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

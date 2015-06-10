@@ -1,24 +1,21 @@
 //
-//  FillOrderPersonCell.m
+//  CashPayTopCell.m
 //  MomiaIOS
 //
-//  Created by Owen on 15/6/9.
+//  Created by Owen on 15/6/10.
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "FillOrderPersonCell.h"
+#import "CashPayTopCell.h"
 
-static NSString * identifier = @"CellFillOrderPerson";
+static NSString * identifier = @"CellCashPay";
 
-@implementation FillOrderPersonCell
-- (IBAction)onChooseClick:(id)sender {
-    self.chooseBlock(sender);
-}
+@implementation CashPayTopCell
 
 #pragma mark - methods added by Owen
 +(instancetype)cellWithTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath
 {
-    FillOrderPersonCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    CashPayTopCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     return cell;
 }
 
@@ -29,7 +26,7 @@ static NSString * identifier = @"CellFillOrderPerson";
 
 +(CGFloat)heightWithTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath data:(NSDictionary *)data
 {
-    return [tableView fd_heightForCellWithIdentifier:identifier cacheByIndexPath:indexPath configuration:^(FillOrderPersonCell *cell) {
+    return [tableView fd_heightForCellWithIdentifier:identifier cacheByIndexPath:indexPath configuration:^(CashPayTopCell *cell) {
         cell.data = data;
     }];
 }
@@ -37,6 +34,7 @@ static NSString * identifier = @"CellFillOrderPerson";
 -(void)setData:(NSDictionary *) dic
 {
     self.titleLabel.text = [dic objectForKey:@"title"];
+    self.priceLabel.text = [dic objectForKey:@"price"];
 }
 
 
