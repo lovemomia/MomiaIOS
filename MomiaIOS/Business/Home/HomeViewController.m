@@ -64,7 +64,7 @@
 
 -(void)onCityClick
 {
-    NSURL * url = [NSURL URLWithString:@"momia://fillorder"];
+    NSURL * url = [NSURL URLWithString:@"tq://fillorder"];
     [[UIApplication sharedApplication] openURL:url];
 }
 
