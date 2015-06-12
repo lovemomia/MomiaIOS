@@ -195,7 +195,7 @@
     if (self.model) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         ArticleTopicItem *data = [self.model.data.list objectAtIndex:indexPath.row - 1];
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"momia://articledetail?id=%d", data.articleId]];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://articledetail?id=%d", data.articleId]];
         [[UIApplication sharedApplication] openURL:url];
     }
 }

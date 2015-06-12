@@ -10,6 +10,7 @@
 #import "GexinSdk.h"
 #import "WXApi.h"
 #import "WeiboSDK.h"
+#import "WechatPayDelegate.h"
 
 typedef enum {
     SdkStatusStoped,
@@ -17,7 +18,7 @@ typedef enum {
     SdkStatusStarted
 } SdkStatus;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, GexinSdkDelegate, WXApiDelegate, WeiboSDKDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, GexinSdkDelegate, WXApiDelegate, WeiboSDKDelegate, WechatPayDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

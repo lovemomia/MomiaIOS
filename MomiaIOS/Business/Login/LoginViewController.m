@@ -37,7 +37,7 @@
     };
     [self.navigationController pushViewController:viewController animated:YES];
     
-//    [self openURL:@"momia://register" byNav:self.navigationController];
+//    [self openURL:@"tq://register" byNav:self.navigationController];
 }
 
 - (void)didReceiveMemoryWarning {

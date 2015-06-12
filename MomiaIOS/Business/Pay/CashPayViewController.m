@@ -9,6 +9,7 @@
 #import "CashPayViewController.h"
 #import "CashPayTopCell.h"
 #import "CashPayBottomCell.h"
+#import "AppDelegate.h"
 
 @interface CashPayViewController ()
 
@@ -18,6 +19,13 @@
 @end
 
 @implementation CashPayViewController
+
+- (instancetype)initWithParams:(NSDictionary *)params {
+    if (self = [super initWithParams:params]) {
+        self.delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    }
+    return self;
+}
 
 #pragma mark - datasource & delegate
 
@@ -101,5 +109,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)onPayClicked:(id)sender {
+    [self.delegate sendPay];
+}
 
 @end

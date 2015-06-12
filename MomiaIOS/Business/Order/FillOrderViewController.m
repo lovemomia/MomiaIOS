@@ -27,7 +27,7 @@ static NSString * identifier = @"FillOrderHeaderViewIdentifier";
 @implementation FillOrderViewController
 - (IBAction)onSureClick:(id)sender {
     
-    NSURL * url = [NSURL URLWithString:@"momia://cashpay"];
+    NSURL * url = [NSURL URLWithString:@"tq://cashpay"];
     [[UIApplication sharedApplication] openURL:url];
 }
 
@@ -121,7 +121,7 @@ static NSString * identifier = @"FillOrderHeaderViewIdentifier";
             person.data = @{@"title":@"请选择1个成人和1个儿童"};
            
             person.chooseBlock = ^(UIButton * sender) {
-                NSURL * url = [NSURL URLWithString:@"momia://orderperson"];
+                NSURL * url = [NSURL URLWithString:@"tq://orderperson"];
                 [[UIApplication sharedApplication] openURL:url];
             };
             cell = person;
