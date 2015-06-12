@@ -2,73 +2,87 @@
 //  HomeViewController.m
 //  MomiaIOS
 //
-//  Created by Deng Jun on 15/4/16.
+//  Created by Owen on 15/6/11.
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
 #import "HomeViewController.h"
-#import "MineViewController.h"
-#import "HomeTopicCell.h"
 #import "HomeModel.h"
+#import "HomeCarouselCell.h"
+#import "HomeCell.h"
 
 @interface HomeViewController ()
-
-@property (nonatomic) NSInteger startIndex;
-@property (nonatomic, strong) HomeModel *model;
-
-@property (nonatomic, strong) NSMutableArray * dataArray;
-
-@property (nonatomic, assign) BOOL continueLoading;
-
-@property (nonatomic, assign) BOOL isRefresh;
-
-//@property (nonatomic, assign) NSInteger pageSize;
-
-//@property (nonatomic, assign) NSInteger totalSize;//根据页
-
-
-- (void)onMineClicked;
-- (void)onDiscoverClicked;
-
-@property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong,nonatomic) HomeModel * model;
+@property (strong,nonatomic) HomeCarouselModel * carouselModel;
 
 @end
 
 @implementation HomeViewController
 
-#pragma mark - settings and gettings
--(NSMutableArray *)dataArray
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if(_dataArray == nil) {
-        _dataArray = [[NSMutableArray alloc] init];
-    }
-    return _dataArray;
+    
+    return 0.1;
 }
 
-#pragma mark - viewcontroller life cycle
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1 + self.model.data.list.count;
+}
 
-- (instancetype)initWithParams:(NSDictionary *)params {
-    if (self = [super initWithParams:params]) {
-        
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger section = indexPath.section;
+    if(section == 0) return [HomeCarouselCell heightWithTableView:tableView];
+    return [HomeCell heightWithTableView:tableView forIndexPath:indexPath data:self.model.data.list[section - 1]];
+
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger section = indexPath.section;
+    UITableViewCell * cell;
+
+    if(section == 0) {
+        HomeCarouselCell * carousel = [HomeCarouselCell cellWithTableView:tableView forIndexPath:indexPath];
+        carousel.data = self.carouselModel.data;
+        cell = carousel;
+    } else {
+        HomeCell * home = [HomeCell cellWithTableView:tableView forIndexPath:indexPath];
+        home.data = self.model.data.list[section - 1];
+        cell = home;
     }
-    return self;
+   
+    return cell;
+}
+
+-(void)onCityClick
+{
+    NSURL * url = [NSURL URLWithString:@"momia://fillorder"];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.navigationItem setTitle:@"麻麻蜜丫"];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"我的" style:UIBarButtonItemStylePlain target:self action:@selector(onMineClicked)];
+    self.navigationItem.title = @"我的";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"上海" style:UIBarButtonItemStylePlain target:self action:@selector(onCityClick)];
     
-    // 设置下拉刷新
-    __weak typeof(self) weakSelf = self;
-    [self.tableView addLegendHeaderWithRefreshingBlock:^{
-        weakSelf.isRefresh = YES;
-        [weakSelf requestData];
-    }];
-    // 请求数据
-    [self requestData];
+    NSDictionary * dic1 = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"HomeData" ofType:@"plist"]];
+    NSDictionary * dic2 = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"HomeCarouselData" ofType:@"plist"]];
+    
+    self.model = [[HomeModel alloc] initWithDictionary:dic1 error:nil];
+    self.carouselModel = [[HomeCarouselModel alloc] initWithDictionary:dic2 error:nil];
+    
+    [HomeCarouselCell registerCellWithTableView:self.tableView];
+    [HomeCell registerCellWithTableView:self.tableView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,115 +90,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - title button listener
+/*
+#pragma mark - Navigation
 
-- (void)onMineClicked {
-    NSURL *url = [NSURL URLWithString:@"tq://fillorder"];
-    [[UIApplication sharedApplication ] openURL:url];
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
-
-- (void)onDiscoverClicked {
-    NSLog(@"onDiscoverClicked");
-}
-
-
-#pragma mark - web request
-
-- (void)requestData {
-    
-    if(self.isRefresh) {
-        self.isRefresh = NO;
-        [self.dataArray removeAllObjects];
-        self.startIndex = 0;
-     
-        [self.tableView reloadData];
-    }
-    
-    self.continueLoading = NO;
-
-    
-    if (self.model == nil) {
-        [self.view showLoadingBee];
-    }
-    
-    NSDictionary * paramDic = @{@"pageindex":@(self.startIndex++)};
-    
-    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/home") parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[HomeModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if (self.model == nil) {
-            [self.view removeLoadingBee];
-        }
-        self.continueLoading = YES;
-
-        self.model = responseObject;
-        
-        [self.dataArray addObjectsFromArray:self.model.data.list];
-        
-        [self.tableView reloadData];
-        [self.tableView.legendHeader endRefreshing];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
-}
-
-#pragma mark - tableview delegate & datasource
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSInteger row = indexPath.row;
-    
-    if(row == self.dataArray.count) {
-        return 44.0f;
-    }
-    return [HomeTopicCell height];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSInteger row = indexPath.row;
-    if(row < self.dataArray.count) {
-        id item = [self.dataArray objectAtIndex:row];
-        if([item isKindOfClass:[HomeTopic class]]) {
-            HomeTopic * topic = item;
-            NSURL *url = [NSURL URLWithString:topic.action];
-            [[UIApplication sharedApplication] openURL:url];
-        }
-    }
-
-
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    if(self.model.data.list.count == 0) {
-        return self.dataArray.count;
-    }
-    
-    return self.dataArray.count + 1;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger row = indexPath.row;
-    UITableViewCell * cell;
-    if(row == self.dataArray.count) {
-        static NSString * loadIdentifier = @"CellHomeLoading";
-        UITableViewCell * load = [tableView dequeueReusableCellWithIdentifier:loadIdentifier];
-        if(load == nil) {
-            load = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:loadIdentifier];
-        }
-        [load showLoadingBee];
-        cell = load;
-        if(self.continueLoading) {
-            [self requestData];
-        }
-    } else {
-        HomeTopicCell *topic = [HomeTopicCell cellWithTableView:tableView];
-        HomeTopic *data = self.dataArray[row];
-        [topic setData:data];
-        cell = topic;
-    }
-    return cell;
-
-}
+*/
 
 @end

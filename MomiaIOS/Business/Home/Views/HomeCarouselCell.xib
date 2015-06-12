@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="145" id="qWq-Ju-jjh" customClass="HomeCarouselCell">
+            <rect key="frame" x="0.0" y="0.0" width="364" height="145"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qWq-Ju-jjh" id="hmV-Zz-fvf">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5EZ-SN-qpU">
+                        <rect key="frame" x="0.0" y="0.0" width="364" height="144"/>
+                    </scrollView>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="oDM-z5-7LW">
+                        <rect key="frame" x="162" y="107" width="39" height="37"/>
+                    </pageControl>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="5EZ-SN-qpU" firstAttribute="leading" secondItem="hmV-Zz-fvf" secondAttribute="leading" id="8Fi-n8-sUn"/>
+                    <constraint firstAttribute="bottom" secondItem="oDM-z5-7LW" secondAttribute="bottom" id="9ur-SE-AoO"/>
+                    <constraint firstItem="5EZ-SN-qpU" firstAttribute="top" secondItem="hmV-Zz-fvf" secondAttribute="top" id="lpr-fr-EXe"/>
+                    <constraint firstAttribute="bottom" secondItem="5EZ-SN-qpU" secondAttribute="bottom" id="onR-hp-pKE"/>
+                    <constraint firstAttribute="trailing" secondItem="5EZ-SN-qpU" secondAttribute="trailing" id="vZ5-Y4-kp3"/>
+                    <constraint firstAttribute="centerX" secondItem="oDM-z5-7LW" secondAttribute="centerX" id="zFX-Wv-Zq2"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="pageControl" destination="oDM-z5-7LW" id="vbx-Kk-iZh"/>
+                <outlet property="scrollView" destination="5EZ-SN-qpU" id="uuf-FQ-TmB"/>
+            </connections>
+            <point key="canvasLocation" x="346" y="206.5"/>
+        </tableViewCell>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
