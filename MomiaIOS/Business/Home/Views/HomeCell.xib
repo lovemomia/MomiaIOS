@@ -22,31 +22,31 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="星光游乐园，与家人共享快乐时光" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiE-Ti-wVd">
-                        <rect key="frame" x="15" y="199" width="255" height="21"/>
+                        <rect key="frame" x="15" y="199" width="317" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="太湖公园游乐场" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2E-YZ-DvU">
-                        <rect key="frame" x="15" y="228" width="112" height="20"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <rect key="frame" x="15" y="228" width="317" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每周末 10:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="et2-Zc-W9T">
-                        <rect key="frame" x="15" y="256" width="94" height="20"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <rect key="frame" x="15" y="254" width="88" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="106人报名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieL-UL-lW0">
-                        <rect key="frame" x="129" y="256" width="76" height="20"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <rect key="frame" x="123" y="254" width="71" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥36" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ay-h8-Gwa">
-                        <rect key="frame" x="283" y="248" width="49" height="28"/>
+                        <rect key="frame" x="283" y="244" width="49" height="28"/>
                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                         <color key="textColor" red="1" green="0.28107104776339131" blue="0.58369507221732264" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -65,7 +65,9 @@
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="et2-Zc-W9T" secondAttribute="bottom" constant="17" id="g3L-Vj-G8X"/>
                     <constraint firstItem="et2-Zc-W9T" firstAttribute="top" secondItem="w2E-YZ-DvU" secondAttribute="bottom" constant="8" id="mdg-s4-fqp"/>
                     <constraint firstItem="et2-Zc-W9T" firstAttribute="leading" secondItem="w2E-YZ-DvU" secondAttribute="leading" id="nvf-CB-Bf8"/>
+                    <constraint firstAttribute="trailing" secondItem="kiE-Ti-wVd" secondAttribute="trailing" constant="15" id="ny6-Ks-rZl"/>
                     <constraint firstItem="w2E-YZ-DvU" firstAttribute="leading" secondItem="kiE-Ti-wVd" secondAttribute="leading" id="p66-zA-zMM"/>
+                    <constraint firstAttribute="trailing" secondItem="w2E-YZ-DvU" secondAttribute="trailing" constant="15" id="uj3-iS-Ls6"/>
                     <constraint firstItem="ieL-UL-lW0" firstAttribute="bottom" secondItem="7Ay-h8-Gwa" secondAttribute="bottom" id="xAt-u1-AEe"/>
                 </constraints>
             </tableViewCellContentView>

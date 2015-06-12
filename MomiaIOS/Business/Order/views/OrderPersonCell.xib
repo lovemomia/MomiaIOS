@@ -81,7 +81,7 @@
                     <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="51A-s9-mfU" secondAttribute="bottom" constant="27" id="e00-aH-WXk"/>
                     <constraint firstItem="51A-s9-mfU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="27" id="f1K-JS-pgB"/>
                     <constraint firstItem="IMf-85-2cm" firstAttribute="top" secondItem="D5g-W3-clg" secondAttribute="bottom" constant="14" id="hkx-3V-TKn"/>
-                    <constraint firstItem="D5g-W3-clg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="157" id="mbm-wP-Uqw"/>
+                    <constraint firstItem="D5g-W3-clg" firstAttribute="leading" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="157" id="mbm-wP-Uqw"/>
                     <constraint firstItem="RwP-70-tmb" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="pFi-ox-CEu"/>
                     <constraint firstAttribute="centerY" secondItem="51A-s9-mfU" secondAttribute="centerY" id="tVn-9t-aYl"/>
                     <constraint firstItem="RwP-70-tmb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="27" id="tZB-Cd-UdX"/>
@@ -100,7 +100,7 @@
                 <outlet property="nameLabel" destination="LPR-Ax-O7U" id="iPj-zV-bZR"/>
                 <outlet property="sexLabel" destination="htc-d0-D89" id="Rq8-FZ-YzJ"/>
             </connections>
-            <point key="canvasLocation" x="275" y="271.5"/>
+            <point key="canvasLocation" x="247" y="253.5"/>
         </tableViewCell>
     </objects>
 </document>
