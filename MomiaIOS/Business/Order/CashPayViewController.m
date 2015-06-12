@@ -9,11 +9,15 @@
 #import "CashPayViewController.h"
 #import "CashPayTopCell.h"
 #import "CashPayBottomCell.h"
+#import "CashPayTopHeaderView.h"
+
+static NSString * identifier = @"HeaderViewCashPayBottomHeader";
 
 @interface CashPayViewController ()
 
 @property(nonatomic,strong) NSArray * topDataArray;
 @property(nonatomic,strong) NSArray * bottomDataArray;
+@property(nonatomic,strong) NSArray * sectionArray;
 
 @end
 
@@ -37,7 +41,37 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
+   if(section == 0) return [CashPayTopHeaderView heightWithTableView:tableView data:self.sectionArray[section]];
     return 35.0f;
+}
+
+
+- (void)tableView:(UITableView *)tableView
+willDisplayHeaderView:(UIView *)view
+       forSection:(NSInteger)section
+{
+    if(section == 1) {
+        UITableViewHeaderFooterView * header =(UITableViewHeaderFooterView *) view;
+        header.textLabel.font = [UIFont systemFontOfSize:18.0f];
+    }
+}
+
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView * view;
+    if(section == 0) {
+        CashPayTopHeaderView * header = [CashPayTopHeaderView headerViewWithTableView:tableView];
+        header.backgroundView = [[UIView alloc] init];
+        header.backgroundView.backgroundColor = [UIColor colorWithRed:0/255.0 green:198/255.0 blue:128/255.0 alpha:1.0];
+        header.data = self.sectionArray[section];
+        view = header;
+    } else {
+        UITableViewHeaderFooterView * standardHeader = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+        standardHeader.textLabel.text = @"支付方式";
+        view = standardHeader;
+    }
+    return view;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -83,6 +117,12 @@
     NSDictionary * bDic2 = @{@"image":[UIImage imageNamed:@"pay_wx"],@"pay":@"微信支付",@"desc":@"微信钱包，银行卡支付"};
     self.bottomDataArray = @[bDic1,bDic2];
     
+    NSDictionary * sDic1 = @{@"title":@"探秘自然博物馆，和大恐龙亲密约会!",@"desc":@"6月16日 周二"};
+    
+    self.sectionArray = @[sDic1];
+ 
+    [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:identifier];
+    [CashPayTopHeaderView registerHeaderViewWithTableView:self.tableView];
     [CashPayTopCell registerCellWithTableView:self.tableView];
     [CashPayBottomCell registerCellWithTableView:self.tableView];
 }

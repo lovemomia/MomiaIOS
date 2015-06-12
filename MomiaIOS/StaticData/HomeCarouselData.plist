@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>data</key>
+	<dict>
+		<key>list</key>
+		<array>
+			<dict>
+				<key>url</key>
+				<string>home_carousel</string>
+			</dict>
+			<dict>
+				<key>url</key>
+				<string>home_1</string>
+			</dict>
+			<dict>
+				<key>url</key>
+				<string>home_2</string>
+			</dict>
+			<dict>
+				<key>url</key>
+				<string>home_3</string>
+			</dict>
+		</array>
+	</dict>
+	<key>errmsg</key>
+	<string>success</string>
+	<key>errno</key>
+	<integer>0</integer>
+	<key>timestamp</key>
+	<integer>1434006237071</integer>
+</dict>
+</plist>

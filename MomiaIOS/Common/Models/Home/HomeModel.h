@@ -8,28 +8,50 @@
 
 #import "BaseModel.h"
 
-@interface HomeTopic : JSONModel
+@interface HomeCarouselItem : JSONModel
 
-@property (assign, nonatomic) int type;
+@property(nonatomic,strong) NSString * url;
+
+@end
+
+@protocol HomeCarouselItem
+
+@end
+
+@interface HomeCarouselData : JSONModel
+
+@property(nonatomic,strong) NSArray<HomeCarouselItem> * list;
+
+@end
+
+@interface HomeCarouselModel : BaseModel
+
+@property (nonatomic,strong) HomeCarouselData * data;
+
+@end
+
+@interface HomeDataItem : JSONModel
+
+@property (strong, nonatomic) NSString* url;
 @property (strong, nonatomic) NSString* title;
-@property (strong, nonatomic) NSString* photo;
-@property (strong, nonatomic) NSString* action;
+@property (strong, nonatomic) NSString* desc;
+@property (strong, nonatomic) NSString* time;
+@property (assign, nonatomic) NSInteger enrollmentNum;
+@property (assign, nonatomic) CGFloat price;
 
 @end
 
-@protocol HomeTopic
+@protocol HomeDataItem
 @end
 
-@interface HomeTopicList : JSONModel
+@interface HomeData : JSONModel
 
-@property (strong, nonatomic) NSArray<HomeTopic>* list;
-@property (assign, nonatomic) int nextPage;
-@property (assign, nonatomic) int pageSize;
+@property (strong, nonatomic) NSArray<HomeDataItem>* list;
 
 @end
 
 @interface HomeModel : BaseModel
 
-@property (strong, nonatomic) HomeTopicList *data;
+@property (strong, nonatomic) HomeData *data;
 
 @end
