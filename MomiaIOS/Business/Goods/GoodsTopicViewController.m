@@ -196,12 +196,12 @@
 //    
 //    if (self.model) {
 //        ArticleTopicItem *data = [self.model.data.list objectAtIndex:indexPath.row - 1];
-//        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"momia://articledetail?id=%d", data.articleId]];
+//        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://articledetail?id=%d", data.articleId]];
 //        [[UIApplication sharedApplication] openURL:url];
 //    }
     GoodsTopicItem * data = self.model.data.list[indexPath.row - 1];
     
-    NSString * urlStr = [NSString stringWithFormat:@"momia://goodsdetail?id=%d",data.goodsId];
+    NSString * urlStr = [NSString stringWithFormat:@"tq://goodsdetail?id=%d",data.goodsId];
     NSURL *url = [NSURL URLWithString:urlStr];
     [[UIApplication sharedApplication ] openURL:url];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

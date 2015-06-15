@@ -58,12 +58,6 @@
 		5AABF6FB1B28120C000A9D3F /* OrderAddPersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AABF6F91B28120C000A9D3F /* OrderAddPersonViewController.xib */; };
 		5AABF7001B281348000A9D3F /* OrderAddPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AABF6FE1B281348000A9D3F /* OrderAddPersonCell.xib */; };
 		5AABF70F1B281BEF000A9D3F /* ConvertFromXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AABF70E1B281BEF000A9D3F /* ConvertFromXib.m */; };
-		5AABF7161B283DFF000A9D3F /* CashPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AABF7141B283DFF000A9D3F /* CashPayViewController.m */; };
-		5AABF7171B283DFF000A9D3F /* CashPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AABF7151B283DFF000A9D3F /* CashPayViewController.xib */; };
-		5AABF71B1B284038000A9D3F /* CashPayTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AABF7191B284038000A9D3F /* CashPayTopCell.m */; };
-		5AABF71C1B284038000A9D3F /* CashPayTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AABF71A1B284038000A9D3F /* CashPayTopCell.xib */; };
-		5AABF7201B284506000A9D3F /* CashPayBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AABF71E1B284506000A9D3F /* CashPayBottomCell.m */; };
-		5AABF7211B284506000A9D3F /* CashPayBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AABF71F1B284506000A9D3F /* CashPayBottomCell.xib */; };
 		5AB77E1F1B2699D800C04DF8 /* FillOrderPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB77E1D1B2699D800C04DF8 /* FillOrderPersonCell.m */; };
 		5AB77E201B2699D800C04DF8 /* FillOrderPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB77E1E1B2699D800C04DF8 /* FillOrderPersonCell.xib */; };
 		5AB77E241B26A16C00C04DF8 /* FillOrderPersonSelectedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB77E221B26A16C00C04DF8 /* FillOrderPersonSelectedCell.m */; };
@@ -152,6 +146,16 @@
 		BCCDF6741B0B4F90008BAE12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCDF6731B0B4F90008BAE12 /* Foundation.framework */; };
 		BCCDF6761B0B4F97008BAE12 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCDF6751B0B4F97008BAE12 /* CoreGraphics.framework */; };
 		BCCDF6801B0C331B008BAE12 /* ThirdAccountHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCDF67F1B0C331B008BAE12 /* ThirdAccountHelper.m */; };
+		BCE5893E1B2AB62500736923 /* ApiXml.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCE589391B2AB62500736923 /* ApiXml.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BCE5893F1B2AB62500736923 /* payRequsestHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCE5893B1B2AB62500736923 /* payRequsestHandler.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BCE589401B2AB62500736923 /* WXUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCE5893D1B2AB62500736923 /* WXUtil.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BCE589471B2AEFF400736923 /* libGexinSdk-1.1.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE589461B2AEFF400736923 /* libGexinSdk-1.1.1.a */; };
+		BCE589531B2AF35E00736923 /* CashPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE5894A1B2AF35E00736923 /* CashPayViewController.m */; };
+		BCE589541B2AF35E00736923 /* CashPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE5894B1B2AF35E00736923 /* CashPayViewController.xib */; };
+		BCE589551B2AF35E00736923 /* CashPayBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE5894E1B2AF35E00736923 /* CashPayBottomCell.m */; };
+		BCE589561B2AF35E00736923 /* CashPayBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE5894F1B2AF35E00736923 /* CashPayBottomCell.xib */; };
+		BCE589571B2AF35E00736923 /* CashPayTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE589511B2AF35E00736923 /* CashPayTopCell.m */; };
+		BCE589581B2AF35E00736923 /* CashPayTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE589521B2AF35E00736923 /* CashPayTopCell.xib */; };
 		BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFC2C321AF9C09400164BC2 /* MOWebViewController.m */; };
 		BCFC2C371AF9C6B800164BC2 /* ActivityWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFC2C361AF9C6B800164BC2 /* ActivityWebViewController.m */; };
 /* End PBXBuildFile section */
@@ -253,15 +257,6 @@
 		5AABF6FE1B281348000A9D3F /* OrderAddPersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderAddPersonCell.xib; path = Business/Order/views/OrderAddPersonCell.xib; sourceTree = "<group>"; };
 		5AABF70D1B281BEF000A9D3F /* ConvertFromXib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConvertFromXib.h; path = Common/Utils/ConvertFromXib.h; sourceTree = "<group>"; };
 		5AABF70E1B281BEF000A9D3F /* ConvertFromXib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConvertFromXib.m; path = Common/Utils/ConvertFromXib.m; sourceTree = "<group>"; };
-		5AABF7131B283DFF000A9D3F /* CashPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CashPayViewController.h; path = Business/Order/CashPayViewController.h; sourceTree = "<group>"; };
-		5AABF7141B283DFF000A9D3F /* CashPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CashPayViewController.m; path = Business/Order/CashPayViewController.m; sourceTree = "<group>"; };
-		5AABF7151B283DFF000A9D3F /* CashPayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CashPayViewController.xib; path = Business/Order/CashPayViewController.xib; sourceTree = "<group>"; };
-		5AABF7181B284038000A9D3F /* CashPayTopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CashPayTopCell.h; path = Business/Order/views/CashPayTopCell.h; sourceTree = "<group>"; };
-		5AABF7191B284038000A9D3F /* CashPayTopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CashPayTopCell.m; path = Business/Order/views/CashPayTopCell.m; sourceTree = "<group>"; };
-		5AABF71A1B284038000A9D3F /* CashPayTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CashPayTopCell.xib; path = Business/Order/views/CashPayTopCell.xib; sourceTree = "<group>"; };
-		5AABF71D1B284506000A9D3F /* CashPayBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CashPayBottomCell.h; path = Business/Order/views/CashPayBottomCell.h; sourceTree = "<group>"; };
-		5AABF71E1B284506000A9D3F /* CashPayBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CashPayBottomCell.m; path = Business/Order/views/CashPayBottomCell.m; sourceTree = "<group>"; };
-		5AABF71F1B284506000A9D3F /* CashPayBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CashPayBottomCell.xib; path = Business/Order/views/CashPayBottomCell.xib; sourceTree = "<group>"; };
 		5AB77E1C1B2699D800C04DF8 /* FillOrderPersonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FillOrderPersonCell.h; path = Business/Order/views/FillOrderPersonCell.h; sourceTree = "<group>"; };
 		5AB77E1D1B2699D800C04DF8 /* FillOrderPersonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FillOrderPersonCell.m; path = Business/Order/views/FillOrderPersonCell.m; sourceTree = "<group>"; };
 		5AB77E1E1B2699D800C04DF8 /* FillOrderPersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FillOrderPersonCell.xib; path = Business/Order/views/FillOrderPersonCell.xib; sourceTree = "<group>"; };
@@ -425,6 +420,25 @@
 		BCCDF6751B0B4F97008BAE12 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		BCCDF67E1B0C331B008BAE12 /* ThirdAccountHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirdAccountHelper.h; path = Common/Utils/ThirdAccountHelper.h; sourceTree = "<group>"; };
 		BCCDF67F1B0C331B008BAE12 /* ThirdAccountHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThirdAccountHelper.m; path = Common/Utils/ThirdAccountHelper.m; sourceTree = "<group>"; };
+		BCE589381B2AB62500736923 /* ApiXml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiXml.h; sourceTree = "<group>"; };
+		BCE589391B2AB62500736923 /* ApiXml.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ApiXml.mm; sourceTree = "<group>"; };
+		BCE5893A1B2AB62500736923 /* payRequsestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = payRequsestHandler.h; sourceTree = "<group>"; };
+		BCE5893B1B2AB62500736923 /* payRequsestHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = payRequsestHandler.mm; sourceTree = "<group>"; };
+		BCE5893C1B2AB62500736923 /* WXUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXUtil.h; sourceTree = "<group>"; };
+		BCE5893D1B2AB62500736923 /* WXUtil.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WXUtil.mm; sourceTree = "<group>"; };
+		BCE589441B2AEFF400736923 /* GexinSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GexinSdk.h; sourceTree = "<group>"; };
+		BCE589451B2AEFF400736923 /* GXSdkError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXSdkError.h; sourceTree = "<group>"; };
+		BCE589461B2AEFF400736923 /* libGexinSdk-1.1.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGexinSdk-1.1.1.a"; sourceTree = "<group>"; };
+		BCE589491B2AF35E00736923 /* CashPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashPayViewController.h; sourceTree = "<group>"; };
+		BCE5894A1B2AF35E00736923 /* CashPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashPayViewController.m; sourceTree = "<group>"; };
+		BCE5894B1B2AF35E00736923 /* CashPayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CashPayViewController.xib; sourceTree = "<group>"; };
+		BCE5894D1B2AF35E00736923 /* CashPayBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashPayBottomCell.h; sourceTree = "<group>"; };
+		BCE5894E1B2AF35E00736923 /* CashPayBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashPayBottomCell.m; sourceTree = "<group>"; };
+		BCE5894F1B2AF35E00736923 /* CashPayBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CashPayBottomCell.xib; sourceTree = "<group>"; };
+		BCE589501B2AF35E00736923 /* CashPayTopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashPayTopCell.h; sourceTree = "<group>"; };
+		BCE589511B2AF35E00736923 /* CashPayTopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashPayTopCell.m; sourceTree = "<group>"; };
+		BCE589521B2AF35E00736923 /* CashPayTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CashPayTopCell.xib; sourceTree = "<group>"; };
+		BCE589591B2AF37C00736923 /* WechatPayDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatPayDelegate.h; sourceTree = "<group>"; };
 		BCFC2C311AF9C09400164BC2 /* MOWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOWebViewController.h; path = Common/Base/MOWebViewController.h; sourceTree = "<group>"; };
 		BCFC2C321AF9C09400164BC2 /* MOWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOWebViewController.m; path = Common/Base/MOWebViewController.m; sourceTree = "<group>"; };
 		BCFC2C351AF9C6B800164BC2 /* ActivityWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityWebViewController.h; path = Business/Web/ActivityWebViewController.h; sourceTree = "<group>"; };
@@ -438,6 +452,7 @@
 			files = (
 				BCCDF6761B0B4F97008BAE12 /* CoreGraphics.framework in Frameworks */,
 				BC41ABA51B0C69BE00A419DA /* libWeChatSDK.a in Frameworks */,
+				BCE589471B2AEFF400736923 /* libGexinSdk-1.1.1.a in Frameworks */,
 				BCCDF6741B0B4F90008BAE12 /* Foundation.framework in Frameworks */,
 				BCCDF6721B0B4F82008BAE12 /* UIKit.framework in Frameworks */,
 				BCCDF6701B0B4F7A008BAE12 /* CoreText.framework in Frameworks */,
@@ -598,9 +613,6 @@
 				5AABF6F71B28120C000A9D3F /* OrderAddPersonViewController.h */,
 				5AABF6F81B28120C000A9D3F /* OrderAddPersonViewController.m */,
 				5AABF6F91B28120C000A9D3F /* OrderAddPersonViewController.xib */,
-				5AABF7131B283DFF000A9D3F /* CashPayViewController.h */,
-				5AABF7141B283DFF000A9D3F /* CashPayViewController.m */,
-				5AABF7151B283DFF000A9D3F /* CashPayViewController.xib */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -779,6 +791,7 @@
 		BC41ABA01B0C69BE00A419DA /* WeChatSDK_1.5 */ = {
 			isa = PBXGroup;
 			children = (
+				BCE589371B2AB62500736923 /* lib */,
 				BC41ABA11B0C69BE00A419DA /* libWeChatSDK.a */,
 				BC41ABA21B0C69BE00A419DA /* read_me.txt */,
 				BC41ABA31B0C69BE00A419DA /* WXApi.h */,
@@ -909,6 +922,7 @@
 		BC8540B51ADF8649005A7C54 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				BCE589481B2AF35E00736923 /* Pay */,
 				5A82F19C1B25721E000D2C60 /* Order */,
 				BC2C0C4E1B13033000E2446E /* Login */,
 				5A1B35EC1B12BCD000E1D31B /* Comment */,
@@ -1102,6 +1116,7 @@
 		BCCDF6601B0B4E3F008BAE12 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				BCE589431B2AEFF400736923 /* Gexin */,
 				BC41ABA01B0C69BE00A419DA /* WeChatSDK_1.5 */,
 				BCCDF6611B0B4E4C008BAE12 /* libWeiboSDK */,
 			);
@@ -1124,6 +1139,55 @@
 				BCCDF66C1B0B4E4C008BAE12 /* WeiboUser.h */,
 			);
 			path = libWeiboSDK;
+			sourceTree = "<group>";
+		};
+		BCE589371B2AB62500736923 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				BCE589381B2AB62500736923 /* ApiXml.h */,
+				BCE589391B2AB62500736923 /* ApiXml.mm */,
+				BCE5893A1B2AB62500736923 /* payRequsestHandler.h */,
+				BCE5893B1B2AB62500736923 /* payRequsestHandler.mm */,
+				BCE5893C1B2AB62500736923 /* WXUtil.h */,
+				BCE5893D1B2AB62500736923 /* WXUtil.mm */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		BCE589431B2AEFF400736923 /* Gexin */ = {
+			isa = PBXGroup;
+			children = (
+				BCE589441B2AEFF400736923 /* GexinSdk.h */,
+				BCE589451B2AEFF400736923 /* GXSdkError.h */,
+				BCE589461B2AEFF400736923 /* libGexinSdk-1.1.1.a */,
+			);
+			path = Gexin;
+			sourceTree = "<group>";
+		};
+		BCE589481B2AF35E00736923 /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				BCE589591B2AF37C00736923 /* WechatPayDelegate.h */,
+				BCE589491B2AF35E00736923 /* CashPayViewController.h */,
+				BCE5894A1B2AF35E00736923 /* CashPayViewController.m */,
+				BCE5894B1B2AF35E00736923 /* CashPayViewController.xib */,
+				BCE5894C1B2AF35E00736923 /* Views */,
+			);
+			name = Pay;
+			path = Business/Pay;
+			sourceTree = "<group>";
+		};
+		BCE5894C1B2AF35E00736923 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BCE5894D1B2AF35E00736923 /* CashPayBottomCell.h */,
+				BCE5894E1B2AF35E00736923 /* CashPayBottomCell.m */,
+				BCE5894F1B2AF35E00736923 /* CashPayBottomCell.xib */,
+				BCE589501B2AF35E00736923 /* CashPayTopCell.h */,
+				BCE589511B2AF35E00736923 /* CashPayTopCell.m */,
+				BCE589521B2AF35E00736923 /* CashPayTopCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		BCFC2C341AF9C10400164BC2 /* Web */ = {
@@ -1225,7 +1289,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AABF7211B284506000A9D3F /* CashPayBottomCell.xib in Resources */,
 				5A6806F01B01A9BD00D02A60 /* SettingMsgCell.xib in Resources */,
 				5A18DC551B296D7F001458A4 /* HomeCarouselData.plist in Resources */,
 				5A6806F51B01CEF700D02A60 /* PersonLogoCell.xib in Resources */,
@@ -1250,6 +1313,7 @@
 				5A18DC531B2968D5001458A4 /* HomeData.plist in Resources */,
 				5AABF71C1B284038000A9D3F /* CashPayTopCell.xib in Resources */,
 				5A18DC4C1B295C03001458A4 /* HomeViewController.xib in Resources */,
+
 				5A0256101B26C05B0016DB33 /* FillOrderRemarkCell.xib in Resources */,
 				BC2C0C771B140BF100E2446E /* RegisterViewController.xib in Resources */,
 				5A6806FD1B01DA5100D02A60 /* MyCollectionCell.xib in Resources */,
@@ -1310,18 +1374,20 @@
 			files = (
 				BC2C0C521B1303BA00E2446E /* LoginViewController.m in Sources */,
 				5A1E0DB01B09CC2D000EC137 /* ArticleDetailContentCell.m in Sources */,
+				BCE589571B2AF35E00736923 /* CashPayTopCell.m in Sources */,
+				BCE589401B2AB62500736923 /* WXUtil.mm in Sources */,
 				BC2C0C891B15698B00E2446E /* NSError+MOError.m in Sources */,
 				BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */,
 				BC2C0C801B14659400E2446E /* MyStatusViewController.m in Sources */,
 				5AB7B3A81B0EC11700044DFE /* GoodsDetailHeaderCell.m in Sources */,
 				5AB77E241B26A16C00C04DF8 /* FillOrderPersonSelectedCell.m in Sources */,
 				BC77085F1AFC5685000068A8 /* UILabel+ContentSize.m in Sources */,
-				5AABF7201B284506000A9D3F /* CashPayBottomCell.m in Sources */,
 				BC2C0C571B1309A800E2446E /* MOButton.m in Sources */,
 				BCA273321AEB4A5A002E7534 /* ArticleTopicViewController.m in Sources */,
 				BC41ABA91B0C715400A419DA /* Environment.m in Sources */,
 				5A456F9A1B2E687700E95756 /* MOTableCell.m in Sources */,
 				BC2C0C961B184EA500E2446E /* AvatarImageView.m in Sources */,
+				BCE589531B2AF35E00736923 /* CashPayViewController.m in Sources */,
 				BC2C0C641B130CDB00E2446E /* Account.m in Sources */,
 				5A02560F1B26C05B0016DB33 /* FillOrderRemarkCell.m in Sources */,
 				5A04EF271B0D8CBE00A88D3B /* GoodsTopicHeaderCell.m in Sources */,
@@ -1340,7 +1406,6 @@
 				5A6806EE1B01A48300D02A60 /* SettingViewController.m in Sources */,
 				5AABF6FA1B28120C000A9D3F /* OrderAddPersonViewController.m in Sources */,
 				BCA272FD1AE8A2C7002E7534 /* MineViewController.m in Sources */,
-				5AABF71B1B284038000A9D3F /* CashPayTopCell.m in Sources */,
 				5A1B35EF1B12BD0500E1D31B /* CommentViewController.m in Sources */,
 				BCA273211AE9FB78002E7534 /* NSURL+MOURL.m in Sources */,
 				BC2C0C991B1858E800E2446E /* MOLabel.m in Sources */,
@@ -1356,6 +1421,8 @@
 				5A04EF231B0D887800A88D3B /* GoodsTopicModel.m in Sources */,
 				BC38D2511B00C8760051C7E9 /* ArticleDetailAuthorCell.m in Sources */,
 				5A3DBE5D1B185BE500E708AC /* MyCollectionCell.m in Sources */,
+				BCE5893F1B2AB62500736923 /* payRequsestHandler.mm in Sources */,
+				BCE589551B2AF35E00736923 /* CashPayBottomCell.m in Sources */,
 				BC77085C1AFC54F3000068A8 /* ArticleTopicHeaderCell.m in Sources */,
 				BC2FAA0F1AFCA92D00E2071E /* UIView+Frame.m in Sources */,
 				BC7708511AFAFD54000068A8 /* MOTableViewController.m in Sources */,
@@ -1375,7 +1442,6 @@
 				5A6806FB1B01D9EA00D02A60 /* MyCollectionViewController.m in Sources */,
 				5A2144581B0C6A8A0072682F /* AlertNotice.m in Sources */,
 				BC2C0C611B130C9300E2446E /* User.m in Sources */,
-				5AABF7161B283DFF000A9D3F /* CashPayViewController.m in Sources */,
 				5AB7B3AB1B0EC1B800044DFE /* GoodsDetailImgCell.m in Sources */,
 				5A1B35F31B12BE2400E1D31B /* SendCommentView.m in Sources */,
 				BCCDF5E51B09EBF8008BAE12 /* UITextView+Placeholder.m in Sources */,
@@ -1390,6 +1456,7 @@
 				BC2C0C761B140BF100E2446E /* RegisterViewController.m in Sources */,
 				5A6807001B01FBDD00D02A60 /* MySuggestViewController.m in Sources */,
 				BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */,
+				BCE5893E1B2AB62500736923 /* ApiXml.mm in Sources */,
 				5A82F1A31B257449000D2C60 /* FillOrderViewController.m in Sources */,
 				5A04EF2A1B0D8D1A00A88D3B /* GoodsTopicItemCell.m in Sources */,
 				5AB7B3AE1B0EC1E800044DFE /* GoodsDetailShopCell.m in Sources */,
@@ -1520,7 +1587,6 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/include\"",
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
@@ -1532,9 +1598,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
-					"\"$(SRCROOT)/include\"",
 					"$(PROJECT_DIR)/ThirdParty/libWeiboSDK",
 					"$(PROJECT_DIR)/ThirdParty/WeChatSDK_1.5",
+					"$(PROJECT_DIR)/MomiaIOS/SDKExport",
+					"$(PROJECT_DIR)/ThirdParty/Gexin",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1553,7 +1620,6 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/include\"",
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
@@ -1565,9 +1631,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
-					"\"$(SRCROOT)/include\"",
 					"$(PROJECT_DIR)/ThirdParty/libWeiboSDK",
 					"$(PROJECT_DIR)/ThirdParty/WeChatSDK_1.5",
+					"$(PROJECT_DIR)/MomiaIOS/SDKExport",
+					"$(PROJECT_DIR)/ThirdParty/Gexin",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";

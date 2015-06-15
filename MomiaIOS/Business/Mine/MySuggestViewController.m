@@ -120,7 +120,7 @@
  */
 
 - (void)onSuggestClicked {
-    [self openURL:@"momia://sugsubmit"];
+    [self openURL:@"tq://sugsubmit"];
 }
 
 

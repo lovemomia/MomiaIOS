@@ -41,7 +41,7 @@
 // 单击设置
 - (void)onSettingClicked {
     
-    NSURL *url = [NSURL URLWithString:@"momia://setting"];
+    NSURL *url = [NSURL URLWithString:@"tq://setting"];
     [[UIApplication sharedApplication ] openURL:url];
 }
 
@@ -78,16 +78,16 @@
     switch (section) {
         case 0:
         {
-            NSURL *url = [NSURL URLWithString:@"momia://personinfo"];
+            NSURL *url = [NSURL URLWithString:@"tq://personinfo"];
             [[UIApplication sharedApplication ] openURL:url];
         }
             break;
         case 1:
             if(row == 0) {
-                NSURL *url = [NSURL URLWithString:@"momia://mycollection"];
+                NSURL *url = [NSURL URLWithString:@"tq://mycollection"];
                 [[UIApplication sharedApplication ] openURL:url];
             } else {
-                NSURL *url = [NSURL URLWithString:@"momia://mysuggest"];
+                NSURL *url = [NSURL URLWithString:@"tq://mysuggest"];
                 [[UIApplication sharedApplication ] openURL:url];
             }
             break;
@@ -95,7 +95,7 @@
             if(row == 0) {
 //                FeedbackViewController * controller = [[FeedbackViewController alloc] initWithNibName:@"FeedbackViewController" bundle:nil];
 //                [self.navigationController pushViewController:controller animated:YES];
-                NSURL *url = [NSURL URLWithString:@"momia://feedback"];
+                NSURL *url = [NSURL URLWithString:@"tq://feedback"];
                 [[UIApplication sharedApplication ] openURL:url];
                 
             } else {

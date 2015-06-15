@@ -9,6 +9,7 @@
 #import "CashPayViewController.h"
 #import "CashPayTopCell.h"
 #import "CashPayBottomCell.h"
+#import "AppDelegate.h"
 #import "CashPayTopHeaderView.h"
 
 static NSString * identifier = @"HeaderViewCashPayBottomHeader";
@@ -22,6 +23,13 @@ static NSString * identifier = @"HeaderViewCashPayBottomHeader";
 @end
 
 @implementation CashPayViewController
+
+- (instancetype)initWithParams:(NSDictionary *)params {
+    if (self = [super initWithParams:params]) {
+        self.delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    }
+    return self;
+}
 
 #pragma mark - datasource & delegate
 
@@ -141,5 +149,9 @@ willDisplayHeaderView:(UIView *)view
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)onPayClicked:(id)sender {
+    [self.delegate sendPay];
+}
 
 @end

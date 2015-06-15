@@ -7,8 +7,14 @@
 //
 
 #import "MOViewController.h"
+#import "WechatPayDelegate.h"
 
 @interface CashPayViewController : MOViewController<UITableViewDataSource,UITableViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, assign) id<WechatPayDelegate> delegate;
+
+- (IBAction)onPayClicked:(id)sender;
+
 
 @end

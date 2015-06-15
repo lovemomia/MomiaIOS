@@ -74,7 +74,7 @@ static NSString * identifier = @"OrderPersonHeaderViewIdentifier";
 
 -(void)onNewAddClick
 {
-    NSURL * url = [NSURL URLWithString:@"momia://orderaddperson"];
+    NSURL * url = [NSURL URLWithString:@"tq://orderaddperson"];
     [[UIApplication sharedApplication] openURL:url];
 }
 

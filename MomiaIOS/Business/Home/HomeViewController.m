@@ -26,8 +26,6 @@
     return 0.1;
 }
 
-
-
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1 + self.model.data.list.count;
@@ -66,7 +64,7 @@
 
 -(void)onCityClick
 {
-    NSURL * url = [NSURL URLWithString:@"momia://fillorder"];
+    NSURL * url = [NSURL URLWithString:@"tq://fillorder"];
     [[UIApplication sharedApplication] openURL:url];
 }
 
