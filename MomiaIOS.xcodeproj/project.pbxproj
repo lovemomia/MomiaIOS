@@ -39,6 +39,7 @@
 		5A4044331B27D18C0010782C /* OrderPersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A4044311B27D18C0010782C /* OrderPersonViewController.xib */; };
 		5A4044371B27DB110010782C /* OrderPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4044351B27DB110010782C /* OrderPersonCell.m */; };
 		5A4044381B27DB110010782C /* OrderPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A4044361B27DB110010782C /* OrderPersonCell.xib */; };
+		5A456F9A1B2E687700E95756 /* MOTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A456F991B2E687700E95756 /* MOTableCell.m */; };
 		5A6806EE1B01A48300D02A60 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806ED1B01A48300D02A60 /* SettingViewController.m */; };
 		5A6806F01B01A9BD00D02A60 /* SettingMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A6806EF1B01A9BD00D02A60 /* SettingMsgCell.xib */; };
 		5A6806F31B01C9C700D02A60 /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806F21B01C9C700D02A60 /* PersonInfoViewController.m */; };
@@ -221,6 +222,8 @@
 		5A4044341B27DB110010782C /* OrderPersonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderPersonCell.h; path = Business/Order/views/OrderPersonCell.h; sourceTree = "<group>"; };
 		5A4044351B27DB110010782C /* OrderPersonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderPersonCell.m; path = Business/Order/views/OrderPersonCell.m; sourceTree = "<group>"; };
 		5A4044361B27DB110010782C /* OrderPersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderPersonCell.xib; path = Business/Order/views/OrderPersonCell.xib; sourceTree = "<group>"; };
+		5A456F981B2E687700E95756 /* MOTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOTableCell.h; path = Common/Base/MOTableCell.h; sourceTree = "<group>"; };
+		5A456F991B2E687700E95756 /* MOTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOTableCell.m; path = Common/Base/MOTableCell.m; sourceTree = "<group>"; };
 		5A6806EC1B01A48300D02A60 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = Business/Setting/SettingViewController.h; sourceTree = "<group>"; };
 		5A6806ED1B01A48300D02A60 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = Business/Setting/SettingViewController.m; sourceTree = "<group>"; };
 		5A6806EF1B01A9BD00D02A60 /* SettingMsgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingMsgCell.xib; path = Business/Setting/Views/SettingMsgCell.xib; sourceTree = "<group>"; };
@@ -955,6 +958,8 @@
 				BC41ABA81B0C715400A419DA /* Environment.m */,
 				BC2C0C8A1B15AF6E00E2446E /* MOGroupStyleTableViewController.h */,
 				BC2C0C8B1B15AF6E00E2446E /* MOGroupStyleTableViewController.m */,
+				5A456F981B2E687700E95756 /* MOTableCell.h */,
+				5A456F991B2E687700E95756 /* MOTableCell.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -1315,6 +1320,7 @@
 				BC2C0C571B1309A800E2446E /* MOButton.m in Sources */,
 				BCA273321AEB4A5A002E7534 /* ArticleTopicViewController.m in Sources */,
 				BC41ABA91B0C715400A419DA /* Environment.m in Sources */,
+				5A456F9A1B2E687700E95756 /* MOTableCell.m in Sources */,
 				BC2C0C961B184EA500E2446E /* AvatarImageView.m in Sources */,
 				BC2C0C641B130CDB00E2446E /* Account.m in Sources */,
 				5A02560F1B26C05B0016DB33 /* FillOrderRemarkCell.m in Sources */,
