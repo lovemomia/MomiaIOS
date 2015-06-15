@@ -8,7 +8,6 @@
 
 #import "HomeCarouselCell.h"
 #import "HomeModel.h"
-static NSString * identifier = @"CellHomeCarousel";
 
 #define cellScale 0.5
 
@@ -23,16 +22,6 @@ static NSString * identifier = @"CellHomeCarousel";
 
 @implementation HomeCarouselCell
 
-+(instancetype)cellWithTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath
-{
-    HomeCarouselCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    return cell;
-}
-
-+(void)registerCellWithTableView:(UITableView *)tableView
-{
-    [tableView registerNib:[UINib nibWithNibName:NSStringFromClass(self) bundle:nil] forCellReuseIdentifier:identifier];
-}
 
 +(CGFloat)heightWithTableView:(UITableView *)tableView
 {

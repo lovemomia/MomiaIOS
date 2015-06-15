@@ -8,11 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MOTableCellDataProtocol <NSObject>
+
+@required
+-(void)setData:(id)data;
+
+@end
+
 @interface MOTableCell : UITableViewCell
 
-//+(instancetype)cellWithTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath withIdentifier:(NSString *) identifier;
-//
-//+(void)registerCellWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier;
++(instancetype)cellWithTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath withIdentifier:(NSString *) identifier;
+
++(void)registerCellWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier;
+
++(CGFloat)heightWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath data:(id)data;
 
 
 @end

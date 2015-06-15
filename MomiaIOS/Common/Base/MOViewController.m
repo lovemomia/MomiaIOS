@@ -23,6 +23,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     if(MO_OS_VERSION >= 7.0)
     {
         MONavigationController *navController = (MONavigationController *)self.navigationController;

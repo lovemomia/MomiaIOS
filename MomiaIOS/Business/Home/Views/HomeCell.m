@@ -8,27 +8,8 @@
 
 #import "HomeCell.h"
 #import "HomeModel.h"
-static NSString * identifier = @"CellHome";
 
 @implementation HomeCell
-
-+(instancetype)cellWithTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath
-{
-    HomeCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    return cell;
-}
-
-+(void)registerCellWithTableView:(UITableView *)tableView
-{
-    [tableView registerNib:[UINib nibWithNibName:NSStringFromClass(self) bundle:nil] forCellReuseIdentifier:identifier];
-}
-
-+(CGFloat)heightWithTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath data:(HomeDataItem *)data
-{
-    return [tableView fd_heightForCellWithIdentifier:identifier cacheByIndexPath:indexPath configuration:^(HomeCell *cell) {
-        cell.data = data;
-    }];
-}
 
 -(void)setData:(HomeDataItem *) data
 {

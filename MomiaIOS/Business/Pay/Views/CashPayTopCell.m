@@ -12,25 +12,6 @@ static NSString * identifier = @"CellCashPay";
 
 @implementation CashPayTopCell
 
-#pragma mark - methods added by Owen
-+(instancetype)cellWithTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath
-{
-    CashPayTopCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    return cell;
-}
-
-+(void)registerCellWithTableView:(UITableView *)tableView
-{
-    [tableView registerNib:[UINib nibWithNibName:NSStringFromClass(self) bundle:nil] forCellReuseIdentifier:identifier];
-}
-
-+(CGFloat)heightWithTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath data:(NSDictionary *)data
-{
-    return [tableView fd_heightForCellWithIdentifier:identifier cacheByIndexPath:indexPath configuration:^(CashPayTopCell *cell) {
-        cell.data = data;
-    }];
-}
-
 -(void)setData:(NSDictionary *) dic
 {
     self.titleLabel.text = [dic objectForKey:@"title"];

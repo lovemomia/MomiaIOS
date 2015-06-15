@@ -6,17 +6,11 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MOTableCell.h"
 @class HomeCarouselData;
 
-@interface HomeCarouselCell : UITableViewCell
-
-+(instancetype)cellWithTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath;
-
-+(void)registerCellWithTableView:(UITableView *)tableView;
+@interface HomeCarouselCell : MOTableCell<MOTableCellDataProtocol>
 
 +(CGFloat)heightWithTableView:(UITableView *)tableView;
-
--(void)setData:(HomeCarouselData *) data;
 
 @end

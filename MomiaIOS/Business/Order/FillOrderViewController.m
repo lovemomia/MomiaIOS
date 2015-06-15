@@ -14,6 +14,9 @@
 #import "FillOrderFooterView.h"
 
 static NSString * identifier = @"FillOrderHeaderViewIdentifier";
+static NSString * fillOrderItemIdentifier = @"CellFillOrderItem";
+static NSString * fillOrderPersonIdentifier = @"CellFillOrderPerson";
+static NSString * fillOrderRemarkIdentifier = @"CellFillOrderRemark";
 
 @interface FillOrderViewController ()
 
@@ -91,12 +94,12 @@ static NSString * identifier = @"FillOrderHeaderViewIdentifier";
     switch (section) {
         case 0:
         {
-            return [FillOrderPersonCell heightWithTableView:tableView forIndexPath:indexPath data:@{@"title":@"请选择1个成人和1个儿童"}];
+            return [FillOrderPersonCell heightWithTableView:tableView withIdentifier:fillOrderPersonIdentifier forIndexPath:indexPath data:@{@"title":@"请选择1个成人和1个儿童"}];
         }
             break;
         case 1:
         {
-            return [FillOrderItemCell heightWithTableView:tableView forIndexPath:indexPath data:self.dataArray[row]];
+            return [FillOrderItemCell heightWithTableView:tableView withIdentifier:fillOrderItemIdentifier forIndexPath:indexPath data:self.dataArray[row]];
         }
             break;
         default:
@@ -117,7 +120,7 @@ static NSString * identifier = @"FillOrderHeaderViewIdentifier";
     switch (section) {
         case 0:
         {
-            FillOrderPersonCell * person = [FillOrderPersonCell cellWithTableView:tableView forIndexPath:indexPath];
+            FillOrderPersonCell * person = [FillOrderPersonCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:fillOrderPersonIdentifier];
             person.data = @{@"title":@"请选择1个成人和1个儿童"};
            
             person.chooseBlock = ^(UIButton * sender) {
@@ -129,7 +132,7 @@ static NSString * identifier = @"FillOrderHeaderViewIdentifier";
             break;
         case 1:
         {
-            FillOrderItemCell * item = [FillOrderItemCell cellWithTableView:tableView forIndexPath:indexPath];
+            FillOrderItemCell * item = [FillOrderItemCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:fillOrderItemIdentifier];
             item.contentTextField.delegate = self;
             item.data = self.dataArray[row];
             cell = item;
@@ -137,7 +140,7 @@ static NSString * identifier = @"FillOrderHeaderViewIdentifier";
             break;
         default:
         {
-            FillOrderRemarkCell * remark = [FillOrderRemarkCell cellWithTableView:tableView forIndexPath:indexPath];
+            FillOrderRemarkCell * remark = [FillOrderRemarkCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:fillOrderRemarkIdentifier];
             remark.placeHolder = @"请告诉我们您的特殊需求";
             remark.remarkTextView.moDelegate = self;
             cell = remark;
@@ -236,11 +239,13 @@ static NSString * identifier = @"FillOrderHeaderViewIdentifier";
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     [self registerForKeyboardNotifications];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
 {
+    [super viewDidDisappear:animated];
     [self removeForKeyboardNotifications];
 }
 
@@ -260,9 +265,9 @@ static NSString * identifier = @"FillOrderHeaderViewIdentifier";
 
     self.HeaderArray = @[hDic1,hDic2,hDic3];
     
-    [FillOrderPersonCell registerCellWithTableView:self.tableView];
-    [FillOrderItemCell registerCellWithTableView:self.tableView];
-    [FillOrderRemarkCell registerCellWithTableView:self.tableView];
+    [FillOrderPersonCell registerCellWithTableView:self.tableView withIdentifier:fillOrderPersonIdentifier];
+    [FillOrderItemCell registerCellWithTableView:self.tableView withIdentifier:fillOrderItemIdentifier];
+    [FillOrderRemarkCell registerCellWithTableView:self.tableView withIdentifier:fillOrderRemarkIdentifier];
     [FillOrderFooterView registerCellWithTableView:self.tableView];
     [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:identifier];
     

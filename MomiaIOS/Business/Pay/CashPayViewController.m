@@ -13,6 +13,8 @@
 #import "CashPayTopHeaderView.h"
 
 static NSString * identifier = @"HeaderViewCashPayBottomHeader";
+static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
+static NSString * cashPayTopIdentifier = @"CellCashPayTop";
 
 @interface CashPayViewController ()
 
@@ -25,7 +27,7 @@ static NSString * identifier = @"HeaderViewCashPayBottomHeader";
 @implementation CashPayViewController
 
 - (instancetype)initWithParams:(NSDictionary *)params {
-    if (self = [super initWithParams:params]) {
+    if (self = [super initWithNibName:@"CashPayViewController" bundle:nil]) {
         self.delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     }
     return self;
@@ -87,9 +89,9 @@ willDisplayHeaderView:(UIView *)view
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     if(section == 0) {
-        return [CashPayTopCell heightWithTableView:tableView forIndexPath:indexPath data:self.topDataArray[row]];
+        return [CashPayTopCell heightWithTableView:tableView withIdentifier:cashPayTopIdentifier forIndexPath:indexPath data:self.topDataArray[row]];
     } else {
-        return [CashPayBottomCell heightWithTableView:tableView forIndexPath:indexPath data:self.bottomDataArray[row]];
+        return [CashPayBottomCell heightWithTableView:tableView withIdentifier:cashPayBottomIdentifier forIndexPath:indexPath data:self.bottomDataArray[row]];
     }
 }
 
@@ -99,11 +101,11 @@ willDisplayHeaderView:(UIView *)view
     NSInteger row = indexPath.row;
     UITableViewCell * cell;
     if(section == 0) {
-        CashPayTopCell * top = [CashPayTopCell cellWithTableView:tableView forIndexPath:indexPath];
+        CashPayTopCell * top = [CashPayTopCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:cashPayTopIdentifier];
         top.data = self.topDataArray[row];
         cell = top;
     } else {
-        CashPayBottomCell * bottom = [CashPayBottomCell cellWithTableView:tableView forIndexPath:indexPath];
+        CashPayBottomCell * bottom = [CashPayBottomCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:cashPayBottomIdentifier];
         bottom.data = self.bottomDataArray[row];
         cell = bottom;
     }
@@ -131,8 +133,8 @@ willDisplayHeaderView:(UIView *)view
  
     [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:identifier];
     [CashPayTopHeaderView registerHeaderViewWithTableView:self.tableView];
-    [CashPayTopCell registerCellWithTableView:self.tableView];
-    [CashPayBottomCell registerCellWithTableView:self.tableView];
+    [CashPayTopCell registerCellWithTableView:self.tableView withIdentifier:cashPayTopIdentifier];
+    [CashPayBottomCell registerCellWithTableView:self.tableView withIdentifier:cashPayBottomIdentifier];
 }
 
 - (void)didReceiveMemoryWarning {

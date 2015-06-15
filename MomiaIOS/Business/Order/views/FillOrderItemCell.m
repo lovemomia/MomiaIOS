@@ -7,29 +7,8 @@
 //
 
 #import "FillOrderItemCell.h"
-static NSString * identifier = @"CellFillOrderItem";
 
 @implementation FillOrderItemCell
-
-
-#pragma mark - methods added by Owen
-+(instancetype)cellWithTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath
-{
-    FillOrderItemCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    return cell;
-}
-
-+(void)registerCellWithTableView:(UITableView *)tableView
-{
-    [tableView registerNib:[UINib nibWithNibName:NSStringFromClass(self) bundle:nil] forCellReuseIdentifier:identifier];
-}
-
-+(CGFloat)heightWithTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath data:(NSDictionary *)data
-{
-    return [tableView fd_heightForCellWithIdentifier:identifier cacheByIndexPath:indexPath configuration:^(FillOrderItemCell *cell) {
-        cell.data = data;
-    }];
-}
 
 -(void)setData:(NSDictionary *) dic
 {

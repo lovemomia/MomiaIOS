@@ -6,14 +6,10 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MOTableCell.h"
 
-@interface FillOrderRemarkCell : UITableViewCell
+@interface FillOrderRemarkCell : MOTableCell
 @property (weak, nonatomic) IBOutlet UITextView *remarkTextView;
-
-+(instancetype)cellWithTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath;
-
-+(void)registerCellWithTableView:(UITableView *)tableView;
 
 +(CGFloat)height;
 

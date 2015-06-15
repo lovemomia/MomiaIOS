@@ -8,21 +8,10 @@
 
 #import "FillOrderRemarkCell.h"
 #import "UITextView+Placeholder.h"
-static NSString * identifier = @"CellFillOrderRemark";
 
 @implementation FillOrderRemarkCell
 
 #pragma mark - methods added by Owen
-+(instancetype)cellWithTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath
-{
-    FillOrderRemarkCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    return cell;
-}
-
-+(void)registerCellWithTableView:(UITableView *)tableView
-{
-    [tableView registerNib:[UINib nibWithNibName:NSStringFromClass(self) bundle:nil] forCellReuseIdentifier:identifier];
-}
 
 +(CGFloat)height
 {

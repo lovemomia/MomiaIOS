@@ -7,7 +7,6 @@
 //
 
 #import "OrderPersonCell.h"
-static NSString * identifier = @"CellOrderPerson";
 
 @implementation OrderPersonCell
 
@@ -18,23 +17,6 @@ static NSString * identifier = @"CellOrderPerson";
     self.birthLabel.text = [dic objectForKey:@"birth"];
 }
 
-+(CGFloat)heightWithTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath data:(NSDictionary *)dic
-{
-    return [tableView fd_heightForCellWithIdentifier:identifier cacheByIndexPath:indexPath configuration:^(OrderPersonCell *cell) {
-        cell.data = dic;
-    }];
-}
-
-+(instancetype)cellWithTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath
-{
-    OrderPersonCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    return cell;
-}
-
-+(void)registerCellWithTableView:(UITableView *)tableView
-{
-    [tableView registerNib:[UINib nibWithNibName:NSStringFromClass(self) bundle:nil] forCellReuseIdentifier:identifier];
-}
 
 - (IBAction)onEditClick:(id)sender {
     self.editBlock(sender);

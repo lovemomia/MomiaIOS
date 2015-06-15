@@ -11,6 +11,9 @@
 #import "HomeCarouselCell.h"
 #import "HomeCell.h"
 
+static NSString * homeIdentifier = @"CellHome";
+static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
+
 @interface HomeViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong,nonatomic) HomeModel * model;
@@ -40,8 +43,8 @@
 {
     NSInteger section = indexPath.section;
     if(section == 0) return [HomeCarouselCell heightWithTableView:tableView];
-    return [HomeCell heightWithTableView:tableView forIndexPath:indexPath data:self.model.data.list[section - 1]];
-
+    
+    return [HomeCell heightWithTableView:tableView withIdentifier:homeIdentifier forIndexPath:indexPath data:self.model.data.list[section - 1]];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -50,11 +53,11 @@
     UITableViewCell * cell;
 
     if(section == 0) {
-        HomeCarouselCell * carousel = [HomeCarouselCell cellWithTableView:tableView forIndexPath:indexPath];
+        HomeCarouselCell * carousel = [HomeCarouselCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeCarouselIdentifier];
         carousel.data = self.carouselModel.data;
         cell = carousel;
     } else {
-        HomeCell * home = [HomeCell cellWithTableView:tableView forIndexPath:indexPath];
+        HomeCell * home = [HomeCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeIdentifier];
         home.data = self.model.data.list[section - 1];
         cell = home;
     }
@@ -81,8 +84,8 @@
     self.model = [[HomeModel alloc] initWithDictionary:dic1 error:nil];
     self.carouselModel = [[HomeCarouselModel alloc] initWithDictionary:dic2 error:nil];
     
-    [HomeCarouselCell registerCellWithTableView:self.tableView];
-    [HomeCell registerCellWithTableView:self.tableView];
+    [HomeCarouselCell registerCellWithTableView:self.tableView withIdentifier:homeCarouselIdentifier];
+    [HomeCell registerCellWithTableView:self.tableView withIdentifier:homeIdentifier];
 }
 
 - (void)didReceiveMemoryWarning {

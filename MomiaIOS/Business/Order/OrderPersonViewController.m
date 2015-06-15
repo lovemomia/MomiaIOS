@@ -9,6 +9,7 @@
 #import "OrderPersonViewController.h"
 #import "OrderPersonCell.h"
 static NSString * identifier = @"OrderPersonHeaderViewIdentifier";
+static NSString * orderPersonIdentifier = @"CellOrderPerson";
 
 @interface OrderPersonViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -47,12 +48,12 @@ static NSString * identifier = @"OrderPersonHeaderViewIdentifier";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [OrderPersonCell heightWithTableView:tableView forIndexPath:indexPath data:self.dataArray[indexPath.row]];
+    return [OrderPersonCell heightWithTableView:tableView withIdentifier:orderPersonIdentifier forIndexPath:indexPath data:self.dataArray[indexPath.row]];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    OrderPersonCell * cell = [OrderPersonCell cellWithTableView:tableView forIndexPath:indexPath];
+    OrderPersonCell * cell = [OrderPersonCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:orderPersonIdentifier];
     cell.data = self.dataArray[indexPath.row];
 
     __weak OrderPersonCell * weakCell = cell;
@@ -95,7 +96,7 @@ static NSString * identifier = @"OrderPersonHeaderViewIdentifier";
     
     [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:identifier];
     
-    [OrderPersonCell registerCellWithTableView:self.tableView];
+    [OrderPersonCell registerCellWithTableView:self.tableView withIdentifier:orderPersonIdentifier];
 }
 
 - (void)didReceiveMemoryWarning {
