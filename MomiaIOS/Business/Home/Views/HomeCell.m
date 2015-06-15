@@ -21,11 +21,8 @@
     self.enrollmentLabel.text = [NSString stringWithFormat:@"%ld人报名",data.enrollmentNum];
     self.priceLabel.text = [NSString stringWithFormat:@"￥%.2f",data.price];
     
-    [self.timeLabel setBackgroundColor:[UIColor redColor]];
-    [self.enrollmentLabel setBackgroundColor:[UIColor blueColor]];
-    
-    self.firstImgWidthConstraint.constant = [self.timeLabel systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].width + 18;
-    self.secondImgWidthConstraint.constant = [self.enrollmentLabel systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].width + 18;
+    self.firstImgWidthConstraint.constant = [self.timeLabel systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].width + 6;
+    self.secondImgWidthConstraint.constant = [self.enrollmentLabel systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].width + 6;
 
 }
 
