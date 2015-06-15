@@ -36,7 +36,7 @@
 }
 
 - (void)showNavigationBar {
-    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_nav"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationBar setBackgroundImage:[UIImage imageWithColor:MO_APP_NaviColor size:CGSizeMake(SCREEN_WIDTH, 64)] forBarMetrics:UIBarMetricsDefault];
     self.navigationBar.shadowImage = [UIImage imageWithColor:[UIColor clearColor] size:CGSizeMake(1, 1)];
     self.navigationBar.translucent = NO;
 }
@@ -52,13 +52,13 @@
     [self setTitleTextStyle];
     
     // background color
-    [self hideNavigationBar];
+    [self showNavigationBar];
     
     CGRect frame = self.navigationBar.frame;
     backView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height+20)];
     backView.backgroundColor = MO_APP_VCBackgroundColor;
     UIImageView *bgImage = [[UIImageView alloc]initWithFrame:backView.frame];
-    bgImage.image = [UIImage imageNamed:@"bg_nav"];
+    bgImage.image = [UIImage imageWithColor:MO_APP_NaviColor size:CGSizeMake(SCREEN_WIDTH, 64)];
     [backView addSubview:bgImage];
     [[[UIApplication sharedApplication].delegate window] insertSubview:backView atIndex:0];
 }
