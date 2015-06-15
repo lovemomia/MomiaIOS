@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="65" height="25"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" tag="2002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="HYd-Ii-tJS">
+                    <rect key="frame" x="50" y="10" width="10" height="5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="5" id="QCX-kr-kHl"/>
+                        <constraint firstAttribute="width" constant="10" id="xAl-sN-G6s"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" tag="2001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上海" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyA-it-56a">
+                    <rect key="frame" x="5" y="3" width="40" height="19"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="HYd-Ii-tJS" firstAttribute="leading" secondItem="fyA-it-56a" secondAttribute="trailing" constant="5" id="DIE-Nh-esQ"/>
+                <constraint firstItem="fyA-it-56a" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="3" id="Dvu-R2-uOJ"/>
+                <constraint firstItem="fyA-it-56a" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="FBg-zQ-fCe"/>
+                <constraint firstAttribute="trailing" secondItem="HYd-Ii-tJS" secondAttribute="trailing" constant="5" id="Thc-zI-exu"/>
+                <constraint firstAttribute="bottom" secondItem="fyA-it-56a" secondAttribute="bottom" constant="3" id="bhJ-Zl-Jjw"/>
+                <constraint firstItem="fyA-it-56a" firstAttribute="centerY" secondItem="HYd-Ii-tJS" secondAttribute="centerY" id="fFD-ga-Yf0"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="189.5" y="463.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="home_arrow" width="9" height="5"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

@@ -9,7 +9,7 @@
 #import "HomeCarouselCell.h"
 #import "HomeModel.h"
 
-#define cellScale 0.5
+#define cellScale 0.45
 
 @interface HomeCarouselCell ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -45,7 +45,7 @@
     self.pageControl.currentPage = 0;
     
     self.scrollView.delegate = self;
-    self.scrollView.contentSize = CGSizeMake((data.list.count + 2) * width,self.scrollView.bounds.size.height);
+    self.scrollView.contentSize = CGSizeMake((data.list.count + 2) * width,0);
     
    
     
@@ -70,8 +70,9 @@
     
     [self.scrollView setContentOffset:CGPointMake(width, 0)];
     
-    if(!self.timer) self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
-    
+    if(self.timer)
+        [self.timer invalidate];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
     
 }
 
@@ -95,15 +96,17 @@
     
 }
 
+
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    [self.timer invalidate];
+    if(self.timer) [self.timer invalidate];
 }
 
 
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
+    
     CGFloat width = scrollView.frame.size.width;
     
     
@@ -119,7 +122,7 @@
     } else {
         self.pageControl.currentPage = currentPage - 1;
     }
-    
+    if(self.timer) [self.timer invalidate];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
 }
 

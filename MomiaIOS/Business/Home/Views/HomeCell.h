@@ -11,6 +11,8 @@
 @class HomeDataItem;
 
 @interface HomeCell : MOTableCell<MOTableCellDataProtocol>
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *firstImgWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *secondImgWidthConstraint;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

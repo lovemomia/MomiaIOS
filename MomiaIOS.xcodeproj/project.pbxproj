@@ -39,6 +39,7 @@
 		5A33F19D1B2EA0A4002A8258 /* CashPayTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A33F1991B2EA0A4002A8258 /* CashPayTopCell.xib */; };
 		5A33F1A11B2EA1D5002A8258 /* CashPayTopHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A33F19F1B2EA1D5002A8258 /* CashPayTopHeaderView.m */; };
 		5A33F1A21B2EA1D5002A8258 /* CashPayTopHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A33F1A01B2EA1D5002A8258 /* CashPayTopHeaderView.xib */; };
+		5A33F1A81B2EBC2F002A8258 /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A33F1A71B2EBC2F002A8258 /* TitleView.xib */; };
 		5A3DBE5A1B18577900E708AC /* FavouriteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DBE591B18577900E708AC /* FavouriteModel.m */; };
 		5A3DBE5D1B185BE500E708AC /* MyCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DBE5C1B185BE500E708AC /* MyCollectionCell.m */; };
 		5A4044321B27D18C0010782C /* OrderPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4044301B27D18C0010782C /* OrderPersonViewController.m */; };
@@ -225,6 +226,7 @@
 		5A33F19E1B2EA1D5002A8258 /* CashPayTopHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashPayTopHeaderView.h; sourceTree = "<group>"; };
 		5A33F19F1B2EA1D5002A8258 /* CashPayTopHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashPayTopHeaderView.m; sourceTree = "<group>"; };
 		5A33F1A01B2EA1D5002A8258 /* CashPayTopHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CashPayTopHeaderView.xib; sourceTree = "<group>"; };
+		5A33F1A71B2EBC2F002A8258 /* TitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TitleView.xib; path = Business/Home/Views/TitleView.xib; sourceTree = "<group>"; };
 		5A3DBE581B18577900E708AC /* FavouriteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavouriteModel.h; path = Common/Models/Favourite/FavouriteModel.h; sourceTree = "<group>"; };
 		5A3DBE591B18577900E708AC /* FavouriteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavouriteModel.m; path = Common/Models/Favourite/FavouriteModel.m; sourceTree = "<group>"; };
 		5A3DBE5B1B185BE500E708AC /* MyCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCollectionCell.h; path = Business/Mine/Views/MyCollectionCell.h; sourceTree = "<group>"; };
@@ -978,6 +980,7 @@
 				5A18DC5B1B2996B9001458A4 /* HomeCell.h */,
 				5A18DC5C1B2996B9001458A4 /* HomeCell.m */,
 				5A18DC5D1B2996B9001458A4 /* HomeCell.xib */,
+				5A33F1A71B2EBC2F002A8258 /* TitleView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1312,6 +1315,7 @@
 				BC2C0C771B140BF100E2446E /* RegisterViewController.xib in Resources */,
 				5A6806FD1B01DA5100D02A60 /* MyCollectionCell.xib in Resources */,
 				5AB77E201B2699D800C04DF8 /* FillOrderPersonCell.xib in Resources */,
+				5A33F1A81B2EBC2F002A8258 /* TitleView.xib in Resources */,
 				5AE995A41B26F9EE003DAAC0 /* FillOrderFooterView.xib in Resources */,
 				BC41ABA61B0C69BE00A419DA /* read_me.txt in Resources */,
 				5A82F1A41B257449000D2C60 /* FillOrderViewController.xib in Resources */,

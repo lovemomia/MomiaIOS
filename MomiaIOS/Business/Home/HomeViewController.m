@@ -19,13 +19,14 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
 @property (strong,nonatomic) HomeModel * model;
 @property (strong,nonatomic) HomeCarouselModel * carouselModel;
 
+@property(nonatomic,strong) NSString * titleStr;
+
 @end
 
 @implementation HomeViewController
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    
     return 0.1;
 }
 
@@ -65,18 +66,41 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
     return cell;
 }
 
--(void)onCityClick
+-(void)onMineClick
 {
     NSURL * url = [NSURL URLWithString:@"tq://fillorder"];
     [[UIApplication sharedApplication] openURL:url];
 }
 
+-(void)onSearchClick
+{
+    
+}
+
+-(void)onTitleClick:(UITapGestureRecognizer *)recognizer
+{
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.titleStr = @"上海";
     
-    self.navigationItem.title = @"我的";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"上海" style:UIBarButtonItemStylePlain target:self action:@selector(onCityClick)];
+    NSArray * array = [[NSBundle mainBundle] loadNibNamed:@"TitleView" owner:self options:nil];
+    UIView * titleView = array[0];
+    __weak UILabel * label = (UILabel *)[titleView viewWithTag:2001];
+    [label setText:self.titleStr];
+
+    titleView.size = [titleView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    
+   
+    UITapGestureRecognizer * tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTitleClick:)];
+    [titleView addGestureRecognizer:tapRecognizer];
+    
+    
+    self.navigationItem.titleView = titleView;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_mine"] style:UIBarButtonItemStylePlain target:self action:@selector(onMineClick)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_search"] style:UIBarButtonItemStylePlain target:self action:@selector(onSearchClick)];
     
     NSDictionary * dic1 = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"HomeData" ofType:@"plist"]];
     NSDictionary * dic2 = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"HomeCarouselData" ofType:@"plist"]];
@@ -86,6 +110,9 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
     
     [HomeCarouselCell registerCellWithTableView:self.tableView withIdentifier:homeCarouselIdentifier];
     [HomeCell registerCellWithTableView:self.tableView withIdentifier:homeIdentifier];
+    
+    self.tableView.backgroundView = [[UIView alloc] init];
+    self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
 }
 
 - (void)didReceiveMemoryWarning {

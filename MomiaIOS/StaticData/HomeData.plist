@@ -28,7 +28,7 @@
 				<key>desc</key>
 				<string>北京野生动物园</string>
 				<key>time</key>
-				<string>每周一12：45</string>
+				<string>每周一周五周三12:45</string>
 				<key>enrollmentNum</key>
 				<integer>250</integer>
 				<key>price</key>
