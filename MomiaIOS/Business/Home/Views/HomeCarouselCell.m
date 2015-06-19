@@ -62,33 +62,45 @@
     self.pageControl.currentPage = 0;
     
     self.scrollView.delegate = self;
-    self.scrollView.contentSize = CGSizeMake((banners.count + 2) * width,0);
     
-    UIImageView * firstImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
-    [firstImgView sd_setImageWithURL:[NSURL URLWithString:((HomeBannerModel *)banners.lastObject).cover] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
-    
-    [self.scrollView addSubview:firstImgView];
-    self.imgsNum ++;
-    
-    for (int i = 0; i < banners.count; i++) {
-        HomeBannerModel * item = banners[i];
-        UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake((i + 1) * width, 0, width, height)];
+    if(banners.count == 1) {//只有一张图
+        self.scrollView.contentSize = CGSizeMake(width,0);
+        HomeBannerModel * item = banners[0];
+        UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
         [imgView sd_setImageWithURL:[NSURL URLWithString:item.cover] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
         [self.scrollView addSubview:imgView];
         self.imgsNum ++;
+        if(self.timer)
+            [self.timer invalidate];
+    } else {
+        self.scrollView.contentSize = CGSizeMake((banners.count + 2) * width,0);
+        
+        UIImageView * firstImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
+        [firstImgView sd_setImageWithURL:[NSURL URLWithString:((HomeBannerModel *)banners.lastObject).cover] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
+        
+        [self.scrollView addSubview:firstImgView];
+        self.imgsNum ++;
+        
+        for (int i = 0; i < banners.count; i++) {
+            HomeBannerModel * item = banners[i];
+            UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake((i + 1) * width, 0, width, height)];
+            [imgView sd_setImageWithURL:[NSURL URLWithString:item.cover] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
+            [self.scrollView addSubview:imgView];
+            self.imgsNum ++;
+        }
+        
+        UIImageView * lastImgView = [[UIImageView alloc] initWithFrame:CGRectMake((banners.count + 1) * width, 0, width, height)];
+        [lastImgView sd_setImageWithURL:[NSURL URLWithString:((HomeBannerModel *)banners.firstObject).cover] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
+        [self.scrollView addSubview:lastImgView];
+        
+        self.imgsNum ++;
+        
+        [self.scrollView setContentOffset:CGPointMake(width, 0)];
+        
+        if(self.timer)
+            [self.timer invalidate];
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
     }
-    
-    UIImageView * lastImgView = [[UIImageView alloc] initWithFrame:CGRectMake((banners.count + 1) * width, 0, width, height)];
-    [lastImgView sd_setImageWithURL:[NSURL URLWithString:((HomeBannerModel *)banners.firstObject).cover] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
-    [self.scrollView addSubview:lastImgView];
-    
-    self.imgsNum ++;
-    
-    [self.scrollView setContentOffset:CGPointMake(width, 0)];
-    
-    if(self.timer)
-        [self.timer invalidate];
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(nextPage) userInfo:nil repeats:YES];
     
 }
 

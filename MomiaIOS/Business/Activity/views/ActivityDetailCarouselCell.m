@@ -64,8 +64,8 @@
     
     self.pageLabel.attributedText = attrStr;
     
-    self.pageLabelWidthConstraint.constant = [self.pageLabel systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].width + 20;
     
+    self.pageLabelWidthConstraint.constant = [UILabel widthForAttributedString:attrStr withHeight:20].size.width + 20;
     self.pageLabel.layer.cornerRadius = 13;
     self.pageLabel.layer.backgroundColor = UIColorFromRGB(0xcccccc).CGColor;
     
@@ -73,29 +73,40 @@
 //    self.pageControl.currentPage = 0;
     
     self.scrollView.delegate = self;
-    self.scrollView.contentSize = CGSizeMake((array.count + 2) * width,0);
     
-    UIImageView * firstImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
-    [firstImgView sd_setImageWithURL:[NSURL URLWithString:array.lastObject] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
-    [self.scrollView addSubview:firstImgView];
-    
-    self.imgsNum ++;
-    
-    for (int i = 0; i < array.count; i++) {
-        NSString * item = array[i];
-        UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake((i + 1) * width, 0, width, height)];
+    if(array.count == 1) {
+        self.scrollView.contentSize = CGSizeMake(width,0);
+        NSString * item = array[0];
+        UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
         [imgView sd_setImageWithURL:[NSURL URLWithString:item] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
         [self.scrollView addSubview:imgView];
         self.imgsNum ++;
+    } else {
+        
+        self.scrollView.contentSize = CGSizeMake((array.count + 2) * width,0);
+        
+        UIImageView * firstImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
+        [firstImgView sd_setImageWithURL:[NSURL URLWithString:array.lastObject] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
+        [self.scrollView addSubview:firstImgView];
+        
+        self.imgsNum ++;
+        
+        for (int i = 0; i < array.count; i++) {
+            NSString * item = array[i];
+            UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake((i + 1) * width, 0, width, height)];
+            [imgView sd_setImageWithURL:[NSURL URLWithString:item] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
+            [self.scrollView addSubview:imgView];
+            self.imgsNum ++;
+        }
+        
+        UIImageView * lastImgView = [[UIImageView alloc] initWithFrame:CGRectMake((array.count + 1) * width, 0, width, height)];
+        [lastImgView sd_setImageWithURL:[NSURL URLWithString:array.firstObject] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
+        [self.scrollView addSubview:lastImgView];
+        
+        self.imgsNum ++;
+        
+        [self.scrollView setContentOffset:CGPointMake(width, 0)];
     }
-    
-    UIImageView * lastImgView = [[UIImageView alloc] initWithFrame:CGRectMake((array.count + 1) * width, 0, width, height)];
-    [lastImgView sd_setImageWithURL:[NSURL URLWithString:array.firstObject] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
-    [self.scrollView addSubview:lastImgView];
-    
-    self.imgsNum ++;
-    
-    [self.scrollView setContentOffset:CGPointMake(width, 0)];
     
     
     self.titleLabel.text = model.title;

@@ -16,4 +16,6 @@
 
 -(void)setData:(NSString *) title;
 
++(CGFloat)heightWithTableView:(UITableView *)tableView data:(NSString *)title;
+
 @end

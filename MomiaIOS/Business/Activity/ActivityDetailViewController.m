@@ -14,6 +14,7 @@
 #import "ActivityDetailContentCell.h"
 #import "ActivityDetailLinkCell.h"
 #import "ActivityDetailModel.h"
+#import "CommonHeaderView.h"
 
 static NSString * activityDetailCarouselIdentifier = @"CellActivityDetailCarousel";
 static NSString * activityDetailEnrollIdentifier = @"CellActivityDetailEnroll";
@@ -38,7 +39,7 @@ typedef enum
 
 @implementation ActivityDetailViewController
 
-
+//辅助方法，用来根据model判断cell的样式
 -(CellStyle)judgeCellStyleWithContentModel:(ProductContentModel *)model
 {
     NSArray * array = model.body;
@@ -59,14 +60,26 @@ typedef enum
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
+    if(section >= 3) {
+        ProductContentModel * model = self.model.data.content[section - 3];
+        return [CommonHeaderView heightWithTableView:tableView data:model.title];
+    }
     return 0.1;
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if(section >= 3) return 0.1;
+    else return 10.0;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3 + self.model.data.content.count;
+    if(self.model)
+        return 3 + self.model.data.content.count;
+    return 0;
 }
-
 
 
 
@@ -123,6 +136,19 @@ typedef enum
         }
     }
     return height;
+}
+
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UITableViewHeaderFooterView * view;
+    if(section >= 3) {
+        CommonHeaderView * header = [CommonHeaderView cellWithTableView:self.tableView];
+        header.data = ((ProductContentModel *)self.model.data.content[section - 3]).title;
+        view = header;
+        
+    }
+    return view;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -222,6 +248,7 @@ typedef enum
     [ActivityDetailTeacherCell registerCellWithTableView:self.tableView withIdentifier:activityDetailTeacherIdentifier];
     [ActivityDetailLinkCell registerCellWithTableView:self.tableView withIdentifier:activityDetailLinkIdentifier];
 
+    [CommonHeaderView registerCellWithTableView:self.tableView];
     
     self.tableView.backgroundView = [[UIView alloc] init];
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);

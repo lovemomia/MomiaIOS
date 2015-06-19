@@ -29,6 +29,14 @@ static NSString * identifier = @"CellCommonIdentifier";
     [tableView registerNib:[UINib nibWithNibName:NSStringFromClass(self) bundle:nil] forHeaderFooterViewReuseIdentifier:identifier];
 }
 
++(CGFloat)heightWithTableView:(UITableView *)tableView data:(NSString *)title
+{
+    return [tableView fd_heightForHeaderViewWithIdentifier:identifier configuration:^(CommonHeaderView * headerView) {
+        headerView.data = title;
+    }];
+}
+
+
 -(void)setData:(NSString *) title
 {
     [self.titleLabel setText:title];

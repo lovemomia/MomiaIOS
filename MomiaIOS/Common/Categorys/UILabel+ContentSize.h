@@ -16,5 +16,9 @@
 
 + (CGRect)heightForMutableString:(NSString *)contentString withWidth:(CGFloat)width lineSpace:(CGFloat)space andFont:(UIFont *)font;
 
+//算一行的宽度
 + (CGRect)widthForMutableString:(NSString *)contentString withHeight:(CGFloat)height lineSpace:(CGFloat)space andFont:(UIFont *)font;
+
+
++ (CGRect)widthForAttributedString:(NSAttributedString *)contentString withHeight:(CGFloat)height;
 @end
