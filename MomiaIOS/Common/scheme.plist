@@ -191,5 +191,14 @@
 		<key>desc</key>
 		<string>收银台</string>
 	</dict>
+	<key>activitydetail</key>
+	<dict>
+		<key>controller</key>
+		<string>ActivityDetailViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>活动详情页</string>
+	</dict>
 </dict>
 </plist>

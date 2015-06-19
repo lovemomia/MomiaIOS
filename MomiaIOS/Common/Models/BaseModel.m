@@ -16,7 +16,8 @@
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithDictionary:@{
                                                        @"errno":@"errNo",
-                                                       @"errmsg":@"errMsg"
+                                                       @"errmsg":@"errMsg",
+                                                       @"time":@"timestamp"
                                                        }];
 }
 

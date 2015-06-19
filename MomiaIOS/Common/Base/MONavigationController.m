@@ -31,7 +31,7 @@
     [super pushViewController:viewController animated:animated];
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc] init];
-    item.title = @"返回";
+    item.image = [UIImage imageNamed:@"cm_back"];
     viewController.navigationItem.backBarButtonItem = item;
 }
 

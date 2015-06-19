@@ -1,0 +1,19 @@
+//
+//  CommonHeaderView.h
+//  MomiaIOS
+//
+//  Created by Owen on 15/6/18.
+//  Copyright (c) 2015年 Deng Jun. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface CommonHeaderView : UITableViewHeaderFooterView
+
++(instancetype)cellWithTableView:(UITableView *)tableView;
+
++(void)registerCellWithTableView:(UITableView *)tableView;
+
+-(void)setData:(NSString *) title;
+
+@end

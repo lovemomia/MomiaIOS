@@ -22,16 +22,33 @@
 
 @implementation HomeCarouselCell
 
+- (void)onScrollClick:(UITapGestureRecognizer *)sender {
+    UIScrollView * scroll = (UIScrollView *)sender.view;
+    CGFloat pageWidth = scroll.width;
+    NSInteger page = scroll.contentOffset.x/pageWidth;
+    NSInteger index;
+    if(page == 0) {
+        index = self.imgsNum - 3;
+    } else if(page == self.imgsNum - 1) {
+        index = 0;
+    } else {
+        index = page - 1;
+    }
+    self.scrollClick(index);
+    
+}
 
 +(CGFloat)heightWithTableView:(UITableView *)tableView
 {
     return CGRectGetWidth(tableView.bounds) * cellScale;
 }
 
--(void)setData:(HomeCarouselData *) data
+-(void)setData:(NSArray *) banners
 {
-    CGFloat width = CGRectGetWidth(self.bounds);
-    CGFloat height = CGRectGetHeight(self.bounds);
+    [self layoutIfNeeded];
+    
+    CGFloat width = CGRectGetWidth(self.scrollView.bounds);
+    CGFloat height = CGRectGetHeight(self.scrollView.bounds);
     
     for (id view in self.scrollView.subviews ) {
         if([view isKindOfClass:[UIImageView class]]) {
@@ -41,29 +58,28 @@
     
     self.imgsNum = 0;
     
-    self.pageControl.numberOfPages = data.list.count;
+    self.pageControl.numberOfPages = banners.count;
     self.pageControl.currentPage = 0;
     
     self.scrollView.delegate = self;
-    self.scrollView.contentSize = CGSizeMake((data.list.count + 2) * width,0);
-    
-   
+    self.scrollView.contentSize = CGSizeMake((banners.count + 2) * width,0);
     
     UIImageView * firstImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
-    firstImgView.image = [UIImage imageNamed:[(HomeCarouselItem *)[data.list lastObject] url]];
+    [firstImgView sd_setImageWithURL:[NSURL URLWithString:((HomeBannerModel *)banners.lastObject).cover] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
+    
     [self.scrollView addSubview:firstImgView];
     self.imgsNum ++;
     
-    for (int i = 0; i < data.list.count; i++) {
-        HomeCarouselItem * item = data.list[i];
+    for (int i = 0; i < banners.count; i++) {
+        HomeBannerModel * item = banners[i];
         UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake((i + 1) * width, 0, width, height)];
-        imgView.image = [UIImage imageNamed:item.url];
+        [imgView sd_setImageWithURL:[NSURL URLWithString:item.cover] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
         [self.scrollView addSubview:imgView];
         self.imgsNum ++;
     }
     
-    UIImageView * lastImgView = [[UIImageView alloc] initWithFrame:CGRectMake((data.list.count + 1) * width, 0, width, height)];
-    lastImgView.image = [UIImage imageNamed:[(HomeCarouselItem *)[data.list firstObject] url]];
+    UIImageView * lastImgView = [[UIImageView alloc] initWithFrame:CGRectMake((banners.count + 1) * width, 0, width, height)];
+    [lastImgView sd_setImageWithURL:[NSURL URLWithString:((HomeBannerModel *)banners.firstObject).cover] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
     [self.scrollView addSubview:lastImgView];
     
     self.imgsNum ++;
@@ -129,6 +145,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    UITapGestureRecognizer * gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onScrollClick:)];
+    [self.scrollView addGestureRecognizer:gesture];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

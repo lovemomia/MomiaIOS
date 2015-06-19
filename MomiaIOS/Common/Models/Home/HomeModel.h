@@ -7,51 +7,33 @@
 //
 
 #import "BaseModel.h"
+#import "ProductModel.h"
 
-@interface HomeCarouselItem : JSONModel
+@interface HomeBannerModel : JSONModel
 
-@property(nonatomic,strong) NSString * url;
-
-@end
-
-@protocol HomeCarouselItem
+@property(nonatomic,strong) NSString * cover;
+@property(nonatomic,strong) NSString * action;
 
 @end
 
-@interface HomeCarouselData : JSONModel
-
-@property(nonatomic,strong) NSArray<HomeCarouselItem> * list;
+@protocol HomeBannerModel
 
 @end
 
-@interface HomeCarouselModel : BaseModel
-
-@property (nonatomic,strong) HomeCarouselData * data;
+@protocol ProductModel
 
 @end
 
-@interface HomeDataItem : JSONModel
+@interface HomeDataModel : JSONModel
 
-@property (strong, nonatomic) NSString* url;
-@property (strong, nonatomic) NSString* title;
-@property (strong, nonatomic) NSString* desc;
-@property (strong, nonatomic) NSString* time;
-@property (assign, nonatomic) NSInteger enrollmentNum;
-@property (assign, nonatomic) CGFloat price;
-
-@end
-
-@protocol HomeDataItem
-@end
-
-@interface HomeData : JSONModel
-
-@property (strong, nonatomic) NSArray<HomeDataItem>* list;
+@property(nonatomic,strong) NSArray<HomeBannerModel> * banners;
+//@property(nonatomic,assign) NSInteger<Optional> nextpage;
+@property(nonatomic,strong) NSArray<ProductModel> * products;
 
 @end
 
 @interface HomeModel : BaseModel
 
-@property (strong, nonatomic) HomeData *data;
+@property (strong, nonatomic) HomeDataModel *data;
 
 @end

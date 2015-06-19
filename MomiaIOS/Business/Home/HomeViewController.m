@@ -17,7 +17,6 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
 @interface HomeViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong,nonatomic) HomeModel * model;
-@property (strong,nonatomic) HomeCarouselModel * carouselModel;
 
 @property(nonatomic,strong) NSString * titleStr;
 
@@ -32,11 +31,16 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1 + self.model.data.list.count;
+    return 1 + self.model.data.products.count;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if(section == 0) {
+        if(self.model.data.banners.count > 0) {
+            return 1;
+        } else return 0;
+    }
     return 1;
 }
 
@@ -45,7 +49,7 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
     NSInteger section = indexPath.section;
     if(section == 0) return [HomeCarouselCell heightWithTableView:tableView];
     
-    return [HomeCell heightWithTableView:tableView withIdentifier:homeIdentifier forIndexPath:indexPath data:self.model.data.list[section - 1]];
+    return [HomeCell heightWithTableView:tableView withIdentifier:homeIdentifier forIndexPath:indexPath data:self.model.data.products[section - 1]];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -55,16 +59,21 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
 
     if(section == 0) {
         HomeCarouselCell * carousel = [HomeCarouselCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeCarouselIdentifier];
-        carousel.data = self.carouselModel.data;
+        carousel.data = self.model.data.banners;
+        carousel.scrollClick = ^void(NSInteger index) {
+            NSLog(@"index:%ld",index);
+        };
         cell = carousel;
     } else {
         HomeCell * home = [HomeCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeIdentifier];
-        home.data = self.model.data.list[section - 1];
+        home.data = self.model.data.products[section - 1];
+        
         cell = home;
     }
    
     return cell;
 }
+
 
 -(void)onMineClick
 {
@@ -74,16 +83,43 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
 
 -(void)onSearchClick
 {
-    
+    NSURL * url = [NSURL URLWithString:@"tq://activitydetail"];
+    [[UIApplication sharedApplication] openURL:url];
+
 }
 
 -(void)onTitleClick:(UITapGestureRecognizer *)recognizer
 {
+    
 }
+
+#pragma mark - webData Request
+
+- (void)requestData {
+    if (self.model == nil) {
+        [self.view showLoadingBee];
+    }
+    
+    NSDictionary * dic = @{@"pageindex":@0};
+    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/home") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[HomeModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (self.model == nil) {
+            [self.view removeLoadingBee];
+        }
+        
+        self.model = responseObject;
+        
+        [self.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self requestData];
     self.titleStr = @"上海";
     
     NSArray * array = [[NSBundle mainBundle] loadNibNamed:@"TitleView" owner:self options:nil];
@@ -97,16 +133,10 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
     UITapGestureRecognizer * tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTitleClick:)];
     [titleView addGestureRecognizer:tapRecognizer];
     
-    
     self.navigationItem.titleView = titleView;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_mine"] style:UIBarButtonItemStylePlain target:self action:@selector(onMineClick)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_search"] style:UIBarButtonItemStylePlain target:self action:@selector(onSearchClick)];
-    
-    NSDictionary * dic1 = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"HomeData" ofType:@"plist"]];
-    NSDictionary * dic2 = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"HomeCarouselData" ofType:@"plist"]];
-    
-    self.model = [[HomeModel alloc] initWithDictionary:dic1 error:nil];
-    self.carouselModel = [[HomeCarouselModel alloc] initWithDictionary:dic2 error:nil];
+
     
     [HomeCarouselCell registerCellWithTableView:self.tableView withIdentifier:homeCarouselIdentifier];
     [HomeCell registerCellWithTableView:self.tableView withIdentifier:homeIdentifier];

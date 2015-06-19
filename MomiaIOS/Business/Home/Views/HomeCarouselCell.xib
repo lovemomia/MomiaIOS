@@ -15,6 +15,7 @@
                 <subviews>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5EZ-SN-qpU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="169"/>
+                        <gestureRecognizers/>
                     </scrollView>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="oDM-z5-7LW">
                         <rect key="frame" x="168" y="127" width="39" height="37"/>
@@ -33,7 +34,7 @@
                 <outlet property="pageControl" destination="oDM-z5-7LW" id="vbx-Kk-iZh"/>
                 <outlet property="scrollView" destination="5EZ-SN-qpU" id="uuf-FQ-TmB"/>
             </connections>
-            <point key="canvasLocation" x="349.5" y="218.5"/>
+            <point key="canvasLocation" x="436.5" y="209"/>
         </tableViewCell>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

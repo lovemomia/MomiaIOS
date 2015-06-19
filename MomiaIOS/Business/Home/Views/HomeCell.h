@@ -8,7 +8,7 @@
 
 #import "MOTableCell.h"
 
-@class HomeDataItem;
+@class ProductModel;
 
 @interface HomeCell : MOTableCell<MOTableCellDataProtocol>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *firstImgWidthConstraint;
@@ -20,5 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *enrollmentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+
+-(void)setData:(ProductModel *) model;
 
 @end

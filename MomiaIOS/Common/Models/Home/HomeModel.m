@@ -8,24 +8,11 @@
 
 #import "HomeModel.h"
 
-@implementation HomeCarouselItem
+@implementation HomeBannerModel
 
 @end
 
-@implementation HomeCarouselData
-
-@end
-
-@implementation HomeCarouselModel
-
-
-@end
-
-@implementation HomeDataItem
-
-@end
-
-@implementation HomeData
+@implementation HomeDataModel
 
 @end
 

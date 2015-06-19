@@ -7,10 +7,13 @@
 //
 
 #import "MOTableCell.h"
-@class HomeCarouselData;
 
 @interface HomeCarouselCell : MOTableCell<MOTableCellDataProtocol>
 
+@property (nonatomic,strong) void(^scrollClick)(NSInteger index);
+
 +(CGFloat)heightWithTableView:(UITableView *)tableView;
+
+-(void)setData:(NSArray *) banners;
 
 @end

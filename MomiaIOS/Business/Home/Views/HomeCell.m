@@ -12,14 +12,14 @@
 
 @implementation HomeCell
 
--(void)setData:(HomeDataItem *) data
+-(void)setData:(ProductModel *) model;
 {
-    self.imgView.image = [UIImage imageNamed:data.url];
-    self.titleLabel.text = data.title;
-    self.timeLabel.text = data.time;
-    self.descLabel.text = data.desc;
-    self.enrollmentLabel.text = [NSString stringWithFormat:@"%ld人报名",data.enrollmentNum];
-    self.priceLabel.text = [NSString stringWithFormat:@"￥%.2f",data.price];
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:model.cover] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
+    self.titleLabel.text = model.title;
+    self.timeLabel.text = model.scheduler;
+    self.descLabel.text = model.address;
+    self.enrollmentLabel.text = [NSString stringWithFormat:@"%ld人报名",model.joined];
+    self.priceLabel.text = [NSString stringWithFormat:@"￥%.2f",model.price];
     
     self.firstImgWidthConstraint.constant = [self.timeLabel systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].width + 6;
     self.secondImgWidthConstraint.constant = [self.enrollmentLabel systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].width + 6;
