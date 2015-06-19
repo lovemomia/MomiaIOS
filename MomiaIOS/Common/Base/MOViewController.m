@@ -29,7 +29,11 @@
         MONavigationController *navController = (MONavigationController *)self.navigationController;
         if([self isNavTransparent] == NO) {
             self.edgesForExtendedLayout = UIRectEdgeNone;
-            [navController showNavigationBar];
+            if([self isNavDarkStyle]) {
+                [navController setDarkTitleStyle];
+            } else {
+                [navController setLightTitleStyle];
+            }
             
         } else {
             [navController hideNavigationBar];
@@ -79,6 +83,10 @@
 
 /* 是否透明导航栏 */
 - (BOOL)isNavTransparent {
+    return NO;
+}
+
+- (BOOL)isNavDarkStyle {
     return NO;
 }
 

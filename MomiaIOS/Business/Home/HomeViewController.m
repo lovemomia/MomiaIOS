@@ -147,6 +147,10 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
 }
 
+- (BOOL)isNavDarkStyle {
+    return true;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

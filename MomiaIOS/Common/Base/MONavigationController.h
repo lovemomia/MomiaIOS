@@ -12,10 +12,10 @@
 
 @property(nonatomic, retain)UIView *backView;
 
-- (void)showNavigationBar;
+- (void)setDarkTitleStyle;
+
+- (void)setLightTitleStyle;
 
 - (void)hideNavigationBar;
-
-- (void)setTitleTextStyle;
 
 @end
