@@ -29,6 +29,7 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
     return 0.1;
 }
 
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     if(self.model)
@@ -117,13 +118,11 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
     }];
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self requestData];
     self.titleStr = @"上海";
-    
+        
     NSArray * array = [[NSBundle mainBundle] loadNibNamed:@"TitleView" owner:self options:nil];
     UIView * titleView = array[0];
     __weak UILabel * label = (UILabel *)[titleView viewWithTag:2001];
@@ -145,6 +144,9 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
     
     self.tableView.backgroundView = [[UIView alloc] init];
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
+    
+    [self requestData];
+
 }
 
 - (void)didReceiveMemoryWarning {
