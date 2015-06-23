@@ -191,10 +191,10 @@
 		<key>desc</key>
 		<string>收银台</string>
 	</dict>
-	<key>activitydetail</key>
+	<key>productdetail</key>
 	<dict>
 		<key>controller</key>
-		<string>ActivityDetailViewController</string>
+		<string>ProductDetailViewController</string>
 		<key>needlogin</key>
 		<false/>
 		<key>desc</key>
