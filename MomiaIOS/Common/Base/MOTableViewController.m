@@ -99,7 +99,7 @@
 #pragma mark Override
 
 - (UIEdgeInsets)tableViewOriginalContentInset {
-    return UIEdgeInsetsMake(0, 0, 0, 0);
+    return UIEdgeInsetsMake(-1, 0, 0, 0);
 }
 
 - (UIEdgeInsets)separatorInset {
