@@ -94,6 +94,7 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
     return 0.1;
 }
 
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     if(self.model) {
