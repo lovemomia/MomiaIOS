@@ -37,14 +37,14 @@
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     [super pushViewController:viewController animated:animated];
     
-//    UIBarButtonItem *item = [[UIBarButtonItem alloc] init];
-//    item.image = [UIImage imageNamed:@"cm_back"];
-//    viewController.navigationItem.backBarButtonItem = item;
+    UIBarButtonItem * backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:@selector(onBack)];
+    [viewController.navigationItem setBackBarButtonItem:backBarButtonItem];
+
     
-    UIBarButtonItem * backBarButtonItem =[[UIBarButtonItem alloc] initWithTitle: @"back" style:UIBarButtonItemStyleBordered target:self action:@selector(onBack)];
-    [backBarButtonItem setImage: [UIImage imageNamed: @"cm_back"]];
-//    [viewController.navigationItem setBackBarButtonItem:backBarButtonItem];
-    [viewController.navigationItem setLeftBarButtonItem:backBarButtonItem];
+    [[UINavigationBar appearance] setBackIndicatorImage:[[UIImage imageNamed:@"cm_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)]];
+    [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[[UIImage imageNamed:@"cm_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)]];
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, 0)
+                                                         forBarMetrics:UIBarMetricsDefault];
 }
 
 - (void)onBack {
@@ -72,7 +72,7 @@
 
 - (void)setLightTitleStyle {
     // text color
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
     [self.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:MO_APP_NaviColor,NSForegroundColorAttributeName,nil]];
     [self.navigationBar setTintColor:MO_APP_NaviColor];
     
