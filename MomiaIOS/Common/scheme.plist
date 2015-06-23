@@ -200,5 +200,14 @@
 		<key>desc</key>
 		<string>活动详情页</string>
 	</dict>
+	<key>playmate</key>
+	<dict>
+		<key>controller</key>
+		<string>PlaymateViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>玩伴</string>
+	</dict>
 </dict>
 </plist>

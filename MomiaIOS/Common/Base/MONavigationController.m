@@ -47,6 +47,27 @@
                                                          forBarMetrics:UIBarMetricsDefault];
 }
 
+- (NSArray *)popToRootViewControllerAnimated:(BOOL)animated {
+    [[[self viewControllers] objectAtIndex:0] setHidesBottomBarWhenPushed:NO];
+    return [super popToRootViewControllerAnimated:animated];
+}
+
+
+- (NSArray *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    if (self.viewControllers.count <= 2) {
+        [[[self viewControllers] objectAtIndex:0] setHidesBottomBarWhenPushed:NO];
+    }
+    return [super popToViewController:viewController animated:animated];
+}
+
+
+- (UIViewController *)popViewControllerAnimated:(BOOL)animated {
+    if (self.viewControllers.count <= 2) {
+        [[[self viewControllers] objectAtIndex:0] setHidesBottomBarWhenPushed:NO];
+    }
+    return [super popViewControllerAnimated:animated];
+}
+
 - (void)onBack {
     [self popViewControllerAnimated:YES];
 }
@@ -60,12 +81,12 @@
 - (void)setDarkTitleStyle {
     // text color
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
-    [self.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil]];
+    [self.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:19],NSForegroundColorAttributeName:[UIColor whiteColor]}];
     [self.navigationBar setTintColor:[UIColor whiteColor]];
     
     
     // background color
-    [self.navigationBar setBackgroundImage:[UIImage imageWithColor:MO_APP_NaviColor size:CGSizeMake(SCREEN_WIDTH, 64)] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationBar setBackgroundImage:[UIImage imageWithColor:MO_APP_ThemeColor size:CGSizeMake(SCREEN_WIDTH, 64)] forBarMetrics:UIBarMetricsDefault];
     self.navigationBar.shadowImage = [UIImage imageWithColor:[UIColor clearColor] size:CGSizeMake(1, 1)];
     self.navigationBar.translucent = NO;
 }
@@ -73,8 +94,8 @@
 - (void)setLightTitleStyle {
     // text color
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
-    [self.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:MO_APP_NaviColor,NSForegroundColorAttributeName,nil]];
-    [self.navigationBar setTintColor:MO_APP_NaviColor];
+    [self.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:19],NSForegroundColorAttributeName:MO_APP_ThemeColor}];
+    [self.navigationBar setTintColor:MO_APP_ThemeColor];
     
     // background color
     [self.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(SCREEN_WIDTH, 64)] forBarMetrics:UIBarMetricsDefault];

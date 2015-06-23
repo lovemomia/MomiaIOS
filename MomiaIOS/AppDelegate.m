@@ -12,13 +12,14 @@
 #import "MONavigationController.h"
 //APP端签名相关头文件
 #import "payRequsestHandler.h"
+#import "MORootViewController.h"
 
 @interface AppDelegate () {
 @private
     NSString *_deviceToken;
 }
 
-@property (strong, nonatomic) UINavigationController *root;
+@property (strong, nonatomic) MORootViewController *root;
 
 @end
 
@@ -28,13 +29,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    HomeViewController *home = [[HomeViewController alloc]initWithParams:nil];
+//    HomeViewController *home = [[HomeViewController alloc]initWithParams:nil];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    self.root = [[MONavigationController alloc]init];
+    self.root = [[MORootViewController alloc] init];
     self.window.rootViewController = self.root;
     
-    [self.root pushViewController:home animated:NO];
+//    self.root = [[MONavigationController alloc]init];
+//    self.window.rootViewController = self.root;
+    
+//    [self.root pushViewController:home animated:NO];
     [self.window makeKeyAndVisible];
     
     // 微信注册
@@ -156,7 +160,7 @@
 {
     NSLog(@"openURL with url: %@", [url absoluteString]);
     
-    [[URLMappingManager sharedManager] handleOpenURL:url byNav:self.root];
+    [[URLMappingManager sharedManager] handleOpenURL:url byNav:(UINavigationController *)self.root.selectedViewController];
 }
 
 #pragma mark - lifecyle

@@ -9,6 +9,10 @@
 #import "MOViewController.h"
 #import "MONavigationController.h"
 #import "URLMappingManager.h"
+#import "MORootViewController.h"
+#import "HomeViewController.h"
+#import "PlaymateViewController.h"
+#import "MineViewController.h"
 
 @interface MOViewController ()
 
@@ -77,6 +81,10 @@
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithNibName:nil bundle:nil]) {
         // todo
+        if (![self isKindOfClass:[HomeViewController class]] && ![self isKindOfClass:[MineViewController class]] && ![self isKindOfClass:[PlaymateViewController class]]) {
+            self.hidesBottomBarWhenPushed = YES;
+        }
+        
     }
     return self;
 }

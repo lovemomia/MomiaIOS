@@ -26,7 +26,8 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self requestData];
+    self.navigationItem.title = @"哆啦";
+    
     self.titleStr = @"上海";
     
     NSArray * array = [[NSBundle mainBundle] loadNibNamed:@"TitleView" owner:self options:nil];
@@ -40,8 +41,17 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
     UITapGestureRecognizer * tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTitleClick:)];
     [titleView addGestureRecognizer:tapRecognizer];
     
-    self.navigationItem.titleView = titleView;
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_mine"] style:UIBarButtonItemStylePlain target:self action:@selector(onMineClick)];
+    UIBarButtonItem *cityItem = [[UIBarButtonItem alloc] initWithCustomView:titleView];
+    if (isCurrentDeviceSystemVersionLater(7.0)) {
+        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+        negativeSpacer.width = -10;
+        self.navigationItem.leftBarButtonItems = @[negativeSpacer, cityItem];
+        
+    } else {
+        self.navigationItem.leftBarButtonItem = cityItem;
+    }
+
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_search"] style:UIBarButtonItemStylePlain target:self action:@selector(onSearchClick)];
     
     
@@ -56,6 +66,8 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
     [self.tableView addLegendHeaderWithRefreshingBlock:^{
         [weakSelf requestData];
     }];
+    
+    [self requestData];
 }
 
 #pragma mark - webData Request
@@ -134,7 +146,7 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
         HomeCarouselCell * carousel = [HomeCarouselCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeCarouselIdentifier];
         carousel.data = self.model.data.banners;
         carousel.scrollClick = ^void(NSInteger index) {
-            NSLog(@"index:%ld",index);
+            NSLog(@"index:%ud",index);
         };
         cell = carousel;
         
@@ -157,15 +169,9 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
     } else {
         product = self.model.data.products[indexPath.section];
     }
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://productdetail?id=%ld", product.pID]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://productdetail?id=%ud", product.pID]];
     [[UIApplication sharedApplication] openURL:url];
-}
-
-
--(void)onMineClick
-{
-    NSURL * url = [NSURL URLWithString:@"tq://mine"];
-    [[UIApplication sharedApplication] openURL:url];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(void)onSearchClick
@@ -177,6 +183,7 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
 
 -(void)onTitleClick:(UITapGestureRecognizer *)recognizer
 {
+    NSLog(@"change city");
     
 }
 
