@@ -9,7 +9,7 @@
 #import "MOTableCell.h"
 @class ProductModel;
 
-@interface ActivityDetailCarouselCell : MOTableCell<MOTableCellDataProtocol>
+@interface ProductDetailCarouselCell : MOTableCell<MOTableCellDataProtocol>
 
 -(void)setData:(ProductModel *)model;
 

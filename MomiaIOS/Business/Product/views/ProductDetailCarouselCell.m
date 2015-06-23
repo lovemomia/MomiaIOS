@@ -6,11 +6,11 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "ActivityDetailCarouselCell.h"
+#import "ProductDetailCarouselCell.h"
 #import "NSString+MOAttribuedString.h"
 #import "ProductModel.h"
 
-@interface ActivityDetailCarouselCell ()<UIScrollViewDelegate>
+@interface ProductDetailCarouselCell ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *enrollLabel;
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation ActivityDetailCarouselCell
+@implementation ProductDetailCarouselCell
 
 /*
 // Only override drawRect: if you perform custom drawing.

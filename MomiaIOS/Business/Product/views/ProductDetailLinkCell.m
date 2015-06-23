@@ -6,15 +6,15 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "ActivityDetailLinkCell.h"
+#import "ProductDetailLinkCell.h"
 #import "ProductModel.h"
 
-@interface ActivityDetailLinkCell ()
+@interface ProductDetailLinkCell ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
 
-@implementation ActivityDetailLinkCell
+@implementation ProductDetailLinkCell
 
 /*
 // Only override drawRect: if you perform custom drawing.

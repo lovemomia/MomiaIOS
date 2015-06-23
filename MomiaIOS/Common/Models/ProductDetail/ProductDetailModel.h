@@ -9,7 +9,7 @@
 #import "BaseModel.h"
 #import "ProductModel.h"
 
-@interface ActivityDetailModel : BaseModel
+@interface ProductDetailModel : BaseModel
 
 @property(nonatomic,strong) ProductModel * data;
 

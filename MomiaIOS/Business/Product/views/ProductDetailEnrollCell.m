@@ -6,16 +6,16 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "ActivityDetailEnrollCell.h"
+#import "ProductDetailEnrollCell.h"
 #import "ProductModel.h"
 
-@interface ActivityDetailEnrollCell ()
+@interface ProductDetailEnrollCell ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
-@implementation ActivityDetailEnrollCell
+@implementation ProductDetailEnrollCell
 
 /*
 // Only override drawRect: if you perform custom drawing.

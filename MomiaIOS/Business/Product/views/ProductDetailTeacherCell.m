@@ -6,16 +6,16 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "ActivityDetailTeacherCell.h"
+#import "ProductDetailTeacherCell.h"
 #import "ProductModel.h"
 
-@interface ActivityDetailTeacherCell ()
+@interface ProductDetailTeacherCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
 
-@implementation ActivityDetailTeacherCell
+@implementation ProductDetailTeacherCell
 
 /*
 // Only override drawRect: if you perform custom drawing.

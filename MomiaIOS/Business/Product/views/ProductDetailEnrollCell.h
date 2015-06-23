@@ -10,7 +10,7 @@
 
 @class ProductCustomersModel;
 
-@interface ActivityDetailEnrollCell : MOTableCell<MOTableCellDataProtocol>
+@interface ProductDetailEnrollCell : MOTableCell<MOTableCellDataProtocol>
 
 -(void)setData:(ProductCustomersModel *)model;
 

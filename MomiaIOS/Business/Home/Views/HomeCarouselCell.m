@@ -27,12 +27,17 @@
     CGFloat pageWidth = scroll.width;
     NSInteger page = scroll.contentOffset.x/pageWidth;
     NSInteger index;
-    if(page == 0) {
-        index = self.imgsNum - 3;
-    } else if(page == self.imgsNum - 1) {
+    
+    if(self.imgsNum == 1) {
         index = 0;
     } else {
-        index = page - 1;
+        if(page == 0) {
+            index = self.imgsNum - 3;
+        } else if(page == self.imgsNum - 1) {
+            index = 0;
+        } else {
+            index = page - 1;
+        }
     }
     self.scrollClick(index);
     

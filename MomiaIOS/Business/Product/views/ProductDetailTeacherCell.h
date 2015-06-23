@@ -10,7 +10,7 @@
 
 @class ProductContentModel;
 
-@interface ActivityDetailTeacherCell : MOTableCell<MOTableCellDataProtocol>
+@interface ProductDetailTeacherCell : MOTableCell<MOTableCellDataProtocol>
 
 
 -(void)setData:(ProductContentModel *) model;

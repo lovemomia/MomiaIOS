@@ -1,8 +1,8 @@
 //
-//  ActivityDetailContentCell.h
+//  ActivityDetailLinkCell.h
 //  MomiaIOS
 //
-//  Created by Owen on 15/6/16.
+//  Created by Owen on 15/6/18.
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
@@ -10,8 +10,9 @@
 
 @class ProductContentModel;
 
-@interface ActivityDetailContentCell : MOTableCell<MOTableCellDataProtocol>
+@interface ProductDetailLinkCell : MOTableCell<MOTableCellDataProtocol>
 
 -(void)setData:(ProductContentModel *)model;
+
 
 @end

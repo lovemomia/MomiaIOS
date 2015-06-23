@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "ActivityDetailModel.h"
+#import "ProductDetailModel.h"
 
-@implementation ActivityDetailModel
+@implementation ProductDetailModel
 
 @end

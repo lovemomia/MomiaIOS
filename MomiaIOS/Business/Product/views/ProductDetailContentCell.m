@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "ActivityDetailContentCell.h"
+#import "ProductDetailContentCell.h"
 #import "ProductModel.h"
 #import "NSString+MOAttribuedString.h"
 
@@ -16,12 +16,12 @@ typedef enum {
     StyleStatusNone
 } StyleStatus;
 
-@interface ActivityDetailContentCell ()
+@interface ProductDetailContentCell ()
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 
 @end
 
-@implementation ActivityDetailContentCell
+@implementation ProductDetailContentCell
 
 /*
 // Only override drawRect: if you perform custom drawing.

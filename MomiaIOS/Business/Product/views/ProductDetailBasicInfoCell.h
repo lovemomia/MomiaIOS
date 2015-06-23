@@ -9,7 +9,7 @@
 #import "MOTableCell.h"
 @class ProductModel;
 
-@interface ActivityDetailBasicInfoCell : MOTableCell<MOTableCellDataProtocol>
+@interface ProductDetailBasicInfoCell : MOTableCell<MOTableCellDataProtocol>
 
 -(void)setData:(NSString *)data;
 
