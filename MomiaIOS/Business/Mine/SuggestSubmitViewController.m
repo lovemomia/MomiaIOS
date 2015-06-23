@@ -63,7 +63,7 @@ typedef enum {
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [((MONavigationController *)self.navigationController) setTitleTextStyle];
+
 }
 
 - (void)didReceiveMemoryWarning {

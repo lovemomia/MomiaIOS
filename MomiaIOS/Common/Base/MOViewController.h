@@ -20,6 +20,8 @@
 
 - (BOOL)isNavTransparent;
 
+- (BOOL)isNavDarkStyle;
+
 - (BOOL)openURL:(NSString *)urlStr;
 
 - (BOOL)openURL:(NSString *)urlStr byNav:(UINavigationController *)nav;

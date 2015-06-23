@@ -149,6 +149,10 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
 
 }
 
+- (BOOL)isNavDarkStyle {
+    return true;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
