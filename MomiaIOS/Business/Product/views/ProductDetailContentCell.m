@@ -33,8 +33,8 @@ typedef enum {
 
 -(NSAttributedString *)attributedStringOfArray:(NSArray *)array andStyle:(StyleStatus) status
 {
-    NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    paragraphStyle.lineSpacing = 13.0f;
+//    NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+//    paragraphStyle.lineSpacing = 13.0f;
     
     NSMutableAttributedString * s = [[NSMutableAttributedString alloc] init];
 
@@ -60,11 +60,11 @@ typedef enum {
             if(model.label) {
                 content = [[content stringByAppendingString:model.label] stringByAppendingString:@": "];
                 NSAttributedString * as1 = [content attributedStringWithColor:UIColorFromRGB(0xf67531) andFont:self.contentLabel.font];
-                NSAttributedString * as2 = [model.text attributedStringWithColor:self.contentLabel.textColor andFont:self.contentLabel.font];
+                NSAttributedString * as2 = [model.text attributedStringWithColor:UIColorFromRGB(0x666666) andFont:self.contentLabel.font];
                 [as appendAttributedString:as1]; [as appendAttributedString:as2];
             } else {
                 content = [content stringByAppendingString:model.text];
-                NSAttributedString * as3 = [content attributedStringWithColor:self.contentLabel.textColor andFont:self.contentLabel.font];
+                NSAttributedString * as3 = [content attributedStringWithColor:UIColorFromRGB(0x666666) andFont:self.contentLabel.font];
                 [as appendAttributedString:as3];
             }
             
@@ -74,7 +74,6 @@ typedef enum {
     }
     
     return s;
-    
 }
 
 -(void)setData:(ProductContentModel *)model
