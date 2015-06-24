@@ -170,6 +170,7 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
         product = self.model.data.products[indexPath.section];
     }
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://productdetail?id=%ld", product.pID]];
+
     [[UIApplication sharedApplication] openURL:url];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
