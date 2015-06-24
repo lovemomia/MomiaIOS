@@ -8,14 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		087C98AEC54638860E9ACAB0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9DF4BE98C18CC18BDADCD8 /* libPods.a */; };
-		5A02560F1B26C05B0016DB33 /* FillOrderRemarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A02560D1B26C05B0016DB33 /* FillOrderRemarkCell.m */; };
-		5A0256101B26C05B0016DB33 /* FillOrderRemarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A02560E1B26C05B0016DB33 /* FillOrderRemarkCell.xib */; };
 		5A04EF1F1B0D84EC00A88D3B /* GoodsTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A04EF1E1B0D84EC00A88D3B /* GoodsTopicViewController.m */; };
 		5A04EF231B0D887800A88D3B /* GoodsTopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A04EF221B0D887800A88D3B /* GoodsTopicModel.m */; };
 		5A04EF271B0D8CBE00A88D3B /* GoodsTopicHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A04EF261B0D8CBE00A88D3B /* GoodsTopicHeaderCell.m */; };
 		5A04EF2A1B0D8D1A00A88D3B /* GoodsTopicItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A04EF291B0D8D1A00A88D3B /* GoodsTopicItemCell.m */; };
 		5A04EF2D1B0DCD4E00A88D3B /* GoodsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A04EF2C1B0DCD4E00A88D3B /* GoodsDetailModel.m */; };
 		5A04EF301B0DE8EE00A88D3B /* GoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A04EF2F1B0DE8EE00A88D3B /* GoodsDetailViewController.m */; };
+		5A074F7E1B3A8F47001E5006 /* MOStepperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A074F7D1B3A8F47001E5006 /* MOStepperView.m */; };
+		5A074F801B3A8F88001E5006 /* MOStepperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A074F7F1B3A8F88001E5006 /* MOStepperView.xib */; };
+		5A074F871B3AC39A001E5006 /* FillOrderTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A074F851B3AC39A001E5006 /* FillOrderTopCell.m */; };
+		5A074F881B3AC39A001E5006 /* FillOrderTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A074F861B3AC39A001E5006 /* FillOrderTopCell.xib */; };
 		5A08C1391B39117100642648 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C1241B39117100642648 /* ProductDetailViewController.m */; };
 		5A08C13A1B39117100642648 /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A08C1251B39117100642648 /* ProductDetailViewController.xib */; };
 		5A08C13B1B39117100642648 /* ProductDetailBasicInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C1281B39117100642648 /* ProductDetailBasicInfoCell.m */; };
@@ -71,8 +73,6 @@
 		5A6C34CB1B15B57B001252C5 /* MOBarButtonItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C34CA1B15B57B001252C5 /* MOBarButtonItemView.m */; };
 		5A82F1A31B257449000D2C60 /* FillOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A82F1A11B257449000D2C60 /* FillOrderViewController.m */; };
 		5A82F1A41B257449000D2C60 /* FillOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A82F1A21B257449000D2C60 /* FillOrderViewController.xib */; };
-		5A82F1A91B2581A2000D2C60 /* FillOrderItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A82F1A71B2581A2000D2C60 /* FillOrderItemCell.m */; };
-		5A82F1AA1B2581A2000D2C60 /* FillOrderItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A82F1A81B2581A2000D2C60 /* FillOrderItemCell.xib */; };
 		5A83074D1B327FB40057412A /* CommonHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A83074C1B327FB40057412A /* CommonHeaderView.m */; };
 		5A83074F1B3291430057412A /* CommonHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A83074E1B3291430057412A /* CommonHeaderView.xib */; };
 		5A8EF0361B31407B003ABAF8 /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A8EF0351B31407B003ABAF8 /* HomeCell.xib */; };
@@ -84,10 +84,6 @@
 		5AABF6FB1B28120C000A9D3F /* OrderAddPersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AABF6F91B28120C000A9D3F /* OrderAddPersonViewController.xib */; };
 		5AABF7001B281348000A9D3F /* OrderAddPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AABF6FE1B281348000A9D3F /* OrderAddPersonCell.xib */; };
 		5AABF70F1B281BEF000A9D3F /* ConvertFromXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AABF70E1B281BEF000A9D3F /* ConvertFromXib.m */; };
-		5AB77E1F1B2699D800C04DF8 /* FillOrderPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB77E1D1B2699D800C04DF8 /* FillOrderPersonCell.m */; };
-		5AB77E201B2699D800C04DF8 /* FillOrderPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB77E1E1B2699D800C04DF8 /* FillOrderPersonCell.xib */; };
-		5AB77E241B26A16C00C04DF8 /* FillOrderPersonSelectedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB77E221B26A16C00C04DF8 /* FillOrderPersonSelectedCell.m */; };
-		5AB77E251B26A16C00C04DF8 /* FillOrderPersonSelectedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB77E231B26A16C00C04DF8 /* FillOrderPersonSelectedCell.xib */; };
 		5AB7B3A81B0EC11700044DFE /* GoodsDetailHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7B3A71B0EC11700044DFE /* GoodsDetailHeaderCell.m */; };
 		5AB7B3AB1B0EC1B800044DFE /* GoodsDetailImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7B3AA1B0EC1B800044DFE /* GoodsDetailImgCell.m */; };
 		5AB7B3AE1B0EC1E800044DFE /* GoodsDetailShopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB7B3AD1B0EC1E800044DFE /* GoodsDetailShopCell.m */; };
@@ -195,9 +191,6 @@
 /* Begin PBXFileReference section */
 		081C0A2B3B84523909EC659D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		36BF39E53B6AA82DBC50D3EB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		5A02560C1B26C05B0016DB33 /* FillOrderRemarkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FillOrderRemarkCell.h; path = Business/Order/views/FillOrderRemarkCell.h; sourceTree = "<group>"; };
-		5A02560D1B26C05B0016DB33 /* FillOrderRemarkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FillOrderRemarkCell.m; path = Business/Order/views/FillOrderRemarkCell.m; sourceTree = "<group>"; };
-		5A02560E1B26C05B0016DB33 /* FillOrderRemarkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FillOrderRemarkCell.xib; path = Business/Order/views/FillOrderRemarkCell.xib; sourceTree = "<group>"; };
 		5A04EF1D1B0D84EC00A88D3B /* GoodsTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsTopicViewController.h; path = Business/Goods/GoodsTopicViewController.h; sourceTree = "<group>"; };
 		5A04EF1E1B0D84EC00A88D3B /* GoodsTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsTopicViewController.m; path = Business/Goods/GoodsTopicViewController.m; sourceTree = "<group>"; };
 		5A04EF211B0D887800A88D3B /* GoodsTopicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsTopicModel.h; path = Common/Models/Goods/GoodsTopicModel.h; sourceTree = "<group>"; };
@@ -210,6 +203,12 @@
 		5A04EF2C1B0DCD4E00A88D3B /* GoodsDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailModel.m; path = Common/Models/Goods/GoodsDetailModel.m; sourceTree = "<group>"; };
 		5A04EF2E1B0DE8EE00A88D3B /* GoodsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsDetailViewController.h; path = Business/Goods/GoodsDetailViewController.h; sourceTree = "<group>"; };
 		5A04EF2F1B0DE8EE00A88D3B /* GoodsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailViewController.m; path = Business/Goods/GoodsDetailViewController.m; sourceTree = "<group>"; };
+		5A074F7C1B3A8F47001E5006 /* MOStepperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOStepperView.h; path = Common/Views/MOStepperView.h; sourceTree = "<group>"; };
+		5A074F7D1B3A8F47001E5006 /* MOStepperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOStepperView.m; path = Common/Views/MOStepperView.m; sourceTree = "<group>"; };
+		5A074F7F1B3A8F88001E5006 /* MOStepperView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MOStepperView.xib; path = Common/Views/MOStepperView.xib; sourceTree = "<group>"; };
+		5A074F841B3AC39A001E5006 /* FillOrderTopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FillOrderTopCell.h; path = Business/Order/views/FillOrderTopCell.h; sourceTree = "<group>"; };
+		5A074F851B3AC39A001E5006 /* FillOrderTopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FillOrderTopCell.m; path = Business/Order/views/FillOrderTopCell.m; sourceTree = "<group>"; };
+		5A074F861B3AC39A001E5006 /* FillOrderTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FillOrderTopCell.xib; path = Business/Order/views/FillOrderTopCell.xib; sourceTree = "<group>"; };
 		5A08C1231B39117100642648 /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
 		5A08C1241B39117100642648 /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
 		5A08C1251B39117100642648 /* ProductDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailViewController.xib; sourceTree = "<group>"; };
@@ -298,9 +297,6 @@
 		5A82F1A01B257449000D2C60 /* FillOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FillOrderViewController.h; path = Business/Order/FillOrderViewController.h; sourceTree = "<group>"; };
 		5A82F1A11B257449000D2C60 /* FillOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FillOrderViewController.m; path = Business/Order/FillOrderViewController.m; sourceTree = "<group>"; };
 		5A82F1A21B257449000D2C60 /* FillOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FillOrderViewController.xib; path = Business/Order/FillOrderViewController.xib; sourceTree = "<group>"; };
-		5A82F1A61B2581A2000D2C60 /* FillOrderItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FillOrderItemCell.h; path = Business/Order/views/FillOrderItemCell.h; sourceTree = "<group>"; };
-		5A82F1A71B2581A2000D2C60 /* FillOrderItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FillOrderItemCell.m; path = Business/Order/views/FillOrderItemCell.m; sourceTree = "<group>"; };
-		5A82F1A81B2581A2000D2C60 /* FillOrderItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FillOrderItemCell.xib; path = Business/Order/views/FillOrderItemCell.xib; sourceTree = "<group>"; };
 		5A83074B1B327FB40057412A /* CommonHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonHeaderView.h; path = Common/Views/CommonHeaderView.h; sourceTree = "<group>"; };
 		5A83074C1B327FB40057412A /* CommonHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonHeaderView.m; path = Common/Views/CommonHeaderView.m; sourceTree = "<group>"; };
 		5A83074E1B3291430057412A /* CommonHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommonHeaderView.xib; path = Common/Views/CommonHeaderView.xib; sourceTree = "<group>"; };
@@ -319,12 +315,6 @@
 		5AABF6FE1B281348000A9D3F /* OrderAddPersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderAddPersonCell.xib; path = Business/Order/views/OrderAddPersonCell.xib; sourceTree = "<group>"; };
 		5AABF70D1B281BEF000A9D3F /* ConvertFromXib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConvertFromXib.h; path = Common/Utils/ConvertFromXib.h; sourceTree = "<group>"; };
 		5AABF70E1B281BEF000A9D3F /* ConvertFromXib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConvertFromXib.m; path = Common/Utils/ConvertFromXib.m; sourceTree = "<group>"; };
-		5AB77E1C1B2699D800C04DF8 /* FillOrderPersonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FillOrderPersonCell.h; path = Business/Order/views/FillOrderPersonCell.h; sourceTree = "<group>"; };
-		5AB77E1D1B2699D800C04DF8 /* FillOrderPersonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FillOrderPersonCell.m; path = Business/Order/views/FillOrderPersonCell.m; sourceTree = "<group>"; };
-		5AB77E1E1B2699D800C04DF8 /* FillOrderPersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FillOrderPersonCell.xib; path = Business/Order/views/FillOrderPersonCell.xib; sourceTree = "<group>"; };
-		5AB77E211B26A16C00C04DF8 /* FillOrderPersonSelectedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FillOrderPersonSelectedCell.h; path = Business/Order/views/FillOrderPersonSelectedCell.h; sourceTree = "<group>"; };
-		5AB77E221B26A16C00C04DF8 /* FillOrderPersonSelectedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FillOrderPersonSelectedCell.m; path = Business/Order/views/FillOrderPersonSelectedCell.m; sourceTree = "<group>"; };
-		5AB77E231B26A16C00C04DF8 /* FillOrderPersonSelectedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FillOrderPersonSelectedCell.xib; path = Business/Order/views/FillOrderPersonSelectedCell.xib; sourceTree = "<group>"; };
 		5AB7B3A61B0EC11700044DFE /* GoodsDetailHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsDetailHeaderCell.h; path = Business/Goods/views/GoodsDetailHeaderCell.h; sourceTree = "<group>"; };
 		5AB7B3A71B0EC11700044DFE /* GoodsDetailHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailHeaderCell.m; path = Business/Goods/views/GoodsDetailHeaderCell.m; sourceTree = "<group>"; };
 		5AB7B3A91B0EC1B800044DFE /* GoodsDetailImgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsDetailImgCell.h; path = Business/Goods/views/GoodsDetailImgCell.h; sourceTree = "<group>"; };
@@ -725,18 +715,6 @@
 		5A82F1A51B25812E000D2C60 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				5A82F1A61B2581A2000D2C60 /* FillOrderItemCell.h */,
-				5A82F1A71B2581A2000D2C60 /* FillOrderItemCell.m */,
-				5A82F1A81B2581A2000D2C60 /* FillOrderItemCell.xib */,
-				5AB77E1C1B2699D800C04DF8 /* FillOrderPersonCell.h */,
-				5AB77E1D1B2699D800C04DF8 /* FillOrderPersonCell.m */,
-				5AB77E1E1B2699D800C04DF8 /* FillOrderPersonCell.xib */,
-				5AB77E211B26A16C00C04DF8 /* FillOrderPersonSelectedCell.h */,
-				5AB77E221B26A16C00C04DF8 /* FillOrderPersonSelectedCell.m */,
-				5AB77E231B26A16C00C04DF8 /* FillOrderPersonSelectedCell.xib */,
-				5A02560C1B26C05B0016DB33 /* FillOrderRemarkCell.h */,
-				5A02560D1B26C05B0016DB33 /* FillOrderRemarkCell.m */,
-				5A02560E1B26C05B0016DB33 /* FillOrderRemarkCell.xib */,
 				5AE995A01B26F9B8003DAAC0 /* FillOrderFooterView.h */,
 				5AE995A11B26F9B8003DAAC0 /* FillOrderFooterView.m */,
 				5AE995A31B26F9EE003DAAC0 /* FillOrderFooterView.xib */,
@@ -744,6 +722,9 @@
 				5A4044351B27DB110010782C /* OrderPersonCell.m */,
 				5A4044361B27DB110010782C /* OrderPersonCell.xib */,
 				5AABF6FE1B281348000A9D3F /* OrderAddPersonCell.xib */,
+				5A074F841B3AC39A001E5006 /* FillOrderTopCell.h */,
+				5A074F851B3AC39A001E5006 /* FillOrderTopCell.m */,
+				5A074F861B3AC39A001E5006 /* FillOrderTopCell.xib */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -816,6 +797,9 @@
 				BC2C0C951B184EA500E2446E /* AvatarImageView.m */,
 				BC2C0C971B1858E800E2446E /* MOLabel.h */,
 				BC2C0C981B1858E800E2446E /* MOLabel.m */,
+				5A074F7C1B3A8F47001E5006 /* MOStepperView.h */,
+				5A074F7D1B3A8F47001E5006 /* MOStepperView.m */,
+				5A074F7F1B3A8F88001E5006 /* MOStepperView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1424,7 +1408,6 @@
 				BCA273271AEB1EBA002E7534 /* MineInfoCell.xib in Resources */,
 				5A08C1401B39117100642648 /* ProductDetailContentCell.xib in Resources */,
 				5A33F19B1B2EA0A4002A8258 /* CashPayBottomCell.xib in Resources */,
-				5A82F1AA1B2581A2000D2C60 /* FillOrderItemCell.xib in Resources */,
 				5A08C1461B39117100642648 /* ProductDetailTeacherCell.xib in Resources */,
 				5A08C1441B39117100642648 /* ProductDetailLinkCell.xib in Resources */,
 				5A4044331B27D18C0010782C /* OrderPersonViewController.xib in Resources */,
@@ -1439,18 +1422,17 @@
 				5A08C13C1B39117100642648 /* ProductDetailBasicInfoCell.xib in Resources */,
 				BCA273361AEB7EC4002E7534 /* ArticleTopicCells.xib in Resources */,
 				BCA273101AE9D79F002E7534 /* scheme.plist in Resources */,
-				5AB77E251B26A16C00C04DF8 /* FillOrderPersonSelectedCell.xib in Resources */,
 				5AABF7001B281348000A9D3F /* OrderAddPersonCell.xib in Resources */,
 				5A33F1931B2E9FC5002A8258 /* CashPayViewController.xib in Resources */,
 				BCA273061AE8D0E9002E7534 /* Launch Screen.xib in Resources */,
 				5A33F19D1B2EA0A4002A8258 /* CashPayTopCell.xib in Resources */,
 				BC2C0C531B1303BA00E2446E /* LoginViewController.xib in Resources */,
+				5A074F801B3A8F88001E5006 /* MOStepperView.xib in Resources */,
+				5A074F881B3AC39A001E5006 /* FillOrderTopCell.xib in Resources */,
 				5A18DC531B2968D5001458A4 /* HomeData.plist in Resources */,
 				5A33F1A21B2EA1D5002A8258 /* CashPayTopHeaderView.xib in Resources */,
-				5A0256101B26C05B0016DB33 /* FillOrderRemarkCell.xib in Resources */,
 				BC2C0C771B140BF100E2446E /* RegisterViewController.xib in Resources */,
 				5A6806FD1B01DA5100D02A60 /* MyCollectionCell.xib in Resources */,
-				5AB77E201B2699D800C04DF8 /* FillOrderPersonCell.xib in Resources */,
 				5A33F1A81B2EBC2F002A8258 /* TitleView.xib in Resources */,
 				5AE995A41B26F9EE003DAAC0 /* FillOrderFooterView.xib in Resources */,
 				BC41ABA61B0C69BE00A419DA /* read_me.txt in Resources */,
@@ -1516,9 +1498,9 @@
 				BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */,
 				BC2C0C801B14659400E2446E /* MyStatusViewController.m in Sources */,
 				5A33F19A1B2EA0A4002A8258 /* CashPayBottomCell.m in Sources */,
+				5A074F871B3AC39A001E5006 /* FillOrderTopCell.m in Sources */,
 				5AB7B3A81B0EC11700044DFE /* GoodsDetailHeaderCell.m in Sources */,
 				5A08C1411B39117100642648 /* ProductDetailEnrollCell.m in Sources */,
-				5AB77E241B26A16C00C04DF8 /* FillOrderPersonSelectedCell.m in Sources */,
 				BC77085F1AFC5685000068A8 /* UILabel+ContentSize.m in Sources */,
 				BC2C0C571B1309A800E2446E /* MOButton.m in Sources */,
 				BCA273321AEB4A5A002E7534 /* ArticleTopicViewController.m in Sources */,
@@ -1526,7 +1508,6 @@
 				5A456F9A1B2E687700E95756 /* MOTableCell.m in Sources */,
 				BC2C0C961B184EA500E2446E /* AvatarImageView.m in Sources */,
 				BC2C0C641B130CDB00E2446E /* Account.m in Sources */,
-				5A02560F1B26C05B0016DB33 /* FillOrderRemarkCell.m in Sources */,
 				5A04EF271B0D8CBE00A88D3B /* GoodsTopicHeaderCell.m in Sources */,
 				5AEB188A1B1865F90098FD5F /* MySuggestModel.m in Sources */,
 				5A08C1391B39117100642648 /* ProductDetailViewController.m in Sources */,
@@ -1551,7 +1532,6 @@
 				BC2C0C991B1858E800E2446E /* MOLabel.m in Sources */,
 				5A33F1A11B2EA1D5002A8258 /* CashPayTopHeaderView.m in Sources */,
 				5A1B35F61B12C0D200E1D31B /* CommentCell.m in Sources */,
-				5A82F1A91B2581A2000D2C60 /* FillOrderItemCell.m in Sources */,
 				BC8540911ADF74E9005A7C54 /* main.m in Sources */,
 				5A8EF03D1B31619E003ABAF8 /* ProductModel.m in Sources */,
 				5AA217101B1317CE00E85D0D /* ArticleDetailConstantCell.m in Sources */,
@@ -1597,8 +1577,8 @@
 				5A8EF0401B31A4A2003ABAF8 /* NSString+MOAttribuedString.m in Sources */,
 				BC41ABAD1B0C7ABF00A419DA /* UploadImageModel.m in Sources */,
 				5A18DC471B292BDF001458A4 /* UITableView+FDTemplateLayoutHeader.m in Sources */,
+				5A074F7E1B3A8F47001E5006 /* MOStepperView.m in Sources */,
 				5A08C13B1B39117100642648 /* ProductDetailBasicInfoCell.m in Sources */,
-				5AB77E1F1B2699D800C04DF8 /* FillOrderPersonCell.m in Sources */,
 				BC7708541AFB1600000068A8 /* ArticleDetailViewController.m in Sources */,
 				5A4044371B27DB110010782C /* OrderPersonCell.m in Sources */,
 				BCCDF6801B0C331B008BAE12 /* ThirdAccountHelper.m in Sources */,

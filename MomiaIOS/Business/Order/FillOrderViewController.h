@@ -9,7 +9,7 @@
 #import "MOViewController.h"
 #import "UITextView+Placeholder.h"
 
-@interface FillOrderViewController : MOViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,MOTextViewDelegate>
+@interface FillOrderViewController : MOViewController<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 

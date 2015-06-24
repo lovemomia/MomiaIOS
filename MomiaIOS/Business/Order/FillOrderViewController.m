@@ -7,10 +7,6 @@
 //
 
 #import "FillOrderViewController.h"
-#import "FillOrderItemCell.h"
-#import "FillOrderPersonCell.h"
-#import "FillOrderPersonSelectedCell.h"
-#import "FillOrderRemarkCell.h"
 #import "FillOrderFooterView.h"
 
 static NSString * identifier = @"FillOrderHeaderViewIdentifier";
@@ -28,6 +24,7 @@ static NSString * fillOrderRemarkIdentifier = @"CellFillOrderRemark";
 @end
 
 @implementation FillOrderViewController
+
 - (IBAction)onSureClick:(id)sender {
     
     NSURL * url = [NSURL URLWithString:@"tq://cashpay"];
@@ -39,8 +36,10 @@ static NSString * fillOrderRemarkIdentifier = @"CellFillOrderRemark";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 35.0f;
+    return 41.0f;
 }
+
+
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -74,41 +73,12 @@ static NSString * fillOrderRemarkIdentifier = @"CellFillOrderRemark";
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    switch (section) {
-        case 0:
-            return 1;
-            break;
-        case 1:
-            return 2;
-            break;
-        default:
-            return 1;
-            break;
-    }
+    return 3;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger section = indexPath.section;
-    NSInteger row = indexPath.row;
-    switch (section) {
-        case 0:
-        {
-            return [FillOrderPersonCell heightWithTableView:tableView withIdentifier:fillOrderPersonIdentifier forIndexPath:indexPath data:@{@"title":@"请选择1个成人和1个儿童"}];
-        }
-            break;
-        case 1:
-        {
-            return [FillOrderItemCell heightWithTableView:tableView withIdentifier:fillOrderItemIdentifier forIndexPath:indexPath data:self.dataArray[row]];
-        }
-            break;
-        default:
-        {
-            return [FillOrderRemarkCell height];
-        }
-            break;
-    }
-    
+    return 50;
 }
 
 
@@ -120,30 +90,17 @@ static NSString * fillOrderRemarkIdentifier = @"CellFillOrderRemark";
     switch (section) {
         case 0:
         {
-            FillOrderPersonCell * person = [FillOrderPersonCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:fillOrderPersonIdentifier];
-            person.data = @{@"title":@"请选择1个成人和1个儿童"};
            
-            person.chooseBlock = ^(UIButton * sender) {
-                NSURL * url = [NSURL URLWithString:@"tq://orderperson"];
-                [[UIApplication sharedApplication] openURL:url];
-            };
-            cell = person;
         }
             break;
         case 1:
         {
-            FillOrderItemCell * item = [FillOrderItemCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:fillOrderItemIdentifier];
-            item.contentTextField.delegate = self;
-            item.data = self.dataArray[row];
-            cell = item;
+           
         }
             break;
         default:
         {
-            FillOrderRemarkCell * remark = [FillOrderRemarkCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:fillOrderRemarkIdentifier];
-            remark.placeHolder = @"请告诉我们您的特殊需求";
-            remark.remarkTextView.moDelegate = self;
-            cell = remark;
+          
         }
             break;
     }
@@ -152,6 +109,7 @@ static NSString * fillOrderRemarkIdentifier = @"CellFillOrderRemark";
     
 }
 
+/*
 
 #pragma mark - solve active textObject hidden by keyboard
 // Call this method somewhere in your view controller setup code.
@@ -233,41 +191,17 @@ static NSString * fillOrderRemarkIdentifier = @"CellFillOrderRemark";
 {
     self.activeView = nil;
 }
-
+*/
 
 #pragma mark - view life cycle
 
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self registerForKeyboardNotifications];
-}
-
--(void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    [self removeForKeyboardNotifications];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.navigationItem.title = @"填写订单";
-    NSDictionary * dic1 = @{@"title":@"姓名",@"placeholder":@"请输入您的姓名"};
-    NSDictionary * dic2 = @{@"title":@"手机",@"placeholder":@"请输入您的手机号"};
-   
-    self.dataArray = @[dic1,dic2];
-    
-    NSDictionary * hDic1 = @{@"title":@"出行人"};
-    NSDictionary * hDic2 = @{@"title":@"联系人信息"};
-    NSDictionary * hDic3 = @{@"title":@"备注"};
-
-    self.HeaderArray = @[hDic1,hDic2,hDic3];
-    
-    [FillOrderPersonCell registerCellWithTableView:self.tableView withIdentifier:fillOrderPersonIdentifier];
-    [FillOrderItemCell registerCellWithTableView:self.tableView withIdentifier:fillOrderItemIdentifier];
-    [FillOrderRemarkCell registerCellWithTableView:self.tableView withIdentifier:fillOrderRemarkIdentifier];
+    self.navigationItem.title = @"提交订单";
+  
     [FillOrderFooterView registerCellWithTableView:self.tableView];
     [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:identifier];
     
