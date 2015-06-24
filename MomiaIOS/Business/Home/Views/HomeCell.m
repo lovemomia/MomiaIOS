@@ -16,21 +16,19 @@
 {
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:model.cover] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
     self.titleLabel.text = model.title;
-    self.timeLabel.text = model.scheduler;
+    [self.timeLabel setTitle:model.scheduler forState:UIControlStateNormal];
     self.descLabel.text = model.address;
-    self.enrollmentLabel.text = [NSString stringWithFormat:@"%ld人报名",model.joined];
+    [self.enrollmentLabel setTitle:[NSString stringWithFormat:@"%ld人报名",model.joined] forState:UIControlStateNormal];
     self.priceLabel.text = [NSString stringWithFormat:@"￥%.2f",model.price];
-    
-    self.firstImgWidthConstraint.constant = [self.timeLabel systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].width + 6;
-    self.secondImgWidthConstraint.constant = [self.enrollmentLabel systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].width + 6;
-
 }
 
 
 - (void)awakeFromNib {
     // Initialization code
-   
-  
+    UIImage *image = [UIImage imageNamed:@"home_textbg"];
+    image = [image stretchableImageWithLeftCapWidth:floorf(image.size.width/2) topCapHeight:floorf(image.size.height/2)];
+    [self.timeLabel setBackgroundImage:image forState:UIControlStateDisabled];
+    [self.enrollmentLabel setBackgroundImage:image forState:UIControlStateDisabled];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
