@@ -6,6 +6,33 @@
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="1Hv-s4-OEu">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Hv-s4-OEu" id="yNU-yI-IVt">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入您的昵称" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="91F-uf-7zR">
+                        <rect key="frame" x="80" y="0.0" width="229" height="43.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="昵称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTt-WC-vpM">
+                        <rect key="frame" x="16" y="11" width="34" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="91F-uf-7zR" firstAttribute="top" secondItem="yNU-yI-IVt" secondAttribute="top" id="PrD-dl-YXt"/>
+                    <constraint firstAttribute="bottom" secondItem="91F-uf-7zR" secondAttribute="bottom" id="TPn-ZI-9ww"/>
+                    <constraint firstItem="91F-uf-7zR" firstAttribute="leading" secondItem="yNU-yI-IVt" secondAttribute="leading" constant="80" id="Yfd-Fg-6jo"/>
+                    <constraint firstAttribute="trailing" secondItem="91F-uf-7zR" secondAttribute="trailing" constant="11" id="qZt-YK-bom"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="337" y="189"/>
+        </tableViewCell>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="t0g-fI-Byr">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -13,16 +40,22 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t0g-fI-Byr" id="9ma-kh-x8q">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hcb-gR-VU3">
-                        <rect key="frame" x="11" y="0.0" width="298" height="43.5"/>
+                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入您的手机号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hcb-gR-VU3">
+                        <rect key="frame" x="80" y="0.0" width="229" height="43.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                     </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="手机" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AB1-Rw-JVT">
+                        <rect key="frame" x="16" y="11" width="34" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="Hcb-gR-VU3" secondAttribute="bottom" id="4mc-6n-4mj"/>
                     <constraint firstItem="Hcb-gR-VU3" firstAttribute="top" secondItem="9ma-kh-x8q" secondAttribute="top" id="FiD-e7-d1N"/>
-                    <constraint firstItem="Hcb-gR-VU3" firstAttribute="leading" secondItem="9ma-kh-x8q" secondAttribute="leading" constant="11" id="LqF-6R-392"/>
+                    <constraint firstItem="Hcb-gR-VU3" firstAttribute="leading" secondItem="9ma-kh-x8q" secondAttribute="leading" constant="80" id="LqF-6R-392"/>
                     <constraint firstAttribute="trailing" secondItem="Hcb-gR-VU3" secondAttribute="trailing" constant="11" id="Wx5-Rh-exV"/>
                 </constraints>
             </tableViewCellContentView>
@@ -35,17 +68,23 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyD-6D-lia">
-                        <rect key="frame" x="247" y="0.0" width="65" height="43.5"/>
+                        <rect key="frame" x="282" y="0.0" width="30" height="43.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <state key="normal" title="发送验证码">
+                        <state key="normal" title="获取">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vWc-nj-kmE">
-                        <rect key="frame" x="11" y="0.0" width="228" height="43.5"/>
+                        <rect key="frame" x="80" y="0.0" width="194" height="43.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                     </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="验证码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ifi-kr-unK">
+                        <rect key="frame" x="16" y="11" width="51" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="gyD-6D-lia" firstAttribute="leading" secondItem="vWc-nj-kmE" secondAttribute="trailing" constant="8" id="9uI-UY-xDr"/>
@@ -55,7 +94,7 @@
                     <constraint firstItem="gyD-6D-lia" firstAttribute="top" secondItem="iBt-P1-Uwc" secondAttribute="top" id="i7x-xF-Xyi"/>
                     <constraint firstItem="gyD-6D-lia" firstAttribute="leading" secondItem="vWc-nj-kmE" secondAttribute="trailing" constant="8" id="iVS-Kf-jdF"/>
                     <constraint firstAttribute="bottom" secondItem="vWc-nj-kmE" secondAttribute="bottom" id="kDu-YP-PSA"/>
-                    <constraint firstItem="vWc-nj-kmE" firstAttribute="leading" secondItem="iBt-P1-Uwc" secondAttribute="leading" constant="11" id="nJc-5Z-6tc"/>
+                    <constraint firstItem="vWc-nj-kmE" firstAttribute="leading" secondItem="iBt-P1-Uwc" secondAttribute="leading" constant="80" id="nJc-5Z-6tc"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">

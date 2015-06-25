@@ -19,9 +19,6 @@ typedef void (^BlockLoginCancel)();
 @property (nonatomic, strong) BlockLoginFail loginFailBlock;
 @property (nonatomic, strong) BlockLoginCancel loginCancelBlock;
 
-
-@property (strong, nonatomic) UITextField *phoneTextField;
-@property (strong, nonatomic) UITextField *passwordTextField;
 @property (weak, nonatomic) UIButton *loginButton;
 
 @end

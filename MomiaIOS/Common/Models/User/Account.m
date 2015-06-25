@@ -10,11 +10,6 @@
 
 @implementation Account
 
-- (void)setUserId:(NSInteger)userId {
-    _userId = userId;
-    [self save];
-}
-
 - (void)setToken:(NSString *)token {
     _token = token;
     [self save];
@@ -25,48 +20,16 @@
     [self save];
 }
 
-- (void)setBabyAge:(NSString *)babyAge {
-    _babyAge = babyAge;
-    [self save];
-}
-
-- (void)setBabySex:(NSString *)babySex {
-    _babySex = babySex;
-    [self save];
-}
-
-- (void)setNickName:(NSString *)nickName {
-    _nickName = nickName;
-    [self save];
-}
-
-- (void)setQqNo:(NSString<Optional> *)qqNo {
-    _qqNo = qqNo;
-    [self save];
-}
-
-- (void)setWechatNo:(NSString *)wechatNo {
-    _wechatNo = wechatNo;
-    [self save];
-}
-
-- (void)setWeiboNo:(NSString *)weiboNo {
-    _weiboNo = weiboNo;
-    [self save];
-}
-
-
 - (void)encodeWithCoder:(NSCoder *)encoder//编码
 {
-    [encoder encodeInteger:self.userId forKey:@"userId"];
     [encoder encodeObject:self.token forKey:@"token"];
     [encoder encodeObject:self.address forKey:@"address"];
-    [encoder encodeObject:self.babyAge forKey:@"babyAge"];
-    [encoder encodeObject:self.babySex forKey:@"babySex"];
-    [encoder encodeObject:self.nickName forKey:@"nickName"];
-    [encoder encodeObject:self.qqNo forKey:@"qqNo"];
-    [encoder encodeObject:self.wechatNo forKey:@"wechatNo"];
-    [encoder encodeObject:self.weiboNo forKey:@"weiboNo"];
+    [encoder encodeObject:self.avatar forKey:@"avatar"];
+    [encoder encodeInt64:self.birthday forKey:@"birthday"];
+    [encoder encodeInt:self.cityId forKey:@"cityId"];
+    [encoder encodeObject:self.mobile forKey:@"mobile"];
+    [encoder encodeObject:self.name forKey:@"name"];
+    [encoder encodeObject:self.sex forKey:@"sex"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder//解码
@@ -74,15 +37,14 @@
     self = [super init];
     if (self)
     {
-        self.userId = [decoder decodeIntegerForKey:@"userId"];
         self.token = [decoder decodeObjectForKey:@"token"];
         self.address = [decoder decodeObjectForKey:@"address"];
-        self.babyAge = [decoder decodeObjectForKey:@"babyAge"];
-        self.babySex = [decoder decodeObjectForKey:@"babySex"];
-        self.nickName = [decoder decodeObjectForKey:@"nickName"];
-        self.qqNo = [decoder decodeObjectForKey:@"qqNo"];
-        self.wechatNo = [decoder decodeObjectForKey:@"wechatNo"];
-        self.weiboNo = [decoder decodeObjectForKey:@"weiboNo"];
+        self.avatar = [decoder decodeObjectForKey:@"avatar"];
+        self.birthday = [decoder decodeInt64ForKey:@"birthday"];
+        self.cityId = [decoder decodeIntForKey:@"cityId"];
+        self.mobile = [decoder decodeObjectForKey:@"mobile"];
+        self.name = [decoder decodeObjectForKey:@"name"];
+        self.sex = [decoder decodeObjectForKey:@"sex"];
     }
     return self;
 }

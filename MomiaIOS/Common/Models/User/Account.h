@@ -10,23 +10,16 @@
 
 @interface Account : JSONModel<NSCoding>
 
-@property (nonatomic, assign) NSInteger userId;
 @property (nonatomic, strong) NSString *token;
 
 @property (nonatomic, strong) NSString *avatar;
 @property (nonatomic, assign) long birthday;
-@property (nonatomic, assign) NSString *name;
-@property (nonatomic, assign) NSString *sex;
-@property (nonatomic, assign) NSString *mobile;
-
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *sex;
+@property (nonatomic, strong) NSString *mobile;
 @property (nonatomic, strong) NSString *address;
-@property (nonatomic, strong) NSString *babyAge;
-@property (nonatomic, strong) NSString *babySex;
-@property (nonatomic, strong) NSString *nickName;
 
-@property (nonatomic, strong) NSString<Optional> *qqNo;
-@property (nonatomic, strong) NSString<Optional> *wechatNo;
-@property (nonatomic, strong) NSString<Optional> *weiboNo;
+@property (nonatomic, assign) int cityId;
 
 - (void)save;
 

@@ -799,14 +799,11 @@
 				BC2C0C951B184EA500E2446E /* AvatarImageView.m */,
 				BC2C0C971B1858E800E2446E /* MOLabel.h */,
 				BC2C0C981B1858E800E2446E /* MOLabel.m */,
-
 				BC8254311B3A76F500430A6F /* CustomDarkButton.h */,
 				BC8254321B3A76F500430A6F /* CustomDarkButton.m */,
-
 				5A074F7C1B3A8F47001E5006 /* MOStepperView.h */,
 				5A074F7D1B3A8F47001E5006 /* MOStepperView.m */,
 				5A074F7F1B3A8F88001E5006 /* MOStepperView.xib */,
-
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1443,14 +1440,11 @@
 				5A33F1931B2E9FC5002A8258 /* CashPayViewController.xib in Resources */,
 				BCA273061AE8D0E9002E7534 /* Launch Screen.xib in Resources */,
 				5A33F19D1B2EA0A4002A8258 /* CashPayTopCell.xib in Resources */,
-
 				5A33F1A21B2EA1D5002A8258 /* CashPayTopHeaderView.xib in Resources */,
-				5A0256101B26C05B0016DB33 /* FillOrderRemarkCell.xib in Resources */,
 				BC8254361B3AA0A500430A6F /* LoginCell.xib in Resources */,
 				5A074F801B3A8F88001E5006 /* MOStepperView.xib in Resources */,
 				5A074F881B3AC39A001E5006 /* FillOrderTopCell.xib in Resources */,
 				5A18DC531B2968D5001458A4 /* HomeData.plist in Resources */,
-
 				5A6806FD1B01DA5100D02A60 /* MyCollectionCell.xib in Resources */,
 				5A33F1A81B2EBC2F002A8258 /* TitleView.xib in Resources */,
 				5AE995A41B26F9EE003DAAC0 /* FillOrderFooterView.xib in Resources */,

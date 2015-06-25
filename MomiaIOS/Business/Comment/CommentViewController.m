@@ -126,10 +126,7 @@
         }
     }];
     
-    [self.tableView addLegendHeaderWithRefreshingBlock:^{
-        weakSelf.isRefresh = YES;
-        [weakSelf requestData];
-    }];
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
     
     [self requestData];
 }
@@ -189,7 +186,7 @@
         [self.dataArray addObjectsFromArray:self.commentModel.data.commentList];
         
         [self.tableView reloadData];
-        [self.tableView.legendHeader endRefreshing];
+        [self.tableView.header endRefreshing];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);

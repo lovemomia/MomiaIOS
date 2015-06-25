@@ -119,12 +119,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 1;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
@@ -147,7 +147,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (section == 1) {
+    if (section == [self numberOfSectionsInTableView:tableView] - 1) {
         return 80;
     }
     return 0;
@@ -159,27 +159,21 @@
         if (indexPath.row == 0) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"RegisterCell" owner:self options:nil];
             cell = [arr objectAtIndex:0];
-            self.phoneTextField = (UITextField *)[cell.contentView viewWithTag:1];
+            
             
         } else if (indexPath.row == 1) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"RegisterCell" owner:self options:nil];
             cell = [arr objectAtIndex:1];
+            self.phoneTextField = (UITextField *)[cell.contentView viewWithTag:1];
+            
+        } else if (indexPath.row == 2) {
+            NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"RegisterCell" owner:self options:nil];
+            cell = [arr objectAtIndex:2];
             self.vercodeTextField = (UITextField *)[cell.contentView viewWithTag:1];
-        }
-        
-    } else if (indexPath.section == 1) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        if (indexPath.row == 0) {
-            cell.textLabel.text = @"宝宝性别";
-            cell.detailTextLabel.text = @"";
-            
-        } else if(indexPath.row == 1){
-            cell.textLabel.text = @"宝宝年龄";
-            
         }
     }
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }

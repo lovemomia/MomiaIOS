@@ -13,6 +13,9 @@
 
 @interface LoginViewController ()
 
+@property(nonatomic, strong)NSString *phone;
+@property(nonatomic, strong)NSString *vercode;
+
 @end
 
 @implementation LoginViewController
@@ -22,7 +25,11 @@
     // Do any additional setup after loading the view from its nib.
     
     self.navigationItem.title = @"登录";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(onCancelClicked)];
+    
+    UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc]initWithTitle:nil style:UIBarButtonItemStyleDone target:self action:@selector(onCancelClicked)];
+    self.navigationItem.leftBarButtonItem = leftBtn;
+    [leftBtn setImage:[UIImage imageNamed:@"cm_cancel"]];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"注册" style:UIBarButtonItemStyleDone target:self action:@selector(onRegisterClicked)];
 }
 
@@ -57,24 +64,22 @@
 */
 
 - (void)onLoginClicked {
-//    if (self.phoneTextField.text.length == 0) {
-//        [self showDialogWithTitle:nil message:@"手机号不能为空"];
-//        return;
-//    }
-//    
-//    if (self.passwordTextField.text.length == 0) {
-//        [self showDialogWithTitle:nil message:@"验证码不能为空"];
-//        return;
-//    }
+    if (self.phone.length == 0) {
+        [self showDialogWithTitle:nil message:@"手机号不能为空"];
+        return;
+    }
+    
+    if (self.vercode.length == 0) {
+        [self showDialogWithTitle:nil message:@"验证码不能为空"];
+        return;
+    }
     
     [self login];
 }
 
 - (void)login {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//    NSDictionary *params = @{@"logintype":@"0", @"phone":self.phoneTextField.text,
-//                             @"password":self.passwordTextField.text};
-    NSDictionary *params = @{@"mobile":@"13918872284", @"code":@"123456"};
+    NSDictionary *params = @{@"mobile":self.phone, @"code":self.vercode};
     [[HttpService defaultService]POST:URL_APPEND_PATH(@"/auth/login")
                           parameters:params
                       JSONModelClass:[AccountModel class]
@@ -88,6 +93,10 @@
                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
                                  [self showDialogWithTitle:nil message:error.message];
                              }];
+}
+
+- (void)onGetVercode {
+    
 }
 
 
@@ -136,7 +145,9 @@
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"LoginCell" owner:self options:nil];
             cell = [arr objectAtIndex:0];
         }
-        self.phoneTextField = (UITextField *)[cell viewWithTag:1];
+        
+        UITextField *textField = (UITextField *)[cell viewWithTag:1001];
+        [textField addTarget:self action:@selector(textFieldWithText:) forControlEvents:UIControlEventEditingChanged];
         
     } else if (indexPath.row == 1) {
         static NSString *identifier = @"CellVercode";
@@ -145,10 +156,24 @@
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"LoginCell" owner:self options:nil];
             cell = [arr objectAtIndex:1];
         }
-        self.passwordTextField = (UITextField *)[cell.contentView viewWithTag:1];
+        UITextField *textField = (UITextField *)[cell viewWithTag:1002];
+        [textField addTarget:self action:@selector(textFieldWithText:) forControlEvents:UIControlEventEditingChanged];
+        UIButton *button = (UIButton *)[cell viewWithTag:1003];
+        [button addTarget:self action:@selector(onGetVercode) forControlEvents:UIControlEventTouchUpInside];
     }
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
     return cell;
+}
+
+- (void)textFieldWithText:(UITextField *)textField
+{
+    if (textField.tag == 1001) {
+        self.phone = textField.text;
+    } else if (textField.tag == 1002) {
+        self.vercode = textField.text;
+    }
 }
 
 @end
