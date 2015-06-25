@@ -67,7 +67,7 @@
         [self.dataArray addObjectsFromArray:self.suggestModel.data.goodsList];
         
         [self.tableView reloadData];
-        [self.tableView.legendHeader endRefreshing];
+        [self.tableView.header endRefreshing];
 
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -91,12 +91,7 @@
     //当单元格数目少于屏幕时会出现多余分割线，直接设置tableFooterView用以删除
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    __weak MySuggestViewController * weakSelf = self;
-    
-    [self.tableView addLegendHeaderWithRefreshingBlock:^{
-        weakSelf.isRefresh = YES;
-        [weakSelf requestData];
-    }];
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
 
     [self requestData];
     

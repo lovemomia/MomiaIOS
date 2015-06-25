@@ -155,12 +155,12 @@
             case 1:
                 if (row == 0) {
                     cell.textLabel.text = @"昵称";
-                    cell.detailTextLabel.text = account.nickName;
+//                    cell.detailTextLabel.text = account.nickName;
                     self.nickCell = cell;
                     
                 } else if(row == 1){
                     cell.textLabel.text = @"宝宝年龄";
-                    cell.detailTextLabel.text = account.babyAge;
+//                    cell.detailTextLabel.text = account.babyAge;
                     self.babyAgeCell = cell;
                     
                 } else {
@@ -177,7 +177,7 @@
                     
                 } else {
                     cell.textLabel.text = @"第三方账号绑定";
-                    cell.detailTextLabel.text = account.wechatNo;
+//                    cell.detailTextLabel.text = account.wechatNo;
                 }
                 break;
             case 3:

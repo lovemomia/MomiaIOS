@@ -62,10 +62,7 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
     
     // 设置下拉刷新
-    __weak typeof(self) weakSelf = self;
-    [self.tableView addLegendHeaderWithRefreshingBlock:^{
-        [weakSelf requestData];
-    }];
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
     
     [self requestData];
 }
@@ -86,7 +83,7 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
         self.model = responseObject;
         
         [self.tableView reloadData];
-        [self.tableView.legendHeader endRefreshing];
+        [self.tableView.header endRefreshing];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);

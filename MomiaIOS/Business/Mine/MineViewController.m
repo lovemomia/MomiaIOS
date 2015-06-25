@@ -40,9 +40,12 @@
 
 // 单击设置
 - (void)onSettingClicked {
-    
     NSURL *url = [NSURL URLWithString:@"tq://setting"];
     [[UIApplication sharedApplication ] openURL:url];
+}
+
+- (void)onLoginClicked {
+    [[AccountService defaultService] login:self];
 }
 
 #pragma mark - tableview delegate & datasource
@@ -93,8 +96,6 @@
             break;
         case 2:
             if(row == 0) {
-//                FeedbackViewController * controller = [[FeedbackViewController alloc] initWithNibName:@"FeedbackViewController" bundle:nil];
-//                [self.navigationController pushViewController:controller animated:YES];
                 NSURL *url = [NSURL URLWithString:@"tq://feedback"];
                 [[UIApplication sharedApplication ] openURL:url];
                 
@@ -112,33 +113,42 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
+    static NSString *CellUser = @"CellUser";
+    static NSString *CellLogin = @"CellLogin";
     static NSString *CellDefault = @"DefaultCell";
     static NSString *CellInfo = @"InfoCell";
     UITableViewCell *cell;
     if (section == 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:CellDefault];
-        if (cell == nil) {
-            NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"MineInfoCell" owner:self options:nil];
-            cell = [arr objectAtIndex:0];
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        if ([[AccountService defaultService] isLogin]) {
+            cell = [tableView dequeueReusableCellWithIdentifier:CellUser];
+            if (cell == nil) {
+                NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"MineInfoCell" owner:self options:nil];
+                cell = [arr objectAtIndex:0];
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            }
+            
+            Account *account = [AccountService defaultService].account;
+            
+            UIImageView *userPic = (UIImageView *)[cell viewWithTag:1];
+            if (account.avatar) {
+                [userPic sd_setImageWithURL:[NSURL URLWithString:account.avatar]];
+            }
+            
+            UILabel *titleLabel = (UILabel *)[cell viewWithTag:2];
+            
+            UILabel *subTitleLabel = (UILabel *)[cell viewWithTag:3];
+            
+        } else {
+            cell = [tableView dequeueReusableCellWithIdentifier:CellLogin];
+            if (cell == nil) {
+                NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"MineInfoCell" owner:self options:nil];
+                cell = [arr objectAtIndex:1];
+            }
+            UIButton *loginBtn = (UIButton *)[cell viewWithTag:1001];
+            [loginBtn addTarget:self action:@selector(onLoginClicked) forControlEvents:UIControlEventTouchUpInside];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         
-        Account *account = [AccountService defaultService].account;
-        
-        UIImageView *userPic = (UIImageView *)[cell viewWithTag:1];        
-        if (account.avatar) {
-            [userPic sd_setImageWithURL:[NSURL URLWithString:account.avatar]];
-        }
-        
-        UILabel *titleLabel = (UILabel *)[cell viewWithTag:2];
-        if (account.nickName) {
-            [titleLabel setText:account.nickName];
-        }
-        
-        UILabel *subTitleLabel = (UILabel *)[cell viewWithTag:3];
-        if (account.babyAge) {
-            [subTitleLabel setText:[NSString stringWithFormat:@"宝宝%@", account.babyAge]];
-        }
         
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:CellInfo];
@@ -167,6 +177,13 @@
         }
     }
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return 0.1;
+    }
+    return 20;
 }
 
 - (void)shareToFriend {
