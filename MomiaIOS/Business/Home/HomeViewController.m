@@ -146,7 +146,7 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
         HomeCarouselCell * carousel = [HomeCarouselCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeCarouselIdentifier];
         carousel.data = self.model.data.banners;
         carousel.scrollClick = ^void(NSInteger index) {
-            NSLog(@"index:%ud",index);
+            NSLog(@"index:%ld",index);
         };
         cell = carousel;
         
@@ -169,15 +169,16 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
     } else {
         product = self.model.data.products[indexPath.section];
     }
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://productdetail?id=%ld", (long)product.pID]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://productdetail?id=%ld", product.pID]];
+
     [[UIApplication sharedApplication] openURL:url];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(void)onSearchClick
 {
-//    NSURL * url = [NSURL URLWithString:@"tq://activitydetail"];
-//    [[UIApplication sharedApplication] openURL:url];
+    NSURL * url = [NSURL URLWithString:@"tq://fillorder"];
+    [[UIApplication sharedApplication] openURL:url];
 
 }
 
