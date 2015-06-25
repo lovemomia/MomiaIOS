@@ -53,7 +53,7 @@
 }
 
 - (void)login:(UIViewController *)currentController {
-    LoginViewController *controller = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+    LoginViewController *controller = [[LoginViewController alloc]initWithParams:nil];
     
     controller.loginSuccessBlock = ^(){
         [currentController dismissViewControllerAnimated:NO completion:nil];

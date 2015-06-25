@@ -167,7 +167,7 @@ typedef enum {
     self.contentTextView.moDelegate = self;
     [self.infoTextField setDelegate:self];
     [self.infoTextField setPlaceholder:@"联系方式(可选)"];
-    [self.infoTextField setText:[[[AccountService defaultService] account] phone]];
+    [self.infoTextField setText:[[[AccountService defaultService] account] mobile]];
 
 }
 

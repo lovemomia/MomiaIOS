@@ -99,13 +99,11 @@
 		5AE995A41B26F9EE003DAAC0 /* FillOrderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE995A31B26F9EE003DAAC0 /* FillOrderFooterView.xib */; };
 		5AEB188A1B1865F90098FD5F /* MySuggestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB18891B1865F90098FD5F /* MySuggestModel.m */; };
 		BC2C0C521B1303BA00E2446E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
-		BC2C0C531B1303BA00E2446E /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2C0C511B1303BA00E2446E /* LoginViewController.xib */; };
 		BC2C0C571B1309A800E2446E /* MOButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C561B1309A800E2446E /* MOButton.m */; };
 		BC2C0C611B130C9300E2446E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C601B130C9300E2446E /* User.m */; };
 		BC2C0C641B130CDB00E2446E /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C631B130CDB00E2446E /* Account.m */; };
 		BC2C0C681B131ED500E2446E /* AccountService.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C671B131ED500E2446E /* AccountService.m */; };
 		BC2C0C761B140BF100E2446E /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C741B140BF100E2446E /* RegisterViewController.m */; };
-		BC2C0C771B140BF100E2446E /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2C0C751B140BF100E2446E /* RegisterViewController.xib */; };
 		BC2C0C7A1B141A3D00E2446E /* AccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C791B141A3D00E2446E /* AccountModel.m */; };
 		BC2C0C801B14659400E2446E /* MyStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C7F1B14659400E2446E /* MyStatusViewController.m */; };
 		BC2C0C861B15668000E2446E /* DatePickerSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C851B15668000E2446E /* DatePickerSheet.m */; };
@@ -145,6 +143,9 @@
 		BC77085F1AFC5685000068A8 /* UILabel+ContentSize.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77085E1AFC5685000068A8 /* UILabel+ContentSize.m */; };
 		BC82542B1B3917AC00430A6F /* MORootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82542A1B3917AC00430A6F /* MORootViewController.m */; };
 		BC82542F1B39505E00430A6F /* PlaymateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82542E1B39505E00430A6F /* PlaymateViewController.m */; };
+		BC8254331B3A76F500430A6F /* CustomDarkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8254321B3A76F500430A6F /* CustomDarkButton.m */; };
+		BC8254361B3AA0A500430A6F /* LoginCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC8254351B3AA0A500430A6F /* LoginCell.xib */; };
+		BC8254381B3AB01E00430A6F /* RegisterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC8254371B3AB01E00430A6F /* RegisterCell.xib */; };
 		BC8540911ADF74E9005A7C54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540901ADF74E9005A7C54 /* main.m */; };
 		BC8540941ADF74E9005A7C54 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540931ADF74E9005A7C54 /* AppDelegate.m */; };
 		BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC85409B1ADF74E9005A7C54 /* Images.xcassets */; };
@@ -346,7 +347,6 @@
 		5B9DF4BE98C18CC18BDADCD8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC2C0C4F1B1303BA00E2446E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Business/Login/LoginViewController.h; sourceTree = "<group>"; };
 		BC2C0C501B1303BA00E2446E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Business/Login/LoginViewController.m; sourceTree = "<group>"; };
-		BC2C0C511B1303BA00E2446E /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = Business/Login/LoginViewController.xib; sourceTree = "<group>"; };
 		BC2C0C551B1309A800E2446E /* MOButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOButton.h; path = Common/Views/MOButton.h; sourceTree = "<group>"; };
 		BC2C0C561B1309A800E2446E /* MOButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOButton.m; path = Common/Views/MOButton.m; sourceTree = "<group>"; };
 		BC2C0C5F1B130C9300E2446E /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Common/Models/User/User.h; sourceTree = "<group>"; };
@@ -357,7 +357,6 @@
 		BC2C0C671B131ED500E2446E /* AccountService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountService.m; path = Common/Services/Account/AccountService.m; sourceTree = "<group>"; };
 		BC2C0C731B140BF100E2446E /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = Business/Login/RegisterViewController.h; sourceTree = "<group>"; };
 		BC2C0C741B140BF100E2446E /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = Business/Login/RegisterViewController.m; sourceTree = "<group>"; };
-		BC2C0C751B140BF100E2446E /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RegisterViewController.xib; path = Business/Login/RegisterViewController.xib; sourceTree = "<group>"; };
 		BC2C0C781B141A3D00E2446E /* AccountModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountModel.h; path = Common/Models/User/AccountModel.h; sourceTree = "<group>"; };
 		BC2C0C791B141A3D00E2446E /* AccountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountModel.m; path = Common/Models/User/AccountModel.m; sourceTree = "<group>"; };
 		BC2C0C7E1B14659400E2446E /* MyStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyStatusViewController.h; path = Business/Login/MyStatusViewController.h; sourceTree = "<group>"; };
@@ -430,6 +429,10 @@
 		BC82542A1B3917AC00430A6F /* MORootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MORootViewController.m; path = Business/MORootViewController.m; sourceTree = "<group>"; };
 		BC82542D1B39505E00430A6F /* PlaymateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaymateViewController.h; path = Business/Playmate/PlaymateViewController.h; sourceTree = "<group>"; };
 		BC82542E1B39505E00430A6F /* PlaymateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaymateViewController.m; path = Business/Playmate/PlaymateViewController.m; sourceTree = "<group>"; };
+		BC8254311B3A76F500430A6F /* CustomDarkButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomDarkButton.h; path = Common/Views/CustomDarkButton.h; sourceTree = "<group>"; };
+		BC8254321B3A76F500430A6F /* CustomDarkButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomDarkButton.m; path = Common/Views/CustomDarkButton.m; sourceTree = "<group>"; };
+		BC8254351B3AA0A500430A6F /* LoginCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginCell.xib; path = Business/Login/Views/LoginCell.xib; sourceTree = "<group>"; };
+		BC8254371B3AB01E00430A6F /* RegisterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RegisterCell.xib; path = Business/Login/Views/RegisterCell.xib; sourceTree = "<group>"; };
 		BC85408B1ADF74E9005A7C54 /* MomiaIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MomiaIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC85408F1ADF74E9005A7C54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC8540901ADF74E9005A7C54 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -787,12 +790,11 @@
 		BC2C0C4E1B13033000E2446E /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				BC8254341B3AA04900430A6F /* Views */,
 				BC2C0C4F1B1303BA00E2446E /* LoginViewController.h */,
 				BC2C0C501B1303BA00E2446E /* LoginViewController.m */,
-				BC2C0C511B1303BA00E2446E /* LoginViewController.xib */,
 				BC2C0C731B140BF100E2446E /* RegisterViewController.h */,
 				BC2C0C741B140BF100E2446E /* RegisterViewController.m */,
-				BC2C0C751B140BF100E2446E /* RegisterViewController.xib */,
 				BC2C0C7E1B14659400E2446E /* MyStatusViewController.h */,
 				BC2C0C7F1B14659400E2446E /* MyStatusViewController.m */,
 			);
@@ -816,6 +818,8 @@
 				BC2C0C951B184EA500E2446E /* AvatarImageView.m */,
 				BC2C0C971B1858E800E2446E /* MOLabel.h */,
 				BC2C0C981B1858E800E2446E /* MOLabel.m */,
+				BC8254311B3A76F500430A6F /* CustomDarkButton.h */,
+				BC8254321B3A76F500430A6F /* CustomDarkButton.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -955,6 +959,15 @@
 				BC82542E1B39505E00430A6F /* PlaymateViewController.m */,
 			);
 			name = Playmate;
+			sourceTree = "<group>";
+		};
+		BC8254341B3AA04900430A6F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BC8254351B3AA0A500430A6F /* LoginCell.xib */,
+				BC8254371B3AB01E00430A6F /* RegisterCell.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		BC8540821ADF74E9005A7C54 = {
@@ -1421,6 +1434,7 @@
 				5A6806F01B01A9BD00D02A60 /* SettingMsgCell.xib in Resources */,
 				5A18DC551B296D7F001458A4 /* HomeCarouselData.plist in Resources */,
 				5A6806F51B01CEF700D02A60 /* PersonLogoCell.xib in Resources */,
+				BC8254381B3AB01E00430A6F /* RegisterCell.xib in Resources */,
 				BCA273271AEB1EBA002E7534 /* MineInfoCell.xib in Resources */,
 				5A08C1401B39117100642648 /* ProductDetailContentCell.xib in Resources */,
 				5A33F19B1B2EA0A4002A8258 /* CashPayBottomCell.xib in Resources */,
@@ -1444,11 +1458,10 @@
 				5A33F1931B2E9FC5002A8258 /* CashPayViewController.xib in Resources */,
 				BCA273061AE8D0E9002E7534 /* Launch Screen.xib in Resources */,
 				5A33F19D1B2EA0A4002A8258 /* CashPayTopCell.xib in Resources */,
-				BC2C0C531B1303BA00E2446E /* LoginViewController.xib in Resources */,
 				5A18DC531B2968D5001458A4 /* HomeData.plist in Resources */,
 				5A33F1A21B2EA1D5002A8258 /* CashPayTopHeaderView.xib in Resources */,
 				5A0256101B26C05B0016DB33 /* FillOrderRemarkCell.xib in Resources */,
-				BC2C0C771B140BF100E2446E /* RegisterViewController.xib in Resources */,
+				BC8254361B3AA0A500430A6F /* LoginCell.xib in Resources */,
 				5A6806FD1B01DA5100D02A60 /* MyCollectionCell.xib in Resources */,
 				5AB77E201B2699D800C04DF8 /* FillOrderPersonCell.xib in Resources */,
 				5A33F1A81B2EBC2F002A8258 /* TitleView.xib in Resources */,
@@ -1539,6 +1552,7 @@
 				5A83074D1B327FB40057412A /* CommonHeaderView.m in Sources */,
 				5A1B35E81B12BBAC00E1D31B /* CommentModel.m in Sources */,
 				BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */,
+				BC8254331B3A76F500430A6F /* CustomDarkButton.m in Sources */,
 				5AB7B3B11B0EFF7400044DFE /* GoodsDetailContentCell.m in Sources */,
 				5A6806F31B01C9C700D02A60 /* PersonInfoViewController.m in Sources */,
 				BCCDF5DF1B09E6C7008BAE12 /* SugSubmitProductContentCell.m in Sources */,

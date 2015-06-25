@@ -169,6 +169,9 @@
     
     // 网络类型
     [dic setObject:[Environment singleton].networkType forKey:@"net"];
+    
+    // cityid
+    [dic setObject:@"1" forKey:@"city"];
 
 
     return dic;

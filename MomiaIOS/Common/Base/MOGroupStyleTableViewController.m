@@ -19,57 +19,57 @@
 }
 
 #pragma mark tableView delegate, dataSource
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if ([self tableViewStyle] == UITableViewStyleGrouped) {
-        UIView *content = [[UIView alloc]init];
-        UIView *view = [[UIView alloc]init];
-        view.contentMode = UIViewContentModeScaleToFill;
-        view.height = 2;
-        view.width = SCREEN_WIDTH;
-        if (section == 0) {
-            view.top = 29;
-        } else {
-            view.top = 9;
-        }
-        view.backgroundColor = MO_APP_VCBackgroundColor;
-        [content addSubview:view];
-        return content;
-    }
-    return nil;
-}
-
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if ([self tableViewStyle] == UITableViewStyleGrouped) {
-        if (section == 0) {
-            return 30;
-        }
-        return 10;
-    }
-    return 0;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    if ([self tableViewStyle] == UITableViewStyleGrouped) {
-        UIView *content = [[UIView alloc]init];
-        UIImageView *view = [[UIImageView alloc]init];
-        view.contentMode = UIViewContentModeScaleToFill;
-        view.height = 5;
-        view.width = SCREEN_WIDTH;
-        view.top = 0;
-        view.image = [UIImage imageNamed:@"bg_card"];
-        [content addSubview:view];
-        return content;
-    }
-    return nil;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if ([self tableViewStyle] == UITableViewStyleGrouped) {
-        return 10;
-    }
-    return 0;
-}
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+//    if ([self tableViewStyle] == UITableViewStyleGrouped) {
+//        UIView *content = [[UIView alloc]init];
+//        UIView *view = [[UIView alloc]init];
+//        view.contentMode = UIViewContentModeScaleToFill;
+//        view.height = 2;
+//        view.width = SCREEN_WIDTH;
+//        if (section == 0) {
+//            view.top = 29;
+//        } else {
+//            view.top = 9;
+//        }
+//        view.backgroundColor = MO_APP_VCBackgroundColor;
+//        [content addSubview:view];
+//        return content;
+//    }
+//    return nil;
+//}
+//
+//
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+//    if ([self tableViewStyle] == UITableViewStyleGrouped) {
+//        if (section == 0) {
+//            return 30;
+//        }
+//        return 10;
+//    }
+//    return 0;
+//}
+//
+//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+//    if ([self tableViewStyle] == UITableViewStyleGrouped) {
+//        UIView *content = [[UIView alloc]init];
+//        UIImageView *view = [[UIImageView alloc]init];
+//        view.contentMode = UIViewContentModeScaleToFill;
+//        view.height = 5;
+//        view.width = SCREEN_WIDTH;
+//        view.top = 0;
+//        view.image = [UIImage imageNamed:@"bg_card"];
+//        [content addSubview:view];
+//        return content;
+//    }
+//    return nil;
+//}
+//
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+//    if ([self tableViewStyle] == UITableViewStyleGrouped) {
+//        return 10;
+//    }
+//    return 0;
+//}
 
 #pragma mark -
 #pragma mark Override inset setting

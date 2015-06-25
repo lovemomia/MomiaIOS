@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellPhone" id="bQp-Q7-moo">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bQp-Q7-moo" id="Znk-0R-ww9">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="psB-z3-MA8">
+                        <rect key="frame" x="11" y="0.0" width="298" height="43.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="psB-z3-MA8" secondAttribute="trailing" constant="11" id="3ma-Jf-RoS"/>
+                    <constraint firstItem="psB-z3-MA8" firstAttribute="leading" secondItem="Znk-0R-ww9" secondAttribute="leading" constant="11" id="DRN-ih-0CA"/>
+                    <constraint firstItem="psB-z3-MA8" firstAttribute="top" secondItem="Znk-0R-ww9" secondAttribute="top" id="VAv-X5-BGf"/>
+                    <constraint firstAttribute="bottom" secondItem="psB-z3-MA8" secondAttribute="bottom" id="eNI-PD-fHp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="531" y="339"/>
+        </tableViewCell>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellVercode" id="Y8X-4X-jXb">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y8X-4X-jXb" id="9rD-jV-Oc5">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bcp-Vp-HwC">
+                        <rect key="frame" x="247" y="0.0" width="65" height="43.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="发送验证码">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LuF-qj-OuF">
+                        <rect key="frame" x="11" y="0.0" width="228" height="43.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Bcp-Vp-HwC" secondAttribute="trailing" constant="8" id="2hb-re-sOt"/>
+                    <constraint firstItem="Bcp-Vp-HwC" firstAttribute="top" secondItem="9rD-jV-Oc5" secondAttribute="top" id="ABb-cg-Na4"/>
+                    <constraint firstAttribute="bottom" secondItem="Bcp-Vp-HwC" secondAttribute="bottom" id="Dt5-e9-TMw"/>
+                    <constraint firstAttribute="bottom" secondItem="LuF-qj-OuF" secondAttribute="bottom" id="EgY-jA-bVK"/>
+                    <constraint firstItem="LuF-qj-OuF" firstAttribute="top" secondItem="9rD-jV-Oc5" secondAttribute="top" id="Gry-wB-i7u"/>
+                    <constraint firstItem="Bcp-Vp-HwC" firstAttribute="leading" secondItem="LuF-qj-OuF" secondAttribute="trailing" constant="8" id="Nep-uW-STf"/>
+                    <constraint firstItem="Bcp-Vp-HwC" firstAttribute="leading" secondItem="LuF-qj-OuF" secondAttribute="trailing" constant="8" id="fwh-jX-OGG"/>
+                    <constraint firstItem="LuF-qj-OuF" firstAttribute="leading" secondItem="9rD-jV-Oc5" secondAttribute="leading" constant="11" id="ugs-YO-uJ0"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="fwh-jX-OGG"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="531" y="454"/>
+        </tableViewCell>
+    </objects>
+</document>
