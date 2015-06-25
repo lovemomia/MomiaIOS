@@ -63,12 +63,17 @@
 }
 */
 
+
+
 - (void)onLoginClicked {
+
+  
     if (self.phone.length == 0) {
         [self showDialogWithTitle:nil message:@"手机号不能为空"];
         return;
     }
     
+
     if (self.vercode.length == 0) {
         [self showDialogWithTitle:nil message:@"验证码不能为空"];
         return;
@@ -145,7 +150,7 @@
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"LoginCell" owner:self options:nil];
             cell = [arr objectAtIndex:0];
         }
-        
+
         UITextField *textField = (UITextField *)[cell viewWithTag:1001];
         [textField addTarget:self action:@selector(textFieldWithText:) forControlEvents:UIControlEventEditingChanged];
         

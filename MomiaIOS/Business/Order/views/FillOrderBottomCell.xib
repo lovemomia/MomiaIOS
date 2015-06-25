@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="18e-Pg-Y5O" customClass="FillOrderBottomCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="18e-Pg-Y5O" id="1Ud-LM-4tU">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出行人的撒风景了" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQT-eN-5Cx">
+                        <rect key="frame" x="10" y="21" width="112" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1成人10儿童" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdg-cm-gbM">
+                        <rect key="frame" x="213" y="21" width="80" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cm_go" translatesAutoresizingMaskIntoConstraints="NO" id="cNm-14-6Cr">
+                        <rect key="frame" x="303" y="23" width="7" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="7" id="CcY-bl-ugI"/>
+                            <constraint firstAttribute="height" constant="13" id="y4P-7l-fFs"/>
+                        </constraints>
+                    </imageView>
+                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FBw-2h-iAV">
+                        <rect key="frame" x="197" y="10" width="1" height="40"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="2Kl-My-OLe"/>
+                            <constraint firstAttribute="height" constant="40" id="JVu-kz-LkM"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="centerY" secondItem="Kdg-cm-gbM" secondAttribute="centerY" id="AIN-Wx-vfO"/>
+                    <constraint firstItem="WQT-eN-5Cx" firstAttribute="leading" secondItem="1Ud-LM-4tU" secondAttribute="leading" constant="10" id="HIi-5i-EC7"/>
+                    <constraint firstItem="cNm-14-6Cr" firstAttribute="leading" secondItem="Kdg-cm-gbM" secondAttribute="trailing" constant="10" id="MIY-0g-hPd"/>
+                    <constraint firstAttribute="centerY" secondItem="WQT-eN-5Cx" secondAttribute="centerY" id="Pch-YC-Gm7"/>
+                    <constraint firstAttribute="centerY" secondItem="cNm-14-6Cr" secondAttribute="centerY" id="VKC-ob-sHV"/>
+                    <constraint firstAttribute="centerY" secondItem="FBw-2h-iAV" secondAttribute="centerY" id="VOs-N7-vDh"/>
+                    <constraint firstItem="FBw-2h-iAV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WQT-eN-5Cx" secondAttribute="trailing" constant="10" id="cnJ-C0-yeq"/>
+                    <constraint firstItem="Kdg-cm-gbM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FBw-2h-iAV" secondAttribute="trailing" constant="7" id="oau-02-KXK"/>
+                    <constraint firstAttribute="trailing" secondItem="cNm-14-6Cr" secondAttribute="trailing" constant="10" id="ou5-ba-Q6H"/>
+                    <constraint firstAttribute="trailing" secondItem="FBw-2h-iAV" secondAttribute="trailing" constant="122" id="yFx-Ck-T4n"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="132" y="203"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="cm_go" width="6" height="13"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

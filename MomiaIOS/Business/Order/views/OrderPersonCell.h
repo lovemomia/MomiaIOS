@@ -8,16 +8,8 @@
 
 #import "MOTableCell.h"
 
-typedef void(^EditBlock)(UIButton * sender);
-typedef void(^SelectBlock)(UIButton * sender);
 
-@interface OrderPersonCell : MOTableCell<MOTableCellDataProtocol>
 
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *sexLabel;
-@property (weak, nonatomic) IBOutlet UILabel *birthLabel;
-
-@property(nonatomic,strong) EditBlock editBlock;
-@property(nonatomic,strong) SelectBlock selectBlock;
+@interface OrderPersonCell : MOTableCell
 
 @end

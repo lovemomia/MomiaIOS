@@ -174,8 +174,7 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
 
 -(void)onSearchClick
 {
-    NSURL * url = [NSURL URLWithString:@"tq://fillorder"];
-    [[UIApplication sharedApplication] openURL:url];
+   
 
 }
 

@@ -8,11 +8,17 @@
 
 #import "FillOrderViewController.h"
 #import "FillOrderFooterView.h"
+#import "FillOrderTopCell.h"
+#import "FillOrderMiddleCell.h"
+#import "FillOrderBottomCell.h"
+#import "CommonHeaderView.h"
 
 static NSString * identifier = @"FillOrderHeaderViewIdentifier";
-static NSString * fillOrderItemIdentifier = @"CellFillOrderItem";
-static NSString * fillOrderPersonIdentifier = @"CellFillOrderPerson";
-static NSString * fillOrderRemarkIdentifier = @"CellFillOrderRemark";
+static NSString * fillOrderTopIdentifier = @"CellFillOrderTop";
+static NSString * fillOrderMiddleIdentifier = @"CellFillOrderMiddle";
+static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
+
+
 
 @interface FillOrderViewController ()
 
@@ -36,16 +42,16 @@ static NSString * fillOrderRemarkIdentifier = @"CellFillOrderRemark";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 41.0f;
+    return 40.0f;
 }
 
 
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UITableViewHeaderFooterView * header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
-    header.textLabel.text = [self.HeaderArray[section] objectForKey:@"title"];
-    return header;
+    CommonHeaderView * cell = [CommonHeaderView cellWithTableView:self.tableView];
+    cell.data = @"选择场次";
+    return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -78,9 +84,8 @@ static NSString * fillOrderRemarkIdentifier = @"CellFillOrderRemark";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return 60;
 }
-
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -90,16 +95,21 @@ static NSString * fillOrderRemarkIdentifier = @"CellFillOrderRemark";
     switch (section) {
         case 0:
         {
-           
+            FillOrderTopCell * top = [FillOrderTopCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:fillOrderTopIdentifier];
+            cell = top;
         }
             break;
         case 1:
         {
-           
+            FillOrderMiddleCell * middle = [FillOrderMiddleCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:fillOrderMiddleIdentifier];
+            middle.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell = middle;
         }
             break;
         default:
         {
+            FillOrderBottomCell * bottom = [FillOrderBottomCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:fillOrderBottomIdentifier];
+            cell = bottom;
           
         }
             break;
@@ -107,6 +117,13 @@ static NSString * fillOrderRemarkIdentifier = @"CellFillOrderRemark";
     return cell;
     
     
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSURL * url = [NSURL URLWithString:@"tq://orderperson"];
+    [[UIApplication sharedApplication] openURL:url];
+
 }
 
 /*
@@ -202,10 +219,15 @@ static NSString * fillOrderRemarkIdentifier = @"CellFillOrderRemark";
     
     self.navigationItem.title = @"提交订单";
   
+    [CommonHeaderView registerCellWithTableView:self.tableView];
     [FillOrderFooterView registerCellWithTableView:self.tableView];
-    [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:identifier];
-    
+    [FillOrderTopCell registerCellWithTableView:self.tableView withIdentifier:fillOrderTopIdentifier];
+    [FillOrderMiddleCell registerCellWithTableView:self.tableView withIdentifier:fillOrderMiddleIdentifier];
+    [FillOrderBottomCell registerCellWithTableView:self.tableView withIdentifier:fillOrderBottomIdentifier];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    self.tableView.backgroundView = [[UIView alloc] init];
+    self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
 
 }
 

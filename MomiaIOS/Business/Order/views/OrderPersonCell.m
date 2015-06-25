@@ -8,32 +8,19 @@
 
 #import "OrderPersonCell.h"
 
+@interface OrderPersonCell ()
+@property (weak, nonatomic) IBOutlet UIButton *checkBtn;
+
+@end
+
 @implementation OrderPersonCell
 
--(void)setData:(NSDictionary *)dic
+-(void)awakeFromNib
 {
-    self.nameLabel.text = [dic objectForKey:@"name"];
-    self.sexLabel.text = [dic objectForKey:@"sex"];
-    self.birthLabel.text = [dic objectForKey:@"birth"];
+    
+    [self.checkBtn setImage:[UIImage imageNamed:@"orderperson_circle_checked"] forState:UIControlStateSelected];
+    [self.checkBtn setImage:[UIImage imageNamed:@"orderperson_circle_uncheck"] forState:UIControlStateNormal];
 }
 
-
-- (IBAction)onEditClick:(id)sender {
-    self.editBlock(sender);
-}
-
-- (IBAction)onSelectClick:(id)sender {
-    self.selectBlock(sender);
-}
-
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 @end

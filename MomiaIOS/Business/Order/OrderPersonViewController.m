@@ -8,12 +8,12 @@
 
 #import "OrderPersonViewController.h"
 #import "OrderPersonCell.h"
-static NSString * identifier = @"OrderPersonHeaderViewIdentifier";
+#import "CommonHeaderView.h"
 static NSString * orderPersonIdentifier = @"CellOrderPerson";
 
 @interface OrderPersonViewController ()
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property(nonatomic,strong) NSArray * dataArray;
 
 @end
 
@@ -25,15 +25,16 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 35.0f;
+    return 41.0f;
 }
 
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UITableViewHeaderFooterView * view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
-    view.textLabel.text = @"请选择1名成人和1名儿童";
-    return view;
+    CommonHeaderView * header = [CommonHeaderView cellWithTableView:self.tableView];
+    header.data = @"请选择成人1名，儿童1名";
+    
+    return header;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -43,27 +44,17 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.dataArray.count;
+    return 2;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [OrderPersonCell heightWithTableView:tableView withIdentifier:orderPersonIdentifier forIndexPath:indexPath data:self.dataArray[indexPath.row]];
+    return 60;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     OrderPersonCell * cell = [OrderPersonCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:orderPersonIdentifier];
-    cell.data = self.dataArray[indexPath.row];
-
-    __weak OrderPersonCell * weakCell = cell;
-    cell.editBlock = ^(UIButton * sender) {
-        NSLog(@"edit:%@",weakCell.nameLabel.text);
-    };
-    
-    cell.selectBlock = ^(UIButton * sender) {
-        NSLog(@"select:%@",weakCell.nameLabel.text);
-    };
     return cell;
 }
 
@@ -88,15 +79,12 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"新增" style:UIBarButtonItemStylePlain target:self action:@selector(onNewAddClick)];
     
-    NSDictionary * dic1 = @{@"name":@"陈子文",@"sex":@"成人 男",@"birth":@"1995-10-23"};
-    NSDictionary * dic2 = @{@"name":@"欧阳微微",@"sex":@"成人 女",@"birth":@"1992-8-23"};
-    NSDictionary * dic3 = @{@"name":@"离歌",@"sex":@"儿童 女",@"birth":@"2009-12-3"};
-
-    self.dataArray = @[dic1,dic2,dic3];
-    
-    [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:identifier];
+    [CommonHeaderView registerCellWithTableView:self.tableView];
     
     [OrderPersonCell registerCellWithTableView:self.tableView withIdentifier:orderPersonIdentifier];
+    
+    self.tableView.backgroundView = [[UIView alloc] init];
+    self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
 }
 
 - (void)didReceiveMemoryWarning {

@@ -16,22 +16,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggf-Dm-ebT">
-                    <rect key="frame" x="0.0" y="528" width="320" height="40"/>
-                    <color key="backgroundColor" red="1" green="0.36598624660000001" blue="0.19920358329999999" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="ASR-ie-YhL"/>
-                    </constraints>
-                    <state key="normal" title="保存">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onSaveClick:" destination="-1" eventType="touchUpInside" id="bCr-Vi-oUz"/>
-                    </connections>
-                </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="KKQ-lc-bpV">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="bIt-DA-sUP"/>
@@ -44,10 +30,7 @@
                 <constraint firstAttribute="trailing" secondItem="KKQ-lc-bpV" secondAttribute="trailing" id="3kq-Ym-j7t"/>
                 <constraint firstItem="KKQ-lc-bpV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="S6y-Lv-RwG"/>
                 <constraint firstItem="KKQ-lc-bpV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ea0-c7-MRn"/>
-                <constraint firstAttribute="bottom" secondItem="ggf-Dm-ebT" secondAttribute="bottom" id="giX-9p-Gpo"/>
-                <constraint firstItem="ggf-Dm-ebT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sV5-an-R0R"/>
-                <constraint firstItem="ggf-Dm-ebT" firstAttribute="top" secondItem="KKQ-lc-bpV" secondAttribute="bottom" id="w4h-pR-5yT"/>
-                <constraint firstAttribute="trailing" secondItem="ggf-Dm-ebT" secondAttribute="trailing" id="wOg-xv-vNA"/>
+                <constraint firstAttribute="bottom" secondItem="KKQ-lc-bpV" secondAttribute="bottom" id="u0f-wa-wUP"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <point key="canvasLocation" x="264" y="222"/>
