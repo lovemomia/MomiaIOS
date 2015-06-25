@@ -183,7 +183,7 @@
     if (section == 0) {
         return 0.1;
     }
-    return 20;
+    return [super tableView:tableView heightForHeaderInSection:section];
 }
 
 - (void)shareToFriend {

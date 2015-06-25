@@ -39,15 +39,9 @@
 //}
 //
 //
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-//    if ([self tableViewStyle] == UITableViewStyleGrouped) {
-//        if (section == 0) {
-//            return 30;
-//        }
-//        return 10;
-//    }
-//    return 0;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 10;
+}
 //
 //- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
 //    if ([self tableViewStyle] == UITableViewStyleGrouped) {
