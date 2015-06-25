@@ -203,7 +203,8 @@ typedef enum
 }
 
 - (IBAction)signUp:(id)sender {
-    
+    NSURL * url = [NSURL URLWithString:@"tq://fillorder"];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 -(void)onCollectClick

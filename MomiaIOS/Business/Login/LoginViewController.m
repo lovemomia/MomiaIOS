@@ -56,16 +56,21 @@
 }
 */
 
+
+
 - (void)onLoginClicked {
-//    if (self.phoneTextField.text.length == 0) {
-//        [self showDialogWithTitle:nil message:@"手机号不能为空"];
-//        return;
-//    }
-//    
-//    if (self.passwordTextField.text.length == 0) {
-//        [self showDialogWithTitle:nil message:@"验证码不能为空"];
-//        return;
-//    }
+
+    self.phoneTextField.text = @"2346567";
+    [self.tableView reloadData];
+    if (self.phoneTextField.text.length == 0) {
+        [self showDialogWithTitle:nil message:@"手机号不能为空"];
+        return;
+    }
+    
+    if (self.passwordTextField.text.length == 0) {
+        [self showDialogWithTitle:nil message:@"验证码不能为空"];
+        return;
+    }
     
     [self login];
 }
@@ -136,7 +141,8 @@
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"LoginCell" owner:self options:nil];
             cell = [arr objectAtIndex:0];
         }
-        self.phoneTextField = (UITextField *)[cell viewWithTag:1];
+    
+        self.phoneTextField = (UITextField *)[cell viewWithTag:2001];
         
     } else if (indexPath.row == 1) {
         static NSString *identifier = @"CellVercode";

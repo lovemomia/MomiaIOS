@@ -19,11 +19,17 @@
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3uf-0c-HSS">
-                        <rect key="frame" x="171" y="29" width="160" height="30"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fillorder_bottomarrow" translatesAutoresizingMaskIntoConstraints="NO" id="3uf-0c-HSS">
+                        <rect key="frame" x="299" y="27" width="11" height="6"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="11" id="gz3-Hd-p8d"/>
+                            <constraint firstAttribute="height" constant="6" id="pyx-qU-rcQ"/>
+                        </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="3uf-0c-HSS" secondAttribute="trailing" constant="10" id="IqD-R7-CMz"/>
+                    <constraint firstAttribute="centerY" secondItem="3uf-0c-HSS" secondAttribute="centerY" id="PvN-Jx-8zy"/>
                     <constraint firstAttribute="centerY" secondItem="I88-WJ-FBZ" secondAttribute="centerY" id="Tgu-wd-qAW"/>
                     <constraint firstItem="I88-WJ-FBZ" firstAttribute="leading" secondItem="uOk-OQ-2Lr" secondAttribute="leading" constant="10" id="Zvl-92-X4z"/>
                 </constraints>
@@ -31,6 +37,9 @@
             <point key="canvasLocation" x="245" y="196"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="fillorder_bottomarrow" width="11" height="5"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

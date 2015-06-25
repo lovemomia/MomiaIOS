@@ -17,37 +17,51 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="JDl-YL-6HG">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="517"/>
                     <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="T7I-Kp-1lO"/>
                         <outlet property="delegate" destination="-1" id="6iB-6T-XFJ"/>
                     </connections>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPY-UJ-LyU">
-                    <rect key="frame" x="0.0" y="528" width="320" height="40"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rer-Dt-6Oe">
+                    <rect key="frame" x="0.0" y="517" width="320" height="51"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdT-V2-Qkf">
+                            <rect key="frame" x="60" y="6" width="200" height="39"/>
+                            <color key="backgroundColor" red="0.96470588235294119" green="0.45882352941176469" blue="0.19215686274509805" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="39" id="dKJ-8Q-ofG"/>
+                            </constraints>
+                            <state key="normal" title="完成">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="j4f-gj-cWN"/>
+                        <constraint firstAttribute="trailing" secondItem="sdT-V2-Qkf" secondAttribute="trailing" constant="60" id="1vk-zT-kM6"/>
+                        <constraint firstAttribute="centerY" secondItem="sdT-V2-Qkf" secondAttribute="centerY" id="NnW-pE-bZc"/>
+                        <constraint firstAttribute="height" constant="51" id="OAc-kU-qbF"/>
+                        <constraint firstItem="sdT-V2-Qkf" firstAttribute="leading" secondItem="rer-Dt-6Oe" secondAttribute="leading" constant="60" id="sAB-2T-phd"/>
                     </constraints>
-                    <state key="normal" title="提交">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onSubmitClick:" destination="-1" eventType="touchUpInside" id="gwl-YG-ggv"/>
-                    </connections>
-                </button>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="CPY-UJ-LyU" secondAttribute="bottom" id="6vS-ku-WPj"/>
-                <constraint firstAttribute="trailing" secondItem="CPY-UJ-LyU" secondAttribute="trailing" id="Gg4-aW-O2p"/>
-                <constraint firstItem="CPY-UJ-LyU" firstAttribute="top" secondItem="JDl-YL-6HG" secondAttribute="bottom" id="Nky-y3-hZR"/>
-                <constraint firstItem="JDl-YL-6HG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="c5Y-yg-4gs"/>
-                <constraint firstItem="JDl-YL-6HG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hlE-M6-dUe"/>
-                <constraint firstItem="CPY-UJ-LyU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="x4G-HN-yTb"/>
-                <constraint firstAttribute="trailing" secondItem="JDl-YL-6HG" secondAttribute="trailing" id="yid-M8-fzc"/>
+                <constraint firstItem="rer-Dt-6Oe" firstAttribute="top" secondItem="JDl-YL-6HG" secondAttribute="bottom" id="2f5-fh-KZN"/>
+                <constraint firstAttribute="bottom" secondItem="rer-Dt-6Oe" secondAttribute="bottom" id="Jem-Qj-4oz"/>
+                <constraint firstItem="JDl-YL-6HG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ky3-dw-t0y"/>
+                <constraint firstItem="rer-Dt-6Oe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OYK-Tv-8Kt"/>
+                <constraint firstAttribute="trailing" secondItem="JDl-YL-6HG" secondAttribute="trailing" id="n0N-MM-B6x"/>
+                <constraint firstItem="JDl-YL-6HG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="okV-xm-8J1"/>
+                <constraint firstAttribute="trailing" secondItem="rer-Dt-6Oe" secondAttribute="trailing" id="xSZ-NX-KsB"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <point key="canvasLocation" x="229" y="180"/>

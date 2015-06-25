@@ -43,15 +43,18 @@
 -(void)setCurrentValue:(NSUInteger)currentValue
 {
     _currentValue = currentValue;
-    
-    if(_currentValue > self.maxValue) {//表示不能再加了
+       
+    if(_currentValue >= self.maxValue) {//表示不能再加了
         _currentValue = self.maxValue;
         [self.plusBtn setEnabled:NO];
         [self.minusBtn setEnabled:YES];
         
-    } else if(_currentValue < self.minValue) {//表示不能再减了
+    } else if(_currentValue <= self.minValue) {//表示不能再减了
         _currentValue = self.minValue;
         [self.minusBtn setEnabled:NO];
+        [self.plusBtn setEnabled:YES];
+    } else {
+        [self.minusBtn setEnabled:YES];
         [self.plusBtn setEnabled:YES];
     }
     
@@ -79,6 +82,8 @@
         
         _maxValue = 99;
         _minValue = 0;
+        
+        self.currentValue = 0;
         
         [_plusBtn setImage:[UIImage imageNamed:@"plus_disable"] forState:UIControlStateDisabled];
         [_plusBtn setImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
