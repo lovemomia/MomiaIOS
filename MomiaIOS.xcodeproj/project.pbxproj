@@ -14,6 +14,7 @@
 		5A04EF2A1B0D8D1A00A88D3B /* GoodsTopicItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A04EF291B0D8D1A00A88D3B /* GoodsTopicItemCell.m */; };
 		5A04EF2D1B0DCD4E00A88D3B /* GoodsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A04EF2C1B0DCD4E00A88D3B /* GoodsDetailModel.m */; };
 		5A04EF301B0DE8EE00A88D3B /* GoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A04EF2F1B0DE8EE00A88D3B /* GoodsDetailViewController.m */; };
+		5A0642FA1B3B95D400361732 /* FillOrderChooseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A0642F91B3B95D400361732 /* FillOrderChooseCell.xib */; };
 		5A074F7E1B3A8F47001E5006 /* MOStepperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A074F7D1B3A8F47001E5006 /* MOStepperView.m */; };
 		5A074F801B3A8F88001E5006 /* MOStepperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A074F7F1B3A8F88001E5006 /* MOStepperView.xib */; };
 		5A074F871B3AC39A001E5006 /* FillOrderTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A074F851B3AC39A001E5006 /* FillOrderTopCell.m */; };
@@ -203,6 +204,7 @@
 		5A04EF2C1B0DCD4E00A88D3B /* GoodsDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailModel.m; path = Common/Models/Goods/GoodsDetailModel.m; sourceTree = "<group>"; };
 		5A04EF2E1B0DE8EE00A88D3B /* GoodsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsDetailViewController.h; path = Business/Goods/GoodsDetailViewController.h; sourceTree = "<group>"; };
 		5A04EF2F1B0DE8EE00A88D3B /* GoodsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailViewController.m; path = Business/Goods/GoodsDetailViewController.m; sourceTree = "<group>"; };
+		5A0642F91B3B95D400361732 /* FillOrderChooseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FillOrderChooseCell.xib; path = Business/Order/views/FillOrderChooseCell.xib; sourceTree = "<group>"; };
 		5A074F7C1B3A8F47001E5006 /* MOStepperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOStepperView.h; path = Common/Views/MOStepperView.h; sourceTree = "<group>"; };
 		5A074F7D1B3A8F47001E5006 /* MOStepperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOStepperView.m; path = Common/Views/MOStepperView.m; sourceTree = "<group>"; };
 		5A074F7F1B3A8F88001E5006 /* MOStepperView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MOStepperView.xib; path = Common/Views/MOStepperView.xib; sourceTree = "<group>"; };
@@ -725,6 +727,7 @@
 				5A074F841B3AC39A001E5006 /* FillOrderTopCell.h */,
 				5A074F851B3AC39A001E5006 /* FillOrderTopCell.m */,
 				5A074F861B3AC39A001E5006 /* FillOrderTopCell.xib */,
+				5A0642F91B3B95D400361732 /* FillOrderChooseCell.xib */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -1431,6 +1434,7 @@
 				5A074F881B3AC39A001E5006 /* FillOrderTopCell.xib in Resources */,
 				5A18DC531B2968D5001458A4 /* HomeData.plist in Resources */,
 				5A33F1A21B2EA1D5002A8258 /* CashPayTopHeaderView.xib in Resources */,
+				5A0642FA1B3B95D400361732 /* FillOrderChooseCell.xib in Resources */,
 				BC2C0C771B140BF100E2446E /* RegisterViewController.xib in Resources */,
 				5A6806FD1B01DA5100D02A60 /* MyCollectionCell.xib in Resources */,
 				5A33F1A81B2EBC2F002A8258 /* TitleView.xib in Resources */,
