@@ -6,18 +6,17 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "MOViewController.h"
+#import "MOGroupStyleTableViewController.h"
 
 typedef void (^BlockRegisterSuccess)();
 
-@interface RegisterViewController : MOViewController
+@interface RegisterViewController : MOGroupStyleTableViewController
 
 @property (nonatomic, strong) BlockRegisterSuccess registerSuccessBlock;
 
-@property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
-@property (weak, nonatomic) IBOutlet UITextField *vercodeTextField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
-@property (weak, nonatomic) IBOutlet UIButton *vercodeButton;
+@property (weak, nonatomic) UITextField *phoneTextField;
+@property (weak, nonatomic) UITextField *vercodeTextField;
+@property (weak, nonatomic) UIButton *vercodeButton;
 
 
 - (IBAction)onVercodeButtonClicked:(id)sender;

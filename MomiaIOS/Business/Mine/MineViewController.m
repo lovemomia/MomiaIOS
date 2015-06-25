@@ -126,8 +126,8 @@
         Account *account = [AccountService defaultService].account;
         
         UIImageView *userPic = (UIImageView *)[cell viewWithTag:1];        
-        if (account.picUrl) {
-            [userPic sd_setImageWithURL:[NSURL URLWithString:account.picUrl]];
+        if (account.avatar) {
+            [userPic sd_setImageWithURL:[NSURL URLWithString:account.avatar]];
         }
         
         UILabel *titleLabel = (UILabel *)[cell viewWithTag:2];

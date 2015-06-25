@@ -10,6 +10,7 @@
 #import "UploadImageModel.h"
 #import "AccountModel.h"
 #import "DatePickerSheet.h"
+#import "UIImage+Color.h"
 
 @interface PersonInfoViewController ()<UIAlertViewDelegate, DatePickerSheetDelegate>
 
@@ -69,7 +70,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIView *view = [super tableView:tableView viewForFooterInSection:section];
+    UIView *view = [UIView new];
     if (section == 2) {
         UIButton *logoutButton = [[UIButton alloc]init];
         logoutButton.height = 45;
@@ -79,7 +80,8 @@
         [logoutButton setTitle:@"退出登录" forState:UIControlStateNormal];
         [logoutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [logoutButton addTarget:self action:@selector(onLogoutClicked:) forControlEvents:UIControlEventTouchUpInside];
-        [logoutButton setBackgroundImage:[UIImage imageNamed:@"bg_button"] forState:UIControlStateNormal];
+        [logoutButton.layer setCornerRadius:5];
+        [logoutButton setBackgroundImage:[UIImage imageWithColor:MO_APP_ThemeColor size:logoutButton.frame.size] forState:UIControlStateNormal];
         [view addSubview:logoutButton];
     }
     return view;
@@ -89,7 +91,7 @@
     if (section == 2) {
         return 80;
     }
-    return [super tableView:tableView heightForFooterInSection:section];
+    return 0;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -140,7 +142,7 @@
         }
         
         self.userIcon = (UIImageView *)[cell viewWithTag:1];
-        [self.userIcon sd_setImageWithURL:[NSURL URLWithString:account.picUrl]];
+        [self.userIcon sd_setImageWithURL:[NSURL URLWithString:account.avatar]];
         
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:CellDefault];
@@ -170,7 +172,7 @@
             case 2:
                 if (row == 0) {
                     cell.textLabel.text = @"手机号";
-                    cell.detailTextLabel.text = account.phone;
+                    cell.detailTextLabel.text = account.mobile;
                     cell.accessoryType = UITableViewCellAccessoryNone;
                     
                 } else {

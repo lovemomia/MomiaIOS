@@ -40,16 +40,6 @@
     [self save];
 }
 
-- (void)setPhone:(NSString *)phone {
-    _phone = phone;
-    [self save];
-}
-
-- (void)setPicUrl:(NSString *)picUrl {
-    _picUrl = picUrl;
-    [self save];
-}
-
 - (void)setQqNo:(NSString<Optional> *)qqNo {
     _qqNo = qqNo;
     [self save];
@@ -74,8 +64,6 @@
     [encoder encodeObject:self.babyAge forKey:@"babyAge"];
     [encoder encodeObject:self.babySex forKey:@"babySex"];
     [encoder encodeObject:self.nickName forKey:@"nickName"];
-    [encoder encodeObject:self.phone forKey:@"phone"];
-    [encoder encodeObject:self.picUrl forKey:@"picUrl"];
     [encoder encodeObject:self.qqNo forKey:@"qqNo"];
     [encoder encodeObject:self.wechatNo forKey:@"wechatNo"];
     [encoder encodeObject:self.weiboNo forKey:@"weiboNo"];
@@ -92,8 +80,6 @@
         self.babyAge = [decoder decodeObjectForKey:@"babyAge"];
         self.babySex = [decoder decodeObjectForKey:@"babySex"];
         self.nickName = [decoder decodeObjectForKey:@"nickName"];
-        self.phone = [decoder decodeObjectForKey:@"phone"];
-        self.picUrl = [decoder decodeObjectForKey:@"picUrl"];
         self.qqNo = [decoder decodeObjectForKey:@"qqNo"];
         self.wechatNo = [decoder decodeObjectForKey:@"wechatNo"];
         self.weiboNo = [decoder decodeObjectForKey:@"weiboNo"];

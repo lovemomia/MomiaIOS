@@ -88,14 +88,9 @@
         return;
     }
     
-    if (self.passwordTextField.text.length == 0) {
-        [self showDialogWithTitle:nil message:@"密码不能为空"];
-        return;
-    }
-    
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    NSDictionary *params = @{@"phone":self.phoneTextField.text, @"code":self.vercodeTextField.text, @"password":self.passwordTextField.text};
+    NSDictionary *params = @{@"phone":self.phoneTextField.text, @"code":self.vercodeTextField.text};
     [[HttpService defaultService]POST:URL_APPEND_PATH(@"/auth/register")
                            parameters:params JSONModelClass:[AccountModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -118,6 +113,75 @@
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
                                   [self showDialogWithTitle:nil message:error.message];
                               }];
+}
+
+#pragma mark - tableview delegate & datasource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 2;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    if (section == [self numberOfSectionsInTableView:tableView] - 1) {
+        UIView *view = [UIView new];
+        UIButton *button = [[UIButton alloc]init];
+        button.height = 45;
+        button.width = SCREEN_WIDTH - 2 * 18;
+        button.left = 18;
+        button.top = 30;
+        [button setTitle:@"注册" forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(onRigisterButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [button.layer setCornerRadius:5];
+        [button setBackgroundColor:MO_APP_ThemeColor];
+        [view addSubview:button];
+        return view;
+    }
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (section == 1) {
+        return 80;
+    }
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell;
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"RegisterCell" owner:self options:nil];
+            cell = [arr objectAtIndex:0];
+            self.phoneTextField = (UITextField *)[cell.contentView viewWithTag:1];
+            
+        } else if (indexPath.row == 1) {
+            NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"RegisterCell" owner:self options:nil];
+            cell = [arr objectAtIndex:1];
+            self.vercodeTextField = (UITextField *)[cell.contentView viewWithTag:1];
+        }
+        
+    } else if (indexPath.section == 1) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        if (indexPath.row == 0) {
+            cell.textLabel.text = @"宝宝性别";
+            cell.detailTextLabel.text = @"";
+            
+        } else if(indexPath.row == 1){
+            cell.textLabel.text = @"宝宝年龄";
+            
+        }
+    }
+    
+    
+    return cell;
 }
 
 @end

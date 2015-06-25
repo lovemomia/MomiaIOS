@@ -63,7 +63,7 @@ NSString * const pageKeyDesc          = @"desc";
     BOOL needLogin = [[pageDic objectForKey:pageKeyNeedLogin] boolValue];
     if (needLogin && ![[AccountService defaultService] isLogin]) {
         UIViewController *currentController = [nav.viewControllers objectAtIndex:[nav.viewControllers count] - 1];
-        LoginViewController *controller = [[LoginViewController alloc]initWithNibName:@"LoginViewController" bundle:nil];
+        LoginViewController *controller = [[LoginViewController alloc]initWithParams:nil];
         
         controller.loginSuccessBlock = ^(){
             [currentController dismissViewControllerAnimated:NO completion:nil];
