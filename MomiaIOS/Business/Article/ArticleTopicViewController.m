@@ -164,7 +164,7 @@
         [self setUpNav];
 
         [self.tableView reloadData];
-        [self.tableView.legendHeader endRefreshing];
+        [self.tableView.header endRefreshing];
         [self initNavBackView];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

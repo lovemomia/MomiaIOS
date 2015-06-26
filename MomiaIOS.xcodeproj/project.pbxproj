@@ -150,6 +150,8 @@
 		BC8254331B3A76F500430A6F /* CustomDarkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8254321B3A76F500430A6F /* CustomDarkButton.m */; };
 		BC8254361B3AA0A500430A6F /* LoginCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC8254351B3AA0A500430A6F /* LoginCell.xib */; };
 		BC8254381B3AB01E00430A6F /* RegisterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC8254371B3AB01E00430A6F /* RegisterCell.xib */; };
+		BC82543F1B3C26E400430A6F /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82543E1B3C26E400430A6F /* LocationService.m */; };
+		BC8254421B3CE87F00430A6F /* PlaymateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC8254411B3CE87F00430A6F /* PlaymateCell.xib */; };
 		BC8540911ADF74E9005A7C54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540901ADF74E9005A7C54 /* main.m */; };
 		BC8540941ADF74E9005A7C54 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540931ADF74E9005A7C54 /* AppDelegate.m */; };
 		BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC85409B1ADF74E9005A7C54 /* Images.xcassets */; };
@@ -443,6 +445,9 @@
 		BC8254321B3A76F500430A6F /* CustomDarkButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomDarkButton.m; path = Common/Views/CustomDarkButton.m; sourceTree = "<group>"; };
 		BC8254351B3AA0A500430A6F /* LoginCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginCell.xib; path = Business/Login/Views/LoginCell.xib; sourceTree = "<group>"; };
 		BC8254371B3AB01E00430A6F /* RegisterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RegisterCell.xib; path = Business/Login/Views/RegisterCell.xib; sourceTree = "<group>"; };
+		BC82543D1B3C26E400430A6F /* LocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationService.h; path = Common/Services/Location/LocationService.h; sourceTree = "<group>"; };
+		BC82543E1B3C26E400430A6F /* LocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationService.m; path = Common/Services/Location/LocationService.m; sourceTree = "<group>"; };
+		BC8254411B3CE87F00430A6F /* PlaymateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaymateCell.xib; path = Business/Playmate/Views/PlaymateCell.xib; sourceTree = "<group>"; };
 		BC85408B1ADF74E9005A7C54 /* MomiaIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MomiaIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC85408F1ADF74E9005A7C54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC8540901ADF74E9005A7C54 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -874,6 +879,7 @@
 		BC2FAA121AFCB1CB00E2071E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				BC82543C1B3C26A900430A6F /* Location */,
 				BC2C0C651B131EAC00E2446E /* Account */,
 				BC2FAA171AFCB65400E2071E /* Http */,
 			);
@@ -971,6 +977,7 @@
 		BC82542C1B394FC100430A6F /* Playmate */ = {
 			isa = PBXGroup;
 			children = (
+				BC8254401B3CE76800430A6F /* Views */,
 				BC82542D1B39505E00430A6F /* PlaymateViewController.h */,
 				BC82542E1B39505E00430A6F /* PlaymateViewController.m */,
 			);
@@ -982,6 +989,23 @@
 			children = (
 				BC8254351B3AA0A500430A6F /* LoginCell.xib */,
 				BC8254371B3AB01E00430A6F /* RegisterCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		BC82543C1B3C26A900430A6F /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				BC82543D1B3C26E400430A6F /* LocationService.h */,
+				BC82543E1B3C26E400430A6F /* LocationService.m */,
+			);
+			name = Location;
+			sourceTree = "<group>";
+		};
+		BC8254401B3CE76800430A6F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BC8254411B3CE87F00430A6F /* PlaymateCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1446,6 +1470,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC8254421B3CE87F00430A6F /* PlaymateCell.xib in Resources */,
 				5A08C1421B39117100642648 /* ProductDetailEnrollCell.xib in Resources */,
 				5A6806F01B01A9BD00D02A60 /* SettingMsgCell.xib in Resources */,
 				5A18DC551B296D7F001458A4 /* HomeCarouselData.plist in Resources */,
@@ -1590,6 +1615,7 @@
 				5AC9FFC91B17020300C769EF /* SubmitPostModel.m in Sources */,
 				BC82542F1B39505E00430A6F /* PlaymateViewController.m in Sources */,
 				BC82542B1B3917AC00430A6F /* MORootViewController.m in Sources */,
+				BC82543F1B3C26E400430A6F /* LocationService.m in Sources */,
 				BC2C0C861B15668000E2446E /* DatePickerSheet.m in Sources */,
 				5A04EF2D1B0DCD4E00A88D3B /* GoodsDetailModel.m in Sources */,
 				5AABF70F1B281BEF000A9D3F /* ConvertFromXib.m in Sources */,
