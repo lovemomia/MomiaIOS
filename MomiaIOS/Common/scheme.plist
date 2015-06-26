@@ -20,24 +20,6 @@
 		<key>desc</key>
 		<string>我的</string>
 	</dict>
-	<key>articletopic</key>
-	<dict>
-		<key>controller</key>
-		<string>ArticleTopicViewController</string>
-		<key>needlogin</key>
-		<false/>
-		<key>desc</key>
-		<string>文章列表</string>
-	</dict>
-	<key>articledetail</key>
-	<dict>
-		<key>controller</key>
-		<string>ArticleDetailViewController</string>
-		<key>needlogin</key>
-		<false/>
-		<key>desc</key>
-		<string>文章详情</string>
-	</dict>
 	<key>setting</key>
 	<dict>
 		<key>controller</key>
@@ -109,24 +91,6 @@
 		<false/>
 		<key>desc</key>
 		<string>评论页面</string>
-	</dict>
-	<key>goodstopic</key>
-	<dict>
-		<key>controller</key>
-		<string>GoodsTopicViewController</string>
-		<key>needlogin</key>
-		<false/>
-		<key>desc</key>
-		<string>商品列表页面</string>
-	</dict>
-	<key>goodsdetail</key>
-	<dict>
-		<key>controller</key>
-		<string>GoodsDetailViewController</string>
-		<key>needlogin</key>
-		<false/>
-		<key>desc</key>
-		<string>商品详情页面</string>
 	</dict>
 	<key>login</key>
 	<dict>
