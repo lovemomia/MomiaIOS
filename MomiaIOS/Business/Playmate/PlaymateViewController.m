@@ -29,6 +29,10 @@
     return UITableViewCellSeparatorStyleSingleLine;
 }
 
+- (UIEdgeInsets)separatorInset {
+    return UIEdgeInsetsMake(0,57,0,0);
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 10;
 }

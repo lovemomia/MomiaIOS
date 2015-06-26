@@ -11,6 +11,7 @@
 #import "AFURLSessionManager.h"
 #import "BaseModel.h"
 #import "UploadImageModel.h"
+#import "ISDiskCache.h"
 
 @implementation HttpService
 
@@ -26,6 +27,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.httpClient = [AFHTTPRequestOperationManager manager];
+        [ISDiskCache sharedCache].limitOfSize = 10 * 1024 * 1024; // 10MB
     }
     return self;
 }
@@ -36,7 +38,23 @@
                  JSONModelClass:(Class)responseModelClass
                         success:(BlockMOHTTPRequestSuccess)success
                         failure:(BlockMOHTTPRequestFail)failure {
+    
+    NSMutableDictionary *allParams = [self createBasicParams];
+    [allParams addEntriesFromDictionary:parameters];
+    
+    NSString *cacheUrl;
+    if (cacheType == CacheTypeNormal) {
+        // make cache url
+        cacheUrl = [self appendUrl:URLString withParams:allParams];
+    }
+    
     BlockMOHTTPRequestSuccess onSuccess = ^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        // cache
+        if (cacheType == CacheTypeNormal) {
+            [[ISDiskCache sharedCache] setObject:responseObject forKey:cacheUrl];
+        }
+        
         if (responseModelClass == nil) {
             success(operation, responseObject);
             return;
@@ -48,15 +66,13 @@
         }
         if (result.errNo == 0) {
             success(operation, result);
-//            NSLog(@"http (POST) success: %@", responseObject);
+            NSLog(@"http (GET) success: %@", responseObject);
             
         } else {
             NSError *err = [[NSError alloc]initWithCode:result.errNo message:result.errMsg];
             failure(operation, err);
-            NSLog(@"http (POST) fail: %@", responseObject);
+            NSLog(@"http (GET) fail: %@", responseObject);
         }
-        
-//        NSLog(@"http (GET) success: %@", responseObject);
 
     };
     
@@ -67,8 +83,27 @@
         NSLog(@"http (GET) fail: %@", error);
     };
     
-    NSMutableDictionary *allParams = [self createBasicParams];
-    [allParams addEntriesFromDictionary:parameters];
+    if (cacheType == CacheTypeNormal) {
+        // check cache first
+        id cache = [[ISDiskCache sharedCache] objectForKey:cacheUrl];
+        if (cache) {
+            BaseModel *result = [(BaseModel *)[responseModelClass alloc]initWithDictionary:cache error:nil];
+            if (result == nil) {
+                result = [[BaseModel alloc]initWithDictionary:cache error:nil];
+            }
+            if (result.errNo == 0) {
+                success(nil, result);
+                NSLog(@"http (Cache) success: %@", cache);
+                return nil;
+                
+            } else {
+                NSLog(@"http (Cache) fail: %@", cache);
+                // clear cache
+                [[ISDiskCache sharedCache] removeObjectForKey:cacheUrl];
+            }
+            
+        }
+    }
     
     AFHTTPRequestOperation *operation = [self.httpClient GET:URLString parameters:allParams success:onSuccess failure:onFail];
     return operation;
@@ -92,7 +127,7 @@
         if (result.errNo == 0) {
 
             success(operation, result);
-//            NSLog(@"http (POST) success: %@", responseObject);
+            NSLog(@"http (POST) success: %@", responseObject);
             
         } else {
             NSError *err = [[NSError alloc]initWithCode:result.errNo message:result.errMsg];
@@ -175,6 +210,18 @@
 
 
     return dic;
+}
+
+- (NSString *)appendUrl:(NSString *)url withParams:(NSDictionary *)parameters {
+    NSMutableString * ms = [[NSMutableString alloc]initWithString:url];
+    if (![url containsString:@"?"]) {
+        [ms appendString:@"?"];
+    }
+    for (NSString *key in [parameters keyEnumerator]) {
+        NSString *value = [parameters valueForKey:key];
+        [ms appendString:[NSString stringWithFormat:@"&%@=%@", key, value]];
+    }
+    return ms;
 }
 
 @end
