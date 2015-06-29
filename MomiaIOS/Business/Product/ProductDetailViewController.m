@@ -267,8 +267,10 @@ typedef enum
     self.tableView.backgroundView = [[UIView alloc] init];
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
     
-    [self requestData];
+    self.tableView.width = SCREEN_WIDTH;
     
+    [self requestData];
+
 }
 
 - (void)didReceiveMemoryWarning {

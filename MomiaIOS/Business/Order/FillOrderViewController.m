@@ -15,14 +15,21 @@
 #import "CommonHeaderView.h"
 #import "FillOrderModel.h"
 #import "MOStepperGroup.h"
+#import "ConvertFromXib.h"
 
 #define TopNumber 2
+
+struct PersonStyle {
+    NSUInteger adult;
+    NSUInteger child;
+};
+typedef struct PersonStyle PersonStyle;
 
 static NSString * identifier = @"FillOrderHeaderViewIdentifier";
 static NSString * fillOrderTopIdentifier = @"CellFillOrderTop";
 static NSString * fillOrderChooseIdentifier = @"CellFillOrderChoose";
-static NSString * fillOrderMiddleIdentifier = @"CellFillOrderMiddle";
 static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
+
 
 @interface FillOrderViewController ()
 
@@ -35,12 +42,22 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 @property(nonatomic, assign) BOOL isShowAllTopCell;//是否显示所有场次
 @property(nonatomic, assign) NSInteger topIndex;
 
-@property(nonatomic, strong) NSMutableArray * currentValueArray;//存储steppterView的当前值，item为NSNumber类型
 @property(nonatomic, strong) MOStepperGroup * stepperGroup;
+@property(nonatomic, strong) NSMutableArray * middleCellArray;
+
+@property(nonatomic, assign) BOOL middleDataChanged;
 
 @end
 
 @implementation FillOrderViewController
+
+-(NSMutableArray *)middleCellArray
+{
+    if(!_middleCellArray) {
+        _middleCellArray = [[NSMutableArray alloc] init];
+    }
+    return _middleCellArray;
+}
 
 -(MOStepperGroup *)stepperGroup
 {
@@ -50,13 +67,13 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
     return _stepperGroup;
 }
 
--(NSMutableArray *)currentValueArray
-{
-    if(!_currentValueArray) {
-        _currentValueArray = [[NSMutableArray alloc] init];
-    }
-    return _currentValueArray;
-}
+//-(NSMutableArray *)currentValueArray
+//{
+//    if(!_currentValueArray) {
+//        _currentValueArray = [[NSMutableArray alloc] init];
+//    }
+//    return _currentValueArray;
+//}
 
 - (IBAction)onSureClick:(id)sender {
     
@@ -138,9 +155,16 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
     } else if(section == 1) {
         FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
         rows = skuModel.prices.count;
-        [self.currentValueArray removeAllObjects];
-        for (int i = 0; i < rows; i++) {
-            [self.currentValueArray addObject:@(0)];
+        if(self.middleDataChanged) {
+            [self.stepperGroup setMaxPlaces:skuModel.stock];
+            [self.stepperGroup removeAllSteppers];
+            [self.middleCellArray removeAllObjects];
+            self.priceLabel.text = [NSString stringWithFormat:@"￥%.2f",self.totalPrice];
+            for (int i = 0; i < rows; i++) {
+                FillOrderMiddleCell * middle = [ConvertFromXib convertObjectWithNibNamed:@"FillOrderMiddleCell" withClassNamed:NSStringFromClass([FillOrderMiddleCell class])];
+                [self.stepperGroup addMOStepperView:middle.stepperView];
+                [self.middleCellArray addObject:middle];
+            }
         }
     } else {
         rows = 2;
@@ -183,20 +207,16 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
             break;
         case 1:
         {
-            FillOrderMiddleCell * middle = [FillOrderMiddleCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:fillOrderMiddleIdentifier];
+            FillOrderMiddleCell * middle = [self.middleCellArray objectAtIndex:row];
             middle.selectionStyle = UITableViewCellSelectionStyleNone;
             FillOrderSkuModel * model = self.model.data.skus[self.topIndex];
             
-            NSNumber * cur = self.currentValueArray[row];
+            [middle setData:model.prices[row]];
             
-            [middle setData:model.prices[row] withCurrentValue:cur.integerValue];
-            
-            middle.stepperView.onclickStepper = ^(NSUInteger currentValue){
-                [self.currentValueArray setObject:@(currentValue) atIndexedSubscript:row];
+            middle.stepperView.onclickStepper = ^(NSUInteger currentValue){//单击+、-事件响应
+                [self.stepperGroup refreshStatus];//更新stepper组件
                 self.priceLabel.text = [NSString stringWithFormat:@"￥%.2f",self.totalPrice];
             };
-            
-            [self.stepperGroup addMOStepperView:middle.stepperView];
             
             cell = middle;
         }
@@ -211,8 +231,6 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
             break;
     }
     return cell;
-    
-    
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -222,32 +240,67 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
     
     if(section == 0) {
         
-        if(row == TopNumber && !self.isShowAllTopCell) {
+        if(row == TopNumber && !self.isShowAllTopCell) {//表明点击的是选择其他场次，需要刷新table，但是middle不能改变
             self.isShowAllTopCell = YES;
+            self.middleDataChanged = NO;
+            [self.tableView reloadData];
         } else {
-            self.topIndex = row;
+            if(self.topIndex != row) {//表明点击的是不同行，需要刷新
+                self.topIndex = row;
+                self.middleDataChanged = YES;
+                [self.tableView reloadData];
+            }
         }
         
-        [self.tableView reloadData];
-        
     } else if(section == 2) {
-        NSURL * url = [NSURL URLWithString:@"tq://orderperson"];
-        [[UIApplication sharedApplication] openURL:url];
-        
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        if(row == 0) {//单击出行人
+            PersonStyle personStyle = self.personCount;
+            if(!personStyle.adult && !personStyle.child) {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                // Configure for text only and offset down
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText = @"您还未选择出行人";
+                hud.margin = 10.f;
+                hud.removeFromSuperViewOnHide = YES;
+                
+                [hud hide:YES afterDelay:2];
+                
+            } else {
+                NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://orderperson?utoken=%@&adult=%ld&child=%ld",self.utoken,personStyle.adult,personStyle.child]];
+                [[UIApplication sharedApplication] openURL:url];
+            }
+            
+        } else {//单击联系人信息
+            
+        }
     }
-    
-  
 }
 
--(CGFloat)totalPrice
+-(PersonStyle)personCount
 {
-    CGFloat totalPrice = 0;
+    PersonStyle personStyle = {0,0};
     
     FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
     for (int i = 0; i < skuModel.prices.count; i++) {
         FillOrderPriceModel * priceModel = skuModel.prices[i];
-        NSNumber * number = self.currentValueArray[i];
-        NSInteger count = number.integerValue;
+        MOStepperView * stepper = [self.stepperGroup objectAtIndex:i];
+        personStyle.adult += priceModel.adult * stepper.currentValue;
+        personStyle.child += priceModel.child * stepper.currentValue;
+    }
+    
+    return personStyle;
+}
+
+
+-(CGFloat)totalPrice
+{
+    CGFloat totalPrice = 0;
+    FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
+    for (int i = 0; i < skuModel.prices.count; i++) {
+        FillOrderPriceModel * priceModel = skuModel.prices[i];
+        MOStepperView * stepper = [self.stepperGroup objectAtIndex:i];
+        NSInteger count = stepper.currentValue;
         totalPrice += priceModel.price * count;
     }
     return totalPrice;
@@ -350,6 +403,9 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
         }
         
         self.model = responseObject;
+        
+        self.middleDataChanged = YES;
+
         [self.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -380,7 +436,6 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
     [FillOrderFooterView registerCellWithTableView:self.tableView];
     [FillOrderTopCell registerCellWithTableView:self.tableView withIdentifier:fillOrderTopIdentifier];
     [FillOrderChooseCell registerCellWithTableView:self.tableView withIdentifier:fillOrderChooseIdentifier];
-    [FillOrderMiddleCell registerCellWithTableView:self.tableView withIdentifier:fillOrderMiddleIdentifier];
     [FillOrderBottomCell registerCellWithTableView:self.tableView withIdentifier:fillOrderBottomIdentifier];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     

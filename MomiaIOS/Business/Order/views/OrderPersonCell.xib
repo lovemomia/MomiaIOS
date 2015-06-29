@@ -72,6 +72,9 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="checkBtn" destination="k3h-59-gOj" id="yT0-48-HjY"/>
+                <outlet property="nameLabel" destination="bfY-6w-PBK" id="kWD-xX-aOJ"/>
+                <outlet property="sexLabel" destination="9Ed-Gr-n67" id="zC8-1N-4eU"/>
+                <outlet property="typeLabel" destination="4ao-vK-NU3" id="b0B-dI-bne"/>
             </connections>
             <point key="canvasLocation" x="247" y="253"/>
         </tableViewCell>

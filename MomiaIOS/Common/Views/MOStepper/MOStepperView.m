@@ -48,15 +48,15 @@
        
     if(_currentValue >= self.maxValue) {//表示不能再加了
         _currentValue = self.maxValue;
-        [self.plusBtn setEnabled:NO];
+        self.plusEnabled = NO;
         [self.minusBtn setEnabled:YES];
     } else if(_currentValue <= self.minValue) {//表示不能再减了
         _currentValue = self.minValue;
         [self.minusBtn setEnabled:NO];
-        [self.plusBtn setEnabled:YES];
+        self.plusEnabled = YES;
     } else {
         [self.minusBtn setEnabled:YES];
-        [self.plusBtn setEnabled:YES];
+        self.plusEnabled = YES;
     }
     
     self.titleLabel.text = [NSString stringWithFormat:@"%ld",_currentValue];
@@ -102,13 +102,6 @@
     _plusEnabled = enabled;
     [self.plusBtn setEnabled:_plusEnabled];
 }
-
--(void)setMinusEnabled:(BOOL) enabled
-{
-    [self.minusBtn setEnabled:enabled];
-}
-
-
 
 
 /*

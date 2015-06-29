@@ -64,6 +64,8 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
     // 设置下拉刷新
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
     
+    self.tableView.width = SCREEN_WIDTH;
+    
     [self requestData];
 }
 

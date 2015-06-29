@@ -11,7 +11,6 @@
 @interface MOStepperGroup ()
 
 @property(nonatomic,strong) NSMutableArray * array;
-@property(nonatomic,assign) NSUInteger maxPlaces;
 
 @end
 
@@ -27,10 +26,7 @@
 
 -(void)addMOStepperView:(MOStepperView *)stepperView
 {
-    if(!stepperView.isAddedGroup) {
-        [self.array addObject:stepperView];
-        [stepperView setAddedGroup:YES];
-    }
+    [self.array addObject:stepperView];
 }
 
 -(BOOL)isFullPlace//判断当前array里边的stepper当前值之和是否达到最大名额限制
@@ -64,15 +60,16 @@
     }
 }
 
--(void)resetSteppers
+-(void)removeAllSteppers
 {
-    for(int i = 0; i < self.array.count; i++) {
-        MOStepperView * stepper = self.array[i];
-        stepper.currentValue = 0;
-        stepper.plusEnabled = YES;
-        stepper.addedGroup = NO;
-    }
     [self.array removeAllObjects];
+}
+
+-(MOStepperView *)objectAtIndex:(NSUInteger) index
+{
+    MOStepperView * stepper;
+    if(index < self.array.count) stepper = self.array[index];
+    return stepper;
 }
 
 

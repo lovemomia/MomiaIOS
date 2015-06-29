@@ -10,10 +10,21 @@
 
 @interface OrderPersonCell ()
 @property (weak, nonatomic) IBOutlet UIButton *checkBtn;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sexLabel;
 
 @end
 
 @implementation OrderPersonCell
+
+-(void)setData:(OrderPersonDataModel *)model
+{
+    self.nameLabel.text = model.name;
+    self.typeLabel.text = model.type;
+    self.sexLabel.text = model.sex;
+}
+
 
 -(void)awakeFromNib
 {

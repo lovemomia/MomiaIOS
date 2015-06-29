@@ -80,6 +80,7 @@
 		5AABF6FA1B28120C000A9D3F /* OrderAddPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AABF6F81B28120C000A9D3F /* OrderAddPersonViewController.m */; };
 		5AABF6FB1B28120C000A9D3F /* OrderAddPersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AABF6F91B28120C000A9D3F /* OrderAddPersonViewController.xib */; };
 		5AABF70F1B281BEF000A9D3F /* ConvertFromXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AABF70E1B281BEF000A9D3F /* ConvertFromXib.m */; };
+		5AB444821B41479800FBADD4 /* OrderPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB444811B41479800FBADD4 /* OrderPersonModel.m */; };
 		5AC9FFC91B17020300C769EF /* SubmitPostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9FFC81B17020300C769EF /* SubmitPostModel.m */; };
 		5AC9FFCD1B17298C00C769EF /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9FFCB1B17298C00C769EF /* FeedbackViewController.m */; };
 		5AC9FFCE1B17298C00C769EF /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AC9FFCC1B17298C00C769EF /* FeedbackViewController.xib */; };
@@ -298,6 +299,8 @@
 		5AABF6F91B28120C000A9D3F /* OrderAddPersonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderAddPersonViewController.xib; path = Business/Order/OrderAddPersonViewController.xib; sourceTree = "<group>"; };
 		5AABF70D1B281BEF000A9D3F /* ConvertFromXib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConvertFromXib.h; path = Common/Utils/ConvertFromXib.h; sourceTree = "<group>"; };
 		5AABF70E1B281BEF000A9D3F /* ConvertFromXib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConvertFromXib.m; path = Common/Utils/ConvertFromXib.m; sourceTree = "<group>"; };
+		5AB444801B41479800FBADD4 /* OrderPersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderPersonModel.h; path = Common/Models/Order/OrderPersonModel.h; sourceTree = "<group>"; };
+		5AB444811B41479800FBADD4 /* OrderPersonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderPersonModel.m; path = Common/Models/Order/OrderPersonModel.m; sourceTree = "<group>"; };
 		5AC9FFC71B17020300C769EF /* SubmitPostModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubmitPostModel.h; path = Common/Models/SubmitPost/SubmitPostModel.h; sourceTree = "<group>"; };
 		5AC9FFC81B17020300C769EF /* SubmitPostModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubmitPostModel.m; path = Common/Models/SubmitPost/SubmitPostModel.m; sourceTree = "<group>"; };
 		5AC9FFCA1B17298C00C769EF /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedbackViewController.h; path = Business/Mine/FeedbackViewController.h; sourceTree = "<group>"; };
@@ -715,6 +718,8 @@
 			children = (
 				5AE4F82B1B3CF21B005879B7 /* FillOrderModel.h */,
 				5AE4F82C1B3CF21B005879B7 /* FillOrderModel.m */,
+				5AB444801B41479800FBADD4 /* OrderPersonModel.h */,
+				5AB444811B41479800FBADD4 /* OrderPersonModel.m */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -1521,6 +1526,7 @@
 				5A18DC4B1B295C03001458A4 /* HomeViewController.m in Sources */,
 				BC2C0C8F1B18075D00E2446E /* UIImage+Color.m in Sources */,
 				5A6806FB1B01D9EA00D02A60 /* MyCollectionViewController.m in Sources */,
+				5AB444821B41479800FBADD4 /* OrderPersonModel.m in Sources */,
 				5AE4F8671B3D642B005879B7 /* MOStepperView.m in Sources */,
 				5A2144581B0C6A8A0072682F /* AlertNotice.m in Sources */,
 				BC2C0C611B130C9300E2446E /* User.m in Sources */,

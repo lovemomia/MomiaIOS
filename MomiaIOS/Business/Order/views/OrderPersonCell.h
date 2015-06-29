@@ -7,9 +7,10 @@
 //
 
 #import "MOTableCell.h"
+#import "OrderPersonModel.h"
 
+@interface OrderPersonCell : MOTableCell<MOTableCellDataProtocol>
 
-
-@interface OrderPersonCell : MOTableCell
+-(void)setData:(OrderPersonDataModel *)model;
 
 @end

@@ -13,6 +13,6 @@
 @interface FillOrderMiddleCell : MOTableCell
 @property (weak, nonatomic) IBOutlet MOStepperView *stepperView;
 
--(void)setData:(FillOrderPriceModel *)model withCurrentValue:(NSUInteger) currentValue;
+-(void)setData:(FillOrderPriceModel *)model;
 
 @end

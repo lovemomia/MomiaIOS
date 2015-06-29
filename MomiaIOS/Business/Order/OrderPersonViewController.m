@@ -9,31 +9,52 @@
 #import "OrderPersonViewController.h"
 #import "OrderPersonCell.h"
 #import "CommonHeaderView.h"
+#import "OrderPersonModel.h"
+
+
+struct PersonStyle {
+    NSUInteger adult;
+    NSUInteger child;
+};
+typedef struct PersonStyle PersonStyle;
+
 static NSString * orderPersonIdentifier = @"CellOrderPerson";
 
 @interface OrderPersonViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) OrderPersonModel * model;
+@property(nonatomic, strong) NSString * utoken;
+@property(nonatomic,assign) PersonStyle personStyle;
 
 @end
 
 @implementation OrderPersonViewController
 
 
-
 #pragma tableView dataSource&delegate
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 41.0f;
+    return 40;
 }
 
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     CommonHeaderView * header = [CommonHeaderView cellWithTableView:self.tableView];
-    header.data = @"请选择成人1名，儿童1名";
-    
+    NSString * content = @"请选择";
+    if(self.personStyle.adult > 0) {
+        content = [content stringByAppendingFormat:@"成人%ld名",self.personStyle.adult];
+
+    }
+    if(self.personStyle.child > 0) {
+        if(self.personStyle.adult > 0) {
+            content = [content stringByAppendingString:@"，"];
+        }
+        content = [content stringByAppendingFormat:@"儿童%ld名",self.personStyle.child];
+    }
+    header.data = content;
     return header;
 }
 
@@ -44,7 +65,7 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return self.model.data.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -55,6 +76,7 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     OrderPersonCell * cell = [OrderPersonCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:orderPersonIdentifier];
+    cell.data = self.model.data[indexPath.row];
     return cell;
 }
 
@@ -70,7 +92,46 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
     [[UIApplication sharedApplication] openURL:url];
 }
 
+
+
+#pragma mark - webData Request
+
+- (void)requestData {
+    if (self.model == nil) {
+        [self.view showLoadingBee];
+    }
+    
+    NSDictionary * dic = @{@"utoken":self.utoken};
+    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/participant/list") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[OrderPersonModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (self.model == nil) {
+            [self.view removeLoadingBee];
+        }
+        
+        self.model = responseObject;
+        
+        [self.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+
 #pragma mark - view life cycle
+
+-(instancetype)initWithParams:(NSDictionary *)params
+{
+    self = [super initWithParams:params];
+    if(self) {
+        self.utoken = [params objectForKey:@"utoken"];
+        PersonStyle personStyle;
+        personStyle.adult = [(NSString *)[params objectForKey:@"adult"] integerValue];
+        personStyle.child = [(NSString *)[params objectForKey:@"child"] integerValue];
+        self.personStyle = personStyle;
+    }
+    return self;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -85,6 +146,8 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
     
     self.tableView.backgroundView = [[UIView alloc] init];
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
+    
+    [self requestData];
 }
 
 - (void)didReceiveMemoryWarning {

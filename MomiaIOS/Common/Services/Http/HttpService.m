@@ -66,7 +66,7 @@
         }
         if (result.errNo == 0) {
             success(operation, result);
-            NSLog(@"http (GET) success: %@", responseObject);
+//            NSLog(@"http (GET) success: %@", responseObject);
             
         } else {
             NSError *err = [[NSError alloc]initWithCode:result.errNo message:result.errMsg];
@@ -93,7 +93,7 @@
             }
             if (result.errNo == 0) {
                 success(nil, result);
-                NSLog(@"http (Cache) success: %@", cache);
+//                NSLog(@"http (Cache) success: %@", cache);
                 return nil;
                 
             } else {

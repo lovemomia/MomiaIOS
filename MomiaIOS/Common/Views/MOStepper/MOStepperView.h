@@ -17,7 +17,6 @@ typedef void (^OnClickStepper)(NSUInteger currentValue);
 @property(nonatomic,assign) NSUInteger minValue;
 
 @property(nonatomic,strong) OnClickStepper onclickStepper;
-@property(nonatomic,assign,getter = isAddedGroup) BOOL addedGroup;
 
 @property(nonatomic,assign) BOOL plusEnabled;
 

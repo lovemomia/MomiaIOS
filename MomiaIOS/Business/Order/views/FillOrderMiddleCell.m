@@ -20,7 +20,7 @@
 
 
 
--(void)setData:(FillOrderPriceModel *)model withCurrentValue:(NSUInteger) currentValue
+-(void)setData:(FillOrderPriceModel *)model
 {
     NSString * content = @"";
     if(model.adult > 0) {
@@ -34,9 +34,6 @@
     content = [content stringByAppendingFormat:@"￥%.2f/%@",model.price,model.unit];
     
     self.titleLabel.text = content;
-    
-    self.stepperView.currentValue = currentValue;
-        
 }
 
 

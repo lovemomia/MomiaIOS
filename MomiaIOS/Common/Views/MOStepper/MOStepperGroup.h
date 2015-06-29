@@ -10,9 +10,12 @@
 #import "MOStepperView.h"
 
 @interface MOStepperGroup : NSObject
+@property(nonatomic,assign) NSUInteger maxPlaces;
 
+
+-(MOStepperView *)objectAtIndex:(NSUInteger) index;
+-(void)removeAllSteppers;
 -(void)addMOStepperView:(MOStepperView *)stepperView;
 -(void)refreshStatus;//更新array里边的stepper的plus状态
--(void)resetSteppers;
 
 @end
