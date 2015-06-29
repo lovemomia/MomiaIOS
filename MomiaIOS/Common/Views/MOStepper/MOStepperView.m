@@ -34,10 +34,12 @@
 
 - (IBAction)onMinusClick:(id)sender {
     self.currentValue --;
+    self.onclickStepper(self.currentValue);
 }
 
 - (IBAction)onPlusClick:(id)sender {
     self.currentValue ++;
+    self.onclickStepper(self.currentValue);
 }
 
 -(void)setCurrentValue:(NSUInteger)currentValue
@@ -48,7 +50,6 @@
         _currentValue = self.maxValue;
         [self.plusBtn setEnabled:NO];
         [self.minusBtn setEnabled:YES];
-        
     } else if(_currentValue <= self.minValue) {//表示不能再减了
         _currentValue = self.minValue;
         [self.minusBtn setEnabled:NO];
@@ -94,6 +95,20 @@
     }
     return self;
 }
+
+
+-(void)setPlusEnabled:(BOOL) enabled
+{
+    _plusEnabled = enabled;
+    [self.plusBtn setEnabled:_plusEnabled];
+}
+
+-(void)setMinusEnabled:(BOOL) enabled
+{
+    [self.minusBtn setEnabled:enabled];
+}
+
+
 
 
 /*

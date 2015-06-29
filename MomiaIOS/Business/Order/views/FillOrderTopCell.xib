@@ -43,6 +43,12 @@
                     <constraint firstItem="ayE-2d-9wB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="xEk-IS-gtp"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="tintColor" red="0.11764705882352941" green="0.73333333333333328" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="priceLabel" destination="ayE-2d-9wB" id="gJ3-p0-T4D"/>
+                <outlet property="stockLabel" destination="Yur-G4-hlP" id="Gx6-DT-hzN"/>
+                <outlet property="timeLabel" destination="UfI-jk-0uA" id="y3l-7D-Qse"/>
+            </connections>
             <point key="canvasLocation" x="146" y="233.5"/>
         </tableViewCell>
     </objects>

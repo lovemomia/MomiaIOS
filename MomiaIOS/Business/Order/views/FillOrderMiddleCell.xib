@@ -36,6 +36,10 @@
                     <constraint firstAttribute="centerY" secondItem="kY1-ky-ldh" secondAttribute="centerY" id="y7w-J4-STL"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="stepperView" destination="kY1-ky-ldh" id="UIT-ki-PMN"/>
+                <outlet property="titleLabel" destination="KoO-es-0d6" id="ZNs-vS-PaC"/>
+            </connections>
             <point key="canvasLocation" x="246" y="165"/>
         </tableViewCell>
     </objects>

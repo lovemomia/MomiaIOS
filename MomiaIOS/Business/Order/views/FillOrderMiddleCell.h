@@ -7,7 +7,12 @@
 //
 
 #import "MOTableCell.h"
+#import "FillOrderModel.h"
+#import "MOStepperView.h"
 
 @interface FillOrderMiddleCell : MOTableCell
+@property (weak, nonatomic) IBOutlet MOStepperView *stepperView;
+
+-(void)setData:(FillOrderPriceModel *)model withCurrentValue:(NSUInteger) currentValue;
 
 @end

@@ -8,7 +8,24 @@
 
 #import "FillOrderBottomCell.h"
 
+@interface FillOrderBottomCell ()
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+
+@end
+
 @implementation FillOrderBottomCell
+
+-(void)setData:(FillOrderContactsModel *)model withIndex:(NSInteger)index
+{
+    if(index == 0) {
+        self.titleLabel.text = @"出行人";
+        self.contentLabel.text = @"";
+    } else {
+        self.titleLabel.text = @"联系人信息";
+        self.contentLabel.text = model.mobile;
+    }
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

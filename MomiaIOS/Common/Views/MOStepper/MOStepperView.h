@@ -8,11 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MOStepperView : UIView
+typedef void (^OnClickStepper)(NSUInteger currentValue);
 
+@interface MOStepperView : UIView
 
 @property(nonatomic,assign) NSUInteger currentValue;
 @property(nonatomic,assign) NSUInteger maxValue;
 @property(nonatomic,assign) NSUInteger minValue;
+
+@property(nonatomic,strong) OnClickStepper onclickStepper;
+@property(nonatomic,assign,getter = isAddedGroup) BOOL addedGroup;
+
+@property(nonatomic,assign) BOOL plusEnabled;
+
 
 @end

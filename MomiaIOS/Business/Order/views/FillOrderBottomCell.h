@@ -7,7 +7,10 @@
 //
 
 #import "MOTableCell.h"
+#import "FillOrderModel.h"
 
 @interface FillOrderBottomCell : MOTableCell
+
+-(void)setData:(FillOrderContactsModel *)model withIndex:(NSInteger)index;
 
 @end

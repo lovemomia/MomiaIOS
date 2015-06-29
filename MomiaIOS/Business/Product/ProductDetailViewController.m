@@ -34,6 +34,7 @@ typedef enum
 
 
 @property(nonatomic,strong) ProductDetailModel * model;
+@property(nonatomic,strong) NSString * productId;
 
 @end
 
@@ -203,8 +204,10 @@ typedef enum
 }
 
 - (IBAction)signUp:(id)sender {
-    NSURL * url = [NSURL URLWithString:@"tq://fillorder"];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://fillorder?id=%@&utoken=%@", self.productId,@"123"]];
+    
     [[UIApplication sharedApplication] openURL:url];
+
 }
 
 -(void)onCollectClick
@@ -220,7 +223,7 @@ typedef enum
         [self.view showLoadingBee];
     }
     
-    NSDictionary * dic = @{@"id":@37};
+    NSDictionary * dic = @{@"id":self.productId};
     [[HttpService defaultService] GET:URL_APPEND_PATH(@"/product") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[ProductDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.model == nil) {
             [self.view removeLoadingBee];
@@ -234,6 +237,15 @@ typedef enum
     }];
 }
 
+
+-(instancetype)initWithParams:(NSDictionary *)params
+{
+    self = [super initWithParams:params];
+    if(self) {
+        self.productId =  [params objectForKey:@"id"];
+    }
+    return self;
+}
 
 
 - (void)viewDidLoad {

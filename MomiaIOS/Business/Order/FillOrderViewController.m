@@ -9,27 +9,54 @@
 #import "FillOrderViewController.h"
 #import "FillOrderFooterView.h"
 #import "FillOrderTopCell.h"
+#import "FillOrderChooseCell.h"
 #import "FillOrderMiddleCell.h"
 #import "FillOrderBottomCell.h"
 #import "CommonHeaderView.h"
+#import "FillOrderModel.h"
+#import "MOStepperGroup.h"
+
+#define TopNumber 2
 
 static NSString * identifier = @"FillOrderHeaderViewIdentifier";
 static NSString * fillOrderTopIdentifier = @"CellFillOrderTop";
+static NSString * fillOrderChooseIdentifier = @"CellFillOrderChoose";
 static NSString * fillOrderMiddleIdentifier = @"CellFillOrderMiddle";
 static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
-
-
 
 @interface FillOrderViewController ()
 
 @property(nonatomic, strong) NSArray * dataArray;
 @property(nonatomic, strong) NSArray * HeaderArray;
 @property(nonatomic, weak) UIView * activeView;
+@property(nonatomic, strong) FillOrderModel * model;
+@property(nonatomic, strong) NSString * productId;
+@property(nonatomic, strong) NSString * utoken;
+@property(nonatomic, assign) BOOL isShowAllTopCell;//是否显示所有场次
+@property(nonatomic, assign) NSInteger topIndex;
 
+@property(nonatomic, strong) NSMutableArray * currentValueArray;//存储steppterView的当前值，item为NSNumber类型
+@property(nonatomic, strong) MOStepperGroup * stepperGroup;
 
 @end
 
 @implementation FillOrderViewController
+
+-(MOStepperGroup *)stepperGroup
+{
+    if(!_stepperGroup) {
+        _stepperGroup = [[MOStepperGroup alloc] init];
+    }
+    return _stepperGroup;
+}
+
+-(NSMutableArray *)currentValueArray
+{
+    if(!_currentValueArray) {
+        _currentValueArray = [[NSMutableArray alloc] init];
+    }
+    return _currentValueArray;
+}
 
 - (IBAction)onSureClick:(id)sender {
     
@@ -42,16 +69,37 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 40.0f;
+    if(section == 0 || section == 1)
+        return 40.0f;
+    return 13.0f;
 }
 
 
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    CommonHeaderView * cell = [CommonHeaderView cellWithTableView:self.tableView];
-    cell.data = @"选择场次";
-    return cell;
+    UITableViewHeaderFooterView * view;
+    switch (section) {
+        case 0:
+        {
+            CommonHeaderView * header = [CommonHeaderView cellWithTableView:self.tableView];
+            header.data = @"选择场次";
+            view = header;
+        }
+            break;
+        case 1:
+        {
+            CommonHeaderView * header = [CommonHeaderView cellWithTableView:self.tableView];
+            header.data = @"选择出行人数";
+            view = header;
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    return view;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -79,7 +127,25 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    NSInteger rows;
+    if(section == 0) {
+        if(self.model.data.skus.count > TopNumber && !self.isShowAllTopCell) {
+            rows = TopNumber + 1;
+        } else {
+            rows = self.model.data.skus.count;
+        }
+        
+    } else if(section == 1) {
+        FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
+        rows = skuModel.prices.count;
+        [self.currentValueArray removeAllObjects];
+        for (int i = 0; i < rows; i++) {
+            [self.currentValueArray addObject:@(0)];
+        }
+    } else {
+        rows = 2;
+    }
+    return rows;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -95,20 +161,50 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
     switch (section) {
         case 0:
         {
-            FillOrderTopCell * top = [FillOrderTopCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:fillOrderTopIdentifier];
-            cell = top;
+            if(row == TopNumber && !self.isShowAllTopCell) {
+                FillOrderChooseCell * choose = [FillOrderChooseCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:fillOrderChooseIdentifier];
+                cell = choose;
+                
+            } else {
+                FillOrderTopCell * top = [FillOrderTopCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:fillOrderTopIdentifier];
+                [top setData:self.model.data.skus[row]];
+                cell = top;
+                
+                if(self.topIndex == row) {
+                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                } else {
+                    cell.accessoryType = UITableViewCellAccessoryNone;
+                }
+                
+            }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
         }
             break;
         case 1:
         {
             FillOrderMiddleCell * middle = [FillOrderMiddleCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:fillOrderMiddleIdentifier];
             middle.selectionStyle = UITableViewCellSelectionStyleNone;
+            FillOrderSkuModel * model = self.model.data.skus[self.topIndex];
+            
+            NSNumber * cur = self.currentValueArray[row];
+            
+            [middle setData:model.prices[row] withCurrentValue:cur.integerValue];
+            
+            middle.stepperView.onclickStepper = ^(NSUInteger currentValue){
+                [self.currentValueArray setObject:@(currentValue) atIndexedSubscript:row];
+                self.priceLabel.text = [NSString stringWithFormat:@"￥%.2f",self.totalPrice];
+            };
+            
+            [self.stepperGroup addMOStepperView:middle.stepperView];
+            
             cell = middle;
         }
             break;
         default:
         {
             FillOrderBottomCell * bottom = [FillOrderBottomCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:fillOrderBottomIdentifier];
+            [bottom setData:self.model.data.contacts withIndex:row];
             cell = bottom;
           
         }
@@ -121,9 +217,40 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSURL * url = [NSURL URLWithString:@"tq://orderperson"];
-    [[UIApplication sharedApplication] openURL:url];
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    
+    if(section == 0) {
+        
+        if(row == TopNumber && !self.isShowAllTopCell) {
+            self.isShowAllTopCell = YES;
+        } else {
+            self.topIndex = row;
+        }
+        
+        [self.tableView reloadData];
+        
+    } else if(section == 2) {
+        NSURL * url = [NSURL URLWithString:@"tq://orderperson"];
+        [[UIApplication sharedApplication] openURL:url];
+        
+    }
+    
+  
+}
 
+-(CGFloat)totalPrice
+{
+    CGFloat totalPrice = 0;
+    
+    FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
+    for (int i = 0; i < skuModel.prices.count; i++) {
+        FillOrderPriceModel * priceModel = skuModel.prices[i];
+        NSNumber * number = self.currentValueArray[i];
+        NSInteger count = number.integerValue;
+        totalPrice += priceModel.price * count;
+    }
+    return totalPrice;
 }
 
 /*
@@ -210,8 +337,38 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 }
 */
 
+
+- (void)requestData {
+    if (self.model == nil) {
+        [self.view showLoadingBee];
+    }
+    
+    NSDictionary * dic = @{@"id":self.productId,@"utoken":self.utoken};
+    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/product/order") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[FillOrderModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (self.model == nil) {
+            [self.view removeLoadingBee];
+        }
+        
+        self.model = responseObject;
+        [self.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+
 #pragma mark - view life cycle
 
+-(instancetype)initWithParams:(NSDictionary *)params
+{
+    self = [super initWithParams:params];
+    if(self) {
+        self.productId = [params objectForKey:@"id"];
+        self.utoken = [params objectForKey:@"utoken"];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -222,12 +379,17 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
     [CommonHeaderView registerCellWithTableView:self.tableView];
     [FillOrderFooterView registerCellWithTableView:self.tableView];
     [FillOrderTopCell registerCellWithTableView:self.tableView withIdentifier:fillOrderTopIdentifier];
+    [FillOrderChooseCell registerCellWithTableView:self.tableView withIdentifier:fillOrderChooseIdentifier];
     [FillOrderMiddleCell registerCellWithTableView:self.tableView withIdentifier:fillOrderMiddleIdentifier];
     [FillOrderBottomCell registerCellWithTableView:self.tableView withIdentifier:fillOrderBottomIdentifier];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     self.tableView.backgroundView = [[UIView alloc] init];
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
+    
+    self.priceLabel.text = [NSString stringWithFormat:@"￥%.2f",self.totalPrice];
+    
+    [self requestData];
 
 }
 

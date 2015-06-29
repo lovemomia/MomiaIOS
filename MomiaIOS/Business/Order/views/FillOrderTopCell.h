@@ -8,6 +8,10 @@
 
 #import "MOTableCell.h"
 
-@interface FillOrderTopCell : MOTableCell
+@class FillOrderSkuModel;
+
+@interface FillOrderTopCell : MOTableCell<MOTableCellDataProtocol>
+
+-(void)setData:(FillOrderSkuModel *)model;
 
 @end
