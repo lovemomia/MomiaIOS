@@ -13,13 +13,14 @@
 @property (nonatomic, strong) NSString *token;
 
 @property (nonatomic, strong) NSString *avatar;
-@property (nonatomic, assign) long birthday;
+@property (nonatomic, strong) NSNumber<Optional> *birthday;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *nickName;
 @property (nonatomic, strong) NSString *sex;
 @property (nonatomic, strong) NSString *mobile;
 @property (nonatomic, strong) NSString *address;
 
-@property (nonatomic, assign) int cityId;
+@property (nonatomic, strong) NSString *city;
 
 - (void)save;
 

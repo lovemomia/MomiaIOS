@@ -16,6 +16,11 @@
 @property(nonatomic, strong)NSString *phone;
 @property(nonatomic, strong)NSString *vercode;
 
+@property (nonatomic, assign) int secondsCountDown;
+@property (nonatomic, assign) NSTimer *timer;
+
+@property (strong, nonatomic) UIButton *vercodeButton;
+
 @end
 
 @implementation LoginViewController
@@ -48,6 +53,39 @@
 //    [self openURL:@"tq://register" byNav:self.navigationController];
 }
 
+- (void)onVercodeButtonClicked:(id)sender {
+    if (self.phone.length == 0) {
+        [self showDialogWithTitle:nil message:@"手机号不能为空"];
+        return;
+    }
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    NSDictionary *params = @{@"mobile":self.phone};
+    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/auth/send")
+                           parameters:params JSONModelClass:[BaseModel class]
+                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFireMethod) userInfo:nil repeats:YES];
+                                  self.secondsCountDown = 60;
+                                  [self.vercodeButton setTitle:@"60s" forState:UIControlStateNormal];
+                                  self.vercodeButton.enabled = false;
+                              }
+                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  [self showDialogWithTitle:nil message:error.message];
+                              }];
+}
+
+- (void)timerFireMethod {
+    self.secondsCountDown--;
+    [self.vercodeButton setTitle:[NSString stringWithFormat:@"%ds", self.secondsCountDown] forState:UIControlStateNormal];
+    if (self.secondsCountDown == 0) {
+        [self.timer invalidate];
+        [self.vercodeButton setTitle:@"发送验证码" forState:UIControlStateNormal];
+        self.vercodeButton.enabled = true;
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -66,13 +104,10 @@
 
 
 - (void)onLoginClicked {
-
-  
     if (self.phone.length == 0) {
         [self showDialogWithTitle:nil message:@"手机号不能为空"];
         return;
     }
-    
 
     if (self.vercode.length == 0) {
         [self showDialogWithTitle:nil message:@"验证码不能为空"];
@@ -99,11 +134,6 @@
                                  [self showDialogWithTitle:nil message:error.message];
                              }];
 }
-
-- (void)onGetVercode {
-    
-}
-
 
 #pragma mark - tableview delegate & datasource
 
@@ -163,8 +193,8 @@
         }
         UITextField *textField = (UITextField *)[cell viewWithTag:1002];
         [textField addTarget:self action:@selector(textFieldWithText:) forControlEvents:UIControlEventEditingChanged];
-        UIButton *button = (UIButton *)[cell viewWithTag:1003];
-        [button addTarget:self action:@selector(onGetVercode) forControlEvents:UIControlEventTouchUpInside];
+        self.vercodeButton = (UIButton *)[cell viewWithTag:1003];
+        [self.vercodeButton addTarget:self action:@selector(onVercodeButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

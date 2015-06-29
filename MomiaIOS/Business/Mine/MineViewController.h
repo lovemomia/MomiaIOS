@@ -8,6 +8,6 @@
 
 #import "MOGroupStyleTableViewController.h"
 
-@interface MineViewController : MOGroupStyleTableViewController
+@interface MineViewController : MOGroupStyleTableViewController<AccountChangeListener>
 
 @end

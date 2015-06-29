@@ -20,15 +20,51 @@
     [self save];
 }
 
+- (void)setAvatar:(NSString *)avatar {
+    _avatar = avatar;
+    [self save];
+}
+
+- (void)setBirthday:(NSNumber *)birthday {
+    _birthday = birthday;
+    [self save];
+}
+
+- (void)setCity:(NSString *)city {
+    _city = city;
+    [self save];
+}
+
+- (void)setMobile:(NSString *)mobile {
+    _mobile = mobile;
+    [self save];
+}
+
+- (void)setName:(NSString *)name {
+    _name = name;
+    [self save];
+}
+
+- (void)setNickName:(NSString *)nickName {
+    _nickName = nickName;
+    [self save];
+}
+
+- (void)setSex:(NSString *)sex {
+    _sex = sex;
+    [self save];
+}
+
 - (void)encodeWithCoder:(NSCoder *)encoder//编码
 {
     [encoder encodeObject:self.token forKey:@"token"];
     [encoder encodeObject:self.address forKey:@"address"];
     [encoder encodeObject:self.avatar forKey:@"avatar"];
-    [encoder encodeInt64:self.birthday forKey:@"birthday"];
-    [encoder encodeInt:self.cityId forKey:@"cityId"];
+    [encoder encodeObject:self.birthday forKey:@"birthday"];
+    [encoder encodeObject:self.city forKey:@"city"];
     [encoder encodeObject:self.mobile forKey:@"mobile"];
     [encoder encodeObject:self.name forKey:@"name"];
+    [encoder encodeObject:self.nickName forKey:@"nickName"];
     [encoder encodeObject:self.sex forKey:@"sex"];
 }
 
@@ -40,10 +76,11 @@
         self.token = [decoder decodeObjectForKey:@"token"];
         self.address = [decoder decodeObjectForKey:@"address"];
         self.avatar = [decoder decodeObjectForKey:@"avatar"];
-        self.birthday = [decoder decodeInt64ForKey:@"birthday"];
-        self.cityId = [decoder decodeIntForKey:@"cityId"];
+        self.birthday = [decoder decodeObjectForKey:@"birthday"];
+        self.city = [decoder decodeObjectForKey:@"city"];
         self.mobile = [decoder decodeObjectForKey:@"mobile"];
         self.name = [decoder decodeObjectForKey:@"name"];
+        self.nickName = [decoder decodeObjectForKey:@"nickName"];
         self.sex = [decoder decodeObjectForKey:@"sex"];
     }
     return self;
