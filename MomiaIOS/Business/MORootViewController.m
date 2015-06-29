@@ -37,21 +37,21 @@
         _home.tabBarItem.title = @"精选";
         _home.tabBarItem.image = [UIImage imageNamed:@"nav_fav"];
         
-        _playmate = [[PlaymateViewController alloc]initWithParams:nil];
-        _playmate.tabBarItem.title = @"玩伴";
-        _playmate.tabBarItem.image = [UIImage imageNamed:@"nav_fav"];
+//        _playmate = [[PlaymateViewController alloc]initWithParams:nil];
+//        _playmate.tabBarItem.title = @"玩伴";
+//        _playmate.tabBarItem.image = [UIImage imageNamed:@"nav_fav"];
         
         _mine = [[MineViewController alloc]initWithParams:nil];
         _mine.tabBarItem.title = @"我的";
         _mine.tabBarItem.image = [UIImage imageNamed:@"nav_fav"];
         
         MONavigationController *navHome = [[MONavigationController alloc] initWithRootViewController:_home];
-        MONavigationController *navPlaymate = [[MONavigationController alloc] initWithRootViewController:_playmate];
+//        MONavigationController *navPlaymate = [[MONavigationController alloc] initWithRootViewController:_playmate];
         MONavigationController *navMine = [[MONavigationController alloc] initWithRootViewController:_mine];
         
         self.viewControllers = [NSArray arrayWithObjects:
                                 navHome,
-                                navPlaymate,
+//                                navPlaymate,
                                 navMine,
                                 nil];
         

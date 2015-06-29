@@ -191,8 +191,7 @@
 
 
 - (IBAction)onLogoutClicked:(id)sender {
-    [AccountService defaultService].account = nil;
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [[AccountService defaultService] logout:self];
 }
 
 //弹出actionsheet。选择获取头像的方式

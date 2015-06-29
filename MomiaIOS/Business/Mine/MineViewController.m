@@ -21,11 +21,20 @@
     
     self.navigationItem.title = @"我的";
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(onSettingClicked)];
+    [[AccountService defaultService] addListener:self];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    [[AccountService defaultService]removeListener:self];
+}
+
+- (void)onAccountChange {
+    [self.tableView reloadData];
 }
 
 /*
@@ -115,7 +124,6 @@
     NSInteger row = indexPath.row;
     static NSString *CellUser = @"CellUser";
     static NSString *CellLogin = @"CellLogin";
-    static NSString *CellDefault = @"DefaultCell";
     static NSString *CellInfo = @"InfoCell";
     UITableViewCell *cell;
     if (section == 0) {
@@ -180,9 +188,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section == 0) {
-        return 0.1;
-    }
+//    if (section == 0) {
+//        return 0.1;
+//    }
     return [super tableView:tableView heightForHeaderInSection:section];
 }
 

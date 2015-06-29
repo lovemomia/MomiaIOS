@@ -11,6 +11,12 @@
 #import <Foundation/Foundation.h>
 #import "Account.h"
 
+@protocol AccountChangeListener<NSObject>
+
+- (void)onAccountChange;
+
+@end
+
 @interface AccountService : NSObject
 
 @property (nonatomic, strong) Account *account;
@@ -26,5 +32,11 @@
 - (BOOL)isLogin;
 
 - (void)login:(UIViewController *)controller;
+
+- (void)logout:(UIViewController *)controller;
+
+- (void)addListener:(id<AccountChangeListener>)listener;
+
+- (void)removeListener:(id<AccountChangeListener>)listener;
 
 @end

@@ -14,13 +14,9 @@ typedef void (^BlockRegisterSuccess)();
 
 @property (nonatomic, strong) BlockRegisterSuccess registerSuccessBlock;
 
-@property (weak, nonatomic) UITextField *phoneTextField;
-@property (weak, nonatomic) UITextField *vercodeTextField;
-@property (weak, nonatomic) UIButton *vercodeButton;
 
+- (void)onVercodeButtonClicked:(id)sender;
 
-- (IBAction)onVercodeButtonClicked:(id)sender;
-
-- (IBAction)onRigisterButtonClicked:(id)sender;
+- (void)onRigisterButtonClicked:(id)sender;
 
 @end

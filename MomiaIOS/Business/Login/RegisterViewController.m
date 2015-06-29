@@ -16,6 +16,12 @@
 @property (nonatomic, assign) int secondsCountDown;
 @property (nonatomic, assign) NSTimer *timer;
 
+@property(nonatomic, strong)NSString *nickName;
+@property(nonatomic, strong)NSString *phone;
+@property(nonatomic, strong)NSString *vercode;
+
+@property (strong, nonatomic) UIButton *vercodeButton;
+
 @end
 
 @implementation RegisterViewController
@@ -42,24 +48,22 @@
 }
 */
 
-- (IBAction)onVercodeButtonClicked:(id)sender {
-    if (self.phoneTextField.text.length == 0) {
+- (void)onVercodeButtonClicked:(id)sender {
+    if (self.phone.length == 0) {
         [self showDialogWithTitle:nil message:@"手机号不能为空"];
         return;
     }
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    NSDictionary *params = @{@"phone":self.phoneTextField.text};
-    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/sms/send")
+    NSDictionary *params = @{@"mobile":self.phone};
+    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/auth/send")
                            parameters:params JSONModelClass:[BaseModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
                                   self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFireMethod) userInfo:nil repeats:YES];
-                                  
                                   self.secondsCountDown = 60;
                                   [self.vercodeButton setTitle:@"60s" forState:UIControlStateNormal];
                                   self.vercodeButton.enabled = false;
-                                  
                               }
                               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -77,20 +81,25 @@
     }
 }
 
-- (IBAction)onRigisterButtonClicked:(id)sender {
-    if (self.phoneTextField.text.length == 0) {
+- (void)onRigisterButtonClicked:(id)sender {
+    if (self.nickName.length == 0) {
+        [self showDialogWithTitle:nil message:@"昵称不能为空"];
+        return;
+    }
+    
+    if (self.phone.length == 0) {
         [self showDialogWithTitle:nil message:@"手机号不能为空"];
         return;
     }
     
-    if (self.vercodeTextField.text.length == 0) {
+    if (self.vercode.length == 0) {
         [self showDialogWithTitle:nil message:@"验证码不能为空"];
         return;
     }
     
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    NSDictionary *params = @{@"phone":self.phoneTextField.text, @"code":self.vercodeTextField.text};
+    NSDictionary *params = @{@"nickName":self.nickName, @"mobile":self.phone, @"code":self.vercode};
     [[HttpService defaultService]POST:URL_APPEND_PATH(@"/auth/register")
                            parameters:params JSONModelClass:[AccountModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -160,22 +169,42 @@
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"RegisterCell" owner:self options:nil];
             cell = [arr objectAtIndex:0];
             
+            UITextField *textField = (UITextField *)[cell viewWithTag:1001];
+            [textField addTarget:self action:@selector(textFieldWithText:) forControlEvents:UIControlEventEditingChanged];
             
         } else if (indexPath.row == 1) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"RegisterCell" owner:self options:nil];
             cell = [arr objectAtIndex:1];
-            self.phoneTextField = (UITextField *)[cell.contentView viewWithTag:1];
+            
+            UITextField *textField = (UITextField *)[cell viewWithTag:1002];
+            [textField addTarget:self action:@selector(textFieldWithText:) forControlEvents:UIControlEventEditingChanged];
             
         } else if (indexPath.row == 2) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"RegisterCell" owner:self options:nil];
             cell = [arr objectAtIndex:2];
-            self.vercodeTextField = (UITextField *)[cell.contentView viewWithTag:1];
+            
+            UITextField *textField = (UITextField *)[cell viewWithTag:1003];
+            [textField addTarget:self action:@selector(textFieldWithText:) forControlEvents:UIControlEventEditingChanged];
+            
+            self.vercodeButton = (UIButton *)[cell viewWithTag:1004];
+            [self.vercodeButton addTarget:self action:@selector(onVercodeButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         }
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
+}
+
+- (void)textFieldWithText:(UITextField *)textField
+{
+    if (textField.tag == 1001) {
+        self.nickName = textField.text;
+    } else if (textField.tag == 1002) {
+        self.phone = textField.text;
+    } else if (textField.tag == 1003) {
+        self.vercode = textField.text;
+    }
 }
 
 @end
