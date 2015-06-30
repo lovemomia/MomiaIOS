@@ -12,6 +12,7 @@
 #import "BaseModel.h"
 #import "UploadImageModel.h"
 #import "ISDiskCache.h"
+#import "CityManager.h"
 
 @implementation HttpService
 
@@ -66,7 +67,7 @@
         }
         if (result.errNo == 0) {
             success(operation, result);
-//            NSLog(@"http (GET) success: %@", responseObject);
+            NSLog(@"http (GET) success: %@", responseObject);
             
         } else {
             NSError *err = [[NSError alloc]initWithCode:result.errNo message:result.errMsg];
@@ -93,7 +94,7 @@
             }
             if (result.errNo == 0) {
                 success(nil, result);
-//                NSLog(@"http (Cache) success: %@", cache);
+                NSLog(@"http (Cache) success: %@", cache);
                 return nil;
                 
             } else {
@@ -206,7 +207,7 @@
     [dic setObject:[Environment singleton].networkType forKey:@"net"];
     
     // cityid
-    [dic setObject:@"1" forKey:@"city"];
+    [dic setObject:[NSString stringWithFormat:@"%@", [CityManager shareManager].choosedCity.ids] forKey:@"city"];
 
 
     return dic;

@@ -10,4 +10,13 @@
 
 @implementation LocationService
 
++ (instancetype)defaultService {
+    static LocationService *__service = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        __service = [[self alloc] init];
+    });
+    return __service;
+}
+
 @end

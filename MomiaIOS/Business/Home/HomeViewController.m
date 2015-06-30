@@ -69,6 +69,10 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
     [self requestData];
 }
 
+- (void)onCityChanged:(City *)newCity {
+    [self requestData];
+}
+
 #pragma mark - webData Request
 
 - (void)requestData {
@@ -182,8 +186,7 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
 
 -(void)onTitleClick:(UITapGestureRecognizer *)recognizer
 {
-    NSLog(@"change city");
-    
+    [[CityManager shareManager]chooseCity:self];
 }
 
 - (void)didReceiveMemoryWarning {

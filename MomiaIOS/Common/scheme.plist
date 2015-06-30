@@ -173,5 +173,14 @@
 		<key>desc</key>
 		<string>玩伴</string>
 	</dict>
+	<key>citylist</key>
+	<dict>
+		<key>controller</key>
+		<string>CityListViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>选择城市页</string>
+	</dict>
 </dict>
 </plist>
