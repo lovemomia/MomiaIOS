@@ -67,15 +67,8 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O5M-ow-ZRT" id="iBt-P1-Uwc">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyD-6D-lia">
-                        <rect key="frame" x="282" y="0.0" width="30" height="43.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <state key="normal" title="获取">
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                    </button>
                     <textField opaque="NO" clipsSubviews="YES" tag="1003" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vWc-nj-kmE">
-                        <rect key="frame" x="80" y="0.0" width="194" height="43.5"/>
+                        <rect key="frame" x="80" y="0.0" width="170" height="43.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                     </textField>
@@ -85,13 +78,30 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyD-6D-lia">
+                        <rect key="frame" x="258" y="10" width="46" height="23"/>
+                        <color key="backgroundColor" red="0.1176470588" green="0.73333333329999995" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="46" id="ai8-4z-qMq"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="获取">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="gyD-6D-lia" firstAttribute="leading" secondItem="vWc-nj-kmE" secondAttribute="trailing" constant="8" id="9uI-UY-xDr"/>
-                    <constraint firstAttribute="trailing" secondItem="gyD-6D-lia" secondAttribute="trailing" constant="8" id="HFT-Vl-MLR"/>
-                    <constraint firstAttribute="bottom" secondItem="gyD-6D-lia" secondAttribute="bottom" id="brf-HZ-ZR4"/>
+                    <constraint firstAttribute="trailing" secondItem="gyD-6D-lia" secondAttribute="trailing" constant="16" id="HFT-Vl-MLR"/>
+                    <constraint firstAttribute="bottom" secondItem="gyD-6D-lia" secondAttribute="bottom" constant="10" id="brf-HZ-ZR4"/>
                     <constraint firstItem="vWc-nj-kmE" firstAttribute="top" secondItem="iBt-P1-Uwc" secondAttribute="top" id="hmt-BV-drL"/>
-                    <constraint firstItem="gyD-6D-lia" firstAttribute="top" secondItem="iBt-P1-Uwc" secondAttribute="top" id="i7x-xF-Xyi"/>
+                    <constraint firstItem="gyD-6D-lia" firstAttribute="top" secondItem="iBt-P1-Uwc" secondAttribute="top" constant="10" id="i7x-xF-Xyi"/>
                     <constraint firstItem="gyD-6D-lia" firstAttribute="leading" secondItem="vWc-nj-kmE" secondAttribute="trailing" constant="8" id="iVS-Kf-jdF"/>
                     <constraint firstAttribute="bottom" secondItem="vWc-nj-kmE" secondAttribute="bottom" id="kDu-YP-PSA"/>
                     <constraint firstItem="vWc-nj-kmE" firstAttribute="leading" secondItem="iBt-P1-Uwc" secondAttribute="leading" constant="80" id="nJc-5Z-6tc"/>
