@@ -9,8 +9,12 @@
 #import "MOTableCell.h"
 #import "OrderPersonModel.h"
 
-@interface OrderPersonCell : MOTableCell<MOTableCellDataProtocol>
+typedef void(^OnCheckBlock)(UIButton *);
 
--(void)setData:(OrderPersonDataModel *)model;
+@interface OrderPersonCell : MOTableCell
+
+@property(nonatomic,strong) OnCheckBlock onCheckBlock;
+
+-(void)setData:(OrderPersonDataModel *)model withSelectedDic:(NSDictionary *) selectedDic;
 
 @end

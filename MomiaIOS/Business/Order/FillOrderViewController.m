@@ -16,14 +16,11 @@
 #import "FillOrderModel.h"
 #import "MOStepperGroup.h"
 #import "ConvertFromXib.h"
+#import "AddOrderModel.h"
+#import "OrderPersonViewController.h"
+#import "PostOrderModel.h"
 
 #define TopNumber 2
-
-struct PersonStyle {
-    NSUInteger adult;
-    NSUInteger child;
-};
-typedef struct PersonStyle PersonStyle;
 
 static NSString * identifier = @"FillOrderHeaderViewIdentifier";
 static NSString * fillOrderTopIdentifier = @"CellFillOrderTop";
@@ -47,9 +44,22 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 
 @property(nonatomic, assign) BOOL middleDataChanged;
 
+@property(nonatomic, strong) AddOrderModel * orderModel;//提交订单的model
+
+@property(nonatomic, strong) NSMutableDictionary * selectedDictionary;
+
 @end
 
 @implementation FillOrderViewController
+
+-(NSMutableDictionary *)selectedDictionary
+{
+    if(!_selectedDictionary) {
+        _selectedDictionary = [[NSMutableDictionary alloc] init];
+    }
+    return _selectedDictionary;
+}
+
 
 -(NSMutableArray *)middleCellArray
 {
@@ -77,9 +87,53 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 
 - (IBAction)onSureClick:(id)sender {
     
-    NSURL * url = [NSURL URLWithString:@"tq://cashpay"];
-    [[UIApplication sharedApplication] openURL:url];
+    //确认订单
+    PersonStyle middlePersonStyle = self.personCount;
+    PersonStyle bottomPersonStyle = self.selectedPersonStyle;
+    if(!self.orderModel) {
+        [AlertNotice showNotice:@"订单信息不存在"];
+        return;
+    }
+    
+    if(!middlePersonStyle.adult && !middlePersonStyle.child) {
+        [AlertNotice showNotice:@"您还未选择出行人"];
+        return;
+    }
+    if(middlePersonStyle.adult != bottomPersonStyle.adult || middlePersonStyle.child != bottomPersonStyle.child) {
+        [AlertNotice showNotice:@"选择的出行人不合要求，请重新选择"];
+        return;
+    }
+    self.orderModel.prices = self.prices;
+    self.orderModel.participants = self.participants;
+    
+    [self postOrder];
+    
 }
+
+
+-(void)postOrder
+{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    NSDictionary *params = @{@"utoken":self.utoken,@"order":[self.orderModel toJSONString]};
+    
+    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/order")
+                           parameters:params
+                       JSONModelClass:[PostOrderModel class]
+                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:NO];
+                               
+                                  NSURL * url = [NSURL URLWithString:@"tq://cashpay"];
+                                  [[UIApplication sharedApplication] openURL:url];
+
+                              }
+                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  [self showDialogWithTitle:nil message:error.message];
+                              }];
+}
+
+
 
 
 #pragma mark - tableView dataSource & delegate
@@ -139,7 +193,9 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    if(self.model)
+        return 3;
+    else return 0;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -155,7 +211,13 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
     } else if(section == 1) {
         FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
         rows = skuModel.prices.count;
+        
         if(self.middleDataChanged) {
+            //设置orderModel的productId和skuId属性
+            self.orderModel.productId = skuModel.productId;
+            self.orderModel.skuId = skuModel.skuId;
+
+            [self.selectedDictionary removeAllObjects];
             [self.stepperGroup setMaxPlaces:skuModel.stock];
             [self.stepperGroup removeAllSteppers];
             [self.middleCellArray removeAllObjects];
@@ -224,9 +286,15 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
         default:
         {
             FillOrderBottomCell * bottom = [FillOrderBottomCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:fillOrderBottomIdentifier];
-            [bottom setData:self.model.data.contacts withIndex:row];
+            NSString * personStr = @"";
+            if(self.selectedPersonStyle.adult > 0) {
+                personStr = [personStr stringByAppendingFormat:@"%ld成人",self.selectedPersonStyle.adult];
+            }
+            if(self.selectedPersonStyle.child > 0) {
+                personStr = [personStr stringByAppendingFormat:@"%ld儿童",self.selectedPersonStyle.child];
+            }
+            [bottom setData:self.model.data.contacts withIndex:row andPersonStr:personStr];
             cell = bottom;
-          
         }
             break;
     }
@@ -263,12 +331,18 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
                 hud.labelText = @"您还未选择出行人";
                 hud.margin = 10.f;
                 hud.removeFromSuperViewOnHide = YES;
-                
-                [hud hide:YES afterDelay:2];
+                [hud hide:YES afterDelay:1];
                 
             } else {
-                NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://orderperson?utoken=%@&adult=%ld&child=%ld",self.utoken,personStyle.adult,personStyle.child]];
-                [[UIApplication sharedApplication] openURL:url];
+                OrderPersonViewController * controller = [[OrderPersonViewController alloc] initWithNibName:@"OrderPersonViewController" bundle:nil];
+                controller.utoken = self.utoken;
+                controller.personStyle = personStyle;
+                controller.selectedDictionary = self.selectedDictionary;
+                controller.onFinishClick = ^() {
+                    self.middleDataChanged = NO;
+                    [self.tableView reloadData];
+                };
+                [self.navigationController pushViewController:controller animated:YES];
             }
             
         } else {//单击联系人信息
@@ -293,6 +367,21 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 }
 
 
+-(PersonStyle)selectedPersonStyle
+{
+    PersonStyle personStyle = {0,0};
+    NSArray * allKeys = self.selectedDictionary.allKeys;
+    for(id number in allKeys) {
+        if([self.selectedDictionary[number] isEqualToString:@"儿童"])
+            personStyle.child ++;
+        else personStyle.adult++;
+    }
+    return personStyle;
+    
+}
+
+
+
 -(CGFloat)totalPrice
 {
     CGFloat totalPrice = 0;
@@ -305,6 +394,32 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
     }
     return totalPrice;
 }
+
+-(NSArray *)prices//用来计算orderModel的prices属性
+{
+    NSMutableArray * array = [[NSMutableArray alloc] init];
+    FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
+    for (int i = 0; i < skuModel.prices.count; i++) {
+        FillOrderPriceModel * priceModel = skuModel.prices[i];
+        MOStepperView * stepper = [self.stepperGroup objectAtIndex:i];
+        if(stepper.currentValue > 0) {//表明选择了相应的数目
+            AddOrderPriceModel * addOrderPriceModel = [[AddOrderPriceModel alloc] init];
+            addOrderPriceModel.count = stepper.currentValue;
+            addOrderPriceModel.price = priceModel.price;
+            if(priceModel.adult > 0) addOrderPriceModel.adult = @(priceModel.adult);
+            if(priceModel.child > 0) addOrderPriceModel.child = @(priceModel.child);
+            [array addObject:addOrderPriceModel];
+        }
+    }
+    return array;
+}
+
+-(NSArray *)participants//用来计算orderModel的participants属性
+{
+    NSArray * allKeys = self.selectedDictionary.allKeys;
+    return allKeys;
+}
+
 
 /*
 
@@ -404,6 +519,12 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
         
         self.model = responseObject;
         
+        //在请求到SKU信息后开始为AddOrderModel分配空间并初始化
+        self.orderModel = [[AddOrderModel alloc] init];
+        //设置orderModel的contacts和mobile属性
+        self.orderModel.contacts = self.model.data.contacts.name;
+        self.orderModel.mobile = self.model.data.contacts.mobile;
+        
         self.middleDataChanged = YES;
 
         [self.tableView reloadData];
@@ -445,6 +566,9 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
     self.priceLabel.text = [NSString stringWithFormat:@"￥%.2f",self.totalPrice];
     
     [self requestData];
+    
+    self.orderModel = [[AddOrderModel alloc] init];
+    self.orderModel.productId = 25;
 
 }
 

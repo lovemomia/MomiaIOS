@@ -7,7 +7,14 @@
 //
 
 #import "MOTableCell.h"
+#import "AddPersonModel.h"
+
+typedef void(^EditingChanged)(UITextField *);
 
 @interface OrderAddPersonFillCell : MOTableCell
+
+@property (nonatomic,strong) EditingChanged editingChanged;
+
+-(void)setData:(AddPersonModel *)model withIndex:(NSInteger) index;
 
 @end

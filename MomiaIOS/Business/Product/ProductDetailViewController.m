@@ -231,6 +231,7 @@ typedef enum
         }
         
         self.model = responseObject;
+        
         [self.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

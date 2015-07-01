@@ -45,6 +45,10 @@
                     <constraint firstAttribute="centerY" secondItem="kt2-K2-2gr" secondAttribute="centerY" id="Ba8-w2-ENs"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="8kM-6M-NFP" id="hS8-Cb-EDH"/>
+                <outlet property="titleLabel" destination="kt2-K2-2gr" id="KOk-RA-4w6"/>
+            </connections>
             <point key="canvasLocation" x="283" y="201"/>
         </tableViewCell>
     </objects>

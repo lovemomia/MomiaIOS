@@ -8,7 +8,29 @@
 
 #import "OrderAddPersonSelectCell.h"
 
+@interface OrderAddPersonSelectCell ()
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+
+@end
+
 @implementation OrderAddPersonSelectCell
+
+-(void)setData:(AddPersonModel *)model withIndex:(NSInteger) index
+{
+    if(index == 1) {
+        self.titleLabel.text = @"性别";
+        self.contentLabel.text = model.sex;
+    } else if(index == 2) {
+        self.titleLabel.text = @"出生日期";
+        self.contentLabel.text = model.birthday;
+    } else if(index == 3) {
+        self.titleLabel.text = @"证件类型";
+        if(model.idType == 1) self.contentLabel.text = @"身份证";
+        else self.contentLabel.text = @"护照";
+    }
+}
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

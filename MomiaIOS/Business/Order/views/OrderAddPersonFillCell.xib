@@ -37,6 +37,10 @@
                     <constraint firstAttribute="centerY" secondItem="iGK-8p-XxZ" secondAttribute="centerY" id="muv-rO-MMF"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="contentField" destination="Kl1-wg-svd" id="72a-a0-b8h"/>
+                <outlet property="titleLabel" destination="iGK-8p-XxZ" id="29x-bo-cWn"/>
+            </connections>
             <point key="canvasLocation" x="277" y="220"/>
         </tableViewCell>
     </objects>

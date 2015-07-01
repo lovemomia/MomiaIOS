@@ -18,11 +18,27 @@
 
 @implementation OrderPersonCell
 
--(void)setData:(OrderPersonDataModel *)model
+-(void)setData:(OrderPersonDataModel *)model withSelectedDic:(NSDictionary *) selectedDic
 {
     self.nameLabel.text = model.name;
     self.typeLabel.text = model.type;
     self.sexLabel.text = model.sex;
+    if([selectedDic objectForKey:@(model.opId)]) {
+        self.checkBtn.selected = YES;
+    } else {
+        self.checkBtn.selected = NO;
+    }
+}
+
+-(void)onCheckClick:(UIButton *) checkBtn
+{
+    if(!checkBtn.selected) {
+        checkBtn.selected = YES;
+    } else {
+        checkBtn.selected = NO;
+    }
+    self.onCheckBlock(checkBtn);
+
 }
 
 
@@ -31,6 +47,7 @@
     
     [self.checkBtn setImage:[UIImage imageNamed:@"orderperson_circle_checked"] forState:UIControlStateSelected];
     [self.checkBtn setImage:[UIImage imageNamed:@"orderperson_circle_uncheck"] forState:UIControlStateNormal];
+    [self.checkBtn addTarget:self action:@selector(onCheckClick:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 

@@ -36,7 +36,7 @@
 
 @interface ProductCustomersModel : JSONModel
 
-@property(nonatomic,strong) NSArray * avatars;
+@property(nonatomic,strong) NSArray<Optional> * avatars;
 @property(nonatomic,strong) NSString * text;
 
 @end

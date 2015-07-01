@@ -11,25 +11,18 @@
 #import "CommonHeaderView.h"
 #import "OrderPersonModel.h"
 
-
-struct PersonStyle {
-    NSUInteger adult;
-    NSUInteger child;
-};
-typedef struct PersonStyle PersonStyle;
-
 static NSString * orderPersonIdentifier = @"CellOrderPerson";
 
 @interface OrderPersonViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) OrderPersonModel * model;
-@property(nonatomic, strong) NSString * utoken;
-@property(nonatomic,assign) PersonStyle personStyle;
 
 @end
 
 @implementation OrderPersonViewController
+
+
 
 
 #pragma tableView dataSource&delegate
@@ -76,19 +69,44 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     OrderPersonCell * cell = [OrderPersonCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:orderPersonIdentifier];
-    cell.data = self.model.data[indexPath.row];
+    OrderPersonDataModel * dataModel = self.model.data[indexPath.row];
+    [cell setData:dataModel withSelectedDic:self.selectedDictionary];
+    cell.onCheckBlock = ^(UIButton * checkBtn) {
+        if(checkBtn.selected) {
+            [self.selectedDictionary setObject:dataModel.type forKey:@(dataModel.opId)];
+        } else {
+            [self.selectedDictionary removeObjectForKey:@(dataModel.opId)];
+        }
+    };
     return cell;
 }
 
 #pragma mark - btn event responser
-- (IBAction)onSubmitClick:(id)sender {
-    
-    
+- (IBAction)onFinishClick:(id)sender {
+    if(self.selectedPersonStyle.child == self.personStyle.child && self.selectedPersonStyle.adult == self.personStyle.adult) {
+        self.onFinishClick();
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        [AlertNotice showNotice:@"选择的出行人不合要求，请重新选择"];
+    }
+}
+
+-(PersonStyle)selectedPersonStyle
+{
+    PersonStyle personStyle = {0,0};
+    NSArray * allKeys = self.selectedDictionary.allKeys;
+    for(id number in allKeys) {
+        if([self.selectedDictionary[number] isEqualToString:@"儿童"])
+            personStyle.child ++;
+        else personStyle.adult++;
+    }
+    return personStyle;
+
 }
 
 -(void)onNewAddClick
 {
-    NSURL * url = [NSURL URLWithString:@"tq://orderaddperson"];
+    NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://orderaddperson?utoken=%@",self.utoken]];
     [[UIApplication sharedApplication] openURL:url];
 }
 
@@ -119,18 +137,23 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
 
 #pragma mark - view life cycle
 
--(instancetype)initWithParams:(NSDictionary *)params
+-(void)dealloc
 {
-    self = [super initWithParams:params];
-    if(self) {
-        self.utoken = [params objectForKey:@"utoken"];
-        PersonStyle personStyle;
-        personStyle.adult = [(NSString *)[params objectForKey:@"adult"] integerValue];
-        personStyle.child = [(NSString *)[params objectForKey:@"child"] integerValue];
-        self.personStyle = personStyle;
-    }
-    return self;
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"addPersonSuccess" object:nil];
 }
+
+//-(instancetype)initWithParams:(NSDictionary *)params
+//{
+//    self = [super initWithParams:params];
+//    if(self) {
+//        self.utoken = [params objectForKey:@"utoken"];
+//        PersonStyle personStyle;
+//        personStyle.adult = [(NSString *)[params objectForKey:@"adult"] integerValue];
+//        personStyle.child = [(NSString *)[params objectForKey:@"child"] integerValue];
+//        self.personStyle = personStyle;
+//    }
+//    return self;
+//}
 
 
 - (void)viewDidLoad {
@@ -148,7 +171,18 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
     
     [self requestData];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(addPersonSuccess)
+                                                 name:@"addPersonSuccess"
+                                               object:nil];
 }
+
+-(void)addPersonSuccess
+{
+    [self requestData];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
