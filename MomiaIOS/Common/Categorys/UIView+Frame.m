@@ -158,8 +158,13 @@
     UIActivityIndicatorView* loadingView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
     loadingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [loadingView startAnimating];
-    [loadingView centerToView:self];
+//    [loadingView centerToView:self];
     [self addSubview:loadingView];
+    [loadingView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self);
+    }];
+    
+    
 }
 - (void)removeLoadingBee{
     for ( UIView* loadingView in [self subviews]){

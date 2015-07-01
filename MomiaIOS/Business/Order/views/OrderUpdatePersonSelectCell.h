@@ -7,11 +7,11 @@
 //
 
 #import "MOTableCell.h"
-#import "AddPersonModel.h"
+#import "UpdatePersonModel.h"
 
-@interface OrderAddPersonSelectCell : MOTableCell
+@interface OrderUpdatePersonSelectCell : MOTableCell
 
--(void)setData:(AddPersonModel *)model withIndex:(NSInteger) index;
+-(void)setData:(UpdatePersonModel *)model withIndex:(NSInteger) index;
 
 
 @end

@@ -10,6 +10,9 @@
 #import "OrderPersonCell.h"
 #import "CommonHeaderView.h"
 #import "OrderPersonModel.h"
+#import "PostPersonModel.h"
+#import "MJRefresh.h"
+
 
 static NSString * orderPersonIdentifier = @"CellOrderPerson";
 
@@ -22,16 +25,24 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
 
 @implementation OrderPersonViewController
 
-
-
-
 #pragma tableView dataSource&delegate
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //执行删除联系人操作
+        [self deletePerson:indexPath];
+    }
+}
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 40;
 }
-
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -53,7 +64,8 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    if(self.model) return 1;
+    return 0;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -81,6 +93,15 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
     return cell;
 }
 
+-(void)tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    //开始编辑出行人
+    OrderPersonDataModel * model = self.model.data[indexPath.row];
+    NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://orderupdateperson?utoken=%@&personId=%ld",self.utoken,model.opId]];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
 #pragma mark - btn event responser
 - (IBAction)onFinishClick:(id)sender {
     if(self.selectedPersonStyle.child == self.personStyle.child && self.selectedPersonStyle.adult == self.personStyle.adult) {
@@ -106,7 +127,7 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
 
 -(void)onNewAddClick
 {
-    NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://orderaddperson?utoken=%@",self.utoken]];
+    NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://orderupdateperson?utoken=%@",self.utoken]];
     [[UIApplication sharedApplication] openURL:url];
 }
 
@@ -114,22 +135,53 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
 
 #pragma mark - webData Request
 
+-(void)deletePerson:(NSIndexPath *) indexPath
+{
+    OrderPersonDataModel * dataModel = self.model.data[indexPath.row];
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    NSDictionary *params = @{@"utoken":self.utoken,@"id":@(dataModel.opId)};
+    
+    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/participant/delete")
+                           parameters:params
+                       JSONModelClass:[PostPersonModel class]
+                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:NO];
+                                  [self requestData];
+                                  
+                              }
+                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  [self showDialogWithTitle:nil message:error.message];
+                              }];
+
+    
+}
+
+
+
+
 - (void)requestData {
-    if (self.model == nil) {
-        [self.view showLoadingBee];
-    }
+    self.model = nil;
+    [self.tableView reloadData];
+    
+    [self.view showLoadingBee];
     
     NSDictionary * dic = @{@"utoken":self.utoken};
     [[HttpService defaultService] GET:URL_APPEND_PATH(@"/participant/list") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[OrderPersonModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if (self.model == nil) {
-            [self.view removeLoadingBee];
-        }
+        [self.view removeLoadingBee];
         
         self.model = responseObject;
         
         [self.tableView reloadData];
         
+        [self.tableView.header endRefreshing];
+
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.view removeLoadingBee];
+
         NSLog(@"Error: %@", error);
     }];
 }
@@ -139,7 +191,7 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
 
 -(void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"addPersonSuccess" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"updatePersonSuccess" object:nil];
 }
 
 //-(instancetype)initWithParams:(NSDictionary *)params
@@ -170,15 +222,19 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
     self.tableView.backgroundView = [[UIView alloc] init];
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
     
+    // 设置下拉刷新
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
+
+    
     [self requestData];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(addPersonSuccess)
-                                                 name:@"addPersonSuccess"
+                                             selector:@selector(updatePersonSuccess)
+                                                 name:@"updatePersonSuccess"
                                                object:nil];
 }
 
--(void)addPersonSuccess
+-(void)updatePersonSuccess
 {
     [self requestData];
 }

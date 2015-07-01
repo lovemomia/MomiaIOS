@@ -6,17 +6,17 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "OrderAddPersonSelectCell.h"
+#import "OrderUpdatePersonSelectCell.h"
 
-@interface OrderAddPersonSelectCell ()
+@interface OrderUpdatePersonSelectCell ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 
 @end
 
-@implementation OrderAddPersonSelectCell
+@implementation OrderUpdatePersonSelectCell
 
--(void)setData:(AddPersonModel *)model withIndex:(NSInteger) index
+-(void)setData:(UpdatePersonModel *)model withIndex:(NSInteger) index
 {
     if(index == 1) {
         self.titleLabel.text = @"性别";

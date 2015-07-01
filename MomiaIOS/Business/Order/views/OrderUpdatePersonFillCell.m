@@ -6,17 +6,17 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "OrderAddPersonFillCell.h"
+#import "OrderUpdatePersonFillCell.h"
 
-@interface OrderAddPersonFillCell ()
+@interface OrderUpdatePersonFillCell ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextField *contentField;
 
 @end
 
-@implementation OrderAddPersonFillCell
+@implementation OrderUpdatePersonFillCell
 
--(void)setData:(AddPersonModel *)model withIndex:(NSInteger) index
+-(void)setData:(UpdatePersonModel *)model withIndex:(NSInteger) index
 {
     if(index == 0) {
         self.titleLabel.text = @"姓名";

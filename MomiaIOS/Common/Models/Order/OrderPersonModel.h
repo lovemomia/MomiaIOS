@@ -10,7 +10,7 @@
 
 @interface OrderPersonDataModel : JSONModel
 
-@property(nonatomic,assign) NSInteger birthday;
+@property(nonatomic,strong) NSString * birthday;
 @property(nonatomic,assign) NSInteger opId;
 @property(nonatomic,assign) NSInteger idType;
 @property(nonatomic,strong) NSString * name;

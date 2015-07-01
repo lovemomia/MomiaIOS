@@ -210,13 +210,13 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
         
     } else if(section == 1) {
         FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
-        rows = skuModel.prices.count;
-        
+        if(skuModel.stock > 0)
+            rows = skuModel.prices.count;
+        else rows = 0;//库存为零
         if(self.middleDataChanged) {
             //设置orderModel的productId和skuId属性
             self.orderModel.productId = skuModel.productId;
             self.orderModel.skuId = skuModel.skuId;
-
             [self.selectedDictionary removeAllObjects];
             [self.stepperGroup setMaxPlaces:skuModel.stock];
             [self.stepperGroup removeAllSteppers];

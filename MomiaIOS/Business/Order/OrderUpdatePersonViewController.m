@@ -6,25 +6,26 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "OrderAddPersonViewController.h"
+#import "OrderUpdatePersonViewController.h"
 #import "DatePickerSheet.h"
-#import "OrderAddPersonFillCell.h"
-#import "OrderAddPersonSelectCell.h"
-#import "AddPersonModel.h"
+#import "OrderUpdatePersonFillCell.h"
+#import "OrderUpdatePersonSelectCell.h"
+#import "UpdatePersonModel.h"
 #import "PostPersonModel.h"
 
-static NSString * orderAddPersonFillIdentifier = @"CellOrderAddPersonFill";
-static NSString * orderAddPersonSelectIdentifier = @"CellOrderAddPersonSelect";
+static NSString * orderUpdatePersonFillIdentifier = @"CellOrderUpdatePersonFill";
+static NSString * orderUpdatePersonSelectIdentifier = @"CellOrderUpdatePersonSelect";
 
-@interface OrderAddPersonViewController ()<DatePickerSheetDelegate,UIActionSheetDelegate>
+@interface OrderUpdatePersonViewController ()<DatePickerSheetDelegate,UIActionSheetDelegate>
 
-@property(nonatomic,strong) AddPersonModel * model;
+@property(nonatomic,strong) UpdatePersonModel * model;
 @property(nonatomic,strong) UIActionSheet * sexSheet, * idSheet;
 @property(nonatomic,strong) NSString * utoken;
+@property(nonatomic,strong) NSString * personId;
 
 @end
 
-@implementation OrderAddPersonViewController
+@implementation OrderUpdatePersonViewController
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -33,7 +34,9 @@ static NSString * orderAddPersonSelectIdentifier = @"CellOrderAddPersonSelect";
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    if(self.model) return 5;
+    return 0;
+    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -41,7 +44,7 @@ static NSString * orderAddPersonSelectIdentifier = @"CellOrderAddPersonSelect";
     NSInteger row = indexPath.row;
     UITableViewCell * cell;
     if(row == 0 || row == 4) {
-        OrderAddPersonFillCell * fill = [OrderAddPersonFillCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:orderAddPersonFillIdentifier];
+        OrderUpdatePersonFillCell * fill = [OrderUpdatePersonFillCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:orderUpdatePersonFillIdentifier];
         [fill setData:self.model withIndex:row];
         fill.selectionStyle = UITableViewCellSelectionStyleNone;
         fill.editingChanged = ^(UITextField * field) {
@@ -53,7 +56,7 @@ static NSString * orderAddPersonSelectIdentifier = @"CellOrderAddPersonSelect";
         };
         cell = fill;
     } else {
-        OrderAddPersonSelectCell * select = [OrderAddPersonSelectCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:orderAddPersonSelectIdentifier];
+        OrderUpdatePersonSelectCell * select = [OrderUpdatePersonSelectCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:orderUpdatePersonSelectIdentifier];
         [select setData:self.model withIndex:row];
         cell = select;
     }
@@ -94,10 +97,8 @@ static NSString * orderAddPersonSelectIdentifier = @"CellOrderAddPersonSelect";
 
 -(void)showIDPicker
 {
-    NSLog(@"%@",self.idSheet);
     self.idSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"身份证",@"护照",nil];
     [self.idSheet showInView:[[UIApplication sharedApplication].delegate window]];
-
 }
 
 
@@ -124,14 +125,6 @@ static NSString * orderAddPersonSelectIdentifier = @"CellOrderAddPersonSelect";
     [self.tableView reloadData];
 }
 
-
-
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    return YES;
-}
-
 -(void)onFinishedClick
 {
     if(self.model.name.length == 0) {
@@ -155,14 +148,22 @@ static NSString * orderAddPersonSelectIdentifier = @"CellOrderAddPersonSelect";
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     NSDictionary *params = @{@"utoken":self.utoken,@"participant":[self.model toJSONString]};
-        
-    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/participant")
+    
+    NSLog(@"json:%@",[self.model toJSONString]);
+    NSString * url;
+    if(self.personId) {
+        url = URL_APPEND_PATH(@"/participant/update");//编辑出行人
+    } else {
+        url = URL_APPEND_PATH(@"/participant");//添加出行人
+    }
+    
+    [[HttpService defaultService]POST:url
                            parameters:params
                        JSONModelClass:[PostPersonModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                   [MBProgressHUD hideHUDForView:self.view animated:NO];
                                   [self.navigationController popViewControllerAnimated:YES];
-                                  [[NSNotificationCenter defaultCenter] postNotificationName:@"addPersonSuccess" object:nil];
+                                  [[NSNotificationCenter defaultCenter] postNotificationName:@"updatePersonSuccess" object:nil];
                                 
                               }
                               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -171,30 +172,65 @@ static NSString * orderAddPersonSelectIdentifier = @"CellOrderAddPersonSelect";
                               }];
 }
 
+- (void)requestData {
+    
+    if (self.model == nil) {
+        [self.view showLoadingBee];
+    }
+    
+    NSDictionary * dic = @{@"id":self.personId,@"utoken":self.utoken};
+    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/participant") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[EditPersonModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (self.model == nil) {
+            [self.view removeLoadingBee];
+        }
+        
+        EditPersonModel * editPersonModel = responseObject;
+        
+        self.model = editPersonModel.data;
+        
+        [self.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+
+
 
 -(instancetype)initWithParams:(NSDictionary *)params
 {
     self = [super initWithParams:params];
     if(self) {
         self.utoken = [params objectForKey:@"utoken"];
+        self.personId = [params objectForKey:@"personId"];
     }
     return self;
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.title = @"新增出行人";
-    
+   
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(onFinishedClick)];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    [OrderAddPersonFillCell registerCellWithTableView:self.tableView withIdentifier:orderAddPersonFillIdentifier];
-    [OrderAddPersonSelectCell registerCellWithTableView:self.tableView withIdentifier:orderAddPersonSelectIdentifier];
-    self.model = [[AddPersonModel alloc] init];
-    self.model.idType = 1;//默认证件类型为1;
-    self.model.sex = @"男";
+    self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
+
+    [OrderUpdatePersonFillCell registerCellWithTableView:self.tableView withIdentifier:orderUpdatePersonFillIdentifier];
+    [OrderUpdatePersonSelectCell registerCellWithTableView:self.tableView withIdentifier:orderUpdatePersonSelectIdentifier];
     
+    if(!self.personId) {
+        self.navigationItem.title = @"新增出行人";
+        self.model = [[UpdatePersonModel alloc] init];
+        self.model.idType = 1;//默认证件类型为1;
+        self.model.sex = @"男";
+    } else {
+        self.navigationItem.title = @"编辑出行人";
+        [self requestData];
+    }
+   
 }
 
 - (void)didReceiveMemoryWarning {

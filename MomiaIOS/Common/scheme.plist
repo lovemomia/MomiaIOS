@@ -137,14 +137,14 @@
 		<key>desc</key>
 		<string>选择出行人</string>
 	</dict>
-	<key>orderaddperson</key>
+	<key>orderupdateperson</key>
 	<dict>
 		<key>controller</key>
-		<string>OrderAddPersonViewController</string>
+		<string>OrderUpdatePersonViewController</string>
 		<key>needlogin</key>
 		<false/>
 		<key>desc</key>
-		<string>添加出行人</string>
+		<string>更新出行人信息（或新增或编辑）</string>
 	</dict>
 	<key>cashpay</key>
 	<dict>
