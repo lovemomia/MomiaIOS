@@ -81,7 +81,7 @@
         [logoutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [logoutButton addTarget:self action:@selector(onLogoutClicked:) forControlEvents:UIControlEventTouchUpInside];
         [logoutButton.layer setCornerRadius:5];
-        [logoutButton setBackgroundImage:[UIImage imageWithColor:MO_APP_ThemeColor size:logoutButton.frame.size] forState:UIControlStateNormal];
+        [logoutButton setBackgroundColor:MO_APP_ThemeColor];
         [view addSubview:logoutButton];
     }
     return view;
