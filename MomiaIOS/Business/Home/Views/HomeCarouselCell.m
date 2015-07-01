@@ -72,7 +72,7 @@
         self.scrollView.contentSize = CGSizeMake(width,0);
         HomeBannerModel * item = banners[0];
         UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
-        [imgView sd_setImageWithURL:[NSURL URLWithString:item.cover] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
+        [imgView sd_setImageWithURL:[NSURL URLWithString:item.cover] placeholderImage:[UIImage imageNamed:@"placeholder"]];
         [self.scrollView addSubview:imgView];
         self.imgsNum ++;
         if(self.timer)
@@ -81,7 +81,7 @@
         self.scrollView.contentSize = CGSizeMake((banners.count + 2) * width,0);
         
         UIImageView * firstImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
-        [firstImgView sd_setImageWithURL:[NSURL URLWithString:((HomeBannerModel *)banners.lastObject).cover] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
+        [firstImgView sd_setImageWithURL:[NSURL URLWithString:((HomeBannerModel *)banners.lastObject).cover] placeholderImage:[UIImage imageNamed:@"placeholder"]];
         
         [self.scrollView addSubview:firstImgView];
         self.imgsNum ++;
@@ -89,13 +89,13 @@
         for (int i = 0; i < banners.count; i++) {
             HomeBannerModel * item = banners[i];
             UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake((i + 1) * width, 0, width, height)];
-            [imgView sd_setImageWithURL:[NSURL URLWithString:item.cover] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
+            [imgView sd_setImageWithURL:[NSURL URLWithString:item.cover] placeholderImage:[UIImage imageNamed:@"placeholder"]];
             [self.scrollView addSubview:imgView];
             self.imgsNum ++;
         }
         
         UIImageView * lastImgView = [[UIImageView alloc] initWithFrame:CGRectMake((banners.count + 1) * width, 0, width, height)];
-        [lastImgView sd_setImageWithURL:[NSURL URLWithString:((HomeBannerModel *)banners.firstObject).cover] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
+        [lastImgView sd_setImageWithURL:[NSURL URLWithString:((HomeBannerModel *)banners.firstObject).cover] placeholderImage:[UIImage imageNamed:@"placeholder"]];
         [self.scrollView addSubview:lastImgView];
         
         self.imgsNum ++;

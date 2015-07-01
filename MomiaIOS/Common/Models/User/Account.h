@@ -26,4 +26,6 @@
 
 - (void)clear;
 
+- (NSString *)ageWithDateOfBirth;
+
 @end
