@@ -25,7 +25,7 @@
     [self save];
 }
 
-- (void)setBirthday:(NSNumber *)birthday {
+- (void)setBirthday:(NSString *)birthday {
     _birthday = birthday;
     [self save];
 }

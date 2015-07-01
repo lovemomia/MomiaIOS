@@ -40,15 +40,8 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ybP-IN-m9o" id="rEs-WV-CWF">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8c-Cl-4Vr">
-                        <rect key="frame" x="282" y="0.0" width="30" height="43.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <state key="normal" title="获取">
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                    </button>
                     <textField opaque="NO" clipsSubviews="YES" tag="1002" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kuk-1j-vAU">
-                        <rect key="frame" x="80" y="0.0" width="194" height="43.5"/>
+                        <rect key="frame" x="80" y="0.0" width="155" height="43.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                     </textField>
@@ -58,22 +51,33 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LY-t4-HRY">
+                        <rect key="frame" x="258" y="10" width="46" height="23"/>
+                        <color key="backgroundColor" red="0.1176470588" green="0.73333333329999995" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="46" id="9O4-9H-o67"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="获取">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="R8c-Cl-4Vr" secondAttribute="trailing" constant="8" id="5bH-OC-DWw"/>
                     <constraint firstItem="Kuk-1j-vAU" firstAttribute="leading" secondItem="rEs-WV-CWF" secondAttribute="leading" constant="80" id="6cb-nr-48J"/>
-                    <constraint firstItem="R8c-Cl-4Vr" firstAttribute="leading" secondItem="Kuk-1j-vAU" secondAttribute="trailing" constant="8" id="GqV-fT-gxA"/>
-                    <constraint firstItem="R8c-Cl-4Vr" firstAttribute="top" secondItem="rEs-WV-CWF" secondAttribute="top" id="IM5-Na-mxm"/>
+                    <constraint firstItem="0LY-t4-HRY" firstAttribute="leading" secondItem="Kuk-1j-vAU" secondAttribute="trailing" constant="23" id="Mmb-p5-eDX"/>
                     <constraint firstItem="Kuk-1j-vAU" firstAttribute="top" secondItem="rEs-WV-CWF" secondAttribute="top" id="N1B-4z-37C"/>
-                    <constraint firstItem="R8c-Cl-4Vr" firstAttribute="leading" secondItem="Kuk-1j-vAU" secondAttribute="trailing" constant="8" id="f92-jb-5Gb"/>
+                    <constraint firstItem="0LY-t4-HRY" firstAttribute="top" secondItem="rEs-WV-CWF" secondAttribute="top" constant="10" id="Yv5-3W-EiV"/>
+                    <constraint firstAttribute="trailing" secondItem="0LY-t4-HRY" secondAttribute="trailing" constant="16" id="bzG-O2-s7t"/>
+                    <constraint firstAttribute="bottom" secondItem="0LY-t4-HRY" secondAttribute="bottom" constant="10.5" id="emf-yu-657"/>
                     <constraint firstAttribute="bottom" secondItem="Kuk-1j-vAU" secondAttribute="bottom" id="rMZ-1g-1dg"/>
-                    <constraint firstAttribute="bottom" secondItem="R8c-Cl-4Vr" secondAttribute="bottom" id="z1u-13-VNF"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="f92-jb-5Gb"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <point key="canvasLocation" x="337" y="399"/>
         </tableViewCell>

@@ -60,7 +60,7 @@
     LoginViewController *controller = [[LoginViewController alloc]initWithParams:nil];
     
     controller.loginSuccessBlock = ^(){
-        [currentController dismissViewControllerAnimated:NO completion:nil];
+        [currentController dismissViewControllerAnimated:YES completion:nil];
         if (self.listeners) {
             for (id<AccountChangeListener> listener in self.listeners) {
                 [listener onAccountChange];

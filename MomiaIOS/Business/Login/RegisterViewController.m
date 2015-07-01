@@ -20,8 +20,6 @@
 @property(nonatomic, strong)NSString *phone;
 @property(nonatomic, strong)NSString *vercode;
 
-@property (strong, nonatomic) UIButton *vercodeButton;
-
 @end
 
 @implementation RegisterViewController
@@ -48,7 +46,7 @@
 }
 */
 
-- (void)onVercodeButtonClicked:(id)sender {
+- (void)onVercodeClicked:(id)sender {
     if (self.phone.length == 0) {
         [self showDialogWithTitle:nil message:@"手机号不能为空"];
         return;
@@ -62,8 +60,7 @@
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
                                   self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFireMethod) userInfo:nil repeats:YES];
                                   self.secondsCountDown = 60;
-                                  [self.vercodeButton setTitle:@"60s" forState:UIControlStateNormal];
-                                  self.vercodeButton.enabled = false;
+                                  [self.tableView reloadData];
                               }
                               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -73,12 +70,7 @@
 
 - (void)timerFireMethod {
     self.secondsCountDown--;
-    [self.vercodeButton setTitle:[NSString stringWithFormat:@"%ds", self.secondsCountDown] forState:UIControlStateNormal];
-    if (self.secondsCountDown == 0) {
-        [self.timer invalidate];
-        [self.vercodeButton setTitle:@"发送验证码" forState:UIControlStateNormal];
-        self.vercodeButton.enabled = true;
-    }
+    [self.tableView reloadData];
 }
 
 - (void)onRigisterButtonClicked:(id)sender {
@@ -171,6 +163,7 @@
             
             UITextField *textField = (UITextField *)[cell viewWithTag:1001];
             [textField addTarget:self action:@selector(textFieldWithText:) forControlEvents:UIControlEventEditingChanged];
+            textField.text = self.nickName;
             
         } else if (indexPath.row == 1) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"RegisterCell" owner:self options:nil];
@@ -178,6 +171,7 @@
             
             UITextField *textField = (UITextField *)[cell viewWithTag:1002];
             [textField addTarget:self action:@selector(textFieldWithText:) forControlEvents:UIControlEventEditingChanged];
+            textField.text = self.phone;
             
         } else if (indexPath.row == 2) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"RegisterCell" owner:self options:nil];
@@ -185,9 +179,19 @@
             
             UITextField *textField = (UITextField *)[cell viewWithTag:1003];
             [textField addTarget:self action:@selector(textFieldWithText:) forControlEvents:UIControlEventEditingChanged];
+            textField.text = self.vercode;
             
-            self.vercodeButton = (UIButton *)[cell viewWithTag:1004];
-            [self.vercodeButton addTarget:self action:@selector(onVercodeButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+            UIButton *vercodeButton = (UIButton *)[cell viewWithTag:1004];
+            if (self.secondsCountDown > 0) {
+                [vercodeButton setTitle:[NSString stringWithFormat:@"%ds", self.secondsCountDown] forState:UIControlStateNormal];
+                vercodeButton.enabled = NO;
+                
+            } else {
+                [self.timer invalidate];
+                vercodeButton.enabled = YES;
+                [vercodeButton setTitle:@"获取" forState:UIControlStateNormal];
+                [vercodeButton addTarget:self action:@selector(onVercodeClicked:) forControlEvents:UIControlEventTouchUpInside];
+            }
         }
     }
     

@@ -7,6 +7,7 @@
 //
 
 #import "MOTableViewController.h"
+#import "CityManager.h"
 
-@interface HomeViewController : MOTableViewController
+@interface HomeViewController : MOTableViewController<CityChangeListener>
 @end

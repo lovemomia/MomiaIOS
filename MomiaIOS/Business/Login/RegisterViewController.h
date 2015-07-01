@@ -14,9 +14,6 @@ typedef void (^BlockRegisterSuccess)();
 
 @property (nonatomic, strong) BlockRegisterSuccess registerSuccessBlock;
 
-
-- (void)onVercodeButtonClicked:(id)sender;
-
 - (void)onRigisterButtonClicked:(id)sender;
 
 @end

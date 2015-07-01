@@ -155,12 +155,12 @@
             case 1:
                 if (row == 0) {
                     cell.textLabel.text = @"昵称";
-//                    cell.detailTextLabel.text = account.nickName;
+                    cell.detailTextLabel.text = account.nickName;
                     self.nickCell = cell;
                     
                 } else if(row == 1){
                     cell.textLabel.text = @"宝宝年龄";
-//                    cell.detailTextLabel.text = account.babyAge;
+                    cell.detailTextLabel.text = account.birthday;
                     self.babyAgeCell = cell;
                     
                 } else {
@@ -288,8 +288,8 @@
             
         } else {
             UploadImageData *data = ((UploadImageModel *)responseObject).data;
-            NSDictionary *params = @{@"picurl":data.path};
-            [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/pic") parameters:params JSONModelClass:[AccountModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSDictionary *params = @{@"avatar":data.path};
+            [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/avatar") parameters:params JSONModelClass:[AccountModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
                 
                 AccountModel *result = (AccountModel *)responseObject;
@@ -362,7 +362,6 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yyyy-MM-dd";
     NSString *dateString = [formatter stringFromDate:date];
-    NSLog(@"dateString:%@", dateString);
     
     [self updateBabyDate:dateString];
 }
@@ -370,8 +369,8 @@
 - (void)updateBabyDate:(NSString *)date {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    NSDictionary *params = @{@"babydate" : (date == nil ? @"":date)};
-    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/babydate")
+    NSDictionary *params = @{@"birthday" : (date == nil ? @"":date)};
+    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/birthday")
                            parameters:params JSONModelClass:[AccountModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];

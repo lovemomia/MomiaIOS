@@ -13,7 +13,7 @@
 @property (nonatomic, strong) NSString *token;
 
 @property (nonatomic, strong) NSString *avatar;
-@property (nonatomic, strong) NSNumber<Optional> *birthday;
+@property (nonatomic, strong) NSString<Optional> *birthday;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *nickName;
 @property (nonatomic, strong) NSString *sex;

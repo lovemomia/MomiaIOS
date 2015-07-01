@@ -9,7 +9,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "City.h"
 
 @interface LocationService : NSObject
+
+/**
+ *  获取location服务单例
+ */
++ (instancetype)defaultService;
+
+@property (nonatomic, strong) City *locateCity;
 
 @end
