@@ -8,7 +8,7 @@
 
 #import "MOViewController.h"
 
-@interface OrderAddPersonViewController : MOViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
+@interface OrderUpdatePersonViewController : MOViewController<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

@@ -124,11 +124,7 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     if(self.model) {
-        if (self.model.data.banners.count > 0) {
-            return 1 + self.model.data.products.count;
-        } else {
-            return self.model.data.products.count;
-        }
+        return 1 + self.model.data.products.count;
     }
     return 0;
 }
@@ -176,16 +172,14 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ProductModel *product;
-    if (self.model.data.banners.count > 0) {
+    NSInteger section = indexPath.section;
+    if(section > 0) {
+        ProductModel *product;
         product = self.model.data.products[indexPath.section - 1];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://productdetail?id=%ld", product.pID]];
         
-    } else {
-        product = self.model.data.products[indexPath.section];
+        [[UIApplication sharedApplication] openURL:url];
     }
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://productdetail?id=%d", product.pID]];
-
-    [[UIApplication sharedApplication] openURL:url];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

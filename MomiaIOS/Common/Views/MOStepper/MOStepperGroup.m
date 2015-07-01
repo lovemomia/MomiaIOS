@@ -44,6 +44,7 @@
 }
 
 
+
 -(void)refreshStatus//更新array里边的stepper的plus状态
 {
     if([self isFullPlace]) {

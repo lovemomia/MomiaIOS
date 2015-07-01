@@ -16,11 +16,11 @@
 
 @implementation FillOrderBottomCell
 
--(void)setData:(FillOrderContactsModel *)model withIndex:(NSInteger)index
+-(void)setData:(FillOrderContactsModel *)model withIndex:(NSInteger)index andPersonStr:(NSString *)personStr;
 {
     if(index == 0) {
         self.titleLabel.text = @"出行人";
-        self.contentLabel.text = @"";
+        self.contentLabel.text = personStr;
     } else {
         self.titleLabel.text = @"联系人信息";
         self.contentLabel.text = model.mobile;
