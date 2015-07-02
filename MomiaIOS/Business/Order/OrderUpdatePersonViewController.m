@@ -20,7 +20,7 @@ static NSString * orderUpdatePersonSelectIdentifier = @"CellOrderUpdatePersonSel
 
 @property(nonatomic,strong) UpdatePersonModel * model;
 @property(nonatomic,strong) UIActionSheet * sexSheet, * idSheet;
-@property(nonatomic,strong) NSString * utoken;
+//@property(nonatomic,strong) NSString * utoken;
 @property(nonatomic,strong) NSString * personId;
 
 @end
@@ -147,9 +147,8 @@ static NSString * orderUpdatePersonSelectIdentifier = @"CellOrderUpdatePersonSel
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    NSDictionary *params = @{@"utoken":self.utoken,@"participant":[self.model toJSONString]};
+    NSDictionary *params = @{@"participant":[self.model toJSONString]};
     
-    NSLog(@"json:%@",[self.model toJSONString]);
     NSString * url;
     if(self.personId) {
         url = URL_APPEND_PATH(@"/participant/update");//编辑出行人
@@ -178,7 +177,7 @@ static NSString * orderUpdatePersonSelectIdentifier = @"CellOrderUpdatePersonSel
         [self.view showLoadingBee];
     }
     
-    NSDictionary * dic = @{@"id":self.personId,@"utoken":self.utoken};
+    NSDictionary * dic = @{@"id":self.personId};
     [[HttpService defaultService] GET:URL_APPEND_PATH(@"/participant") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[EditPersonModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.model == nil) {
             [self.view removeLoadingBee];
@@ -202,7 +201,6 @@ static NSString * orderUpdatePersonSelectIdentifier = @"CellOrderUpdatePersonSel
 {
     self = [super initWithParams:params];
     if(self) {
-        self.utoken = [params objectForKey:@"utoken"];
         self.personId = [params objectForKey:@"personId"];
     }
     return self;
