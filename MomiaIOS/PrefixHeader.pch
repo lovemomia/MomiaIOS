@@ -10,6 +10,7 @@
 
 #import "UIView+Frame.h"
 #import "UILabel+ContentSize.h"
+#import "UIButton+Block.h"
 
 #import "HttpService.h"
 #import "AccountService.h"

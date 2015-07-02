@@ -175,6 +175,8 @@
 		BCE5893F1B2AB62500736923 /* payRequsestHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCE5893B1B2AB62500736923 /* payRequsestHandler.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BCE589401B2AB62500736923 /* WXUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCE5893D1B2AB62500736923 /* WXUtil.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BCE589471B2AEFF400736923 /* libGexinSdk-1.1.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE589461B2AEFF400736923 /* libGexinSdk-1.1.1.a */; };
+		BCF564C91B43EAB2003A2227 /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564C81B43EAB2003A2227 /* UIButton+Block.m */; };
+		BCF564CC1B43EC53003A2227 /* NSTimer+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564CB1B43EC53003A2227 /* NSTimer+Block.m */; };
 		BCF9ECA01B4161EE00AEBE1E /* CityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9EC9F1B4161EE00AEBE1E /* CityManager.m */; };
 		BCF9ECA41B4162B800AEBE1E /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9ECA31B4162B800AEBE1E /* City.m */; };
 		BCF9ECA71B416C3500AEBE1E /* CityListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9ECA61B416C3500AEBE1E /* CityListModel.m */; };
@@ -491,6 +493,10 @@
 		BCE589451B2AEFF400736923 /* GXSdkError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXSdkError.h; sourceTree = "<group>"; };
 		BCE589461B2AEFF400736923 /* libGexinSdk-1.1.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGexinSdk-1.1.1.a"; sourceTree = "<group>"; };
 		BCE589591B2AF37C00736923 /* WechatPayDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatPayDelegate.h; sourceTree = "<group>"; };
+		BCF564C71B43EAB2003A2227 /* UIButton+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+Block.h"; path = "Common/Categorys/UIButton+Block.h"; sourceTree = "<group>"; };
+		BCF564C81B43EAB2003A2227 /* UIButton+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+Block.m"; path = "Common/Categorys/UIButton+Block.m"; sourceTree = "<group>"; };
+		BCF564CA1B43EC53003A2227 /* NSTimer+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTimer+Block.h"; path = "Common/Categorys/NSTimer+Block.h"; sourceTree = "<group>"; };
+		BCF564CB1B43EC53003A2227 /* NSTimer+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+Block.m"; path = "Common/Categorys/NSTimer+Block.m"; sourceTree = "<group>"; };
 		BCF9EC9E1B4161EE00AEBE1E /* CityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityManager.h; path = Common/Utils/CityManager.h; sourceTree = "<group>"; };
 		BCF9EC9F1B4161EE00AEBE1E /* CityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityManager.m; path = Common/Utils/CityManager.m; sourceTree = "<group>"; };
 		BCF9ECA21B4162B800AEBE1E /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = City.h; path = Common/Models/City/City.h; sourceTree = "<group>"; };
@@ -1202,6 +1208,10 @@
 				5A8EF03F1B31A4A2003ABAF8 /* NSString+MOAttribuedString.m */,
 				5A5A2AA21B4412FC000595A9 /* NSString+Predicate.h */,
 				5A5A2AA31B4412FC000595A9 /* NSString+Predicate.m */,
+				BCF564C71B43EAB2003A2227 /* UIButton+Block.h */,
+				BCF564C81B43EAB2003A2227 /* UIButton+Block.m */,
+				BCF564CA1B43EC53003A2227 /* NSTimer+Block.h */,
+				BCF564CB1B43EC53003A2227 /* NSTimer+Block.m */,
 			);
 			name = Categorys;
 			sourceTree = "<group>";
@@ -1508,6 +1518,7 @@
 			files = (
 				BC2C0C521B1303BA00E2446E /* LoginViewController.m in Sources */,
 				BCE589401B2AB62500736923 /* WXUtil.mm in Sources */,
+				BCF564CC1B43EC53003A2227 /* NSTimer+Block.m in Sources */,
 				BC2C0C891B15698B00E2446E /* NSError+MOError.m in Sources */,
 				BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */,
 				BC2C0C801B14659400E2446E /* MyStatusViewController.m in Sources */,
@@ -1578,6 +1589,7 @@
 				5A3DBE5A1B18577900E708AC /* FavouriteModel.m in Sources */,
 				BC38D2441AFEEA300051C7E9 /* HttpService.m in Sources */,
 				BC2C0C7A1B141A3D00E2446E /* AccountModel.m in Sources */,
+				BCF564C91B43EAB2003A2227 /* UIButton+Block.m in Sources */,
 				5A08C1451B39117100642648 /* ProductDetailTeacherCell.m in Sources */,
 				BCF9ECAA1B4171EC00AEBE1E /* CityListViewController.m in Sources */,
 				BC2C0C931B1849FE00E2446E /* MCAvatarView.m in Sources */,

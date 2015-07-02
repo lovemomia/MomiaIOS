@@ -10,6 +10,7 @@
 #import "RegisterViewController.h"
 #import "AccountModel.h"
 #import "UIImage+Color.h"
+#import "NSTimer+Block.h"
 
 @interface LoginViewController ()
 
@@ -18,6 +19,8 @@
 
 @property (nonatomic, assign) int secondsCountDown;
 @property (nonatomic, assign) NSTimer *timer;
+
+@property (nonatomic, strong)UIButton *vercodeButton;
 
 @end
 
@@ -52,20 +55,22 @@
 }
 
 - (void)onVercodeClicked:(id)sender {
+    self.vercodeButton = sender;
+    
     if (self.phone.length == 0) {
         [self showDialogWithTitle:nil message:@"手机号不能为空"];
         return;
     }
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    NSDictionary *params = @{@"mobile":self.phone};
+    NSDictionary *params = @{@"mobile":self.phone, @"type":@"login"};
     [[HttpService defaultService]POST:URL_APPEND_PATH(@"/auth/send")
                            parameters:params JSONModelClass:[BaseModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
                                   self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFireMethod) userInfo:nil repeats:YES];
                                   self.secondsCountDown = 60;
-                                  [self.tableView reloadData];
+                                  [self.vercodeButton setTitle:@"60s" forState:UIControlStateNormal];
                               }
                               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -75,8 +80,15 @@
 
 - (void)timerFireMethod {
     self.secondsCountDown--;
-    [self.tableView reloadData];
-    NSLog(@"%ds", self.secondsCountDown);
+    if (self.secondsCountDown > 0) {
+        [self.vercodeButton setTitle:[NSString stringWithFormat:@"%ds", self.secondsCountDown] forState:UIControlStateNormal];
+        self.vercodeButton.enabled = NO;
+        
+    } else {
+        [self.timer invalidate];
+        self.vercodeButton.enabled = YES;
+        [self.vercodeButton setTitle:@"获取" forState:UIControlStateNormal];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -166,9 +178,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
+    static NSString *CellPhone = @"CellPhone";
+    static NSString *CellVercode = @"CellVercode";
     if (indexPath.row == 0) {
-        static NSString *identifier = @"CellPhone";
-        cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        cell = [tableView dequeueReusableCellWithIdentifier:CellPhone];
         if (cell == nil) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"LoginCell" owner:self options:nil];
             cell = [arr objectAtIndex:0];
@@ -176,30 +189,17 @@
 
         UITextField *textField = (UITextField *)[cell viewWithTag:1001];
         [textField addTarget:self action:@selector(textFieldWithText:) forControlEvents:UIControlEventEditingChanged];
-        textField.text = self.phone;
         
     } else if (indexPath.row == 1) {
-        static NSString *identifier = @"CellVercode";
-        cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        cell = [tableView dequeueReusableCellWithIdentifier:CellVercode];
         if (cell == nil) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"LoginCell" owner:self options:nil];
             cell = [arr objectAtIndex:1];
+            self.vercodeButton = (UIButton *)[cell viewWithTag:1003];
+            [self.vercodeButton addTarget:self action:@selector(onVercodeClicked:) forControlEvents:UIControlEventTouchUpInside];
         }
         UITextField *textField = (UITextField *)[cell viewWithTag:1002];
         [textField addTarget:self action:@selector(textFieldWithText:) forControlEvents:UIControlEventEditingChanged];
-        textField.text = self.vercode;
-        
-        UIButton *vercodeButton = (UIButton *)[cell viewWithTag:1003];
-        if (self.secondsCountDown > 0) {
-            [vercodeButton setTitle:[NSString stringWithFormat:@"%ds", self.secondsCountDown] forState:UIControlStateNormal];
-            vercodeButton.enabled = NO;
-            
-        } else {
-            [self.timer invalidate];
-            vercodeButton.enabled = YES;
-            [vercodeButton setTitle:@"获取" forState:UIControlStateNormal];
-            [vercodeButton addTarget:self action:@selector(onVercodeClicked:) forControlEvents:UIControlEventTouchUpInside];
-        }
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

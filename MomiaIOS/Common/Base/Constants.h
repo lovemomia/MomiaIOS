@@ -61,7 +61,7 @@
 /**
  *  页面背景颜色
  */
-#define MO_APP_VCBackgroundColor            (UIColorFromRGB(0xEDEDED))
+#define MO_APP_VCBackgroundColor            (UIColorFromRGB(0xf1f1f1))
 
 /**
  *  字体颜色（灰色）

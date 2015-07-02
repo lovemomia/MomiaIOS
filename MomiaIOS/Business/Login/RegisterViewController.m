@@ -20,6 +20,8 @@
 @property(nonatomic, strong)NSString *phone;
 @property(nonatomic, strong)NSString *vercode;
 
+@property (nonatomic, strong)UIButton *vercodeButton;
+
 @end
 
 @implementation RegisterViewController
@@ -47,20 +49,22 @@
 */
 
 - (void)onVercodeClicked:(id)sender {
+    self.vercodeButton = sender;
+    
     if (self.phone.length == 0) {
         [self showDialogWithTitle:nil message:@"手机号不能为空"];
         return;
     }
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    NSDictionary *params = @{@"mobile":self.phone};
+    NSDictionary *params = @{@"mobile":self.phone, @"type":@"login"};
     [[HttpService defaultService]POST:URL_APPEND_PATH(@"/auth/send")
                            parameters:params JSONModelClass:[BaseModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
                                   self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFireMethod) userInfo:nil repeats:YES];
                                   self.secondsCountDown = 60;
-                                  [self.tableView reloadData];
+                                  [self.vercodeButton setTitle:@"60s" forState:UIControlStateNormal];
                               }
                               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -70,7 +74,15 @@
 
 - (void)timerFireMethod {
     self.secondsCountDown--;
-    [self.tableView reloadData];
+    if (self.secondsCountDown > 0) {
+        [self.vercodeButton setTitle:[NSString stringWithFormat:@"%ds", self.secondsCountDown] forState:UIControlStateNormal];
+        self.vercodeButton.enabled = NO;
+        
+    } else {
+        [self.timer invalidate];
+        self.vercodeButton.enabled = YES;
+        [self.vercodeButton setTitle:@"获取" forState:UIControlStateNormal];
+    }
 }
 
 - (void)onRigisterButtonClicked:(id)sender {
@@ -163,7 +175,6 @@
             
             UITextField *textField = (UITextField *)[cell viewWithTag:1001];
             [textField addTarget:self action:@selector(textFieldWithText:) forControlEvents:UIControlEventEditingChanged];
-            textField.text = self.nickName;
             
         } else if (indexPath.row == 1) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"RegisterCell" owner:self options:nil];
@@ -171,7 +182,6 @@
             
             UITextField *textField = (UITextField *)[cell viewWithTag:1002];
             [textField addTarget:self action:@selector(textFieldWithText:) forControlEvents:UIControlEventEditingChanged];
-            textField.text = self.phone;
             
         } else if (indexPath.row == 2) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"RegisterCell" owner:self options:nil];
@@ -179,19 +189,9 @@
             
             UITextField *textField = (UITextField *)[cell viewWithTag:1003];
             [textField addTarget:self action:@selector(textFieldWithText:) forControlEvents:UIControlEventEditingChanged];
-            textField.text = self.vercode;
             
             UIButton *vercodeButton = (UIButton *)[cell viewWithTag:1004];
-            if (self.secondsCountDown > 0) {
-                [vercodeButton setTitle:[NSString stringWithFormat:@"%ds", self.secondsCountDown] forState:UIControlStateNormal];
-                vercodeButton.enabled = NO;
-                
-            } else {
-                [self.timer invalidate];
-                vercodeButton.enabled = YES;
-                [vercodeButton setTitle:@"获取" forState:UIControlStateNormal];
-                [vercodeButton addTarget:self action:@selector(onVercodeClicked:) forControlEvents:UIControlEventTouchUpInside];
-            }
+            [vercodeButton addTarget:self action:@selector(onVercodeClicked:) forControlEvents:UIControlEventTouchUpInside];
         }
     }
     

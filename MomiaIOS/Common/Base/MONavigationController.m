@@ -17,7 +17,7 @@
 @end
 
 @implementation MONavigationController
-@synthesize backView;
+@synthesize titleShadowIv;
 
 //-(id)init {
 //    if (self = [super init]) {
@@ -28,7 +28,6 @@
 
 -(id)initWithRootViewController:(UIViewController *)rootViewController {
     if (self = [super initWithRootViewController:rootViewController]) {
-        [self setDarkTitleStyle];
         self.root = rootViewController;
     }
     return self;
@@ -89,6 +88,18 @@
     [self.navigationBar setBackgroundImage:[UIImage imageWithColor:MO_APP_ThemeColor size:CGSizeMake(SCREEN_WIDTH, 64)] forBarMetrics:UIBarMetricsDefault];
     self.navigationBar.shadowImage = [UIImage imageWithColor:[UIColor clearColor] size:CGSizeMake(1, 1)];
     self.navigationBar.translucent = NO;
+    
+    // shadow
+    CGRect frame = CGRectMake(0, 64, SCREEN_WIDTH, 5);
+    
+    if (titleShadowIv == nil) {
+        titleShadowIv = [[UIImageView alloc]initWithFrame:frame];
+        titleShadowIv.image = [UIImage imageNamed:@"title_shadow"];
+        [[[UIApplication sharedApplication].delegate window] addSubview:titleShadowIv];
+    } else {
+        titleShadowIv.hidden = NO;
+    }
+    
 }
 
 - (void)setLightTitleStyle {
@@ -101,6 +112,10 @@
     [self.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(SCREEN_WIDTH, 64)] forBarMetrics:UIBarMetricsDefault];
     self.navigationBar.shadowImage = nil;
     self.navigationBar.translucent = NO;
+    
+    if (titleShadowIv) {
+        titleShadowIv.hidden = YES;
+    }
 }
 
 @end

@@ -14,21 +14,12 @@
 
 -(void)setData:(ProductModel *) model;
 {
-    [self.imgView sd_setImageWithURL:[NSURL URLWithString:model.cover] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:model.cover] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     self.titleLabel.text = model.title;
     [self.timeLabel setTitle:model.scheduler forState:UIControlStateNormal];
     self.descLabel.text = model.address;
-    [self.enrollmentLabel setTitle:[NSString stringWithFormat:@"%ld人报名",model.joined] forState:UIControlStateNormal];
-    self.priceLabel.text = [NSString stringWithFormat:@"￥%.2f",model.price];
-}
-
-
-- (void)awakeFromNib {
-    // Initialization code
-    UIImage *image = [UIImage imageNamed:@"home_textbg"];
-    image = [image stretchableImageWithLeftCapWidth:floorf(image.size.width/2) topCapHeight:floorf(image.size.height/2)];
-    [self.timeLabel setBackgroundImage:image forState:UIControlStateDisabled];
-    [self.enrollmentLabel setBackgroundImage:image forState:UIControlStateDisabled];
+    [self.enrollmentLabel setTitle:[NSString stringWithFormat:@"%d人报名", model.joined] forState:UIControlStateNormal];
+    self.priceLabel.text = [NSString stringWithFormat:@"%.2f", model.price];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

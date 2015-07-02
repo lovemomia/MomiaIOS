@@ -106,9 +106,20 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 0.1;
+    return 0.01;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 10;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView * header = [UIView new];
+    header.backgroundColor = MO_APP_VCBackgroundColor;
+    return header;
+}
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -145,7 +156,7 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
         HomeCarouselCell * carousel = [HomeCarouselCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeCarouselIdentifier];
         carousel.data = self.model.data.banners;
         carousel.scrollClick = ^void(NSInteger index) {
-            NSLog(@"index:%ld",index);
+
         };
         cell = carousel;
         

@@ -54,6 +54,11 @@
         [account save];
     }
     _account = account;
+    if (self.listeners) {
+        for (id<AccountChangeListener> listener in self.listeners) {
+            [listener onAccountChange];
+        }
+    }
 }
 
 - (void)login:(UIViewController *)currentController {
@@ -61,11 +66,6 @@
     
     controller.loginSuccessBlock = ^(){
         [currentController dismissViewControllerAnimated:YES completion:nil];
-        if (self.listeners) {
-            for (id<AccountChangeListener> listener in self.listeners) {
-                [listener onAccountChange];
-            }
-        }
     };
     controller.loginFailBlock = ^(NSInteger code, NSString* message){
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
@@ -81,11 +81,6 @@
 
 - (void)logout:(UIViewController *)controller {
     self.account = nil;
-    if (self.listeners) {
-        for (id<AccountChangeListener> listener in self.listeners) {
-            [listener onAccountChange];
-        }
-    }
     [controller.navigationController popToRootViewControllerAnimated:YES];
 }
 

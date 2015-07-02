@@ -143,8 +143,10 @@
             }
             
             UILabel *titleLabel = (UILabel *)[cell viewWithTag:2];
+            titleLabel.text = account.nickName;
             
             UILabel *subTitleLabel = (UILabel *)[cell viewWithTag:3];
+            subTitleLabel.text = [NSString stringWithFormat:@"宝宝%@", [account ageWithDateOfBirth]];
             
         } else {
             cell = [tableView dequeueReusableCellWithIdentifier:CellLogin];

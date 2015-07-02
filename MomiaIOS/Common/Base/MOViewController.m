@@ -35,6 +35,7 @@
             self.edgesForExtendedLayout = UIRectEdgeNone;
             if([self isNavDarkStyle]) {
                 [navController setDarkTitleStyle];
+                
             } else {
                 [navController setLightTitleStyle];
             }
