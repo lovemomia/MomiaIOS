@@ -53,7 +53,7 @@
 /**
  *  NavigationBar背景色
  */
-#define MO_APP_ThemeColor                    (UIColorFromRGB(0x1ebba6))
+#define MO_APP_ThemeColor                    (UIColorFromRGB(0x00c49d))
 
 /**
  *  页面背景颜色

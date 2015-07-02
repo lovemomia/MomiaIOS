@@ -10,7 +10,18 @@
 #import "DatePickerSheet.h"
 #import "AccountModel.h"
 
-@interface MyStatusViewController () <DatePickerSheetDelegate>
+@interface Baby : NSObject
+@property (nonatomic, strong) NSNumber *ids;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *sex;
+@property (nonatomic, strong) NSString *birthday;
+@end
+@implementation Baby
+@end
+
+@interface MyStatusViewController () <DatePickerSheetDelegate, UIActionSheetDelegate>
+
+@property (nonatomic, strong) NSMutableArray *babys;
 
 @end
 
@@ -20,7 +31,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.title = @"我的状态";
+    self.navigationItem.title = @"添加孩子信息";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"新增" style:UIBarButtonItemStylePlain target:self action:@selector(onAddChildClicked)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"cm_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)] style:UIBarButtonItemStylePlain target:self action:@selector(onBackClicked)];
+    
+    self.babys = [NSMutableArray new];
+    [self.babys addObject:[Baby new]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,6 +50,26 @@
 
 - (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle {
     return UITableViewCellSeparatorStyleSingleLine;
+}
+
+- (void)onBackClicked {
+    self.operateSuccessBlock();
+}
+
+- (void)onAddChildClicked {
+    
+}
+
+- (void)onFinishClicked {
+    if ([self check]) {
+        
+    }
+    self.operateSuccessBlock();
+}
+
+- (BOOL)check {
+    
+    return YES;
 }
 
 /*
@@ -63,28 +99,64 @@
     
     NSInteger row = indexPath.row;
     if (row == 0) {
-        cell.textLabel.text = @"备孕";
+        cell.textLabel.text = @"姓名";
         
     } else if (row == 1) {
-        cell.textLabel.text = @"我怀孕了";
-        cell.detailTextLabel.text = @"选择预产期：";
+        cell.textLabel.text = @"性别";
+        cell.detailTextLabel.text = @"";
         
     } else {
-        cell.textLabel.text = @"宝宝出生了";
-        cell.detailTextLabel.text = @"选择宝宝生日：";
+        cell.textLabel.text = @"生日";
+        cell.detailTextLabel.text = @"";
     }
     
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 10;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *view = [UIView new];
+    if (section == [self numberOfSectionsInTableView:tableView] - 1) {
+        UIButton *logoutButton = [[UIButton alloc]init];
+        logoutButton.height = 45;
+        logoutButton.width = SCREEN_WIDTH - 2 * 18;
+        logoutButton.left = 18;
+        logoutButton.top = 20;
+        [logoutButton setTitle:@"完成" forState:UIControlStateNormal];
+        [logoutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [logoutButton addTarget:self action:@selector(onFinishClicked) forControlEvents:UIControlEventTouchUpInside];
+        [logoutButton.layer setCornerRadius:5];
+        [logoutButton setBackgroundColor:MO_APP_ThemeColor];
+        [view addSubview:logoutButton];
+    }
+    return view;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         [self updateBabyDate:nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"修改姓名" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认修改", nil];
+        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        alert.tag = indexPath.section;
+        [alert show];
         
     } else if (indexPath.row == 1) {
-        [self showDatePicker];
+        [self showSexPicker:indexPath.section];
+        
     } else {
-        [self showDatePicker];
+        [self showDatePicker:indexPath.section];
+    }
+}
+
+- (void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) { //修改宝宝姓名
+        //得到输入框
+        UITextField *tf=[alertView textFieldAtIndex:0];
+        ((Baby *)[self.babys objectAtIndex:alertView.tag]).name = tf.text;
     }
 }
 
@@ -107,24 +179,39 @@
                               }];
 }
 
-- (void)showDatePicker {
+#pragma mark - sex picker
+
+-(void)showSexPicker:(int)child {
+    UIActionSheet *sexSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"男",@"女",nil];
+    sexSheet.tag = child;
+    [sexSheet showInView:[[UIApplication sharedApplication].delegate window]];
+}
+
+#pragma mark -
+#pragma UIActionSheet Delegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSString * sex = buttonIndex == 0 ? @"男" : @"女";
+    ((Baby *)[self.babys objectAtIndex:actionSheet.tag]).sex = sex;
+}
+
+#pragma mark - DatePickerSheetDelegate method
+
+- (void)showDatePicker:(NSInteger)child {
     DatePickerSheet * datePickerSheet = [DatePickerSheet getInstance];
     [datePickerSheet initializationWithMaxDate:nil
                                    withMinDate:nil
                             withDatePickerMode:UIDatePickerModeDate
                                   withDelegate:self];
+    datePickerSheet.tag = child;
     [datePickerSheet showDatePickerSheet];
 }
 
-#pragma mark - DatePickerSheetDelegate method
 - (void) datePickerSheet:(DatePickerSheet*)datePickerSheet chosenDate:(NSDate*)date
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yyyy-MM-dd";
     NSString *dateString = [formatter stringFromDate:date];
-    NSLog(@"dateString:%@", dateString);
-    
-    [self updateBabyDate:dateString];
+    ((Baby *)[self.babys objectAtIndex:datePickerSheet.tag]).name = dateString;
 }
 
 

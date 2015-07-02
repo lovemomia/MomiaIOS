@@ -11,8 +11,9 @@
 #import "AccountModel.h"
 #import "DatePickerSheet.h"
 #import "UIImage+Color.h"
+#import "CommonHeaderView.h"
 
-@interface PersonInfoViewController ()<UIAlertViewDelegate, DatePickerSheetDelegate>
+@interface PersonInfoViewController ()<UIAlertViewDelegate, DatePickerSheetDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, strong) UIImageView *userIcon;
 @property (nonatomic, strong) UITableViewCell *nickCell;
@@ -27,6 +28,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"个人信息";
+    
+    [CommonHeaderView registerCellWithTableView:self.tableView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,22 +49,15 @@
 
 #pragma mark - tableview delegate & datasource
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if (indexPath.section == 0) {
-//        return 59;
-//    }
-//    return 44;
-//}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0 || section == 2) {
-        return 1;
-    } else if (section == 1) {
+    if (section == 0) {
         return 3;
-    } else return 2;
-    
+    } else if (section == 1) {
+        return 2;
+    } else if (section == 2) {
+        return 3;
+    } else return 3;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -69,14 +65,31 @@
     return 3;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    CommonHeaderView * header = [CommonHeaderView cellWithTableView:self.tableView];
+    if (section == 0) {
+        header.data = @"个人信息";
+    } else if (section == 2) {
+        header.data = @"孩子信息（1个）";
+    }
+    return header;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0 || section == 2) {
+        return 50;
+    }
+    return 10;
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UIView *view = [UIView new];
-    if (section == 2) {
+    if (section == [self numberOfSectionsInTableView:tableView] - 1) {
         UIButton *logoutButton = [[UIButton alloc]init];
         logoutButton.height = 45;
         logoutButton.width = SCREEN_WIDTH - 2 * 18;
         logoutButton.left = 18;
-        logoutButton.top = 30;
+        logoutButton.top = 20;
         [logoutButton setTitle:@"退出登录" forState:UIControlStateNormal];
         [logoutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [logoutButton addTarget:self action:@selector(onLogoutClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -88,42 +101,45 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (section == 2) {
+    if (section == [self numberOfSectionsInTableView:tableView] - 1) {
         return 80;
     }
-    return 0;
+    return 0.1;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    NSString *title;
+    int tag;
+    int row = indexPath.row;
     if (indexPath.section == 0) {
-        [self takePictureClick];
-        
-    } else if (indexPath.section == 1) {
-        NSString *title;
-        int tag;
-        if (indexPath.row == 0) {
+        if (row == 0) {
+            [self takePictureClick];
+            return;
+        } else if (row == 1) {
             title = @"昵称";
             tag = 0;
-            
-        } else if (indexPath.row == 1) {
-            title = @"宝宝年龄";
-            tag = 1;
-            [self showDatePicker];
+        }
+        
+    } else if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            title = @"性别";
+            [self showSexPicker];
             return;
             
-        } else if (indexPath.row == 2) {
+        } else if (indexPath.row == 1) {
             title = @"常住地";
             tag = 2;
             
         }
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"修改%@", title] message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认修改", nil];
-        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-        alert.tag = tag;
-        [alert show];
     }
+    
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"修改%@", title] message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认修改", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    alert.tag = tag;
+    [alert show];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -133,7 +149,7 @@
     static NSString *CellDefault = @"DefaultCell";
     static NSString *CellLogo = @"LogoCell";
     UITableViewCell *cell;
-    if (section == 0) {
+    if (section == 0 && row == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:CellLogo];
         if (cell == nil) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"PersonLogoCell" owner:self options:nil];
@@ -152,16 +168,22 @@
         }
         
         switch (section) {
-            case 1:
-                if (row == 0) {
+            case 0:
+                if (row == 1) {
                     cell.textLabel.text = @"昵称";
                     cell.detailTextLabel.text = account.nickName;
                     self.nickCell = cell;
                     
-                } else if(row == 1){
-                    cell.textLabel.text = @"宝宝年龄";
-                    cell.detailTextLabel.text = account.birthday;
-                    self.babyAgeCell = cell;
+                } else {
+                    cell.textLabel.text = @"手机号";
+                    cell.detailTextLabel.text = account.mobile;
+                    cell.accessoryType = UITableViewCellAccessoryNone;
+                }
+                break;
+            case 1:
+                if (row == 0) {
+                    cell.textLabel.text = @"性别";
+                    cell.detailTextLabel.text = account.sex;
                     
                 } else {
                     cell.textLabel.text = @"常住地";
@@ -169,20 +191,22 @@
                     self.addressCell = cell;
                 }
                 break;
-            case 2:
-                if (row == 0) {
-                    cell.textLabel.text = @"手机号";
-                    cell.detailTextLabel.text = account.mobile;
-                    cell.accessoryType = UITableViewCellAccessoryNone;
-                    
-                } else {
-                    cell.textLabel.text = @"第三方账号绑定";
-//                    cell.detailTextLabel.text = account.wechatNo;
-                }
-                break;
-            case 3:
-                cell.textLabel.text = @"修改密码";
             default:
+                if (row == 0) {
+                    NSArray *baby = [NSArray arrayWithObjects:@"大宝", @"二宝", @"三宝", @"四宝", @"五宝", nil];
+                    int index = section - 2;
+                    if (section == 2) {
+                        cell.textLabel.text = [NSString stringWithFormat:@"%@姓名", [baby objectAtIndex:index]];
+                        cell.detailTextLabel.text = @"";
+                    }
+                    
+                } else if (row == 1) {
+                    cell.textLabel.text = @"性别";
+                    cell.detailTextLabel.text = @"";
+                } else if (row == 2) {
+                    cell.textLabel.text = @"生日";
+                    cell.detailTextLabel.text = @"";
+                }
                 break;
         }
     }
@@ -211,31 +235,47 @@
 #pragma UIActionSheet Delegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    switch (buttonIndex) {
-        case 0://照相机
-        {
-            UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-            imagePicker.delegate = self;
-            imagePicker.allowsEditing = YES;
-            imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-            //            [self presentModalViewController:imagePicker animated:YES];
-            [self presentViewController:imagePicker animated:YES completion:nil];
+    if (actionSheet.tag == 0) {
+        switch (buttonIndex) {
+            case 0://照相机
+            {
+                UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+                imagePicker.delegate = self;
+                imagePicker.allowsEditing = YES;
+                imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                //            [self presentModalViewController:imagePicker animated:YES];
+                [self presentViewController:imagePicker animated:YES completion:nil];
+            }
+                break;
+                
+            case 1://本地相簿
+            {
+                UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+                imagePicker.delegate = self;
+                imagePicker.allowsEditing = YES;
+                imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                //            [self presentModalViewController:imagePicker animated:YES];
+                [self presentViewController:imagePicker animated:YES completion:nil];
+            }
+                break;
+                
+            default:
+                break;
         }
-            break;
+    } else if (actionSheet.tag == 1) {
+        NSString * sex = buttonIndex == 0 ? @"男" : @"女";
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        NSDictionary *params = @{@"sex" : sex};
+        [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/sex") parameters:params JSONModelClass:[AccountModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            AccountModel *result = (AccountModel *)responseObject;
+            [AccountService defaultService].account = result.data;
+            [self.tableView reloadData];
             
-        case 1://本地相簿
-        {
-            UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-            imagePicker.delegate = self;
-            imagePicker.allowsEditing = YES;
-            imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-            //            [self presentModalViewController:imagePicker animated:YES];
-            [self presentViewController:imagePicker animated:YES completion:nil];
-        }
-            break;
-            
-        default:
-            break;
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [self showDialogWithTitle:nil message:error.message];
+        }];
     }
 }
 
@@ -356,8 +396,16 @@
     [datePickerSheet showDatePickerSheet];
 }
 
+#pragma mark - sex picker
+
+-(void)showSexPicker {
+    UIActionSheet *sexSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"男",@"女",nil];
+    sexSheet.tag = 1;
+    [sexSheet showInView:[[UIApplication sharedApplication].delegate window]];
+}
+
 #pragma mark - DatePickerSheetDelegate method
-- (void) datePickerSheet:(DatePickerSheet*)datePickerSheet chosenDate:(NSDate*)date
+- (void)datePickerSheet:(DatePickerSheet*)datePickerSheet chosenDate:(NSDate*)date
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yyyy-MM-dd";

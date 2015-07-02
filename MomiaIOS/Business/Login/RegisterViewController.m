@@ -57,7 +57,7 @@
     }
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    NSDictionary *params = @{@"mobile":self.phone, @"type":@"login"};
+    NSDictionary *params = @{@"mobile":self.phone, @"type":@"register"};
     [[HttpService defaultService]POST:URL_APPEND_PATH(@"/auth/send")
                            parameters:params JSONModelClass:[BaseModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -163,7 +163,7 @@
     if (section == [self numberOfSectionsInTableView:tableView] - 1) {
         return 80;
     }
-    return 0;
+    return 0.1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
