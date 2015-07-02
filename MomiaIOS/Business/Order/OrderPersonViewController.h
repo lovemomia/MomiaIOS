@@ -18,7 +18,7 @@ typedef struct PersonStyle PersonStyle;
 
 @interface OrderPersonViewController : MOViewController<UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic, strong) NSString * utoken;
+//@property (nonatomic, strong) NSString * utoken;
 @property (nonatomic, assign) PersonStyle personStyle;
 @property (nonatomic, strong) OnFinishClick onFinishClick;
 @property (nonatomic, strong) NSMutableDictionary * selectedDictionary;

@@ -18,6 +18,7 @@
 #import "ConvertFromXib.h"
 #import "AddOrderModel.h"
 #import "OrderPersonViewController.h"
+#import "OrderContactViewController.h"
 #import "PostOrderModel.h"
 
 #define TopNumber 2
@@ -35,7 +36,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 @property(nonatomic, weak) UIView * activeView;
 @property(nonatomic, strong) FillOrderModel * model;
 @property(nonatomic, strong) NSString * productId;
-@property(nonatomic, strong) NSString * utoken;
+//@property(nonatomic, strong) NSString * utoken;
 @property(nonatomic, assign) BOOL isShowAllTopCell;//是否显示所有场次
 @property(nonatomic, assign) NSInteger topIndex;
 
@@ -103,6 +104,20 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
         [AlertNotice showNotice:@"选择的出行人不合要求，请重新选择"];
         return;
     }
+    
+    self.orderModel.contacts = self.model.data.contacts.name;
+    self.orderModel.mobile = self.model.data.contacts.mobile;
+    
+    if(self.orderModel.contacts.length == 0) {
+        [AlertNotice showNotice:@"联系人姓名不能为空"];
+        return;
+    }
+    
+    if(self.orderModel.mobile.length == 0) {
+        [AlertNotice showNotice:@"联系人电话号码不能为空"];
+        return;
+    }
+    
     self.orderModel.prices = self.prices;
     self.orderModel.participants = self.participants;
     
@@ -114,10 +129,10 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 -(void)postOrder
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    NSLog(@"addordermodel:%@",self.orderModel.toJSONString);
+    NSDictionary *params = @{@"order":[self.orderModel toJSONString]};
     
-    NSDictionary *params = @{@"utoken":self.utoken,@"order":[self.orderModel toJSONString]};
-    
-    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/order")
+    [[HttpService defaultService]POST:URL_HTTPS_APPEND_PATH(@"/order")
                            parameters:params
                        JSONModelClass:[PostOrderModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -335,7 +350,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
                 
             } else {
                 OrderPersonViewController * controller = [[OrderPersonViewController alloc] initWithNibName:@"OrderPersonViewController" bundle:nil];
-                controller.utoken = self.utoken;
+//                controller.utoken = self.utoken;
                 controller.personStyle = personStyle;
                 controller.selectedDictionary = self.selectedDictionary;
                 controller.onFinishClick = ^() {
@@ -346,6 +361,14 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
             }
             
         } else {//单击联系人信息
+            OrderContactViewController * contactViewController = [[OrderContactViewController alloc] initWithNibName:@"OrderContactViewController" bundle:nil];
+            contactViewController.model = self.model.data.contacts;
+            contactViewController.onContactFinishClick = ^{
+                self.middleDataChanged = NO;
+                [self.tableView reloadData];
+            };
+            [self.navigationController pushViewController:contactViewController animated:YES];
+
             
         }
     }
@@ -511,7 +534,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
         [self.view showLoadingBee];
     }
     
-    NSDictionary * dic = @{@"id":self.productId,@"utoken":self.utoken};
+    NSDictionary * dic = @{@"id":self.productId};
     [[HttpService defaultService] GET:URL_APPEND_PATH(@"/product/order") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[FillOrderModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.model == nil) {
             [self.view removeLoadingBee];
@@ -522,9 +545,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
         //在请求到SKU信息后开始为AddOrderModel分配空间并初始化
         self.orderModel = [[AddOrderModel alloc] init];
         //设置orderModel的contacts和mobile属性
-        self.orderModel.contacts = self.model.data.contacts.name;
-        self.orderModel.mobile = self.model.data.contacts.mobile;
-        
+       
         self.middleDataChanged = YES;
 
         [self.tableView reloadData];
@@ -542,7 +563,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
     self = [super initWithParams:params];
     if(self) {
         self.productId = [params objectForKey:@"id"];
-        self.utoken = [params objectForKey:@"utoken"];
+//        self.utoken = [params objectForKey:@"utoken"];
     }
     return self;
 }
@@ -566,9 +587,6 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
     self.priceLabel.text = [NSString stringWithFormat:@"￥%.2f",self.totalPrice];
     
     [self requestData];
-    
-    self.orderModel = [[AddOrderModel alloc] init];
-    self.orderModel.productId = 25;
 
 }
 

@@ -9,6 +9,8 @@
 // API Domain
 // 线上环境
 #define MO_API_DOMAIN_OL  @"http://i.momia.cn"
+#define MO_HTTPS_API_DOMAIN_OL  @"https://i.momia.cn"
+
 // 开发环境
 #define MO_API_DOMAIN_DEV @"http://dev.momia.cn"
 
@@ -19,6 +21,7 @@
 #endif
 
 
+#define URL_HTTPS_APPEND_PATH(__path__) ([MO_HTTPS_API_DOMAIN_OL stringByAppendingString:__path__])
 
 // 请求url拼接
 #define URL_APPEND_PATH(__path__)  ([MO_API_DOMAIN stringByAppendingString:__path__])

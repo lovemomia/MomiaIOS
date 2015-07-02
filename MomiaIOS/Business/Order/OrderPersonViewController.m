@@ -98,7 +98,7 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     //开始编辑出行人
     OrderPersonDataModel * model = self.model.data[indexPath.row];
-    NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://orderupdateperson?utoken=%@&personId=%ld",self.utoken,model.opId]];
+    NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://orderupdateperson?personId=%ld",model.opId]];
     [[UIApplication sharedApplication] openURL:url];
 }
 
@@ -127,7 +127,7 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
 
 -(void)onNewAddClick
 {
-    NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://orderupdateperson?utoken=%@",self.utoken]];
+    NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://orderupdateperson"]];
     [[UIApplication sharedApplication] openURL:url];
 }
 
@@ -141,7 +141,7 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    NSDictionary *params = @{@"utoken":self.utoken,@"id":@(dataModel.opId)};
+    NSDictionary *params = @{@"id":@(dataModel.opId)};
     
     [[HttpService defaultService]POST:URL_APPEND_PATH(@"/participant/delete")
                            parameters:params
@@ -168,8 +168,7 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
     
     [self.view showLoadingBee];
     
-    NSDictionary * dic = @{@"utoken":self.utoken};
-    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/participant/list") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[OrderPersonModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/participant/list") parameters:nil cacheType:CacheTypeDisable JSONModelClass:[OrderPersonModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self.view removeLoadingBee];
         
         self.model = responseObject;
@@ -206,6 +205,11 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
 //    }
 //    return self;
 //}
+
+-(void)awakeFromNib
+{
+    NSLog(@"awakeFromNib");
+}
 
 
 - (void)viewDidLoad {
