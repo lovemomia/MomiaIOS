@@ -8,15 +8,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="323" id="9V0-Mx-AXL" customClass="ProductDetailCarouselCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="315" id="9V0-Mx-AXL" customClass="ProductDetailCarouselCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="312"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9V0-Mx-AXL" id="6yK-O7-IX9">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gZs-Pn-IQj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="225"/>
-                        <color key="backgroundColor" red="1" green="0.068650436400000001" blue="0.1169704003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="gZs-Pn-IQj" secondAttribute="height" multiplier="320:225" id="6iR-ND-B2I"/>
                         </constraints>
@@ -32,39 +31,50 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="沙滩拾贝，和孩纸一起分享喜悦" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCS-IF-nih">
-                        <rect key="frame" x="10" y="244" width="300" height="21"/>
+                        <rect key="frame" x="10" y="237" width="300" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥60" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNx-xP-aMx">
-                        <rect key="frame" x="260" y="273" width="51" height="29"/>
+                        <rect key="frame" x="10" y="270" width="51" height="29"/>
                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                         <color key="textColor" red="0.96470588235294119" green="0.45882352941176469" blue="0.19215686274509805" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12人报名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqd-g0-7em">
-                        <rect key="frame" x="10" y="284" width="54" height="16"/>
+                        <rect key="frame" x="256" y="277" width="54" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ukj-83-P39">
+                        <rect key="frame" x="159" y="275" width="2" height="20"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="CCt-VG-0V2"/>
+                            <constraint firstAttribute="width" constant="2" id="RUz-oY-jKS"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="gZs-Pn-IQj" firstAttribute="leading" secondItem="6yK-O7-IX9" secondAttribute="leading" id="35N-qf-Shp"/>
+                    <constraint firstAttribute="centerX" secondItem="Ukj-83-P39" secondAttribute="centerX" id="7p2-gq-QAy"/>
                     <constraint firstItem="gZs-Pn-IQj" firstAttribute="top" secondItem="6yK-O7-IX9" secondAttribute="top" id="8K0-VB-sZO"/>
-                    <constraint firstAttribute="trailing" secondItem="wNx-xP-aMx" secondAttribute="trailing" constant="9" id="Bfw-UL-911"/>
-                    <constraint firstAttribute="bottom" secondItem="wNx-xP-aMx" secondAttribute="bottom" constant="17" id="GD6-ap-Ntc"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hCS-IF-nih" secondAttribute="bottom" constant="43" id="Qpu-IC-vcF"/>
-                    <constraint firstItem="wNx-xP-aMx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oqd-g0-7em" secondAttribute="trailing" constant="10" id="YvJ-pw-Otu"/>
+                    <constraint firstItem="wNx-xP-aMx" firstAttribute="top" secondItem="hCS-IF-nih" secondAttribute="bottom" constant="12" id="98o-vT-ipZ"/>
+                    <constraint firstItem="Ukj-83-P39" firstAttribute="centerY" secondItem="wNx-xP-aMx" secondAttribute="centerY" id="Lse-cn-zfa"/>
+                    <constraint firstItem="oqd-g0-7em" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ukj-83-P39" secondAttribute="trailing" constant="5" id="S88-Wg-UmP"/>
                     <constraint firstAttribute="trailing" secondItem="gZs-Pn-IQj" secondAttribute="trailing" id="ZlA-3X-U3o"/>
-                    <constraint firstItem="oqd-g0-7em" firstAttribute="leading" secondItem="hCS-IF-nih" secondAttribute="leading" id="ePh-Ag-K1k"/>
+                    <constraint firstItem="oqd-g0-7em" firstAttribute="centerY" secondItem="wNx-xP-aMx" secondAttribute="centerY" id="ac1-uy-krH"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hCS-IF-nih" secondAttribute="bottom" constant="53" id="gbn-Pm-vgt"/>
+                    <constraint firstItem="Ukj-83-P39" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wNx-xP-aMx" secondAttribute="trailing" constant="5" id="iVt-z4-WkJ"/>
                     <constraint firstAttribute="trailing" secondItem="hCS-IF-nih" secondAttribute="trailing" constant="10" id="phe-LJ-Xf7"/>
+                    <constraint firstItem="wNx-xP-aMx" firstAttribute="leading" secondItem="6yK-O7-IX9" secondAttribute="leading" constant="10" id="pms-6k-J3g"/>
                     <constraint firstItem="1ho-25-2qw" firstAttribute="top" secondItem="6yK-O7-IX9" secondAttribute="top" constant="15" id="r40-aT-skJ"/>
                     <constraint firstItem="hCS-IF-nih" firstAttribute="leading" secondItem="6yK-O7-IX9" secondAttribute="leading" constant="10" id="rgd-91-lKc"/>
-                    <constraint firstItem="oqd-g0-7em" firstAttribute="top" secondItem="hCS-IF-nih" secondAttribute="bottom" constant="19" id="tfT-3Z-LiY"/>
+                    <constraint firstAttribute="trailing" secondItem="oqd-g0-7em" secondAttribute="trailing" constant="10" id="scb-qD-eta"/>
                     <constraint firstAttribute="trailing" secondItem="1ho-25-2qw" secondAttribute="trailing" constant="15" id="wIf-K1-T8l"/>
-                    <constraint firstItem="hCS-IF-nih" firstAttribute="top" secondItem="gZs-Pn-IQj" secondAttribute="bottom" constant="19" id="xS9-Rq-QdN"/>
+                    <constraint firstItem="hCS-IF-nih" firstAttribute="top" secondItem="gZs-Pn-IQj" secondAttribute="bottom" constant="12" id="xS9-Rq-QdN"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -75,7 +85,7 @@
                 <outlet property="scrollView" destination="gZs-Pn-IQj" id="jHF-Lq-4jb"/>
                 <outlet property="titleLabel" destination="hCS-IF-nih" id="JI9-RA-9NS"/>
             </connections>
-            <point key="canvasLocation" x="258" y="246"/>
+            <point key="canvasLocation" x="258" y="242"/>
         </tableViewCell>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

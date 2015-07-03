@@ -25,14 +25,8 @@
 		5A08C13C1B39117100642648 /* ProductDetailBasicInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A08C1291B39117100642648 /* ProductDetailBasicInfoCell.xib */; };
 		5A08C13D1B39117100642648 /* ProductDetailCarouselCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C12B1B39117100642648 /* ProductDetailCarouselCell.m */; };
 		5A08C13E1B39117100642648 /* ProductDetailCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A08C12C1B39117100642648 /* ProductDetailCarouselCell.xib */; };
-		5A08C13F1B39117100642648 /* ProductDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C12E1B39117100642648 /* ProductDetailContentCell.m */; };
-		5A08C1401B39117100642648 /* ProductDetailContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A08C12F1B39117100642648 /* ProductDetailContentCell.xib */; };
 		5A08C1411B39117100642648 /* ProductDetailEnrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C1311B39117100642648 /* ProductDetailEnrollCell.m */; };
 		5A08C1421B39117100642648 /* ProductDetailEnrollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A08C1321B39117100642648 /* ProductDetailEnrollCell.xib */; };
-		5A08C1431B39117100642648 /* ProductDetailLinkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C1341B39117100642648 /* ProductDetailLinkCell.m */; };
-		5A08C1441B39117100642648 /* ProductDetailLinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A08C1351B39117100642648 /* ProductDetailLinkCell.xib */; };
-		5A08C1451B39117100642648 /* ProductDetailTeacherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C1371B39117100642648 /* ProductDetailTeacherCell.m */; };
-		5A08C1461B39117100642648 /* ProductDetailTeacherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A08C1381B39117100642648 /* ProductDetailTeacherCell.xib */; };
 		5A08C14A1B3911CA00642648 /* ProductDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C1491B3911CA00642648 /* ProductDetailModel.m */; };
 		5A18DC471B292BDF001458A4 /* UITableView+FDTemplateLayoutHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A18DC461B292BDF001458A4 /* UITableView+FDTemplateLayoutHeader.m */; };
 		5A18DC4B1B295C03001458A4 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A18DC491B295C03001458A4 /* HomeViewController.m */; };
@@ -79,6 +73,7 @@
 		5A8EF0361B31407B003ABAF8 /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A8EF0351B31407B003ABAF8 /* HomeCell.xib */; };
 		5A8EF03D1B31619E003ABAF8 /* ProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8EF03C1B31619E003ABAF8 /* ProductModel.m */; };
 		5A8EF0401B31A4A2003ABAF8 /* NSString+MOAttribuedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8EF03F1B31A4A2003ABAF8 /* NSString+MOAttribuedString.m */; };
+		5A8FF9701B450FA5007A8CA4 /* ProductDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8FF96F1B450FA5007A8CA4 /* ProductDetailContentCell.m */; };
 		5AA9B8251B416CDB00265C67 /* UpdatePersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9B8241B416CDB00265C67 /* UpdatePersonModel.m */; };
 		5AABF6FA1B28120C000A9D3F /* OrderUpdatePersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AABF6F81B28120C000A9D3F /* OrderUpdatePersonViewController.m */; };
 		5AABF6FB1B28120C000A9D3F /* OrderUpdatePersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AABF6F91B28120C000A9D3F /* OrderUpdatePersonViewController.xib */; };
@@ -224,18 +219,9 @@
 		5A08C12A1B39117100642648 /* ProductDetailCarouselCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailCarouselCell.h; sourceTree = "<group>"; };
 		5A08C12B1B39117100642648 /* ProductDetailCarouselCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailCarouselCell.m; sourceTree = "<group>"; };
 		5A08C12C1B39117100642648 /* ProductDetailCarouselCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailCarouselCell.xib; sourceTree = "<group>"; };
-		5A08C12D1B39117100642648 /* ProductDetailContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailContentCell.h; sourceTree = "<group>"; };
-		5A08C12E1B39117100642648 /* ProductDetailContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailContentCell.m; sourceTree = "<group>"; };
-		5A08C12F1B39117100642648 /* ProductDetailContentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailContentCell.xib; sourceTree = "<group>"; };
 		5A08C1301B39117100642648 /* ProductDetailEnrollCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailEnrollCell.h; sourceTree = "<group>"; };
 		5A08C1311B39117100642648 /* ProductDetailEnrollCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailEnrollCell.m; sourceTree = "<group>"; };
 		5A08C1321B39117100642648 /* ProductDetailEnrollCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailEnrollCell.xib; sourceTree = "<group>"; };
-		5A08C1331B39117100642648 /* ProductDetailLinkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailLinkCell.h; sourceTree = "<group>"; };
-		5A08C1341B39117100642648 /* ProductDetailLinkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailLinkCell.m; sourceTree = "<group>"; };
-		5A08C1351B39117100642648 /* ProductDetailLinkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailLinkCell.xib; sourceTree = "<group>"; };
-		5A08C1361B39117100642648 /* ProductDetailTeacherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailTeacherCell.h; sourceTree = "<group>"; };
-		5A08C1371B39117100642648 /* ProductDetailTeacherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailTeacherCell.m; sourceTree = "<group>"; };
-		5A08C1381B39117100642648 /* ProductDetailTeacherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailTeacherCell.xib; sourceTree = "<group>"; };
 		5A08C1481B3911CA00642648 /* ProductDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailModel.h; sourceTree = "<group>"; };
 		5A08C1491B3911CA00642648 /* ProductDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailModel.m; sourceTree = "<group>"; };
 		5A18DC451B292BDF001458A4 /* UITableView+FDTemplateLayoutHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableView+FDTemplateLayoutHeader.h"; path = "Common/Categorys/UITableView+FDTemplateLayoutHeader.h"; sourceTree = "<group>"; };
@@ -312,6 +298,8 @@
 		5A8EF03C1B31619E003ABAF8 /* ProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductModel.m; path = Common/Models/Product/ProductModel.m; sourceTree = "<group>"; };
 		5A8EF03E1B31A4A2003ABAF8 /* NSString+MOAttribuedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MOAttribuedString.h"; path = "Common/Categorys/NSString+MOAttribuedString.h"; sourceTree = "<group>"; };
 		5A8EF03F1B31A4A2003ABAF8 /* NSString+MOAttribuedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MOAttribuedString.m"; path = "Common/Categorys/NSString+MOAttribuedString.m"; sourceTree = "<group>"; };
+		5A8FF96E1B450FA5007A8CA4 /* ProductDetailContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailContentCell.h; sourceTree = "<group>"; };
+		5A8FF96F1B450FA5007A8CA4 /* ProductDetailContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailContentCell.m; sourceTree = "<group>"; };
 		5AA9B8231B416CDB00265C67 /* UpdatePersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UpdatePersonModel.h; path = Common/Models/Order/UpdatePersonModel.h; sourceTree = "<group>"; };
 		5AA9B8241B416CDB00265C67 /* UpdatePersonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UpdatePersonModel.m; path = Common/Models/Order/UpdatePersonModel.m; sourceTree = "<group>"; };
 		5AABF6F71B28120C000A9D3F /* OrderUpdatePersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderUpdatePersonViewController.h; path = Business/Order/OrderUpdatePersonViewController.h; sourceTree = "<group>"; };
@@ -594,18 +582,11 @@
 				5A08C12A1B39117100642648 /* ProductDetailCarouselCell.h */,
 				5A08C12B1B39117100642648 /* ProductDetailCarouselCell.m */,
 				5A08C12C1B39117100642648 /* ProductDetailCarouselCell.xib */,
-				5A08C12D1B39117100642648 /* ProductDetailContentCell.h */,
-				5A08C12E1B39117100642648 /* ProductDetailContentCell.m */,
-				5A08C12F1B39117100642648 /* ProductDetailContentCell.xib */,
 				5A08C1301B39117100642648 /* ProductDetailEnrollCell.h */,
 				5A08C1311B39117100642648 /* ProductDetailEnrollCell.m */,
 				5A08C1321B39117100642648 /* ProductDetailEnrollCell.xib */,
-				5A08C1331B39117100642648 /* ProductDetailLinkCell.h */,
-				5A08C1341B39117100642648 /* ProductDetailLinkCell.m */,
-				5A08C1351B39117100642648 /* ProductDetailLinkCell.xib */,
-				5A08C1361B39117100642648 /* ProductDetailTeacherCell.h */,
-				5A08C1371B39117100642648 /* ProductDetailTeacherCell.m */,
-				5A08C1381B39117100642648 /* ProductDetailTeacherCell.xib */,
+				5A8FF96E1B450FA5007A8CA4 /* ProductDetailContentCell.h */,
+				5A8FF96F1B450FA5007A8CA4 /* ProductDetailContentCell.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -1435,10 +1416,7 @@
 				5A6806F51B01CEF700D02A60 /* PersonLogoCell.xib in Resources */,
 				BC8254381B3AB01E00430A6F /* RegisterCell.xib in Resources */,
 				BCA273271AEB1EBA002E7534 /* MineInfoCell.xib in Resources */,
-				5A08C1401B39117100642648 /* ProductDetailContentCell.xib in Resources */,
 				5A33F19B1B2EA0A4002A8258 /* CashPayBottomCell.xib in Resources */,
-				5A08C1461B39117100642648 /* ProductDetailTeacherCell.xib in Resources */,
-				5A08C1441B39117100642648 /* ProductDetailLinkCell.xib in Resources */,
 				5A4044331B27D18C0010782C /* OrderPersonViewController.xib in Resources */,
 				5AC9FFCE1B17298C00C769EF /* FeedbackViewController.xib in Resources */,
 				BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */,
@@ -1558,7 +1536,6 @@
 				5AE4F86B1B3D645E005879B7 /* MOStepperGroup.m in Sources */,
 				BCA272FD1AE8A2C7002E7534 /* MineViewController.m in Sources */,
 				5A1B35EF1B12BD0500E1D31B /* CommentViewController.m in Sources */,
-				5A08C13F1B39117100642648 /* ProductDetailContentCell.m in Sources */,
 				BCA273211AE9FB78002E7534 /* NSURL+MOURL.m in Sources */,
 				BC2C0C991B1858E800E2446E /* MOLabel.m in Sources */,
 				5A33F1A11B2EA1D5002A8258 /* CashPayTopHeaderView.m in Sources */,
@@ -1582,7 +1559,6 @@
 				BC2FAA0F1AFCA92D00E2071E /* UIView+Frame.m in Sources */,
 				BC7708511AFAFD54000068A8 /* MOTableViewController.m in Sources */,
 				5A5A2AA41B4412FC000595A9 /* NSString+Predicate.m in Sources */,
-				5A08C1431B39117100642648 /* ProductDetailLinkCell.m in Sources */,
 				5A08C13D1B39117100642648 /* ProductDetailCarouselCell.m in Sources */,
 				BC8254511B3D419F00430A6F /* PlaymatePeopleCell.m in Sources */,
 				5A06436A1B3BCE7B00361732 /* FillOrderBottomCell.m in Sources */,
@@ -1595,10 +1571,10 @@
 				BC38D2441AFEEA300051C7E9 /* HttpService.m in Sources */,
 				BC2C0C7A1B141A3D00E2446E /* AccountModel.m in Sources */,
 				BCF564C91B43EAB2003A2227 /* UIButton+Block.m in Sources */,
-				5A08C1451B39117100642648 /* ProductDetailTeacherCell.m in Sources */,
 				BCF9ECAA1B4171EC00AEBE1E /* CityListViewController.m in Sources */,
 				BC2C0C931B1849FE00E2446E /* MCAvatarView.m in Sources */,
 				5AE4F82D1B3CF21B005879B7 /* FillOrderModel.m in Sources */,
+				5A8FF9701B450FA5007A8CA4 /* ProductDetailContentCell.m in Sources */,
 				5A08C14A1B3911CA00642648 /* ProductDetailModel.m in Sources */,
 				BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */,
 				5A18DC4B1B295C03001458A4 /* HomeViewController.m in Sources */,

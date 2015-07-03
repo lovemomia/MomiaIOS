@@ -18,7 +18,7 @@
     self.titleLabel.text = model.title;
     [self.timeLabel setTitle:model.scheduler forState:UIControlStateNormal];
     self.descLabel.text = model.address;
-    [self.enrollmentLabel setTitle:[NSString stringWithFormat:@"%d人报名", model.joined] forState:UIControlStateNormal];
+    [self.enrollmentLabel setTitle:[NSString stringWithFormat:@"%ld人报名", model.joined] forState:UIControlStateNormal];
     self.priceLabel.text = [NSString stringWithFormat:@"%.2f", model.price];
 }
 

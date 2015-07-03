@@ -74,7 +74,10 @@
     
     self.scrollView.delegate = self;
     
-    if(array.count == 1) {
+    if(array.count == 0) {
+        self.pageLabel.hidden = YES;
+    } else if(array.count == 1) {
+        self.pageLabel.hidden = NO;
         self.scrollView.contentSize = CGSizeMake(width,0);
         NSString * item = array[0];
         UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
@@ -82,7 +85,7 @@
         [self.scrollView addSubview:imgView];
         self.imgsNum ++;
     } else {
-        
+        self.pageLabel.hidden = NO;
         self.scrollView.contentSize = CGSizeMake((array.count + 2) * width,0);
         
         UIImageView * firstImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];

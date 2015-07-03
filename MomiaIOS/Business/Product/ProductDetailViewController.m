@@ -10,18 +10,14 @@
 #import "ProductDetailCarouselCell.h"
 #import "ProductDetailEnrollCell.h"
 #import "ProductDetailBasicInfoCell.h"
-#import "ProductDetailTeacherCell.h"
 #import "ProductDetailContentCell.h"
-#import "ProductDetailLinkCell.h"
 #import "ProductDetailModel.h"
 #import "CommonHeaderView.h"
 
 static NSString * productDetailCarouselIdentifier = @"CellProductDetailCarousel";
 static NSString * productDetailEnrollIdentifier = @"CellProductDetailEnroll";
 static NSString * productDetailBasicInfoIdentifier = @"CellProductDetailBasicInfo";
-static NSString * productDetailTeacherIdentifier = @"CellProductDetailTeacher";
 static NSString * productDetailContentIdentifier = @"CellProductDetailContent";
-static NSString * productDetailLinkIdentifier = @"CellProductDetailLink";
 
 typedef enum
 {
@@ -35,44 +31,31 @@ typedef enum
 
 @property(nonatomic,strong) ProductDetailModel * model;
 @property(nonatomic,strong) NSString * productId;
+@property(nonatomic,strong) NSMutableDictionary * contentCellDictionary;
 
 @end
 
 @implementation ProductDetailViewController
 
-//辅助方法，用来根据model判断cell的样式
--(CellStyle)judgeCellStyleWithContentModel:(ProductContentModel *)model
+-(NSMutableDictionary *)contentCellDictionary
 {
-    NSArray * array = model.body;
-    CellStyle style = CellStyleContent;
-    for (int i = 0; i < array.count; i++) {
-        ProductBodyModel * model = array[i];
-        if(model.link) {
-            style = CellStyleLink;
-            break;
-        } else if(model.img) {
-            style = CellStyleImage;
-            break;
-        }
+    if(!_contentCellDictionary) {
+        _contentCellDictionary = [[NSMutableDictionary alloc] init];
     }
-    return style;
+    return _contentCellDictionary;
 }
+
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if(section >= 3) {
-        ProductContentModel * model = self.model.data.content[section - 3];
-        return [CommonHeaderView heightWithTableView:tableView data:model.title];
-    }
-    return 0.1;
+   return 0.1;
 }
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    if(section >= 3) return 0.1;
-    else return 10.0;
+    return 13.0;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -89,19 +72,14 @@ typedef enum
     if(section == 0) {
         return 1;
     } else if(section == 1) {
+        return 3;
+
+    } else if(section == 2) {
         if(self.model.data.imgs.count > 0)
             return 1;
         else return 0;
-    } else if(section == 2) {
-        return 3;
     } else {
-        ProductContentModel * model = self.model.data.content[section - 3];
-        if([self judgeCellStyleWithContentModel:model] == CellStyleLink) {
-            return 2;
-        } else {
-            return 1;
-        }
-        
+        return 1;
     }
 }
 
@@ -109,48 +87,20 @@ typedef enum
 {
     CGFloat height = 0;
     NSInteger section = indexPath.section;
-    NSInteger row = indexPath.row;
     if(section == 0) {
         height = [ProductDetailCarouselCell heightWithTableView:tableView withIdentifier:productDetailCarouselIdentifier forIndexPath:indexPath data:self.model.data];
     } else if(section == 1) {
-        height = [ProductDetailEnrollCell heightWithTableView:tableView withIdentifier:productDetailEnrollIdentifier forIndexPath:indexPath data:self.model.data.customers];
-    } else if(section == 2) {
         height = [ProductDetailBasicInfoCell heightWithTableView:tableView withIdentifier:productDetailBasicInfoIdentifier forIndexPath:indexPath data:@"蛮好哦"];
+        
+    } else if(section == 2) {
+        height = [ProductDetailEnrollCell heightWithTableView:tableView withIdentifier:productDetailEnrollIdentifier forIndexPath:indexPath data:self.model.data.customers];
     } else {
-        ProductContentModel * model = self.model.data.content[section - 3];
-        if([self judgeCellStyleWithContentModel:model] == CellStyleLink) {
-            
-            if(row == 0) {//第一个cell是content
-                
-                height = [ProductDetailContentCell heightWithTableView:self.tableView withIdentifier:productDetailContentIdentifier forIndexPath:indexPath data:model];
-                
-            } else {//第二个cell是link
-                height = [ProductDetailLinkCell heightWithTableView:self.tableView withIdentifier:productDetailLinkIdentifier forIndexPath:indexPath data:model];
-            }
-            
-        } else if([self judgeCellStyleWithContentModel:model] == CellStyleImage) {
-            
-            height = [ProductDetailTeacherCell heightWithTableView:self.tableView withIdentifier:productDetailTeacherIdentifier forIndexPath:indexPath data:model];
-            
-        } else {
-            height = [ProductDetailContentCell heightWithTableView:self.tableView withIdentifier:productDetailContentIdentifier forIndexPath:indexPath data:model];
-        }
+        height = [ProductDetailContentCell heightWithTableView:tableView contentModel:self.model.data.content[section - 3]];
     }
     return height;
 }
 
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UITableViewHeaderFooterView * view;
-    if(section >= 3) {
-        CommonHeaderView * header = [CommonHeaderView cellWithTableView:self.tableView];
-        header.data = ((ProductContentModel *)self.model.data.content[section - 3]).title;
-        view = header;
-        
-    }
-    return view;
-}
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -162,42 +112,37 @@ typedef enum
         carousel.data = self.model.data;
         cell = carousel;
     } else if(section == 1) {
-        ProductDetailEnrollCell * enroll = [ProductDetailEnrollCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:productDetailEnrollIdentifier];
-        enroll.data = self.model.data.customers;
-        cell = enroll;
-    } else if(section == 2) {
         ProductDetailBasicInfoCell * basicInfo = [ProductDetailBasicInfoCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:productDetailBasicInfoIdentifier];
         [basicInfo setData:self.model.data withIndex:row];
         cell = basicInfo;
+      
+    } else if(section == 2) {
+        ProductDetailEnrollCell * enroll = [ProductDetailEnrollCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:productDetailEnrollIdentifier];
+        enroll.data = self.model.data.customers;
+        cell = enroll;
     } else {
         ProductContentModel * model = self.model.data.content[section - 3];
-        if([self judgeCellStyleWithContentModel:model] == CellStyleLink) {
-            if(row == 0) {//第一个cell是content
-                ProductDetailContentCell * content = [ProductDetailContentCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:productDetailContentIdentifier];
-                content.data = model;
-                cell = content;
-                
-            } else {//第二个cell是link
-                ProductDetailLinkCell * link = [ProductDetailLinkCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:productDetailLinkIdentifier];
-                link.data = model;
-                cell = link;
-            }
-            
-        } else if([self judgeCellStyleWithContentModel:model] == CellStyleImage) {
-            ProductDetailTeacherCell * teacher = [ProductDetailTeacherCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:productDetailTeacherIdentifier];
-            teacher.data = model;
-            cell = teacher;
-            
-        } else {
-            ProductDetailContentCell * content = [ProductDetailContentCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:productDetailContentIdentifier];
-            content.data = model;
-            cell = content;
+        ProductDetailContentCell * content = [self.contentCellDictionary objectForKey:indexPath];
+        if(!content) {
+            content = [[ProductDetailContentCell alloc] initWithTableView:tableView contentModel:model];
+            [self.contentCellDictionary setObject:content forKey:indexPath];
         }
+        content.linkBlock = ^(UIView * linkView) {
+            UIColor * originColor = linkView.backgroundColor;
 
+            NSLog(@"content:%ld body:%ld",indexPath.section,linkView.tag);
+
+            [UIView animateWithDuration:0.3 animations:^{
+                linkView.backgroundColor = UIColor.lightGrayColor;
+            } completion:^(BOOL finished) {
+                linkView.backgroundColor = originColor;
+            }];
+        };
+        cell = content;
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
-
 
 - (IBAction)dateFriend:(id)sender {
     
@@ -259,10 +204,7 @@ typedef enum
     [ProductDetailCarouselCell registerCellWithTableView:self.tableView withIdentifier:productDetailCarouselIdentifier];
     [ProductDetailEnrollCell registerCellWithTableView:self.tableView withIdentifier:productDetailEnrollIdentifier];
     [ProductDetailBasicInfoCell registerCellWithTableView:self.tableView withIdentifier:productDetailBasicInfoIdentifier];
-    [ProductDetailContentCell registerCellWithTableView:self.tableView withIdentifier:productDetailContentIdentifier];
-    [ProductDetailTeacherCell registerCellWithTableView:self.tableView withIdentifier:productDetailTeacherIdentifier];
-    [ProductDetailLinkCell registerCellWithTableView:self.tableView withIdentifier:productDetailLinkIdentifier];
-
+   
     [CommonHeaderView registerCellWithTableView:self.tableView];
     
     self.tableView.backgroundView = [[UIView alloc] init];
