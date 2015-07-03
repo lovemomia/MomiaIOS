@@ -8,4 +8,5 @@ pod 'Masonry'
 pod 'MBProgressHUD', '~> 0.9.1'
 pod 'UITableView+FDTemplateLayoutCell'
 pod 'ISDiskCache'
+pod 'TTTAttributedLabel'
 
