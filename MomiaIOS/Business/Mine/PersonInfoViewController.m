@@ -12,6 +12,7 @@
 #import "DatePickerSheet.h"
 #import "UIImage+Color.h"
 #import "CommonHeaderView.h"
+#import "Child.h"
 
 @interface PersonInfoViewController ()<UIAlertViewDelegate, DatePickerSheetDelegate, UIActionSheetDelegate>
 
@@ -62,7 +63,8 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    Account *account = [AccountService defaultService].account;
+    return 2 + [account.children count];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -126,13 +128,24 @@
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             title = @"性别";
-            [self showSexPicker];
+            [self showSexPicker:1];
             return;
             
         } else if (indexPath.row == 1) {
             title = @"常住地";
             tag = 2;
-            
+        }
+        
+    } else {
+        if (indexPath.row == 0) {
+            title = @"姓名";
+            tag = 3;
+        } else if (indexPath.row == 1) {
+            title = @"性别";
+            tag = 4;
+        } else if (indexPath.row == 2) {
+            title = @"生日";
+            tag = 5;
         }
     }
     
@@ -167,47 +180,45 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
         
-        switch (section) {
-            case 0:
-                if (row == 1) {
-                    cell.textLabel.text = @"昵称";
-                    cell.detailTextLabel.text = account.nickName;
-                    self.nickCell = cell;
-                    
-                } else {
-                    cell.textLabel.text = @"手机号";
-                    cell.detailTextLabel.text = account.mobile;
-                    cell.accessoryType = UITableViewCellAccessoryNone;
+        if (section == 0) {
+            if (row == 1) {
+                cell.textLabel.text = @"昵称";
+                cell.detailTextLabel.text = account.nickName;
+                self.nickCell = cell;
+                
+            } else {
+                cell.textLabel.text = @"手机号";
+                cell.detailTextLabel.text = account.mobile;
+                cell.accessoryType = UITableViewCellAccessoryNone;
+            }
+        } else if (section == 1) {
+            if (row == 0) {
+                cell.textLabel.text = @"性别";
+                cell.detailTextLabel.text = account.sex;
+                
+            } else {
+                cell.textLabel.text = @"常住地";
+                cell.detailTextLabel.text = account.address;
+                self.addressCell = cell;
+            }
+        } else {
+            NSArray *children = [AccountService defaultService].account.children;
+            Child *child = [children objectAtIndex:(section - 2)];
+            if (row == 0) {
+                NSArray *baby = [NSArray arrayWithObjects:@"大宝", @"二宝", @"三宝", @"四宝", @"五宝", nil];
+                int index = section - 2;
+                if (section == 2) {
+                    cell.textLabel.text = [NSString stringWithFormat:@"%@姓名", [baby objectAtIndex:index]];
+                    cell.detailTextLabel.text = child.name;
                 }
-                break;
-            case 1:
-                if (row == 0) {
-                    cell.textLabel.text = @"性别";
-                    cell.detailTextLabel.text = account.sex;
-                    
-                } else {
-                    cell.textLabel.text = @"常住地";
-                    cell.detailTextLabel.text = account.address;
-                    self.addressCell = cell;
-                }
-                break;
-            default:
-                if (row == 0) {
-                    NSArray *baby = [NSArray arrayWithObjects:@"大宝", @"二宝", @"三宝", @"四宝", @"五宝", nil];
-                    int index = section - 2;
-                    if (section == 2) {
-                        cell.textLabel.text = [NSString stringWithFormat:@"%@姓名", [baby objectAtIndex:index]];
-                        cell.detailTextLabel.text = @"";
-                    }
-                    
-                } else if (row == 1) {
-                    cell.textLabel.text = @"性别";
-                    cell.detailTextLabel.text = @"";
-                } else if (row == 2) {
-                    cell.textLabel.text = @"生日";
-                    cell.detailTextLabel.text = @"";
-                }
-                break;
+                
+            } else if (row == 1) {
+                cell.textLabel.text = @"性别";
+                cell.detailTextLabel.text = child.sex;
+            } else if (row == 2) {
+                cell.textLabel.text = @"生日";
+                cell.detailTextLabel.text = child.birthday;
+            }
         }
     }
     return cell;
@@ -398,9 +409,9 @@
 
 #pragma mark - sex picker
 
--(void)showSexPicker {
+-(void)showSexPicker:(NSInteger)tag {
     UIActionSheet *sexSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"男",@"女",nil];
-    sexSheet.tag = 1;
+    sexSheet.tag = tag;
     [sexSheet showInView:[[UIApplication sharedApplication].delegate window]];
 }
 

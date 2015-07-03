@@ -7,6 +7,7 @@
 //
 
 #import "Account.h"
+#import "Child.h"
 
 @implementation Account
 
@@ -55,6 +56,16 @@
     [self save];
 }
 
+- (NSArray *)children {
+    NSArray *dicArray = _children;
+    NSMutableArray *childArray = [NSMutableArray new];
+    for (NSDictionary *dic in dicArray) {
+        Child *child = [[Child alloc]initWithDictionary:dic error:nil];
+        [childArray addObject:child];
+    }
+    return childArray;
+}
+
 - (void)encodeWithCoder:(NSCoder *)encoder//编码
 {
     [encoder encodeObject:self.token forKey:@"token"];
@@ -66,6 +77,7 @@
     [encoder encodeObject:self.name forKey:@"name"];
     [encoder encodeObject:self.nickName forKey:@"nickName"];
     [encoder encodeObject:self.sex forKey:@"sex"];
+    [encoder encodeObject:self.children forKey:@"children"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder//解码
@@ -82,6 +94,7 @@
         self.name = [decoder decodeObjectForKey:@"name"];
         self.nickName = [decoder decodeObjectForKey:@"nickName"];
         self.sex = [decoder decodeObjectForKey:@"sex"];
+        self.children = [decoder decodeObjectForKey:@"children"];
     }
     return self;
 }

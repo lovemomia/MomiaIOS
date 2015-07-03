@@ -177,6 +177,7 @@
 		BCE589471B2AEFF400736923 /* libGexinSdk-1.1.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE589461B2AEFF400736923 /* libGexinSdk-1.1.1.a */; };
 		BCF564C91B43EAB2003A2227 /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564C81B43EAB2003A2227 /* UIButton+Block.m */; };
 		BCF564CC1B43EC53003A2227 /* NSTimer+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564CB1B43EC53003A2227 /* NSTimer+Block.m */; };
+		BCF564CF1B4632A1003A2227 /* Child.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564CE1B4632A1003A2227 /* Child.m */; };
 		BCF9ECA01B4161EE00AEBE1E /* CityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9EC9F1B4161EE00AEBE1E /* CityManager.m */; };
 		BCF9ECA41B4162B800AEBE1E /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9ECA31B4162B800AEBE1E /* City.m */; };
 		BCF9ECA71B416C3500AEBE1E /* CityListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9ECA61B416C3500AEBE1E /* CityListModel.m */; };
@@ -497,6 +498,8 @@
 		BCF564C81B43EAB2003A2227 /* UIButton+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+Block.m"; path = "Common/Categorys/UIButton+Block.m"; sourceTree = "<group>"; };
 		BCF564CA1B43EC53003A2227 /* NSTimer+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTimer+Block.h"; path = "Common/Categorys/NSTimer+Block.h"; sourceTree = "<group>"; };
 		BCF564CB1B43EC53003A2227 /* NSTimer+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+Block.m"; path = "Common/Categorys/NSTimer+Block.m"; sourceTree = "<group>"; };
+		BCF564CD1B4632A1003A2227 /* Child.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Child.h; path = Common/Models/User/Child.h; sourceTree = "<group>"; };
+		BCF564CE1B4632A1003A2227 /* Child.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Child.m; path = Common/Models/User/Child.m; sourceTree = "<group>"; };
 		BCF9EC9E1B4161EE00AEBE1E /* CityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityManager.h; path = Common/Utils/CityManager.h; sourceTree = "<group>"; };
 		BCF9EC9F1B4161EE00AEBE1E /* CityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityManager.m; path = Common/Utils/CityManager.m; sourceTree = "<group>"; };
 		BCF9ECA21B4162B800AEBE1E /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = City.h; path = Common/Models/City/City.h; sourceTree = "<group>"; };
@@ -840,6 +843,8 @@
 				BC2C0C631B130CDB00E2446E /* Account.m */,
 				BC2C0C781B141A3D00E2446E /* AccountModel.h */,
 				BC2C0C791B141A3D00E2446E /* AccountModel.m */,
+				BCF564CD1B4632A1003A2227 /* Child.h */,
+				BCF564CE1B4632A1003A2227 /* Child.m */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -1598,6 +1603,7 @@
 				BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */,
 				5A18DC4B1B295C03001458A4 /* HomeViewController.m in Sources */,
 				BC2C0C8F1B18075D00E2446E /* UIImage+Color.m in Sources */,
+				BCF564CF1B4632A1003A2227 /* Child.m in Sources */,
 				5A6806FB1B01D9EA00D02A60 /* MyCollectionViewController.m in Sources */,
 				5AB444821B41479800FBADD4 /* OrderPersonModel.m in Sources */,
 				5AE4F8671B3D642B005879B7 /* MOStepperView.m in Sources */,

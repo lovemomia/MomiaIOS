@@ -14,6 +14,8 @@
 
 @interface DatePickerSheet : NSObject
 
+@property (nonatomic, assign) NSInteger tag;
+
 + (DatePickerSheet*) getInstance;
 
 - (void) initializationWithMaxDate:(NSDate*)maxDate

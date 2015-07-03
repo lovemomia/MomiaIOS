@@ -11,12 +11,20 @@
 #import "AccountModel.h"
 
 @interface Baby : NSObject
-@property (nonatomic, strong) NSNumber *ids;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *sex;
 @property (nonatomic, strong) NSString *birthday;
 @end
 @implementation Baby
+- (NSMutableDictionary *)toNSDictionary
+{
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    [dictionary setValue:self.name forKey:@"name"];
+    [dictionary setValue:self.sex forKey:@"sex"];
+    [dictionary setValue:self.birthday forKey:@"birthday"];
+    
+    return dictionary;
+}
 @end
 
 @interface MyStatusViewController () <DatePickerSheetDelegate, UIActionSheetDelegate>
@@ -57,19 +65,60 @@
 }
 
 - (void)onAddChildClicked {
-    
+    [self.babys addObject:[Baby new]];
+    [self.tableView reloadData];
 }
 
 - (void)onFinishClicked {
     if ([self check]) {
-        
+        [self addBabysInfo];
     }
-    self.operateSuccessBlock();
 }
 
 - (BOOL)check {
-    
+    for (Baby *baby in self.babys) {
+        if (baby.name.length == 0) {
+            [self showDialogWithTitle:nil message:@"宝宝姓名缺失"];
+            return NO;
+        }
+        if (baby.sex.length == 0) {
+            [self showDialogWithTitle:nil message:@"宝宝性别缺失"];
+            return NO;
+        }
+        if (baby.birthday.length == 0) {
+            [self showDialogWithTitle:nil message:@"宝宝生日缺失"];
+            return NO;
+        }
+    }
     return YES;
+}
+
+- (void)addBabysInfo {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    NSMutableArray *babyArray = [[NSMutableArray alloc] init];
+    for (Baby *baby in self.babys) {
+        [babyArray addObject:[baby toNSDictionary]];
+    }
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:babyArray options:NSJSONWritingPrettyPrinted error:nil];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    NSDictionary *params = @{@"child" : jsonString};
+    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/child")
+                           parameters:params JSONModelClass:[AccountModel class]
+                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  self.operateSuccessBlock();
+                                  AccountModel *result = (AccountModel *)responseObject;
+                                  [AccountService defaultService].account = result.data;
+                                  
+                                  self.operateSuccessBlock();
+                              }
+     
+                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  [self showDialogWithTitle:nil message:error.message];
+                              }];
 }
 
 /*
@@ -87,7 +136,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [self.babys count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -97,17 +146,20 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
+    NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
+    Baby *baby = [self.babys objectAtIndex:section];
     if (row == 0) {
         cell.textLabel.text = @"姓名";
+        cell.detailTextLabel.text = baby.name;
         
     } else if (row == 1) {
         cell.textLabel.text = @"性别";
-        cell.detailTextLabel.text = @"";
+        cell.detailTextLabel.text = baby.sex;
         
     } else {
         cell.textLabel.text = @"生日";
-        cell.detailTextLabel.text = @"";
+        cell.detailTextLabel.text = baby.birthday;
     }
     
     return cell;
@@ -115,6 +167,13 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 10;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (section == [self numberOfSectionsInTableView:tableView] - 1) {
+        return 80;
+    }
+    return 0.1;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
@@ -137,7 +196,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        [self updateBabyDate:nil];
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"修改姓名" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认修改", nil];
         alert.alertViewStyle = UIAlertViewStylePlainTextInput;
         alert.tag = indexPath.section;
@@ -157,26 +215,8 @@
         //得到输入框
         UITextField *tf=[alertView textFieldAtIndex:0];
         ((Baby *)[self.babys objectAtIndex:alertView.tag]).name = tf.text;
+        [self.tableView reloadData];
     }
-}
-
-- (void)updateBabyDate:(NSString *)date {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
-    NSDictionary *params = @{@"babydate" : (date == nil ? @"":date)};
-    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/babydate")
-                           parameters:params JSONModelClass:[AccountModel class]
-                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                  self.operateSuccessBlock();
-                                  AccountModel *result = (AccountModel *)responseObject;
-                                  [AccountService defaultService].account = result.data;
-                              }
-     
-                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                  [self showDialogWithTitle:nil message:error.message];
-                              }];
 }
 
 #pragma mark - sex picker
@@ -192,6 +232,7 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     NSString * sex = buttonIndex == 0 ? @"男" : @"女";
     ((Baby *)[self.babys objectAtIndex:actionSheet.tag]).sex = sex;
+    [self.tableView reloadData];
 }
 
 #pragma mark - DatePickerSheetDelegate method
@@ -211,7 +252,8 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yyyy-MM-dd";
     NSString *dateString = [formatter stringFromDate:date];
-    ((Baby *)[self.babys objectAtIndex:datePickerSheet.tag]).name = dateString;
+    ((Baby *)[self.babys objectAtIndex:datePickerSheet.tag]).birthday = dateString;
+    [self.tableView reloadData];
 }
 
 
