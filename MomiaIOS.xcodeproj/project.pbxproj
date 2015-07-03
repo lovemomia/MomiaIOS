@@ -173,6 +173,7 @@
 		BCF564C91B43EAB2003A2227 /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564C81B43EAB2003A2227 /* UIButton+Block.m */; };
 		BCF564CC1B43EC53003A2227 /* NSTimer+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564CB1B43EC53003A2227 /* NSTimer+Block.m */; };
 		BCF564CF1B4632A1003A2227 /* Child.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564CE1B4632A1003A2227 /* Child.m */; };
+		BCF564D21B46A437003A2227 /* ServerErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564D11B46A437003A2227 /* ServerErrorHandler.m */; };
 		BCF9ECA01B4161EE00AEBE1E /* CityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9EC9F1B4161EE00AEBE1E /* CityManager.m */; };
 		BCF9ECA41B4162B800AEBE1E /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9ECA31B4162B800AEBE1E /* City.m */; };
 		BCF9ECA71B416C3500AEBE1E /* CityListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9ECA61B416C3500AEBE1E /* CityListModel.m */; };
@@ -488,6 +489,8 @@
 		BCF564CB1B43EC53003A2227 /* NSTimer+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+Block.m"; path = "Common/Categorys/NSTimer+Block.m"; sourceTree = "<group>"; };
 		BCF564CD1B4632A1003A2227 /* Child.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Child.h; path = Common/Models/User/Child.h; sourceTree = "<group>"; };
 		BCF564CE1B4632A1003A2227 /* Child.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Child.m; path = Common/Models/User/Child.m; sourceTree = "<group>"; };
+		BCF564D01B46A437003A2227 /* ServerErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerErrorHandler.h; path = Common/Services/Http/ServerErrorHandler.h; sourceTree = "<group>"; };
+		BCF564D11B46A437003A2227 /* ServerErrorHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerErrorHandler.m; path = Common/Services/Http/ServerErrorHandler.m; sourceTree = "<group>"; };
 		BCF9EC9E1B4161EE00AEBE1E /* CityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityManager.h; path = Common/Utils/CityManager.h; sourceTree = "<group>"; };
 		BCF9EC9F1B4161EE00AEBE1E /* CityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityManager.m; path = Common/Utils/CityManager.m; sourceTree = "<group>"; };
 		BCF9ECA21B4162B800AEBE1E /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = City.h; path = Common/Models/City/City.h; sourceTree = "<group>"; };
@@ -863,6 +866,8 @@
 			children = (
 				BC38D2421AFEEA300051C7E9 /* HttpService.h */,
 				BC38D2431AFEEA300051C7E9 /* HttpService.m */,
+				BCF564D01B46A437003A2227 /* ServerErrorHandler.h */,
+				BCF564D11B46A437003A2227 /* ServerErrorHandler.m */,
 			);
 			name = Http;
 			sourceTree = "<group>";
@@ -1503,6 +1508,7 @@
 				BCE589401B2AB62500736923 /* WXUtil.mm in Sources */,
 				BCF564CC1B43EC53003A2227 /* NSTimer+Block.m in Sources */,
 				BC2C0C891B15698B00E2446E /* NSError+MOError.m in Sources */,
+				BCF564D21B46A437003A2227 /* ServerErrorHandler.m in Sources */,
 				BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */,
 				BC2C0C801B14659400E2446E /* MyStatusViewController.m in Sources */,
 				5A5A2A9F1B43EED4000595A9 /* OrderContactCell.m in Sources */,

@@ -12,14 +12,11 @@
 #import "MONavigationController.h"
 //APP端签名相关头文件
 #import "payRequsestHandler.h"
-#import "MORootViewController.h"
 
 @interface AppDelegate () {
 @private
     NSString *_deviceToken;
 }
-
-@property (strong, nonatomic) MORootViewController *root;
 
 @end
 

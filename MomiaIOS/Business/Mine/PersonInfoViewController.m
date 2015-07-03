@@ -31,11 +31,36 @@
     self.navigationItem.title = @"个人信息";
     
     [CommonHeaderView registerCellWithTableView:self.tableView];
+    
+    [self refreshAccount];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (Child *)childAtIndex:(NSInteger)index {
+    Account *account = [AccountService defaultService].account;
+    return [account.children objectAtIndex:index];
+}
+
+- (void)refreshAccount {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [[HttpService defaultService]GET:URL_APPEND_PATH(@"/user")
+                          parameters:nil cacheType:CacheTypeDisable JSONModelClass:[AccountModel class]
+                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  AccountModel *result = (AccountModel *)responseObject;
+                                  [AccountService defaultService].account = result.data;
+                                  [self.tableView reloadData];
+                              }
+     
+                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  [self showDialogWithTitle:nil message:error.message];
+                              }];
 }
 
 /*
@@ -115,6 +140,7 @@
     
     NSString *title;
     int tag;
+    int section = indexPath.section;
     int row = indexPath.row;
     if (indexPath.section == 0) {
         if (row == 0) {
@@ -133,19 +159,21 @@
             
         } else if (indexPath.row == 1) {
             title = @"常住地";
-            tag = 2;
+            tag = 1;
         }
         
     } else {
         if (indexPath.row == 0) {
             title = @"姓名";
-            tag = 3;
+            tag = section;
         } else if (indexPath.row == 1) {
             title = @"性别";
-            tag = 4;
+            [self showSexPicker:(section)];
+            return;
         } else if (indexPath.row == 2) {
             title = @"生日";
-            tag = 5;
+            [self showDatePicker:(section)];
+            return;
         }
     }
     
@@ -191,6 +219,7 @@
                 cell.detailTextLabel.text = account.mobile;
                 cell.accessoryType = UITableViewCellAccessoryNone;
             }
+            
         } else if (section == 1) {
             if (row == 0) {
                 cell.textLabel.text = @"性别";
@@ -201,9 +230,9 @@
                 cell.detailTextLabel.text = account.address;
                 self.addressCell = cell;
             }
+            
         } else {
-            NSArray *children = [AccountService defaultService].account.children;
-            Child *child = [children objectAtIndex:(section - 2)];
+            Child *child = [self childAtIndex:(section - 2)];
             if (row == 0) {
                 NSArray *baby = [NSArray arrayWithObjects:@"大宝", @"二宝", @"三宝", @"四宝", @"五宝", nil];
                 int index = section - 2;
@@ -278,6 +307,22 @@
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         NSDictionary *params = @{@"sex" : sex};
         [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/sex") parameters:params JSONModelClass:[AccountModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            AccountModel *result = (AccountModel *)responseObject;
+            [AccountService defaultService].account = result.data;
+            [self.tableView reloadData];
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [self showDialogWithTitle:nil message:error.message];
+        }];
+        
+    } else {
+        Child *child = [self childAtIndex:(actionSheet.tag - 2)];
+        NSString * sex = buttonIndex == 0 ? @"男" : @"女";
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        NSDictionary *params = @{@"cid":child.ids, @"sex" : sex};
+        [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/child/sex") parameters:params JSONModelClass:[AccountModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             AccountModel *result = (AccountModel *)responseObject;
             [AccountService defaultService].account = result.data;
@@ -377,7 +422,7 @@
             }];
         }
         
-    } else if (alertView.tag == 2) { //修改常住地
+    } else if (alertView.tag == 1) { //修改常住地
         if (buttonIndex == 1) {
             //得到输入框
             UITextField *tf=[alertView textFieldAtIndex:0];
@@ -395,15 +440,35 @@
                 [self showDialogWithTitle:nil message:error.message];
             }];
         }
+    } else {
+        if (buttonIndex == 1) {
+            //得到输入框
+            UITextField *tf=[alertView textFieldAtIndex:0];
+            
+            Child *child = [self childAtIndex:(alertView.tag - 2)];
+            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            NSDictionary *params = @{@"cid":child.ids, @"name" : tf.text};
+            [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/child/name") parameters:params JSONModelClass:[AccountModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                AccountModel *result = (AccountModel *)responseObject;
+                [AccountService defaultService].account = result.data;
+                [self.tableView reloadData];
+                
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [self showDialogWithTitle:nil message:error.message];
+            }];
+        }
     }
 }
 
-- (void)showDatePicker {
+- (void)showDatePicker:(NSInteger)tag {
     DatePickerSheet * datePickerSheet = [DatePickerSheet getInstance];
     [datePickerSheet initializationWithMaxDate:nil
                                    withMinDate:nil
                             withDatePickerMode:UIDatePickerModeDate
                                   withDelegate:self];
+    datePickerSheet.tag = tag;
     [datePickerSheet showDatePickerSheet];
 }
 
@@ -422,14 +487,15 @@
     formatter.dateFormat = @"yyyy-MM-dd";
     NSString *dateString = [formatter stringFromDate:date];
     
-    [self updateBabyDate:dateString];
+    Child *child = [self childAtIndex:(datePickerSheet.tag - 2)];
+    [self updateBabyDate:dateString childId:child.ids];
 }
 
-- (void)updateBabyDate:(NSString *)date {
+- (void)updateBabyDate:(NSString *)date childId:(NSNumber *)ids {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    NSDictionary *params = @{@"birthday" : (date == nil ? @"":date)};
-    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/birthday")
+    NSDictionary *params = @{@"cid":ids, @"birthday" : (date == nil ? @"":date)};
+    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/child/birthday")
                            parameters:params JSONModelClass:[AccountModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];

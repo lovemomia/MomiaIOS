@@ -51,6 +51,7 @@
         [myDefault removeObjectForKey:@"account"];
         
     } else {
+        account.token = self.account.token;
         [account save];
     }
     _account = account;
@@ -81,7 +82,9 @@
 
 - (void)logout:(UIViewController *)controller {
     self.account = nil;
-    [controller.navigationController popToRootViewControllerAnimated:YES];
+    if (controller) {
+        [controller.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 
 - (void)addListener:(id<AccountChangeListener>)listener {

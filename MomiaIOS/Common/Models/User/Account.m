@@ -12,8 +12,10 @@
 @implementation Account
 
 - (void)setToken:(NSString *)token {
-    _token = token;
-    [self save];
+    if (token.length > 0) {
+        _token = token;
+        [self save];
+    }
 }
 
 - (void)setAddress:(NSString *)address {
@@ -61,7 +63,9 @@
     NSMutableArray *childArray = [NSMutableArray new];
     for (NSDictionary *dic in dicArray) {
         Child *child = [[Child alloc]initWithDictionary:dic error:nil];
-        [childArray addObject:child];
+        if (child != nil) {
+            [childArray addObject:child];
+        }
     }
     return childArray;
 }

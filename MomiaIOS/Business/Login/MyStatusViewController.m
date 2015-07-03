@@ -103,7 +103,7 @@
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:babyArray options:NSJSONWritingPrettyPrinted error:nil];
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
-    NSDictionary *params = @{@"child" : jsonString};
+    NSDictionary *params = @{@"children" : jsonString};
     [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/child")
                            parameters:params JSONModelClass:[AccountModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {

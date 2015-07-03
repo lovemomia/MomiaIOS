@@ -90,8 +90,10 @@
     switch (section) {
         case 0:
         {
-            NSURL *url = [NSURL URLWithString:@"tq://personinfo"];
-            [[UIApplication sharedApplication ] openURL:url];
+            if ([[AccountService defaultService] isLogin]) {
+                NSURL *url = [NSURL URLWithString:@"tq://personinfo"];
+                [[UIApplication sharedApplication ] openURL:url];
+            }
         }
             break;
         case 1:
