@@ -82,7 +82,7 @@
                         <rect key="frame" x="258" y="10" width="46" height="23"/>
                         <color key="backgroundColor" red="0.1176470588" green="0.73333333329999995" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="46" id="ai8-4z-qMq"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="ai8-4z-qMq"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <state key="normal" title="获取">

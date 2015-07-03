@@ -34,16 +34,15 @@
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
         
         _home = [[HomeViewController alloc]initWithParams:nil];
-        _home.tabBarItem.title = @"精选";
-        _home.tabBarItem.image = [UIImage imageNamed:@"nav_fav"];
+        _home.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"精选" image:[UIImage imageNamed:@"tab_home_normal"] selectedImage:[UIImage imageNamed:@"tab_home_select"]];
+        
         
 //        _playmate = [[PlaymateViewController alloc]initWithParams:nil];
 //        _playmate.tabBarItem.title = @"玩伴";
 //        _playmate.tabBarItem.image = [UIImage imageNamed:@"nav_fav"];
         
         _mine = [[MineViewController alloc]initWithParams:nil];
-        _mine.tabBarItem.title = @"我的";
-        _mine.tabBarItem.image = [UIImage imageNamed:@"nav_fav"];
+        _mine.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"我的" image:[UIImage imageNamed:@"tab_mine_normal"] selectedImage:[UIImage imageNamed:@"tab_mine_select"]];
         
         MONavigationController *navHome = [[MONavigationController alloc] initWithRootViewController:_home];
 //        MONavigationController *navPlaymate = [[MONavigationController alloc] initWithRootViewController:_playmate];
