@@ -65,6 +65,7 @@
                                   self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFireMethod) userInfo:nil repeats:YES];
                                   self.secondsCountDown = 60;
                                   [self.vercodeButton setTitle:@"60s" forState:UIControlStateNormal];
+                                  self.vercodeButton.enabled = NO;
                               }
                               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -144,15 +145,15 @@
     if (section == [self numberOfSectionsInTableView:tableView] - 1) {
         UIView *view = [UIView new];
         UIButton *button = [[UIButton alloc]init];
-        button.height = 45;
-        button.width = SCREEN_WIDTH - 2 * 18;
-        button.left = 18;
+        button.height = 40;
+        button.width = 280;
+        button.left = (SCREEN_WIDTH - button.width) / 2;
         button.top = 30;
         [button setTitle:@"注册" forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(onRigisterButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        [button.layer setCornerRadius:5];
-        [button setBackgroundColor:MO_APP_ThemeColor];
+        [button setBackgroundImage:[UIImage imageNamed:@"cm_large_button_normal"] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:@"cm_large_button_disable"] forState:UIControlStateDisabled];
         [view addSubview:button];
         return view;
     }
@@ -190,8 +191,10 @@
             UITextField *textField = (UITextField *)[cell viewWithTag:1003];
             [textField addTarget:self action:@selector(textFieldWithText:) forControlEvents:UIControlEventEditingChanged];
             
-            UIButton *vercodeButton = (UIButton *)[cell viewWithTag:1004];
-            [vercodeButton addTarget:self action:@selector(onVercodeClicked:) forControlEvents:UIControlEventTouchUpInside];
+            self.vercodeButton = (UIButton *)[cell viewWithTag:1004];
+            [self.vercodeButton addTarget:self action:@selector(onVercodeClicked:) forControlEvents:UIControlEventTouchUpInside];
+            [self.vercodeButton setBackgroundImage:[UIImage imageNamed:@"cm_small_button_normal"] forState:UIControlStateNormal];
+            [self.vercodeButton setBackgroundImage:[UIImage imageNamed:@"cm_small_button_disable"] forState:UIControlStateDisabled];
         }
     }
     

@@ -68,7 +68,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" clipsSubviews="YES" tag="1003" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vWc-nj-kmE">
-                        <rect key="frame" x="80" y="0.0" width="170" height="43.5"/>
+                        <rect key="frame" x="80" y="0.0" width="171" height="43.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                     </textField>
@@ -79,21 +79,16 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyD-6D-lia">
-                        <rect key="frame" x="258" y="10" width="46" height="23"/>
-                        <color key="backgroundColor" red="0.1176470588" green="0.73333333329999995" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <rect key="frame" x="259" y="10" width="45" height="24"/>
                         <constraints>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="ai8-4z-qMq"/>
+                            <constraint firstAttribute="width" constant="45" id="ai8-4z-qMq"/>
+                            <constraint firstAttribute="height" constant="24" id="hgU-SJ-7PI"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <state key="normal" title="获取">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="5"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                     </button>
                 </subviews>
                 <constraints>

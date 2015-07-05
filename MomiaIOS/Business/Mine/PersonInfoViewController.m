@@ -112,17 +112,18 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UIView *view = [UIView new];
     if (section == [self numberOfSectionsInTableView:tableView] - 1) {
-        UIButton *logoutButton = [[UIButton alloc]init];
-        logoutButton.height = 45;
-        logoutButton.width = SCREEN_WIDTH - 2 * 18;
-        logoutButton.left = 18;
-        logoutButton.top = 20;
-        [logoutButton setTitle:@"退出登录" forState:UIControlStateNormal];
-        [logoutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [logoutButton addTarget:self action:@selector(onLogoutClicked:) forControlEvents:UIControlEventTouchUpInside];
-        [logoutButton.layer setCornerRadius:5];
-        [logoutButton setBackgroundColor:MO_APP_ThemeColor];
-        [view addSubview:logoutButton];
+        UIButton *button = [[UIButton alloc]init];
+        button.height = 40;
+        button.width = 280;
+        button.left = (SCREEN_WIDTH - button.width) / 2;
+        button.top = 30;
+        [button setTitle:@"退出登录" forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(onLogoutClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [button setBackgroundImage:[UIImage imageNamed:@"cm_large_button_normal"] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:@"cm_large_button_disable"] forState:UIControlStateDisabled];
+        
+        [view addSubview:button];
     }
     return view;
 }
@@ -139,9 +140,9 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     NSString *title;
-    int tag;
-    int section = indexPath.section;
-    int row = indexPath.row;
+    NSInteger tag;
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
     if (indexPath.section == 0) {
         if (row == 0) {
             [self takePictureClick];
@@ -235,7 +236,7 @@
             Child *child = [self childAtIndex:(section - 2)];
             if (row == 0) {
                 NSArray *baby = [NSArray arrayWithObjects:@"大宝", @"二宝", @"三宝", @"四宝", @"五宝", nil];
-                int index = section - 2;
+                NSInteger index = section - 2;
                 if (section == 2) {
                     cell.textLabel.text = [NSString stringWithFormat:@"%@姓名", [baby objectAtIndex:index]];
                     cell.detailTextLabel.text = child.name;

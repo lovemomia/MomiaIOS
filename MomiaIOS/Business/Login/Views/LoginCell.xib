@@ -41,7 +41,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" clipsSubviews="YES" tag="1002" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kuk-1j-vAU">
-                        <rect key="frame" x="80" y="0.0" width="155" height="43.5"/>
+                        <rect key="frame" x="80" y="0.0" width="156" height="43.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                     </textField>
@@ -52,21 +52,16 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LY-t4-HRY">
-                        <rect key="frame" x="258" y="10" width="46" height="23"/>
-                        <color key="backgroundColor" red="0.1176470588" green="0.73333333329999995" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <rect key="frame" x="259" y="10" width="45" height="24"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="46" id="9O4-9H-o67"/>
+                            <constraint firstAttribute="width" constant="45" id="9O4-9H-o67"/>
+                            <constraint firstAttribute="height" constant="24" id="haj-eH-o0z"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <state key="normal" title="获取">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="5"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                     </button>
                 </subviews>
                 <constraints>
@@ -75,7 +70,7 @@
                     <constraint firstItem="Kuk-1j-vAU" firstAttribute="top" secondItem="rEs-WV-CWF" secondAttribute="top" id="N1B-4z-37C"/>
                     <constraint firstItem="0LY-t4-HRY" firstAttribute="top" secondItem="rEs-WV-CWF" secondAttribute="top" constant="10" id="Yv5-3W-EiV"/>
                     <constraint firstAttribute="trailing" secondItem="0LY-t4-HRY" secondAttribute="trailing" constant="16" id="bzG-O2-s7t"/>
-                    <constraint firstAttribute="bottom" secondItem="0LY-t4-HRY" secondAttribute="bottom" constant="10.5" id="emf-yu-657"/>
+                    <constraint firstAttribute="bottom" secondItem="0LY-t4-HRY" secondAttribute="bottom" constant="10" id="emf-yu-657"/>
                     <constraint firstAttribute="bottom" secondItem="Kuk-1j-vAU" secondAttribute="bottom" id="rMZ-1g-1dg"/>
                 </constraints>
             </tableViewCellContentView>
