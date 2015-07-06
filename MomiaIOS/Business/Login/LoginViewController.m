@@ -51,7 +51,7 @@
     };
     [self.navigationController pushViewController:viewController animated:YES];
     
-//    [self openURL:@"tq://register" byNav:self.navigationController];
+//    [self openURL:@"duola://register" byNav:self.navigationController];
 }
 
 - (void)onVercodeClicked:(id)sender {

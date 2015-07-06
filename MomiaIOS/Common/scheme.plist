@@ -182,5 +182,14 @@
 		<key>desc</key>
 		<string>选择城市页</string>
 	</dict>
+	<key>orderlist</key>
+	<dict>
+		<key>controller</key>
+		<string>OrderListViewController</string>
+		<key>needlogin</key>
+		<true/>
+		<key>desc</key>
+		<string>订单列表页</string>
+	</dict>
 </dict>
 </plist>

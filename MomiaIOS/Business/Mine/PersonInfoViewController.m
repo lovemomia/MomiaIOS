@@ -255,7 +255,7 @@
 }
 
 
-- (IBAction)onLogoutClicked:(id)sender {
+- (void)onLogoutClicked:(id)sender {
     [[AccountService defaultService] logout:self];
 }
 

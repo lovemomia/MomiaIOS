@@ -174,6 +174,11 @@
 		BCF564CC1B43EC53003A2227 /* NSTimer+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564CB1B43EC53003A2227 /* NSTimer+Block.m */; };
 		BCF564CF1B4632A1003A2227 /* Child.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564CE1B4632A1003A2227 /* Child.m */; };
 		BCF564D21B46A437003A2227 /* ServerErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564D11B46A437003A2227 /* ServerErrorHandler.m */; };
+		BCF564D51B48E018003A2227 /* OrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564D41B48E018003A2227 /* OrderListViewController.m */; };
+		BCF564D71B48E1E7003A2227 /* OrderListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF564D61B48E1E7003A2227 /* OrderListItemCell.xib */; };
+		BCF564DA1B48FE90003A2227 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564D91B48FE90003A2227 /* Order.m */; };
+		BCF564DD1B490052003A2227 /* OrderListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564DC1B490052003A2227 /* OrderListModel.m */; };
+		BCF564E01B491799003A2227 /* OrderListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564DF1B491799003A2227 /* OrderListItemCell.m */; };
 		BCF9ECA01B4161EE00AEBE1E /* CityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9EC9F1B4161EE00AEBE1E /* CityManager.m */; };
 		BCF9ECA41B4162B800AEBE1E /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9ECA31B4162B800AEBE1E /* City.m */; };
 		BCF9ECA71B416C3500AEBE1E /* CityListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9ECA61B416C3500AEBE1E /* CityListModel.m */; };
@@ -491,6 +496,15 @@
 		BCF564CE1B4632A1003A2227 /* Child.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Child.m; path = Common/Models/User/Child.m; sourceTree = "<group>"; };
 		BCF564D01B46A437003A2227 /* ServerErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerErrorHandler.h; path = Common/Services/Http/ServerErrorHandler.h; sourceTree = "<group>"; };
 		BCF564D11B46A437003A2227 /* ServerErrorHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerErrorHandler.m; path = Common/Services/Http/ServerErrorHandler.m; sourceTree = "<group>"; };
+		BCF564D31B48E018003A2227 /* OrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderListViewController.h; path = Business/Order/OrderListViewController.h; sourceTree = "<group>"; };
+		BCF564D41B48E018003A2227 /* OrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderListViewController.m; path = Business/Order/OrderListViewController.m; sourceTree = "<group>"; };
+		BCF564D61B48E1E7003A2227 /* OrderListItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderListItemCell.xib; path = Business/Order/views/OrderListItemCell.xib; sourceTree = "<group>"; };
+		BCF564D81B48FE90003A2227 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Order.h; path = Common/Models/Order/Order.h; sourceTree = "<group>"; };
+		BCF564D91B48FE90003A2227 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Order.m; path = Common/Models/Order/Order.m; sourceTree = "<group>"; };
+		BCF564DB1B490052003A2227 /* OrderListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderListModel.h; path = Common/Models/Order/OrderListModel.h; sourceTree = "<group>"; };
+		BCF564DC1B490052003A2227 /* OrderListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderListModel.m; path = Common/Models/Order/OrderListModel.m; sourceTree = "<group>"; };
+		BCF564DE1B491799003A2227 /* OrderListItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderListItemCell.h; path = Business/Order/views/OrderListItemCell.h; sourceTree = "<group>"; };
+		BCF564DF1B491799003A2227 /* OrderListItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderListItemCell.m; path = Business/Order/views/OrderListItemCell.m; sourceTree = "<group>"; };
 		BCF9EC9E1B4161EE00AEBE1E /* CityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityManager.h; path = Common/Utils/CityManager.h; sourceTree = "<group>"; };
 		BCF9EC9F1B4161EE00AEBE1E /* CityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityManager.m; path = Common/Utils/CityManager.m; sourceTree = "<group>"; };
 		BCF9ECA21B4162B800AEBE1E /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = City.h; path = Common/Models/City/City.h; sourceTree = "<group>"; };
@@ -677,6 +691,8 @@
 				5A5A2A661B43E531000595A9 /* OrderContactViewController.h */,
 				5A5A2A671B43E531000595A9 /* OrderContactViewController.m */,
 				5A5A2A681B43E531000595A9 /* OrderContactViewController.xib */,
+				BCF564D31B48E018003A2227 /* OrderListViewController.h */,
+				BCF564D41B48E018003A2227 /* OrderListViewController.m */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -711,6 +727,9 @@
 				5A5A2A9D1B43EED4000595A9 /* OrderContactCell.h */,
 				5A5A2A9E1B43EED4000595A9 /* OrderContactCell.m */,
 				5A5A2AA01B43EEF3000595A9 /* OrderContactCell.xib */,
+				BCF564D61B48E1E7003A2227 /* OrderListItemCell.xib */,
+				BCF564DE1B491799003A2227 /* OrderListItemCell.h */,
+				BCF564DF1B491799003A2227 /* OrderListItemCell.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -748,6 +767,10 @@
 				5ABDA57D1B42625B003BAE80 /* AddOrderModel.m */,
 				5ABDA5B11B42CD4B003BAE80 /* PostOrderModel.h */,
 				5ABDA5B21B42CD4B003BAE80 /* PostOrderModel.m */,
+				BCF564D81B48FE90003A2227 /* Order.h */,
+				BCF564D91B48FE90003A2227 /* Order.m */,
+				BCF564DB1B490052003A2227 /* OrderListModel.h */,
+				BCF564DC1B490052003A2227 /* OrderListModel.m */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -1420,6 +1443,7 @@
 				5A6806F01B01A9BD00D02A60 /* SettingMsgCell.xib in Resources */,
 				5A6806F51B01CEF700D02A60 /* PersonLogoCell.xib in Resources */,
 				BC8254381B3AB01E00430A6F /* RegisterCell.xib in Resources */,
+				BCF564D71B48E1E7003A2227 /* OrderListItemCell.xib in Resources */,
 				BCA273271AEB1EBA002E7534 /* MineInfoCell.xib in Resources */,
 				5A33F19B1B2EA0A4002A8258 /* CashPayBottomCell.xib in Resources */,
 				5A4044331B27D18C0010782C /* OrderPersonViewController.xib in Resources */,
@@ -1506,6 +1530,7 @@
 			files = (
 				BC2C0C521B1303BA00E2446E /* LoginViewController.m in Sources */,
 				BCE589401B2AB62500736923 /* WXUtil.mm in Sources */,
+				BCF564DD1B490052003A2227 /* OrderListModel.m in Sources */,
 				BCF564CC1B43EC53003A2227 /* NSTimer+Block.m in Sources */,
 				BC2C0C891B15698B00E2446E /* NSError+MOError.m in Sources */,
 				BCF564D21B46A437003A2227 /* ServerErrorHandler.m in Sources */,
@@ -1563,11 +1588,13 @@
 				5ABDA57E1B42625B003BAE80 /* AddOrderModel.m in Sources */,
 				BCE5893F1B2AB62500736923 /* payRequsestHandler.mm in Sources */,
 				BC2FAA0F1AFCA92D00E2071E /* UIView+Frame.m in Sources */,
+				BCF564D51B48E018003A2227 /* OrderListViewController.m in Sources */,
 				BC7708511AFAFD54000068A8 /* MOTableViewController.m in Sources */,
 				5A5A2AA41B4412FC000595A9 /* NSString+Predicate.m in Sources */,
 				5A08C13D1B39117100642648 /* ProductDetailCarouselCell.m in Sources */,
 				BC8254511B3D419F00430A6F /* PlaymatePeopleCell.m in Sources */,
 				5A06436A1B3BCE7B00361732 /* FillOrderBottomCell.m in Sources */,
+				BCF564E01B491799003A2227 /* OrderListItemCell.m in Sources */,
 				BCA2731E1AE9FB1D002E7534 /* NSString+MOURLEncode.m in Sources */,
 				BC2C0C681B131ED500E2446E /* AccountService.m in Sources */,
 				BC41ABBF1B0F269100A419DA /* SugTagsCell.m in Sources */,
@@ -1602,6 +1629,7 @@
 				BCCDF6801B0C331B008BAE12 /* ThirdAccountHelper.m in Sources */,
 				BCA273241AEB166E002E7534 /* MONavigationController.m in Sources */,
 				BC2C0C761B140BF100E2446E /* RegisterViewController.m in Sources */,
+				BCF564DA1B48FE90003A2227 /* Order.m in Sources */,
 				BC8254481B3D33FC00430A6F /* PlaymateUserCell.m in Sources */,
 				5A6807001B01FBDD00D02A60 /* MySuggestViewController.m in Sources */,
 				BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */,

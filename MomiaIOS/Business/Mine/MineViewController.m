@@ -49,7 +49,7 @@
 
 // 单击设置
 - (void)onSettingClicked {
-    NSURL *url = [NSURL URLWithString:@"tq://setting"];
+    NSURL *url = [NSURL URLWithString:@"duola://setting"];
     [[UIApplication sharedApplication ] openURL:url];
 }
 
@@ -91,27 +91,28 @@
         case 0:
         {
             if ([[AccountService defaultService] isLogin]) {
-                NSURL *url = [NSURL URLWithString:@"tq://personinfo"];
+                NSURL *url = [NSURL URLWithString:@"duola://personinfo"];
                 [[UIApplication sharedApplication ] openURL:url];
             }
         }
             break;
         case 1:
             if(row == 0) {
-                NSURL *url = [NSURL URLWithString:@"tq://mycollection"];
+                NSURL *url = [NSURL URLWithString:@"duola://orderlist?status=3"];
                 [[UIApplication sharedApplication ] openURL:url];
             } else {
-                NSURL *url = [NSURL URLWithString:@"tq://mysuggest"];
+                NSURL *url = [NSURL URLWithString:@"duola://orderlist?status=1"];
                 [[UIApplication sharedApplication ] openURL:url];
             }
             break;
         case 2:
             if(row == 0) {
-                NSURL *url = [NSURL URLWithString:@"tq://feedback"];
+                NSURL *url = [NSURL URLWithString:@"duola://feedback"];
                 [[UIApplication sharedApplication ] openURL:url];
                 
             } else {
-                [self shareToFriend];
+                NSURL *url = [NSURL URLWithString:@"duola://feedback"];
+                [[UIApplication sharedApplication ] openURL:url];
             }
             break;
             
@@ -172,16 +173,16 @@
         switch (section) {
             case 1:
                 if (row == 0) {
-                    cell.textLabel.text = @"我的收藏";
+                    cell.textLabel.text = @"已付款订单";
                 } else {
-                    cell.textLabel.text = @"我的推荐";
+                    cell.textLabel.text = @"待付款订单";
                 }
                 break;
             case 2:
                 if (row == 0) {
-                    cell.textLabel.text = @"意见反馈";
+                    cell.textLabel.text = @"常用出行人";
                 } else {
-                    cell.textLabel.text = @"推荐给好友";
+                    cell.textLabel.text = @"意见反馈";
                 }
                 break;
             default:

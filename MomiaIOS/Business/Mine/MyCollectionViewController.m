@@ -104,25 +104,25 @@
         switch (item.type) {
             case 0:
             {
-                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://articledetail?id=%ld", item.refId]];
+                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://articledetail?id=%ld", item.refId]];
                 [[UIApplication sharedApplication] openURL:url];
             }
                 break;
             case 1:
             {
-                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://goodsdetail?id=%ld", item.refId]];
+                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://goodsdetail?id=%ld", item.refId]];
                 [[UIApplication sharedApplication] openURL:url];
             }
                 break;
             case 2:
             {
-                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://articletopic?id=%ld", item.refId]];
+                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://articletopic?id=%ld", item.refId]];
                 [[UIApplication sharedApplication] openURL:url];
             }
                 break;
             case 3:
             {
-                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://goodstopic?id=%ld", item.refId]];
+                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://goodstopic?id=%ld", item.refId]];
                 [[UIApplication sharedApplication] openURL:url];
             }
                 break;
@@ -140,7 +140,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-   
     NSInteger row = indexPath.row;
     UITableViewCell * cell;
     if(row == self.dataArray.count) {
@@ -154,6 +153,7 @@
         if(self.continueLoading) {
             [self requestData];
         }
+        
     } else {
         FavouriteItem * item = [self.dataArray objectAtIndex:indexPath.row];
         MyCollectionCell * collection = [MyCollectionCell cellWithTableView:tableView withData:item];

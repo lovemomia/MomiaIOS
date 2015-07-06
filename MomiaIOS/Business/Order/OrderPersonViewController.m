@@ -98,7 +98,7 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     //开始编辑出行人
     OrderPersonDataModel * model = self.model.data[indexPath.row];
-    NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://orderupdateperson?personId=%ld",model.opId]];
+    NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://orderupdateperson?personId=%ld",model.opId]];
     [[UIApplication sharedApplication] openURL:url];
 }
 
@@ -127,7 +127,7 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
 
 -(void)onNewAddClick
 {
-    NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://orderupdateperson"]];
+    NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://orderupdateperson"]];
     [[UIApplication sharedApplication] openURL:url];
 }
 

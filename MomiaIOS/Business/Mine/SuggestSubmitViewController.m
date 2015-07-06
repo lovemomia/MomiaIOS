@@ -245,7 +245,7 @@ typedef enum {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 1) {
-        SuggestTagsViewController *controller = (SuggestTagsViewController *)[[URLMappingManager sharedManager]createControllerFromURL:[NSURL URLWithString:@"tq://sugtags"]];
+        SuggestTagsViewController *controller = (SuggestTagsViewController *)[[URLMappingManager sharedManager]createControllerFromURL:[NSURL URLWithString:@"duola://sugtags"]];
         controller.delegate = self;
         if (self.assortArray && self.crowdArray) {
             controller.assorts = self.assortArray;
@@ -255,7 +255,7 @@ typedef enum {
         MONavigationController *navController = [[MONavigationController alloc]initWithRootViewController:controller];
         [self presentViewController:navController animated:YES completion:nil];
         
-//        [self openURL:@"tq://sugtags"];
+//        [self openURL:@"duola://sugtags"];
 
     }
 }

@@ -137,7 +137,7 @@
 
 /* For iOS 4.1 and earlier */
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    if ([url.scheme isEqualToString:@"tq"]) {
+    if ([url.scheme isEqualToString:@"duola"]) {
         [self handleOpenURL:url];
     }
     
@@ -146,7 +146,7 @@
 
 /* For iOS 4.2 and later */
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    if ([url.scheme isEqualToString:@"tq"]) {
+    if ([url.scheme isEqualToString:@"duola"]) {
         [self handleOpenURL:url];
     }
     
