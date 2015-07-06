@@ -221,7 +221,7 @@
 
 #pragma mark - sex picker
 
--(void)showSexPicker:(int)child {
+-(void)showSexPicker:(NSInteger)child {
     UIActionSheet *sexSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"男",@"女",nil];
     sexSheet.tag = child;
     [sexSheet showInView:[[UIApplication sharedApplication].delegate window]];

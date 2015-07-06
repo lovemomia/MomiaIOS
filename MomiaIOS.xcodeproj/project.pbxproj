@@ -179,6 +179,8 @@
 		BCF564DA1B48FE90003A2227 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564D91B48FE90003A2227 /* Order.m */; };
 		BCF564DD1B490052003A2227 /* OrderListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564DC1B490052003A2227 /* OrderListModel.m */; };
 		BCF564E01B491799003A2227 /* OrderListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564DF1B491799003A2227 /* OrderListItemCell.m */; };
+		BCF564E41B4A54D0003A2227 /* PersonChildHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564E21B4A54D0003A2227 /* PersonChildHeaderCell.m */; };
+		BCF564E51B4A54D0003A2227 /* PersonChildHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF564E31B4A54D0003A2227 /* PersonChildHeaderCell.xib */; };
 		BCF9ECA01B4161EE00AEBE1E /* CityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9EC9F1B4161EE00AEBE1E /* CityManager.m */; };
 		BCF9ECA41B4162B800AEBE1E /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9ECA31B4162B800AEBE1E /* City.m */; };
 		BCF9ECA71B416C3500AEBE1E /* CityListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9ECA61B416C3500AEBE1E /* CityListModel.m */; };
@@ -505,6 +507,9 @@
 		BCF564DC1B490052003A2227 /* OrderListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderListModel.m; path = Common/Models/Order/OrderListModel.m; sourceTree = "<group>"; };
 		BCF564DE1B491799003A2227 /* OrderListItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderListItemCell.h; path = Business/Order/views/OrderListItemCell.h; sourceTree = "<group>"; };
 		BCF564DF1B491799003A2227 /* OrderListItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderListItemCell.m; path = Business/Order/views/OrderListItemCell.m; sourceTree = "<group>"; };
+		BCF564E11B4A54D0003A2227 /* PersonChildHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonChildHeaderCell.h; path = Business/Mine/Views/PersonChildHeaderCell.h; sourceTree = "<group>"; };
+		BCF564E21B4A54D0003A2227 /* PersonChildHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonChildHeaderCell.m; path = Business/Mine/Views/PersonChildHeaderCell.m; sourceTree = "<group>"; };
+		BCF564E31B4A54D0003A2227 /* PersonChildHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PersonChildHeaderCell.xib; path = Business/Mine/Views/PersonChildHeaderCell.xib; sourceTree = "<group>"; };
 		BCF9EC9E1B4161EE00AEBE1E /* CityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityManager.h; path = Common/Utils/CityManager.h; sourceTree = "<group>"; };
 		BCF9EC9F1B4161EE00AEBE1E /* CityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityManager.m; path = Common/Utils/CityManager.m; sourceTree = "<group>"; };
 		BCF9ECA21B4162B800AEBE1E /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = City.h; path = Common/Models/City/City.h; sourceTree = "<group>"; };
@@ -1244,6 +1249,9 @@
 				BC41ABBE1B0F269100A419DA /* SugTagsCell.m */,
 				5A3DBE5B1B185BE500E708AC /* MyCollectionCell.h */,
 				5A3DBE5C1B185BE500E708AC /* MyCollectionCell.m */,
+				BCF564E11B4A54D0003A2227 /* PersonChildHeaderCell.h */,
+				BCF564E21B4A54D0003A2227 /* PersonChildHeaderCell.m */,
+				BCF564E31B4A54D0003A2227 /* PersonChildHeaderCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1449,6 +1457,7 @@
 				5A4044331B27D18C0010782C /* OrderPersonViewController.xib in Resources */,
 				5AC9FFCE1B17298C00C769EF /* FeedbackViewController.xib in Resources */,
 				BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */,
+				BCF564E51B4A54D0003A2227 /* PersonChildHeaderCell.xib in Resources */,
 				5A5A2AA11B43EEF4000595A9 /* OrderContactCell.xib in Resources */,
 				5AABF6FB1B28120C000A9D3F /* OrderUpdatePersonViewController.xib in Resources */,
 				5A08C13A1B39117100642648 /* ProductDetailViewController.xib in Resources */,
@@ -1582,6 +1591,7 @@
 				BC82543F1B3C26E400430A6F /* LocationService.m in Sources */,
 				BC2C0C861B15668000E2446E /* DatePickerSheet.m in Sources */,
 				5AABF70F1B281BEF000A9D3F /* ConvertFromXib.m in Sources */,
+				BCF564E41B4A54D0003A2227 /* PersonChildHeaderCell.m in Sources */,
 				5AE995A21B26F9B8003DAAC0 /* FillOrderFooterView.m in Sources */,
 				5A33F1921B2E9FC5002A8258 /* CashPayViewController.m in Sources */,
 				5A3DBE5D1B185BE500E708AC /* MyCollectionCell.m in Sources */,

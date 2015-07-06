@@ -56,4 +56,13 @@
     _birthday = birthday;
 }
 
+- (NSMutableDictionary *)toNSDictionary {
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    [dictionary setValue:self.name forKey:@"name"];
+    [dictionary setValue:self.sex forKey:@"sex"];
+    [dictionary setValue:self.birthday forKey:@"birthday"];
+    
+    return dictionary;
+}
+
 @end
