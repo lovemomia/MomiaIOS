@@ -7,9 +7,10 @@
 //
 
 #import "BaseModel.h"
+#import "OrderPerson.h"
 
 @interface PostPersonModel : BaseModel
 
-@property(nonatomic,strong) NSString * data;
+@property(nonatomic,strong) OrderPerson * data;
 
 @end

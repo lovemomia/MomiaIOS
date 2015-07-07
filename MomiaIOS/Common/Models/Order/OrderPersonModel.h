@@ -7,24 +7,13 @@
 //
 
 #import "BaseModel.h"
+#import "OrderPerson.h"
 
-@interface OrderPersonDataModel : JSONModel
-
-@property(nonatomic,strong) NSString * birthday;
-@property(nonatomic,assign) NSInteger opId;
-@property(nonatomic,assign) NSInteger idType;
-@property(nonatomic,strong) NSString * name;
-@property(nonatomic,strong) NSString * sex;
-@property(nonatomic,strong) NSString * type;
-
-@end
-
-@protocol OrderPersonDataModel <NSObject>
-
+@protocol OrderPerson <NSObject>
 @end
 
 @interface OrderPersonModel : BaseModel
 
-@property(nonatomic,strong) NSArray<OrderPersonDataModel> * data;
+@property(nonatomic,strong) NSArray<OrderPerson> * data;
 
 @end

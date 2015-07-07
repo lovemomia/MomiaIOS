@@ -137,11 +137,14 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
                        JSONModelClass:[PostOrderModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                   [MBProgressHUD hideHUDForView:self.view animated:NO];
+                                  
+                                  PostOrderModel *order = (PostOrderModel *)responseObject;
                                
-                                  NSURL * url = [NSURL URLWithString:@"duola://cashpay"];
+                                  NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://cashpay?pom=%@",
+                                                                      [[order toJSONString] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
                                   [[UIApplication sharedApplication] openURL:url];
-
                               }
+     
                               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
                                   [self showDialogWithTitle:nil message:error.message];

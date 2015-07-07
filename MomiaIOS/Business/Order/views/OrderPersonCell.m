@@ -18,7 +18,7 @@
 
 @implementation OrderPersonCell
 
--(void)setData:(OrderPersonDataModel *)model withSelectedDic:(NSDictionary *) selectedDic
+-(void)setData:(OrderPerson *)model withSelectedDic:(NSDictionary *) selectedDic
 {
     self.nameLabel.text = model.name;
     self.typeLabel.text = model.type;

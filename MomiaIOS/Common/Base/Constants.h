@@ -12,7 +12,7 @@
 #define MO_HTTPS_API_DOMAIN_OL  @"https://i.momia.cn"
 
 // 开发环境
-#define MO_API_DOMAIN_DEV @"http://dev.momia.cn"
+#define MO_API_DOMAIN_DEV @"http://i.momia.cn"
 
 #ifndef __OPTIMIZE__
 #define MO_API_DOMAIN MO_API_DOMAIN_OL
