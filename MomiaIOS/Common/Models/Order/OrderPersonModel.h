@@ -12,7 +12,7 @@
 
 @property(nonatomic,strong) NSString * birthday;
 @property(nonatomic,assign) NSInteger opId;
-@property(nonatomic,assign) NSInteger idType;
+//@property(nonatomic,assign) NSInteger idType;
 @property(nonatomic,strong) NSString * name;
 @property(nonatomic,strong) NSString * sex;
 @property(nonatomic,strong) NSString * type;
