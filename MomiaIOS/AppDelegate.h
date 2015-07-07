@@ -11,6 +11,7 @@
 #import "WXApi.h"
 #import "WeiboSDK.h"
 #import "WechatPayDelegate.h"
+#import "MORootViewController.h"
 
 typedef enum {
     SdkStatusStoped,
@@ -21,6 +22,7 @@ typedef enum {
 @interface AppDelegate : UIResponder <UIApplicationDelegate, GexinSdkDelegate, WXApiDelegate, WeiboSDKDelegate, WechatPayDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) MORootViewController *root;
 
 @property (strong, nonatomic) GexinSdk *gexinPusher;
 

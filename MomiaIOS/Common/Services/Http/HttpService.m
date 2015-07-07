@@ -13,6 +13,7 @@
 #import "UploadImageModel.h"
 #import "ISDiskCache.h"
 #import "CityManager.h"
+#import "ServerErrorHandler.h"
 
 @implementation HttpService
 
@@ -67,11 +68,13 @@
         }
         if (result.errNo == 0) {
             success(operation, result);
-//            NSLog(@"http (GET) success: %@", responseObject);
+            NSLog(@"http (GET) success: %@", responseObject);
             
         } else {
             NSError *err = [[NSError alloc]initWithCode:result.errNo message:result.errMsg];
+            [[ServerErrorHandler defaultHandler] handlerError:err];
             failure(operation, err);
+            
             NSLog(@"http (GET) fail: %@", responseObject);
         }
 
@@ -94,7 +97,7 @@
             }
             if (result.errNo == 0) {
                 success(nil, result);
-//                NSLog(@"http (Cache) success: %@", cache);
+                NSLog(@"http (Cache) success: %@", cache);
                 return nil;
                 
             } else {
@@ -132,6 +135,7 @@
             
         } else {
             NSError *err = [[NSError alloc]initWithCode:result.errNo message:result.errMsg];
+            [[ServerErrorHandler defaultHandler] handlerError:err];
             failure(operation, err);
             NSLog(@"http (POST) fail: %@", responseObject);
         }

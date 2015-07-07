@@ -149,7 +149,7 @@ typedef enum
 }
 
 - (IBAction)signUp:(id)sender {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://fillorder?id=%@", self.productId]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://fillorder?id=%@", self.productId]];
     
     [[UIApplication sharedApplication] openURL:url];
 

@@ -85,7 +85,6 @@
         if (![self isKindOfClass:[HomeViewController class]] && ![self isKindOfClass:[MineViewController class]] && ![self isKindOfClass:[PlaymateViewController class]]) {
             self.hidesBottomBarWhenPushed = YES;
         }
-        
     }
     return self;
 }

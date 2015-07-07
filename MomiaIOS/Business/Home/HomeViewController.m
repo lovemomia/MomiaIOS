@@ -176,7 +176,7 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
     if(section > 0) {
         ProductModel *product;
         product = self.model.data.products[indexPath.section - 1];
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tq://productdetail?id=%ld", product.pID]];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://productdetail?id=%ld", product.pID]];
         
         [[UIApplication sharedApplication] openURL:url];
     }

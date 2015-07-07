@@ -103,7 +103,7 @@
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:babyArray options:NSJSONWritingPrettyPrinted error:nil];
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
-    NSDictionary *params = @{@"child" : jsonString};
+    NSDictionary *params = @{@"children" : jsonString};
     [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/child")
                            parameters:params JSONModelClass:[AccountModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -179,17 +179,17 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UIView *view = [UIView new];
     if (section == [self numberOfSectionsInTableView:tableView] - 1) {
-        UIButton *logoutButton = [[UIButton alloc]init];
-        logoutButton.height = 45;
-        logoutButton.width = SCREEN_WIDTH - 2 * 18;
-        logoutButton.left = 18;
-        logoutButton.top = 20;
-        [logoutButton setTitle:@"完成" forState:UIControlStateNormal];
-        [logoutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [logoutButton addTarget:self action:@selector(onFinishClicked) forControlEvents:UIControlEventTouchUpInside];
-        [logoutButton.layer setCornerRadius:5];
-        [logoutButton setBackgroundColor:MO_APP_ThemeColor];
-        [view addSubview:logoutButton];
+        UIButton *button = [[UIButton alloc]init];
+        button.height = 40;
+        button.width = 280;
+        button.left = (SCREEN_WIDTH - button.width) / 2;
+        button.top = 30;
+        [button setTitle:@"完成" forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(onFinishClicked) forControlEvents:UIControlEventTouchUpInside];
+        [button setBackgroundImage:[UIImage imageNamed:@"cm_small_button_normal"] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:@"cm_small_button_disable"] forState:UIControlStateDisabled];
+        [view addSubview:button];
     }
     return view;
 }

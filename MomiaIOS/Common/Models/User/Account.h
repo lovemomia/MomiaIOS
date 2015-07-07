@@ -10,7 +10,7 @@
 
 @interface Account : JSONModel<NSCoding>
 
-@property (nonatomic, strong) NSString *token;
+@property (nonatomic, strong) NSString<Optional> *token;
 
 @property (nonatomic, strong) NSString *avatar;
 @property (nonatomic, strong) NSString<Optional> *birthday;

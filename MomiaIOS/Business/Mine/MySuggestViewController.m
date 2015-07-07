@@ -115,7 +115,7 @@
  */
 
 - (void)onSuggestClicked {
-    [self openURL:@"tq://sugsubmit"];
+    [self openURL:@"duola://sugsubmit"];
 }
 
 

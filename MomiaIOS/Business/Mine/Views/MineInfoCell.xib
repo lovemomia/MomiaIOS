@@ -46,7 +46,7 @@
                     </label>
                     <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8n-Vm-Wlu">
                         <rect key="frame" x="125.5" y="39" width="70" height="28"/>
-                        <color key="backgroundColor" red="0.1176470588" green="0.73333333329999995" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.7686274509803922" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                         <state key="normal" title="马上登录">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

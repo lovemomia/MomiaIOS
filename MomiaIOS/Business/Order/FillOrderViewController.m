@@ -138,7 +138,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                   [MBProgressHUD hideHUDForView:self.view animated:NO];
                                
-                                  NSURL * url = [NSURL URLWithString:@"tq://cashpay"];
+                                  NSURL * url = [NSURL URLWithString:@"duola://cashpay"];
                                   [[UIApplication sharedApplication] openURL:url];
 
                               }
