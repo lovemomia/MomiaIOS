@@ -7,8 +7,10 @@
 //
 
 #import "MOTableCell.h"
+#import "PayChannel.h"
 
 @interface CashPayBottomCell : MOTableCell<MOTableCellDataProtocol>
+
 @property (weak, nonatomic) IBOutlet UIImageView *payImgView;
 @property (weak, nonatomic) IBOutlet UILabel *payLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descLabel;

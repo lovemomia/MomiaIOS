@@ -7,6 +7,7 @@
 //
 
 #import "MOWebViewController.h"
+#import "NSString+MOURLEncode.h"
 
 @interface MOWebViewController ()
 
@@ -16,7 +17,7 @@
 
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
-        self.url = [[params objectForKey:@"url"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        self.url = [[params objectForKey:@"url"] URLDecodedString];
         self.navTitle = [params objectForKey:@"title"];
     }
     return self;

@@ -8,7 +8,7 @@
 
 #import "BaseModel.h"
 
-@interface PostOrderDataModel : JSONModel
+@interface PostOrderData : JSONModel
 
 @property(nonatomic,assign) NSInteger count;
 @property(nonatomic,assign) NSInteger orderId;
@@ -21,6 +21,6 @@
 
 @interface PostOrderModel : BaseModel
 
-@property(nonatomic,strong) PostOrderDataModel * data;
+@property(nonatomic,strong) PostOrderData * data;
 
 @end

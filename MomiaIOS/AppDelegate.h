@@ -12,6 +12,7 @@
 #import "WeiboSDK.h"
 #import "WechatPayDelegate.h"
 #import "MORootViewController.h"
+#import "WechatPayData.h"
 
 typedef enum {
     SdkStatusStoped,

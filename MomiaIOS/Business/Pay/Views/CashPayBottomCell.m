@@ -11,22 +11,22 @@ static NSString * identifier = @"CellCashPayBottom";
 
 @implementation CashPayBottomCell
 
-
--(void)setData:(NSDictionary *) dic
+-(void)setData:(PayChannel *)payChannel
 {
-    self.payImgView.image = [dic objectForKey:@"image"];
-    self.payLabel.text = [dic objectForKey:@"pay"];
-    self.descLabel.text = [dic objectForKey:@"desc"];
-    
+    self.payImgView.image = [UIImage imageNamed:payChannel.icon];
+    self.payLabel.text = payChannel.title;
+    self.descLabel.text = payChannel.desc;
+    self.selectBtn.selected = payChannel.select;
 }
-
 
 - (void)awakeFromNib {
     // Initialization code
+    [self.selectBtn setImage:[UIImage imageNamed:@"cm_circle_checked"] forState:UIControlStateSelected];
+    [self.selectBtn setImage:[UIImage imageNamed:@"cm_circle_uncheck"] forState:UIControlStateNormal];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+- (void)setSelected:(BOOL)selected {
+    [super setSelected:selected animated:NO];
 
     // Configure the view for the selected state
 }

@@ -45,8 +45,8 @@
 -(void)awakeFromNib
 {
     
-    [self.checkBtn setImage:[UIImage imageNamed:@"orderperson_circle_checked"] forState:UIControlStateSelected];
-    [self.checkBtn setImage:[UIImage imageNamed:@"orderperson_circle_uncheck"] forState:UIControlStateNormal];
+    [self.checkBtn setImage:[UIImage imageNamed:@"cm_circle_checked"] forState:UIControlStateSelected];
+    [self.checkBtn setImage:[UIImage imageNamed:@"cm_circle_uncheck"] forState:UIControlStateNormal];
     [self.checkBtn addTarget:self action:@selector(onCheckClick:) forControlEvents:UIControlEventTouchUpInside];
 }
 

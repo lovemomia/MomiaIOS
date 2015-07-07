@@ -175,7 +175,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (section == 0 || section == 2) {
-        return 50;
+        return 40;
     }
     return 10;
 }

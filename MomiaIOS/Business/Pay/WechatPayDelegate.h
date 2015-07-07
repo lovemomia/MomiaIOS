@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WechatPayData.h"
+#import "PostOrderModel.h"
 
 @protocol WechatPayDelegate <NSObject>
 
-- (void) sendPay;
+- (void) sendPay:(WechatPayData *)data;
 - (void) sendPay_demo;
 
 @end
