@@ -66,7 +66,7 @@
         if (result == nil) {
             result = [[BaseModel alloc]initWithDictionary:responseObject error:nil];
         }
-        if (result.errNo == 0) {
+        if ([result isKindOfClass:responseModelClass] && result.errNo == 0) {
             success(operation, result);
 //            NSLog(@"http (GET) success: %@", responseObject);
             
@@ -128,7 +128,7 @@
         if (result == nil) {
             result = [[BaseModel alloc]initWithDictionary:responseObject error:nil];
         }
-        if (result.errNo == 0) {
+        if ([result isKindOfClass:responseModelClass] && result.errNo == 0) {
 
             success(operation, result);
             NSLog(@"http (POST) success: %@", responseObject);

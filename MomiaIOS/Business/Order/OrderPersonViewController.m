@@ -9,9 +9,10 @@
 #import "OrderPersonViewController.h"
 #import "OrderPersonCell.h"
 #import "CommonHeaderView.h"
-#import "OrderPersonModel.h"
+#import "OrderPerson.h"
 #import "PostPersonModel.h"
 #import "MJRefresh.h"
+#import "OrderPersonModel.h"
 
 
 static NSString * orderPersonIdentifier = @"CellOrderPerson";
@@ -81,7 +82,7 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     OrderPersonCell * cell = [OrderPersonCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:orderPersonIdentifier];
-    OrderPersonDataModel * dataModel = self.model.data[indexPath.row];
+    OrderPerson *dataModel = self.model.data[indexPath.row];
     [cell setData:dataModel withSelectedDic:self.selectedDictionary];
     cell.onCheckBlock = ^(UIButton * checkBtn) {
         if(checkBtn.selected) {
@@ -97,7 +98,7 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     //开始编辑出行人
-    OrderPersonDataModel * model = self.model.data[indexPath.row];
+    OrderPerson * model = self.model.data[indexPath.row];
     NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://orderupdateperson?personId=%ld",model.opId]];
     [[UIApplication sharedApplication] openURL:url];
 }
@@ -137,7 +138,7 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
 
 -(void)deletePerson:(NSIndexPath *) indexPath
 {
-    OrderPersonDataModel * dataModel = self.model.data[indexPath.row];
+    OrderPerson * dataModel = self.model.data[indexPath.row];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     

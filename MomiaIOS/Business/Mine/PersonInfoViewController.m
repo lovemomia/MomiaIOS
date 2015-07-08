@@ -13,6 +13,7 @@
 #import "UIImage+Color.h"
 #import "CommonHeaderView.h"
 #import "Child.h"
+#import "PersonChildHeaderCell.h"
 
 @interface PersonInfoViewController ()<UIAlertViewDelegate, DatePickerSheetDelegate, UIActionSheetDelegate>
 
@@ -20,6 +21,8 @@
 @property (nonatomic, strong) UITableViewCell *nickCell;
 @property (nonatomic, strong) UITableViewCell *babyAgeCell;
 @property (nonatomic, strong) UITableViewCell *addressCell;
+
+@property (nonatomic, strong) MOStepperView *stepperView;
 
 @end
 
@@ -63,6 +66,58 @@
                               }];
 }
 
+- (void)addChild {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    NSMutableArray *babyArray = [[NSMutableArray alloc] init];
+    Child *baby = [[Child alloc]init];
+    baby.name = [self defaultChildName:[AccountService defaultService].account.children.count];
+    baby.sex = @"男";
+    baby.birthday = @"2015-07-01";
+    [babyArray addObject:[baby toNSDictionary]];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:babyArray options:NSJSONWritingPrettyPrinted error:nil];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+
+    NSDictionary *params = @{@"children" : jsonString};
+    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/child")
+                           parameters:params JSONModelClass:[AccountModel class]
+                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  AccountModel *result = (AccountModel *)responseObject;
+                                  [AccountService defaultService].account = result.data;
+                                  
+                                  [self.tableView reloadData];
+                              }
+     
+                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  [self showDialogWithTitle:nil message:error.message];
+                              }];
+}
+
+- (void)deleteChild {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    Account *account = [AccountService defaultService].account;
+    Child *child = [account.children objectAtIndexedSubscript:(account.children.count - 1)];
+    
+    NSDictionary *params = @{@"cid" : [NSString stringWithFormat:@"%@", child.ids]};
+    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/child/delete")
+                           parameters:params JSONModelClass:[AccountModel class]
+                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  AccountModel *result = (AccountModel *)responseObject;
+                                  [AccountService defaultService].account = result.data;
+                                  
+                                  [self.tableView reloadData];
+                              }
+     
+                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  [self showDialogWithTitle:nil message:error.message];
+                              }];
+}
+
 /*
 #pragma mark - Navigation
 
@@ -93,11 +148,26 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    CommonHeaderView * header = [CommonHeaderView cellWithTableView:self.tableView];
+    UIView *header;
     if (section == 0) {
-        header.data = @"个人信息";
+        header = [CommonHeaderView cellWithTableView:self.tableView];
+        ((CommonHeaderView * )header).data = @"个人信息";
     } else if (section == 2) {
-        header.data = @"孩子信息（1个）";
+        Account *account = [AccountService defaultService].account;
+        header = [PersonChildHeaderCell cellWithTableView:self.tableView];
+        
+        ((PersonChildHeaderCell *)header).titleLabel.text = [NSString stringWithFormat:@"孩子信息（%d个）", (int)[account.children count]];
+        ((PersonChildHeaderCell *)header).stepperView.minValue = 1;
+        ((PersonChildHeaderCell *)header).stepperView.maxValue = 5;
+        ((PersonChildHeaderCell *)header).stepperView.currentValue = [account.children count];
+        ((PersonChildHeaderCell *)header).stepperView.onclickStepper = ^(NSUInteger currentValue){//单击+、-事件响应
+            Account *account = [AccountService defaultService].account;
+            if (currentValue < account.children.count) {
+                [self deleteChild];
+            } else if (currentValue > account.children.count) {
+                [self addChild];
+            }
+        };
     }
     return header;
 }
@@ -235,12 +305,8 @@
         } else {
             Child *child = [self childAtIndex:(section - 2)];
             if (row == 0) {
-                NSArray *baby = [NSArray arrayWithObjects:@"大宝", @"二宝", @"三宝", @"四宝", @"五宝", nil];
-                NSInteger index = section - 2;
-                if (section == 2) {
-                    cell.textLabel.text = [NSString stringWithFormat:@"%@姓名", [baby objectAtIndex:index]];
-                    cell.detailTextLabel.text = child.name;
-                }
+                cell.textLabel.text = @"姓名";
+                cell.detailTextLabel.text = child.name;
                 
             } else if (row == 1) {
                 cell.textLabel.text = @"性别";
@@ -252,6 +318,14 @@
         }
     }
     return cell;
+}
+
+- (NSString *)defaultChildName:(NSInteger)index {
+    if (index < 0 || index > 4) {
+        return @"宝宝";
+    }
+    NSArray *baby = [NSArray arrayWithObjects:@"大宝", @"二宝", @"三宝", @"四宝", @"五宝", nil];
+    return [baby objectAtIndex:index];
 }
 
 

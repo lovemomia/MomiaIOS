@@ -7,7 +7,7 @@
 //
 
 #import "MOTableCell.h"
-#import "OrderPersonModel.h"
+#import "OrderPerson.h"
 
 typedef void(^OnCheckBlock)(UIButton *);
 
@@ -15,6 +15,6 @@ typedef void(^OnCheckBlock)(UIButton *);
 
 @property(nonatomic,strong) OnCheckBlock onCheckBlock;
 
--(void)setData:(OrderPersonDataModel *)model withSelectedDic:(NSDictionary *) selectedDic;
+-(void)setData:(OrderPerson *)model withSelectedDic:(NSDictionary *) selectedDic;
 
 @end

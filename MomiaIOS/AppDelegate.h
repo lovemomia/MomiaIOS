@@ -12,6 +12,7 @@
 #import "WeiboSDK.h"
 #import "WechatPayDelegate.h"
 #import "MORootViewController.h"
+#import "WechatPayData.h"
 
 typedef enum {
     SdkStatusStoped,
@@ -22,6 +23,9 @@ typedef enum {
 @interface AppDelegate : UIResponder <UIApplicationDelegate, GexinSdkDelegate, WXApiDelegate, WeiboSDKDelegate, WechatPayDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+- (void)setTitleShadow:(UIImage *)image aboveSubview:(UIView *)view;
+
 @property (strong, nonatomic) MORootViewController *root;
 
 @property (strong, nonatomic) GexinSdk *gexinPusher;

@@ -39,11 +39,8 @@
 		5A1B35F61B12C0D200E1D31B /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1B35F51B12C0D200E1D31B /* CommentCell.m */; };
 		5A2144581B0C6A8A0072682F /* AlertNotice.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2144571B0C6A8A0072682F /* AlertNotice.m */; };
 		5A33F1921B2E9FC5002A8258 /* CashPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A33F1901B2E9FC5002A8258 /* CashPayViewController.m */; };
-		5A33F1931B2E9FC5002A8258 /* CashPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A33F1911B2E9FC5002A8258 /* CashPayViewController.xib */; };
 		5A33F19A1B2EA0A4002A8258 /* CashPayBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A33F1951B2EA0A4002A8258 /* CashPayBottomCell.m */; };
 		5A33F19B1B2EA0A4002A8258 /* CashPayBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A33F1961B2EA0A4002A8258 /* CashPayBottomCell.xib */; };
-		5A33F19C1B2EA0A4002A8258 /* CashPayTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A33F1981B2EA0A4002A8258 /* CashPayTopCell.m */; };
-		5A33F19D1B2EA0A4002A8258 /* CashPayTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A33F1991B2EA0A4002A8258 /* CashPayTopCell.xib */; };
 		5A33F1A11B2EA1D5002A8258 /* CashPayTopHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A33F19F1B2EA1D5002A8258 /* CashPayTopHeaderView.m */; };
 		5A33F1A21B2EA1D5002A8258 /* CashPayTopHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A33F1A01B2EA1D5002A8258 /* CashPayTopHeaderView.xib */; };
 		5A33F1A81B2EBC2F002A8258 /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A33F1A71B2EBC2F002A8258 /* TitleView.xib */; };
@@ -156,6 +153,10 @@
 		BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC85409B1ADF74E9005A7C54 /* Images.xcassets */; };
 		BC8540AB1ADF74E9005A7C54 /* MomiaIOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540AA1ADF74E9005A7C54 /* MomiaIOSTests.m */; };
 		BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540BC1ADF8A09005A7C54 /* MOViewController.m */; };
+		BC97DEFC1B4B75A8002B1A00 /* OrderPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DEFB1B4B75A8002B1A00 /* OrderPerson.m */; };
+		BC97DEFF1B4BCFF1002B1A00 /* PayChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DEFE1B4BCFF1002B1A00 /* PayChannel.m */; };
+		BC97DF031B4BE1EF002B1A00 /* WechatPayData.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DF021B4BE1EF002B1A00 /* WechatPayData.m */; };
+		BC97DF061B4BE21F002B1A00 /* WechatPayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DF051B4BE21F002B1A00 /* WechatPayModel.m */; };
 		BCA272FD1AE8A2C7002E7534 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA272FB1AE8A2C7002E7534 /* MineViewController.m */; };
 		BCA273061AE8D0E9002E7534 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273051AE8D0E9002E7534 /* Launch Screen.xib */; };
 		BCA273101AE9D79F002E7534 /* scheme.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCA2730F1AE9D79F002E7534 /* scheme.plist */; };
@@ -191,6 +192,8 @@
 		BCF564DA1B48FE90003A2227 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564D91B48FE90003A2227 /* Order.m */; };
 		BCF564DD1B490052003A2227 /* OrderListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564DC1B490052003A2227 /* OrderListModel.m */; };
 		BCF564E01B491799003A2227 /* OrderListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564DF1B491799003A2227 /* OrderListItemCell.m */; };
+		BCF564E41B4A54D0003A2227 /* PersonChildHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564E21B4A54D0003A2227 /* PersonChildHeaderCell.m */; };
+		BCF564E51B4A54D0003A2227 /* PersonChildHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF564E31B4A54D0003A2227 /* PersonChildHeaderCell.xib */; };
 		BCF9ECA01B4161EE00AEBE1E /* CityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9EC9F1B4161EE00AEBE1E /* CityManager.m */; };
 		BCF9ECA41B4162B800AEBE1E /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9ECA31B4162B800AEBE1E /* City.m */; };
 		BCF9ECA71B416C3500AEBE1E /* CityListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9ECA61B416C3500AEBE1E /* CityListModel.m */; };
@@ -263,13 +266,9 @@
 		5A2144571B0C6A8A0072682F /* AlertNotice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertNotice.m; path = Common/Base/AlertNotice.m; sourceTree = "<group>"; };
 		5A33F18F1B2E9FC5002A8258 /* CashPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashPayViewController.h; sourceTree = "<group>"; };
 		5A33F1901B2E9FC5002A8258 /* CashPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashPayViewController.m; sourceTree = "<group>"; };
-		5A33F1911B2E9FC5002A8258 /* CashPayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CashPayViewController.xib; sourceTree = "<group>"; };
 		5A33F1941B2EA0A4002A8258 /* CashPayBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashPayBottomCell.h; sourceTree = "<group>"; };
 		5A33F1951B2EA0A4002A8258 /* CashPayBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashPayBottomCell.m; sourceTree = "<group>"; };
 		5A33F1961B2EA0A4002A8258 /* CashPayBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CashPayBottomCell.xib; sourceTree = "<group>"; };
-		5A33F1971B2EA0A4002A8258 /* CashPayTopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashPayTopCell.h; sourceTree = "<group>"; };
-		5A33F1981B2EA0A4002A8258 /* CashPayTopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashPayTopCell.m; sourceTree = "<group>"; };
-		5A33F1991B2EA0A4002A8258 /* CashPayTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CashPayTopCell.xib; sourceTree = "<group>"; };
 		5A33F19E1B2EA1D5002A8258 /* CashPayTopHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashPayTopHeaderView.h; sourceTree = "<group>"; };
 		5A33F19F1B2EA1D5002A8258 /* CashPayTopHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashPayTopHeaderView.m; sourceTree = "<group>"; };
 		5A33F1A01B2EA1D5002A8258 /* CashPayTopHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CashPayTopHeaderView.xib; sourceTree = "<group>"; };
@@ -468,6 +467,14 @@
 		BC8540BB1ADF8A09005A7C54 /* MOViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOViewController.h; path = Common/Base/MOViewController.h; sourceTree = "<group>"; };
 		BC8540BC1ADF8A09005A7C54 /* MOViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOViewController.m; path = Common/Base/MOViewController.m; sourceTree = "<group>"; };
 		BC8540C41AE2121E005A7C54 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Common/Base/Constants.h; sourceTree = "<group>"; };
+		BC97DEFA1B4B75A8002B1A00 /* OrderPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderPerson.h; path = Common/Models/Order/OrderPerson.h; sourceTree = "<group>"; };
+		BC97DEFB1B4B75A8002B1A00 /* OrderPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderPerson.m; path = Common/Models/Order/OrderPerson.m; sourceTree = "<group>"; };
+		BC97DEFD1B4BCFF1002B1A00 /* PayChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayChannel.h; sourceTree = "<group>"; };
+		BC97DEFE1B4BCFF1002B1A00 /* PayChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayChannel.m; sourceTree = "<group>"; };
+		BC97DF011B4BE1EF002B1A00 /* WechatPayData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WechatPayData.h; path = Common/Models/Pay/WechatPayData.h; sourceTree = "<group>"; };
+		BC97DF021B4BE1EF002B1A00 /* WechatPayData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WechatPayData.m; path = Common/Models/Pay/WechatPayData.m; sourceTree = "<group>"; };
+		BC97DF041B4BE21F002B1A00 /* WechatPayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WechatPayModel.h; path = Common/Models/Pay/WechatPayModel.h; sourceTree = "<group>"; };
+		BC97DF051B4BE21F002B1A00 /* WechatPayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WechatPayModel.m; path = Common/Models/Pay/WechatPayModel.m; sourceTree = "<group>"; };
 		BCA272FA1AE8A2C7002E7534 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineViewController.h; path = Business/Mine/MineViewController.h; sourceTree = "<group>"; };
 		BCA272FB1AE8A2C7002E7534 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineViewController.m; path = Business/Mine/MineViewController.m; sourceTree = "<group>"; };
 		BCA273051AE8D0E9002E7534 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
@@ -536,6 +543,9 @@
 		BCF564DC1B490052003A2227 /* OrderListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderListModel.m; path = Common/Models/Order/OrderListModel.m; sourceTree = "<group>"; };
 		BCF564DE1B491799003A2227 /* OrderListItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderListItemCell.h; path = Business/Order/views/OrderListItemCell.h; sourceTree = "<group>"; };
 		BCF564DF1B491799003A2227 /* OrderListItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderListItemCell.m; path = Business/Order/views/OrderListItemCell.m; sourceTree = "<group>"; };
+		BCF564E11B4A54D0003A2227 /* PersonChildHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonChildHeaderCell.h; path = Business/Mine/Views/PersonChildHeaderCell.h; sourceTree = "<group>"; };
+		BCF564E21B4A54D0003A2227 /* PersonChildHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonChildHeaderCell.m; path = Business/Mine/Views/PersonChildHeaderCell.m; sourceTree = "<group>"; };
+		BCF564E31B4A54D0003A2227 /* PersonChildHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PersonChildHeaderCell.xib; path = Business/Mine/Views/PersonChildHeaderCell.xib; sourceTree = "<group>"; };
 		BCF9EC9E1B4161EE00AEBE1E /* CityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityManager.h; path = Common/Utils/CityManager.h; sourceTree = "<group>"; };
 		BCF9EC9F1B4161EE00AEBE1E /* CityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityManager.m; path = Common/Utils/CityManager.m; sourceTree = "<group>"; };
 		BCF9ECA21B4162B800AEBE1E /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = City.h; path = Common/Models/City/City.h; sourceTree = "<group>"; };
@@ -826,6 +836,8 @@
 				BCF564D91B48FE90003A2227 /* Order.m */,
 				BCF564DB1B490052003A2227 /* OrderListModel.h */,
 				BCF564DC1B490052003A2227 /* OrderListModel.m */,
+				BC97DEFA1B4B75A8002B1A00 /* OrderPerson.h */,
+				BC97DEFB1B4B75A8002B1A00 /* OrderPerson.m */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -1001,6 +1013,7 @@
 			isa = PBXGroup;
 			children = (
 				5A9E80D51B4BB1A10028AC47 /* PlayFellow */,
+				BC97DF001B4BE192002B1A00 /* Pay */,
 				BCF9ECA11B41627700AEBE1E /* City */,
 				5AE4F82A1B3CF15A005879B7 /* Order */,
 				5A08C1471B3911CA00642648 /* ProductDetail */,
@@ -1219,6 +1232,17 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		BC97DF001B4BE192002B1A00 /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				BC97DF011B4BE1EF002B1A00 /* WechatPayData.h */,
+				BC97DF021B4BE1EF002B1A00 /* WechatPayData.m */,
+				BC97DF041B4BE21F002B1A00 /* WechatPayModel.h */,
+				BC97DF051B4BE21F002B1A00 /* WechatPayModel.m */,
+			);
+			name = Pay;
+			sourceTree = "<group>";
+		};
 		BCA272F91AE8A27C002E7534 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
@@ -1302,6 +1326,9 @@
 				BC41ABBE1B0F269100A419DA /* SugTagsCell.m */,
 				5A3DBE5B1B185BE500E708AC /* MyCollectionCell.h */,
 				5A3DBE5C1B185BE500E708AC /* MyCollectionCell.m */,
+				BCF564E11B4A54D0003A2227 /* PersonChildHeaderCell.h */,
+				BCF564E21B4A54D0003A2227 /* PersonChildHeaderCell.m */,
+				BCF564E31B4A54D0003A2227 /* PersonChildHeaderCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1362,9 +1389,10 @@
 			children = (
 				5A33F18F1B2E9FC5002A8258 /* CashPayViewController.h */,
 				5A33F1901B2E9FC5002A8258 /* CashPayViewController.m */,
-				5A33F1911B2E9FC5002A8258 /* CashPayViewController.xib */,
 				BCE589591B2AF37C00736923 /* WechatPayDelegate.h */,
 				BCE5894C1B2AF35E00736923 /* Views */,
+				BC97DEFD1B4BCFF1002B1A00 /* PayChannel.h */,
+				BC97DEFE1B4BCFF1002B1A00 /* PayChannel.m */,
 			);
 			name = Pay;
 			path = Business/Pay;
@@ -1379,9 +1407,6 @@
 				5A33F1941B2EA0A4002A8258 /* CashPayBottomCell.h */,
 				5A33F1951B2EA0A4002A8258 /* CashPayBottomCell.m */,
 				5A33F1961B2EA0A4002A8258 /* CashPayBottomCell.xib */,
-				5A33F1971B2EA0A4002A8258 /* CashPayTopCell.h */,
-				5A33F1981B2EA0A4002A8258 /* CashPayTopCell.m */,
-				5A33F1991B2EA0A4002A8258 /* CashPayTopCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1508,6 +1533,7 @@
 				5A4044331B27D18C0010782C /* OrderPersonViewController.xib in Resources */,
 				5AC9FFCE1B17298C00C769EF /* FeedbackViewController.xib in Resources */,
 				BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */,
+				BCF564E51B4A54D0003A2227 /* PersonChildHeaderCell.xib in Resources */,
 				5A5A2AA11B43EEF4000595A9 /* OrderContactCell.xib in Resources */,
 				5AABF6FB1B28120C000A9D3F /* OrderUpdatePersonViewController.xib in Resources */,
 				5A08C13A1B39117100642648 /* ProductDetailViewController.xib in Resources */,
@@ -1519,9 +1545,7 @@
 				5A06436C1B3BCE9A00361732 /* FillOrderBottomCell.xib in Resources */,
 				5A9E80E71B4BBF590028AC47 /* ProductPlayFellowCell.xib in Resources */,
 				BCA273101AE9D79F002E7534 /* scheme.plist in Resources */,
-				5A33F1931B2E9FC5002A8258 /* CashPayViewController.xib in Resources */,
 				BCA273061AE8D0E9002E7534 /* Launch Screen.xib in Resources */,
-				5A33F19D1B2EA0A4002A8258 /* CashPayTopCell.xib in Resources */,
 				5A5A2A6A1B43E531000595A9 /* OrderContactViewController.xib in Resources */,
 				5A33F1A21B2EA1D5002A8258 /* CashPayTopHeaderView.xib in Resources */,
 				5AE4F8681B3D642B005879B7 /* MOStepperView.xib in Resources */,
@@ -1617,6 +1641,7 @@
 				BC41ABB91B0F25AB00A419DA /* SugTagsModel.m in Sources */,
 				BC8540941ADF74E9005A7C54 /* AppDelegate.m in Sources */,
 				5ABDA5B31B42CD4B003BAE80 /* PostOrderModel.m in Sources */,
+				BC97DEFC1B4B75A8002B1A00 /* OrderPerson.m in Sources */,
 				5A83074D1B327FB40057412A /* CommonHeaderView.m in Sources */,
 				5A0643781B3BE9FE00361732 /* OrderUpdatePersonFillCell.m in Sources */,
 				5A5A2A691B43E531000595A9 /* OrderContactViewController.m in Sources */,
@@ -1637,6 +1662,8 @@
 				BC2C0C991B1858E800E2446E /* MOLabel.m in Sources */,
 				5A33F1A11B2EA1D5002A8258 /* CashPayTopHeaderView.m in Sources */,
 				BC82544E1B3D416300430A6F /* PlaymateOperateCell.m in Sources */,
+				BC97DF061B4BE21F002B1A00 /* WechatPayModel.m in Sources */,
+				BC97DEFF1B4BCFF1002B1A00 /* PayChannel.m in Sources */,
 				5A1B35F61B12C0D200E1D31B /* CommentCell.m in Sources */,
 				BC8540911ADF74E9005A7C54 /* main.m in Sources */,
 				5A0643751B3BE9E500361732 /* OrderUpdatePersonSelectCell.m in Sources */,
@@ -1648,6 +1675,7 @@
 				BC82543F1B3C26E400430A6F /* LocationService.m in Sources */,
 				BC2C0C861B15668000E2446E /* DatePickerSheet.m in Sources */,
 				5AABF70F1B281BEF000A9D3F /* ConvertFromXib.m in Sources */,
+				BCF564E41B4A54D0003A2227 /* PersonChildHeaderCell.m in Sources */,
 				5AE995A21B26F9B8003DAAC0 /* FillOrderFooterView.m in Sources */,
 				5A33F1921B2E9FC5002A8258 /* CashPayViewController.m in Sources */,
 				5A3DBE5D1B185BE500E708AC /* MyCollectionCell.m in Sources */,
@@ -1709,7 +1737,7 @@
 				5A18DC581B297431001458A4 /* HomeCarouselCell.m in Sources */,
 				BC82544B1B3D414000430A6F /* PlaymateContentCell.m in Sources */,
 				5A18DC5E1B2996B9001458A4 /* HomeCell.m in Sources */,
-				5A33F19C1B2EA0A4002A8258 /* CashPayTopCell.m in Sources */,
+				BC97DF031B4BE1EF002B1A00 /* WechatPayData.m in Sources */,
 				BCFC2C371AF9C6B800164BC2 /* ActivityWebViewController.m in Sources */,
 				BC38D2891B099D0B0051C7E9 /* SuggestSubmitViewController.m in Sources */,
 				BC38D23C1AFEE2B50051C7E9 /* HomeModel.m in Sources */,

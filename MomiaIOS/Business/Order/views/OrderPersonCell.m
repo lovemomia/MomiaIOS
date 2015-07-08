@@ -18,7 +18,7 @@
 
 @implementation OrderPersonCell
 
--(void)setData:(OrderPersonDataModel *)model withSelectedDic:(NSDictionary *) selectedDic
+-(void)setData:(OrderPerson *)model withSelectedDic:(NSDictionary *) selectedDic
 {
     self.nameLabel.text = model.name;
     self.typeLabel.text = model.type;
@@ -45,8 +45,8 @@
 -(void)awakeFromNib
 {
     
-    [self.checkBtn setImage:[UIImage imageNamed:@"orderperson_circle_checked"] forState:UIControlStateSelected];
-    [self.checkBtn setImage:[UIImage imageNamed:@"orderperson_circle_uncheck"] forState:UIControlStateNormal];
+    [self.checkBtn setImage:[UIImage imageNamed:@"cm_circle_checked"] forState:UIControlStateSelected];
+    [self.checkBtn setImage:[UIImage imageNamed:@"cm_circle_uncheck"] forState:UIControlStateNormal];
     [self.checkBtn addTarget:self action:@selector(onCheckClick:) forControlEvents:UIControlEventTouchUpInside];
 }
 

@@ -10,8 +10,6 @@
 
 @interface MONavigationController : UINavigationController
 
-@property(nonatomic, retain)UIImageView *titleShadowIv;
-
 - (void)setDarkTitleStyle;
 
 - (void)setLightTitleStyle;

@@ -8,7 +8,7 @@
 
 #import "PostOrderModel.h"
 
-@implementation PostOrderDataModel
+@implementation PostOrderData
 
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithDictionary:@{@"id":@"orderId"}];

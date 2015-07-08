@@ -8,15 +8,6 @@
 
 #import "OrderPersonModel.h"
 
-@implementation OrderPersonDataModel
-
-
-+ (JSONKeyMapper *)keyMapper {
-    return [[JSONKeyMapper alloc] initWithDictionary:@{@"id":@"opId"}];
-}
-
-@end
-
 @implementation OrderPersonModel
 
 @end

@@ -14,7 +14,7 @@
 @property(nonatomic,strong) NSString<Ignore> * type;
 @property(nonatomic,strong) NSString * birthday;
 @property(nonatomic,assign) NSInteger idType;
-@property(nonatomic,strong) NSString * idNo;
+@property(nonatomic,strong) NSString<Optional> * idNo;
 @property(nonatomic,strong) NSString * name;
 @property(nonatomic,strong) NSString * sex;
 
