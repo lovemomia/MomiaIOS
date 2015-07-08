@@ -33,8 +33,18 @@
         self.tabBar.tintColor = MO_APP_ThemeColor;
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
         
+        [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                           UIColorFromRGB(0X666666), NSForegroundColorAttributeName,
+                                                           nil] forState:UIControlStateNormal];
+        UIColor *titleHighlightedColor = MO_APP_ThemeColor;
+        [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                           titleHighlightedColor, NSForegroundColorAttributeName,
+                                                           nil] forState:UIControlStateSelected];
+
+        
         _home = [[HomeViewController alloc]initWithParams:nil];
         _home.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"精选" image:[UIImage imageNamed:@"tab_home_normal"] selectedImage:[UIImage imageNamed:@"tab_home_select"]];
+        _home.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -2);
         
         
 //        _playmate = [[PlaymateViewController alloc]initWithParams:nil];
@@ -43,6 +53,7 @@
         
         _mine = [[MineViewController alloc]initWithParams:nil];
         _mine.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"我的" image:[UIImage imageNamed:@"tab_mine_normal"] selectedImage:[UIImage imageNamed:@"tab_mine_select"]];
+        _mine.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -2);
         
         MONavigationController *navHome = [[MONavigationController alloc] initWithRootViewController:_home];
 //        MONavigationController *navPlaymate = [[MONavigationController alloc] initWithRootViewController:_playmate];

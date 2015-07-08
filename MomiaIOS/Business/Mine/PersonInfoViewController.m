@@ -174,7 +174,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (section == 0 || section == 2) {
-        return 40;
+        return 50;
     }
     return 10;
 }
@@ -305,11 +305,8 @@
         } else {
             Child *child = [self childAtIndex:(section - 2)];
             if (row == 0) {
-                NSInteger index = section - 2;
-                if (section == 2) {
-                    cell.textLabel.text = [NSString stringWithFormat:@"%@姓名", [self defaultChildName:index]];
-                    cell.detailTextLabel.text = child.name;
-                }
+                cell.textLabel.text = @"姓名";
+                cell.detailTextLabel.text = child.name;
                 
             } else if (row == 1) {
                 cell.textLabel.text = @"性别";

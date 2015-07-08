@@ -166,7 +166,7 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
         
         cell = home;
     }
-   
+    cell.selectionStyle = UITableViewCellSeparatorStyleNone;
     return cell;
 }
 

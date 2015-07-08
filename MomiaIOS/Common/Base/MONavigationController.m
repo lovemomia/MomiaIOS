@@ -9,6 +9,7 @@
 #import "MONavigationController.h"
 #import "Constants.h"
 #import "UIImage+Color.h"
+#import "AppDelegate.h"
 
 @interface MONavigationController()
 
@@ -17,7 +18,6 @@
 @end
 
 @implementation MONavigationController
-@synthesize titleShadowIv;
 
 //-(id)init {
 //    if (self = [super init]) {
@@ -75,6 +75,7 @@
     [self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationBar.shadowImage = [UIImage new];
     self.navigationBar.translucent = YES;
+    [((AppDelegate *)[UIApplication sharedApplication].delegate) setTitleShadow:nil aboveSubview:self.navigationBar];
 }
 
 - (void)setDarkTitleStyle {
@@ -90,16 +91,7 @@
     self.navigationBar.translucent = NO;
     
     // shadow
-    CGRect frame = CGRectMake(0, 64, SCREEN_WIDTH, 5);
-    
-    if (titleShadowIv == nil) {
-        titleShadowIv = [[UIImageView alloc]initWithFrame:frame];
-        titleShadowIv.image = [UIImage imageNamed:@"title_shadow"];
-        [[[UIApplication sharedApplication].delegate window] addSubview:titleShadowIv];
-    } else {
-        titleShadowIv.hidden = NO;
-    }
-    
+    [((AppDelegate *)[UIApplication sharedApplication].delegate) setTitleShadow:[UIImage imageNamed:@"title_shadow"] aboveSubview:self.navigationBar];
 }
 
 - (void)setLightTitleStyle {
@@ -110,12 +102,11 @@
     
     // background color
     [self.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(SCREEN_WIDTH, 64)] forBarMetrics:UIBarMetricsDefault];
-    self.navigationBar.shadowImage = nil;
+    self.navigationBar.shadowImage = [UIImage imageWithColor:[UIColor clearColor] size:CGSizeMake(1, 1)];
     self.navigationBar.translucent = NO;
     
-    if (titleShadowIv) {
-        titleShadowIv.hidden = YES;
-    }
+    // shadow
+    [((AppDelegate *)[UIApplication sharedApplication].delegate) setTitleShadow:[UIImage imageNamed:@"title_shadow"] aboveSubview:self.navigationBar];
 }
 
 @end

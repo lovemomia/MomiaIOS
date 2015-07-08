@@ -18,10 +18,19 @@
     NSString *_deviceToken;
 }
 
+@property (nonatomic, retain) UIImageView *titleShadowIv;
+
 @end
 
 @implementation AppDelegate
 
+- (void)setTitleShadow:(UIImage *)image aboveSubview:(UIView *)view {
+    if (_titleShadowIv == nil) {
+        _titleShadowIv = [[UIImageView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, 5)];
+        [self.window insertSubview:_titleShadowIv aboveSubview:view];
+    }
+    _titleShadowIv.image = image;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -64,7 +73,6 @@
 }
 
 #pragma mark - ShareSDK init
-
 
 
 #pragma mark - 'GeTui' push sdk manager
