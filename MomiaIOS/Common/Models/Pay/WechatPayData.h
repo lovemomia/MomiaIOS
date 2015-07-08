@@ -10,13 +10,14 @@
 
 @interface WechatPayData : JSONModel
 
-@property (nonatomic, strong) NSString *appId;
-@property (nonatomic, strong) NSString<Optional> *partnerId;
-@property (nonatomic, strong) NSString *timeStamp;
-@property (nonatomic, strong) NSString *nonceStr;
-@property (nonatomic, strong) NSString *prepayId;
-@property (nonatomic, strong) NSString *signType;
-@property (nonatomic, strong) NSString *paySign;
+@property (nonatomic, strong) NSString *appid;
+@property (nonatomic, strong) NSString *partnerid;
+@property (nonatomic, strong) NSString *package_app;
+@property (nonatomic, strong) NSString *timestamp;
+@property (nonatomic, strong) NSString *noncestr;
+@property (nonatomic, strong) NSString *prepayid;
+//@property (nonatomic, strong) NSString *signType;
+@property (nonatomic, strong) NSString *sign;
 @property (nonatomic, assign) BOOL successful;
 
 

@@ -317,13 +317,13 @@
 {
     //调起微信支付
     PayReq* req             = [[PayReq alloc] init];
-    req.openID              = data.appId;
-    req.partnerId           = @"1251671101";
-    req.prepayId            = data.prepayId;
-    req.nonceStr            = data.nonceStr;
-    req.timeStamp           = data.timeStamp.intValue;
-    req.package             = @"Sign=WXPay";
-    req.sign                = data.paySign;
+    req.openID              = data.appid;
+    req.partnerId           = data.partnerid;
+    req.prepayId            = data.prepayid;
+    req.nonceStr            = data.noncestr;
+    req.timeStamp           = data.timestamp.intValue;
+    req.package             = data.package_app;
+    req.sign                = data.sign;
     [WXApi sendReq:req];
     //日志输出
     NSLog(@"appid=%@\npartid=%@\nprepayid=%@\nnoncestr=%@\ntimestamp=%ld\npackage=%@\nsign=%@",req.openID,req.partnerId,req.prepayId,req.nonceStr,(long)req.timeStamp,req.package,req.sign );

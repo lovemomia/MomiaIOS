@@ -6,10 +6,10 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "MOTableViewController.h"
+#import "MOGroupStyleTableViewController.h"
 #import "WechatPayDelegate.h"
 
-@interface CashPayViewController : MOTableViewController
+@interface CashPayViewController : MOGroupStyleTableViewController
 
 @property (nonatomic, assign) id<WechatPayDelegate> delegate;
 

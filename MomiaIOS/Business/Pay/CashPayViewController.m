@@ -65,7 +65,7 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
 - (void)onPayClicked {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    NSDictionary * params = @{@"trade_type":@"NATIVE",
+    NSDictionary * params = @{@"trade_type":@"APP",
                               @"oid":[NSString stringWithFormat:@"%d", self.order.data.orderId],
                               @"pid":[NSString stringWithFormat:@"%d", self.order.data.productId],
                               @"sid":[NSString stringWithFormat:@"%d", self.order.data.skuId]};

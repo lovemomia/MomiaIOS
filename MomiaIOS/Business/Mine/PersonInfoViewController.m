@@ -34,7 +34,6 @@
     self.navigationItem.title = @"个人信息";
     
     [CommonHeaderView registerCellWithTableView:self.tableView];
-    [PersonChildHeaderCell registerCellWithTableView:self.tableView];
     
     [self refreshAccount];
 }
@@ -158,14 +157,14 @@
         header = [PersonChildHeaderCell cellWithTableView:self.tableView];
         
         ((PersonChildHeaderCell *)header).titleLabel.text = [NSString stringWithFormat:@"孩子信息（%d个）", (int)[account.children count]];
-        ((PersonChildHeaderCell *)header).stepperView.currentValue = [account.children count];
         ((PersonChildHeaderCell *)header).stepperView.minValue = 1;
         ((PersonChildHeaderCell *)header).stepperView.maxValue = 5;
+        ((PersonChildHeaderCell *)header).stepperView.currentValue = [account.children count];
         ((PersonChildHeaderCell *)header).stepperView.onclickStepper = ^(NSUInteger currentValue){//单击+、-事件响应
             Account *account = [AccountService defaultService].account;
             if (currentValue < account.children.count) {
                 [self deleteChild];
-            } else {
+            } else if (currentValue > account.children.count) {
                 [self addChild];
             }
         };

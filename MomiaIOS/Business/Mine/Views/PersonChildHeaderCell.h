@@ -9,13 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "MOStepperView.h"
 
-@interface PersonChildHeaderCell : UITableViewHeaderFooterView
+@interface PersonChildHeaderCell : UIView
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet MOStepperView *stepperView;
 
 +(instancetype)cellWithTableView:(UITableView *)tableView;
-
-+(void)registerCellWithTableView:(UITableView *)tableView;
 
 @end
