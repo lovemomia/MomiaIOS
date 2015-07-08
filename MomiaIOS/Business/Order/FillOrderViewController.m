@@ -39,6 +39,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 //@property(nonatomic, strong) NSString * utoken;
 @property(nonatomic, assign) BOOL isShowAllTopCell;//是否显示所有场次
 @property(nonatomic, assign) NSInteger topIndex;
+@property(nonatomic, assign) BOOL needRealName;
 
 @property(nonatomic, strong) MOStepperGroup * stepperGroup;
 @property(nonatomic, strong) NSMutableArray * middleCellArray;
@@ -100,7 +101,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
         [AlertNotice showNotice:@"您还未选择出行人"];
         return;
     }
-    if(middlePersonStyle.adult != bottomPersonStyle.adult || middlePersonStyle.child != bottomPersonStyle.child) {
+    if(self.needRealName && (middlePersonStyle.adult != bottomPersonStyle.adult || middlePersonStyle.child != bottomPersonStyle.child)) {
         [AlertNotice showNotice:@"选择的出行人不合要求，请重新选择"];
         return;
     }
@@ -155,8 +156,16 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if(section == 0 || section == 1)
+    if(section == 0)
         return 40.0f;
+    if(section == 1) {
+        FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
+        if(skuModel.stock > 0) {
+            return 40.0f;
+        } else {
+            return 0.1f;
+        }
+    }
     return 13.0f;
 }
 
@@ -175,9 +184,12 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
             break;
         case 1:
         {
-            CommonHeaderView * header = [CommonHeaderView cellWithTableView:self.tableView];
-            header.data = @"选择出行人数";
-            view = header;
+            FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
+            if(skuModel.stock > 0) {
+                CommonHeaderView * header = [CommonHeaderView cellWithTableView:self.tableView];
+                header.data = @"选择出行人数";
+                view = header;
+            }
         }
             break;
             
@@ -222,7 +234,6 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
         } else {
             rows = self.model.data.skus.count;
         }
-        
     } else if(section == 1) {
         FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
         if(skuModel.stock > 0)
@@ -233,7 +244,11 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
             self.orderModel.productId = skuModel.productId;
             self.orderModel.skuId = skuModel.skuId;
             [self.selectedDictionary removeAllObjects];
-            [self.stepperGroup setMaxPlaces:skuModel.stock];
+            
+            if(skuModel.limit <= 0) {
+                [self.stepperGroup setMaxPlaces:skuModel.stock];
+            } else [self.stepperGroup setMaxPlaces:MIN(skuModel.stock, skuModel.limit)];
+            
             [self.stepperGroup removeAllSteppers];
             [self.middleCellArray removeAllObjects];
             self.priceLabel.text = [NSString stringWithFormat:@"￥%.2f",self.totalPrice];
@@ -244,7 +259,13 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
             }
         }
     } else {
-        rows = 2;
+        /**
+         *2015-07-08修改，"needRealName":// 是否实名，如果为true，需要填写出行人信息
+         */
+        FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
+        if(skuModel.needRealName)
+            rows = 2;
+        else rows = 1;
     }
     return rows;
 }
@@ -301,6 +322,9 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
         default:
         {
             FillOrderBottomCell * bottom = [FillOrderBottomCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:fillOrderBottomIdentifier];
+            
+            FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
+            
             NSString * personStr = @"";
             if(self.selectedPersonStyle.adult > 0) {
                 personStr = [personStr stringByAppendingFormat:@"%ld成人",self.selectedPersonStyle.adult];
@@ -308,7 +332,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
             if(self.selectedPersonStyle.child > 0) {
                 personStr = [personStr stringByAppendingFormat:@"%ld儿童",self.selectedPersonStyle.child];
             }
-            [bottom setData:self.model.data.contacts withIndex:row andPersonStr:personStr];
+            [bottom setData:self.model.data.contacts withIndex:row andPersonStr:personStr andSkuModel:skuModel];
             cell = bottom;
         }
             break;
@@ -330,6 +354,8 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
         } else {
             if(self.topIndex != row) {//表明点击的是不同行，需要刷新
                 self.topIndex = row;
+                FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
+                self.needRealName = skuModel.needRealName;
                 self.middleDataChanged = YES;
                 [self.tableView reloadData];
             }
@@ -548,6 +574,9 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
        
         self.middleDataChanged = YES;
 
+        FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
+        self.needRealName = skuModel.needRealName;
+        
         [self.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -571,6 +600,8 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    NSLog(@"token:%@",AccountService.defaultService.account.token);
     
     self.navigationItem.title = @"提交订单";
   

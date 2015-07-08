@@ -11,6 +11,6 @@
 
 @interface FillOrderBottomCell : MOTableCell
 
--(void)setData:(FillOrderContactsModel *)model withIndex:(NSInteger)index andPersonStr:(NSString *)personStr;
+-(void)setData:(FillOrderContactsModel *)model withIndex:(NSInteger)index andPersonStr:(NSString *)personStr andSkuModel:(FillOrderSkuModel *) skuModel;
 
 @end

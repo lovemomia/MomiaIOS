@@ -16,9 +16,9 @@
 
 @implementation FillOrderBottomCell
 
--(void)setData:(FillOrderContactsModel *)model withIndex:(NSInteger)index andPersonStr:(NSString *)personStr;
+-(void)setData:(FillOrderContactsModel *)model withIndex:(NSInteger)index andPersonStr:(NSString *)personStr andSkuModel:(FillOrderSkuModel *) skuModel
 {
-    if(index == 0) {
+    if(index == 0 && skuModel.needRealName) {
         self.titleLabel.text = @"出行人";
         self.contentLabel.text = personStr;
     } else {
