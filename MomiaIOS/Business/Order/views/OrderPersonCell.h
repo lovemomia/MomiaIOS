@@ -9,11 +9,11 @@
 #import "MOTableCell.h"
 #import "OrderPerson.h"
 
-typedef void(^OnCheckBlock)(UIButton *);
+typedef void(^OnEditBlock)(UIButton *);
 
 @interface OrderPersonCell : MOTableCell
 
-@property(nonatomic,strong) OnCheckBlock onCheckBlock;
+@property(nonatomic,strong) OnEditBlock onEditBlock;
 
 -(void)setData:(OrderPerson *)model withSelectedDic:(NSDictionary *) selectedDic;
 

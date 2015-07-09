@@ -14,21 +14,32 @@
 static NSString * p_p_f_identifier = @"Cell_p_p_f";
 
 @interface ProductPlayFellowViewController ()
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSString * productId;
 @property (nonatomic,strong) PlayFellowModel * model;
 @end
 
 @implementation ProductPlayFellowViewController
 
+
+- (UITableViewStyle)tableViewStyle {
+    return UITableViewStyleGrouped;
+}
+
+/* tableView分割线，默认无 */
+- (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle {
+    return UITableViewCellSeparatorStyleSingleLine;
+}
+
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     ProductPlayFellowCell * cell = [ProductPlayFellowCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:p_p_f_identifier];
-    PlayFellowListModel * listModel = self.model.data.list[section];
-    PlayFellowCustomersModel * customersModel = listModel.customers[row];
-    [cell setData:customersModel];
+    PlayFellowDataModel * dataModel = self.model.data[section];
+    PlayFellowPlaymatesModel * model = dataModel.playmates[row];
+    [cell setData:model];
+    cell.backgroundColor = MO_APP_VCBackgroundColor;
     return cell;
 }
 
@@ -37,11 +48,12 @@ static NSString * p_p_f_identifier = @"Cell_p_p_f";
     return 78;
 }
 
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    PlayFellowListModel * model = self.model.data.list[section];
+    PlayFellowDataModel * model = self.model.data[section];
     if([model.selected boolValue]) {//表明被选中了，需要弹出玩伴孩童列表信息
-        return model.customers.count;
+        return model.playmates.count;
     } else {
         return 0;
     }
@@ -50,7 +62,7 @@ static NSString * p_p_f_identifier = @"Cell_p_p_f";
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.model.data.list.count;//返回场次的数目
+    return self.model.data.count;//返回场次的数目
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -58,16 +70,25 @@ static NSString * p_p_f_identifier = @"Cell_p_p_f";
     return 63;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 1;
+}
+
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     ProductPlayFellowHeaderView * headerView = [ProductPlayFellowHeaderView headerWithTableView:self.tableView];
-    [headerView setData:self.model.data.list[section]];
+    [headerView setData:self.model.data[section]];
+    
+    headerView.backgroundView = [[UIView alloc] init];
+    headerView.backgroundView.backgroundColor = [UIColor whiteColor];
+    
     headerView.onClickHeaderBlock = ^(UITapGestureRecognizer * tapGesture) {
-        PlayFellowListModel * listModel = self.model.data.list[section];
-        if([listModel.selected boolValue]) {
-            listModel.selected = [NSNumber numberWithBool:NO];
+        PlayFellowDataModel * model = self.model.data[section];
+        if([model.selected boolValue]) {
+            model.selected = [NSNumber numberWithBool:NO];
         } else {
-            listModel.selected = [NSNumber numberWithBool:YES];
+            model.selected = [NSNumber numberWithBool:YES];
         }
         [self.tableView reloadData];
     };
@@ -82,7 +103,7 @@ static NSString * p_p_f_identifier = @"Cell_p_p_f";
     }
     
     NSDictionary * dic = @{@"id":self.productId};
-    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/product/playmates") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[PlayFellowModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/product/playmate") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[PlayFellowModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.model == nil) {
             [self.view removeLoadingBee];
         }
@@ -90,7 +111,7 @@ static NSString * p_p_f_identifier = @"Cell_p_p_f";
         self.model = responseObject;
         
         //下边一个迭代操作是初始化所有的header为未选中状态
-        for(PlayFellowListModel * model in self.model.data.list) {
+        for(PlayFellowDataModel * model in self.model.data) {
             model.selected = [NSNumber numberWithBool:NO];
         }
                 

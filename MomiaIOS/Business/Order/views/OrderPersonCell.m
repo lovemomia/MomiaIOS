@@ -9,7 +9,10 @@
 #import "OrderPersonCell.h"
 
 @interface OrderPersonCell ()
-@property (weak, nonatomic) IBOutlet UIButton *checkBtn;
+
+
+@property (weak, nonatomic) IBOutlet UIButton *editBtn;
+
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sexLabel;
@@ -24,30 +27,21 @@
     self.typeLabel.text = model.type;
     self.sexLabel.text = model.sex;
     if([selectedDic objectForKey:@(model.opId)]) {
-        self.checkBtn.selected = YES;
+        self.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
-        self.checkBtn.selected = NO;
+        self.accessoryType = UITableViewCellAccessoryNone;
     }
 }
 
--(void)onCheckClick:(UIButton *) checkBtn
+-(void)onEditClick:(UIButton *) editBtn
 {
-    if(!checkBtn.selected) {
-        checkBtn.selected = YES;
-    } else {
-        checkBtn.selected = NO;
-    }
-    self.onCheckBlock(checkBtn);
-
+    self.onEditBlock(editBtn);
 }
 
 
 -(void)awakeFromNib
 {
-    
-    [self.checkBtn setImage:[UIImage imageNamed:@"cm_circle_checked"] forState:UIControlStateSelected];
-    [self.checkBtn setImage:[UIImage imageNamed:@"cm_circle_uncheck"] forState:UIControlStateNormal];
-    [self.checkBtn addTarget:self action:@selector(onCheckClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.editBtn addTarget:self action:@selector(onEditClick:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 

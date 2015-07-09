@@ -8,23 +8,11 @@
 
 #import "PlayFellowModel.h"
 
-@implementation PlayFellowChildrenModel
+@implementation PlayFellowPlaymatesModel
 
-+(JSONKeyMapper *)keyMapper {
-    return [[JSONKeyMapper alloc] initWithDictionary:@{@"id":@"childrenId"}];
++ (JSONKeyMapper *)keyMapper {
+    return [[JSONKeyMapper alloc] initWithDictionary:@{@"id":@"pId"}];
 }
-
-@end
-
-@implementation PlayFellowCustomersModel
-
-+(JSONKeyMapper *)keyMapper {
-    return [[JSONKeyMapper alloc] initWithDictionary:@{@"id":@"customersId"}];
-}
-
-@end
-
-@implementation PlayFellowListModel
 
 @end
 

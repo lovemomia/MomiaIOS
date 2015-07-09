@@ -18,6 +18,6 @@ typedef void(^OnClickHeaderBlock)(UITapGestureRecognizer *);
 
 +(void)registerHeaderWithTableView:(UITableView *)tableView;
 
--(void)setData:(PlayFellowListModel *) model;
+-(void)setData:(PlayFellowDataModel *) model;
 
 @end

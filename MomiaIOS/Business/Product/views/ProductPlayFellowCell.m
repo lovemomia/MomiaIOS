@@ -18,10 +18,10 @@
 
 @implementation ProductPlayFellowCell
 
--(void)setData:(PlayFellowCustomersModel *) model
+-(void)setData:(PlayFellowPlaymatesModel *) model;
 {
     [self.iconImgView sd_setImageWithURL:[NSURL URLWithString:model.avatar] placeholderImage:[UIImage imageNamed:@"placeholder"]];
-    self.nameLabel.text = model.nickname;
+    self.nameLabel.text = model.nickName;
     self.contentLabel.text = [self stringWithChildrenArray:model.children];
 }
 
@@ -30,20 +30,7 @@
     NSString * str = @"";
     for(int i = 0 ; i < array.count ; i++) {
         if(i == 2) break;
-        PlayFellowChildrenModel * model = array[i];
-        if([model.sex isEqualToString:@"女"]) {
-            str = [str stringByAppendingString:@"女孩"];
-        } else str = [str stringByAppendingString:@"男孩"];
-        
-        NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"yyyy-MM-dd"];
-        NSDate * birthDate = [formatter dateFromString:model.birthday];
-        NSInteger age = [birthDate age];
-        if(age) {
-            str = [str stringByAppendingFormat:@"%ld岁",age];
-        } else {
-            str = [str stringByAppendingString:@"不足一岁"];
-        }
+        str = [str stringByAppendingString:array[i]];
         str = [str stringByAppendingString:@" "];
     }
     return str;
@@ -54,6 +41,7 @@
 - (void)awakeFromNib {
     // Initialization code
     [super awakeFromNib];
+    self.iconImgView.layer.masksToBounds = YES;
     self.iconImgView.layer.cornerRadius = 23;
 }
 

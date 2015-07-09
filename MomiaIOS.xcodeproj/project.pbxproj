@@ -73,7 +73,6 @@
 		5A8FF9701B450FA5007A8CA4 /* ProductDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8FF96F1B450FA5007A8CA4 /* ProductDetailContentCell.m */; };
 		5A9E80D81B4BB2450028AC47 /* PlayFellowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E80D71B4BB2450028AC47 /* PlayFellowModel.m */; };
 		5A9E80DC1B4BBB1F0028AC47 /* ProductPlayFellowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E80DA1B4BBB1F0028AC47 /* ProductPlayFellowViewController.m */; };
-		5A9E80DD1B4BBB1F0028AC47 /* ProductPlayFellowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A9E80DB1B4BBB1F0028AC47 /* ProductPlayFellowViewController.xib */; };
 		5A9E80E01B4BBCCD0028AC47 /* ProductPlayFellowHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E80DF1B4BBCCD0028AC47 /* ProductPlayFellowHeaderView.m */; };
 		5A9E80E21B4BBD2B0028AC47 /* ProductPlayFellowHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A9E80E11B4BBD2B0028AC47 /* ProductPlayFellowHeaderView.xib */; };
 		5A9E80E61B4BBF590028AC47 /* ProductPlayFellowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E80E41B4BBF590028AC47 /* ProductPlayFellowCell.m */; };
@@ -321,7 +320,6 @@
 		5A9E80D71B4BB2450028AC47 /* PlayFellowModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayFellowModel.m; path = Common/Models/PlayFellow/PlayFellowModel.m; sourceTree = "<group>"; };
 		5A9E80D91B4BBB1F0028AC47 /* ProductPlayFellowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductPlayFellowViewController.h; sourceTree = "<group>"; };
 		5A9E80DA1B4BBB1F0028AC47 /* ProductPlayFellowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductPlayFellowViewController.m; sourceTree = "<group>"; };
-		5A9E80DB1B4BBB1F0028AC47 /* ProductPlayFellowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductPlayFellowViewController.xib; sourceTree = "<group>"; };
 		5A9E80DE1B4BBCCD0028AC47 /* ProductPlayFellowHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductPlayFellowHeaderView.h; sourceTree = "<group>"; };
 		5A9E80DF1B4BBCCD0028AC47 /* ProductPlayFellowHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductPlayFellowHeaderView.m; sourceTree = "<group>"; };
 		5A9E80E11B4BBD2B0028AC47 /* ProductPlayFellowHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductPlayFellowHeaderView.xib; sourceTree = "<group>"; };
@@ -628,7 +626,6 @@
 				5A08C1251B39117100642648 /* ProductDetailViewController.xib */,
 				5A9E80D91B4BBB1F0028AC47 /* ProductPlayFellowViewController.h */,
 				5A9E80DA1B4BBB1F0028AC47 /* ProductPlayFellowViewController.m */,
-				5A9E80DB1B4BBB1F0028AC47 /* ProductPlayFellowViewController.xib */,
 			);
 			name = Product;
 			path = Business/Product;
@@ -1522,7 +1519,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC8254421B3CE87F00430A6F /* PlaymateCell.xib in Resources */,
-				5A9E80DD1B4BBB1F0028AC47 /* ProductPlayFellowViewController.xib in Resources */,
 				5A08C1421B39117100642648 /* ProductDetailEnrollCell.xib in Resources */,
 				5A6806F01B01A9BD00D02A60 /* SettingMsgCell.xib in Resources */,
 				5A6806F51B01CEF700D02A60 /* PersonLogoCell.xib in Resources */,

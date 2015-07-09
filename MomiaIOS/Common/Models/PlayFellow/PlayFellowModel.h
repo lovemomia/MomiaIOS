@@ -8,57 +8,34 @@
 
 #import "BaseModel.h"
 
-@interface PlayFellowChildrenModel : JSONModel
-
-@property(nonatomic,strong) NSString * birthday;
-@property(nonatomic,assign) NSInteger childrenId;
-@property(nonatomic,strong) NSString  * name;
-@property(nonatomic,strong) NSString * sex;
-@property(nonatomic,strong) NSString * type;
-
-@end
-
-@protocol PlayFellowChildrenModel <NSObject>
-
-@end
-
-@interface PlayFellowCustomersModel : JSONModel
+@interface PlayFellowPlaymatesModel : JSONModel
 
 @property(nonatomic,strong) NSString * avatar;
-@property(nonatomic,strong) NSArray<PlayFellowChildrenModel> * children;
-@property(nonatomic,assign) NSInteger customersId;
-@property(nonatomic,strong) NSString * nickname;
+@property(nonatomic,strong) NSString * nickName;
+@property(nonatomic,assign) NSInteger pId;
+@property(nonatomic,strong) NSArray * children;
 
 @end
 
-@protocol PlayFellowCustomersModel <NSObject>
-
-@end
-
-@interface PlayFellowListModel : JSONModel
-
-@property(nonatomic,strong) NSArray<PlayFellowCustomersModel> * customers;
-@property(nonatomic,strong) NSString * date;
-@property(nonatomic,strong) NSString * text;
-@property(nonatomic,strong) NSNumber<Optional> * selected;//后台服务器没有的一个字段，额外添加上去，用来判断当前section是否选中
-
-@end
-
-@protocol PlayFellowListModel<NSObject>
+@protocol PlayFellowPlaymatesModel <NSObject>
 
 @end
 
 @interface PlayFellowDataModel : JSONModel
 
-@property(nonatomic,strong) NSArray<PlayFellowListModel> * list;
-@property(nonatomic,assign) NSInteger totalCount;
+@property(nonatomic,strong) NSString * joined;
+@property(nonatomic,strong) NSString * time;
+@property(nonatomic,strong) NSNumber<Optional> * selected;
+@property(nonatomic,strong) NSArray<PlayFellowPlaymatesModel> * playmates;
 
+@end
 
+@protocol PlayFellowDataModel <NSObject>
 
 @end
 
 @interface PlayFellowModel : BaseModel
 
-@property(nonatomic,strong) PlayFellowDataModel * data;
+@property(nonatomic,strong) NSArray<PlayFellowDataModel> * data;
 
 @end

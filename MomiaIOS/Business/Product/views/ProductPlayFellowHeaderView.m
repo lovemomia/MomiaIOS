@@ -38,10 +38,10 @@ static NSString * identifier = @"p_p_f_header";
     [tableView registerNib:[UINib nibWithNibName:NSStringFromClass(self) bundle:nil] forHeaderFooterViewReuseIdentifier:identifier];
 }
 
--(void)setData:(PlayFellowListModel *)model
+-(void)setData:(PlayFellowDataModel *) model
 {
-    self.timeLabel.text = model.date;
-    self.enrollLabel.text = model.text;
+    self.timeLabel.text = model.time;
+    self.enrollLabel.text = model.joined;
     if([model.selected boolValue]) {
         [self.selectImgView setImage:[UIImage imageNamed:@"p_p_f_shouqi"]];
     } else {
