@@ -26,7 +26,7 @@
     self.nameLabel.text = model.name;
     self.typeLabel.text = model.type;
     self.sexLabel.text = model.sex;
-    if([selectedDic objectForKey:@(model.opId)]) {
+    if(selectedDic && [selectedDic objectForKey:@(model.opId)]) {
         self.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
         self.accessoryType = UITableViewCellAccessoryNone;

@@ -189,6 +189,7 @@
 		BCE5893F1B2AB62500736923 /* payRequsestHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCE5893B1B2AB62500736923 /* payRequsestHandler.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BCE589401B2AB62500736923 /* WXUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCE5893D1B2AB62500736923 /* WXUtil.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BCE589471B2AEFF400736923 /* libGexinSdk-1.1.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE589461B2AEFF400736923 /* libGexinSdk-1.1.1.a */; };
+		BCF033951B4E892F005B71D6 /* PeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF033941B4E892F005B71D6 /* PeopleViewController.m */; };
 		BCF564C91B43EAB2003A2227 /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564C81B43EAB2003A2227 /* UIButton+Block.m */; };
 		BCF564CC1B43EC53003A2227 /* NSTimer+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564CB1B43EC53003A2227 /* NSTimer+Block.m */; };
 		BCF564CF1B4632A1003A2227 /* Child.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564CE1B4632A1003A2227 /* Child.m */; };
@@ -542,6 +543,8 @@
 		BCE589451B2AEFF400736923 /* GXSdkError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXSdkError.h; sourceTree = "<group>"; };
 		BCE589461B2AEFF400736923 /* libGexinSdk-1.1.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGexinSdk-1.1.1.a"; sourceTree = "<group>"; };
 		BCE589591B2AF37C00736923 /* WechatPayDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatPayDelegate.h; sourceTree = "<group>"; };
+		BCF033931B4E892F005B71D6 /* PeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleViewController.h; path = Business/Mine/PeopleViewController.h; sourceTree = "<group>"; };
+		BCF033941B4E892F005B71D6 /* PeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleViewController.m; path = Business/Mine/PeopleViewController.m; sourceTree = "<group>"; };
 		BCF564C71B43EAB2003A2227 /* UIButton+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+Block.h"; path = "Common/Categorys/UIButton+Block.h"; sourceTree = "<group>"; };
 		BCF564C81B43EAB2003A2227 /* UIButton+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+Block.m"; path = "Common/Categorys/UIButton+Block.m"; sourceTree = "<group>"; };
 		BCF564CA1B43EC53003A2227 /* NSTimer+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTimer+Block.h"; path = "Common/Categorys/NSTimer+Block.h"; sourceTree = "<group>"; };
@@ -1289,6 +1292,8 @@
 				5AC9FFCA1B17298C00C769EF /* FeedbackViewController.h */,
 				5AC9FFCB1B17298C00C769EF /* FeedbackViewController.m */,
 				5AC9FFCC1B17298C00C769EF /* FeedbackViewController.xib */,
+				BCF033931B4E892F005B71D6 /* PeopleViewController.h */,
+				BCF033941B4E892F005B71D6 /* PeopleViewController.m */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -1699,6 +1704,7 @@
 				BC2C0C991B1858E800E2446E /* MOLabel.m in Sources */,
 				5A33F1A11B2EA1D5002A8258 /* CashPayTopHeaderView.m in Sources */,
 				BC82544E1B3D416300430A6F /* PlaymateOperateCell.m in Sources */,
+				BCF033951B4E892F005B71D6 /* PeopleViewController.m in Sources */,
 				BC97DF061B4BE21F002B1A00 /* WechatPayModel.m in Sources */,
 				BC97DEFF1B4BCFF1002B1A00 /* PayChannel.m in Sources */,
 				5A1B35F61B12C0D200E1D31B /* CommentCell.m in Sources */,

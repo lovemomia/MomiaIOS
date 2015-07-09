@@ -26,7 +26,7 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.title = @"哆啦";
+    self.navigationItem.title = @"哆啦亲子";
     
     self.titleStr = @"上海";
     
