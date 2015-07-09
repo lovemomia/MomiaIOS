@@ -71,6 +71,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    Order * model = self.orderList[indexPath.row];
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://orderdetail?oid=%ld&pid=%ld",[model.ids integerValue],[model.productId integerValue]]];
+    
+    [[UIApplication sharedApplication] openURL:url];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

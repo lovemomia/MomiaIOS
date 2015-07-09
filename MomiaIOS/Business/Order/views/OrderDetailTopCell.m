@@ -19,6 +19,16 @@
 
 @implementation OrderDetailTopCell
 
+-(void)setData:(OrderDetailDataModel *)model
+{
+    [self.iconImgView sd_setImageWithURL:[NSURL URLWithString:model.cover] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    self.titleLabel.text = model.title;
+    self.timeLabel.text = model.scheduler;
+    self.addressLabel.text = model.address;
+    self.priceLabel.text = [NSString stringWithFormat:@"%.2f起",model.price];
+}
+
+
 - (void)awakeFromNib {
     // Initialization code
     self.iconImgView.layer.cornerRadius = 3;

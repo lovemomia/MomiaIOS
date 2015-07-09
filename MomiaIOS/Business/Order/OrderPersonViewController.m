@@ -111,7 +111,7 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
         [personCell setData:dataModel withSelectedDic:self.selectedDictionary];
     }
    
-//    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+//    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];// thie method to change cell data is not so good,delete it. that's it.
 }
 
 #pragma mark - btn event responser

@@ -164,10 +164,10 @@ typedef enum
 
 }
 
--(void)onCollectClick
-{
-    
-}
+//-(void)onCollectClick
+//{
+//    
+//}
 
 
 #pragma mark - webData Request
@@ -207,7 +207,7 @@ typedef enum
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"活动详情";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"a_d_collect"] style:UIBarButtonItemStylePlain target:self action:@selector(onCollectClick)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"a_d_collect"] style:UIBarButtonItemStylePlain target:self action:@selector(onCollectClick)];
     
     [ProductDetailCarouselCell registerCellWithTableView:self.tableView withIdentifier:productDetailCarouselIdentifier];
     [ProductDetailEnrollCell registerCellWithTableView:self.tableView withIdentifier:productDetailEnrollIdentifier];
@@ -219,6 +219,8 @@ typedef enum
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
     
     self.tableView.width = SCREEN_WIDTH;
+    
+    [self.tableView setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 0)];
     
     [self requestData];
 
