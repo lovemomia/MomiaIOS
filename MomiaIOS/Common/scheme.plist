@@ -200,5 +200,14 @@
 		<key>desc</key>
 		<string>订单列表页</string>
 	</dict>
+	<key>productplayfellow</key>
+	<dict>
+		<key>controller</key>
+		<string>ProductPlayFellowViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>玩伴信息页</string>
+	</dict>
 </dict>
 </plist>

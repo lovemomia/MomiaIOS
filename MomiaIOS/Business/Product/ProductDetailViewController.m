@@ -144,6 +144,15 @@ typedef enum
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger section = indexPath.section;
+    if(section == 2) {
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://productplayfellow?id=%@", self.productId]];
+        [[UIApplication sharedApplication] openURL:url];
+    }
+}
+
 - (IBAction)dateFriend:(id)sender {
     
 }

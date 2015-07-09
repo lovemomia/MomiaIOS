@@ -1,0 +1,66 @@
+//
+//  ProductPlayFellowCell.m
+//  MomiaIOS
+//
+//  Created by Owen on 15/7/7.
+//  Copyright (c) 2015年 Deng Jun. All rights reserved.
+//
+
+#import "ProductPlayFellowCell.h"
+#import "NSDate+Age.h"
+
+@interface ProductPlayFellowCell ()
+@property (weak, nonatomic) IBOutlet UIImageView *iconImgView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+
+@end
+
+@implementation ProductPlayFellowCell
+
+-(void)setData:(PlayFellowCustomersModel *) model
+{
+    [self.iconImgView sd_setImageWithURL:[NSURL URLWithString:model.avatar] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    self.nameLabel.text = model.nickname;
+    self.contentLabel.text = [self stringWithChildrenArray:model.children];
+}
+
+-(NSString *)stringWithChildrenArray:(NSArray *)array
+{
+    NSString * str = @"";
+    for(int i = 0 ; i < array.count ; i++) {
+        if(i == 2) break;
+        PlayFellowChildrenModel * model = array[i];
+        if([model.sex isEqualToString:@"女"]) {
+            str = [str stringByAppendingString:@"女孩"];
+        } else str = [str stringByAppendingString:@"男孩"];
+        
+        NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+        NSDate * birthDate = [formatter dateFromString:model.birthday];
+        NSInteger age = [birthDate age];
+        if(age) {
+            str = [str stringByAppendingFormat:@"%ld岁",age];
+        } else {
+            str = [str stringByAppendingString:@"不足一岁"];
+        }
+        str = [str stringByAppendingString:@" "];
+    }
+    return str;
+    
+}
+
+
+- (void)awakeFromNib {
+    // Initialization code
+    [super awakeFromNib];
+    self.iconImgView.layer.cornerRadius = 23;
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+@end
