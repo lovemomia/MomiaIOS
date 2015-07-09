@@ -11,6 +11,6 @@
 
 @interface ProductPlayFellowCell : MOTableCell<MOTableCellDataProtocol>
 
--(void)setData:(PlayFellowCustomersModel *) model;
+-(void)setData:(PlayFellowPlaymatesModel *) model;
 
 @end

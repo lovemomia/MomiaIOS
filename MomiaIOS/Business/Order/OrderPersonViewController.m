@@ -84,23 +84,34 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
     OrderPersonCell * cell = [OrderPersonCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:orderPersonIdentifier];
     OrderPerson *dataModel = self.model.data[indexPath.row];
     [cell setData:dataModel withSelectedDic:self.selectedDictionary];
-    cell.onCheckBlock = ^(UIButton * checkBtn) {
-        if(checkBtn.selected) {
-            [self.selectedDictionary setObject:dataModel.type forKey:@(dataModel.opId)];
-        } else {
-            [self.selectedDictionary removeObjectForKey:@(dataModel.opId)];
-        }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.onEditBlock = ^(UIButton * editBtn) {
+        //开始编辑出行人
+        OrderPerson * model = self.model.data[indexPath.row];
+        NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://orderupdateperson?personId=%ld",model.opId]];
+        [[UIApplication sharedApplication] openURL:url];
+
     };
     return cell;
 }
 
 -(void)tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    //开始编辑出行人
-    OrderPerson * model = self.model.data[indexPath.row];
-    NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://orderupdateperson?personId=%ld",model.opId]];
-    [[UIApplication sharedApplication] openURL:url];
+    OrderPerson *dataModel = self.model.data[indexPath.row];
+    if([self.selectedDictionary objectForKey:@(dataModel.opId)]) {
+        [self.selectedDictionary removeObjectForKey:@(dataModel.opId)];
+    } else {
+        [self.selectedDictionary setObject:dataModel.type forKey:@(dataModel.opId)];
+    }
+    
+    UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+    if([cell isKindOfClass:[OrderPersonCell class]]) {
+        OrderPersonCell * personCell = (OrderPersonCell *)cell;
+        OrderPerson *dataModel = self.model.data[indexPath.row];
+        [personCell setData:dataModel withSelectedDic:self.selectedDictionary];
+    }
+   
+//    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 #pragma mark - btn event responser
@@ -207,10 +218,6 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
 //    return self;
 //}
 
--(void)awakeFromNib
-{
-    NSLog(@"awakeFromNib");
-}
 
 
 - (void)viewDidLoad {

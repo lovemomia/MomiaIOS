@@ -18,7 +18,7 @@
                         <constraint firstAttribute="height" constant="19" id="JKZ-Lb-2pM"/>
                     </constraints>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNY-ma-Cjw">
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNY-ma-Cjw">
                     <rect key="frame" x="50" y="31" width="150" height="1"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -46,7 +46,6 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="BPj-rC-apf" firstAttribute="leading" secondItem="oYV-Db-QBy" secondAttribute="leading" constant="38" id="EtV-e9-DZm"/>
                 <constraint firstAttribute="centerY" secondItem="rdm-le-Jjy" secondAttribute="centerY" id="O5W-zf-fjB"/>

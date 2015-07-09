@@ -6,8 +6,9 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "MOViewController.h"
+#import "MOTableViewController.h"
 
-@interface ProductPlayFellowViewController : MOViewController<UITableViewDataSource,UITableViewDelegate>
+@interface ProductPlayFellowViewController : MOTableViewController
+
 
 @end
