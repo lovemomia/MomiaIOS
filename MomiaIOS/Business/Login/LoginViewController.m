@@ -116,7 +116,7 @@
     }
 
     if (self.vercode.length == 0) {
-        [self showDialogWithTitle:nil message:@"验证码不能为空"];
+        [self showDialogWithTitle:nil message:@"密码不能为空"];
         return;
     }
     
@@ -125,7 +125,7 @@
 
 - (void)login {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    NSDictionary *params = @{@"mobile":self.phone, @"code":self.vercode};
+    NSDictionary *params = @{@"mobile":self.phone, @"password":self.vercode};
     [[HttpService defaultService]POST:URL_APPEND_PATH(@"/auth/login")
                           parameters:params
                       JSONModelClass:[AccountModel class]
@@ -196,10 +196,10 @@
         if (cell == nil) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"LoginCell" owner:self options:nil];
             cell = [arr objectAtIndex:1];
-            self.vercodeButton = (UIButton *)[cell viewWithTag:1003];
-            [self.vercodeButton addTarget:self action:@selector(onVercodeClicked:) forControlEvents:UIControlEventTouchUpInside];
-            [self.vercodeButton setBackgroundImage:[UIImage imageNamed:@"cm_small_button_normal"] forState:UIControlStateNormal];
-            [self.vercodeButton setBackgroundImage:[UIImage imageNamed:@"cm_small_button_disable"] forState:UIControlStateDisabled];
+//            self.vercodeButton = (UIButton *)[cell viewWithTag:1003];
+//            [self.vercodeButton addTarget:self action:@selector(onVercodeClicked:) forControlEvents:UIControlEventTouchUpInside];
+//            [self.vercodeButton setBackgroundImage:[UIImage imageNamed:@"cm_small_button_normal"] forState:UIControlStateNormal];
+//            [self.vercodeButton setBackgroundImage:[UIImage imageNamed:@"cm_small_button_disable"] forState:UIControlStateDisabled];
         }
         UITextField *textField = (UITextField *)[cell viewWithTag:1002];
         [textField addTarget:self action:@selector(textFieldWithText:) forControlEvents:UIControlEventEditingChanged];

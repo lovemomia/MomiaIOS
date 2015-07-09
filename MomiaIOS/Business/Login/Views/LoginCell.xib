@@ -40,37 +40,22 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ybP-IN-m9o" id="rEs-WV-CWF">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" clipsSubviews="YES" tag="1002" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kuk-1j-vAU">
-                        <rect key="frame" x="80" y="0.0" width="156" height="43.5"/>
+                    <textField opaque="NO" clipsSubviews="YES" tag="1002" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kuk-1j-vAU">
+                        <rect key="frame" x="80" y="0.0" width="229" height="43.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES"/>
                     </textField>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="验证码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Md9-mr-ccJ">
-                        <rect key="frame" x="16" y="11" width="51" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Md9-mr-ccJ">
+                        <rect key="frame" x="16" y="11" width="33" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LY-t4-HRY">
-                        <rect key="frame" x="259" y="10" width="45" height="24"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="45" id="9O4-9H-o67"/>
-                            <constraint firstAttribute="height" constant="24" id="haj-eH-o0z"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <state key="normal" title="获取">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Kuk-1j-vAU" firstAttribute="leading" secondItem="rEs-WV-CWF" secondAttribute="leading" constant="80" id="6cb-nr-48J"/>
-                    <constraint firstItem="0LY-t4-HRY" firstAttribute="leading" secondItem="Kuk-1j-vAU" secondAttribute="trailing" constant="23" id="Mmb-p5-eDX"/>
+                    <constraint firstAttribute="trailing" secondItem="Kuk-1j-vAU" secondAttribute="trailing" constant="11" id="ErQ-VY-XVw"/>
                     <constraint firstItem="Kuk-1j-vAU" firstAttribute="top" secondItem="rEs-WV-CWF" secondAttribute="top" id="N1B-4z-37C"/>
-                    <constraint firstItem="0LY-t4-HRY" firstAttribute="top" secondItem="rEs-WV-CWF" secondAttribute="top" constant="10" id="Yv5-3W-EiV"/>
-                    <constraint firstAttribute="trailing" secondItem="0LY-t4-HRY" secondAttribute="trailing" constant="16" id="bzG-O2-s7t"/>
-                    <constraint firstAttribute="bottom" secondItem="0LY-t4-HRY" secondAttribute="bottom" constant="10" id="emf-yu-657"/>
                     <constraint firstAttribute="bottom" secondItem="Kuk-1j-vAU" secondAttribute="bottom" id="rMZ-1g-1dg"/>
                 </constraints>
             </tableViewCellContentView>

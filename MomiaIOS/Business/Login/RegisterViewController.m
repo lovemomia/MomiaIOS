@@ -17,6 +17,7 @@
 @property (nonatomic, assign) NSTimer *timer;
 
 @property(nonatomic, strong)NSString *nickName;
+@property(nonatomic, strong)NSString *password;
 @property(nonatomic, strong)NSString *phone;
 @property(nonatomic, strong)NSString *vercode;
 
@@ -92,6 +93,11 @@
         return;
     }
     
+    if (self.password.length == 0) {
+        [self showDialogWithTitle:nil message:@"密码不能为空"];
+        return;
+    }
+    
     if (self.phone.length == 0) {
         [self showDialogWithTitle:nil message:@"手机号不能为空"];
         return;
@@ -104,7 +110,7 @@
     
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    NSDictionary *params = @{@"nickName":self.nickName, @"mobile":self.phone, @"code":self.vercode};
+    NSDictionary *params = @{@"nickName":self.nickName, @"password":self.password, @"mobile":self.phone, @"code":self.vercode};
     [[HttpService defaultService]POST:URL_APPEND_PATH(@"/auth/register")
                            parameters:params JSONModelClass:[AccountModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -133,7 +139,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 4;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -177,7 +183,7 @@
             UITextField *textField = (UITextField *)[cell viewWithTag:1001];
             [textField addTarget:self action:@selector(textFieldWithText:) forControlEvents:UIControlEventEditingChanged];
             
-        } else if (indexPath.row == 1) {
+        }  else if (indexPath.row == 1) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"RegisterCell" owner:self options:nil];
             cell = [arr objectAtIndex:1];
             
@@ -191,7 +197,14 @@
             UITextField *textField = (UITextField *)[cell viewWithTag:1003];
             [textField addTarget:self action:@selector(textFieldWithText:) forControlEvents:UIControlEventEditingChanged];
             
-            self.vercodeButton = (UIButton *)[cell viewWithTag:1004];
+        } else if (indexPath.row == 3) {
+            NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"RegisterCell" owner:self options:nil];
+            cell = [arr objectAtIndex:3];
+            
+            UITextField *textField = (UITextField *)[cell viewWithTag:1004];
+            [textField addTarget:self action:@selector(textFieldWithText:) forControlEvents:UIControlEventEditingChanged];
+            
+            self.vercodeButton = (UIButton *)[cell viewWithTag:1005];
             [self.vercodeButton addTarget:self action:@selector(onVercodeClicked:) forControlEvents:UIControlEventTouchUpInside];
             [self.vercodeButton setBackgroundImage:[UIImage imageNamed:@"cm_small_button_normal"] forState:UIControlStateNormal];
             [self.vercodeButton setBackgroundImage:[UIImage imageNamed:@"cm_small_button_disable"] forState:UIControlStateDisabled];
@@ -208,8 +221,10 @@
     if (textField.tag == 1001) {
         self.nickName = textField.text;
     } else if (textField.tag == 1002) {
-        self.phone = textField.text;
+        self.password = textField.text;
     } else if (textField.tag == 1003) {
+        self.phone = textField.text;
+    } else if (textField.tag == 1004) {
         self.vercode = textField.text;
     }
 }
