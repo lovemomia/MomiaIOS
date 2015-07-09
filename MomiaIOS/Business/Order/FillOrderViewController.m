@@ -366,7 +366,8 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
         
     } else if(section == 2) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        if(row == 0) {//单击出行人
+        
+        if(row == 0 && self.needRealName) {//单击出行人
             PersonStyle personStyle = self.personCount;
             if(!personStyle.adult && !personStyle.child) {
                 MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];

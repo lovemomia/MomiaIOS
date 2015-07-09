@@ -56,14 +56,14 @@ static NSString * orderDetailBottomIdentifier = @"CellOrderDetailBottom";
         height = 100;
     } else if(section == 1) {
         if(row ==0) {
-            height = 30;
+            height = 40;
         } else {
             height = 120;
         }
         
     } else if(section == 2) {
         if(row == 0) {
-            height = 30;
+            height = 40;
         } else {
             height = 60;
         }
@@ -86,6 +86,7 @@ static NSString * orderDetailBottomIdentifier = @"CellOrderDetailBottom";
         if(row == 0) {
             UITableViewCell * title = [self.tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
             title.textLabel.text = @"订单信息";
+            title.textLabel.textColor = UIColorFromRGB(0x333333);
             cell = title;
         } else {
             OrderDetailMiddleCell * middle = [OrderDetailMiddleCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:orderDetailMiddleIdentifier];
@@ -97,6 +98,7 @@ static NSString * orderDetailBottomIdentifier = @"CellOrderDetailBottom";
         if(row == 0) {
             UITableViewCell * title = [self.tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
             title.textLabel.text = @"联系人信息";
+            title.textLabel.textColor = UIColorFromRGB(0x333333);
             cell = title;
         } else {
             OrderDetailBottomCell * bottom = [OrderDetailBottomCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:orderDetailBottomIdentifier];
@@ -106,8 +108,21 @@ static NSString * orderDetailBottomIdentifier = @"CellOrderDetailBottom";
 
     }
     return cell;
-    
-    
+
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    if(section == 0) {
+        if(row == 0) {
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://productdetail?id=%@",self.pId]];
+            
+            [[UIApplication sharedApplication] openURL:url];
+        }
+    }
+
 }
 
 - (UITableViewStyle)tableViewStyle {
@@ -154,6 +169,8 @@ static NSString * orderDetailBottomIdentifier = @"CellOrderDetailBottom";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.navigationItem.title = @"我的订单";
+    
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:identifier];
     [OrderDetailTopCell registerCellWithTableView:self.tableView withIdentifier:orderDetailTopIdentifier];
     [OrderDetailMiddleCell registerCellWithTableView:self.tableView withIdentifier:orderDetailMiddleIdentifier];

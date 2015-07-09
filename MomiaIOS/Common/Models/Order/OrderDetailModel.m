@@ -11,7 +11,7 @@
 @implementation OrderDetailDataModel
 
 + (JSONKeyMapper *)keyMapper {
-    return [[JSONKeyMapper alloc] initWithDictionary:@{@"id":@"upId"}];
+    return [[JSONKeyMapper alloc] initWithDictionary:@{@"id":@"orderNo"}];
 }
 
 @end
