@@ -14,6 +14,7 @@
 #import "CommonHeaderView.h"
 #import "PayChannel.h"
 #import "WechatPayModel.h"
+#import "WXApi.h"
 
 static NSString * identifier = @"HeaderViewCashPayBottomHeader";
 static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
@@ -66,9 +67,9 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     NSDictionary * params = @{@"trade_type":@"APP",
-                              @"oid":[NSString stringWithFormat:@"%d", self.order.data.orderId],
-                              @"pid":[NSString stringWithFormat:@"%d", self.order.data.productId],
-                              @"sid":[NSString stringWithFormat:@"%d", self.order.data.skuId]};
+                              @"oid":[NSString stringWithFormat:@"%ld", self.order.data.orderId],
+                              @"pid":[NSString stringWithFormat:@"%ld", self.order.data.productId],
+                              @"sid":[NSString stringWithFormat:@"%ld", self.order.data.skuId]};
     [[HttpService defaultService]POST:URL_HTTPS_APPEND_PATH(@"/payment/prepay/wechatpay")
                           parameters:params JSONModelClass:[WechatPayModel class]
                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -77,6 +78,7 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
                                  //前往支付
                                  if ([responseObject isKindOfClass:[WechatPayModel class]]) {
                                      [self.delegate sendPay:((WechatPayModel *)responseObject).data];
+                                     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onPayResp:) name:@"payResp" object:nil];
                                  }
                              }
      
@@ -88,6 +90,28 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
 
 - (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle {
     return UITableViewCellSeparatorStyleSingleLine;
+}
+
+-(void)onPayResp:(NSNotification*)notify {
+    BaseResp *resp = notify.object;
+    if([resp isKindOfClass:[SendMessageToWXResp class]]) {
+        
+        
+    } else if([resp isKindOfClass:[PayResp class]]) {
+        if (resp.errCode == WXSuccess) {
+            NSURL *url = [NSURL URLWithString:@"duola://paysuccess"];
+            [[UIApplication sharedApplication] openURL:url];
+            
+        } else {
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            // Configure for text only and offset down
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText = resp.errStr;
+            hud.margin = 10.f;
+            hud.removeFromSuperViewOnHide = YES;
+            [hud hide:YES afterDelay:1];
+        }
+    }
 }
 
 #pragma mark - datasource & delegate

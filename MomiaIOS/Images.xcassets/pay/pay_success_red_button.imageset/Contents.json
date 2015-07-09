@@ -2,16 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "pay_success_red_button.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "goodsnum@2x.png"
+      "filename" : "pay_success_red_button@2x.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "pay_success_red_button@3x.png"
     }
   ],
   "info" : {

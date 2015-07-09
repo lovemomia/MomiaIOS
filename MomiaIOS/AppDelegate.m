@@ -297,22 +297,7 @@
 }
 
 -(void) onResp:(BaseResp*)resp {
-    if([resp isKindOfClass:[SendMessageToWXResp class]]) {
-        
-        
-    } else if([resp isKindOfClass:[PayResp class]]) {
-        switch (resp.errCode) {
-            case WXSuccess:
-                // 支付成功
-                NSLog(@"pay success");
-                break;
-                
-            default:
-                // 支付失败
-                NSLog(@"pay failed");
-                break;
-        }
-    }
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"payResp" object:resp];
 }
 
 //============================================================

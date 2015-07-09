@@ -145,6 +145,9 @@
 		BC97DEFF1B4BCFF1002B1A00 /* PayChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DEFE1B4BCFF1002B1A00 /* PayChannel.m */; };
 		BC97DF031B4BE1EF002B1A00 /* WechatPayData.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DF021B4BE1EF002B1A00 /* WechatPayData.m */; };
 		BC97DF061B4BE21F002B1A00 /* WechatPayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DF051B4BE21F002B1A00 /* WechatPayModel.m */; };
+		BC97DF0D1B4D2211002B1A00 /* PaySuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DF0B1B4D2211002B1A00 /* PaySuccessViewController.m */; };
+		BC97DF0E1B4D2211002B1A00 /* PaySuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC97DF0C1B4D2211002B1A00 /* PaySuccessViewController.xib */; };
+		BC97DF111B4D463C002B1A00 /* PayCheckModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DF101B4D463C002B1A00 /* PayCheckModel.m */; };
 		BCA272FD1AE8A2C7002E7534 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA272FB1AE8A2C7002E7534 /* MineViewController.m */; };
 		BCA273061AE8D0E9002E7534 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273051AE8D0E9002E7534 /* Launch Screen.xib */; };
 		BCA273101AE9D79F002E7534 /* scheme.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCA2730F1AE9D79F002E7534 /* scheme.plist */; };
@@ -444,6 +447,11 @@
 		BC97DF021B4BE1EF002B1A00 /* WechatPayData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WechatPayData.m; path = Common/Models/Pay/WechatPayData.m; sourceTree = "<group>"; };
 		BC97DF041B4BE21F002B1A00 /* WechatPayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WechatPayModel.h; path = Common/Models/Pay/WechatPayModel.h; sourceTree = "<group>"; };
 		BC97DF051B4BE21F002B1A00 /* WechatPayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WechatPayModel.m; path = Common/Models/Pay/WechatPayModel.m; sourceTree = "<group>"; };
+		BC97DF0A1B4D2211002B1A00 /* PaySuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaySuccessViewController.h; sourceTree = "<group>"; };
+		BC97DF0B1B4D2211002B1A00 /* PaySuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaySuccessViewController.m; sourceTree = "<group>"; };
+		BC97DF0C1B4D2211002B1A00 /* PaySuccessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaySuccessViewController.xib; sourceTree = "<group>"; };
+		BC97DF0F1B4D463C002B1A00 /* PayCheckModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayCheckModel.h; path = Common/Models/Pay/PayCheckModel.h; sourceTree = "<group>"; };
+		BC97DF101B4D463C002B1A00 /* PayCheckModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PayCheckModel.m; path = Common/Models/Pay/PayCheckModel.m; sourceTree = "<group>"; };
 		BCA272FA1AE8A2C7002E7534 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineViewController.h; path = Business/Mine/MineViewController.h; sourceTree = "<group>"; };
 		BCA272FB1AE8A2C7002E7534 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineViewController.m; path = Business/Mine/MineViewController.m; sourceTree = "<group>"; };
 		BCA273051AE8D0E9002E7534 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
@@ -1183,6 +1191,8 @@
 				BC97DF021B4BE1EF002B1A00 /* WechatPayData.m */,
 				BC97DF041B4BE21F002B1A00 /* WechatPayModel.h */,
 				BC97DF051B4BE21F002B1A00 /* WechatPayModel.m */,
+				BC97DF0F1B4D463C002B1A00 /* PayCheckModel.h */,
+				BC97DF101B4D463C002B1A00 /* PayCheckModel.m */,
 			);
 			name = Pay;
 			sourceTree = "<group>";
@@ -1329,12 +1339,15 @@
 		BCE589481B2AF35E00736923 /* Pay */ = {
 			isa = PBXGroup;
 			children = (
+				BCE5894C1B2AF35E00736923 /* Views */,
 				5A33F18F1B2E9FC5002A8258 /* CashPayViewController.h */,
 				5A33F1901B2E9FC5002A8258 /* CashPayViewController.m */,
 				BCE589591B2AF37C00736923 /* WechatPayDelegate.h */,
-				BCE5894C1B2AF35E00736923 /* Views */,
 				BC97DEFD1B4BCFF1002B1A00 /* PayChannel.h */,
 				BC97DEFE1B4BCFF1002B1A00 /* PayChannel.m */,
+				BC97DF0A1B4D2211002B1A00 /* PaySuccessViewController.h */,
+				BC97DF0B1B4D2211002B1A00 /* PaySuccessViewController.m */,
+				BC97DF0C1B4D2211002B1A00 /* PaySuccessViewController.xib */,
 			);
 			name = Pay;
 			path = Business/Pay;
@@ -1502,6 +1515,7 @@
 				5A08C13E1B39117100642648 /* ProductDetailCarouselCell.xib in Resources */,
 				5A8EF0361B31407B003ABAF8 /* HomeCell.xib in Resources */,
 				BCCDF66E1B0B4E4C008BAE12 /* WeiboSDK.bundle in Resources */,
+				BC97DF0E1B4D2211002B1A00 /* PaySuccessViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1600,9 +1614,11 @@
 				BC97DEFF1B4BCFF1002B1A00 /* PayChannel.m in Sources */,
 				5A1B35F61B12C0D200E1D31B /* CommentCell.m in Sources */,
 				BC8540911ADF74E9005A7C54 /* main.m in Sources */,
+				BC97DF111B4D463C002B1A00 /* PayCheckModel.m in Sources */,
 				5A0643751B3BE9E500361732 /* OrderUpdatePersonSelectCell.m in Sources */,
 				5A8EF03D1B31619E003ABAF8 /* ProductModel.m in Sources */,
 				5AC9FFC91B17020300C769EF /* SubmitPostModel.m in Sources */,
+				BC97DF0D1B4D2211002B1A00 /* PaySuccessViewController.m in Sources */,
 				BC82542F1B39505E00430A6F /* PlaymateViewController.m in Sources */,
 				BC82542B1B3917AC00430A6F /* MORootViewController.m in Sources */,
 				5ABDA57B1B423FD8003BAE80 /* PostPersonModel.m in Sources */,

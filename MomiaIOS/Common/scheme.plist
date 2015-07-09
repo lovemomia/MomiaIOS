@@ -151,9 +151,18 @@
 		<key>controller</key>
 		<string>CashPayViewController</string>
 		<key>needlogin</key>
-		<false/>
+		<true/>
 		<key>desc</key>
 		<string>收银台</string>
+	</dict>
+	<key>paysuccess</key>
+	<dict>
+		<key>controller</key>
+		<string>PaySuccessViewController</string>
+		<key>needlogin</key>
+		<true/>
+		<key>desc</key>
+		<string>支付成功</string>
 	</dict>
 	<key>productdetail</key>
 	<dict>
