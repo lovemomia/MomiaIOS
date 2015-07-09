@@ -99,7 +99,8 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
         
     } else if([resp isKindOfClass:[PayResp class]]) {
         if (resp.errCode == WXSuccess) {
-            NSURL *url = [NSURL URLWithString:@"duola://paysuccess"];
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://payresult?oid=%d&pid=%d&sid=%d",
+                                               self.order.data.orderId, self.order.data.productId, self.order.data.skuId]];
             [[UIApplication sharedApplication] openURL:url];
             
         } else {

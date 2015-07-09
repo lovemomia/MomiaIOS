@@ -1,26 +1,28 @@
 //
-//  PaySuccessViewController.m
+//  PayResultViewController.m
 //  MomiaIOS
 //
-//  Created by Deng Jun on 15/7/8.
+//  Created by Deng Jun on 15/7/9.
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "PaySuccessViewController.h"
+#import "PayResultViewController.h"
 #import "PayCheckModel.h"
 
-@interface PaySuccessViewController ()
+@interface PayResultViewController ()
 
 @property (nonatomic, strong) NSString *oid;
 @property (nonatomic, strong) NSString *pid;
 @property (nonatomic, strong) NSString *sid;
 
+@property (nonatomic, strong) PayCheckModel *payCheckResult;
+
 @end
 
-@implementation PaySuccessViewController
+@implementation PayResultViewController
 
 - (instancetype)initWithParams:(NSDictionary *)params {
-    if (self = [super initWithParams:params]) {
+    if (self = [super initWithNibName:@"PayResultViewController" bundle:nil]) {
         self.oid = [params objectForKey:@"oid"];
         self.pid = [params objectForKey:@"pid"];
         self.sid = [params objectForKey:@"sid"];
@@ -31,8 +33,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
     self.navigationItem.title = @"支付结果";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"回到首页" style:UIBarButtonItemStyleDone target:self action:@selector(onBackToHome)];
+    
+    [self checkPayResult];
+}
+
+- (void)onBackToHome {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)checkPayResult {
@@ -43,14 +51,17 @@
                            parameters:params JSONModelClass:[PayCheckModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                  PayCheckModel *result = (PayCheckModel *)responseObject;
-                                  if ([result.data isEqualToString:@"OK"]) {
-                                      NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"PaySuccessViewController" owner:self options:nil];
-                                      self.view = [arr objectAtIndex:0];
+                                  self.payCheckResult = (PayCheckModel *)responseObject;
+                                  
+                                  if ([self.payCheckResult.data isEqualToString:@"OK"]) {
+                                      self.titleLabel.text = @"您已购买成功";
+                                      self.descLabel.text = @"活动前一天，或者活动发生变更，都会有短信通知您";
+                                      
                                   } else {
-                                      NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"PaySuccessViewController" owner:self options:nil];
-                                      self.view = [arr objectAtIndex:1];
+                                      self.titleLabel.text = @"购买失败";
+                                      self.descLabel.text = @"请重新确认订单，如有问题可拨打客服热线：021-62578700";
                                   }
+
                               }
      
                               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -74,12 +85,9 @@
 }
 */
 
-- (IBAction)onShareClick:(id)sender {
+- (IBAction)onLeftButtonClicked:(id)sender {
 }
 
-- (IBAction)onMyOrderClick:(id)sender {
-    NSURL *url = [NSURL URLWithString:@"duola://orderlist"];
-    [[UIApplication sharedApplication] openURL:url];
+- (IBAction)onRightButtonClicked:(id)sender {
 }
-
 @end

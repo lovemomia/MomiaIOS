@@ -164,6 +164,15 @@
 		<key>desc</key>
 		<string>支付成功</string>
 	</dict>
+	<key>payresult</key>
+	<dict>
+		<key>controller</key>
+		<string>PayResultViewController</string>
+		<key>needlogin</key>
+		<true/>
+		<key>desc</key>
+		<string>支付成功</string>
+	</dict>
 	<key>productdetail</key>
 	<dict>
 		<key>controller</key>
