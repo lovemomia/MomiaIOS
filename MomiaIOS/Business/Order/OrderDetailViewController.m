@@ -53,19 +53,19 @@ static NSString * orderDetailBottomIdentifier = @"CellOrderDetailBottom";
     NSInteger row = indexPath.row;
     
     if(section == 0) {
-        height = 100;
+        height = 103;
     } else if(section == 1) {
         if(row ==0) {
             height = 40;
         } else {
-            height = 120;
+            height = 126;
         }
         
     } else if(section == 2) {
         if(row == 0) {
             height = 40;
         } else {
-            height = 60;
+            height = 57;
         }
     }
     return height;
