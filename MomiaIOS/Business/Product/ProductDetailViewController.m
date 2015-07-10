@@ -8,6 +8,7 @@
 
 #import "ProductDetailViewController.h"
 #import "ProductDetailCarouselCell.h"
+#import "ProductDetailTagsCell.h"
 #import "ProductDetailEnrollCell.h"
 #import "ProductDetailBasicInfoCell.h"
 #import "ProductDetailContentCell.h"
@@ -19,6 +20,7 @@ static NSString * productDetailCarouselIdentifier = @"CellProductDetailCarousel"
 static NSString * productDetailEnrollIdentifier = @"CellProductDetailEnroll";
 static NSString * productDetailBasicInfoIdentifier = @"CellProductDetailBasicInfo";
 static NSString * productDetailContentIdentifier = @"CellProductDetailContent";
+static NSString * productDetailTagsIdentifier = @"CellProductDetailTags";
 
 typedef enum
 {
@@ -71,6 +73,7 @@ typedef enum
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(section == 0) {
+        if (self.model.data.tags.count > 0) return 2;
         return 1;
     } else if(section == 1) {
         return 3;
@@ -88,8 +91,11 @@ typedef enum
 {
     CGFloat height = 0;
     NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
     if(section == 0) {
-        height = [ProductDetailCarouselCell heightWithTableView:tableView withIdentifier:productDetailCarouselIdentifier forIndexPath:indexPath data:self.model.data];
+        if(row == 0)
+            height = [ProductDetailCarouselCell heightWithTableView:tableView withIdentifier:productDetailCarouselIdentifier forIndexPath:indexPath data:self.model.data];
+        else height = 43;
     } else if(section == 1) {
         height = [ProductDetailBasicInfoCell heightWithTableView:tableView withIdentifier:productDetailBasicInfoIdentifier forIndexPath:indexPath data:@"蛮好哦"];
         
@@ -109,9 +115,15 @@ typedef enum
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     if(section == 0) {
-        ProductDetailCarouselCell * carousel = [ProductDetailCarouselCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:productDetailCarouselIdentifier];
-        carousel.data = self.model.data;
-        cell = carousel;
+        if(row == 0) {
+            ProductDetailCarouselCell * carousel = [ProductDetailCarouselCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:productDetailCarouselIdentifier];
+            carousel.data = self.model.data;
+            cell = carousel;
+        } else {
+            ProductDetailTagsCell * tags = [ProductDetailTagsCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:productDetailTagsIdentifier];
+            [tags setData:self.model.data];
+            cell = tags;
+        }
     } else if(section == 1) {
         ProductDetailBasicInfoCell * basicInfo = [ProductDetailBasicInfoCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:productDetailBasicInfoIdentifier];
         [basicInfo setData:self.model.data withIndex:row];
@@ -214,7 +226,7 @@ typedef enum
     [ProductDetailCarouselCell registerCellWithTableView:self.tableView withIdentifier:productDetailCarouselIdentifier];
     [ProductDetailEnrollCell registerCellWithTableView:self.tableView withIdentifier:productDetailEnrollIdentifier];
     [ProductDetailBasicInfoCell registerCellWithTableView:self.tableView withIdentifier:productDetailBasicInfoIdentifier];
-   
+    [ProductDetailTagsCell registerCellWithTableView:self.tableView withIdentifier:productDetailTagsIdentifier];
     [CommonHeaderView registerCellWithTableView:self.tableView];
     
     self.tableView.backgroundView = [[UIView alloc] init];

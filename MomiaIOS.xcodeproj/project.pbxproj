@@ -92,6 +92,8 @@
 		5AABF70F1B281BEF000A9D3F /* ConvertFromXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AABF70E1B281BEF000A9D3F /* ConvertFromXib.m */; };
 		5AB1BDDA1B4F7785004A4511 /* OrderDetailTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BDD81B4F7785004A4511 /* OrderDetailTitleCell.m */; };
 		5AB1BDDB1B4F7785004A4511 /* OrderDetailTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB1BDD91B4F7785004A4511 /* OrderDetailTitleCell.xib */; };
+		5AB1BDDF1B4F9B49004A4511 /* ProductDetailTagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BDDD1B4F9B49004A4511 /* ProductDetailTagsCell.m */; };
+		5AB1BDE01B4F9B49004A4511 /* ProductDetailTagsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB1BDDE1B4F9B49004A4511 /* ProductDetailTagsCell.xib */; };
 		5AB444821B41479800FBADD4 /* OrderPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB444811B41479800FBADD4 /* OrderPersonModel.m */; };
 		5ABDA57B1B423FD8003BAE80 /* PostPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABDA57A1B423FD8003BAE80 /* PostPersonModel.m */; };
 		5ABDA57E1B42625B003BAE80 /* AddOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABDA57D1B42625B003BAE80 /* AddOrderModel.m */; };
@@ -367,6 +369,9 @@
 		5AB1BDD71B4F7785004A4511 /* OrderDetailTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDetailTitleCell.h; path = Business/Order/views/OrderDetailTitleCell.h; sourceTree = "<group>"; };
 		5AB1BDD81B4F7785004A4511 /* OrderDetailTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDetailTitleCell.m; path = Business/Order/views/OrderDetailTitleCell.m; sourceTree = "<group>"; };
 		5AB1BDD91B4F7785004A4511 /* OrderDetailTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderDetailTitleCell.xib; path = Business/Order/views/OrderDetailTitleCell.xib; sourceTree = "<group>"; };
+		5AB1BDDC1B4F9B49004A4511 /* ProductDetailTagsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailTagsCell.h; sourceTree = "<group>"; };
+		5AB1BDDD1B4F9B49004A4511 /* ProductDetailTagsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailTagsCell.m; sourceTree = "<group>"; };
+		5AB1BDDE1B4F9B49004A4511 /* ProductDetailTagsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailTagsCell.xib; sourceTree = "<group>"; };
 		5AB444801B41479800FBADD4 /* OrderPersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderPersonModel.h; path = Common/Models/Order/OrderPersonModel.h; sourceTree = "<group>"; };
 		5AB444811B41479800FBADD4 /* OrderPersonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderPersonModel.m; path = Common/Models/Order/OrderPersonModel.m; sourceTree = "<group>"; };
 		5ABDA5791B423FD8003BAE80 /* PostPersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostPersonModel.h; path = Common/Models/Order/PostPersonModel.h; sourceTree = "<group>"; };
@@ -695,6 +700,9 @@
 				5A9E80E31B4BBF590028AC47 /* ProductPlayFellowCell.h */,
 				5A9E80E41B4BBF590028AC47 /* ProductPlayFellowCell.m */,
 				5A9E80E51B4BBF590028AC47 /* ProductPlayFellowCell.xib */,
+				5AB1BDDC1B4F9B49004A4511 /* ProductDetailTagsCell.h */,
+				5AB1BDDD1B4F9B49004A4511 /* ProductDetailTagsCell.m */,
+				5AB1BDDE1B4F9B49004A4511 /* ProductDetailTagsCell.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -1610,6 +1618,7 @@
 				5AC9FFCE1B17298C00C769EF /* FeedbackViewController.xib in Resources */,
 				BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */,
 				BCF564E51B4A54D0003A2227 /* PersonChildHeaderCell.xib in Resources */,
+				5AB1BDE01B4F9B49004A4511 /* ProductDetailTagsCell.xib in Resources */,
 				5A5A2AA11B43EEF4000595A9 /* OrderContactCell.xib in Resources */,
 				5AABF6FB1B28120C000A9D3F /* OrderUpdatePersonViewController.xib in Resources */,
 				5A08C13A1B39117100642648 /* ProductDetailViewController.xib in Resources */,
@@ -1773,6 +1782,7 @@
 				5A08C13D1B39117100642648 /* ProductDetailCarouselCell.m in Sources */,
 				BCF0339C1B4F77BE005B71D6 /* AlipayOrderModel.m in Sources */,
 				BC8254511B3D419F00430A6F /* PlaymatePeopleCell.m in Sources */,
+				5AB1BDDF1B4F9B49004A4511 /* ProductDetailTagsCell.m in Sources */,
 				5A9E81251B4BE8B40028AC47 /* OrderDetailTopCell.m in Sources */,
 				5A06436A1B3BCE7B00361732 /* FillOrderBottomCell.m in Sources */,
 				BCF564E01B491799003A2227 /* OrderListItemCell.m in Sources */,
