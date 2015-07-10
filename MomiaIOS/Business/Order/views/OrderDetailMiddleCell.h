@@ -1,15 +1,15 @@
 //
-//  OrderDetailTopCell.h
+//  OrderDetailMiddleCell.h
 //  MomiaIOS
 //
-//  Created by Owen on 15/7/7.
+//  Created by Owen on 15/7/9.
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
 #import "MOTableCell.h"
 #import "OrderDetailModel.h"
 
-@interface OrderDetailTopCell : MOTableCell<MOTableCellDataProtocol>
+@interface OrderDetailMiddleCell : MOTableCell<MOTableCellDataProtocol>
 
 -(void)setData:(OrderDetailDataModel *)model;
 

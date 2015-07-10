@@ -175,6 +175,54 @@
     }
 }
 
+- (void)showError:(NSString *)errMsg retry:(BlockOnRetryButtonClicked)retry {
+    UIView *view = [[UIView alloc] init];
+    view.tag = -100;
+    
+    UILabel *label = [[UILabel alloc]init];
+    label.text = errMsg;
+    label.textColor =  UIColorFromRGB(0x333333);
+    label.numberOfLines = 0;
+    
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 45, 24)];
+    [button addAction:^(UIButton *btn) {
+        retry();
+    } forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:@"重试" forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageNamed:@"pay_success_green_button"] forState:UIControlStateNormal];
+    
+    
+    [view addSubview:label];
+    [view addSubview:button];
+    [self addSubview:view];
+    
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(view.mas_top).with.offset(0);
+        make.centerX.equalTo(view.mas_centerX);
+        make.left.equalTo(view.mas_left).with.offset(0);
+        make.right.equalTo(view.mas_right).with.offset(0);
+    }];
+    [button mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(label.mas_bottom).with.offset(10);
+        make.centerX.equalTo(view.mas_centerX);
+    }];
+    
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@200);
+        make.height.greaterThanOrEqualTo(@100);
+        make.center.equalTo(self);
+    }];
+}
+
+- (void)removeError {
+    for ( UIView* errorView in [self subviews]){
+        if (errorView.tag == -1) {
+            [errorView removeFromSuperview];
+            break;
+        }
+    }
+}
+
 - (void)removeAllSubviews{
     for ( UIView* subview in [self subviews]){
         [subview removeFromSuperview];

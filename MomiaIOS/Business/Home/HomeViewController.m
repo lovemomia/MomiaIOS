@@ -92,6 +92,9 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
         [self.tableView.header endRefreshing];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.view showError:error.message retry:^{
+            [self requestData];
+        }];
         NSLog(@"Error: %@", error);
     }];
 }
