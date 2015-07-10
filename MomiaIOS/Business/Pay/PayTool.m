@@ -7,11 +7,10 @@
 //
 
 #import "PayTool.h"
-#import "AlipayOrder.h"
 
 @implementation PayTool
 
-- (void)startAlipay {
+- (void)startAlipay:(AlipayOrder *)order {
 //    AlipayOrder *order = [[AlipayOrder alloc] init];
 //    order.partner = @"2088911944697039";
 //    order.seller = seller;

@@ -137,6 +137,15 @@
 		<key>desc</key>
 		<string>选择出行人</string>
 	</dict>
+	<key>people</key>
+	<dict>
+		<key>controller</key>
+		<string>PeopleViewController</string>
+		<key>needlogin</key>
+		<true/>
+		<key>desc</key>
+		<string>常用出行人</string>
+	</dict>
 	<key>orderupdateperson</key>
 	<dict>
 		<key>controller</key>

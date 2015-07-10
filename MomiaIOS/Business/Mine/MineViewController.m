@@ -107,7 +107,7 @@
             break;
         case 2:
             if(row == 0) {
-                NSURL *url = [NSURL URLWithString:@"duola://feedback"];
+                NSURL *url = [NSURL URLWithString:@"duola://people"];
                 [[UIApplication sharedApplication ] openURL:url];
                 
             } else {
@@ -174,15 +174,19 @@
             case 1:
                 if (row == 0) {
                     cell.textLabel.text = @"已付款订单";
+                    cell.imageView.image = [UIImage imageNamed:@"ic_payed"];
                 } else {
                     cell.textLabel.text = @"待付款订单";
+                    cell.imageView.image = [UIImage imageNamed:@"ic_paying"];
                 }
                 break;
             case 2:
                 if (row == 0) {
                     cell.textLabel.text = @"常用出行人";
+                    cell.imageView.image = [UIImage imageNamed:@"ic_people"];
                 } else {
                     cell.textLabel.text = @"意见反馈";
+                    cell.imageView.image = [UIImage imageNamed:@"ic_feedback"];
                 }
                 break;
             default:
@@ -196,7 +200,11 @@
 //    if (section == 0) {
 //        return 0.1;
 //    }
-    return [super tableView:tableView heightForHeaderInSection:section];
+    return 10;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.1;
 }
 
 - (void)shareToFriend {

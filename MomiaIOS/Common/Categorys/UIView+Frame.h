@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef void (^BlockOnRetryButtonClicked)();
+
 @interface UIView(BDPFrame)
 
 @property (nonatomic, assign) float width;
@@ -49,6 +51,9 @@
 
 - (void)showLoadingBee;
 - (void)removeLoadingBee;
+
+- (void)showError:(NSString *)errMsg retry:(BlockOnRetryButtonClicked)retry;
+- (void)removeError;
 
 - (void)removeAllSubviews;
 

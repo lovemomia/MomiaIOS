@@ -10,9 +10,10 @@
 
 #import <Foundation/Foundation.h>
 #import <AlipaySDK/AlipaySDK.h>
+#import "AlipayOrder.h"
 
 @interface PayTool : NSObject
 
-- (void)startAlipay;
+- (void)startAlipay:(AlipayOrder *)order;
 
 @end
