@@ -110,7 +110,7 @@
     
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    NSDictionary *params = @{@"nickName":self.nickName, @"password":self.password, @"mobile":self.phone, @"code":self.vercode};
+    NSDictionary *params = @{@"nickname":self.nickName, @"password":self.password, @"mobile":self.phone, @"code":self.vercode};
     [[HttpService defaultService]POST:URL_APPEND_PATH(@"/auth/register")
                            parameters:params JSONModelClass:[AccountModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {

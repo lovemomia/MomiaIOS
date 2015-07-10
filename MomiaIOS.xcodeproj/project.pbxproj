@@ -90,6 +90,8 @@
 		5AABF6FA1B28120C000A9D3F /* OrderUpdatePersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AABF6F81B28120C000A9D3F /* OrderUpdatePersonViewController.m */; };
 		5AABF6FB1B28120C000A9D3F /* OrderUpdatePersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AABF6F91B28120C000A9D3F /* OrderUpdatePersonViewController.xib */; };
 		5AABF70F1B281BEF000A9D3F /* ConvertFromXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AABF70E1B281BEF000A9D3F /* ConvertFromXib.m */; };
+		5AB1BDDA1B4F7785004A4511 /* OrderDetailTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BDD81B4F7785004A4511 /* OrderDetailTitleCell.m */; };
+		5AB1BDDB1B4F7785004A4511 /* OrderDetailTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB1BDD91B4F7785004A4511 /* OrderDetailTitleCell.xib */; };
 		5AB444821B41479800FBADD4 /* OrderPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB444811B41479800FBADD4 /* OrderPersonModel.m */; };
 		5ABDA57B1B423FD8003BAE80 /* PostPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABDA57A1B423FD8003BAE80 /* PostPersonModel.m */; };
 		5ABDA57E1B42625B003BAE80 /* AddOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABDA57D1B42625B003BAE80 /* AddOrderModel.m */; };
@@ -360,6 +362,9 @@
 		5AABF6F91B28120C000A9D3F /* OrderUpdatePersonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderUpdatePersonViewController.xib; path = Business/Order/OrderUpdatePersonViewController.xib; sourceTree = "<group>"; };
 		5AABF70D1B281BEF000A9D3F /* ConvertFromXib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConvertFromXib.h; path = Common/Utils/ConvertFromXib.h; sourceTree = "<group>"; };
 		5AABF70E1B281BEF000A9D3F /* ConvertFromXib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConvertFromXib.m; path = Common/Utils/ConvertFromXib.m; sourceTree = "<group>"; };
+		5AB1BDD71B4F7785004A4511 /* OrderDetailTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDetailTitleCell.h; path = Business/Order/views/OrderDetailTitleCell.h; sourceTree = "<group>"; };
+		5AB1BDD81B4F7785004A4511 /* OrderDetailTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDetailTitleCell.m; path = Business/Order/views/OrderDetailTitleCell.m; sourceTree = "<group>"; };
+		5AB1BDD91B4F7785004A4511 /* OrderDetailTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderDetailTitleCell.xib; path = Business/Order/views/OrderDetailTitleCell.xib; sourceTree = "<group>"; };
 		5AB444801B41479800FBADD4 /* OrderPersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderPersonModel.h; path = Common/Models/Order/OrderPersonModel.h; sourceTree = "<group>"; };
 		5AB444811B41479800FBADD4 /* OrderPersonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderPersonModel.m; path = Common/Models/Order/OrderPersonModel.m; sourceTree = "<group>"; };
 		5ABDA5791B423FD8003BAE80 /* PostPersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostPersonModel.h; path = Common/Models/Order/PostPersonModel.h; sourceTree = "<group>"; };
@@ -821,6 +826,9 @@
 				5A794F9A1B4E7F0F00BB3B7C /* OrderDetailBottomCell.h */,
 				5A794F9B1B4E7F0F00BB3B7C /* OrderDetailBottomCell.m */,
 				5A794F9C1B4E7F0F00BB3B7C /* OrderDetailBottomCell.xib */,
+				5AB1BDD71B4F7785004A4511 /* OrderDetailTitleCell.h */,
+				5AB1BDD81B4F7785004A4511 /* OrderDetailTitleCell.m */,
+				5AB1BDD91B4F7785004A4511 /* OrderDetailTitleCell.xib */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -1620,6 +1628,7 @@
 				5A82F1A41B257449000D2C60 /* FillOrderViewController.xib in Resources */,
 				5A9E81261B4BE8B40028AC47 /* OrderDetailTopCell.xib in Resources */,
 				5A83074F1B3291430057412A /* CommonHeaderView.xib in Resources */,
+				5AB1BDDB1B4F7785004A4511 /* OrderDetailTitleCell.xib in Resources */,
 				5A08C13E1B39117100642648 /* ProductDetailCarouselCell.xib in Resources */,
 				5A8EF0361B31407B003ABAF8 /* HomeCell.xib in Resources */,
 				5A9E80E21B4BBD2B0028AC47 /* ProductPlayFellowHeaderView.xib in Resources */,
@@ -1787,6 +1796,7 @@
 				5A1B35F31B12BE2400E1D31B /* SendCommentView.m in Sources */,
 				BCCDF5E51B09EBF8008BAE12 /* UITextView+Placeholder.m in Sources */,
 				5A8EF0401B31A4A2003ABAF8 /* NSString+MOAttribuedString.m in Sources */,
+				5AB1BDDA1B4F7785004A4511 /* OrderDetailTitleCell.m in Sources */,
 				BC41ABAD1B0C7ABF00A419DA /* UploadImageModel.m in Sources */,
 				5A18DC471B292BDF001458A4 /* UITableView+FDTemplateLayoutHeader.m in Sources */,
 				5A794F9D1B4E7F0F00BB3B7C /* OrderDetailBottomCell.m in Sources */,
