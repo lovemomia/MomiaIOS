@@ -1,0 +1,16 @@
+//
+//  ThirdShareHelper.h
+//  MomiaIOS
+//
+//  Created by Deng Jun on 15/7/10.
+//  Copyright (c) 2015年 Deng Jun. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import "WXApi.h"
+
+@interface ThirdShareHelper : NSObject
+
+- (void)shareToWechat:(NSString *)url title:(NSString *)title desc:(NSString *)desc scene:(NSInteger)scene ;
+
+@end

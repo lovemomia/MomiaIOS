@@ -52,7 +52,7 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
     }
 
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_search"] style:UIBarButtonItemStylePlain target:self action:@selector(onSearchClick)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_search"] style:UIBarButtonItemStylePlain target:self action:@selector(onSearchClick)];
     
     
     [HomeCarouselCell registerCellWithTableView:self.tableView withIdentifier:homeCarouselIdentifier];
@@ -92,6 +92,7 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
         [self.tableView.header endRefreshing];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.tableView.header endRefreshing];
         [self.view showError:error.message retry:^{
             [self requestData];
         }];

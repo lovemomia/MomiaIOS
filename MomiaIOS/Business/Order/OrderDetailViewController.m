@@ -11,8 +11,9 @@
 #import "OrderDetailTopCell.h"
 #import "OrderDetailMiddleCell.h"
 #import "OrderDetailBottomCell.h"
+#import "OrderDetailTitleCell.h"
 
-static NSString * identifier = @"CellOrderDetail";
+static NSString * orderDetailTitleIdentifier = @"CellOrderDetailTitle";
 static NSString * orderDetailTopIdentifier = @"CellOrderDetailTop";
 static NSString * orderDetailMiddleIdentifier = @"CellOrderDetailMiddle";
 static NSString * orderDetailBottomIdentifier = @"CellOrderDetailBottom";
@@ -53,19 +54,19 @@ static NSString * orderDetailBottomIdentifier = @"CellOrderDetailBottom";
     NSInteger row = indexPath.row;
     
     if(section == 0) {
-        height = 100;
+        height = 103;
     } else if(section == 1) {
         if(row ==0) {
             height = 40;
         } else {
-            height = 120;
+            height = 126;
         }
         
     } else if(section == 2) {
         if(row == 0) {
             height = 40;
         } else {
-            height = 60;
+            height = 57;
         }
     }
     return height;
@@ -84,9 +85,8 @@ static NSString * orderDetailBottomIdentifier = @"CellOrderDetailBottom";
         cell = top;
     } else if(section == 1) {
         if(row == 0) {
-            UITableViewCell * title = [self.tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-            title.textLabel.text = @"订单信息";
-            title.textLabel.textColor = UIColorFromRGB(0x333333);
+            OrderDetailTitleCell * title = [OrderDetailTitleCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:orderDetailTitleIdentifier];
+            title.data = @"订单信息";
             cell = title;
         } else {
             OrderDetailMiddleCell * middle = [OrderDetailMiddleCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:orderDetailMiddleIdentifier];
@@ -96,9 +96,8 @@ static NSString * orderDetailBottomIdentifier = @"CellOrderDetailBottom";
         
     } else if(section == 2) {
         if(row == 0) {
-            UITableViewCell * title = [self.tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-            title.textLabel.text = @"联系人信息";
-            title.textLabel.textColor = UIColorFromRGB(0x333333);
+            OrderDetailTitleCell * title = [OrderDetailTitleCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:orderDetailTitleIdentifier];
+            title.data = @"联系人信息";
             cell = title;
         } else {
             OrderDetailBottomCell * bottom = [OrderDetailBottomCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:orderDetailBottomIdentifier];
@@ -171,7 +170,7 @@ static NSString * orderDetailBottomIdentifier = @"CellOrderDetailBottom";
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"我的订单";
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:identifier];
+    [OrderDetailTitleCell registerCellWithTableView:self.tableView withIdentifier:orderDetailTitleIdentifier];
     [OrderDetailTopCell registerCellWithTableView:self.tableView withIdentifier:orderDetailTopIdentifier];
     [OrderDetailMiddleCell registerCellWithTableView:self.tableView withIdentifier:orderDetailMiddleIdentifier];
     [OrderDetailBottomCell registerCellWithTableView:self.tableView withIdentifier:orderDetailBottomIdentifier];

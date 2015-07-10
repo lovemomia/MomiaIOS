@@ -13,6 +13,7 @@
 #import "ProductDetailContentCell.h"
 #import "ProductDetailModel.h"
 #import "CommonHeaderView.h"
+#import "ThirdShareHelper.h"
 
 static NSString * productDetailCarouselIdentifier = @"CellProductDetailCarousel";
 static NSString * productDetailEnrollIdentifier = @"CellProductDetailEnroll";
@@ -154,7 +155,8 @@ typedef enum
 }
 
 - (IBAction)dateFriend:(id)sender {
-    
+    ThirdShareHelper *helper = [ThirdShareHelper new];
+    [helper shareToWechat:self.model.data.url title:self.model.data.title desc:self.model.data.abstracts scene:1];
 }
 
 - (IBAction)signUp:(id)sender {

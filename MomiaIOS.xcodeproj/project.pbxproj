@@ -90,6 +90,8 @@
 		5AABF6FA1B28120C000A9D3F /* OrderUpdatePersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AABF6F81B28120C000A9D3F /* OrderUpdatePersonViewController.m */; };
 		5AABF6FB1B28120C000A9D3F /* OrderUpdatePersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AABF6F91B28120C000A9D3F /* OrderUpdatePersonViewController.xib */; };
 		5AABF70F1B281BEF000A9D3F /* ConvertFromXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AABF70E1B281BEF000A9D3F /* ConvertFromXib.m */; };
+		5AB1BDDA1B4F7785004A4511 /* OrderDetailTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BDD81B4F7785004A4511 /* OrderDetailTitleCell.m */; };
+		5AB1BDDB1B4F7785004A4511 /* OrderDetailTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB1BDD91B4F7785004A4511 /* OrderDetailTitleCell.xib */; };
 		5AB444821B41479800FBADD4 /* OrderPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB444811B41479800FBADD4 /* OrderPersonModel.m */; };
 		5ABDA57B1B423FD8003BAE80 /* PostPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABDA57A1B423FD8003BAE80 /* PostPersonModel.m */; };
 		5ABDA57E1B42625B003BAE80 /* AddOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABDA57D1B42625B003BAE80 /* AddOrderModel.m */; };
@@ -195,6 +197,7 @@
 		BCF033951B4E892F005B71D6 /* PeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF033941B4E892F005B71D6 /* PeopleViewController.m */; };
 		BCF033991B4F72B0005B71D6 /* AlipayOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF033981B4F72B0005B71D6 /* AlipayOrder.m */; };
 		BCF0339C1B4F77BE005B71D6 /* AlipayOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF0339B1B4F77BE005B71D6 /* AlipayOrderModel.m */; };
+		BCF0339F1B4FB1BE005B71D6 /* ThirdShareHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF0339E1B4FB1BE005B71D6 /* ThirdShareHelper.m */; };
 		BCF564C91B43EAB2003A2227 /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564C81B43EAB2003A2227 /* UIButton+Block.m */; };
 		BCF564CC1B43EC53003A2227 /* NSTimer+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564CB1B43EC53003A2227 /* NSTimer+Block.m */; };
 		BCF564CF1B4632A1003A2227 /* Child.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564CE1B4632A1003A2227 /* Child.m */; };
@@ -361,6 +364,9 @@
 		5AABF6F91B28120C000A9D3F /* OrderUpdatePersonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderUpdatePersonViewController.xib; path = Business/Order/OrderUpdatePersonViewController.xib; sourceTree = "<group>"; };
 		5AABF70D1B281BEF000A9D3F /* ConvertFromXib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConvertFromXib.h; path = Common/Utils/ConvertFromXib.h; sourceTree = "<group>"; };
 		5AABF70E1B281BEF000A9D3F /* ConvertFromXib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConvertFromXib.m; path = Common/Utils/ConvertFromXib.m; sourceTree = "<group>"; };
+		5AB1BDD71B4F7785004A4511 /* OrderDetailTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDetailTitleCell.h; path = Business/Order/views/OrderDetailTitleCell.h; sourceTree = "<group>"; };
+		5AB1BDD81B4F7785004A4511 /* OrderDetailTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDetailTitleCell.m; path = Business/Order/views/OrderDetailTitleCell.m; sourceTree = "<group>"; };
+		5AB1BDD91B4F7785004A4511 /* OrderDetailTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderDetailTitleCell.xib; path = Business/Order/views/OrderDetailTitleCell.xib; sourceTree = "<group>"; };
 		5AB444801B41479800FBADD4 /* OrderPersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderPersonModel.h; path = Common/Models/Order/OrderPersonModel.h; sourceTree = "<group>"; };
 		5AB444811B41479800FBADD4 /* OrderPersonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderPersonModel.m; path = Common/Models/Order/OrderPersonModel.m; sourceTree = "<group>"; };
 		5ABDA5791B423FD8003BAE80 /* PostPersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostPersonModel.h; path = Common/Models/Order/PostPersonModel.h; sourceTree = "<group>"; };
@@ -559,6 +565,8 @@
 		BCF033981B4F72B0005B71D6 /* AlipayOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlipayOrder.m; path = Common/Models/Pay/AlipayOrder.m; sourceTree = "<group>"; };
 		BCF0339A1B4F77BE005B71D6 /* AlipayOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlipayOrderModel.h; path = Common/Models/Pay/AlipayOrderModel.h; sourceTree = "<group>"; };
 		BCF0339B1B4F77BE005B71D6 /* AlipayOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlipayOrderModel.m; path = Common/Models/Pay/AlipayOrderModel.m; sourceTree = "<group>"; };
+		BCF0339D1B4FB1BE005B71D6 /* ThirdShareHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirdShareHelper.h; path = Common/Utils/ThirdShareHelper.h; sourceTree = "<group>"; };
+		BCF0339E1B4FB1BE005B71D6 /* ThirdShareHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThirdShareHelper.m; path = Common/Utils/ThirdShareHelper.m; sourceTree = "<group>"; };
 		BCF564C71B43EAB2003A2227 /* UIButton+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+Block.h"; path = "Common/Categorys/UIButton+Block.h"; sourceTree = "<group>"; };
 		BCF564C81B43EAB2003A2227 /* UIButton+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+Block.m"; path = "Common/Categorys/UIButton+Block.m"; sourceTree = "<group>"; };
 		BCF564CA1B43EC53003A2227 /* NSTimer+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTimer+Block.h"; path = "Common/Categorys/NSTimer+Block.h"; sourceTree = "<group>"; };
@@ -598,6 +606,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC38D2931B09B8DC0051C7E9 /* SystemConfiguration.framework in Frameworks */,
 				BCCDF6761B0B4F97008BAE12 /* CoreGraphics.framework in Frameworks */,
 				BC41ABA51B0C69BE00A419DA /* libWeChatSDK.a in Frameworks */,
 				BC97DF211B4E3E3D002B1A00 /* AlipaySDK.framework in Frameworks */,
@@ -611,7 +620,6 @@
 				BCCDF65B1B0B1ED5008BAE12 /* libicucore.dylib in Frameworks */,
 				BCCDF6591B0B1ECC008BAE12 /* CoreTelephony.framework in Frameworks */,
 				BCCDF6571B0B1EC0008BAE12 /* QuartzCore.framework in Frameworks */,
-				BC38D2931B09B8DC0051C7E9 /* SystemConfiguration.framework in Frameworks */,
 				BC38D2951B09B8E50051C7E9 /* CFNetwork.framework in Frameworks */,
 				BCCDF66D1B0B4E4C008BAE12 /* libWeiboSDK.a in Frameworks */,
 				BC38D28D1B09B8960051C7E9 /* libz.dylib in Frameworks */,
@@ -824,6 +832,9 @@
 				5A794F9A1B4E7F0F00BB3B7C /* OrderDetailBottomCell.h */,
 				5A794F9B1B4E7F0F00BB3B7C /* OrderDetailBottomCell.m */,
 				5A794F9C1B4E7F0F00BB3B7C /* OrderDetailBottomCell.xib */,
+				5AB1BDD71B4F7785004A4511 /* OrderDetailTitleCell.h */,
+				5AB1BDD81B4F7785004A4511 /* OrderDetailTitleCell.m */,
+				5AB1BDD91B4F7785004A4511 /* OrderDetailTitleCell.xib */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -1187,6 +1198,7 @@
 				BC7708601AFC56F3000068A8 /* Models */,
 				BCA2731B1AE9FA83002E7534 /* Categorys */,
 				BCA273171AE9F90C002E7534 /* Utils */,
+				BC2C0C541B13095A00E2446E /* Views */,
 				BC8540BA1ADF8976005A7C54 /* Base */,
 				BCA2730F1AE9D79F002E7534 /* scheme.plist */,
 				BCA273141AE9F6F0002E7534 /* URLMappingManager.h */,
@@ -1236,7 +1248,6 @@
 		BC8540BA1ADF8976005A7C54 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				BC2C0C541B13095A00E2446E /* Views */,
 				BC8540BB1ADF8A09005A7C54 /* MOViewController.h */,
 				BC8540BC1ADF8A09005A7C54 /* MOViewController.m */,
 				BC8540C41AE2121E005A7C54 /* Constants.h */,
@@ -1332,6 +1343,8 @@
 				5AABF70E1B281BEF000A9D3F /* ConvertFromXib.m */,
 				BCF9EC9E1B4161EE00AEBE1E /* CityManager.h */,
 				BCF9EC9F1B4161EE00AEBE1E /* CityManager.m */,
+				BCF0339D1B4FB1BE005B71D6 /* ThirdShareHelper.h */,
+				BCF0339E1B4FB1BE005B71D6 /* ThirdShareHelper.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1625,6 +1638,7 @@
 				5A82F1A41B257449000D2C60 /* FillOrderViewController.xib in Resources */,
 				5A9E81261B4BE8B40028AC47 /* OrderDetailTopCell.xib in Resources */,
 				5A83074F1B3291430057412A /* CommonHeaderView.xib in Resources */,
+				5AB1BDDB1B4F7785004A4511 /* OrderDetailTitleCell.xib in Resources */,
 				5A08C13E1B39117100642648 /* ProductDetailCarouselCell.xib in Resources */,
 				5A8EF0361B31407B003ABAF8 /* HomeCell.xib in Resources */,
 				5A9E80E21B4BBD2B0028AC47 /* ProductPlayFellowHeaderView.xib in Resources */,
@@ -1695,6 +1709,7 @@
 				5A08C1411B39117100642648 /* ProductDetailEnrollCell.m in Sources */,
 				BC77085F1AFC5685000068A8 /* UILabel+ContentSize.m in Sources */,
 				BC2C0C571B1309A800E2446E /* MOButton.m in Sources */,
+				BCF0339F1B4FB1BE005B71D6 /* ThirdShareHelper.m in Sources */,
 				BC41ABA91B0C715400A419DA /* Environment.m in Sources */,
 				5A456F9A1B2E687700E95756 /* MOTableCell.m in Sources */,
 				BC2C0C961B184EA500E2446E /* AvatarImageView.m in Sources */,
@@ -1793,6 +1808,7 @@
 				5A1B35F31B12BE2400E1D31B /* SendCommentView.m in Sources */,
 				BCCDF5E51B09EBF8008BAE12 /* UITextView+Placeholder.m in Sources */,
 				5A8EF0401B31A4A2003ABAF8 /* NSString+MOAttribuedString.m in Sources */,
+				5AB1BDDA1B4F7785004A4511 /* OrderDetailTitleCell.m in Sources */,
 				BC41ABAD1B0C7ABF00A419DA /* UploadImageModel.m in Sources */,
 				5A18DC471B292BDF001458A4 /* UITableView+FDTemplateLayoutHeader.m in Sources */,
 				5A794F9D1B4E7F0F00BB3B7C /* OrderDetailBottomCell.m in Sources */,

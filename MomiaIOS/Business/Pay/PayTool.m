@@ -15,6 +15,7 @@
     NSString *appScheme = @"duola";
     //将商品信息拼接成字符串
     NSString *orderString = [order description];
+    NSLog(orderString);
     if (orderString != nil) {
         [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
             NSLog(@"reslut = %@",resultDic);

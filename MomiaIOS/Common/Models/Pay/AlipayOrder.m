@@ -49,8 +49,8 @@
     if (self.it_b_pay) {
         [discription appendFormat:@"&it_b_pay=\"%@\"",self.it_b_pay];//30m
     }
-    if (self.showUrl) {
-        [discription appendFormat:@"&show_url=\"%@\"",self.showUrl];//m.alipay.com
+    if (self.show_url) {
+        [discription appendFormat:@"&show_url=\"%@\"",self.show_url];//m.alipay.com
     }
 //    if (self.rsaDate) {
 //        [discription appendFormat:@"&sign_date=\"%@\"",self.si];
@@ -58,6 +58,12 @@
 //    if (self.appID) {
 //        [discription appendFormat:@"&app_id=\"%@\"",self.appID];
 //    }
+    if (self.sign) {
+        [discription appendFormat:@"&sign=\"%@\"",self.sign];
+    }
+    if (self.sign_type) {
+        [discription appendFormat:@"&sign_type=\"%@\"",self.sign_type];
+    }
     for (NSString * key in [self.extraParams allKeys]) {
         [discription appendFormat:@"&%@=\"%@\"", key, [self.extraParams objectForKey:key]];
     }

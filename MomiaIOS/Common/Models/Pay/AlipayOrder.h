@@ -8,29 +8,29 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AlipayOrder : NSObject
+@interface AlipayOrder : JSONModel
 
-@property(nonatomic, copy) NSString * partner;
-@property(nonatomic, copy) NSString * seller_id;
-@property(nonatomic, copy) NSString * out_trade_no;
-@property(nonatomic, copy) NSString * subject;
-@property(nonatomic, copy) NSString * body;
-@property(nonatomic, copy) NSString * total_fee;
-@property(nonatomic, copy) NSString * notify_url;
+@property(nonatomic, strong) NSString * partner;
+@property(nonatomic, strong) NSString * seller_id;
+@property(nonatomic, strong) NSString * out_trade_no;
+@property(nonatomic, strong) NSString * subject;
+@property(nonatomic, strong) NSString * body;
+@property(nonatomic, strong) NSString * total_fee;
+@property(nonatomic, strong) NSString * notify_url;
 
-@property(nonatomic, copy) NSString * service;
-@property(nonatomic, copy) NSString * payment_type;
-@property(nonatomic, copy) NSString * input_charset;
-@property(nonatomic, copy) NSString * it_b_pay;
-@property(nonatomic, copy) NSString * showUrl;
+@property(nonatomic, strong) NSString * service;
+@property(nonatomic, strong) NSString * payment_type;
+@property(nonatomic, strong) NSString * input_charset;
+@property(nonatomic, strong) NSString * it_b_pay;
+@property(nonatomic, strong) NSString * show_url;
 
-@property(nonatomic, copy) NSString * sign;
-@property(nonatomic, copy) NSString * sign_type;
-@property(nonatomic, copy) NSString * appID;
+@property(nonatomic, strong) NSString * sign;
+@property(nonatomic, strong) NSString * sign_type;
+@property(nonatomic, strong) NSString<Optional> * appID;
 
 @property(nonatomic, assign) BOOL successful;
 
-@property(nonatomic, readonly) NSMutableDictionary * extraParams;
+@property(nonatomic, readonly) NSMutableDictionary<Optional> * extraParams;
 
 
 
