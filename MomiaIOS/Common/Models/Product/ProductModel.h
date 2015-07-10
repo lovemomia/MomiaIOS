@@ -56,6 +56,6 @@
 @property (nonatomic,strong) NSString<Optional> * crowd;
 @property (nonatomic,strong) ProductCustomersModel<Optional> * customers;
 @property (nonatomic,strong) NSArray<Optional> * imgs;
-
+@property (nonatomic,strong) NSArray * tags;
 
 @end
