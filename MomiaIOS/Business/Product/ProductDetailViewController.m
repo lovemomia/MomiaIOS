@@ -14,6 +14,7 @@
 #import "ProductDetailContentCell.h"
 #import "ProductDetailModel.h"
 #import "CommonHeaderView.h"
+#import "ThirdShareHelper.h"
 
 static NSString * productDetailCarouselIdentifier = @"CellProductDetailCarousel";
 static NSString * productDetailEnrollIdentifier = @"CellProductDetailEnroll";
@@ -142,7 +143,7 @@ typedef enum
         content.linkBlock = ^(UIView * linkView) {
             UIColor * originColor = linkView.backgroundColor;
 
-            NSLog(@"content:%ld body:%ld",indexPath.section,linkView.tag);
+            NSLog(@"content:%ld body:%ld", indexPath.section, linkView.tag);
 
             [UIView animateWithDuration:0.3 animations:^{
                 linkView.backgroundColor = UIColor.lightGrayColor;
@@ -166,7 +167,8 @@ typedef enum
 }
 
 - (IBAction)dateFriend:(id)sender {
-    
+    ThirdShareHelper *helper = [ThirdShareHelper new];
+    [helper shareToWechat:self.model.data.url thumbUrl:@"http://i3.s1.dpfile.com/pc/wed/eaaaab5d22f03e60c9a1a086b5d163ab(2048x2048)/aD0yMDQ4Jms9L3BjL3dlZC9lYWFhYWI1ZDIyZjAzZTYwYzlhMWEwODZiNWQxNjNhYiZsb2dvPTAmbT14Jnc9MjA0OA.98fa3ca5bff1d2963977f8bfec5cde67/thumb.jpg" title:self.model.data.title desc:self.model.data.abstracts scene:1];
 }
 
 - (IBAction)signUp:(id)sender {

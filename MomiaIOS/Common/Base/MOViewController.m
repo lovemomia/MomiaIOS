@@ -28,6 +28,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [MobClick beginLogPageView:[NSString stringWithUTF8String:object_getClassName(self)]];
     if(MO_OS_VERSION >= 7.0)
     {
         MONavigationController *navController = (MONavigationController *)self.navigationController;
@@ -46,6 +47,12 @@
         }
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:[NSString stringWithUTF8String:object_getClassName(self)]];
 }
 
 - (void)didReceiveMemoryWarning {

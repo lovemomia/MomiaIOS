@@ -9,4 +9,5 @@ pod 'MBProgressHUD', '~> 0.9.1'
 pod 'UITableView+FDTemplateLayoutCell'
 pod 'ISDiskCache'
 pod 'TTTAttributedLabel'
+pod 'UMengAnalytics-NO-IDFA'
 

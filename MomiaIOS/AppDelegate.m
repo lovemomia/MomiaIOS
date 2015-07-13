@@ -12,6 +12,7 @@
 #import "MONavigationController.h"
 //APP端签名相关头文件
 #import "payRequsestHandler.h"
+#import <AlipaySDK/AlipaySDK.h>
 
 @interface AppDelegate () {
 @private
@@ -68,6 +69,9 @@
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     
     [self handleRemoteNotification:[launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]];
+    
+    // 友盟统计
+    [MobClick startWithAppkey:kUMengAppKey reportPolicy:BATCH   channelId:MO_APP_CHANNEL];
 
     return YES;
 }
@@ -156,6 +160,18 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     if ([url.scheme isEqualToString:@"duola"]) {
         [self handleOpenURL:url];
+    }
+    
+    //如果极简开发包不可用,会跳转支付宝钱包进行支付,需要将支付宝钱包的支付结果回传给开 发包
+    if ([url.host isEqualToString:@"safepay"]) {
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url
+                                                  standbyCallback:^(NSDictionary *resultDic) {
+                                                      NSLog(@"result = %@",resultDic);
+                                                  }]; }
+    if ([url.host isEqualToString:@"platformapi"]){//支付宝钱包快登授权返回 authCode
+        [[AlipaySDK defaultService] processAuthResult:url standbyCallback:^(NSDictionary *resultDic) {
+            NSLog(@"result = %@",resultDic);
+        }];
     }
     
     return [WXApi handleOpenURL:url delegate:self];
@@ -297,6 +313,11 @@
 }
 
 -(void) onResp:(BaseResp*)resp {
+    if([resp isKindOfClass:[SendMessageToWXResp class]]) {
+        
+    } else if ([resp isKindOfClass:[PayResp class]]) {
+        
+    }
     [[NSNotificationCenter defaultCenter]postNotificationName:@"payResp" object:resp];
 }
 

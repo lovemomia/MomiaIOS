@@ -14,7 +14,7 @@
 
 -(void)setData:(ProductModel *) model;
 {
-    [self.imgView sd_setImageWithURL:[NSURL URLWithString:model.cover] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:model.cover] placeholderImage:nil];
     self.titleLabel.text = model.title;
     [self.timeLabel setTitle:model.scheduler forState:UIControlStateNormal];
     self.descLabel.text = model.address;
@@ -27,5 +27,7 @@
 
     // Configure the view for the selected state
 }
+
+//- (BOOL)isPrice
 
 @end

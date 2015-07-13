@@ -15,6 +15,9 @@
 #import "PayChannel.h"
 #import "WechatPayModel.h"
 #import "WXApi.h"
+#import "AlipayOrderModel.h"
+#import "AlipayOrder.h"
+#import "PayTool.h"
 
 static NSString * identifier = @"HeaderViewCashPayBottomHeader";
 static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
@@ -54,7 +57,7 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
     
     self.payChannels = [NSMutableArray new];
     [self.payChannels addObject:[[PayChannel alloc]initWithType:1 title:@"微信支付" desc:@"微信钱包，银行卡支付" icon:@"pay_wx" select:YES]];
-    [self.payChannels addObject:[[PayChannel alloc]initWithType:1 title:@"支付宝" desc:@"支付宝账号支付，银行卡支付" icon:@"pay_order" select:NO]];
+    [self.payChannels addObject:[[PayChannel alloc]initWithType:2 title:@"支付宝" desc:@"支付宝账号支付，银行卡支付" icon:@"pay_order" select:NO]];
     [self.tableView reloadData];
 }
 
@@ -66,26 +69,65 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
 - (void)onPayClicked {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    NSDictionary * params = @{@"trade_type":@"APP",
-                              @"oid":[NSString stringWithFormat:@"%ld", self.order.data.orderId],
-                              @"pid":[NSString stringWithFormat:@"%ld", self.order.data.productId],
-                              @"sid":[NSString stringWithFormat:@"%ld", self.order.data.skuId]};
-    [[HttpService defaultService]POST:URL_HTTPS_APPEND_PATH(@"/payment/prepay/wechatpay")
-                          parameters:params JSONModelClass:[WechatPayModel class]
-                             success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                 [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                 
-                                 //前往支付
-                                 if ([responseObject isKindOfClass:[WechatPayModel class]]) {
-                                     [self.delegate sendPay:((WechatPayModel *)responseObject).data];
-                                     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onPayResp:) name:@"payResp" object:nil];
-                                 }
-                             }
-     
-                             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                 [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                 [self showDialogWithTitle:nil message:error.message];
-                             }];
+    NSInteger type;
+    for (int i = 0; i < self.payChannels.count; i++) {
+        PayChannel *channel = [self.payChannels objectAtIndex:i];
+        if (channel.select) {
+            type = channel.type;
+            break;
+        }
+    }
+    
+    if (type == 1) {
+        NSDictionary * params = @{@"trade_type":@"APP",
+                                  @"oid":[NSString stringWithFormat:@"%ld", self.order.data.orderId],
+                                  @"pid":[NSString stringWithFormat:@"%ld", self.order.data.productId],
+                                  @"sid":[NSString stringWithFormat:@"%ld", self.order.data.skuId]};
+        [[HttpService defaultService]POST:URL_HTTPS_APPEND_PATH(@"/payment/prepay/wechatpay")
+                               parameters:params JSONModelClass:[WechatPayModel class]
+                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                      [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                      
+                                      //前往支付
+                                      if ([responseObject isKindOfClass:[WechatPayModel class]]) {
+                                          [self.delegate sendPay:((WechatPayModel *)responseObject).data];
+                                          [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onPayResp:) name:@"payResp" object:nil];
+                                      }
+                                  }
+         
+                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                      [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                      [self showDialogWithTitle:nil message:error.message];
+                                  }];
+        
+    } else if (type == 2) {
+        NSDictionary * params = @{@"trade_type":@"APP",
+                                  @"oid":[NSString stringWithFormat:@"%ld", self.order.data.orderId],
+                                  @"pid":[NSString stringWithFormat:@"%ld", self.order.data.productId],
+                                  @"sid":[NSString stringWithFormat:@"%ld", self.order.data.skuId]};
+        [[HttpService defaultService]POST:URL_HTTPS_APPEND_PATH(@"/payment/prepay/alipay")
+                               parameters:params JSONModelClass:[AlipayOrderModel class]
+                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                      [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                      
+                                      //前往支付
+                                      if ([responseObject isKindOfClass:[AlipayOrderModel class]]) {
+                                          PayTool *payTool = [PayTool new];
+                                          [payTool startAlipay:((AlipayOrderModel *)responseObject).data paySuccess:^{
+                                              NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://payresult?oid=%ld&pid=%ld&sid=%ld",
+                                                                                 self.order.data.orderId, self.order.data.productId, self.order.data.skuId]];
+                                              [[UIApplication sharedApplication] openURL:url];
+                                          }] ;
+                                      }
+                                  }
+         
+                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                      [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                      [self showDialogWithTitle:nil message:error.message];
+                                  }];
+        
+    }
+    
 }
 
 - (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle {
@@ -99,7 +141,7 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
         
     } else if([resp isKindOfClass:[PayResp class]]) {
         if (resp.errCode == WXSuccess) {
-            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://payresult?oid=%d&pid=%d&sid=%d",
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://payresult?oid=%ld&pid=%ld&sid=%ld",
                                                self.order.data.orderId, self.order.data.productId, self.order.data.skuId]];
             [[UIApplication sharedApplication] openURL:url];
             

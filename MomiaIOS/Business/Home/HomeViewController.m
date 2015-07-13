@@ -72,7 +72,7 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
     }
 
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_search"] style:UIBarButtonItemStylePlain target:self action:@selector(onSearchClick)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_search"] style:UIBarButtonItemStylePlain target:self action:@selector(onSearchClick)];
     
     
     [HomeCarouselCell registerCellWithTableView:self.tableView withIdentifier:homeCarouselIdentifier];
@@ -110,9 +110,10 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
     
     NSDictionary * dic = @{@"pageindex":@(self.pageIndex)};
     [[HttpService defaultService] GET:URL_APPEND_PATH(@"/home") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[HomeModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if (self.model == nil) {
-            [self.view removeLoadingBee];
-        }
+        
+        [self.view removeLoadingBee];
+        [self.view removeError];
+        
         self.model = responseObject;
         
         if(self.isLoading) {
@@ -159,6 +160,8 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
             }
             
         }
+        [self.tableView.header endRefreshing];
+     
         NSLog(@"Error: %@", error);
     }];
 }

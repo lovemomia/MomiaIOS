@@ -56,6 +56,11 @@
 @property (nonatomic,strong) NSString<Optional> * crowd;
 @property (nonatomic,strong) ProductCustomersModel<Optional> * customers;
 @property (nonatomic,strong) NSArray<Optional> * imgs;
+
+@property (nonatomic,strong) NSString<Optional> * url; // 分享url
+@property (nonatomic,strong) NSString<Optional> * abstracts; // 分享简介
+
 @property (nonatomic,strong) NSArray * tags;
+
 
 @end

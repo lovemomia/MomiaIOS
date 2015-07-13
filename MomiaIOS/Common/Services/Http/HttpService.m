@@ -71,7 +71,7 @@
 //            NSLog(@"http (GET) success: %@", responseObject);
             
         } else {
-            NSError *err = [[NSError alloc]initWithCode:result.errNo message:result.errMsg];
+            NSError *err = [[NSError alloc]initWithCode:result.errNo message:@"数据解析失败"];
             [[ServerErrorHandler defaultHandler] handlerError:err];
             failure(operation, err);
             
@@ -124,7 +124,8 @@
             return;
         }
         
-        BaseModel *result = [(BaseModel *)[responseModelClass alloc]initWithDictionary:responseObject error:nil];
+        JSONModelError* error = nil;
+        BaseModel *result = [(BaseModel *)[responseModelClass alloc]initWithDictionary:responseObject error:&error];
         if (result == nil) {
             result = [[BaseModel alloc]initWithDictionary:responseObject error:nil];
         }
@@ -134,10 +135,10 @@
             NSLog(@"http (POST) success: %@", responseObject);
             
         } else {
-            NSError *err = [[NSError alloc]initWithCode:result.errNo message:result.errMsg];
+            NSError *err = [[NSError alloc]initWithCode:result.errNo message:@"数据解析失败"];
             [[ServerErrorHandler defaultHandler] handlerError:err];
             failure(operation, err);
-            NSLog(@"http (POST) fail: %@", responseObject);
+            NSLog(@"http (POST) fail: %@", error);
         }
     };
     
