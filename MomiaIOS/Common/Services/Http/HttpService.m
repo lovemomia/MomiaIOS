@@ -14,6 +14,7 @@
 #import "ISDiskCache.h"
 #import "CityManager.h"
 #import "ServerErrorHandler.h"
+#import "NSString+MOEncrypt.h"
 
 @implementation HttpService
 
@@ -40,7 +41,7 @@
                  JSONModelClass:(Class)responseModelClass
                         success:(BlockMOHTTPRequestSuccess)success
                         failure:(BlockMOHTTPRequestFail)failure {
-    
+    // 构建基本参数
     NSMutableDictionary *allParams = [self createBasicParams];
     [allParams addEntriesFromDictionary:parameters];
     
@@ -68,7 +69,7 @@
         }
         if ([result isKindOfClass:responseModelClass] && result.errNo == 0) {
             success(operation, result);
-            NSLog(@"http (GET) success: %@", responseObject);
+            NSLog(@"http (GET) success: \nurl : %@\nparams : %@\nresult : %@", URLString, allParams, responseObject);
             
         } else {
             NSError *err;
@@ -80,7 +81,7 @@
             [[ServerErrorHandler defaultHandler] handlerError:err];
             failure(operation, err);
             
-            NSLog(@"http (GET) fail: %@", responseObject);
+            NSLog(@"http (GET) fail: \nurl : %@\nparams : %@\nresult : %@", URLString, allParams, responseObject);
         }
 
     };
@@ -89,7 +90,7 @@
         NSError *err = [[NSError alloc]initWithCode:-1 message:@"网络异常，请稍后再试"];
         failure(operation, err);
         
-        NSLog(@"http (GET) fail: %@", error);
+        NSLog(@"http (GET) fail: \nurl : %@\nparams : %@\nresult : %@", URLString, allParams, error);
     };
     
     if (cacheType == CacheTypeNormal) {
@@ -123,6 +124,10 @@
                   JSONModelClass:(Class)responseModelClass
                          success:(BlockMOHTTPRequestSuccess)success
                          failure:(BlockMOHTTPRequestFail)failure {
+    // 构建基本参数
+    NSMutableDictionary *allParams = [self createBasicParams];
+    [allParams addEntriesFromDictionary:parameters];
+    
     BlockMOHTTPRequestSuccess onSuccess = ^(AFHTTPRequestOperation *operation, id responseObject) {
         if (responseModelClass == nil) {
             success(operation, responseObject);
@@ -137,7 +142,7 @@
         if ([result isKindOfClass:responseModelClass] && result.errNo == 0) {
 
             success(operation, result);
-            NSLog(@"http (POST) success: %@", responseObject);
+            NSLog(@"http (POST) success: \nurl : %@\nparams : %@\nresult : %@", URLString, allParams, responseObject);
             
         } else {
             NSError *err;
@@ -149,8 +154,7 @@
             
             [[ServerErrorHandler defaultHandler] handlerError:err];
             failure(operation, err);
-            NSLog(@"http (POST) fail: %@", error);
-            NSLog(@"http (POST) fail: %@", result);
+            NSLog(@"http (POST) fail: \nurl : %@\nparams : %@\nresult : %@", URLString, allParams, result);
         }
     };
     
@@ -158,11 +162,8 @@
         NSError *err = [[NSError alloc]initWithCode:-1 message:@"网络异常，请稍后再试"];
         failure(operation, err);
         
-        NSLog(@"http (POST) fail: %@", error);
+        NSLog(@"http (POST) fail: \nurl : %@\nparams : %@\nresult : %@", URLString, allParams, error);
     };
-    
-    NSMutableDictionary *allParams = [self createBasicParams];
-    [allParams addEntriesFromDictionary:parameters];
     
     AFHTTPRequestOperation *operation = [self.httpClient POST:URLString parameters:allParams success:onSuccess failure:onFail];
     return operation;
@@ -226,6 +227,12 @@
     // cityid
     [dic setObject:[NSString stringWithFormat:@"%@", [CityManager shareManager].choosedCity.ids] forKey:@"city"];
 
+    
+    // 签名
+    NSString *sysSign = [self doSignWithParameters:dic];
+    if (sysSign != nil) {
+        [dic setObject:sysSign forKey:@"sign"];
+    }
 
     return dic;
 }
@@ -242,6 +249,46 @@
         [ms appendString:[NSString stringWithFormat:@"&%@=%@", key, value]];
     }
     return ms;
+}
+
+#pragma mark -
+#pragma mark URL签名
+
+/**
+ *  URL签名
+ *
+ *  @param dictionary 参数字典
+ *
+ *  @return 请求的sign字段
+ */
+- (NSString *)doSignWithParameters:(NSDictionary *)dictionary {
+    
+    // 签名
+    if ([dictionary isKindOfClass:[NSDictionary class]] &&
+        [dictionary count] > 0) {
+        
+        NSMutableArray *allKeys = [[NSMutableArray alloc] initWithArray:[dictionary allKeys]];
+        [allKeys sortUsingComparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
+            return [obj1 compare:obj2];
+        }];
+        
+        NSMutableString *sysSign = [[NSMutableString alloc] initWithCapacity:50];
+        [allKeys enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL *stop) {
+            [sysSign appendString:[NSString stringWithFormat:@"%@=%@", obj, [dictionary objectForKey:obj]]];
+        }];
+        
+        // 固定字符加密
+        [sysSign appendString:@"key=578890d82212ae548d883bc7a201cdf4"];
+        
+        if ([sysSign length] > 0) {
+            NSString *md5 = [sysSign md5];
+            if (md5 != nil) {
+                return md5;
+            }
+        }
+    }
+    
+    return nil;
 }
 
 @end

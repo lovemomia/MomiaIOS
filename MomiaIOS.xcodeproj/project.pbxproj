@@ -168,6 +168,7 @@
 		BC82544B1B3D414000430A6F /* PlaymateContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82544A1B3D414000430A6F /* PlaymateContentCell.m */; };
 		BC82544E1B3D416300430A6F /* PlaymateOperateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82544D1B3D416300430A6F /* PlaymateOperateCell.m */; };
 		BC8254511B3D419F00430A6F /* PlaymatePeopleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8254501B3D419F00430A6F /* PlaymatePeopleCell.m */; };
+		BC829A861B53CE850056BE61 /* NSString+MOEncrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = BC829A851B53CE850056BE61 /* NSString+MOEncrypt.m */; };
 		BC8540911ADF74E9005A7C54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540901ADF74E9005A7C54 /* main.m */; };
 		BC8540941ADF74E9005A7C54 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540931ADF74E9005A7C54 /* AppDelegate.m */; };
 		BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC85409B1ADF74E9005A7C54 /* Images.xcassets */; };
@@ -520,6 +521,8 @@
 		BC82544D1B3D416300430A6F /* PlaymateOperateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaymateOperateCell.m; path = Business/Playmate/Views/PlaymateOperateCell.m; sourceTree = "<group>"; };
 		BC82544F1B3D419F00430A6F /* PlaymatePeopleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaymatePeopleCell.h; path = Business/Playmate/Views/PlaymatePeopleCell.h; sourceTree = "<group>"; };
 		BC8254501B3D419F00430A6F /* PlaymatePeopleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaymatePeopleCell.m; path = Business/Playmate/Views/PlaymatePeopleCell.m; sourceTree = "<group>"; };
+		BC829A841B53CE850056BE61 /* NSString+MOEncrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MOEncrypt.h"; path = "Common/Categorys/NSString+MOEncrypt.h"; sourceTree = "<group>"; };
+		BC829A851B53CE850056BE61 /* NSString+MOEncrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MOEncrypt.m"; path = "Common/Categorys/NSString+MOEncrypt.m"; sourceTree = "<group>"; };
 		BC85408B1ADF74E9005A7C54 /* MomiaIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MomiaIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC85408F1ADF74E9005A7C54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC8540901ADF74E9005A7C54 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1461,6 +1464,8 @@
 				BCF564CB1B43EC53003A2227 /* NSTimer+Block.m */,
 				5A9E811A1B4BDF560028AC47 /* NSDate+Age.h */,
 				5A9E811B1B4BDF560028AC47 /* NSDate+Age.m */,
+				BC829A841B53CE850056BE61 /* NSString+MOEncrypt.h */,
+				BC829A851B53CE850056BE61 /* NSString+MOEncrypt.m */,
 			);
 			name = Categorys;
 			sourceTree = "<group>";
@@ -1890,6 +1895,7 @@
 				BC5063921B53746800AA233C /* SGBaseMenu.m in Sources */,
 				BCF9ECAA1B4171EC00AEBE1E /* CityListViewController.m in Sources */,
 				BC2C0C931B1849FE00E2446E /* MCAvatarView.m in Sources */,
+				BC829A861B53CE850056BE61 /* NSString+MOEncrypt.m in Sources */,
 				5AE4F82D1B3CF21B005879B7 /* FillOrderModel.m in Sources */,
 				5A8FF9701B450FA5007A8CA4 /* ProductDetailContentCell.m in Sources */,
 				5A08C14A1B3911CA00642648 /* ProductDetailModel.m in Sources */,
