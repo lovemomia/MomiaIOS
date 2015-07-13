@@ -10,13 +10,15 @@
 
 @implementation ThirdShareHelper
 
-- (void)shareToWechat:(NSString *)url title:(NSString *)title desc:(NSString *)desc scene:(NSInteger)scene {
+- (void)shareToWechat:(NSString *)url thumbUrl:(NSString *)thumbUrl title:(NSString *)title desc:(NSString *)desc scene:(NSInteger)scene {
     if ([WXApi isWXAppInstalled] && [WXApi isWXAppSupportApi]) {
         
         WXMediaMessage *message = [WXMediaMessage message];
         message.title = title;
         message.description = desc;
-        [message setThumbImage:[UIImage imageNamed:@"tab_home_select"]];
+        NSURL *thumb = [NSURL URLWithString: thumbUrl];
+        UIImage *image = [UIImage imageWithData: [NSData dataWithContentsOfURL:thumb]];
+        [message setThumbImage:image];
         
         WXWebpageObject *ext = [WXWebpageObject object];
         ext.webpageUrl = url;

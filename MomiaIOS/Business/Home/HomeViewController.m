@@ -82,9 +82,8 @@ static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
     
     NSDictionary * dic = @{@"pageindex":@0};
     [[HttpService defaultService] GET:URL_APPEND_PATH(@"/home") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[HomeModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if (self.model == nil) {
-            [self.view removeLoadingBee];
-        }
+        [self.view removeLoadingBee];
+        [self.view removeError];
         
         self.model = responseObject;
         

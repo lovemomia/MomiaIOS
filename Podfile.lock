@@ -30,6 +30,7 @@ PODS:
   - SDWebImage/Core (3.7.2)
   - TTTAttributedLabel (1.13.4)
   - UITableView+FDTemplateLayoutCell (1.3)
+  - UMengAnalytics-NO-IDFA (3.5.9)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
@@ -41,6 +42,7 @@ DEPENDENCIES:
   - SDWebImage
   - TTTAttributedLabel
   - UITableView+FDTemplateLayoutCell
+  - UMengAnalytics-NO-IDFA
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
@@ -52,5 +54,6 @@ SPEC CHECKSUMS:
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
   UITableView+FDTemplateLayoutCell: d5be6056b5060313f5955a2590ecd33142ad713d
+  UMengAnalytics-NO-IDFA: c5302a2246061c356641bb3056e89dfbdeb37424
 
 COCOAPODS: 0.37.1

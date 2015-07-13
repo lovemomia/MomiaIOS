@@ -28,4 +28,6 @@
     // Configure the view for the selected state
 }
 
+//- (BOOL)isPrice
+
 @end

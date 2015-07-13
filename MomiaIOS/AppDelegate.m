@@ -69,6 +69,9 @@
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     
     [self handleRemoteNotification:[launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]];
+    
+    // 友盟统计
+    [MobClick startWithAppkey:kUMengAppKey reportPolicy:BATCH   channelId:MO_APP_CHANNEL];
 
     return YES;
 }

@@ -11,6 +11,7 @@
 
 @interface ThirdShareHelper : NSObject
 
-- (void)shareToWechat:(NSString *)url title:(NSString *)title desc:(NSString *)desc scene:(NSInteger)scene ;
+- (void)shareToWechat:(NSString *)url thumbUrl:(NSString *)thumbUrl
+                title:(NSString *)title desc:(NSString *)desc scene:(NSInteger)scene;
 
 @end

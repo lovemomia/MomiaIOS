@@ -20,6 +20,9 @@
 #define MO_API_DOMAIN MO_API_DOMAIN_DEV
 #endif
 
+// App渠道
+#define MO_APP_CHANNEL          @"appstore"
+
 
 #define URL_HTTPS_APPEND_PATH(__path__) ([MO_HTTPS_API_DOMAIN_OL stringByAppendingString:__path__])
 
@@ -84,3 +87,8 @@
 
 // wechat
 #define kWechatAppKey         @"wxcf7b15b51d3b4e53"
+
+
+// umeng
+#define kUMengAppKey          @"55a317be67e58ea6470059ba"
+
