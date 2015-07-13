@@ -9,12 +9,15 @@
 #import "OrderListViewController.h"
 #import "OrderListModel.h"
 #import "OrderListItemCell.h"
+#import "PostPersonModel.h"
 
 @interface OrderListViewController()
 @property (nonatomic, assign) NSInteger status;
 @property (nonatomic, strong) NSMutableArray *orderList;
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, assign) NSInteger totalCount;
+@property (nonatomic, strong) AFHTTPRequestOperation * curOperation;
+
 @end
 
 @implementation OrderListViewController
@@ -37,19 +40,82 @@
     [self requestData];
 }
 
+-(void)deleteOrder:(NSIndexPath *) indexPath
+{
+    Order * model = self.orderList[indexPath.row];
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    NSDictionary *params = @{@"id":model.ids};
+    
+    [[HttpService defaultService]POST:URL_HTTPS_APPEND_PATH(@"/order/delete")
+                           parameters:params
+                       JSONModelClass:[PostPersonModel class]
+                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:NO];
+                                  [self refreshData];
+                                  
+                              }
+                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  [self showDialogWithTitle:nil message:error.message];
+                              }];
+    
+    
+}
+
+
+- (void)refreshData {
+    //    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    if(self.curOperation) {
+        [self.curOperation pause];
+    }
+    
+    NSString *type = self.status == 1 ? @"le" : @"ge";
+    NSDictionary * paramDic = @{@"status":[NSString stringWithFormat:@"%d", (int)self.status],
+                                @"type":type, @"start":@"0", @"count":@"20"};
+   self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/user/order")
+                          parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[OrderListModel class]
+                             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                 //                                 [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                 OrderListModel *orderListModel = (OrderListModel *)responseObject;
+                                 self.totalCount = orderListModel.data.totalCount;
+                                 
+                                 [self.orderList removeAllObjects];
+                                 
+                                 for (Order *order in orderListModel.data.list) {
+                                     [self.orderList addObject:order];
+                                 }
+                                 [self.tableView reloadData];
+                                 self.isLoading = NO;
+                             }
+     
+                             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                 //                                 [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                 [self showDialogWithTitle:nil message:error.message];
+                                 self.isLoading = NO;
+                             }];
+}
+
+
+
 - (void)requestData {
 //    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    if(self.curOperation) {
+        [self.curOperation pause];
+    }
     
     NSString *type = self.status == 1 ? @"le" : @"ge";
     NSDictionary * paramDic = @{@"status":[NSString stringWithFormat:@"%d", (int)self.status],
                                 @"type":type, @"start":[NSString stringWithFormat:@"%d",
                                                         (int)self.orderList.count], @"count":@"20"};
-    [[HttpService defaultService]GET:URL_APPEND_PATH(@"/user/order")
+    self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/user/order")
                           parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[OrderListModel class]
                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //                                 [MBProgressHUD hideHUDForView:self.view animated:YES];
                                  OrderListModel *orderListModel = (OrderListModel *)responseObject;
                                  self.totalCount = orderListModel.data.totalCount;
+                                 
                                  for (Order *order in orderListModel.data.list) {
                                      [self.orderList addObject:order];
                                  }
@@ -69,6 +135,23 @@
 }
 
 #pragma mark - tableview delegate & datasource
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(self.status == 1 && indexPath.row < self.orderList.count) {
+        return YES;
+    }
+    return NO;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //执行删除联系人操作
+        [self deleteOrder:indexPath];
+        
+    }
+}
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.row < self.orderList.count) {

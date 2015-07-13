@@ -22,6 +22,10 @@
 @property(nonatomic,strong) NSString * participants;
 @property(nonatomic,assign) CGFloat totalFee;
 
+@property(nonatomic,assign) NSInteger skuId;
+@property(nonatomic,assign) NSInteger count;
+@property(nonatomic,assign) NSInteger status;
+
 @property(nonatomic,strong) NSString * contacts;
 @property(nonatomic,strong) NSString * mobile;
 
