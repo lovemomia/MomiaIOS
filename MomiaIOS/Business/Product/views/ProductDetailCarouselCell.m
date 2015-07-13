@@ -9,6 +9,7 @@
 #import "ProductDetailCarouselCell.h"
 #import "NSString+MOAttribuedString.h"
 #import "ProductModel.h"
+#import "MONetworkPhotoView.h"
 
 @interface ProductDetailCarouselCell ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -80,30 +81,30 @@
         self.pageLabel.hidden = NO;
         self.scrollView.contentSize = CGSizeMake(width,0);
         NSString * item = array[0];
-        UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
-        [imgView sd_setImageWithURL:[NSURL URLWithString:item] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
+        MONetworkPhotoView * imgView = [[MONetworkPhotoView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
+        [imgView sd_setImageWithURL:[NSURL URLWithString:item] placeholderImage:nil];
         [self.scrollView addSubview:imgView];
         self.imgsNum ++;
     } else {
         self.pageLabel.hidden = NO;
         self.scrollView.contentSize = CGSizeMake((array.count + 2) * width,0);
         
-        UIImageView * firstImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
-        [firstImgView sd_setImageWithURL:[NSURL URLWithString:array.lastObject] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
+        MONetworkPhotoView * firstImgView = [[MONetworkPhotoView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
+        [firstImgView sd_setImageWithURL:[NSURL URLWithString:array.lastObject] placeholderImage:nil];
         [self.scrollView addSubview:firstImgView];
         
         self.imgsNum ++;
         
         for (int i = 0; i < array.count; i++) {
             NSString * item = array[i];
-            UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake((i + 1) * width, 0, width, height)];
-            [imgView sd_setImageWithURL:[NSURL URLWithString:item] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
+            MONetworkPhotoView * imgView = [[MONetworkPhotoView alloc] initWithFrame:CGRectMake((i + 1) * width, 0, width, height)];
+            [imgView sd_setImageWithURL:[NSURL URLWithString:item] placeholderImage:nil];
             [self.scrollView addSubview:imgView];
             self.imgsNum ++;
         }
         
-        UIImageView * lastImgView = [[UIImageView alloc] initWithFrame:CGRectMake((array.count + 1) * width, 0, width, height)];
-        [lastImgView sd_setImageWithURL:[NSURL URLWithString:array.firstObject] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
+        MONetworkPhotoView * lastImgView = [[MONetworkPhotoView alloc] initWithFrame:CGRectMake((array.count + 1) * width, 0, width, height)];
+        [lastImgView sd_setImageWithURL:[NSURL URLWithString:array.firstObject] placeholderImage:nil];
         [self.scrollView addSubview:lastImgView];
         
         self.imgsNum ++;
