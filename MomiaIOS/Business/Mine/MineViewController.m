@@ -170,6 +170,9 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
         
+        cell.textLabel.textColor = UIColorFromRGB(0x333333);
+        cell.textLabel.font = [UIFont systemFontOfSize: 15.0];
+        
         switch (section) {
             case 1:
                 if (row == 0) {
