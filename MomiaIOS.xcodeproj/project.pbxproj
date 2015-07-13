@@ -94,6 +94,10 @@
 		5AB1BDDB1B4F7785004A4511 /* OrderDetailTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB1BDD91B4F7785004A4511 /* OrderDetailTitleCell.xib */; };
 		5AB1BDDF1B4F9B49004A4511 /* ProductDetailTagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BDDD1B4F9B49004A4511 /* ProductDetailTagsCell.m */; };
 		5AB1BDE01B4F9B49004A4511 /* ProductDetailTagsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB1BDDE1B4F9B49004A4511 /* ProductDetailTagsCell.xib */; };
+		5AB1BDE51B4FB6C8004A4511 /* LoadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BDE31B4FB6C8004A4511 /* LoadingCell.m */; };
+		5AB1BDE61B4FB6C8004A4511 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB1BDE41B4FB6C8004A4511 /* LoadingCell.xib */; };
+		5AB1BDEA1B4FB7ED004A4511 /* LoadingErrorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BDE81B4FB7ED004A4511 /* LoadingErrorCell.m */; };
+		5AB1BDEB1B4FB7ED004A4511 /* LoadingErrorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB1BDE91B4FB7ED004A4511 /* LoadingErrorCell.xib */; };
 		5AB444821B41479800FBADD4 /* OrderPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB444811B41479800FBADD4 /* OrderPersonModel.m */; };
 		5ABDA57B1B423FD8003BAE80 /* PostPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABDA57A1B423FD8003BAE80 /* PostPersonModel.m */; };
 		5ABDA57E1B42625B003BAE80 /* AddOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABDA57D1B42625B003BAE80 /* AddOrderModel.m */; };
@@ -372,6 +376,12 @@
 		5AB1BDDC1B4F9B49004A4511 /* ProductDetailTagsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailTagsCell.h; sourceTree = "<group>"; };
 		5AB1BDDD1B4F9B49004A4511 /* ProductDetailTagsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailTagsCell.m; sourceTree = "<group>"; };
 		5AB1BDDE1B4F9B49004A4511 /* ProductDetailTagsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailTagsCell.xib; sourceTree = "<group>"; };
+		5AB1BDE21B4FB6C8004A4511 /* LoadingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadingCell.h; path = Common/Views/LoadingCell.h; sourceTree = "<group>"; };
+		5AB1BDE31B4FB6C8004A4511 /* LoadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoadingCell.m; path = Common/Views/LoadingCell.m; sourceTree = "<group>"; };
+		5AB1BDE41B4FB6C8004A4511 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoadingCell.xib; path = Common/Views/LoadingCell.xib; sourceTree = "<group>"; };
+		5AB1BDE71B4FB7ED004A4511 /* LoadingErrorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadingErrorCell.h; path = Common/Views/LoadingErrorCell.h; sourceTree = "<group>"; };
+		5AB1BDE81B4FB7ED004A4511 /* LoadingErrorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoadingErrorCell.m; path = Common/Views/LoadingErrorCell.m; sourceTree = "<group>"; };
+		5AB1BDE91B4FB7ED004A4511 /* LoadingErrorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoadingErrorCell.xib; path = Common/Views/LoadingErrorCell.xib; sourceTree = "<group>"; };
 		5AB444801B41479800FBADD4 /* OrderPersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderPersonModel.h; path = Common/Models/Order/OrderPersonModel.h; sourceTree = "<group>"; };
 		5AB444811B41479800FBADD4 /* OrderPersonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderPersonModel.m; path = Common/Models/Order/OrderPersonModel.m; sourceTree = "<group>"; };
 		5ABDA5791B423FD8003BAE80 /* PostPersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostPersonModel.h; path = Common/Models/Order/PostPersonModel.h; sourceTree = "<group>"; };
@@ -865,6 +875,19 @@
 			name = PlayFellow;
 			sourceTree = "<group>";
 		};
+		5AB1BDE11B4FB59D004A4511 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				5AB1BDE21B4FB6C8004A4511 /* LoadingCell.h */,
+				5AB1BDE31B4FB6C8004A4511 /* LoadingCell.m */,
+				5AB1BDE41B4FB6C8004A4511 /* LoadingCell.xib */,
+				5AB1BDE71B4FB7ED004A4511 /* LoadingErrorCell.h */,
+				5AB1BDE81B4FB7ED004A4511 /* LoadingErrorCell.m */,
+				5AB1BDE91B4FB7ED004A4511 /* LoadingErrorCell.xib */,
+			);
+			name = Loading;
+			sourceTree = "<group>";
+		};
 		5AC9FFC61B17003500C769EF /* SubmitPost */ = {
 			isa = PBXGroup;
 			children = (
@@ -948,6 +971,7 @@
 		BC2C0C541B13095A00E2446E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5AB1BDE11B4FB59D004A4511 /* Loading */,
 				5AE4F8631B3D62DB005879B7 /* MOStepper */,
 				BC2C0C901B1849FE00E2446E /* MCAvatarView */,
 				BC2C0C841B15668000E2446E /* DatePickerSheet.h */,
@@ -1619,6 +1643,7 @@
 				BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */,
 				BCF564E51B4A54D0003A2227 /* PersonChildHeaderCell.xib in Resources */,
 				5AB1BDE01B4F9B49004A4511 /* ProductDetailTagsCell.xib in Resources */,
+				5AB1BDE61B4FB6C8004A4511 /* LoadingCell.xib in Resources */,
 				5A5A2AA11B43EEF4000595A9 /* OrderContactCell.xib in Resources */,
 				5AABF6FB1B28120C000A9D3F /* OrderUpdatePersonViewController.xib in Resources */,
 				5A08C13A1B39117100642648 /* ProductDetailViewController.xib in Resources */,
@@ -1639,6 +1664,7 @@
 				5A0643701B3BE9A800361732 /* OrderUpdatePersonFillCell.xib in Resources */,
 				5A0642FA1B3B95D400361732 /* FillOrderChooseCell.xib in Resources */,
 				5A6806FD1B01DA5100D02A60 /* MyCollectionCell.xib in Resources */,
+				5AB1BDEB1B4FB7ED004A4511 /* LoadingErrorCell.xib in Resources */,
 				5A33F1A81B2EBC2F002A8258 /* TitleView.xib in Resources */,
 				BC97DF1C1B4E1DF0002B1A00 /* PayResultViewController.xib in Resources */,
 				5AE995A41B26F9EE003DAAC0 /* FillOrderFooterView.xib in Resources */,
@@ -1750,6 +1776,7 @@
 				5A1B35EF1B12BD0500E1D31B /* CommentViewController.m in Sources */,
 				BCA273211AE9FB78002E7534 /* NSURL+MOURL.m in Sources */,
 				BC2C0C991B1858E800E2446E /* MOLabel.m in Sources */,
+				5AB1BDE51B4FB6C8004A4511 /* LoadingCell.m in Sources */,
 				5A33F1A11B2EA1D5002A8258 /* CashPayTopHeaderView.m in Sources */,
 				BC82544E1B3D416300430A6F /* PlaymateOperateCell.m in Sources */,
 				BCF033951B4E892F005B71D6 /* PeopleViewController.m in Sources */,
@@ -1778,6 +1805,7 @@
 				5A9E811C1B4BDF560028AC47 /* NSDate+Age.m in Sources */,
 				BCF564D51B48E018003A2227 /* OrderListViewController.m in Sources */,
 				BC7708511AFAFD54000068A8 /* MOTableViewController.m in Sources */,
+				5AB1BDEA1B4FB7ED004A4511 /* LoadingErrorCell.m in Sources */,
 				5A5A2AA41B4412FC000595A9 /* NSString+Predicate.m in Sources */,
 				5A08C13D1B39117100642648 /* ProductDetailCarouselCell.m in Sources */,
 				BCF0339C1B4F77BE005B71D6 /* AlipayOrderModel.m in Sources */,
