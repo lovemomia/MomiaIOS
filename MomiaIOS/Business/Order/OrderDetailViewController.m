@@ -12,6 +12,7 @@
 #import "OrderDetailMiddleCell.h"
 #import "OrderDetailBottomCell.h"
 #import "OrderDetailTitleCell.h"
+#import "PostOrderModel.h"
 
 static NSString * orderDetailTitleIdentifier = @"CellOrderDetailTitle";
 static NSString * orderDetailTopIdentifier = @"CellOrderDetailTop";
@@ -51,6 +52,15 @@ static NSString * orderDetailBottomIdentifier = @"CellOrderDetailBottom";
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 1.0f;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if(section == 2 && self.model.data.status == 1) {
+        return 80.0f;
+    } else {
+        return 13.0f;
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -130,6 +140,51 @@ static NSString * orderDetailBottomIdentifier = @"CellOrderDetailBottom";
 
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *view = [UIView new];
+    if (section == [self numberOfSectionsInTableView:tableView] - 1 && self.model.data.status == 1) {
+        UIButton *button = [[UIButton alloc]init];
+        button.height = 40;
+        button.width = 280;
+        button.left = (SCREEN_WIDTH - button.width) / 2;
+        button.top = 30;
+        [button setTitle:@"去支付" forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(onPayClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [button setBackgroundImage:[UIImage imageNamed:@"cm_large_button_normal"] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:@"cm_large_button_disable"] forState:UIControlStateDisabled];
+        
+        [view addSubview:button];
+    }
+    return view;
+}
+
+-(void)onPayClicked:(id) sender
+{
+    PostOrderModel * model = [[PostOrderModel alloc] init];
+    PostOrderData * data = [[PostOrderData alloc] init];
+    data.count = self.model.data.count;
+    data.orderId = self.model.data.orderNo;
+    data.participants = self.model.data.participants;
+    data.productId = self.model.data.productId;
+    data.skuId = self.model.data.skuId;
+    data.totalFee = self.model.data.totalFee;
+    
+    model.errMsg = self.model.errMsg;
+    model.errNo = self.model.errNo;
+    model.timestamp = self.model.timestamp;
+    model.data = data;
+
+    
+    NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://cashpay?pom=%@",
+                                        [[model toJSONString] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+    [[UIApplication sharedApplication] openURL:url];
+
+}
+
+
+
+
 - (UITableViewStyle)tableViewStyle {
     return UITableViewStyleGrouped;
 }
@@ -145,9 +200,9 @@ static NSString * orderDetailBottomIdentifier = @"CellOrderDetailBottom";
     if (self.model == nil) {
         [self.view showLoadingBee];
     }
-    
+    NSLog(@"%@",[AccountService defaultService].account.token);
     NSDictionary * dic = @{@"oid":self.oId,@"pid":self.pId};
-    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/user/order/detail") parameters:dic cacheType:CacheTypeNormal JSONModelClass:[OrderDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/user/order/detail") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[OrderDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.model == nil) {
             [self.view removeLoadingBee];
         }

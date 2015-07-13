@@ -37,6 +37,7 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
         self.delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         
         NSString *pomJson = [[params objectForKey:@"pom"] URLDecodedString];
+                
         NSData *jsonData = [pomJson dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
                                                             options:NSJSONReadingMutableContainers

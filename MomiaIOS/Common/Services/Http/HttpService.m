@@ -139,6 +139,7 @@
             [[ServerErrorHandler defaultHandler] handlerError:err];
             failure(operation, err);
             NSLog(@"http (POST) fail: %@", error);
+            NSLog(@"http (POST) fail: %@", result);
         }
     };
     
