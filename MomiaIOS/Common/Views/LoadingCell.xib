@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2Mt-fj-nZJ">
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2Mt-fj-nZJ">
                         <rect key="frame" x="150" y="15" width="20" height="20"/>
                     </activityIndicatorView>
                 </subviews>
@@ -23,6 +23,9 @@
                     <constraint firstAttribute="centerX" secondItem="2Mt-fj-nZJ" secondAttribute="centerX" id="dXS-IW-Z6s"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="activityIndicator" destination="2Mt-fj-nZJ" id="51q-4F-Lqq"/>
+            </connections>
             <point key="canvasLocation" x="231" y="177"/>
         </tableViewCell>
     </objects>

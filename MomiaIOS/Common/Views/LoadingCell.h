@@ -10,4 +10,7 @@
 
 @interface LoadingCell : MOTableCell
 
+-(void)startAnimating;
+-(void)stopAnimating;
+
 @end

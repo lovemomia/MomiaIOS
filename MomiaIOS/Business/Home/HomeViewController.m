@@ -31,6 +31,8 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
 
 @property(nonatomic,strong) NSString * titleStr;
 
+@property(nonatomic,strong) AFHTTPRequestOperation * curOperation;
+
 @end
 
 @implementation HomeViewController
@@ -98,6 +100,12 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
 #pragma mark - webData Request
 
 - (void)requestData {
+    if(self.curOperation) {
+        [self.curOperation pause];
+    }
+    
+    [self.view removeError];
+    
     if (self.model == nil) {
         [self.view showLoadingBee];
     }
@@ -109,10 +117,9 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
     }
     
     NSDictionary * dic = @{@"pageindex":@(self.pageIndex)};
-    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/home") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[HomeModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    self.curOperation = [[HttpService defaultService] GET:URL_APPEND_PATH(@"/home") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[HomeModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         [self.view removeLoadingBee];
-        [self.view removeError];
         
         self.model = responseObject;
         
@@ -135,8 +142,6 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
         }
         else self.continueLoading = NO;
         
-        self.pageIndex++;
-        
         [self.tableView reloadData];
         [self.tableView.header endRefreshing];
         
@@ -153,6 +158,7 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
             if(self.model) {//表明下拉刷新出错
                 //do nothing
             } else {//表明第一次进应用刷新出错
+                [self.view removeError];
                 [self.view showError:error.message retry:^{
                     [self.view removeError];
                     [self requestData];
@@ -247,8 +253,10 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
             cell = error;
         } else {
             LoadingCell * loading = [LoadingCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:homeLoadingIdentifier];
+            [loading startAnimating];
             if(!self.isLoading) {
                 self.isLoading = YES;
+                self.pageIndex++;
                 [self requestData];
             }
             loading.backgroundColor = MO_APP_VCBackgroundColor;
@@ -271,6 +279,8 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
         [[UIApplication sharedApplication] openURL:url];
     } else {
         if(self.isError) {
+            self.isError = NO;
+            [self.tableView reloadData];
             if(!self.isLoading) {
                 self.isLoading = YES;
                 [self requestData];
