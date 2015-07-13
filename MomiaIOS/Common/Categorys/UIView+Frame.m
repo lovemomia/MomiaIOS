@@ -182,6 +182,7 @@
     UILabel *label = [[UILabel alloc]init];
     label.text = errMsg;
     label.textColor =  UIColorFromRGB(0x333333);
+    label.textAlignment = NSTextAlignmentCenter;
     label.numberOfLines = 0;
     
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 45, 24)];
@@ -198,9 +199,9 @@
     
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(view.mas_top).with.offset(0);
-        make.centerX.equalTo(view.mas_centerX);
         make.left.equalTo(view.mas_left).with.offset(0);
         make.right.equalTo(view.mas_right).with.offset(0);
+        make.centerX.equalTo(view.mas_centerX);
     }];
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(label.mas_bottom).with.offset(10);
