@@ -220,7 +220,9 @@
 
 - (NSString *)appendUrl:(NSString *)url withParams:(NSDictionary *)parameters {
     NSMutableString * ms = [[NSMutableString alloc]initWithString:url];
-    if (![url containsString:@"?"]) {
+
+    NSRange range = [url rangeOfString:@"?"];
+    if(range.length > 0) {
         [ms appendString:@"?"];
     }
     for (NSString *key in [parameters keyEnumerator]) {
