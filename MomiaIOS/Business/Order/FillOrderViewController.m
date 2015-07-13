@@ -563,7 +563,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
     if (self.model == nil) {
         [self.view showLoadingBee];
     }
-    
+        
     NSDictionary * dic = @{@"id":self.productId};
     [[HttpService defaultService] GET:URL_APPEND_PATH(@"/product/order") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[FillOrderModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.model == nil) {

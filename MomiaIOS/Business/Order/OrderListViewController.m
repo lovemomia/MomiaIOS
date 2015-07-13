@@ -49,6 +49,7 @@
                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //                                 [MBProgressHUD hideHUDForView:self.view animated:YES];
                                  OrderListModel *orderListModel = (OrderListModel *)responseObject;
+                                 self.totalCount = orderListModel.data.totalCount;
                                  for (Order *order in orderListModel.data.list) {
                                      [self.orderList addObject:order];
                                  }
@@ -70,12 +71,14 @@
 #pragma mark - tableview delegate & datasource
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    Order * model = self.orderList[indexPath.row];
-    
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://orderdetail?oid=%ld&pid=%ld",[model.ids integerValue],[model.productId integerValue]]];
-    
-    [[UIApplication sharedApplication] openURL:url];
+    if(indexPath.row < self.orderList.count) {
+        
+        Order * model = self.orderList[indexPath.row];
+        
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://orderdetail?oid=%ld&pid=%ld",[model.ids integerValue],[model.productId integerValue]]];
+        
+        [[UIApplication sharedApplication] openURL:url];
+    }
     
 }
 

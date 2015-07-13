@@ -26,7 +26,7 @@
 
 @interface HomeDataModel : JSONModel
 
-@property(nonatomic,strong) NSArray<HomeBannerModel> * banners;
+@property(nonatomic,strong) NSArray<HomeBannerModel,Optional> * banners;
 //@property(nonatomic,assign) NSInteger<Optional> nextpage;
 @property(nonatomic,strong) NSArray<ProductModel> * products;
 
