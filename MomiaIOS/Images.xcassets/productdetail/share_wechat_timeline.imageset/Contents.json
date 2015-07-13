@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "48x48.png"
+      "filename" : "朋友圈.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "80x80.png"
+      "filename" : "朋友圈@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "120x120.png"
+      "filename" : "朋友圈@3x.png"
     }
   ],
   "info" : {
