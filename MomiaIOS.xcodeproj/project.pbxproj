@@ -152,6 +152,7 @@
 		BC5063931B53746800AA233C /* SGGridMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BC50638D1B53746800AA233C /* SGGridMenu.m */; };
 		BC5063941B53746800AA233C /* SGSheetMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BC50638F1B53746800AA233C /* SGSheetMenu.m */; };
 		BC5063971B5385FD00AA233C /* MONetworkPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5063961B5385FD00AA233C /* MONetworkPhotoView.m */; };
+		BC50639A1B539F0300AA233C /* StringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5063991B539F0300AA233C /* StringUtils.m */; };
 		BC7708511AFAFD54000068A8 /* MOTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7708501AFAFD54000068A8 /* MOTableViewController.m */; };
 		BC77085F1AFC5685000068A8 /* UILabel+ContentSize.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77085E1AFC5685000068A8 /* UILabel+ContentSize.m */; };
 		BC82542B1B3917AC00430A6F /* MORootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82542A1B3917AC00430A6F /* MORootViewController.m */; };
@@ -489,6 +490,8 @@
 		BC50638F1B53746800AA233C /* SGSheetMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGSheetMenu.m; sourceTree = "<group>"; };
 		BC5063951B5385FD00AA233C /* MONetworkPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MONetworkPhotoView.h; path = Common/Views/MONetworkPhotoView.h; sourceTree = "<group>"; };
 		BC5063961B5385FD00AA233C /* MONetworkPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MONetworkPhotoView.m; path = Common/Views/MONetworkPhotoView.m; sourceTree = "<group>"; };
+		BC5063981B539F0300AA233C /* StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StringUtils.h; path = Common/Utils/StringUtils.h; sourceTree = "<group>"; };
+		BC5063991B539F0300AA233C /* StringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StringUtils.m; path = Common/Utils/StringUtils.m; sourceTree = "<group>"; };
 		BC77084F1AFAFD54000068A8 /* MOTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOTableViewController.h; path = Common/Base/MOTableViewController.h; sourceTree = "<group>"; };
 		BC7708501AFAFD54000068A8 /* MOTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOTableViewController.m; path = Common/Base/MOTableViewController.m; sourceTree = "<group>"; };
 		BC77085D1AFC5685000068A8 /* UILabel+ContentSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+ContentSize.h"; path = "Common/Categorys/UILabel+ContentSize.h"; sourceTree = "<group>"; };
@@ -1415,6 +1418,8 @@
 				BCF9EC9F1B4161EE00AEBE1E /* CityManager.m */,
 				BCF0339D1B4FB1BE005B71D6 /* ThirdShareHelper.h */,
 				BCF0339E1B4FB1BE005B71D6 /* ThirdShareHelper.m */,
+				BC5063981B539F0300AA233C /* StringUtils.h */,
+				BC5063991B539F0300AA233C /* StringUtils.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1871,6 +1876,7 @@
 				BC2C0C7A1B141A3D00E2446E /* AccountModel.m in Sources */,
 				BC5063931B53746800AA233C /* SGGridMenu.m in Sources */,
 				BCF564C91B43EAB2003A2227 /* UIButton+Block.m in Sources */,
+				BC50639A1B539F0300AA233C /* StringUtils.m in Sources */,
 				BC5063921B53746800AA233C /* SGBaseMenu.m in Sources */,
 				BCF9ECAA1B4171EC00AEBE1E /* CityListViewController.m in Sources */,
 				BC2C0C931B1849FE00E2446E /* MCAvatarView.m in Sources */,

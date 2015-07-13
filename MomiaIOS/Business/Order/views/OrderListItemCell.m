@@ -21,6 +21,7 @@
 }
 
 - (void)setData:(Order *)order {
+    [self.iconTv sd_setImageWithURL:[NSURL URLWithString:order.cover] placeholderImage:nil];
     self.titleLabel.text = order.title;
     self.priceLabel.text = [NSString stringWithFormat:@"总价：￥%@", order.totalFee];
     self.peopleLabel.text = [NSString stringWithFormat:@"人数：%@", order.participants];

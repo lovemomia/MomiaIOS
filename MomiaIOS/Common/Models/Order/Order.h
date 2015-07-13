@@ -15,8 +15,10 @@
 @property (nonatomic, strong) NSString *participants;
 @property (nonatomic, strong) NSNumber *productId;
 @property (nonatomic, strong) NSNumber *skuId;
-@property (nonatomic, strong) NSString *time;
-@property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSNumber *totalFee;
+@property (nonatomic, strong) NSString<Optional> *title;
+
+@property (nonatomic, strong) NSString<Optional> *addTime;
+@property (nonatomic, strong) NSString<Optional> *cover;
 
 @end

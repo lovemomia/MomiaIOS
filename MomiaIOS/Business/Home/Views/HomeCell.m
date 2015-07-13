@@ -8,6 +8,7 @@
 
 #import "HomeCell.h"
 #import "HomeModel.h"
+#import "StringUtils.h"
 
 
 @implementation HomeCell
@@ -19,22 +20,13 @@
     [self.timeLabel setTitle:model.scheduler forState:UIControlStateNormal];
     self.descLabel.text = model.address;
     [self.enrollmentLabel setTitle:[NSString stringWithFormat:@"%ld人报名", model.joined] forState:UIControlStateNormal];
-    self.priceLabel.text = [self stringForPrice:model.price];
+    self.priceLabel.text = [StringUtils stringForPrice:model.price];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
-}
-
-- (NSString *)stringForPrice:(CGFloat)price {
-    NSString *priceStr = [NSString stringWithFormat:@"%f", price];
-    NSRange change = [priceStr rangeOfString:@".00"];
-    if(change.length > 0) {
-        return [NSString stringWithFormat:@"%d", (int)price];
-    }
-    return [NSString stringWithFormat:@"%.2f", price];
 }
 
 @end
