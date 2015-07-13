@@ -33,7 +33,7 @@
     [self save];
 }
 
-- (void)setCity:(NSString *)city {
+- (void)setCity:(NSNumber *)city {
     _city = city;
     [self save];
 }

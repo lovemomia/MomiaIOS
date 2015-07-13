@@ -68,10 +68,15 @@
         }
         if ([result isKindOfClass:responseModelClass] && result.errNo == 0) {
             success(operation, result);
-//            NSLog(@"http (GET) success: %@", responseObject);
+            NSLog(@"http (GET) success: %@", responseObject);
             
         } else {
-            NSError *err = [[NSError alloc]initWithCode:result.errNo message:@"数据解析失败"];
+            NSError *err;
+            if (result.errNo == 0) {
+                err = [[NSError alloc]initWithCode:result.errNo message:@"数据解析失败"];
+            } else {
+                err = [[NSError alloc]initWithCode:result.errNo message:result.errMsg];
+            }
             [[ServerErrorHandler defaultHandler] handlerError:err];
             failure(operation, err);
             
@@ -97,7 +102,7 @@
             }
             if (result.errNo == 0) {
                 success(nil, result);
-//                NSLog(@"http (Cache) success: %@", cache);
+                NSLog(@"http (Cache) success: %@", cache);
                 return nil;
                 
             } else {
@@ -135,7 +140,13 @@
             NSLog(@"http (POST) success: %@", responseObject);
             
         } else {
-            NSError *err = [[NSError alloc]initWithCode:result.errNo message:@"数据解析失败"];
+            NSError *err;
+            if (result.errNo == 0) {
+                err = [[NSError alloc]initWithCode:result.errNo message:@"数据解析失败"];
+            } else {
+                err = [[NSError alloc]initWithCode:result.errNo message:result.errMsg];
+            }
+            
             [[ServerErrorHandler defaultHandler] handlerError:err];
             failure(operation, err);
             NSLog(@"http (POST) fail: %@", error);
@@ -221,7 +232,9 @@
 
 - (NSString *)appendUrl:(NSString *)url withParams:(NSDictionary *)parameters {
     NSMutableString * ms = [[NSMutableString alloc]initWithString:url];
-    if (![url containsString:@"?"]) {
+
+    NSRange range = [url rangeOfString:@"?"];
+    if(range.length > 0) {
         [ms appendString:@"?"];
     }
     for (NSString *key in [parameters keyEnumerator]) {

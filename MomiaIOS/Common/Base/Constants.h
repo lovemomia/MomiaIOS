@@ -72,9 +72,9 @@
 #define MO_APP_TextColor_gray                    (UIColorFromRGB(0x737373))
 
 // getui push dev
-#define kAppId           @"xHJWU4TNcm7qaq0GzMNwg7"
-#define kAppKey          @"BPjUJH4Z8a9d4pSfv9AWA2"
-#define kAppSecret       @"gRWoi5S1hv5gkaJhrGXYs9"
+#define kAppId           @"0kPG75cb4s5GJmZMnEueR1"
+#define kAppKey          @"fRdqHs15ak5zgCwTU00Ud6"
+#define kAppSecret       @"xfIhi0VVz18TG9Qv1zXa93"
 
 // getui push production
 //#define kAppId           @"iMahVVxurw6BNr7XSn9EF2"

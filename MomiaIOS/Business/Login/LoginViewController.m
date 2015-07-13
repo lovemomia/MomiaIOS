@@ -11,6 +11,7 @@
 #import "AccountModel.h"
 #import "UIImage+Color.h"
 #import "NSTimer+Block.h"
+#import "ForgetPasswordViewController.h"
 
 @interface LoginViewController ()
 
@@ -52,6 +53,15 @@
     [self.navigationController pushViewController:viewController animated:YES];
     
 //    [self openURL:@"duola://register" byNav:self.navigationController];
+}
+
+- (void)onForgetPasswordClicked {
+    ForgetPasswordViewController *viewController = [[ForgetPasswordViewController alloc]initWithParams:nil];
+    
+    viewController.resetPasswordSuccessBlock = ^(){
+        self.loginSuccessBlock();
+    };
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 - (void)onVercodeClicked:(id)sender {
@@ -155,11 +165,24 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UIView *view = [UIView new];
+    
+    UIButton *forgetPwBtn = [[UIButton alloc]init];
+    forgetPwBtn.height = 20;
+    forgetPwBtn.width = 80;
+    [forgetPwBtn setTitle:@"忘记密码" forState:UIControlStateNormal];
+    forgetPwBtn.titleLabel.font = [UIFont systemFontOfSize: 14.0];
+    forgetPwBtn.left = SCREEN_WIDTH - 80;
+    forgetPwBtn.top = 15;
+    forgetPwBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [forgetPwBtn setTitleColor:MO_APP_ThemeColor forState:UIControlStateNormal];
+    [forgetPwBtn addTarget:self action:@selector(onForgetPasswordClicked) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:forgetPwBtn];
+    
     UIButton *button = [[UIButton alloc]init];
     button.height = 40;
     button.width = 280;
     button.left = (SCREEN_WIDTH - button.width) / 2;
-    button.top = 30;
+    button.top = 60;
     [button setTitle:@"登录" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(onLoginClicked) forControlEvents:UIControlEventTouchUpInside];
@@ -172,7 +195,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     if (section == 0) {
-        return 80;
+        return 110;
     }
     return 0;
 }

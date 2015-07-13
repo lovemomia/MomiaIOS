@@ -146,6 +146,15 @@
 		BC41ABB91B0F25AB00A419DA /* SugTagsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC41ABB81B0F25AB00A419DA /* SugTagsModel.m */; };
 		BC41ABBC1B0F266F00A419DA /* SuggestTagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC41ABBB1B0F266F00A419DA /* SuggestTagsViewController.m */; };
 		BC41ABBF1B0F269100A419DA /* SugTagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC41ABBE1B0F269100A419DA /* SugTagsCell.m */; };
+		BC5063901B53746800AA233C /* SGActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5063871B53746800AA233C /* SGActionView.m */; };
+		BC5063911B53746800AA233C /* SGAlertMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5063891B53746800AA233C /* SGAlertMenu.m */; };
+		BC5063921B53746800AA233C /* SGBaseMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BC50638B1B53746800AA233C /* SGBaseMenu.m */; };
+		BC5063931B53746800AA233C /* SGGridMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BC50638D1B53746800AA233C /* SGGridMenu.m */; };
+		BC5063941B53746800AA233C /* SGSheetMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BC50638F1B53746800AA233C /* SGSheetMenu.m */; };
+		BC5063971B5385FD00AA233C /* MONetworkPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5063961B5385FD00AA233C /* MONetworkPhotoView.m */; };
+		BC50639A1B539F0300AA233C /* StringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5063991B539F0300AA233C /* StringUtils.m */; };
+		BC50639D1B53A37200AA233C /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC50639C1B53A37200AA233C /* ForgetPasswordViewController.m */; };
+		BC50639F1B53A3A000AA233C /* ForgetPasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC50639E1B53A3A000AA233C /* ForgetPasswordCell.xib */; };
 		BC7708511AFAFD54000068A8 /* MOTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7708501AFAFD54000068A8 /* MOTableViewController.m */; };
 		BC77085F1AFC5685000068A8 /* UILabel+ContentSize.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77085E1AFC5685000068A8 /* UILabel+ContentSize.m */; };
 		BC82542B1B3917AC00430A6F /* MORootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82542A1B3917AC00430A6F /* MORootViewController.m */; };
@@ -471,6 +480,23 @@
 		BC41ABBB1B0F266F00A419DA /* SuggestTagsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SuggestTagsViewController.m; path = Business/Mine/SuggestTagsViewController.m; sourceTree = "<group>"; };
 		BC41ABBD1B0F269100A419DA /* SugTagsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SugTagsCell.h; path = Business/Mine/Views/SugTagsCell.h; sourceTree = "<group>"; };
 		BC41ABBE1B0F269100A419DA /* SugTagsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SugTagsCell.m; path = Business/Mine/Views/SugTagsCell.m; sourceTree = "<group>"; };
+		BC5063861B53746800AA233C /* SGActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGActionView.h; sourceTree = "<group>"; };
+		BC5063871B53746800AA233C /* SGActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGActionView.m; sourceTree = "<group>"; };
+		BC5063881B53746800AA233C /* SGAlertMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGAlertMenu.h; sourceTree = "<group>"; };
+		BC5063891B53746800AA233C /* SGAlertMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGAlertMenu.m; sourceTree = "<group>"; };
+		BC50638A1B53746800AA233C /* SGBaseMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGBaseMenu.h; sourceTree = "<group>"; };
+		BC50638B1B53746800AA233C /* SGBaseMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGBaseMenu.m; sourceTree = "<group>"; };
+		BC50638C1B53746800AA233C /* SGGridMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGGridMenu.h; sourceTree = "<group>"; };
+		BC50638D1B53746800AA233C /* SGGridMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGGridMenu.m; sourceTree = "<group>"; };
+		BC50638E1B53746800AA233C /* SGSheetMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGSheetMenu.h; sourceTree = "<group>"; };
+		BC50638F1B53746800AA233C /* SGSheetMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGSheetMenu.m; sourceTree = "<group>"; };
+		BC5063951B5385FD00AA233C /* MONetworkPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MONetworkPhotoView.h; path = Common/Views/MONetworkPhotoView.h; sourceTree = "<group>"; };
+		BC5063961B5385FD00AA233C /* MONetworkPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MONetworkPhotoView.m; path = Common/Views/MONetworkPhotoView.m; sourceTree = "<group>"; };
+		BC5063981B539F0300AA233C /* StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StringUtils.h; path = Common/Utils/StringUtils.h; sourceTree = "<group>"; };
+		BC5063991B539F0300AA233C /* StringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StringUtils.m; path = Common/Utils/StringUtils.m; sourceTree = "<group>"; };
+		BC50639B1B53A37200AA233C /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForgetPasswordViewController.h; path = Business/Login/ForgetPasswordViewController.h; sourceTree = "<group>"; };
+		BC50639C1B53A37200AA233C /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForgetPasswordViewController.m; path = Business/Login/ForgetPasswordViewController.m; sourceTree = "<group>"; };
+		BC50639E1B53A3A000AA233C /* ForgetPasswordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ForgetPasswordCell.xib; path = Business/Login/Views/ForgetPasswordCell.xib; sourceTree = "<group>"; };
 		BC77084F1AFAFD54000068A8 /* MOTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOTableViewController.h; path = Common/Base/MOTableViewController.h; sourceTree = "<group>"; };
 		BC7708501AFAFD54000068A8 /* MOTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOTableViewController.m; path = Common/Base/MOTableViewController.m; sourceTree = "<group>"; };
 		BC77085D1AFC5685000068A8 /* UILabel+ContentSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+ContentSize.h"; path = "Common/Categorys/UILabel+ContentSize.h"; sourceTree = "<group>"; };
@@ -964,6 +990,8 @@
 				BC2C0C741B140BF100E2446E /* RegisterViewController.m */,
 				BC2C0C7E1B14659400E2446E /* MyStatusViewController.h */,
 				BC2C0C7F1B14659400E2446E /* MyStatusViewController.m */,
+				BC50639B1B53A37200AA233C /* ForgetPasswordViewController.h */,
+				BC50639C1B53A37200AA233C /* ForgetPasswordViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -971,6 +999,7 @@
 		BC2C0C541B13095A00E2446E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BC5063851B53746800AA233C /* SGActionView */,
 				5AB1BDE11B4FB59D004A4511 /* Loading */,
 				5AE4F8631B3D62DB005879B7 /* MOStepper */,
 				BC2C0C901B1849FE00E2446E /* MCAvatarView */,
@@ -987,6 +1016,8 @@
 				BC2C0C981B1858E800E2446E /* MOLabel.m */,
 				BC8254311B3A76F500430A6F /* CustomDarkButton.h */,
 				BC8254321B3A76F500430A6F /* CustomDarkButton.m */,
+				BC5063951B5385FD00AA233C /* MONetworkPhotoView.h */,
+				BC5063961B5385FD00AA233C /* MONetworkPhotoView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1092,6 +1123,23 @@
 			path = Common/Models/Suggest;
 			sourceTree = "<group>";
 		};
+		BC5063851B53746800AA233C /* SGActionView */ = {
+			isa = PBXGroup;
+			children = (
+				BC5063861B53746800AA233C /* SGActionView.h */,
+				BC5063871B53746800AA233C /* SGActionView.m */,
+				BC5063881B53746800AA233C /* SGAlertMenu.h */,
+				BC5063891B53746800AA233C /* SGAlertMenu.m */,
+				BC50638A1B53746800AA233C /* SGBaseMenu.h */,
+				BC50638B1B53746800AA233C /* SGBaseMenu.m */,
+				BC50638C1B53746800AA233C /* SGGridMenu.h */,
+				BC50638D1B53746800AA233C /* SGGridMenu.m */,
+				BC50638E1B53746800AA233C /* SGSheetMenu.h */,
+				BC50638F1B53746800AA233C /* SGSheetMenu.m */,
+			);
+			path = SGActionView;
+			sourceTree = "<group>";
+		};
 		BC7708601AFC56F3000068A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -1130,6 +1178,7 @@
 			children = (
 				BC8254351B3AA0A500430A6F /* LoginCell.xib */,
 				BC8254371B3AB01E00430A6F /* RegisterCell.xib */,
+				BC50639E1B53A3A000AA233C /* ForgetPasswordCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1377,6 +1426,8 @@
 				BCF9EC9F1B4161EE00AEBE1E /* CityManager.m */,
 				BCF0339D1B4FB1BE005B71D6 /* ThirdShareHelper.h */,
 				BCF0339E1B4FB1BE005B71D6 /* ThirdShareHelper.m */,
+				BC5063981B539F0300AA233C /* StringUtils.h */,
+				BC5063991B539F0300AA233C /* StringUtils.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1657,6 +1708,7 @@
 				BCA273101AE9D79F002E7534 /* scheme.plist in Resources */,
 				BCA273061AE8D0E9002E7534 /* Launch Screen.xib in Resources */,
 				5A5A2A6A1B43E531000595A9 /* OrderContactViewController.xib in Resources */,
+				BC50639F1B53A3A000AA233C /* ForgetPasswordCell.xib in Resources */,
 				5A33F1A21B2EA1D5002A8258 /* CashPayTopHeaderView.xib in Resources */,
 				5AE4F8681B3D642B005879B7 /* MOStepperView.xib in Resources */,
 				BC8254361B3AA0A500430A6F /* LoginCell.xib in Resources */,
@@ -1729,6 +1781,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC5063901B53746800AA233C /* SGActionView.m in Sources */,
 				BC2C0C521B1303BA00E2446E /* LoginViewController.m in Sources */,
 				BCE589401B2AB62500736923 /* WXUtil.mm in Sources */,
 				BCF564DD1B490052003A2227 /* OrderListModel.m in Sources */,
@@ -1751,6 +1804,7 @@
 				BC2C0C641B130CDB00E2446E /* Account.m in Sources */,
 				5AEB188A1B1865F90098FD5F /* MySuggestModel.m in Sources */,
 				5A08C1391B39117100642648 /* ProductDetailViewController.m in Sources */,
+				BC5063911B53746800AA233C /* SGAlertMenu.m in Sources */,
 				BCF9ECA71B416C3500AEBE1E /* CityListModel.m in Sources */,
 				5A9E80E61B4BBF590028AC47 /* ProductPlayFellowCell.m in Sources */,
 				BC41ABB91B0F25AB00A419DA /* SugTagsModel.m in Sources */,
@@ -1761,6 +1815,7 @@
 				5A0643781B3BE9FE00361732 /* OrderUpdatePersonFillCell.m in Sources */,
 				5A5A2A691B43E531000595A9 /* OrderContactViewController.m in Sources */,
 				5A1B35E81B12BBAC00E1D31B /* CommentModel.m in Sources */,
+				BC5063971B5385FD00AA233C /* MONetworkPhotoView.m in Sources */,
 				BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */,
 				BC8254331B3A76F500430A6F /* CustomDarkButton.m in Sources */,
 				BCF9ECA01B4161EE00AEBE1E /* CityManager.m in Sources */,
@@ -1768,6 +1823,7 @@
 				5A6806F31B01C9C700D02A60 /* PersonInfoViewController.m in Sources */,
 				BCCDF5DF1B09E6C7008BAE12 /* SugSubmitProductContentCell.m in Sources */,
 				BCF9ECA41B4162B800AEBE1E /* City.m in Sources */,
+				BC50639D1B53A37200AA233C /* ForgetPasswordViewController.m in Sources */,
 				5A6806EE1B01A48300D02A60 /* SettingViewController.m in Sources */,
 				5AABF6FA1B28120C000A9D3F /* OrderUpdatePersonViewController.m in Sources */,
 				5AE4F86B1B3D645E005879B7 /* MOStepperGroup.m in Sources */,
@@ -1781,6 +1837,7 @@
 				BC82544E1B3D416300430A6F /* PlaymateOperateCell.m in Sources */,
 				BCF033951B4E892F005B71D6 /* PeopleViewController.m in Sources */,
 				BC97DF061B4BE21F002B1A00 /* WechatPayModel.m in Sources */,
+				BC5063941B53746800AA233C /* SGSheetMenu.m in Sources */,
 				BC97DEFF1B4BCFF1002B1A00 /* PayChannel.m in Sources */,
 				5A1B35F61B12C0D200E1D31B /* CommentCell.m in Sources */,
 				BC8540911ADF74E9005A7C54 /* main.m in Sources */,
@@ -1827,7 +1884,10 @@
 				5A9E80DC1B4BBB1F0028AC47 /* ProductPlayFellowViewController.m in Sources */,
 				BC38D2441AFEEA300051C7E9 /* HttpService.m in Sources */,
 				BC2C0C7A1B141A3D00E2446E /* AccountModel.m in Sources */,
+				BC5063931B53746800AA233C /* SGGridMenu.m in Sources */,
 				BCF564C91B43EAB2003A2227 /* UIButton+Block.m in Sources */,
+				BC50639A1B539F0300AA233C /* StringUtils.m in Sources */,
+				BC5063921B53746800AA233C /* SGBaseMenu.m in Sources */,
 				BCF9ECAA1B4171EC00AEBE1E /* CityListViewController.m in Sources */,
 				BC2C0C931B1849FE00E2446E /* MCAvatarView.m in Sources */,
 				5AE4F82D1B3CF21B005879B7 /* FillOrderModel.m in Sources */,
