@@ -8,7 +8,6 @@
 
 #import "UIView+Frame.h"
 
-
 @implementation UIView(BDPFrame)
 
 @dynamic width, height,posX, posY, centerPos, top, right, left;
@@ -163,14 +162,12 @@
     [loadingView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self);
     }];
-    
-    
 }
 - (void)removeLoadingBee{
     for ( UIView* loadingView in [self subviews]){
         if ([loadingView isKindOfClass:[UIActivityIndicatorView class]]) {
             [loadingView removeFromSuperview];
-            break;
+//            break;
         }
     }
 }
@@ -217,7 +214,7 @@
 
 - (void)removeError {
     for ( UIView* errorView in [self subviews]){
-        if (errorView.tag == -1) {
+        if (errorView.tag == -100) {
             [errorView removeFromSuperview];
             break;
         }
