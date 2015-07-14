@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -13,39 +13,23 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xel-nY-4Dk" id="ux3-kt-lh5">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="哆啦A梦密室逃脱" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iE-kM-8k9">
-                        <rect key="frame" x="110" y="12" width="200" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="wHM-tp-b0T"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人数：2成人，1儿童" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0d-tl-bdm">
-                        <rect key="frame" x="110" y="61" width="200" height="14"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="14" id="chO-p4-Rp3"/>
-                        </constraints>
+                        <rect key="frame" x="110" y="59" width="200" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总价：￥130" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWr-w3-3Pc">
-                        <rect key="frame" x="110" y="39" width="200" height="16"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="16" id="YG3-yV-fEg"/>
-                        </constraints>
+                        <rect key="frame" x="110" y="38" width="200" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JtO-sw-qgU">
-                        <rect key="frame" x="10" y="10" width="90" height="68"/>
+                        <rect key="frame" x="10" y="10" width="90" height="67"/>
                         <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="90" id="Cas-Yu-eUl"/>
-                            <constraint firstAttribute="height" constant="68" id="EwK-iT-0NZ"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.radius">
@@ -53,14 +37,17 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="哆啦A梦密室逃脱" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iE-kM-8k9">
+                        <rect key="frame" x="110" y="14" width="200" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="X0d-tl-bdm" firstAttribute="top" secondItem="GWr-w3-3Pc" secondAttribute="bottom" constant="5" id="0Ji-I2-myn"/>
                     <constraint firstItem="X0d-tl-bdm" firstAttribute="top" secondItem="GWr-w3-3Pc" secondAttribute="bottom" constant="6" id="1ig-J3-L89"/>
                     <constraint firstItem="GWr-w3-3Pc" firstAttribute="leading" secondItem="JtO-sw-qgU" secondAttribute="trailing" constant="10" id="8FW-NE-1JC"/>
-                    <constraint firstAttribute="bottom" secondItem="X0d-tl-bdm" secondAttribute="bottom" constant="15.5" id="E1l-H3-Jv3"/>
                     <constraint firstItem="GWr-w3-3Pc" firstAttribute="top" secondItem="7iE-kM-8k9" secondAttribute="bottom" constant="6" id="Rwq-yP-Moz"/>
-                    <constraint firstItem="GWr-w3-3Pc" firstAttribute="top" secondItem="7iE-kM-8k9" secondAttribute="bottom" constant="6" id="WXK-57-6MR"/>
                     <constraint firstAttribute="trailing" secondItem="GWr-w3-3Pc" secondAttribute="trailing" constant="10" id="Zuy-zC-L53"/>
                     <constraint firstItem="X0d-tl-bdm" firstAttribute="leading" secondItem="JtO-sw-qgU" secondAttribute="trailing" constant="10" id="c9d-EC-VIZ"/>
                     <constraint firstItem="JtO-sw-qgU" firstAttribute="leading" secondItem="ux3-kt-lh5" secondAttribute="leading" constant="10" id="con-IT-gmk"/>
@@ -69,15 +56,8 @@
                     <constraint firstAttribute="bottom" secondItem="JtO-sw-qgU" secondAttribute="bottom" constant="10" id="jhY-fQ-Ap4"/>
                     <constraint firstItem="JtO-sw-qgU" firstAttribute="top" secondItem="ux3-kt-lh5" secondAttribute="top" constant="10" id="lTb-s5-etJ"/>
                     <constraint firstAttribute="trailing" secondItem="X0d-tl-bdm" secondAttribute="trailing" constant="10" id="mfu-L4-4JW"/>
-                    <constraint firstItem="7iE-kM-8k9" firstAttribute="top" secondItem="ux3-kt-lh5" secondAttribute="top" constant="12" id="tl2-RR-jaD"/>
+                    <constraint firstItem="7iE-kM-8k9" firstAttribute="top" secondItem="ux3-kt-lh5" secondAttribute="top" constant="14" id="tl2-RR-jaD"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="WXK-57-6MR"/>
-                        <exclude reference="0Ji-I2-myn"/>
-                        <exclude reference="E1l-H3-Jv3"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="iconTv" destination="JtO-sw-qgU" id="H8t-Xe-NlN"/>
@@ -88,4 +68,9 @@
             <point key="canvasLocation" x="244" y="307"/>
         </tableViewCell>
     </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

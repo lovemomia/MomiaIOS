@@ -89,6 +89,8 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 
 - (IBAction)onSureClick:(id)sender {
     
+    self.middleDataChanged = NO;
+    
     //确认订单
     PersonStyle middlePersonStyle = self.personCount;
     PersonStyle bottomPersonStyle = self.selectedPersonStyle;
@@ -98,7 +100,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
     }
     
     if(!middlePersonStyle.adult && !middlePersonStyle.child) {
-        [AlertNotice showNotice:@"您还未选择出行人"];
+        [AlertNotice showNotice:@"您选择的出行人数为零"];
         return;
     }
     if(self.needRealName && (middlePersonStyle.adult != bottomPersonStyle.adult || middlePersonStyle.child != bottomPersonStyle.child)) {
@@ -228,6 +230,53 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
     else return 0;
 }
 
+-(NSInteger)indexForFirstTopIndex
+{
+    NSInteger topIndex = 0;
+    if(self.model) {
+        for (int i = 0; i < self.model.data.skus.count; i++) {
+            FillOrderSkuModel * model = self.model.data.skus[i];
+            if(model.type == 1) {//无上限，不显示stock
+                topIndex = i;
+                break;
+            } else {//有上限
+                if(model.stock == 0) {//名额已满
+                    
+                } else {//还剩XX名额
+                    topIndex = i;
+                    break;
+                }
+            }
+            
+        }
+    }
+    return topIndex;
+}
+
+-(BOOL)isFullWithIndex:(NSInteger)index
+{
+    BOOL isFull = NO;
+    
+    if(self.model) {
+        if(index < self.model.data.skus.count) {
+            FillOrderSkuModel * model = self.model.data.skus[index];
+            if(model.type == 1) {//无上限，不显示stock
+               
+            } else {//有上限
+                if(model.stock == 0) {//名额已满
+                    isFull = YES;
+                } else {//还剩XX名额
+                   
+                }
+            }
+
+        }
+    }
+    return isFull;
+}
+
+
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger rows;
@@ -248,9 +297,31 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
             self.orderModel.skuId = skuModel.skuId;
             [self.selectedDictionary removeAllObjects];
             
-            if(skuModel.limit <= 0) {
-                [self.stepperGroup setMaxPlaces:skuModel.stock];
-            } else [self.stepperGroup setMaxPlaces:MIN(skuModel.stock, skuModel.limit)];
+            NSInteger maxPlace = 0;
+            
+            if(skuModel.type == 1) {//无上限，不显示stock
+                if(skuModel.limit ==0) {//每人不限单购买
+                    maxPlace = LONG_MAX;
+                } else {//每人限单购买
+                    maxPlace = skuModel.limit;
+                }
+                
+            } else {//有上限
+                if(skuModel.stock == 0) {//名额已满
+                
+                } else {//还剩XX名额
+                    
+                }
+                
+                if(skuModel.limit == 0) {//每人不限单购买
+                    maxPlace = skuModel.stock;
+                } else {//每人限单购买
+                    maxPlace = MIN(skuModel.stock, skuModel.limit);
+                }
+                
+            }
+            
+            [self.stepperGroup setMaxPlaces:maxPlace];
             
             [self.stepperGroup removeAllSteppers];
             [self.middleCellArray removeAllObjects];
@@ -345,6 +416,8 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    self.middleDataChanged = NO;// it's a bug for ios 8.2 push a controller will force table reloadData
+    
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     
@@ -356,11 +429,16 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
             [self.tableView reloadData];
         } else {
             if(self.topIndex != row) {//表明点击的是不同行，需要刷新
-                self.topIndex = row;
-                FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
-                self.needRealName = skuModel.needRealName;
-                self.middleDataChanged = YES;
-                [self.tableView reloadData];
+                if([self isFullWithIndex:row]) {//单击的这一行名额已满
+                    
+                } else {
+                    
+                    self.topIndex = row;
+                    FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
+                    self.needRealName = skuModel.needRealName;
+                    self.middleDataChanged = YES;
+                    [self.tableView reloadData];
+                }
             }
         }
         
@@ -373,7 +451,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
                 MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                 // Configure for text only and offset down
                 hud.mode = MBProgressHUDModeText;
-                hud.labelText = @"您还未选择出行人";
+                hud.labelText = @"您选择的出行人数为零";
                 hud.margin = 10.f;
                 hud.removeFromSuperViewOnHide = YES;
                 [hud hide:YES afterDelay:1];
@@ -571,6 +649,8 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
         }
         
         self.model = responseObject;
+        
+        self.topIndex = [self indexForFirstTopIndex];
         
         //在请求到SKU信息后开始为AddOrderModel分配空间并初始化
         self.orderModel = [[AddOrderModel alloc] init];
