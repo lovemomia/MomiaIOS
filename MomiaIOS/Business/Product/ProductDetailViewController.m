@@ -248,10 +248,19 @@ typedef enum
     
     self.tableView.width = SCREEN_WIDTH;
     
-    [self.tableView setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 0)];
-    
     [self requestData];
 
+}
+
+-(void)viewDidLayoutSubviews
+{
+    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self.tableView setSeparatorInset:UIEdgeInsetsMake(-1, 0, 0, 0)];
+    }
+    
+    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [self.tableView setLayoutMargins:UIEdgeInsetsMake(0, 10, 0, 0)];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
