@@ -104,7 +104,8 @@
 		5ABDA5B31B42CD4B003BAE80 /* PostOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABDA5B21B42CD4B003BAE80 /* PostOrderModel.m */; };
 		5AC9FFC91B17020300C769EF /* SubmitPostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9FFC81B17020300C769EF /* SubmitPostModel.m */; };
 		5AC9FFCD1B17298C00C769EF /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9FFCB1B17298C00C769EF /* FeedbackViewController.m */; };
-		5AC9FFCE1B17298C00C769EF /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AC9FFCC1B17298C00C769EF /* FeedbackViewController.xib */; };
+		5AD5275E1B53C7A300D01E1F /* FeedbackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5275C1B53C7A300D01E1F /* FeedbackCell.m */; };
+		5AD5275F1B53C7A300D01E1F /* FeedbackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AD5275D1B53C7A300D01E1F /* FeedbackCell.xib */; };
 		5AE4F82D1B3CF21B005879B7 /* FillOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE4F82C1B3CF21B005879B7 /* FillOrderModel.m */; };
 		5AE4F8301B3D2FE5005879B7 /* FillOrderChooseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE4F82F1B3D2FE5005879B7 /* FillOrderChooseCell.m */; };
 		5AE4F8671B3D642B005879B7 /* MOStepperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE4F8651B3D642B005879B7 /* MOStepperView.m */; };
@@ -403,7 +404,9 @@
 		5AC9FFC81B17020300C769EF /* SubmitPostModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubmitPostModel.m; path = Common/Models/SubmitPost/SubmitPostModel.m; sourceTree = "<group>"; };
 		5AC9FFCA1B17298C00C769EF /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedbackViewController.h; path = Business/Mine/FeedbackViewController.h; sourceTree = "<group>"; };
 		5AC9FFCB1B17298C00C769EF /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedbackViewController.m; path = Business/Mine/FeedbackViewController.m; sourceTree = "<group>"; };
-		5AC9FFCC1B17298C00C769EF /* FeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FeedbackViewController.xib; path = Business/Mine/FeedbackViewController.xib; sourceTree = "<group>"; };
+		5AD5275B1B53C7A300D01E1F /* FeedbackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedbackCell.h; path = Business/Mine/Views/FeedbackCell.h; sourceTree = "<group>"; };
+		5AD5275C1B53C7A300D01E1F /* FeedbackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedbackCell.m; path = Business/Mine/Views/FeedbackCell.m; sourceTree = "<group>"; };
+		5AD5275D1B53C7A300D01E1F /* FeedbackCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FeedbackCell.xib; path = Business/Mine/Views/FeedbackCell.xib; sourceTree = "<group>"; };
 		5AE4F82B1B3CF21B005879B7 /* FillOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FillOrderModel.h; path = Common/Models/Order/FillOrderModel.h; sourceTree = "<group>"; };
 		5AE4F82C1B3CF21B005879B7 /* FillOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FillOrderModel.m; path = Common/Models/Order/FillOrderModel.m; sourceTree = "<group>"; };
 		5AE4F82E1B3D2FE5005879B7 /* FillOrderChooseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FillOrderChooseCell.h; path = Business/Order/views/FillOrderChooseCell.h; sourceTree = "<group>"; };
@@ -1408,7 +1411,6 @@
 				BC41ABBB1B0F266F00A419DA /* SuggestTagsViewController.m */,
 				5AC9FFCA1B17298C00C769EF /* FeedbackViewController.h */,
 				5AC9FFCB1B17298C00C769EF /* FeedbackViewController.m */,
-				5AC9FFCC1B17298C00C769EF /* FeedbackViewController.xib */,
 				BCF033931B4E892F005B71D6 /* PeopleViewController.h */,
 				BCF033941B4E892F005B71D6 /* PeopleViewController.m */,
 			);
@@ -1482,6 +1484,9 @@
 				BCF564E11B4A54D0003A2227 /* PersonChildHeaderCell.h */,
 				BCF564E21B4A54D0003A2227 /* PersonChildHeaderCell.m */,
 				BCF564E31B4A54D0003A2227 /* PersonChildHeaderCell.xib */,
+				5AD5275B1B53C7A300D01E1F /* FeedbackCell.h */,
+				5AD5275C1B53C7A300D01E1F /* FeedbackCell.m */,
+				5AD5275D1B53C7A300D01E1F /* FeedbackCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1690,10 +1695,10 @@
 				BCA273271AEB1EBA002E7534 /* MineInfoCell.xib in Resources */,
 				5A33F19B1B2EA0A4002A8258 /* CashPayBottomCell.xib in Resources */,
 				5A4044331B27D18C0010782C /* OrderPersonViewController.xib in Resources */,
-				5AC9FFCE1B17298C00C769EF /* FeedbackViewController.xib in Resources */,
 				BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */,
 				BCF564E51B4A54D0003A2227 /* PersonChildHeaderCell.xib in Resources */,
 				5AB1BDE01B4F9B49004A4511 /* ProductDetailTagsCell.xib in Resources */,
+				5AD5275F1B53C7A300D01E1F /* FeedbackCell.xib in Resources */,
 				5AB1BDE61B4FB6C8004A4511 /* LoadingCell.xib in Resources */,
 				5A5A2AA11B43EEF4000595A9 /* OrderContactCell.xib in Resources */,
 				5AABF6FB1B28120C000A9D3F /* OrderUpdatePersonViewController.xib in Resources */,
@@ -1860,6 +1865,7 @@
 				BCE5893F1B2AB62500736923 /* payRequsestHandler.mm in Sources */,
 				BC2FAA0F1AFCA92D00E2071E /* UIView+Frame.m in Sources */,
 				5A9E811C1B4BDF560028AC47 /* NSDate+Age.m in Sources */,
+				5AD5275E1B53C7A300D01E1F /* FeedbackCell.m in Sources */,
 				BCF564D51B48E018003A2227 /* OrderListViewController.m in Sources */,
 				BC7708511AFAFD54000068A8 /* MOTableViewController.m in Sources */,
 				5AB1BDEA1B4FB7ED004A4511 /* LoadingErrorCell.m in Sources */,
