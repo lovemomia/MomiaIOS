@@ -31,7 +31,7 @@
         titleLabel.numberOfLines = 1;
         titleLabel.text = model.title;
         titleLabel.textColor = UIColorFromRGB(0x333333);
-        titleLabel.font = [UIFont systemFontOfSize:13];
+        titleLabel.font = [UIFont systemFontOfSize:14];
         
         UIView * lineView = [[UIView alloc] init];
         [self.contentView addSubview:lineView];
