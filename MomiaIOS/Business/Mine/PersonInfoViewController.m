@@ -173,7 +173,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section == 0 || section == 2) {
+    if (section == 0) {
+        return 40;
+    } else if (section == 2) {
         return 50;
     }
     return 10;
@@ -220,6 +222,8 @@
         } else if (row == 1) {
             title = @"昵称";
             tag = 0;
+        } else {
+            return;
         }
         
     } else if (indexPath.section == 1) {

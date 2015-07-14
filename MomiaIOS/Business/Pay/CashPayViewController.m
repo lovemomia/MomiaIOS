@@ -18,6 +18,10 @@
 #import "AlipayOrderModel.h"
 #import "AlipayOrder.h"
 #import "PayTool.h"
+#import "Coupon.h"
+#import "CouponListViewController.h"
+#import "CouponPriceModel.h"
+#import "StringUtils.h"
 
 static NSString * identifier = @"HeaderViewCashPayBottomHeader";
 static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
@@ -26,6 +30,9 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
 
 @property(nonatomic, strong) PostOrderModel *order;
 @property(nonatomic, strong) NSMutableArray *payChannels;
+
+@property(nonatomic, strong) Coupon *coupon;
+@property(nonatomic, strong) CouponPriceModel *couponPrice;
 
 @end
 
@@ -67,6 +74,26 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
     // Dispose of any resources that can be recreated.
 }
 
+- (void)requestCouponPrice {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    NSDictionary * params = @{@"oid":[NSString stringWithFormat:@"%d", self.order.data.orderId],
+                              @"coupon":[NSString stringWithFormat:@"%@", self.coupon.ids]};
+    [[HttpService defaultService]GET:URL_APPEND_PATH(@"/coupon")
+                          parameters:params cacheType:CacheTypeDisable JSONModelClass:[CouponPriceModel class]
+                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  
+                                  self.couponPrice = (CouponPriceModel*)responseObject;
+                                  [self.tableView reloadData];
+                              }
+     
+                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  [self showDialogWithTitle:nil message:error.message];
+                              }];
+}
+
 - (void)onPayClicked {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
@@ -80,10 +107,13 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
     }
     
     if (type == 1) {
-        NSDictionary * params = @{@"trade_type":@"APP",
-                                  @"oid":[NSString stringWithFormat:@"%ld", self.order.data.orderId],
-                                  @"pid":[NSString stringWithFormat:@"%ld", self.order.data.productId],
-                                  @"sid":[NSString stringWithFormat:@"%ld", self.order.data.skuId]};
+        NSMutableDictionary * params = [[NSMutableDictionary alloc]initWithDictionary:@{@"trade_type":@"APP",
+                                                                                       @"oid":[NSString stringWithFormat:@"%d", self.order.data.orderId],
+                                                                                       @"pid":[NSString stringWithFormat:@"%d", self.order.data.productId],
+                                                                                       @"sid":[NSString stringWithFormat:@"%d", self.order.data.skuId]}];
+        if (self.coupon) {
+            [params setValue:[NSString stringWithFormat:@"%@", self.coupon.ids] forKey:@"coupon"];
+        }
         [[HttpService defaultService]POST:URL_HTTPS_APPEND_PATH(@"/payment/prepay/wechatpay")
                                parameters:params JSONModelClass:[WechatPayModel class]
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -102,10 +132,13 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
                                   }];
         
     } else if (type == 2) {
-        NSDictionary * params = @{@"trade_type":@"APP",
-                                  @"oid":[NSString stringWithFormat:@"%ld", self.order.data.orderId],
-                                  @"pid":[NSString stringWithFormat:@"%ld", self.order.data.productId],
-                                  @"sid":[NSString stringWithFormat:@"%ld", self.order.data.skuId]};
+        NSMutableDictionary * params = [[NSMutableDictionary alloc]initWithDictionary:@{@"trade_type":@"APP",
+                                                                                        @"oid":[NSString stringWithFormat:@"%d", self.order.data.orderId],
+                                                                                        @"pid":[NSString stringWithFormat:@"%d", self.order.data.productId],
+                                                                                        @"sid":[NSString stringWithFormat:@"%d", self.order.data.skuId]}];
+        if (self.coupon) {
+            [params setValue:[NSString stringWithFormat:@"%@", self.coupon.ids] forKey:@"coupon"];
+        }
         [[HttpService defaultService]POST:URL_HTTPS_APPEND_PATH(@"/payment/prepay/alipay")
                                parameters:params JSONModelClass:[AlipayOrderModel class]
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -163,6 +196,17 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            
+            CouponListViewController *couponListViewController = [[CouponListViewController alloc]initWithParams:@{@"select":@YES}];
+            couponListViewController.selectCouponBlock = ^(Coupon *coupon){
+                self.coupon = coupon;
+                [self requestCouponPrice];
+            };
+            [self.navigationController pushViewController:couponListViewController animated:YES];
+        }
+        
+    } else if (indexPath.section == 2) {
         for (int i = 0; i < self.payChannels.count; i++) {
             PayChannel *channel = [self.payChannels objectAtIndex:i];
             if (i == indexPath.row) {
@@ -177,12 +221,12 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(section == 0) {
+    if(section <= 1) {
         return 2;
     } else {
         return self.payChannels.count;
@@ -191,7 +235,7 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-   if(section == 0) return 10;
+   if(section <= 1) return 10;
     return 40;
 }
 
@@ -206,7 +250,7 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView * header;
-    if(section == 1) {
+    if(section == 2) {
         header = [CommonHeaderView cellWithTableView:self.tableView];
         ((CommonHeaderView *)header).data = @"选择支付方式";
         return header;
@@ -237,7 +281,7 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger section = indexPath.section;
-    if(section == 0) {
+    if(section <= 1) {
         return 44;
     } else {
         return 60;
@@ -249,25 +293,50 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     UITableViewCell * cell;
-    if(section == 0) {
+    if(section == 0 || section == 1) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
         cell.textLabel.textColor = UIColorFromRGB(0x666666);
         cell.textLabel.font = [UIFont systemFontOfSize:14];
         cell.detailTextLabel.textColor = UIColorFromRGB(0x333333);
         cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
-        if (row == 0) {
-            cell.textLabel.text = @"订单数量";
-            if (self.order) {
-                cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", (int)self.order.data.count];
+        if (section == 0) {
+            if (row == 0) {
+                cell.textLabel.text = @"订单数量";
+                if (self.order) {
+                    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", (int)self.order.data.count];
+                }
+            } else if (row == 1) {
+                cell.textLabel.text = @"总价";
+                if (self.order) {
+                    cell.detailTextLabel.text = [NSString stringWithFormat:@"￥%.2f", self.order.data.totalFee];
+                }
             }
-        } else if (row == 1) {
-            cell.textLabel.text = @"总价";
-            if (self.order) {
-                cell.detailTextLabel.text = [NSString stringWithFormat:@"￥%.2f", self.order.data.totalFee];
+        } else if (section == 1) {
+            if (row == 0) {
+                cell.textLabel.text = @"红包";
+                if (self.order) {
+                    cell.detailTextLabel.textColor = MO_APP_ThemeColor;
+                    if (self.coupon) {
+                        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ x 1", self.coupon.desc];
+                        
+                    } else {
+                        cell.detailTextLabel.text = @"使用红包";
+                    }
+                }
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                
+            } else if (row == 1) {
+                cell.textLabel.text = @"还需支付";
+                if (self.couponPrice) {
+                    cell.detailTextLabel.text = [NSString stringWithFormat:@"￥%@", [StringUtils stringForPrice:self.couponPrice.data]];
+                    
+                } else if (self.order) {
+                    cell.detailTextLabel.text = [NSString stringWithFormat:@"￥%@", [StringUtils stringForPrice:self.order.data.totalFee]];
+                }
             }
         }
         
-    } else if(section == 1) {
+    } else if(section == 2) {
         CashPayBottomCell * bottom = [CashPayBottomCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:cashPayBottomIdentifier];
         bottom.data = [self.payChannels objectAtIndex:row];
         cell = bottom;

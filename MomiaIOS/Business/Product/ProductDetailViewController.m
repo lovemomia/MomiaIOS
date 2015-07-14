@@ -59,7 +59,10 @@ typedef enum
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 13.0;
+    if (section == 2 && self.model.data.customers.avatars.count == 0) {
+        return 0.1;
+    }
+    return 10.0;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -80,7 +83,7 @@ typedef enum
         return 3;
 
     } else if(section == 2) {
-        if(self.model.data.imgs.count > 0)
+        if(self.model.data.customers.avatars.count > 0)
             return 1;
         else return 0;
     } else {

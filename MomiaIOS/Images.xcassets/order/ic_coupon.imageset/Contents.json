@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "shij@.png"
+      "filename" : "ic_coupon.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "shij2@.png"
+      "filename" : "ic_coupon@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "shij3@.png"
+      "filename" : "ic_coupon@3x.png"
     }
   ],
   "info" : {

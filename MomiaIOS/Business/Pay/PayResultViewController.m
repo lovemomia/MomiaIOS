@@ -86,8 +86,15 @@
 */
 
 - (IBAction)onLeftButtonClicked:(id)sender {
+    if ([self.payCheckResult.data isEqualToString:@"OK"]) {
+        
+        
+    } else {
+        [self openURL:@"tel://02162578700"];
+    }
 }
 
 - (IBAction)onRightButtonClicked:(id)sender {
+    [self openURL:@"duola://orderlist"];
 }
 @end

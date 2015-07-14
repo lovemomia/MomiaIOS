@@ -29,7 +29,7 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
 @property (nonatomic,assign) BOOL isLoading;
 @property (nonatomic,assign) BOOL isError;//加载更多的时候出错
 
-@property(nonatomic,strong) NSString * titleStr;
+@property(nonatomic,strong) UILabel * titleLabel;
 
 @property(nonatomic,strong) AFHTTPRequestOperation * curOperation;
 
@@ -49,13 +49,13 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"哆啦亲子";
-    
-    self.titleStr = @"上海";
+
     
     NSArray * array = [[NSBundle mainBundle] loadNibNamed:@"TitleView" owner:self options:nil];
     UIView * titleView = array[0];
-    __weak UILabel * label = (UILabel *)[titleView viewWithTag:2001];
-    [label setText:self.titleStr];
+    self.titleLabel = (UILabel *)[titleView viewWithTag:2001];
+    NSString *city = [CityManager shareManager].choosedCity.name;
+    [self.titleLabel setText:city];
     
     titleView.size = [titleView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     
@@ -94,6 +94,9 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
 }
 
 - (void)onCityChanged:(City *)newCity {
+    [self.titleLabel setText:newCity.name];
+    self.model = nil;
+    [self.tableView reloadData];
     [self requestData];
 }
 
@@ -305,11 +308,13 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
 -(void)onTitleClick:(UITapGestureRecognizer *)recognizer
 {
     [[CityManager shareManager]chooseCity:self];
+    [[CityManager shareManager]addCityChangeListener:self];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    [[CityManager shareManager] removeCityChangeListener:self];
 }
 
 /*

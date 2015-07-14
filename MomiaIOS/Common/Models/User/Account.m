@@ -58,6 +58,11 @@
     [self save];
 }
 
+//- (void)setChildren:(NSArray *)children {
+//    _children = children;
+//    [self save];
+//}
+
 - (NSArray *)children {
     NSArray *dicArray = _children;
     NSMutableArray *childArray = [NSMutableArray new];

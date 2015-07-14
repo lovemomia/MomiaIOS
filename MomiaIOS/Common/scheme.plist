@@ -236,5 +236,14 @@
 		<key>desc</key>
 		<string>订单详情页</string>
 	</dict>
+	<key>couponlist</key>
+	<dict>
+		<key>controller</key>
+		<string>CouponListViewController</string>
+		<key>needlogin</key>
+		<true/>
+		<key>desc</key>
+		<string>红包列表页</string>
+	</dict>
 </dict>
 </plist>

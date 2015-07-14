@@ -114,6 +114,12 @@
 		5AE995A21B26F9B8003DAAC0 /* FillOrderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE995A11B26F9B8003DAAC0 /* FillOrderFooterView.m */; };
 		5AE995A41B26F9EE003DAAC0 /* FillOrderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE995A31B26F9EE003DAAC0 /* FillOrderFooterView.xib */; };
 		5AEB188A1B1865F90098FD5F /* MySuggestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB18891B1865F90098FD5F /* MySuggestModel.m */; };
+		BC0BD6FA1B5516DB00B95B3A /* Coupon.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD6F71B5516DB00B95B3A /* Coupon.m */; };
+		BC0BD6FB1B5516DB00B95B3A /* CouponListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD6F91B5516DB00B95B3A /* CouponListModel.m */; };
+		BC0BD6FE1B55170A00B95B3A /* CouponListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD6FD1B55170A00B95B3A /* CouponListViewController.m */; };
+		BC0BD7021B55173800B95B3A /* CouponListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD7001B55173800B95B3A /* CouponListItemCell.m */; };
+		BC0BD7031B55173800B95B3A /* CouponListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC0BD7011B55173800B95B3A /* CouponListItemCell.xib */; };
+		BC0BD7061B5518F000B95B3A /* CouponPriceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD7051B5518F000B95B3A /* CouponPriceModel.m */; };
 		BC2C0C521B1303BA00E2446E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
 		BC2C0C571B1309A800E2446E /* MOButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C561B1309A800E2446E /* MOButton.m */; };
 		BC2C0C611B130C9300E2446E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C601B130C9300E2446E /* User.m */; };
@@ -423,6 +429,17 @@
 		5AEB18881B1865F90098FD5F /* MySuggestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySuggestModel.h; path = Common/Models/MySuggest/MySuggestModel.h; sourceTree = "<group>"; };
 		5AEB18891B1865F90098FD5F /* MySuggestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySuggestModel.m; path = Common/Models/MySuggest/MySuggestModel.m; sourceTree = "<group>"; };
 		5B9DF4BE98C18CC18BDADCD8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC0BD6F61B5516DB00B95B3A /* Coupon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Coupon.h; path = Common/Models/Pay/Coupon.h; sourceTree = "<group>"; };
+		BC0BD6F71B5516DB00B95B3A /* Coupon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Coupon.m; path = Common/Models/Pay/Coupon.m; sourceTree = "<group>"; };
+		BC0BD6F81B5516DB00B95B3A /* CouponListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CouponListModel.h; path = Common/Models/Pay/CouponListModel.h; sourceTree = "<group>"; };
+		BC0BD6F91B5516DB00B95B3A /* CouponListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CouponListModel.m; path = Common/Models/Pay/CouponListModel.m; sourceTree = "<group>"; };
+		BC0BD6FC1B55170A00B95B3A /* CouponListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponListViewController.h; sourceTree = "<group>"; };
+		BC0BD6FD1B55170A00B95B3A /* CouponListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponListViewController.m; sourceTree = "<group>"; };
+		BC0BD6FF1B55173800B95B3A /* CouponListItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponListItemCell.h; sourceTree = "<group>"; };
+		BC0BD7001B55173800B95B3A /* CouponListItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponListItemCell.m; sourceTree = "<group>"; };
+		BC0BD7011B55173800B95B3A /* CouponListItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponListItemCell.xib; sourceTree = "<group>"; };
+		BC0BD7041B5518F000B95B3A /* CouponPriceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CouponPriceModel.h; path = Common/Models/Pay/CouponPriceModel.h; sourceTree = "<group>"; };
+		BC0BD7051B5518F000B95B3A /* CouponPriceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CouponPriceModel.m; path = Common/Models/Pay/CouponPriceModel.m; sourceTree = "<group>"; };
 		BC2C0C4F1B1303BA00E2446E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Business/Login/LoginViewController.h; sourceTree = "<group>"; };
 		BC2C0C501B1303BA00E2446E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Business/Login/LoginViewController.m; sourceTree = "<group>"; };
 		BC2C0C551B1309A800E2446E /* MOButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOButton.h; path = Common/Views/MOButton.h; sourceTree = "<group>"; };
@@ -1383,6 +1400,12 @@
 				BCF033981B4F72B0005B71D6 /* AlipayOrder.m */,
 				BCF0339A1B4F77BE005B71D6 /* AlipayOrderModel.h */,
 				BCF0339B1B4F77BE005B71D6 /* AlipayOrderModel.m */,
+				BC0BD6F61B5516DB00B95B3A /* Coupon.h */,
+				BC0BD6F71B5516DB00B95B3A /* Coupon.m */,
+				BC0BD6F81B5516DB00B95B3A /* CouponListModel.h */,
+				BC0BD6F91B5516DB00B95B3A /* CouponListModel.m */,
+				BC0BD7041B5518F000B95B3A /* CouponPriceModel.h */,
+				BC0BD7051B5518F000B95B3A /* CouponPriceModel.m */,
 			);
 			name = Pay;
 			sourceTree = "<group>";
@@ -1562,6 +1585,8 @@
 				BC97DF1A1B4E1DF0002B1A00 /* PayResultViewController.xib */,
 				BC97DF251B4E4AA4002B1A00 /* PayTool.h */,
 				BC97DF261B4E4AA4002B1A00 /* PayTool.m */,
+				BC0BD6FC1B55170A00B95B3A /* CouponListViewController.h */,
+				BC0BD6FD1B55170A00B95B3A /* CouponListViewController.m */,
 			);
 			name = Pay;
 			path = Business/Pay;
@@ -1570,6 +1595,9 @@
 		BCE5894C1B2AF35E00736923 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BC0BD6FF1B55173800B95B3A /* CouponListItemCell.h */,
+				BC0BD7001B55173800B95B3A /* CouponListItemCell.m */,
+				BC0BD7011B55173800B95B3A /* CouponListItemCell.xib */,
 				5A33F19E1B2EA1D5002A8258 /* CashPayTopHeaderView.h */,
 				5A33F19F1B2EA1D5002A8258 /* CashPayTopHeaderView.m */,
 				5A33F1A01B2EA1D5002A8258 /* CashPayTopHeaderView.xib */,
@@ -1694,6 +1722,7 @@
 				BC8254421B3CE87F00430A6F /* PlaymateCell.xib in Resources */,
 				5A08C1421B39117100642648 /* ProductDetailEnrollCell.xib in Resources */,
 				5A6806F01B01A9BD00D02A60 /* SettingMsgCell.xib in Resources */,
+				BC0BD7031B55173800B95B3A /* CouponListItemCell.xib in Resources */,
 				5A6806F51B01CEF700D02A60 /* PersonLogoCell.xib in Resources */,
 				BC8254381B3AB01E00430A6F /* RegisterCell.xib in Resources */,
 				BCF564D71B48E1E7003A2227 /* OrderListItemCell.xib in Resources */,
@@ -1834,6 +1863,7 @@
 				BCCDF5DF1B09E6C7008BAE12 /* SugSubmitProductContentCell.m in Sources */,
 				BCF9ECA41B4162B800AEBE1E /* City.m in Sources */,
 				BC50639D1B53A37200AA233C /* ForgetPasswordViewController.m in Sources */,
+				BC0BD7021B55173800B95B3A /* CouponListItemCell.m in Sources */,
 				5A6806EE1B01A48300D02A60 /* SettingViewController.m in Sources */,
 				5AABF6FA1B28120C000A9D3F /* OrderUpdatePersonViewController.m in Sources */,
 				5AE4F86B1B3D645E005879B7 /* MOStepperGroup.m in Sources */,
@@ -1892,6 +1922,7 @@
 				BC41ABBC1B0F266F00A419DA /* SuggestTagsViewController.m in Sources */,
 				5A0643631B3BC3F800361732 /* FillOrderMiddleCell.m in Sources */,
 				5A3DBE5A1B18577900E708AC /* FavouriteModel.m in Sources */,
+				BC0BD6FE1B55170A00B95B3A /* CouponListViewController.m in Sources */,
 				5A9E80DC1B4BBB1F0028AC47 /* ProductPlayFellowViewController.m in Sources */,
 				BC38D2441AFEEA300051C7E9 /* HttpService.m in Sources */,
 				BC2C0C7A1B141A3D00E2446E /* AccountModel.m in Sources */,
@@ -1908,6 +1939,7 @@
 				BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */,
 				5A18DC4B1B295C03001458A4 /* HomeViewController.m in Sources */,
 				BC2C0C8F1B18075D00E2446E /* UIImage+Color.m in Sources */,
+				BC0BD6FA1B5516DB00B95B3A /* Coupon.m in Sources */,
 				BCF564CF1B4632A1003A2227 /* Child.m in Sources */,
 				5A6806FB1B01D9EA00D02A60 /* MyCollectionViewController.m in Sources */,
 				5AB444821B41479800FBADD4 /* OrderPersonModel.m in Sources */,
@@ -1928,7 +1960,9 @@
 				BCA273241AEB166E002E7534 /* MONavigationController.m in Sources */,
 				BC2C0C761B140BF100E2446E /* RegisterViewController.m in Sources */,
 				BCF564DA1B48FE90003A2227 /* Order.m in Sources */,
+				BC0BD6FB1B5516DB00B95B3A /* CouponListModel.m in Sources */,
 				BC8254481B3D33FC00430A6F /* PlaymateUserCell.m in Sources */,
+				BC0BD7061B5518F000B95B3A /* CouponPriceModel.m in Sources */,
 				5A6807001B01FBDD00D02A60 /* MySuggestViewController.m in Sources */,
 				BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */,
 				BCE5893E1B2AB62500736923 /* ApiXml.mm in Sources */,
