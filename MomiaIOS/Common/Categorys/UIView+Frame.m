@@ -8,6 +8,7 @@
 
 #import "UIView+Frame.h"
 
+
 @implementation UIView(BDPFrame)
 
 @dynamic width, height,posX, posY, centerPos, top, right, left;
@@ -179,14 +180,16 @@
     UILabel *label = [[UILabel alloc]init];
     label.text = errMsg;
     label.textColor =  UIColorFromRGB(0x333333);
+    label.font = [UIFont systemFontOfSize:14];
     label.textAlignment = NSTextAlignmentCenter;
     label.numberOfLines = 0;
     
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 45, 24)];
+    UIButton *button = [[UIButton alloc]init];
     [button addAction:^(UIButton *btn) {
         retry();
     } forControlEvents:UIControlEventTouchUpInside];
     [button setTitle:@"重试" forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:14];
     [button setBackgroundImage:[UIImage imageNamed:@"pay_success_green_button"] forState:UIControlStateNormal];
     
     
@@ -201,6 +204,8 @@
         make.centerX.equalTo(view.mas_centerX);
     }];
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@80);
+        make.height.equalTo(@30);
         make.top.equalTo(label.mas_bottom).with.offset(10);
         make.centerX.equalTo(view.mas_centerX);
     }];
