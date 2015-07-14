@@ -10,6 +10,7 @@
 #import "NSString+MOAttribuedString.h"
 #import "ProductModel.h"
 #import "MONetworkPhotoView.h"
+#import "StringUtils.h"
 
 @interface ProductDetailCarouselCell ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -59,16 +60,16 @@
     
     NSAttributedString * str1 = [[pageLabelStr substringToIndex:range.location] attributedStringWithColor:UIColorFromRGB(0xffffff) andFont:self.pageLabel.font];
     
-    NSAttributedString * str2 = [[pageLabelStr substringFromIndex:range.location] attributedStringWithColor:UIColorFromRGB(0x999999) andFont:self.pageLabel.font];
+    NSAttributedString * str2 = [[pageLabelStr substringFromIndex:range.location] attributedStringWithColor:UIColorFromRGB(0xcccccc) andFont:self.pageLabel.font];
     
     [attrStr appendAttributedString:str1]; [attrStr appendAttributedString:str2];
     
     self.pageLabel.attributedText = attrStr;
     
     
-    self.pageLabelWidthConstraint.constant = [UILabel widthForAttributedString:attrStr withHeight:20].size.width + 20;
-    self.pageLabel.layer.cornerRadius = 13;
-    self.pageLabel.layer.backgroundColor = UIColorFromRGB(0xcccccc).CGColor;
+//    self.pageLabelWidthConstraint.constant = [UILabel widthForAttributedString:attrStr withHeight:20].size.width + 20;
+//    self.pageLabel.layer.cornerRadius = 13;
+//    self.pageLabel.layer.backgroundColor = UIColorFromRGB(0xcccccc).CGColor;
     
 //    self.pageControl.numberOfPages = array.count;
 //    self.pageControl.currentPage = 0;
@@ -115,7 +116,7 @@
     
     self.titleLabel.text = model.title;
     self.enrollLabel.text = [NSString stringWithFormat:@"%ld人已报名",model.joined];
-    self.priceLabel.text = [NSString stringWithFormat:@"%.2f",model.price];
+    self.priceLabel.text = [StringUtils stringForPrice:model.price];
     
 }
 
@@ -144,7 +145,7 @@
     
     NSAttributedString * str1 = [[pageLabelStr substringToIndex:range.location] attributedStringWithColor:UIColorFromRGB(0xffffff) andFont:self.pageLabel.font];
     
-    NSAttributedString * str2 = [[pageLabelStr substringFromIndex:range.location] attributedStringWithColor:UIColorFromRGB(0x999999) andFont:self.pageLabel.font];
+    NSAttributedString * str2 = [[pageLabelStr substringFromIndex:range.location] attributedStringWithColor:UIColorFromRGB(0xcccccc) andFont:self.pageLabel.font];
     
     [attrStr appendAttributedString:str1]; [attrStr appendAttributedString:str2];
     
