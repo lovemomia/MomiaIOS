@@ -74,4 +74,9 @@ static const char *moTextView = "moTextView";
     return YES;
 }
 
+-(void)textViewDidChange:(UITextView *)textView
+{
+    [self.moDelegate moTextViewDidChange:textView];
+}
+
 @end

@@ -13,6 +13,7 @@
 
 - (void)moTextViewDidBeginEditing:(UITextView *)textView;
 - (void)moTextViewDidEndEditing:(UITextView *)textView;
+- (void)moTextViewDidChange:(UITextView *)textView;
 
 @end
 

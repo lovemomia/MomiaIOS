@@ -6,12 +6,10 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "MOViewController.h"
+#import "MOTableViewController.h"
 #import "UITextView+Placeholder.h"
 
-@interface FeedbackViewController : MOViewController<UITextFieldDelegate,MOTextViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextView *contentTextView;
-@property (weak, nonatomic) IBOutlet UITextField *infoTextField;
+@interface FeedbackViewController : MOTableViewController<MOTextViewDelegate,UITextFieldDelegate>
 
 @end
