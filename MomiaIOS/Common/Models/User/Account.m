@@ -115,13 +115,16 @@
 
 - (NSString *)ageWithDateOfBirth
 {
-    if (self.birthday == nil) {
+    NSArray *children = [self children];
+    if (children.count == 0) {
         return @"?岁";
     }
     
+    Child *child = [children objectAtIndex:0];
+    
     NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
     [inputFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate* date = [inputFormatter dateFromString:self.birthday];
+    NSDate* date = [inputFormatter dateFromString:child.birthday];
     
     // 出生日期转换 年月日
     NSDateComponents *components1 = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:date];

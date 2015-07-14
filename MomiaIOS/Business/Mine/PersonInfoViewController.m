@@ -279,6 +279,11 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
         
+        cell.textLabel.textColor = UIColorFromRGB(0x333333);
+        cell.textLabel.font = [UIFont systemFontOfSize: 15.0];
+        cell.detailTextLabel.textColor = UIColorFromRGB(0x999999);
+        cell.detailTextLabel.font = [UIFont systemFontOfSize: 15.0];
+        
         if (section == 0) {
             if (row == 1) {
                 cell.textLabel.text = @"昵称";

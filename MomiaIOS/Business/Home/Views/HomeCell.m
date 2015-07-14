@@ -17,7 +17,7 @@
 {
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:model.cover] placeholderImage:nil];
     self.titleLabel.text = model.title;
-    [self.timeLabel setTitle:model.scheduler forState:UIControlStateNormal];
+    self.timeLabel.text = model.scheduler;
     self.descLabel.text = model.address;
     [self.enrollmentLabel setTitle:[NSString stringWithFormat:@"%ld人报名", model.joined] forState:UIControlStateNormal];
     self.priceLabel.text = [StringUtils stringForPrice:model.price];

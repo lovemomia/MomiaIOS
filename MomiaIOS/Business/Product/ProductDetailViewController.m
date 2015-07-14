@@ -171,8 +171,8 @@ typedef enum
     ThirdShareHelper *helper = [ThirdShareHelper new];
     [SGActionView showGridMenuWithTitle:@"约伴"
                              itemTitles:@[ @"微信好友", @"微信朋友圈"]
-                                 images:@[ [UIImage imageNamed:@"pay_wx"],
-                                           [UIImage imageNamed:@"pay_order"]]
+                                 images:@[ [UIImage imageNamed:@"share_wechat_friend"],
+                                           [UIImage imageNamed:@"share_wechat_timeline"]]
                          selectedHandle:^(NSInteger index) {
                              if (index == 1) {
                                  [helper shareToWechat:self.model.data.url thumbUrl:@"http://i3.s1.dpfile.com/pc/wed/eaaaab5d22f03e60c9a1a086b5d163ab(2048x2048)/aD0yMDQ4Jms9L3BjL3dlZC9lYWFhYWI1ZDIyZjAzZTYwYzlhMWEwODZiNWQxNjNhYiZsb2dvPTAmbT14Jnc9MjA0OA.98fa3ca5bff1d2963977f8bfec5cde67/thumb.jpg" title:self.model.data.title desc:self.model.data.abstracts scene:1];
@@ -180,8 +180,6 @@ typedef enum
                                  [helper shareToWechat:self.model.data.url thumbUrl:@"http://i3.s1.dpfile.com/pc/wed/eaaaab5d22f03e60c9a1a086b5d163ab(2048x2048)/aD0yMDQ4Jms9L3BjL3dlZC9lYWFhYWI1ZDIyZjAzZTYwYzlhMWEwODZiNWQxNjNhYiZsb2dvPTAmbT14Jnc9MjA0OA.98fa3ca5bff1d2963977f8bfec5cde67/thumb.jpg" title:self.model.data.title desc:self.model.data.abstracts scene:2];
                              }
                          }];
-    
-    
 }
 
 - (IBAction)signUp:(id)sender {

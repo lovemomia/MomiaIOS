@@ -146,6 +146,7 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
         [self.tableView.header endRefreshing];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.view removeLoadingBee];
         
         if(self.isLoading) {//正在加载更多的时候出错了
             
