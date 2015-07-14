@@ -31,6 +31,8 @@
 @property(nonatomic,strong) NSString * time;
 @property(nonatomic,assign) NSInteger limit;// 购买限额，0表示不限
 @property(nonatomic,assign) BOOL needRealName;// 是否实名，如果为true，需要填写出行人信息
+@property(nonatomic,strong) NSString * desc;
+@property(nonatomic,assign) NSInteger type;
 
 @end
 

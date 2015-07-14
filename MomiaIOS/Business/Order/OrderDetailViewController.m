@@ -70,7 +70,7 @@ static NSString * orderDetailBottomIdentifier = @"CellOrderDetailBottom";
     NSInteger row = indexPath.row;
     
     if(section == 0) {
-        height = 103;
+        height = 102;
     } else if(section == 1) {
         if(row ==0) {
             height = 40;

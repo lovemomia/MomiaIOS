@@ -238,7 +238,11 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
         HomeCarouselCell * carousel = [HomeCarouselCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeCarouselIdentifier];
         carousel.data = self.banners;
         carousel.scrollClick = ^void(NSInteger index) {
-
+            NSLog(@"index:%ld",index);
+            if(index < self.model.data.banners.count) {
+                HomeBannerModel * model = self.model.data.banners[index];
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:model.action]];
+            }
         };
         cell = carousel;
         
@@ -289,7 +293,7 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
 
         }
     }
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(void)onSearchClick

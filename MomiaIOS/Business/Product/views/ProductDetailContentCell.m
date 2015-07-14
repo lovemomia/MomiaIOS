@@ -10,9 +10,12 @@
 #import "ProductModel.h"
 #import "TTTAttributedLabel.h"
 
-#define TopMargin 19
-#define LineSpacing 13
+#define TopMargin 12
+#define LineSpacing 8
 #define ImgScale 0.75
+
+#define contentFontSize 13.0f
+#define titleFontSize 14.0f
 
 @implementation ProductDetailContentCell
 
@@ -31,7 +34,7 @@
         titleLabel.numberOfLines = 1;
         titleLabel.text = model.title;
         titleLabel.textColor = UIColorFromRGB(0x333333);
-        titleLabel.font = [UIFont systemFontOfSize:13];
+        titleLabel.font = [UIFont systemFontOfSize:titleFontSize];
         
         UIView * lineView = [[UIView alloc] init];
         [self.contentView addSubview:lineView];
@@ -95,7 +98,7 @@
                 label.numberOfLines = 1;
                 label.text = bodyModel.text;
                 label.textColor = UIColorFromRGB(0x999999);
-                label.font = [UIFont systemFontOfSize:14];
+                label.font = [UIFont systemFontOfSize:contentFontSize];
                 
                 UITapGestureRecognizer * singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onLinkClick:)];
                 [linkView addGestureRecognizer:singleTap];
@@ -138,7 +141,7 @@
                     label.numberOfLines = 1;
                     label.textColor = UIColorFromRGB(0x999999);
                     label.text = bodyModel.label;
-                    label.font = [UIFont systemFontOfSize:13];
+                    label.font = [UIFont systemFontOfSize:contentFontSize];
                     lastView = label;
                 }
                 if(bodyModel.text) {
@@ -159,7 +162,7 @@
                         }];
                         label.numberOfLines = 0;
                         label.textColor = UIColorFromRGB(0x333333);
-                        label.font = [UIFont systemFontOfSize:13];
+                        label.font = [UIFont systemFontOfSize:contentFontSize];
                         label.lineSpacing = LineSpacing;
                         label.text = bodyModel.text;
                         
@@ -225,7 +228,7 @@
                         }];
                         label.numberOfLines = 0;
                         label.textColor = UIColorFromRGB(0x333333);
-                        label.font = [UIFont systemFontOfSize:13];
+                        label.font = [UIFont systemFontOfSize:contentFontSize];
                         label.lineSpacing = LineSpacing;
                         label.text = bodyModel.text;
                        
