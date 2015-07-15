@@ -79,7 +79,7 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     NSDictionary *params = @{@"oid":self.oid, @"pid":self.pid, @"sid":self.sid, @"coupon":self.coupon};
-    [[HttpService defaultService]POST:URL_HTTPS_APPEND_PATH(@"/prepay/free")
+    [[HttpService defaultService]POST:URL_HTTPS_APPEND_PATH(@"/payment/prepay/free")
                            parameters:params JSONModelClass:[PayCheckModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
