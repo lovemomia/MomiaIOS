@@ -45,7 +45,8 @@
 
 +(CGFloat)heightWithTableView:(UITableView *)tableView
 {
-    return CGRectGetWidth(tableView.bounds) * cellScale;
+//    return CGRectGetWidth(tableView.bounds) * cellScale;
+    return 117;
 }
 
 -(void)setData:(NSArray *) banners
@@ -72,7 +73,9 @@
         self.scrollView.contentSize = CGSizeMake(width,0);
         HomeBannerModel * item = banners[0];
         UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
-        [imgView sd_setImageWithURL:[NSURL URLWithString:item.cover] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        [imgView sd_setImageWithURL:[NSURL URLWithString:item.cover] placeholderImage:nil];
+        imgView.contentMode = UIViewContentModeScaleAspectFill;
+        imgView.clipsToBounds = YES;
         [self.scrollView addSubview:imgView];
         self.imgsNum ++;
         if(self.timer)
@@ -81,7 +84,9 @@
         self.scrollView.contentSize = CGSizeMake((banners.count + 2) * width,0);
         
         UIImageView * firstImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
-        [firstImgView sd_setImageWithURL:[NSURL URLWithString:((HomeBannerModel *)banners.lastObject).cover] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        firstImgView.contentMode = UIViewContentModeScaleAspectFill;
+        firstImgView.clipsToBounds = YES;
+        [firstImgView sd_setImageWithURL:[NSURL URLWithString:((HomeBannerModel *)banners.lastObject).cover] placeholderImage:nil];
         
         [self.scrollView addSubview:firstImgView];
         self.imgsNum ++;
@@ -89,13 +94,17 @@
         for (int i = 0; i < banners.count; i++) {
             HomeBannerModel * item = banners[i];
             UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake((i + 1) * width, 0, width, height)];
-            [imgView sd_setImageWithURL:[NSURL URLWithString:item.cover] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+            imgView.contentMode = UIViewContentModeScaleAspectFill;
+            imgView.clipsToBounds = YES;
+            [imgView sd_setImageWithURL:[NSURL URLWithString:item.cover] placeholderImage:nil];
             [self.scrollView addSubview:imgView];
             self.imgsNum ++;
         }
         
         UIImageView * lastImgView = [[UIImageView alloc] initWithFrame:CGRectMake((banners.count + 1) * width, 0, width, height)];
-        [lastImgView sd_setImageWithURL:[NSURL URLWithString:((HomeBannerModel *)banners.firstObject).cover] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        lastImgView.contentMode = UIViewContentModeScaleAspectFill;
+        lastImgView.clipsToBounds = YES;
+        [lastImgView sd_setImageWithURL:[NSURL URLWithString:((HomeBannerModel *)banners.firstObject).cover] placeholderImage:nil];
         [self.scrollView addSubview:lastImgView];
         
         self.imgsNum ++;
