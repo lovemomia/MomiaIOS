@@ -58,6 +58,21 @@
     [self save];
 }
 
+- (void)setBigChild:(Child *)bigChild {
+    _bigChild = bigChild;
+    [self save];
+}
+
+- (Child *)getBigChild {
+    if (self.bigChild == nil) {
+        NSArray *children = [self children];
+        if (children.count > 0) {
+            self.bigChild = [children objectAtIndex:0];
+        }
+    }
+    return self.bigChild;
+}
+
 //- (void)setChildren:(NSArray *)children {
 //    _children = children;
 //    [self save];
@@ -86,6 +101,7 @@
     [encoder encodeObject:self.name forKey:@"name"];
     [encoder encodeObject:self.nickName forKey:@"nickName"];
     [encoder encodeObject:self.sex forKey:@"sex"];
+    [encoder encodeObject:self.bigChild forKey:@"bigChild"];
     [encoder encodeObject:self.children forKey:@"children"];
 }
 
@@ -103,6 +119,7 @@
         self.name = [decoder decodeObjectForKey:@"name"];
         self.nickName = [decoder decodeObjectForKey:@"nickName"];
         self.sex = [decoder decodeObjectForKey:@"sex"];
+        self.bigChild = [decoder decodeObjectForKey:@"bigChild"];
         self.children = [decoder decodeObjectForKey:@"children"];
     }
     return self;
@@ -120,12 +137,11 @@
 
 - (NSString *)ageWithDateOfBirth
 {
-    NSArray *children = [self children];
-    if (children.count == 0) {
+    if ([self getBigChild] == nil) {
         return @"?岁";
     }
     
-    Child *child = [children objectAtIndex:0];
+    Child *child = [self getBigChild];
     
     NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
     [inputFormatter setDateFormat:@"yyyy-MM-dd"];

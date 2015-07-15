@@ -7,6 +7,7 @@
 //
 
 #import "BaseModel.h"
+#import "Child.h"
 
 @interface Account : JSONModel<NSCoding>
 
@@ -20,6 +21,7 @@
 @property (nonatomic, strong) NSString *mobile;
 @property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) NSNumber *city;
+@property (nonatomic, strong) Child<Optional> *bigChild;
 @property (nonatomic, strong) NSArray *children;
 
 - (void)save;
@@ -27,5 +29,7 @@
 - (void)clear;
 
 - (NSString *)ageWithDateOfBirth;
+
+- (Child *)getBigChild;
 
 @end

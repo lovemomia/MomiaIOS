@@ -8,6 +8,7 @@
 
 #import "MineViewController.h"
 #import "FeedbackViewController.h"
+#import "Child.h"
 
 @interface MineViewController ()
 
@@ -153,7 +154,10 @@
             titleLabel.text = account.nickName;
             
             UILabel *subTitleLabel = (UILabel *)[cell viewWithTag:3];
-            subTitleLabel.text = [NSString stringWithFormat:@"宝宝%@", [account ageWithDateOfBirth]];
+            
+            if ([account getBigChild]) {
+                subTitleLabel.text = [NSString stringWithFormat:@"%@孩%@", [account getBigChild].sex, [account ageWithDateOfBirth]];
+            }
             
         } else {
             cell = [tableView dequeueReusableCellWithIdentifier:CellLogin];
