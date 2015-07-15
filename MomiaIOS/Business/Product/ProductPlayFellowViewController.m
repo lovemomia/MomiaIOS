@@ -72,7 +72,7 @@ static NSString * p_p_f_identifier = @"Cell_p_p_f";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 1;
+    return 0.5;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
