@@ -167,7 +167,13 @@
         NSLog(@"http (POST) fail: \nurl : %@\nparams : %@\nresult : %@", URLString, allParams, error);
     };
     
-    AFHTTPRequestOperation *operation = [self.httpClient POST:URLString parameters:allParams success:onSuccess failure:onFail];
+//    AFHTTPRequestOperation *operation = [self.httpClient POST:URLString parameters:allParams success:onSuccess failure:onFail];
+    
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:URLString parameters:allParams error:nil];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPRequestOperation *operation = [manager HTTPRequestOperationWithRequest:request success:onSuccess failure:onFail];
+    [manager.operationQueue addOperation:operation];
+    
     return operation;
 }
 
