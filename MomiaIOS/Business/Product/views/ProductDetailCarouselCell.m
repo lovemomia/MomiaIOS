@@ -84,6 +84,9 @@
         NSString * item = array[0];
         MONetworkPhotoView * imgView = [[MONetworkPhotoView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
         [imgView sd_setImageWithURL:[NSURL URLWithString:item] placeholderImage:nil];
+        imgView.clipsToBounds = YES;
+        imgView.contentMode = UIViewContentModeScaleAspectFill;
+        
         [self.scrollView addSubview:imgView];
         self.imgsNum ++;
     } else {
@@ -92,6 +95,8 @@
         
         MONetworkPhotoView * firstImgView = [[MONetworkPhotoView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
         [firstImgView sd_setImageWithURL:[NSURL URLWithString:array.lastObject] placeholderImage:nil];
+        firstImgView.clipsToBounds = YES;
+        firstImgView.contentMode = UIViewContentModeScaleAspectFill;
         [self.scrollView addSubview:firstImgView];
         
         self.imgsNum ++;
@@ -100,12 +105,16 @@
             NSString * item = array[i];
             MONetworkPhotoView * imgView = [[MONetworkPhotoView alloc] initWithFrame:CGRectMake((i + 1) * width, 0, width, height)];
             [imgView sd_setImageWithURL:[NSURL URLWithString:item] placeholderImage:nil];
+            imgView.clipsToBounds = YES;
+            imgView.contentMode = UIViewContentModeScaleAspectFill;
             [self.scrollView addSubview:imgView];
             self.imgsNum ++;
         }
         
         MONetworkPhotoView * lastImgView = [[MONetworkPhotoView alloc] initWithFrame:CGRectMake((array.count + 1) * width, 0, width, height)];
         [lastImgView sd_setImageWithURL:[NSURL URLWithString:array.firstObject] placeholderImage:nil];
+        lastImgView.clipsToBounds = YES;
+        lastImgView.contentMode = UIViewContentModeScaleAspectFill;
         [self.scrollView addSubview:lastImgView];
         
         self.imgsNum ++;
