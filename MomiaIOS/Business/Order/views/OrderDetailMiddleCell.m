@@ -21,7 +21,7 @@
 
 -(void)setData:(OrderDetailDataModel *)model
 {
-    self.orderNoLabel.text = [NSString stringWithFormat:@"%ld",model.orderNo];
+    self.orderNoLabel.text = [NSString stringWithFormat:@"%ld",(long)model.orderNo];
     self.timeLabel.text = model.addTime;
     self.enrollLabel.text = model.participants;
     self.priceLabel.text = [StringUtils stringForPrice:model.totalFee];

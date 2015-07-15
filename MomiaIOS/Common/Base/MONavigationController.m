@@ -84,14 +84,13 @@
     [self.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18],NSForegroundColorAttributeName:[UIColor whiteColor]}];
     [self.navigationBar setTintColor:[UIColor whiteColor]];
     
-    
     // background color
     [self.navigationBar setBackgroundImage:[UIImage imageWithColor:MO_APP_ThemeColor size:CGSizeMake(SCREEN_WIDTH, 64)] forBarMetrics:UIBarMetricsDefault];
     self.navigationBar.shadowImage = [UIImage imageWithColor:[UIColor clearColor] size:CGSizeMake(1, 1)];
     self.navigationBar.translucent = NO;
     
     // shadow
-    [((AppDelegate *)[UIApplication sharedApplication].delegate) setTitleShadow:[UIImage imageNamed:@"title_shadow"] aboveSubview:self.navigationBar];
+//    [((AppDelegate *)[UIApplication sharedApplication].delegate) setTitleShadow:[UIImage imageNamed:@"title_shadow"] aboveSubview:self.navigationBar];
 }
 
 - (void)setLightTitleStyle {
@@ -106,7 +105,7 @@
     self.navigationBar.translucent = NO;
     
     // shadow
-    [((AppDelegate *)[UIApplication sharedApplication].delegate) setTitleShadow:[UIImage imageNamed:@"title_shadow"] aboveSubview:self.navigationBar];
+//    [((AppDelegate *)[UIApplication sharedApplication].delegate) setTitleShadow:[UIImage imageNamed:@"title_shadow"] aboveSubview:self.navigationBar];
 }
 
 @end
