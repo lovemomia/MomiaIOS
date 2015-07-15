@@ -59,7 +59,7 @@ static NSString * orderDetailBottomIdentifier = @"CellOrderDetailBottom";
     if(section == 2 && self.model.data.status == 1) {
         return 80.0f;
     } else {
-        return 13.0f;
+        return 10.0f;
     }
 }
 

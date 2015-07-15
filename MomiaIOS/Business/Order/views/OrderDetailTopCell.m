@@ -7,6 +7,7 @@
 //
 
 #import "OrderDetailTopCell.h"
+#import "StringUtils.h"
 
 @interface OrderDetailTopCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImgView;
@@ -25,7 +26,7 @@
     self.titleLabel.text = model.title;
     self.timeLabel.text = model.scheduler;
     self.addressLabel.text = model.address;
-    self.priceLabel.text = [NSString stringWithFormat:@"%.2f起",model.price];
+    self.priceLabel.text = [StringUtils stringForPrice:model.price];
 }
 
 

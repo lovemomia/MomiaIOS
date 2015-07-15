@@ -7,6 +7,7 @@
 //
 
 #import "FillOrderMiddleCell.h"
+#import "StringUtils.h"
 
 @interface FillOrderMiddleCell ()
 
@@ -30,8 +31,8 @@
         content = [content stringByAppendingFormat:@"%ld儿童",model.child];
     }
     content = [content stringByAppendingString:@":"];
-    
-    content = [content stringByAppendingFormat:@"￥%.2f/%@",model.price,model.unit];
+        
+    content = [content stringByAppendingFormat:@"￥%@/%@",[StringUtils stringForPrice:model.price],model.unit];
     
     self.titleLabel.text = content;
 }
