@@ -2,18 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "weiz@.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "weiz2@.png"
+      "filename" : "a_d_address@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "weiz3@.png"
+      "filename" : "a_d_address@3x.png"
     }
   ],
   "info" : {

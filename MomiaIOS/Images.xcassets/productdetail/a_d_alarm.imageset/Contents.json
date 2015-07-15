@@ -2,18 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "shij@.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "shij2@.png"
+      "filename" : "a_d_alarm@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "shij3@.png"
+      "filename" : "a_d_alarm@3x.png"
     }
   ],
   "info" : {

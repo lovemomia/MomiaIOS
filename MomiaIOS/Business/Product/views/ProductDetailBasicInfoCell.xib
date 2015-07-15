@@ -14,13 +14,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lYT-dz-xzl">
-                        <rect key="frame" x="10" y="16" width="14" height="14"/>
+                        <rect key="frame" x="10" y="14" width="17" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="14" id="9mk-co-Xv0"/>
+                            <constraint firstAttribute="width" constant="17" id="9mk-co-Xv0"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="适合2-6岁儿童" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVa-gO-S1e">
-                        <rect key="frame" x="37" y="11" width="275" height="24"/>
+                        <rect key="frame" x="36" y="11" width="276" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -29,10 +29,10 @@
                 <constraints>
                     <constraint firstItem="lYT-dz-xzl" firstAttribute="leading" secondItem="eTv-2X-8s1" secondAttribute="leading" constant="10" id="2dj-G2-y4D"/>
                     <constraint firstItem="MVa-gO-S1e" firstAttribute="top" secondItem="eTv-2X-8s1" secondAttribute="top" constant="11" id="4Gj-60-w8d"/>
-                    <constraint firstAttribute="bottom" secondItem="lYT-dz-xzl" secondAttribute="bottom" constant="16" id="9be-JL-3JJ"/>
+                    <constraint firstAttribute="bottom" secondItem="lYT-dz-xzl" secondAttribute="bottom" constant="14" id="9be-JL-3JJ"/>
                     <constraint firstAttribute="trailing" secondItem="MVa-gO-S1e" secondAttribute="trailing" constant="8" id="XTn-3W-9Cd"/>
-                    <constraint firstItem="MVa-gO-S1e" firstAttribute="leading" secondItem="lYT-dz-xzl" secondAttribute="trailing" constant="13" id="Yap-7r-QbW"/>
-                    <constraint firstItem="lYT-dz-xzl" firstAttribute="top" secondItem="eTv-2X-8s1" secondAttribute="top" constant="16" id="c5n-DE-D3g"/>
+                    <constraint firstItem="MVa-gO-S1e" firstAttribute="leading" secondItem="lYT-dz-xzl" secondAttribute="trailing" constant="9" id="Yap-7r-QbW"/>
+                    <constraint firstItem="lYT-dz-xzl" firstAttribute="top" secondItem="eTv-2X-8s1" secondAttribute="top" constant="14" id="c5n-DE-D3g"/>
                     <constraint firstAttribute="bottom" secondItem="MVa-gO-S1e" secondAttribute="bottom" constant="11" id="imE-a8-xvd"/>
                 </constraints>
             </tableViewCellContentView>
