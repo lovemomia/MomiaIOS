@@ -137,6 +137,10 @@
     } else if (section == 1) {
         return 2;
     } else if (section == 2) {
+        Account *account = [AccountService defaultService].account;
+        if ([account.children count] == 0) {
+            return 0;
+        }
         return 3;
     } else return 3;
 }
@@ -144,6 +148,9 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     Account *account = [AccountService defaultService].account;
+    if ([account.children count] == 0) {
+        return 3;
+    }
     return 2 + [account.children count];
 }
 
@@ -157,7 +164,7 @@
         header = [PersonChildHeaderCell cellWithTableView:self.tableView];
         
         ((PersonChildHeaderCell *)header).titleLabel.text = [NSString stringWithFormat:@"孩子信息（%d个）", (int)[account.children count]];
-        ((PersonChildHeaderCell *)header).stepperView.minValue = 1;
+        ((PersonChildHeaderCell *)header).stepperView.minValue = 0;
         ((PersonChildHeaderCell *)header).stepperView.maxValue = 5;
         ((PersonChildHeaderCell *)header).stepperView.currentValue = [account.children count];
         ((PersonChildHeaderCell *)header).stepperView.onclickStepper = ^(NSUInteger currentValue){//单击+、-事件响应
@@ -314,7 +321,7 @@
         } else {
             Child *child = [self childAtIndex:(section - 2)];
             if (row == 0) {
-                cell.textLabel.text = @"姓名";
+                cell.textLabel.text = @"孩子昵称";
                 cell.detailTextLabel.text = child.name;
                 
             } else if (row == 1) {

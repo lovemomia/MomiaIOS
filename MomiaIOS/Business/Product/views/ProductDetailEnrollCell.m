@@ -44,7 +44,7 @@
             UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake(10 + (height + 10) * i, 0, height, height)];
             imgView.layer.masksToBounds = YES;
             imgView.layer.cornerRadius = height/2;
-            [imgView sd_setImageWithURL:[NSURL URLWithString:item] placeholderImage:[UIImage imageNamed:@"home_carousel"]];
+            [imgView sd_setImageWithURL:[NSURL URLWithString:item] placeholderImage:[UIImage imageNamed:@"ic_avatar_default"]];
             [self.scrollView addSubview:imgView];
         }
     }

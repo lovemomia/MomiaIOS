@@ -16,7 +16,7 @@
     self.layer.masksToBounds = YES;
     self.layer.cornerRadius = self.bounds.size.width * 0.5;
     
-    [super sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"UserAvatarPlaceholder"]];
+    [super sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"ic_user_not_login"]];
 }
 
 @end

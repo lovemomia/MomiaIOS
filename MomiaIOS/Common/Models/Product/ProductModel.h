@@ -59,7 +59,7 @@
 
 @property (nonatomic,strong) NSString<Optional> * url; // 分享url
 @property (nonatomic,strong) NSString<Optional> * abstracts; // 分享简介
-
+@property (nonatomic,strong) NSString<Optional> * thumb; // 分享小图标
 @property (nonatomic,strong) NSArray * tags;
 
 

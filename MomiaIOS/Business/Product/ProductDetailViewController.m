@@ -178,9 +178,9 @@ typedef enum
                                            [UIImage imageNamed:@"share_wechat_timeline"]]
                          selectedHandle:^(NSInteger index) {
                              if (index == 1) {
-                                 [helper shareToWechat:self.model.data.url thumbUrl:@"http://i3.s1.dpfile.com/pc/wed/eaaaab5d22f03e60c9a1a086b5d163ab(2048x2048)/aD0yMDQ4Jms9L3BjL3dlZC9lYWFhYWI1ZDIyZjAzZTYwYzlhMWEwODZiNWQxNjNhYiZsb2dvPTAmbT14Jnc9MjA0OA.98fa3ca5bff1d2963977f8bfec5cde67/thumb.jpg" title:self.model.data.title desc:self.model.data.abstracts scene:1];
+                                 [helper shareToWechat:self.model.data.url thumbUrl:self.model.data.thumb title:self.model.data.title desc:self.model.data.abstracts scene:1];
                              } else if (index == 2) {
-                                 [helper shareToWechat:self.model.data.url thumbUrl:@"http://i3.s1.dpfile.com/pc/wed/eaaaab5d22f03e60c9a1a086b5d163ab(2048x2048)/aD0yMDQ4Jms9L3BjL3dlZC9lYWFhYWI1ZDIyZjAzZTYwYzlhMWEwODZiNWQxNjNhYiZsb2dvPTAmbT14Jnc9MjA0OA.98fa3ca5bff1d2963977f8bfec5cde67/thumb.jpg" title:self.model.data.title desc:self.model.data.abstracts scene:2];
+                                 [helper shareToWechat:self.model.data.url thumbUrl:self.model.data.thumb title:self.model.data.title desc:self.model.data.abstracts scene:2];
                              }
                          }];
 }

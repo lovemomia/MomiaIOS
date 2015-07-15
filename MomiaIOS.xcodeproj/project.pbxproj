@@ -190,7 +190,6 @@
 		BC97DF211B4E3E3D002B1A00 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC97DF1F1B4E3E3D002B1A00 /* AlipaySDK.framework */; };
 		BC97DF271B4E4AA4002B1A00 /* PayTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DF261B4E4AA4002B1A00 /* PayTool.m */; };
 		BCA272FD1AE8A2C7002E7534 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA272FB1AE8A2C7002E7534 /* MineViewController.m */; };
-		BCA273061AE8D0E9002E7534 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273051AE8D0E9002E7534 /* Launch Screen.xib */; };
 		BCA273101AE9D79F002E7534 /* scheme.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCA2730F1AE9D79F002E7534 /* scheme.plist */; };
 		BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273151AE9F6F0002E7534 /* URLMappingManager.m */; };
 		BCA2731E1AE9FB1D002E7534 /* NSString+MOURLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA2731D1AE9FB1D002E7534 /* NSString+MOURLEncode.m */; };
@@ -569,7 +568,6 @@
 		BC97DF261B4E4AA4002B1A00 /* PayTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayTool.m; sourceTree = "<group>"; };
 		BCA272FA1AE8A2C7002E7534 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineViewController.h; path = Business/Mine/MineViewController.h; sourceTree = "<group>"; };
 		BCA272FB1AE8A2C7002E7534 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineViewController.m; path = Business/Mine/MineViewController.m; sourceTree = "<group>"; };
-		BCA273051AE8D0E9002E7534 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		BCA2730F1AE9D79F002E7534 /* scheme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = scheme.plist; path = Common/scheme.plist; sourceTree = "<group>"; };
 		BCA273141AE9F6F0002E7534 /* URLMappingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = URLMappingManager.h; path = Common/URLMappingManager.h; sourceTree = "<group>"; };
 		BCA273151AE9F6F0002E7534 /* URLMappingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = URLMappingManager.m; path = Common/URLMappingManager.m; sourceTree = "<group>"; };
@@ -1251,7 +1249,6 @@
 				BC8540B41ADF8614005A7C54 /* Common */,
 				BC8540921ADF74E9005A7C54 /* AppDelegate.h */,
 				BC8540931ADF74E9005A7C54 /* AppDelegate.m */,
-				BCA273051AE8D0E9002E7534 /* Launch Screen.xib */,
 				BC85409B1ADF74E9005A7C54 /* Images.xcassets */,
 				BC8540B61ADF86CD005A7C54 /* Resources */,
 				BC85408E1ADF74E9005A7C54 /* Supporting Files */,
@@ -1737,7 +1734,6 @@
 				5A06436C1B3BCE9A00361732 /* FillOrderBottomCell.xib in Resources */,
 				5A9E80E71B4BBF590028AC47 /* ProductPlayFellowCell.xib in Resources */,
 				BCA273101AE9D79F002E7534 /* scheme.plist in Resources */,
-				BCA273061AE8D0E9002E7534 /* Launch Screen.xib in Resources */,
 				5A5A2A6A1B43E531000595A9 /* OrderContactViewController.xib in Resources */,
 				BC50639F1B53A3A000AA233C /* ForgetPasswordCell.xib in Resources */,
 				5A33F1A21B2EA1D5002A8258 /* CashPayTopHeaderView.xib in Resources */,
