@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -78,15 +78,14 @@
             <constraints>
                 <constraint firstItem="a7y-YN-ayD" firstAttribute="leading" secondItem="KSP-cq-nbg" secondAttribute="leading" id="1eB-V5-FYT"/>
                 <constraint firstAttribute="centerX" secondItem="K7Z-gp-12D" secondAttribute="centerX" id="FmT-BO-6vI"/>
+                <constraint firstItem="a7y-YN-ayD" firstAttribute="centerY" secondItem="otj-5s-vvg" secondAttribute="centerY" id="GHp-yj-yRc"/>
                 <constraint firstItem="KSP-cq-nbg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="L2G-ef-ceg"/>
                 <constraint firstAttribute="trailing" secondItem="KSP-cq-nbg" secondAttribute="trailing" constant="10" id="Pvg-KL-bpR"/>
                 <constraint firstItem="K7Z-gp-12D" firstAttribute="top" secondItem="vXe-3R-AzM" secondAttribute="bottom" constant="20" id="doA-3Y-3aY"/>
                 <constraint firstItem="KSP-cq-nbg" firstAttribute="top" secondItem="K7Z-gp-12D" secondAttribute="bottom" constant="20" id="eFy-IU-jMg"/>
                 <constraint firstItem="vXe-3R-AzM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="eol-rL-xaQ"/>
-                <constraint firstItem="a7y-YN-ayD" firstAttribute="baseline" secondItem="otj-5s-vvg" secondAttribute="baseline" id="hpS-0t-lq1"/>
                 <constraint firstItem="a7y-YN-ayD" firstAttribute="top" secondItem="KSP-cq-nbg" secondAttribute="bottom" constant="40" id="lVf-sr-YeQ"/>
                 <constraint firstItem="otj-5s-vvg" firstAttribute="leading" secondItem="a7y-YN-ayD" secondAttribute="trailing" constant="10" id="o4H-ta-Wx8"/>
-                <constraint firstItem="otj-5s-vvg" firstAttribute="baseline" secondItem="a7y-YN-ayD" secondAttribute="baseline" id="srO-RW-HKF"/>
                 <constraint firstAttribute="centerX" secondItem="vXe-3R-AzM" secondAttribute="centerX" id="vTX-lc-cp3"/>
             </constraints>
             <point key="canvasLocation" x="264" y="379"/>

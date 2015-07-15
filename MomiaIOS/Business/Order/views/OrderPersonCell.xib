@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张杨果而" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfY-6w-PBK">
-                        <rect key="frame" x="37" y="21" width="60" height="18"/>
+                        <rect key="frame" x="50" y="21" width="60" height="18"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="344-1l-PdF"/>
                         </constraints>
@@ -24,7 +24,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="成人" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ao-vK-NU3">
-                        <rect key="frame" x="109" y="21" width="28" height="17"/>
+                        <rect key="frame" x="122" y="21" width="28" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="28" id="Fh4-ai-BYv"/>
                         </constraints>
@@ -33,16 +33,16 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="女" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ed-Gr-n67">
-                        <rect key="frame" x="149" y="21" width="14" height="17"/>
+                        <rect key="frame" x="162" y="21" width="14" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9x-Md-Lpo">
-                        <rect key="frame" x="10" y="21" width="17" height="17"/>
+                        <rect key="frame" x="10" y="15" width="30" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="17" id="50L-i3-awb"/>
-                            <constraint firstAttribute="height" constant="17" id="I0Z-wL-uxB"/>
+                            <constraint firstAttribute="width" constant="30" id="50L-i3-awb"/>
+                            <constraint firstAttribute="height" constant="30" id="I0Z-wL-uxB"/>
                         </constraints>
                         <state key="normal" image="orderperson_edit">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

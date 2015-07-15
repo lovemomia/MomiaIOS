@@ -7,6 +7,7 @@
 //
 
 #import "OrderDetailMiddleCell.h"
+#import "StringUtils.h"
 
 @interface OrderDetailMiddleCell ()
 @property (weak, nonatomic) IBOutlet UILabel *orderNoLabel;
@@ -23,7 +24,7 @@
     self.orderNoLabel.text = [NSString stringWithFormat:@"%ld",model.orderNo];
     self.timeLabel.text = model.addTime;
     self.enrollLabel.text = model.participants;
-    self.priceLabel.text = [NSString stringWithFormat:@"%.2f",model.totalFee];
+    self.priceLabel.text = [StringUtils stringForPrice:model.totalFee];
 }
 
 

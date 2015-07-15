@@ -32,6 +32,7 @@ typedef enum
 
 @interface ProductDetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *signUpBtn;
 
 @property(nonatomic,strong) ProductDetailModel * model;
 @property(nonatomic,strong) NSString * productId;
@@ -101,8 +102,7 @@ typedef enum
             height = [ProductDetailCarouselCell heightWithTableView:tableView withIdentifier:productDetailCarouselIdentifier forIndexPath:indexPath data:self.model.data];
         else height = 43;
     } else if(section == 1) {
-        height = [ProductDetailBasicInfoCell heightWithTableView:tableView withIdentifier:productDetailBasicInfoIdentifier forIndexPath:indexPath data:@"蛮好哦"];
-        
+        height = 43;
     } else if(section == 2) {
         height = [ProductDetailEnrollCell heightWithTableView:tableView withIdentifier:productDetailEnrollIdentifier forIndexPath:indexPath data:self.model.data.customers];
     } else {
@@ -186,9 +186,13 @@ typedef enum
 }
 
 - (IBAction)signUp:(id)sender {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://fillorder?id=%@", self.productId]];
     
-    [[UIApplication sharedApplication] openURL:url];
+    if(self.model) {
+        if(!self.model.data.soldOut) {
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://fillorder?id=%@", self.productId]];
+            [[UIApplication sharedApplication] openURL:url];
+        }
+    }
 
 }
 
@@ -212,6 +216,11 @@ typedef enum
         }
         
         self.model = responseObject;
+        
+        if(!self.model.data.soldOut) {
+            [self.signUpBtn setBackgroundColor:UIColorFromRGB(0xff5d33)];
+            [self.signUpBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        }
         
         [self.tableView reloadData];
         

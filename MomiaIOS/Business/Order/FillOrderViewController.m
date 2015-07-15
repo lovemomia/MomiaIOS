@@ -19,6 +19,7 @@
 #import "OrderPersonViewController.h"
 #import "OrderContactViewController.h"
 #import "PostOrderModel.h"
+#import "StringUtils.h"
 
 #define TopNumber 2
 
@@ -311,7 +312,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
             
             [self.stepperGroup removeAllSteppers];
             [self.middleCellArray removeAllObjects];
-            self.priceLabel.text = [NSString stringWithFormat:@"￥%.2f",self.totalPrice];
+            self.priceLabel.text = [NSString stringWithFormat:@"￥%@",[StringUtils stringForPrice:self.totalPrice]];
             for (int i = 0; i < rows; i++) {
                 FillOrderMiddleCell * middle = [ConvertFromXib convertObjectWithNibNamed:@"FillOrderMiddleCell" withClassNamed:NSStringFromClass([FillOrderMiddleCell class])];
                 [self.stepperGroup addMOStepperView:middle.stepperView];
@@ -373,7 +374,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
             
             middle.stepperView.onclickStepper = ^(NSUInteger currentValue){//单击+、-事件响应
                 [self.stepperGroup refreshStatus];//更新stepper组件
-                self.priceLabel.text = [NSString stringWithFormat:@"￥%.2f",self.totalPrice];
+                self.priceLabel.text = [NSString stringWithFormat:@"￥%@",[StringUtils stringForPrice:self.totalPrice]];
             };
             
             cell = middle;
@@ -687,7 +688,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
     self.tableView.backgroundView = [[UIView alloc] init];
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
     
-    self.priceLabel.text = [NSString stringWithFormat:@"￥%.2f",self.totalPrice];
+    self.priceLabel.text = [NSString stringWithFormat:@"￥%@",[StringUtils stringForPrice:self.totalPrice]];
     
     [self requestData];
 

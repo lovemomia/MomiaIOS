@@ -11,7 +11,7 @@
 #import "TTTAttributedLabel.h"
 
 #define TopMargin 12
-#define LineSpacing 8
+#define LineSpacing 6
 #define ImgScale 0.75
 
 #define contentFontSize 13.0f
@@ -119,6 +119,9 @@
                     make.bottom.lessThanOrEqualTo(self.contentView).with.offset(-TopMargin);
                 }];
                 [imgView sd_setImageWithURL:[NSURL URLWithString:bodyModel.img] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+                
+                imgView.clipsToBounds = YES;
+                imgView.contentMode = UIViewContentModeScaleAspectFill;
                 
                 lastView = imgView;
                 

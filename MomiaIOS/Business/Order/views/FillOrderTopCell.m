@@ -8,6 +8,7 @@
 
 #import "FillOrderTopCell.h"
 #import "FillOrderModel.h"
+#import "StringUtils.h"
 
 @interface FillOrderTopCell ()
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
@@ -45,7 +46,8 @@
     }
     
     self.timeLabel.text = model.time;
-    self.priceLabel.text = [NSString stringWithFormat:@"￥%.2f起",model.minPrice];
+    
+    self.priceLabel.text = [NSString stringWithFormat:@"￥%@起",[StringUtils stringForPrice:model.minPrice]];
     
     self.stockLabel.text = stockStr;
 }

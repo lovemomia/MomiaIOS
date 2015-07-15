@@ -320,7 +320,7 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
             } else if (row == 1) {
                 cell.textLabel.text = @"总价";
                 if (self.order) {
-                    cell.detailTextLabel.text = [NSString stringWithFormat:@"￥%.2f", self.order.data.totalFee];
+                    cell.detailTextLabel.text = [StringUtils stringForPrice:self.order.data.totalFee];
                 }
             }
         } else if (section == 1) {

@@ -12,6 +12,7 @@
 @interface ProductDetailEnrollCell ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *lineView;
 
 @end
 
@@ -52,5 +53,9 @@
     self.titleLabel.text = model.text;
 }
 
+-(void)awakeFromNib {
+    UITableView * tableView = [[UITableView alloc] init];
+    self.lineView.backgroundColor = tableView.separatorColor;
+}
 
 @end
