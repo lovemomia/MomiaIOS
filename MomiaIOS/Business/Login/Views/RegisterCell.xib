@@ -136,5 +136,79 @@
             </tableViewCellContentView>
             <point key="canvasLocation" x="337" y="399"/>
         </tableViewCell>
+        <view contentMode="scaleToFill" id="3xt-he-edn">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJN-t3-TOV">
+                    <rect key="frame" x="20" y="30" width="280" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="280" id="1So-oO-uCX"/>
+                        <constraint firstAttribute="height" constant="40" id="g8e-ZO-wV4"/>
+                    </constraints>
+                    <state key="normal" title="注册" backgroundImage="cm_large_button_normal">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HO3-qo-Ioh">
+                    <rect key="frame" x="20" y="90" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="1Y0-CW-LO0"/>
+                        <constraint firstAttribute="height" constant="20" id="2bj-Ia-3oo"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我已阅读并同意" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VT3-bh-BeR">
+                    <rect key="frame" x="48" y="91" width="105" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="105" id="7vi-l0-tac"/>
+                        <constraint firstAttribute="height" constant="17" id="j9n-nh-mD5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2t-ty-x9q">
+                    <rect key="frame" x="150" y="91" width="140" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="GYl-8X-LZb"/>
+                        <constraint firstAttribute="width" constant="124" id="gu0-Jv-0oa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="哆啦亲子用户服务协议">
+                        <color key="titleColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="gu0-Jv-0oa"/>
+                        </mask>
+                    </variation>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="T2t-ty-x9q" firstAttribute="leading" secondItem="HO3-qo-Ioh" secondAttribute="trailing" constant="110" id="9by-Ei-1xE"/>
+                <constraint firstItem="VT3-bh-BeR" firstAttribute="top" secondItem="WJN-t3-TOV" secondAttribute="bottom" constant="21" id="DMH-h1-42K"/>
+                <constraint firstItem="VT3-bh-BeR" firstAttribute="leading" secondItem="HO3-qo-Ioh" secondAttribute="trailing" constant="8" id="FUP-50-UmY"/>
+                <constraint firstItem="HO3-qo-Ioh" firstAttribute="top" secondItem="WJN-t3-TOV" secondAttribute="bottom" constant="20" id="P6R-ox-hSC"/>
+                <constraint firstItem="T2t-ty-x9q" firstAttribute="top" secondItem="WJN-t3-TOV" secondAttribute="bottom" constant="21" id="RY9-Gh-tRy"/>
+                <constraint firstItem="WJN-t3-TOV" firstAttribute="top" secondItem="3xt-he-edn" secondAttribute="top" constant="30" id="X6L-JC-kR5"/>
+                <constraint firstItem="VT3-bh-BeR" firstAttribute="baseline" secondItem="T2t-ty-x9q" secondAttribute="baseline" id="mry-cR-gqO"/>
+                <constraint firstItem="HO3-qo-Ioh" firstAttribute="leading" secondItem="3xt-he-edn" secondAttribute="leading" constant="20" id="oYU-hX-K6J"/>
+                <constraint firstAttribute="centerX" secondItem="WJN-t3-TOV" secondAttribute="centerX" id="sm6-gB-2A8"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="337" y="565"/>
+        </view>
     </objects>
+    <resources>
+        <image name="cm_large_button_normal" width="280" height="40"/>
+    </resources>
 </document>

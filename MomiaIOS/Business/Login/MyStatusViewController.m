@@ -150,7 +150,7 @@
     NSInteger row = indexPath.row;
     Baby *baby = [self.babys objectAtIndex:section];
     if (row == 0) {
-        cell.textLabel.text = @"姓名";
+        cell.textLabel.text = @"孩子昵称";
         cell.detailTextLabel.text = baby.name;
         
     } else if (row == 1) {

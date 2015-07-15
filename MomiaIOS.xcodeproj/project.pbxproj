@@ -111,8 +111,6 @@
 		5AE4F8671B3D642B005879B7 /* MOStepperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE4F8651B3D642B005879B7 /* MOStepperView.m */; };
 		5AE4F8681B3D642B005879B7 /* MOStepperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE4F8661B3D642B005879B7 /* MOStepperView.xib */; };
 		5AE4F86B1B3D645E005879B7 /* MOStepperGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE4F86A1B3D645E005879B7 /* MOStepperGroup.m */; };
-		5AE995A21B26F9B8003DAAC0 /* FillOrderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE995A11B26F9B8003DAAC0 /* FillOrderFooterView.m */; };
-		5AE995A41B26F9EE003DAAC0 /* FillOrderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE995A31B26F9EE003DAAC0 /* FillOrderFooterView.xib */; };
 		5AEB188A1B1865F90098FD5F /* MySuggestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB18891B1865F90098FD5F /* MySuggestModel.m */; };
 		BC0BD6FA1B5516DB00B95B3A /* Coupon.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD6F71B5516DB00B95B3A /* Coupon.m */; };
 		BC0BD6FB1B5516DB00B95B3A /* CouponListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD6F91B5516DB00B95B3A /* CouponListModel.m */; };
@@ -192,7 +190,6 @@
 		BC97DF211B4E3E3D002B1A00 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC97DF1F1B4E3E3D002B1A00 /* AlipaySDK.framework */; };
 		BC97DF271B4E4AA4002B1A00 /* PayTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DF261B4E4AA4002B1A00 /* PayTool.m */; };
 		BCA272FD1AE8A2C7002E7534 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA272FB1AE8A2C7002E7534 /* MineViewController.m */; };
-		BCA273061AE8D0E9002E7534 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273051AE8D0E9002E7534 /* Launch Screen.xib */; };
 		BCA273101AE9D79F002E7534 /* scheme.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCA2730F1AE9D79F002E7534 /* scheme.plist */; };
 		BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273151AE9F6F0002E7534 /* URLMappingManager.m */; };
 		BCA2731E1AE9FB1D002E7534 /* NSString+MOURLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA2731D1AE9FB1D002E7534 /* NSString+MOURLEncode.m */; };
@@ -423,9 +420,6 @@
 		5AE4F8661B3D642B005879B7 /* MOStepperView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MOStepperView.xib; path = Common/Views/MOStepper/MOStepperView.xib; sourceTree = "<group>"; };
 		5AE4F8691B3D645E005879B7 /* MOStepperGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOStepperGroup.h; path = Common/Views/MOStepper/MOStepperGroup.h; sourceTree = "<group>"; };
 		5AE4F86A1B3D645E005879B7 /* MOStepperGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOStepperGroup.m; path = Common/Views/MOStepper/MOStepperGroup.m; sourceTree = "<group>"; };
-		5AE995A01B26F9B8003DAAC0 /* FillOrderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FillOrderFooterView.h; path = Business/Order/views/FillOrderFooterView.h; sourceTree = "<group>"; };
-		5AE995A11B26F9B8003DAAC0 /* FillOrderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FillOrderFooterView.m; path = Business/Order/views/FillOrderFooterView.m; sourceTree = "<group>"; };
-		5AE995A31B26F9EE003DAAC0 /* FillOrderFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FillOrderFooterView.xib; path = Business/Order/views/FillOrderFooterView.xib; sourceTree = "<group>"; };
 		5AEB18881B1865F90098FD5F /* MySuggestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySuggestModel.h; path = Common/Models/MySuggest/MySuggestModel.h; sourceTree = "<group>"; };
 		5AEB18891B1865F90098FD5F /* MySuggestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySuggestModel.m; path = Common/Models/MySuggest/MySuggestModel.m; sourceTree = "<group>"; };
 		5B9DF4BE98C18CC18BDADCD8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -574,7 +568,6 @@
 		BC97DF261B4E4AA4002B1A00 /* PayTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayTool.m; sourceTree = "<group>"; };
 		BCA272FA1AE8A2C7002E7534 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineViewController.h; path = Business/Mine/MineViewController.h; sourceTree = "<group>"; };
 		BCA272FB1AE8A2C7002E7534 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineViewController.m; path = Business/Mine/MineViewController.m; sourceTree = "<group>"; };
-		BCA273051AE8D0E9002E7534 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		BCA2730F1AE9D79F002E7534 /* scheme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = scheme.plist; path = Common/scheme.plist; sourceTree = "<group>"; };
 		BCA273141AE9F6F0002E7534 /* URLMappingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = URLMappingManager.h; path = Common/URLMappingManager.h; sourceTree = "<group>"; };
 		BCA273151AE9F6F0002E7534 /* URLMappingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = URLMappingManager.m; path = Common/URLMappingManager.m; sourceTree = "<group>"; };
@@ -860,9 +853,6 @@
 		5A82F1A51B25812E000D2C60 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				5AE995A01B26F9B8003DAAC0 /* FillOrderFooterView.h */,
-				5AE995A11B26F9B8003DAAC0 /* FillOrderFooterView.m */,
-				5AE995A31B26F9EE003DAAC0 /* FillOrderFooterView.xib */,
 				5A074F841B3AC39A001E5006 /* FillOrderTopCell.h */,
 				5A074F851B3AC39A001E5006 /* FillOrderTopCell.m */,
 				5A074F861B3AC39A001E5006 /* FillOrderTopCell.xib */,
@@ -1259,7 +1249,6 @@
 				BC8540B41ADF8614005A7C54 /* Common */,
 				BC8540921ADF74E9005A7C54 /* AppDelegate.h */,
 				BC8540931ADF74E9005A7C54 /* AppDelegate.m */,
-				BCA273051AE8D0E9002E7534 /* Launch Screen.xib */,
 				BC85409B1ADF74E9005A7C54 /* Images.xcassets */,
 				BC8540B61ADF86CD005A7C54 /* Resources */,
 				BC85408E1ADF74E9005A7C54 /* Supporting Files */,
@@ -1745,7 +1734,6 @@
 				5A06436C1B3BCE9A00361732 /* FillOrderBottomCell.xib in Resources */,
 				5A9E80E71B4BBF590028AC47 /* ProductPlayFellowCell.xib in Resources */,
 				BCA273101AE9D79F002E7534 /* scheme.plist in Resources */,
-				BCA273061AE8D0E9002E7534 /* Launch Screen.xib in Resources */,
 				5A5A2A6A1B43E531000595A9 /* OrderContactViewController.xib in Resources */,
 				BC50639F1B53A3A000AA233C /* ForgetPasswordCell.xib in Resources */,
 				5A33F1A21B2EA1D5002A8258 /* CashPayTopHeaderView.xib in Resources */,
@@ -1758,7 +1746,6 @@
 				5AB1BDEB1B4FB7ED004A4511 /* LoadingErrorCell.xib in Resources */,
 				5A33F1A81B2EBC2F002A8258 /* TitleView.xib in Resources */,
 				BC97DF1C1B4E1DF0002B1A00 /* PayResultViewController.xib in Resources */,
-				5AE995A41B26F9EE003DAAC0 /* FillOrderFooterView.xib in Resources */,
 				BC41ABA61B0C69BE00A419DA /* read_me.txt in Resources */,
 				BC97DF201B4E3E3D002B1A00 /* AlipaySDK.bundle in Resources */,
 				5A82F1A41B257449000D2C60 /* FillOrderViewController.xib in Resources */,
@@ -1893,7 +1880,6 @@
 				BC2C0C861B15668000E2446E /* DatePickerSheet.m in Sources */,
 				5AABF70F1B281BEF000A9D3F /* ConvertFromXib.m in Sources */,
 				BCF564E41B4A54D0003A2227 /* PersonChildHeaderCell.m in Sources */,
-				5AE995A21B26F9B8003DAAC0 /* FillOrderFooterView.m in Sources */,
 				5A33F1921B2E9FC5002A8258 /* CashPayViewController.m in Sources */,
 				5A3DBE5D1B185BE500E708AC /* MyCollectionCell.m in Sources */,
 				5ABDA57E1B42625B003BAE80 /* AddOrderModel.m in Sources */,

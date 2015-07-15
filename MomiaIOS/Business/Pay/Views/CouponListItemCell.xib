@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_coupon" translatesAutoresizingMaskIntoConstraints="NO" id="r0J-VL-RnF">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_coupon_red" translatesAutoresizingMaskIntoConstraints="NO" id="r0J-VL-RnF">
                         <rect key="frame" x="10" y="11" width="47" height="47"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="47" id="Yw6-xA-pRq"/>
@@ -102,7 +102,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ic_coupon" width="47" height="47"/>
+        <image name="ic_coupon_red" width="47" height="47"/>
         <image name="ic_coupon_tag_green" width="25" height="25"/>
     </resources>
 </document>

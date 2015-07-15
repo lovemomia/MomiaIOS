@@ -189,7 +189,7 @@
                 break;
             case 2:
                 cell.textLabel.text = @"我的红包";
-                cell.imageView.image = [UIImage imageNamed:@"ic_payed"];
+                cell.imageView.image = [UIImage imageNamed:@"ic_coupon"];
                 break;
             case 3:
                 if (row == 0) {
