@@ -196,7 +196,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"修改姓名" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认修改", nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"输入孩子昵称" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
         alert.alertViewStyle = UIAlertViewStylePlainTextInput;
         alert.tag = indexPath.section;
         [alert show];

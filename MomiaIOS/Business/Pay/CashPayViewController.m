@@ -101,6 +101,7 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://payresult?oid=%d&pid=%d&sid=%d&coupon=%@&free=1",
                                            self.order.data.orderId, self.order.data.productId, self.order.data.skuId, self.coupon.ids]];
         [[UIApplication sharedApplication] openURL:url];
+        return;
     }
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
