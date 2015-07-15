@@ -91,10 +91,18 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
                               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
                                   [self showDialogWithTitle:nil message:error.message];
+                                  self.coupon = nil;
                               }];
 }
 
 - (void)onPayClicked {
+    // 0元购
+    if (self.order.data.totalFee == 0.0f || (self.couponPrice && self.couponPrice.data == 0.0f)) {
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://payresult?oid=%d&pid=%d&sid=%d&coupon=%@&free=1",
+                                           self.order.data.orderId, self.order.data.productId, self.order.data.skuId, self.coupon.ids]];
+        [[UIApplication sharedApplication] openURL:url];
+    }
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     NSInteger type;
@@ -147,10 +155,14 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
                                       //前往支付
                                       if ([responseObject isKindOfClass:[AlipayOrderModel class]]) {
                                           PayTool *payTool = [PayTool new];
-                                          [payTool startAlipay:((AlipayOrderModel *)responseObject).data paySuccess:^{
-                                              NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://payresult?oid=%ld&pid=%ld&sid=%ld",
-                                                                                 self.order.data.orderId, self.order.data.productId, self.order.data.skuId]];
-                                              [[UIApplication sharedApplication] openURL:url];
+                                          [payTool startAlipay:((AlipayOrderModel *)responseObject).data payResult:^(BOOL success){
+                                              if (success) {
+                                                  NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://payresult?oid=%d&pid=%d&sid=%d",
+                                                                                     self.order.data.orderId, self.order.data.productId, self.order.data.skuId]];
+                                                  [[UIApplication sharedApplication] openURL:url];
+                                              } else {
+                                                  [self showDialogWithTitle:nil message:@"支付失败，请重新尝试或选择其他方式支付"];
+                                              }
                                           }] ;
                                       }
                                   }
@@ -317,7 +329,7 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
                 if (self.order) {
                     cell.detailTextLabel.textColor = MO_APP_ThemeColor;
                     if (self.coupon) {
-                        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ x 1", self.coupon.desc];
+                        cell.detailTextLabel.text = [NSString stringWithFormat:@"减￥%@", self.coupon.discount];
                         
                     } else {
                         cell.detailTextLabel.text = @"使用红包";

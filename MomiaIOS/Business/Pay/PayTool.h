@@ -12,10 +12,10 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "AlipayOrder.h"
 
-typedef void (^BlockPaySuccess)();
+typedef void (^BlockPayResult)(BOOL success);
 
 @interface PayTool : NSObject
 
-- (void)startAlipay:(AlipayOrder *)order paySuccess:(BlockPaySuccess)callback;
+- (void)startAlipay:(AlipayOrder *)order payResult:(BlockPayResult)callback;
 
 @end

@@ -30,6 +30,10 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.httpClient = [AFHTTPRequestOperationManager manager];
+        
+        self.httpClient.requestSerializer = [AFJSONRequestSerializer serializer];
+        [self.httpClient.requestSerializer setValue:@"API1.0(com.youxing.DuoLa;iOS)" forHTTPHeaderField:@"User-Agent"];
+        
         [ISDiskCache sharedCache].limitOfSize = 10 * 1024 * 1024; // 10MB
     }
     return self;
@@ -42,8 +46,7 @@
                         success:(BlockMOHTTPRequestSuccess)success
                         failure:(BlockMOHTTPRequestFail)failure {
     // 构建基本参数
-    NSMutableDictionary *allParams = [self createBasicParams];
-    [allParams addEntriesFromDictionary:parameters];
+    NSMutableDictionary *allParams = [self basicParamsWithParams:parameters];
     
     NSString *cacheUrl;
     if (cacheType == CacheTypeNormal) {
@@ -125,8 +128,7 @@
                          success:(BlockMOHTTPRequestSuccess)success
                          failure:(BlockMOHTTPRequestFail)failure {
     // 构建基本参数
-    NSMutableDictionary *allParams = [self createBasicParams];
-    [allParams addEntriesFromDictionary:parameters];
+    NSMutableDictionary *allParams = [self basicParamsWithParams:parameters];
     
     BlockMOHTTPRequestSuccess onSuccess = ^(AFHTTPRequestOperation *operation, id responseObject) {
         if (responseModelClass == nil) {
@@ -172,7 +174,7 @@
 - (NSURLSessionUploadTask *)uploadImageWithFilePath:(NSString *)path
                                            fileName:(NSString *)fileName
                                             handler:(BlockMOUploadImageHandler)handler {
-    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:@"http://upload.momia.cn/upload/image" parameters:[self createBasicParams] constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:@"http://upload.momia.cn/upload/image" parameters:[self basicParamsWithParams:nil] constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFileURL:[NSURL fileURLWithPath:path] name:@"file" fileName:fileName mimeType:@"image/jpeg" error:nil];
     } error:nil];
     
@@ -198,9 +200,11 @@
     return uploadTask;
 }
 
-- (NSMutableDictionary *)createBasicParams {
+- (NSMutableDictionary *)basicParamsWithParams:(NSDictionary *)params {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
-    
+    if (params) {
+        [dic addEntriesFromDictionary:params];
+    }
     // 用户token
     if ([[AccountService defaultService] isLogin]) {
         [dic setObject:[AccountService defaultService].account.token forKey:@"utoken"];
@@ -216,7 +220,7 @@
     [dic setObject:[NSString stringWithFormat:@"%f", MO_OS_VERSION] forKey:@"os"];
     
     // 设备型号，iphone6
-    [dic setObject:@"" forKey:@"device"];
+    [dic setObject:[UIDevice currentDevice].model forKey:@"device"];
     
     // 渠道号
     [dic setObject:@"appstore" forKey:@"channel"];
@@ -274,7 +278,12 @@
         
         NSMutableString *sysSign = [[NSMutableString alloc] initWithCapacity:50];
         [allKeys enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL *stop) {
-            [sysSign appendString:[NSString stringWithFormat:@"%@=%@", obj, [dictionary objectForKey:obj]]];
+            NSObject *value = [dictionary objectForKey:obj];
+            if ([value isKindOfClass:[NSString class]] && ((NSString *)value).length == 0) {
+                // do nothing;
+            } else {
+                [sysSign appendString:[NSString stringWithFormat:@"%@=%@", obj, [dictionary objectForKey:obj]]];
+            }
         }];
         
         // 固定字符加密
