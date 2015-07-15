@@ -34,6 +34,10 @@ static NSString * identifier = @"CellFeedbackIdentifier";
         return;
     }
     
+    if(self.content.length >= 200) {
+        [AlertNotice showNotice:@"反馈意见超过200字"];
+    }
+    
     if(self.email.length == 0) {
         [AlertNotice showNotice:@"联系方式不能为空"];
         return;
@@ -174,12 +178,15 @@ static NSString * identifier = @"CellFeedbackIdentifier";
 {
     FeedbackCell * cell = [FeedbackCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:identifier];
     cell.backgroundColor = tableView.backgroundColor;
-    [cell.contentTextView addPlaceHolder:@"请输入您的反馈意见（100字以内）"];
+    [cell.contentTextView addPlaceHolder:@"请输入您的反馈意见（200字以内）"];
     [cell.emailTextField setValue:UIColorFromRGB(0x999999) forKeyPath:@"_placeholderLabel.textColor"];
     cell.contentTextView.placeHolderTextView.textColor = UIColorFromRGB(0x999999);
     cell.contentTextView.moDelegate = self;
+    
+       
     cell.emailTextField.delegate = self;
     [cell.emailTextField addTarget:self action:@selector(editingChanged:) forControlEvents:UIControlEventEditingChanged];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
