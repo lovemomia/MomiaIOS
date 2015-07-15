@@ -79,6 +79,9 @@ static NSString * orderUpdatePersonSelectIdentifier = @"CellOrderUpdatePersonSel
     } else if(row == 3) {//选择证件类型
         [self showIDPicker];
     }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
 
 

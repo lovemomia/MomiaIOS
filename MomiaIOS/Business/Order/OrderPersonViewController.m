@@ -110,6 +110,9 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
         OrderPerson *dataModel = self.model.data[indexPath.row];
         [personCell setData:dataModel withSelectedDic:self.selectedDictionary];
     }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
    
 //    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];// thie method to change cell data is not so good,delete it. that's it.
 }

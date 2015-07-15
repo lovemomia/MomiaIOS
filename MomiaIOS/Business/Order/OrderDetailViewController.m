@@ -137,6 +137,9 @@ static NSString * orderDetailBottomIdentifier = @"CellOrderDetailBottom";
             [[UIApplication sharedApplication] openURL:url];
         }
     }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 
 }
 

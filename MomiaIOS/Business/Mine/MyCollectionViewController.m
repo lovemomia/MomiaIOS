@@ -133,6 +133,9 @@
                 break;
         }
     }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

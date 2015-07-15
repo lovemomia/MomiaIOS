@@ -22,7 +22,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arx-8T-dCE">
-                        <rect key="frame" x="18" y="34" width="26" height="15"/>
+                        <rect key="frame" x="21" y="34" width="26" height="15"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                         <color key="textColor" red="1" green="0.80000000000000004" blue="0.023529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -41,7 +41,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="11" id="Vk2-I3-fqL"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -77,6 +77,7 @@
                     <constraint firstItem="hWV-aV-NYb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Lmw-K7-7x7"/>
                     <constraint firstItem="XTX-CC-04V" firstAttribute="leading" secondItem="r0J-VL-RnF" secondAttribute="trailing" constant="10" id="O69-s9-nWk"/>
                     <constraint firstItem="Kye-G6-ecv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="SGY-bz-O7t"/>
+                    <constraint firstItem="arx-8T-dCE" firstAttribute="centerX" secondItem="r0J-VL-RnF" secondAttribute="centerX" id="ZAS-52-RVj"/>
                     <constraint firstItem="arx-8T-dCE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="akl-qV-Low"/>
                     <constraint firstItem="hWV-aV-NYb" firstAttribute="leading" secondItem="Kye-G6-ecv" secondAttribute="trailing" constant="8" id="ceg-Zk-uUc"/>
                     <constraint firstAttribute="bottom" secondItem="r0J-VL-RnF" secondAttribute="bottom" constant="12" id="f0Z-6D-gKe"/>
@@ -88,6 +89,7 @@
                 <variation key="default">
                     <mask key="constraints">
                         <exclude reference="f0Z-6D-gKe"/>
+                        <exclude reference="akl-qV-Low"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
@@ -98,7 +100,7 @@
                 <outlet property="timeLabel" destination="YDg-oj-IuA" id="uEs-u0-wBg"/>
                 <outlet property="titleLabel" destination="Kye-G6-ecv" id="wQ8-X4-HLq"/>
             </connections>
-            <point key="canvasLocation" x="427" y="379"/>
+            <point key="canvasLocation" x="298" y="227"/>
         </tableViewCell>
     </objects>
     <resources>

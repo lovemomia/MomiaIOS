@@ -207,6 +207,9 @@
     } else {
         [self showDatePicker:indexPath.section];
     }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
 
 - (void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

@@ -76,7 +76,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="a7y-YN-ayD" firstAttribute="leading" secondItem="KSP-cq-nbg" secondAttribute="leading" id="1eB-V5-FYT"/>
+                <constraint firstAttribute="centerX" secondItem="a7y-YN-ayD" secondAttribute="centerX" constant="78" id="3tg-EQ-wtx"/>
                 <constraint firstAttribute="centerX" secondItem="K7Z-gp-12D" secondAttribute="centerX" id="FmT-BO-6vI"/>
                 <constraint firstItem="a7y-YN-ayD" firstAttribute="centerY" secondItem="otj-5s-vvg" secondAttribute="centerY" id="GHp-yj-yRc"/>
                 <constraint firstItem="KSP-cq-nbg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="L2G-ef-ceg"/>

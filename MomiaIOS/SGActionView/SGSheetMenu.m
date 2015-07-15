@@ -183,6 +183,9 @@
             self.actionHandle(indexPath.row);
         });
     }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
 
 @end

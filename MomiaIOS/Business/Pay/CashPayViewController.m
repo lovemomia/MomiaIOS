@@ -229,6 +229,8 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
         }
         [tableView reloadData];
     }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

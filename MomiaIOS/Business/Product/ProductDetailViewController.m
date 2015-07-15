@@ -168,6 +168,9 @@ typedef enum
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://productplayfellow?id=%@", self.productId]];
         [[UIApplication sharedApplication] openURL:url];
     }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
 
 - (IBAction)dateFriend:(id)sender {

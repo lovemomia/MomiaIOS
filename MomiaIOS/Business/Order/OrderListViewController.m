@@ -173,6 +173,9 @@
         [[UIApplication sharedApplication] openURL:url];
     }
     
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

@@ -258,6 +258,9 @@ typedef enum {
 //        [self openURL:@"duola://sugtags"];
 
     }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
