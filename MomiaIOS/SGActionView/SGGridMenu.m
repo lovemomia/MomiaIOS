@@ -162,13 +162,27 @@
     NSInteger itemCount = self.items.count;
     NSInteger rowCount = ((itemCount-1) / 4) + 1;
     self.contentScrollView.contentSize = CGSizeMake(self.bounds.size.width, rowCount * itemSize.height + margin.top + margin.bottom);
-    for (int i=0; i<itemCount; i++) {
-        SGGridItem *item = self.items[i];
-        int row = i / 4;
-        int column = i % 4;
-        CGPoint p = CGPointMake(margin.left + column * itemSize.width, margin.top + row * itemSize.height);
-        item.frame = (CGRect){p, itemSize};
-        [item layoutIfNeeded];
+    
+    if (itemCount == 2) {
+        SGGridItem *item0 = self.items[0];
+        CGPoint p0 = CGPointMake(SCREEN_WIDTH / 4 - itemSize.width / 2, margin.top);
+        item0.frame = (CGRect){p0, itemSize};
+        [item0 layoutIfNeeded];
+        
+        SGGridItem *item1 = self.items[1];
+        CGPoint p1 = CGPointMake(SCREEN_WIDTH * 0.75f - itemSize.width / 2, margin.top);
+        item1.frame = (CGRect){p1, itemSize};
+        [item1 layoutIfNeeded];
+        
+    } else {
+        for (int i=0; i<itemCount; i++) {
+            SGGridItem *item = self.items[i];
+            int row = i / 4;
+            int column = i % 4;
+            CGPoint p = CGPointMake(margin.left + column * itemSize.width, margin.top + row * itemSize.height);
+            item.frame = (CGRect){p, itemSize};
+            [item layoutIfNeeded];
+        }
     }
     
     if (self.contentScrollView.contentSize.height > kMAX_CONTENT_SCROLLVIEW_HEIGHT) {

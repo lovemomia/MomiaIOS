@@ -35,6 +35,8 @@
         self.navigationItem.title = @"待付款订单";
     } else if (self.status == 3) {
         self.navigationItem.title = @"已付款订单";
+    } else {
+        self.navigationItem.title = @"订单列表";
     }
     self.orderList = [NSMutableArray new];
     [self requestData];

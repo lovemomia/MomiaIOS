@@ -8,6 +8,8 @@
 
 #import "PayResultViewController.h"
 #import "PayCheckModel.h"
+#import "ThirdShareHelper.h"
+#import "SGActionView.h"
 
 @interface PayResultViewController ()
 
@@ -62,20 +64,14 @@
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
                                   self.payCheckResult = (PayCheckModel *)responseObject;
                                   
-                                  if ([self.payCheckResult.data isEqualToString:@"OK"]) {
-                                      self.titleLabel.text = @"您已购买成功";
-                                      self.descLabel.text = @"活动前一天，或者活动发生变更，都会有短信通知您";
-                                      
-                                  } else {
-                                      self.titleLabel.text = @"购买失败";
-                                      self.descLabel.text = @"请重新确认订单，如有问题可拨打客服热线：021-62578700";
-                                  }
-
+                                  self.titleLabel.text = @"您已购买成功";
+                                  self.descLabel.text = @"活动前一天，或者活动发生变更，都会有短信通知您";
                               }
      
                               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                  [self showDialogWithTitle:nil message:error.message];
+                                  self.titleLabel.text = @"购买失败";
+                                  self.descLabel.text = @"请重新确认订单，如有问题可拨打客服热线：021-62578700";
                               }];
 }
 
@@ -89,20 +85,14 @@
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
                                   self.payCheckResult = (PayCheckModel *)responseObject;
                                   
-                                  if ([self.payCheckResult.data isEqualToString:@"OK"]) {
-                                      self.titleLabel.text = @"您已购买成功";
-                                      self.descLabel.text = @"活动前一天，或者活动发生变更，都会有短信通知您";
-                                      
-                                  } else {
-                                      self.titleLabel.text = @"购买失败";
-                                      self.descLabel.text = @"请重新确认订单，如有问题可拨打客服热线：021-62578700";
-                                  }
-                                  
+                                  self.titleLabel.text = @"您已购买成功";
+                                  self.descLabel.text = @"活动前一天，或者活动发生变更，都会有短信通知您";
                               }
      
                               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                  [self showDialogWithTitle:nil message:error.message];
+                                  self.titleLabel.text = @"购买失败";
+                                  self.descLabel.text = @"请重新确认订单，如有问题可拨打客服热线：021-62578700";
                               }];
 }
 
@@ -122,8 +112,19 @@
 */
 
 - (IBAction)onLeftButtonClicked:(id)sender {
-    if ([self.payCheckResult.data isEqualToString:@"OK"]) {
-        
+    if (self.payCheckResult.errNo == 0) {
+        ThirdShareHelper *helper = [ThirdShareHelper new];
+        [SGActionView showGridMenuWithTitle:@"约伴"
+                                 itemTitles:@[ @"微信好友", @"微信朋友圈"]
+                                     images:@[ [UIImage imageNamed:@"share_wechat_friend"],
+                                               [UIImage imageNamed:@"share_wechat_timeline"]]
+                             selectedHandle:^(NSInteger index) {
+                                 if (index == 1) {
+                                     [helper shareToWechat:self.payCheckResult.data.url thumbUrl:self.payCheckResult.data.thumb title:self.payCheckResult.data.title desc:self.payCheckResult.data.abstracts scene:1];
+                                 } else if (index == 2) {
+                                     [helper shareToWechat:self.payCheckResult.data.url thumbUrl:self.payCheckResult.data.thumb title:self.payCheckResult.data.title desc:self.payCheckResult.data.abstracts scene:2];
+                                 }
+                             }];
         
     } else {
         [self openURL:@"tel://02162578700"];
@@ -131,6 +132,6 @@
 }
 
 - (IBAction)onRightButtonClicked:(id)sender {
-    [self openURL:@"duola://orderlist"];
+    [self openURL:@"duola://orderlist?status=3"];
 }
 @end

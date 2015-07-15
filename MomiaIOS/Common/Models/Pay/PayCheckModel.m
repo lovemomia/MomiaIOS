@@ -8,6 +8,10 @@
 
 #import "PayCheckModel.h"
 
+@implementation PayCheckData
+
+@end
+
 @implementation PayCheckModel
 
 @end
