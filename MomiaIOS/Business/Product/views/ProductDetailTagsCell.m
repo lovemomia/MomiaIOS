@@ -37,8 +37,8 @@
             make.centerY.equalTo(self.scrollView);
             if(i == 0) make.leading.equalTo(self.scrollView).with.offset(10);
             else make.leading.equalTo(lastView.mas_trailing).with.offset(50);
-            make.width.equalTo(@15.7);
-            make.height.equalTo(@15.7);
+            make.width.equalTo(@17);
+            make.height.equalTo(@17);
         }];
         [imgView setImage:[UIImage imageNamed:@"productdetail_suishitui"]];
         

@@ -24,7 +24,7 @@
                         <rect key="frame" x="10" y="45" width="310" height="1"/>
                         <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="1" id="TSp-0E-iFD"/>
+                            <constraint firstAttribute="height" constant="0.5" id="3v9-og-qGN"/>
                         </constraints>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cm_go" translatesAutoresizingMaskIntoConstraints="NO" id="aOQ-k6-mE6">
