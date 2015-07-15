@@ -118,6 +118,8 @@ static NSString * p_p_f_identifier = @"Cell_p_p_f";
         [self.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.view removeLoadingBee];
+        [self showDialogWithTitle:nil message:error.message];
         NSLog(@"Error: %@", error);
     }];
 }
