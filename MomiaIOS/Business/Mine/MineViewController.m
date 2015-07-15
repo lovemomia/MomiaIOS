@@ -101,7 +101,7 @@
                 NSURL *url = [NSURL URLWithString:@"duola://orderlist?status=3"];
                 [[UIApplication sharedApplication ] openURL:url];
             } else {
-                NSURL *url = [NSURL URLWithString:@"duola://orderlist?status=1"];
+                NSURL *url = [NSURL URLWithString:@"duola://orderlist?status=2"];
                 [[UIApplication sharedApplication ] openURL:url];
             }
             break;
