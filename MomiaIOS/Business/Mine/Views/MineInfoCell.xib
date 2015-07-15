@@ -14,19 +14,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个人信息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXD-zr-IlJ">
-                        <rect key="frame" x="78" y="15" width="232" height="18"/>
+                        <rect key="frame" x="78" y="18" width="232" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="宝宝3个月" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qq6-Yo-nHE">
-                        <rect key="frame" x="78" y="43" width="232" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="78" y="45" width="232" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xIe-6Q-pp0" customClass="AvatarImageView">
-                        <rect key="frame" x="10" y="10" width="58" height="57.5"/>
+                        <rect key="frame" x="10" y="10" width="58" height="58"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="58" id="SBg-hM-Pr6"/>
                             <constraint firstAttribute="height" constant="58" id="Wk8-T6-tOK"/>
@@ -35,14 +35,13 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="Qq6-Yo-nHE" firstAttribute="leading" secondItem="xIe-6Q-pp0" secondAttribute="trailing" constant="10" id="0jg-zX-ae7"/>
-                    <constraint firstItem="xIe-6Q-pp0" firstAttribute="top" secondItem="fXn-d8-bMS" secondAttribute="top" constant="10" id="3TT-tY-eLv"/>
-                    <constraint firstItem="pXD-zr-IlJ" firstAttribute="top" secondItem="fXn-d8-bMS" secondAttribute="top" constant="15" id="9cR-yf-KIb"/>
+                    <constraint firstItem="xIe-6Q-pp0" firstAttribute="centerY" secondItem="Qq6-Yo-nHE" secondAttribute="centerY" constant="-13" id="GJs-Pk-Q3V"/>
                     <constraint firstAttribute="trailing" secondItem="Qq6-Yo-nHE" secondAttribute="trailing" constant="10" id="MHD-2s-ICi"/>
-                    <constraint firstAttribute="bottom" secondItem="xIe-6Q-pp0" secondAttribute="bottom" constant="10" id="OiR-2o-kco"/>
-                    <constraint firstItem="Qq6-Yo-nHE" firstAttribute="top" secondItem="pXD-zr-IlJ" secondAttribute="bottom" constant="10" id="UP0-dV-HF9"/>
                     <constraint firstItem="pXD-zr-IlJ" firstAttribute="leading" secondItem="xIe-6Q-pp0" secondAttribute="trailing" constant="10" id="Uka-I8-Ta7"/>
+                    <constraint firstAttribute="centerY" secondItem="xIe-6Q-pp0" secondAttribute="centerY" id="dUE-Tx-8aL"/>
                     <constraint firstItem="xIe-6Q-pp0" firstAttribute="leading" secondItem="fXn-d8-bMS" secondAttribute="leading" constant="10" id="q5g-uh-b5j"/>
                     <constraint firstAttribute="trailing" secondItem="pXD-zr-IlJ" secondAttribute="trailing" constant="10" id="wu0-tX-tJm"/>
+                    <constraint firstItem="xIe-6Q-pp0" firstAttribute="centerY" secondItem="pXD-zr-IlJ" secondAttribute="centerY" constant="12" id="zIa-gP-Tnb"/>
                 </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="208" y="120"/>
@@ -54,7 +53,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您还没有登录哦~" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHX-OZ-xjQ">
-                        <rect key="frame" x="114" y="15" width="91.5" height="14.5"/>
+                        <rect key="frame" x="114" y="15" width="92" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.45150726009999997" green="0.45150726009999997" blue="0.45150726009999997" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -16,13 +16,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付宝" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXH-Xy-KxJ">
-                        <rect key="frame" x="60" y="13" width="205" height="14.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <rect key="frame" x="65" y="13" width="196" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付宝账号支付，银行卡支付" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWa-nZ-RLb">
-                        <rect key="frame" x="60" y="32" width="205" height="14.5"/>
+                        <rect key="frame" x="65" y="31" width="196" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -36,14 +36,14 @@
                         </constraints>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pay_order" translatesAutoresizingMaskIntoConstraints="NO" id="K0A-l8-B3c">
-                        <rect key="frame" x="10" y="10" width="40" height="40"/>
+                        <rect key="frame" x="15" y="10" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="gT1-Eb-ZVe"/>
                             <constraint firstAttribute="height" constant="40" id="seC-tw-zJh"/>
                         </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qxb-Ql-sKX">
-                        <rect key="frame" x="273" y="8" width="1" height="45"/>
+                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qxb-Ql-sKX">
+                        <rect key="frame" x="269" y="7" width="1" height="45"/>
                         <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="45" id="EJd-HE-unV"/>
@@ -51,7 +51,7 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLM-f0-epk">
-                        <rect key="frame" x="284" y="17" width="25" height="25"/>
+                        <rect key="frame" x="280" y="17" width="25" height="25"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="25" id="Eqx-OH-JCk"/>
                             <constraint firstAttribute="height" constant="25" id="QuX-nd-UCl"/>
@@ -67,7 +67,7 @@
                     <constraint firstItem="Qxb-Ql-sKX" firstAttribute="leading" secondItem="xWa-nZ-RLb" secondAttribute="trailing" constant="8" id="3EI-YH-XKM"/>
                     <constraint firstItem="fXH-Xy-KxJ" firstAttribute="leading" secondItem="K0A-l8-B3c" secondAttribute="trailing" constant="10" id="5l6-Xs-hcW"/>
                     <constraint firstItem="K0A-l8-B3c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="7ka-cU-HNp"/>
-                    <constraint firstAttribute="trailing" secondItem="hLM-f0-epk" secondAttribute="trailing" constant="11" id="9MF-1g-soq"/>
+                    <constraint firstAttribute="trailing" secondItem="hLM-f0-epk" secondAttribute="trailing" constant="15" id="9MF-1g-soq"/>
                     <constraint firstItem="Qxb-Ql-sKX" firstAttribute="leading" secondItem="fXH-Xy-KxJ" secondAttribute="trailing" constant="8" id="HRq-iW-Uf7"/>
                     <constraint firstItem="xWa-nZ-RLb" firstAttribute="leading" secondItem="K0A-l8-B3c" secondAttribute="trailing" constant="10" id="I7R-cX-RHJ"/>
                     <constraint firstAttribute="centerY" secondItem="Qxb-Ql-sKX" secondAttribute="centerY" id="Ien-WA-R3y"/>
@@ -81,7 +81,7 @@
                     <constraint firstAttribute="centerY" secondItem="6uo-vA-0iQ" secondAttribute="centerY" id="kPV-9b-uhh"/>
                     <constraint firstItem="6uo-vA-0iQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="92" id="nIe-Hc-uRR"/>
                     <constraint firstItem="hLM-f0-epk" firstAttribute="leading" secondItem="Qxb-Ql-sKX" secondAttribute="trailing" constant="11" id="pY3-5d-ya1"/>
-                    <constraint firstItem="K0A-l8-B3c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="rXm-lj-zzg"/>
+                    <constraint firstItem="K0A-l8-B3c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="rXm-lj-zzg"/>
                     <constraint firstItem="hLM-f0-epk" firstAttribute="leading" secondItem="Qxb-Ql-sKX" secondAttribute="trailing" constant="10" id="wSX-6z-vph"/>
                     <constraint firstItem="xWa-nZ-RLb" firstAttribute="top" secondItem="6uo-vA-0iQ" secondAttribute="bottom" constant="2" id="zcc-Ac-CSa"/>
                 </constraints>
@@ -109,6 +109,6 @@
     </objects>
     <resources>
         <image name="cm_circle_checked" width="25" height="25"/>
-        <image name="pay_order" width="135" height="135"/>
+        <image name="pay_order" width="48" height="48"/>
     </resources>
 </document>

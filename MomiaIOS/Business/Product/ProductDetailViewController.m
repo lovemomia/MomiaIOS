@@ -220,6 +220,9 @@ typedef enum
         if(!self.model.data.soldOut) {
             [self.signUpBtn setBackgroundColor:UIColorFromRGB(0xff5d33)];
             [self.signUpBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        } else {
+            [self.signUpBtn setBackgroundColor:UIColorFromRGB(0x999999)];
+            [self.signUpBtn setTitleColor:UIColorFromRGB(0x666666) forState:UIControlStateNormal];
         }
         
         [self.tableView reloadData];

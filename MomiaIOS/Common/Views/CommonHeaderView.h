@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CommonHeaderView : UITableViewHeaderFooterView
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cmLeadingConstraint;
 
 +(instancetype)cellWithTableView:(UITableView *)tableView;
 

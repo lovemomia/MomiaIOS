@@ -263,8 +263,9 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
 {
     UIView * header;
     if(section == 2) {
-        header = [CommonHeaderView cellWithTableView:self.tableView];
-        ((CommonHeaderView *)header).data = @"选择支付方式";
+        CommonHeaderView * header = [CommonHeaderView cellWithTableView:self.tableView];
+        header.data = @"选择支付方式";
+        header.cmLeadingConstraint.constant = 15;
         return header;
     }
     return header;
