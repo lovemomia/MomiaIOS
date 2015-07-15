@@ -35,6 +35,8 @@
         self.navigationItem.title = @"待付款订单";
     } else if (self.status == 3) {
         self.navigationItem.title = @"已付款订单";
+    } else {
+        self.navigationItem.title = @"订单列表";
     }
     self.orderList = [NSMutableArray new];
     [self requestData];
@@ -105,6 +107,10 @@
         [self.curOperation pause];
     }
     
+    if ([self.orderList count] == 0) {
+        [self.view showLoadingBee];
+    }
+    
     NSString *type = self.status == 2 ? @"le" : @"ge";
     NSDictionary * paramDic = @{@"status":[NSString stringWithFormat:@"%d", (int)self.status],
                                 @"type":type, @"start":[NSString stringWithFormat:@"%d",
@@ -115,6 +121,10 @@
 //                                 [MBProgressHUD hideHUDForView:self.view animated:YES];
                                  OrderListModel *orderListModel = (OrderListModel *)responseObject;
                                  self.totalCount = orderListModel.data.totalCount;
+                                 
+                                 if ([self.orderList count] == 0) {
+                                     [self.view removeLoadingBee];
+                                 }
                                  
                                  for (Order *order in orderListModel.data.list) {
                                      [self.orderList addObject:order];

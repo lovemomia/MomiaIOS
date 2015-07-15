@@ -42,7 +42,7 @@
         [self.view showLoadingBee];
     }
     
-    NSDictionary * paramDic = @{@"status":@"0", @"start":[NSString stringWithFormat:@"%d", [self.couponList count]], @"count":@"5"};
+    NSDictionary * paramDic = @{@"status":@"0", @"start":[NSString stringWithFormat:@"%lu", [self.couponList count]], @"count":@"20"};
     [[HttpService defaultService]GET:URL_APPEND_PATH(@"/user/coupon")
                                               parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[CouponListModel class]
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {

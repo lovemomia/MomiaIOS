@@ -15,7 +15,7 @@
 #import "MineViewController.h"
 
 @interface MOViewController ()
-
+@property (nonatomic, assign) BOOL addShadow;
 @end
 
 @implementation MOViewController
@@ -24,9 +24,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = MO_APP_VCBackgroundColor;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    if (self.addShadow == NO && [self isNavTransparent] == NO) {
+        UIImageView *shadow = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 5)];
+        shadow.image = [UIImage imageNamed:@"title_shadow"];
+        [self.view addSubview:shadow];
+        self.addShadow = YES;
+    }
+    
     [super viewWillAppear:animated];
     [MobClick beginLogPageView:[NSString stringWithUTF8String:object_getClassName(self)]];
     if(MO_OS_VERSION >= 7.0)

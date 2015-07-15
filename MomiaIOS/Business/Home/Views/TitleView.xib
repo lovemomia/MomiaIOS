@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -12,14 +12,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" tag="2002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="HYd-Ii-tJS">
-                    <rect key="frame" x="50" y="10" width="10" height="5"/>
+                    <rect key="frame" x="49" y="9.5" width="11" height="6"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="5" id="QCX-kr-kHl"/>
-                        <constraint firstAttribute="width" constant="10" id="xAl-sN-G6s"/>
+                        <constraint firstAttribute="height" constant="6" id="QCX-kr-kHl"/>
+                        <constraint firstAttribute="width" constant="11" id="xAl-sN-G6s"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" tag="2001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上海" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyA-it-56a">
-                    <rect key="frame" x="5" y="3" width="40" height="19"/>
+                    <rect key="frame" x="5" y="3" width="39" height="19"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -39,7 +39,7 @@
         </view>
     </objects>
     <resources>
-        <image name="home_arrow" width="9" height="5"/>
+        <image name="home_arrow" width="11" height="6"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
