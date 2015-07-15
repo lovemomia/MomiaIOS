@@ -638,6 +638,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 
 
 - (void)requestData {
+    
     if (self.model == nil) {
         [self.view showLoadingBee];
     }
@@ -664,6 +665,8 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
         [self.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.view removeLoadingBee];
+        [self showDialogWithTitle:nil message:error.message];
         NSLog(@"Error: %@", error);
     }];
 }

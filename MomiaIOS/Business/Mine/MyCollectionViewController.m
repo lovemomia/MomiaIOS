@@ -57,6 +57,8 @@
         [self.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.view removeLoadingBee];
+        [self showDialogWithTitle:nil message:error.message];
         NSLog(@"Error: %@", error);
     }];
 }
