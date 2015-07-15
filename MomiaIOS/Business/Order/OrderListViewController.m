@@ -31,7 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (self.status == 1) {
+    if (self.status == 2) {
         self.navigationItem.title = @"待付款订单";
     } else if (self.status == 3) {
         self.navigationItem.title = @"已付款订单";
@@ -71,7 +71,7 @@
         [self.curOperation pause];
     }
     
-    NSString *type = self.status == 1 ? @"le" : @"ge";
+    NSString *type = self.status == 2 ? @"le" : @"ge";
     NSDictionary * paramDic = @{@"status":[NSString stringWithFormat:@"%d", (int)self.status],
                                 @"type":type, @"start":@"0", @"count":@"20"};
    self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/user/order")
@@ -105,7 +105,7 @@
         [self.curOperation pause];
     }
     
-    NSString *type = self.status == 1 ? @"le" : @"ge";
+    NSString *type = self.status == 2 ? @"le" : @"ge";
     NSDictionary * paramDic = @{@"status":[NSString stringWithFormat:@"%d", (int)self.status],
                                 @"type":type, @"start":[NSString stringWithFormat:@"%d",
                                                         (int)self.orderList.count], @"count":@"20"};
@@ -137,7 +137,7 @@
 #pragma mark - tableview delegate & datasource
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(self.status == 1 && indexPath.row < self.orderList.count) {
+    if(self.status == 2 && indexPath.row < self.orderList.count) {
         return YES;
     }
     return NO;

@@ -15,6 +15,9 @@
 @property (nonatomic, strong) NSString *pid;
 @property (nonatomic, strong) NSString *sid;
 
+@property (nonatomic, assign) BOOL free;
+@property (nonatomic, strong) NSString *coupon;
+
 @property (nonatomic, strong) PayCheckModel *payCheckResult;
 
 @end
@@ -26,6 +29,8 @@
         self.oid = [params objectForKey:@"oid"];
         self.pid = [params objectForKey:@"pid"];
         self.sid = [params objectForKey:@"sid"];
+        self.free = [[params objectForKey:@"free"] boolValue];
+        self.coupon = [params objectForKey:@"coupon"];
     }
     return self;
 }
@@ -36,7 +41,11 @@
     self.navigationItem.title = @"支付结果";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"回到首页" style:UIBarButtonItemStyleDone target:self action:@selector(onBackToHome)];
     
-    [self checkPayResult];
+    if (self.free) {
+        [self freePay];
+    } else {
+        [self checkPayResult];
+    }
 }
 
 - (void)onBackToHome {
@@ -62,6 +71,33 @@
                                       self.descLabel.text = @"请重新确认订单，如有问题可拨打客服热线：021-62578700";
                                   }
 
+                              }
+     
+                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  [self showDialogWithTitle:nil message:error.message];
+                              }];
+}
+
+- (void)freePay {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    NSDictionary *params = @{@"oid":self.oid, @"pid":self.pid, @"sid":self.sid, @"coupon":self.coupon};
+    [[HttpService defaultService]POST:URL_HTTPS_APPEND_PATH(@"/prepay/free")
+                           parameters:params JSONModelClass:[PayCheckModel class]
+                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  self.payCheckResult = (PayCheckModel *)responseObject;
+                                  
+                                  if ([self.payCheckResult.data isEqualToString:@"OK"]) {
+                                      self.titleLabel.text = @"您已购买成功";
+                                      self.descLabel.text = @"活动前一天，或者活动发生变更，都会有短信通知您";
+                                      
+                                  } else {
+                                      self.titleLabel.text = @"购买失败";
+                                      self.descLabel.text = @"请重新确认订单，如有问题可拨打客服热线：021-62578700";
+                                  }
+                                  
                               }
      
                               failure:^(AFHTTPRequestOperation *operation, NSError *error) {

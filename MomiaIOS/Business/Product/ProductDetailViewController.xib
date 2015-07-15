@@ -74,7 +74,7 @@
         </view>
     </objects>
     <resources>
-        <image name="a_d_share" width="24" height="24"/>
+        <image name="a_d_share" width="17" height="17"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
