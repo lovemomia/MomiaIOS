@@ -20,7 +20,7 @@
 
 -(void)setData:(PlayFellowPlaymatesModel *) model;
 {
-    [self.iconImgView sd_setImageWithURL:[NSURL URLWithString:model.avatar] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    [self.iconImgView sd_setImageWithURL:[NSURL URLWithString:model.avatar] placeholderImage:[UIImage imageNamed:@"ic_avatar_default"]];
     self.nameLabel.text = model.nickName;
     self.contentLabel.text = [self stringWithChildrenArray:model.children];
 }

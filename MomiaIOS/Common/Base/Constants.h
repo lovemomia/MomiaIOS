@@ -8,8 +8,8 @@
 
 // API Domain
 // 线上环境
-#define MO_API_DOMAIN_OL  @"http://i.momia.cn"
-#define MO_HTTPS_API_DOMAIN_OL  @"https://i.momia.cn"
+#define MO_API_DOMAIN_OL  @"http://i.duolaqinzi.com"
+#define MO_HTTPS_API_DOMAIN_OL  @"https://i.duolaqinzi.com"
 
 // 开发环境
 #define MO_API_DOMAIN_DEV @"http://i.momia.cn"
