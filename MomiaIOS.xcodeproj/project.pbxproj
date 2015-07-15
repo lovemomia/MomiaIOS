@@ -111,8 +111,6 @@
 		5AE4F8671B3D642B005879B7 /* MOStepperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE4F8651B3D642B005879B7 /* MOStepperView.m */; };
 		5AE4F8681B3D642B005879B7 /* MOStepperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE4F8661B3D642B005879B7 /* MOStepperView.xib */; };
 		5AE4F86B1B3D645E005879B7 /* MOStepperGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE4F86A1B3D645E005879B7 /* MOStepperGroup.m */; };
-		5AE995A21B26F9B8003DAAC0 /* FillOrderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE995A11B26F9B8003DAAC0 /* FillOrderFooterView.m */; };
-		5AE995A41B26F9EE003DAAC0 /* FillOrderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE995A31B26F9EE003DAAC0 /* FillOrderFooterView.xib */; };
 		5AEB188A1B1865F90098FD5F /* MySuggestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB18891B1865F90098FD5F /* MySuggestModel.m */; };
 		BC0BD6FA1B5516DB00B95B3A /* Coupon.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD6F71B5516DB00B95B3A /* Coupon.m */; };
 		BC0BD6FB1B5516DB00B95B3A /* CouponListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD6F91B5516DB00B95B3A /* CouponListModel.m */; };
@@ -423,9 +421,6 @@
 		5AE4F8661B3D642B005879B7 /* MOStepperView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MOStepperView.xib; path = Common/Views/MOStepper/MOStepperView.xib; sourceTree = "<group>"; };
 		5AE4F8691B3D645E005879B7 /* MOStepperGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOStepperGroup.h; path = Common/Views/MOStepper/MOStepperGroup.h; sourceTree = "<group>"; };
 		5AE4F86A1B3D645E005879B7 /* MOStepperGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOStepperGroup.m; path = Common/Views/MOStepper/MOStepperGroup.m; sourceTree = "<group>"; };
-		5AE995A01B26F9B8003DAAC0 /* FillOrderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FillOrderFooterView.h; path = Business/Order/views/FillOrderFooterView.h; sourceTree = "<group>"; };
-		5AE995A11B26F9B8003DAAC0 /* FillOrderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FillOrderFooterView.m; path = Business/Order/views/FillOrderFooterView.m; sourceTree = "<group>"; };
-		5AE995A31B26F9EE003DAAC0 /* FillOrderFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FillOrderFooterView.xib; path = Business/Order/views/FillOrderFooterView.xib; sourceTree = "<group>"; };
 		5AEB18881B1865F90098FD5F /* MySuggestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySuggestModel.h; path = Common/Models/MySuggest/MySuggestModel.h; sourceTree = "<group>"; };
 		5AEB18891B1865F90098FD5F /* MySuggestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySuggestModel.m; path = Common/Models/MySuggest/MySuggestModel.m; sourceTree = "<group>"; };
 		5B9DF4BE98C18CC18BDADCD8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -860,9 +855,6 @@
 		5A82F1A51B25812E000D2C60 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				5AE995A01B26F9B8003DAAC0 /* FillOrderFooterView.h */,
-				5AE995A11B26F9B8003DAAC0 /* FillOrderFooterView.m */,
-				5AE995A31B26F9EE003DAAC0 /* FillOrderFooterView.xib */,
 				5A074F841B3AC39A001E5006 /* FillOrderTopCell.h */,
 				5A074F851B3AC39A001E5006 /* FillOrderTopCell.m */,
 				5A074F861B3AC39A001E5006 /* FillOrderTopCell.xib */,
@@ -1758,7 +1750,6 @@
 				5AB1BDEB1B4FB7ED004A4511 /* LoadingErrorCell.xib in Resources */,
 				5A33F1A81B2EBC2F002A8258 /* TitleView.xib in Resources */,
 				BC97DF1C1B4E1DF0002B1A00 /* PayResultViewController.xib in Resources */,
-				5AE995A41B26F9EE003DAAC0 /* FillOrderFooterView.xib in Resources */,
 				BC41ABA61B0C69BE00A419DA /* read_me.txt in Resources */,
 				BC97DF201B4E3E3D002B1A00 /* AlipaySDK.bundle in Resources */,
 				5A82F1A41B257449000D2C60 /* FillOrderViewController.xib in Resources */,
@@ -1893,7 +1884,6 @@
 				BC2C0C861B15668000E2446E /* DatePickerSheet.m in Sources */,
 				5AABF70F1B281BEF000A9D3F /* ConvertFromXib.m in Sources */,
 				BCF564E41B4A54D0003A2227 /* PersonChildHeaderCell.m in Sources */,
-				5AE995A21B26F9B8003DAAC0 /* FillOrderFooterView.m in Sources */,
 				5A33F1921B2E9FC5002A8258 /* CashPayViewController.m in Sources */,
 				5A3DBE5D1B185BE500E708AC /* MyCollectionCell.m in Sources */,
 				5ABDA57E1B42625B003BAE80 /* AddOrderModel.m in Sources */,

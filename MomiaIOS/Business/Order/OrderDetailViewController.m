@@ -56,7 +56,7 @@ static NSString * orderDetailBottomIdentifier = @"CellOrderDetailBottom";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    if(section == 2 && self.model.data.status == 1) {
+    if(section == 2 && self.model.data.status <= 2 && self.model.data.status > 0) {
         return 80.0f;
     } else {
         return 13.0f;
@@ -142,7 +142,7 @@ static NSString * orderDetailBottomIdentifier = @"CellOrderDetailBottom";
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UIView *view = [UIView new];
-    if (section == [self numberOfSectionsInTableView:tableView] - 1 && self.model.data.status == 1) {
+    if (section == [self numberOfSectionsInTableView:tableView] - 1 && self.model.data.status <= 2 && self.model.data.status > 0) {
         UIButton *button = [[UIButton alloc]init];
         button.height = 40;
         button.width = 280;

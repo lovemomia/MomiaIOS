@@ -10,6 +10,9 @@
 #import "BaseModel.h"
 #import "AccountModel.h"
 #import "MyStatusViewController.h"
+#import "UIButton+Block.h"
+#import "NSString+MOURLEncode.h"
+#import "ActivityWebViewController.h"
 
 @interface RegisterViewController ()
 
@@ -20,6 +23,7 @@
 @property(nonatomic, strong)NSString *password;
 @property(nonatomic, strong)NSString *phone;
 @property(nonatomic, strong)NSString *vercode;
+@property(nonatomic, assign)BOOL agree;
 
 @property (nonatomic, strong)UIButton *vercodeButton;
 
@@ -32,6 +36,7 @@
     // Do any additional setup after loading the view from its nib.
     
     self.navigationItem.title = @"注册";
+    self.agree = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -108,6 +113,11 @@
         return;
     }
     
+    if (self.agree == NO) {
+        [self showDialogWithTitle:nil message:@"您必须同意哆啦亲子用户服务协议才能进行下一步操作"];
+        return;
+    }
+    
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     NSDictionary *params = @{@"nickname":self.nickName, @"password":self.password, @"mobile":self.phone, @"code":self.vercode};
@@ -149,26 +159,43 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     if (section == [self numberOfSectionsInTableView:tableView] - 1) {
-        UIView *view = [UIView new];
-        UIButton *button = [[UIButton alloc]init];
-        button.height = 40;
-        button.width = 280;
-        button.left = (SCREEN_WIDTH - button.width) / 2;
-        button.top = 30;
-        [button setTitle:@"注册" forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"RegisterCell" owner:self options:nil];
+        UIView *footer = [arr objectAtIndex:4];
+        
+        UIButton *button = (UIButton *)[footer viewWithTag:1001];
         [button addTarget:self action:@selector(onRigisterButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [button setBackgroundImage:[UIImage imageNamed:@"cm_large_button_normal"] forState:UIControlStateNormal];
         [button setBackgroundImage:[UIImage imageNamed:@"cm_large_button_disable"] forState:UIControlStateDisabled];
-        [view addSubview:button];
-        return view;
+
+        UIButton *agreeBtn = (UIButton *)[footer viewWithTag:1002];
+        [agreeBtn addAction:^(UIButton *btn) {
+            self.agree = !self.agree;
+            if (self.agree) {
+                [btn setBackgroundImage:[UIImage imageNamed:@"ic_agree_checked"]];
+            } else {
+                [btn setBackgroundImage:[UIImage imageNamed:@"ic_agree_uncheck"]];
+            }
+        }];
+        if (self.agree) {
+            [agreeBtn setBackgroundImage:[UIImage imageNamed:@"ic_agree_checked"]];
+        } else {
+            [agreeBtn setBackgroundImage:[UIImage imageNamed:@"ic_agree_uncheck"]];
+        }
+        
+        UIButton *agreement = (UIButton *)[footer viewWithTag:1003];
+        [agreement addAction:^(UIButton *btn) {
+            ActivityWebViewController *web = [[ActivityWebViewController alloc]initWithParams:@{@"url":[URL_APPEND_PATH(@"/agreement.html") URLEncodedString]}];
+            [self.navigationController pushViewController:web animated:YES];
+            
+        }];
+        return footer;
     }
     return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     if (section == [self numberOfSectionsInTableView:tableView] - 1) {
-        return 80;
+        return 120;
     }
     return 0.1;
 }

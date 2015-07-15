@@ -7,7 +7,6 @@
 //
 
 #import "FillOrderViewController.h"
-#import "FillOrderFooterView.h"
 #import "FillOrderTopCell.h"
 #import "FillOrderChooseCell.h"
 #import "FillOrderMiddleCell.h"
@@ -207,21 +206,8 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    if(section == 2) {
-        return 35.0f;
-    }
     return 0.1f;
 }
-
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-{
-    UITableViewHeaderFooterView * view;
-    if(section == 2) {
-        view = [FillOrderFooterView cellWithTableView:tableView];
-    }
-    return view;
-}
-
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -693,7 +679,6 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
     self.navigationItem.title = @"提交订单";
   
     [CommonHeaderView registerCellWithTableView:self.tableView];
-    [FillOrderFooterView registerCellWithTableView:self.tableView];
     [FillOrderTopCell registerCellWithTableView:self.tableView withIdentifier:fillOrderTopIdentifier];
     [FillOrderChooseCell registerCellWithTableView:self.tableView withIdentifier:fillOrderChooseIdentifier];
     [FillOrderBottomCell registerCellWithTableView:self.tableView withIdentifier:fillOrderBottomIdentifier];

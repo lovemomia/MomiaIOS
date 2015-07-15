@@ -38,15 +38,20 @@
 
 - (void)requestData {
 //    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    NSDictionary * paramDic = @{@"status":@"0", @"start":@"0", @"count":@"20"};
+    if ([self.couponList count] == 0) {
+        [self.view showLoadingBee];
+    }
+    
+    NSDictionary * paramDic = @{@"status":@"0", @"start":[NSString stringWithFormat:@"%d", [self.couponList count]], @"count":@"5"};
     [[HttpService defaultService]GET:URL_APPEND_PATH(@"/user/coupon")
                                               parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[CouponListModel class]
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                                     //                                 [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                                     if ([self.couponList count] == 0) {
+                                                         [self.view removeLoadingBee];
+                                                     }
+                                                     
                                                      CouponListModel *couponListModel = (CouponListModel *)responseObject;
                                                      self.totalCount = couponListModel.data.totalCount;
-                                                     
-                                                     [self.couponList removeAllObjects];
                                                      
                                                      for (Coupon *coupon in couponListModel.data.list) {
                                                          [self.couponList addObject:coupon];
