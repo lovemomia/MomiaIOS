@@ -50,14 +50,14 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
     CommonHeaderView * header = [CommonHeaderView cellWithTableView:self.tableView];
     NSString * content = @"请选择";
     if(self.personStyle.adult > 0) {
-        content = [content stringByAppendingFormat:@"成人%ld名",self.personStyle.adult];
+        content = [content stringByAppendingFormat:@"成人%ld名",(unsigned long)self.personStyle.adult];
 
     }
     if(self.personStyle.child > 0) {
         if(self.personStyle.adult > 0) {
             content = [content stringByAppendingString:@"，"];
         }
-        content = [content stringByAppendingFormat:@"儿童%ld名",self.personStyle.child];
+        content = [content stringByAppendingFormat:@"儿童%ld名",(unsigned long)self.personStyle.child];
     }
     header.data = content;
     return header;
@@ -88,7 +88,7 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
     cell.onEditBlock = ^(UIButton * editBtn) {
         //开始编辑出行人
         OrderPerson * model = self.model.data[indexPath.row];
-        NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://orderupdateperson?personId=%ld",model.opId]];
+        NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://orderupdateperson?personId=%ld",(long)model.opId]];
         [[UIApplication sharedApplication] openURL:url];
 
     };

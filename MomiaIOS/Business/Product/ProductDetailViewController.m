@@ -147,7 +147,7 @@ typedef enum
         content.linkBlock = ^(UIView * linkView) {
             UIColor * originColor = linkView.backgroundColor;
 
-            NSLog(@"content:%ld body:%ld", indexPath.section, linkView.tag);
+            NSLog(@"content:%ld body:%ld", (long)indexPath.section, (long)linkView.tag);
 
             [UIView animateWithDuration:0.3 animations:^{
                 linkView.backgroundColor = UIColor.lightGrayColor;

@@ -388,10 +388,10 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
             
             NSString * personStr = @"";
             if(self.selectedPersonStyle.adult > 0) {
-                personStr = [personStr stringByAppendingFormat:@"%ld成人",self.selectedPersonStyle.adult];
+                personStr = [personStr stringByAppendingFormat:@"%ld成人",(unsigned long)self.selectedPersonStyle.adult];
             }
             if(self.selectedPersonStyle.child > 0) {
-                personStr = [personStr stringByAppendingFormat:@"%ld儿童",self.selectedPersonStyle.child];
+                personStr = [personStr stringByAppendingFormat:@"%ld儿童",(unsigned long)self.selectedPersonStyle.child];
             }
             [bottom setData:self.model.data.contacts withIndex:row andPersonStr:personStr andSkuModel:skuModel];
             cell = bottom;

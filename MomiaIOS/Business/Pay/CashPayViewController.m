@@ -77,7 +77,7 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
 - (void)requestCouponPrice {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    NSDictionary * params = @{@"oid":[NSString stringWithFormat:@"%d", self.order.data.orderId],
+    NSDictionary * params = @{@"oid":[NSString stringWithFormat:@"%ld", (long)self.order.data.orderId],
                               @"coupon":[NSString stringWithFormat:@"%@", self.coupon.ids]};
     [[HttpService defaultService]GET:URL_APPEND_PATH(@"/coupon")
                           parameters:params cacheType:CacheTypeDisable JSONModelClass:[CouponPriceModel class]
@@ -98,8 +98,8 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
 - (void)onPayClicked {
     // 0元购
     if (self.order.data.totalFee == 0.0f || (self.couponPrice && self.couponPrice.data == 0.0f)) {
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://payresult?oid=%d&pid=%d&sid=%d&coupon=%@&free=1",
-                                           self.order.data.orderId, self.order.data.productId, self.order.data.skuId, self.coupon.ids]];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://payresult?oid=%ld&pid=%ld&sid=%ld&coupon=%@&free=1",
+                                           (long)self.order.data.orderId, (long)self.order.data.productId, (long)self.order.data.skuId, self.coupon.ids]];
         [[UIApplication sharedApplication] openURL:url];
         return;
     }
@@ -117,9 +117,9 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
     
     if (type == 1) {
         NSMutableDictionary * params = [[NSMutableDictionary alloc]initWithDictionary:@{@"trade_type":@"APP",
-                                                                                       @"oid":[NSString stringWithFormat:@"%d", self.order.data.orderId],
-                                                                                       @"pid":[NSString stringWithFormat:@"%d", self.order.data.productId],
-                                                                                       @"sid":[NSString stringWithFormat:@"%d", self.order.data.skuId]}];
+                                                                                       @"oid":[NSString stringWithFormat:@"%ld", (long)self.order.data.orderId],
+                                                                                       @"pid":[NSString stringWithFormat:@"%ld", (long)self.order.data.productId],
+                                                                                       @"sid":[NSString stringWithFormat:@"%ld", (long)self.order.data.skuId]}];
         if (self.coupon) {
             [params setValue:[NSString stringWithFormat:@"%@", self.coupon.ids] forKey:@"coupon"];
         }
@@ -142,9 +142,9 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
         
     } else if (type == 2) {
         NSMutableDictionary * params = [[NSMutableDictionary alloc]initWithDictionary:@{@"trade_type":@"APP",
-                                                                                        @"oid":[NSString stringWithFormat:@"%d", self.order.data.orderId],
-                                                                                        @"pid":[NSString stringWithFormat:@"%d", self.order.data.productId],
-                                                                                        @"sid":[NSString stringWithFormat:@"%d", self.order.data.skuId]}];
+                                                                                        @"oid":[NSString stringWithFormat:@"%ld", (long)self.order.data.orderId],
+                                                                                        @"pid":[NSString stringWithFormat:@"%ld", (long)self.order.data.productId],
+                                                                                        @"sid":[NSString stringWithFormat:@"%ld", (long)self.order.data.skuId]}];
         if (self.coupon) {
             [params setValue:[NSString stringWithFormat:@"%@", self.coupon.ids] forKey:@"coupon"];
         }
@@ -158,8 +158,8 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
                                           PayTool *payTool = [PayTool new];
                                           [payTool startAlipay:((AlipayOrderModel *)responseObject).data payResult:^(BOOL success){
                                               if (success) {
-                                                  NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://payresult?oid=%d&pid=%d&sid=%d",
-                                                                                     self.order.data.orderId, self.order.data.productId, self.order.data.skuId]];
+                                                  NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://payresult?oid=%ld&pid=%ld&sid=%ld",
+                                                                                     (long)self.order.data.orderId, (long)self.order.data.productId, (long)self.order.data.skuId]];
                                                   [[UIApplication sharedApplication] openURL:url];
                                               } else {
                                                   [self showDialogWithTitle:nil message:@"支付失败，请重新尝试或选择其他方式支付"];
@@ -189,7 +189,7 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
     } else if([resp isKindOfClass:[PayResp class]]) {
         if (resp.errCode == WXSuccess) {
             NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://payresult?oid=%ld&pid=%ld&sid=%ld",
-                                               self.order.data.orderId, self.order.data.productId, self.order.data.skuId]];
+                                               (long)self.order.data.orderId, (long)self.order.data.productId, (long)self.order.data.skuId]];
             [[UIApplication sharedApplication] openURL:url];
             
         } else {

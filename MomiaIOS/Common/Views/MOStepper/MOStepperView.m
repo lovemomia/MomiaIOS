@@ -59,7 +59,7 @@
         self.plusEnabled = YES;
     }
     
-    self.titleLabel.text = [NSString stringWithFormat:@"%ld",_currentValue];
+    self.titleLabel.text = [NSString stringWithFormat:@"%ld",(unsigned long)_currentValue];
 }
 
 

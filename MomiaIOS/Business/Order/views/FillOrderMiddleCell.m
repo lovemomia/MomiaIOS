@@ -25,10 +25,10 @@
 {
     NSString * content = @"";
     if(model.adult > 0) {
-        content = [content stringByAppendingFormat:@"%ld成人",model.adult];
+        content = [content stringByAppendingFormat:@"%ld成人",(long)model.adult];
     }
     if(model.child > 0) {
-        content = [content stringByAppendingFormat:@"%ld儿童",model.child];
+        content = [content stringByAppendingFormat:@"%ld儿童",(long)model.child];
     }
     content = [content stringByAppendingString:@":"];
         

@@ -27,20 +27,20 @@
         if(model.limit ==0) {//每人不限单购买
             
         } else {//每人限单购买
-            stockStr = [stockStr stringByAppendingFormat:@"每人限%ld单",model.limit];
+            stockStr = [stockStr stringByAppendingFormat:@"每人限%ld单",(long)model.limit];
         }
         
     } else {//有上限
         if(model.stock == 0) {//名额已满
             stockStr = [stockStr stringByAppendingString:@"名额已满"];
         } else {//还剩XX名额
-            stockStr = [stockStr stringByAppendingFormat:@"仅剩%ld名额",model.stock];
+            stockStr = [stockStr stringByAppendingFormat:@"仅剩%ld名额",(long)model.stock];
         }
         
         if(model.limit == 0) {//每人不限单购买
             
         } else {//每人限单购买
-            stockStr = [stockStr stringByAppendingFormat:@",每人限%ld单",model.limit];
+            stockStr = [stockStr stringByAppendingFormat:@",每人限%ld单",(long)model.limit];
         }
         
     }

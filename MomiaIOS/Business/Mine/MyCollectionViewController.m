@@ -106,25 +106,25 @@
         switch (item.type) {
             case 0:
             {
-                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://articledetail?id=%ld", item.refId]];
+                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://articledetail?id=%ld", (long)item.refId]];
                 [[UIApplication sharedApplication] openURL:url];
             }
                 break;
             case 1:
             {
-                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://goodsdetail?id=%ld", item.refId]];
+                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://goodsdetail?id=%ld", (long)item.refId]];
                 [[UIApplication sharedApplication] openURL:url];
             }
                 break;
             case 2:
             {
-                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://articletopic?id=%ld", item.refId]];
+                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://articletopic?id=%ld", (long)item.refId]];
                 [[UIApplication sharedApplication] openURL:url];
             }
                 break;
             case 3:
             {
-                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://goodstopic?id=%ld", item.refId]];
+                NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://goodstopic?id=%ld", (long)item.refId]];
                 [[UIApplication sharedApplication] openURL:url];
             }
                 break;
