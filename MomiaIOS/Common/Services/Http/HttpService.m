@@ -180,7 +180,7 @@
 - (NSURLSessionUploadTask *)uploadImageWithFilePath:(NSString *)path
                                            fileName:(NSString *)fileName
                                             handler:(BlockMOUploadImageHandler)handler {
-    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:@"http://s.duolaqinzi.com/upload/image" parameters:[self basicParamsWithParams:nil] constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:[NSString stringWithFormat:@"%@%@", MO_IMAGE_API_DOMAIN, @"/upload/image"] parameters:[self basicParamsWithParams:nil] constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFileURL:[NSURL fileURLWithPath:path] name:@"file" fileName:fileName mimeType:@"image/jpeg" error:nil];
     } error:nil];
     

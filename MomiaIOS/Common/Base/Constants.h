@@ -6,25 +6,34 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
+#define MO_DEBUG       1  // 调试开关 (0线上，1调试)
+
 // API Domain
 // 线上环境
 #define MO_API_DOMAIN_OL  @"http://i.duolaqinzi.com"
 #define MO_HTTPS_API_DOMAIN_OL  @"https://i.duolaqinzi.com"
+#define MO_IMAGE_API_DOMAIN_OL  @"http://s.duolaqinzi.com"
 
 // 开发环境
 #define MO_API_DOMAIN_DEV @"http://i.momia.cn"
+#define MO_HTTPS_API_DOMAIN_DEV  @"https://i.momia.cn"
+#define MO_IMAGE_API_DOMAIN_DEV  @"http://upload.momia.cn"
 
-#ifndef __OPTIMIZE__
-#define MO_API_DOMAIN MO_API_DOMAIN_OL
+#if     MO_DEBUG == 0
+#define MO_API_DOMAIN               MO_API_DOMAIN_OL
+#define MO_HTTPS_API_DOMAIN         MO_HTTPS_API_DOMAIN_OL
+#define MO_IMAGE_API_DOMAIN         MO_IMAGE_API_DOMAIN_OL
 #else
-#define MO_API_DOMAIN MO_API_DOMAIN_DEV
+#define MO_API_DOMAIN               MO_API_DOMAIN_DEV
+#define MO_HTTPS_API_DOMAIN         MO_HTTPS_API_DOMAIN_DEV
+#define MO_IMAGE_API_DOMAIN         MO_IMAGE_API_DOMAIN_DEV
 #endif
 
 // App渠道
 #define MO_APP_CHANNEL          @"appstore"
 
 
-#define URL_HTTPS_APPEND_PATH(__path__) ([MO_HTTPS_API_DOMAIN_OL stringByAppendingString:__path__])
+#define URL_HTTPS_APPEND_PATH(__path__) ([MO_HTTPS_API_DOMAIN stringByAppendingString:__path__])
 
 // 请求url拼接
 #define URL_APPEND_PATH(__path__)  ([MO_API_DOMAIN stringByAppendingString:__path__])
