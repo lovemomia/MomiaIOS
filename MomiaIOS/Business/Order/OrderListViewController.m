@@ -10,6 +10,7 @@
 #import "OrderListModel.h"
 #import "OrderListItemCell.h"
 #import "PostPersonModel.h"
+#import "MOTabHost.h"
 
 @interface OrderListViewController()
 @property (nonatomic, assign) NSInteger status;
@@ -40,6 +41,8 @@
     }
     self.orderList = [NSMutableArray new];
     [self requestData];
+    
+    [self.view addSubview:[[MOTabHost alloc] initWithItems:[NSArray arrayWithObjects:@"已付款订单", @"待付款订单", nil]]];
 }
 
 -(void)deleteOrder:(NSIndexPath *) indexPath
