@@ -30,9 +30,16 @@
     if(model.child > 0) {
         content = [content stringByAppendingFormat:@"%ld儿童",(long)model.child];
     }
+    
+    if(model.desc.length > 0) {
+        content = [content stringByAppendingFormat:@"(%@)",model.desc];
+    }
+
+    
     content = [content stringByAppendingString:@":"];
         
     content = [content stringByAppendingFormat:@"￥%@/%@",[StringUtils stringForPrice:model.price],model.unit];
+    
     
     self.titleLabel.text = content;
 }

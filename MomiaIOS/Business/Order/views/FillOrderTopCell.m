@@ -45,6 +45,10 @@
         
     }
     
+    if(model.desc.length > 0) {
+        stockStr = [stockStr stringByAppendingFormat:@"(%@)",model.desc];
+    }
+    
     self.timeLabel.text = model.time;
     
     self.priceLabel.text = [NSString stringWithFormat:@"￥%@起",[StringUtils stringForPrice:model.minPrice]];
