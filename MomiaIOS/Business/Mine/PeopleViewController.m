@@ -79,7 +79,7 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
     cell.onEditBlock = ^(UIButton * editBtn) {
         //开始编辑出行人
         OrderPerson * model = self.model.data[indexPath.row];
-        NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://orderupdateperson?personId=%ld",model.opId]];
+        NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://orderupdateperson?personId=%ld",(long)model.opId]];
         [[UIApplication sharedApplication] openURL:url];
         
     };

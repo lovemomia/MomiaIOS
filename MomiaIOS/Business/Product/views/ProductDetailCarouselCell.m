@@ -52,7 +52,7 @@
     
     NSArray * array = model.imgs;
     
-    NSString * pageLabelStr = [NSString stringWithFormat:@"%d/%ld",1,array.count];
+    NSString * pageLabelStr = [NSString stringWithFormat:@"%d/%ld",1,(unsigned long)array.count];
     
     NSMutableAttributedString * attrStr = [[NSMutableAttributedString alloc] init];
     
@@ -124,7 +124,7 @@
     
     
     self.titleLabel.text = model.title;
-    self.enrollLabel.text = [NSString stringWithFormat:@"%ld人已报名",model.joined];
+    self.enrollLabel.text = [NSString stringWithFormat:@"%ld人已报名",(long)model.joined];
     self.priceLabel.text = [StringUtils stringForPrice:model.price];
     
 }

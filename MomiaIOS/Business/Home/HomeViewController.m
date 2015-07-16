@@ -241,7 +241,7 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
         HomeCarouselCell * carousel = [HomeCarouselCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeCarouselIdentifier];
         carousel.data = self.banners;
         carousel.scrollClick = ^void(NSInteger index) {
-            NSLog(@"index:%ld",index);
+            NSLog(@"index:%ld",(long)index);
             if(index < self.model.data.banners.count) {
                 HomeBannerModel * model = self.model.data.banners[index];
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:model.action]];
@@ -283,7 +283,7 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
     } else if(section < self.array.count + 1) {
         ProductModel *product;
         product = self.array[indexPath.section - 1];
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://productdetail?id=%ld", product.pID]];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://productdetail?id=%ld", (long)product.pID]];
         [[UIApplication sharedApplication] openURL:url];
     } else {
         if(self.isError) {
