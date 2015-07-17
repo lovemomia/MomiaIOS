@@ -73,7 +73,7 @@
     };
     [self.view addSubview:tabHost];
     
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 44, SCREEN_WIDTH, self.view.height - 110)];
+    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 44, SCREEN_WIDTH, self.view.height - 108)];
     [self.view addSubview:contentView];
     
     self.payedOrderListViewController = [[OrderListViewController alloc]initWithParams:@{@"status":@"3"}];
@@ -89,10 +89,6 @@
     [self addChildViewController:self.allOrderListViewController];
     
     [contentView addSubview:self.payedOrderListViewController.view];
-    [self.payedOrderListViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(contentView);
-    }];
-    
     self.currentViewController = self.payedOrderListViewController;
 }
 
