@@ -15,6 +15,7 @@
 #import "CityManager.h"
 #import "ServerErrorHandler.h"
 #import "NSString+MOEncrypt.h"
+#import "DateManager.h"
 
 @implementation HttpService
 
@@ -73,6 +74,9 @@
         if ([result isKindOfClass:responseModelClass] && result.errNo == 0) {
             success(operation, result);
             NSLog(@"http (GET) success: \nurl : %@\nparams : %@\nresult : %@", URLString, allParams, responseObject);
+            
+            // 校准时间
+            [DateManager shareManager].serverTimeSeconds = result.timestamp;
             
         } else {
             NSError *err;
@@ -145,6 +149,9 @@
 
             success(operation, result);
             NSLog(@"http (POST) success: \nurl : %@\nparams : %@\nresult : %@", URLString, allParams, responseObject);
+            
+            // 校准时间
+            [DateManager shareManager].serverTimeSeconds = result.timestamp;
             
         } else {
             NSError *err;
