@@ -13,7 +13,7 @@
 
 @interface ProductCalendarViewController ()
 
-@property(nonatomic,strong) MOViewController * currentViewController;
+@property(nonatomic,weak) MOViewController * currentViewController;
 @property(nonatomic,strong) UIView * contentView;
 
 @end
@@ -37,14 +37,29 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"活动日历";
     
+    __weak ProductCalendarViewController * weakSelf = self;
+    
     MOTabHost * tabHost = [[MOTabHost alloc] initWithItems:[NSArray arrayWithObjects:@"周末", @"七月", @"八月", nil]];
     tabHost.onItemClickedListener = ^(NSInteger index) {
-        NSLog(@"index:%ld",(long)index);
+        MOViewController * toVC = [weakSelf.childViewControllers objectAtIndex:index];
+        if(weakSelf.currentViewController == toVC) {
+            return ;
+        }
+    
+        [weakSelf transitionFromViewController:weakSelf.currentViewController toViewController:toVC duration:0.3 options:UIViewAnimationOptionTransitionNone animations:^{
+        } completion:^(BOOL finished) {
+            if(finished) {
+                weakSelf.currentViewController = toVC;
+                [toVC.view mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.edges.equalTo(weakSelf.contentView);
+                }];
+            }
+        }];
+        
     };
     [tabHost setItemSelect:0];
     [self.view addSubview:tabHost];
-    
-    
+
     ProductCalendarWeekendViewController * firstController = [[ProductCalendarWeekendViewController alloc] initWithParams:nil];
     [self addChildViewController:firstController];
     
@@ -60,8 +75,7 @@
         make.edges.equalTo(self.contentView);
     }];
     
-    [firstController didMoveToParentViewController:self];
-
+    self.currentViewController = firstController;
 }
 
 - (void)didReceiveMemoryWarning {
