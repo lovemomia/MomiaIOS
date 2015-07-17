@@ -126,6 +126,7 @@
 		BC0BD7021B55173800B95B3A /* CouponListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD7001B55173800B95B3A /* CouponListItemCell.m */; };
 		BC0BD7031B55173800B95B3A /* CouponListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC0BD7011B55173800B95B3A /* CouponListItemCell.xib */; };
 		BC0BD7061B5518F000B95B3A /* CouponPriceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD7051B5518F000B95B3A /* CouponPriceModel.m */; };
+		BC0EC2941B58EFD200D9A82F /* DateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC2931B58EFD200D9A82F /* DateManager.m */; };
 		BC2C0C521B1303BA00E2446E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
 		BC2C0C571B1309A800E2446E /* MOButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C561B1309A800E2446E /* MOButton.m */; };
 		BC2C0C611B130C9300E2446E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C601B130C9300E2446E /* User.m */; };
@@ -458,6 +459,8 @@
 		BC0BD7011B55173800B95B3A /* CouponListItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponListItemCell.xib; sourceTree = "<group>"; };
 		BC0BD7041B5518F000B95B3A /* CouponPriceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CouponPriceModel.h; path = Common/Models/Pay/CouponPriceModel.h; sourceTree = "<group>"; };
 		BC0BD7051B5518F000B95B3A /* CouponPriceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CouponPriceModel.m; path = Common/Models/Pay/CouponPriceModel.m; sourceTree = "<group>"; };
+		BC0EC2921B58EFD200D9A82F /* DateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateManager.h; path = Common/Utils/DateManager.h; sourceTree = "<group>"; };
+		BC0EC2931B58EFD200D9A82F /* DateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateManager.m; path = Common/Utils/DateManager.m; sourceTree = "<group>"; };
 		BC2C0C4F1B1303BA00E2446E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Business/Login/LoginViewController.h; sourceTree = "<group>"; };
 		BC2C0C501B1303BA00E2446E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Business/Login/LoginViewController.m; sourceTree = "<group>"; };
 		BC2C0C551B1309A800E2446E /* MOButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOButton.h; path = Common/Views/MOButton.h; sourceTree = "<group>"; };
@@ -1499,6 +1502,8 @@
 				BCF0339E1B4FB1BE005B71D6 /* ThirdShareHelper.m */,
 				BC5063981B539F0300AA233C /* StringUtils.h */,
 				BC5063991B539F0300AA233C /* StringUtils.m */,
+				BC0EC2921B58EFD200D9A82F /* DateManager.h */,
+				BC0EC2931B58EFD200D9A82F /* DateManager.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1943,6 +1948,7 @@
 				BCF564E41B4A54D0003A2227 /* PersonChildHeaderCell.m in Sources */,
 				5A33F1921B2E9FC5002A8258 /* CashPayViewController.m in Sources */,
 				5A3DBE5D1B185BE500E708AC /* MyCollectionCell.m in Sources */,
+				BC0EC2941B58EFD200D9A82F /* DateManager.m in Sources */,
 				5ABDA57E1B42625B003BAE80 /* AddOrderModel.m in Sources */,
 				BCE5893F1B2AB62500736923 /* payRequsestHandler.mm in Sources */,
 				BC2FAA0F1AFCA92D00E2071E /* UIView+Frame.m in Sources */,
