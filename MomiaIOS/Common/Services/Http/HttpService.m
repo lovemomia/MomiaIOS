@@ -76,7 +76,7 @@
             NSLog(@"http (GET) success: \nurl : %@\nparams : %@\nresult : %@", URLString, allParams, responseObject);
             
             // 校准时间
-            [DateManager shareManager].serverTimeSeconds = result.timestamp / 1000;
+            [DateManager shareManager].serverTimeSeconds = (long)(result.timestamp / 1000);
             
         } else {
             NSError *err;
@@ -151,7 +151,7 @@
             NSLog(@"http (POST) success: \nurl : %@\nparams : %@\nresult : %@", URLString, allParams, responseObject);
             
             // 校准时间
-            [DateManager shareManager].serverTimeSeconds = result.timestamp / 1000;
+            [DateManager shareManager].serverTimeSeconds = (long)(result.timestamp / 1000);
             
         } else {
             NSError *err;
