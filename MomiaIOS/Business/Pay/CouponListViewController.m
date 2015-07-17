@@ -14,6 +14,7 @@
 
 @interface CouponListViewController()
 @property (nonatomic, assign) BOOL select;
+@property (nonatomic, strong) NSString *oid;
 @property (nonatomic, strong) NSMutableArray *couponList;
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, assign) NSInteger totalCount;
@@ -25,6 +26,7 @@
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
         self.select = [[params valueForKey:@"select"] boolValue];
+        self.oid = [params valueForKey:@"oid"];
     }
     return self;
 }
@@ -42,8 +44,7 @@
         [self.view showLoadingBee];
     }
     
-    
-    NSDictionary * paramDic = @{@"status":@"0", @"start":[NSString stringWithFormat:@"%ld", (unsigned long)[self.couponList count]], @"count":@"20"};
+    NSDictionary * paramDic = @{@"status":@"0", @"start":[NSString stringWithFormat:@"%ld", (unsigned long)[self.couponList count]], @"count":@"20", @"oid":(self.oid ? self.oid : @"")};
     [[HttpService defaultService]GET:URL_APPEND_PATH(@"/user/coupon")
                                               parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[CouponListModel class]
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {

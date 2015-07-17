@@ -211,7 +211,7 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
     if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             
-            CouponListViewController *couponListViewController = [[CouponListViewController alloc]initWithParams:@{@"select":@YES}];
+            CouponListViewController *couponListViewController = [[CouponListViewController alloc]initWithParams:@{@"select":@YES, @"oid":[NSString stringWithFormat:@"%ld", (long)self.order.data.orderId]}];
             couponListViewController.selectCouponBlock = ^(Coupon *coupon){
                 self.coupon = coupon;
                 [self requestCouponPrice];
