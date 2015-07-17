@@ -25,7 +25,7 @@
 }
 
 - (void)setServerTimeSeconds:(long)time {
-    self.timeDifference = time - [[NSDate date]timeIntervalSince1970];
+    self.timeDifference = time - (long)[[NSDate date]timeIntervalSince1970];
 }
 
 - (long)serverTimeSeconds {
