@@ -12,6 +12,6 @@
 
 @property (assign, nonatomic) int errNo;
 @property (strong, nonatomic) NSString *errMsg;
-@property (assign, nonatomic) long timestamp;
+@property (assign, nonatomic) long long timestamp;
 
 @end
