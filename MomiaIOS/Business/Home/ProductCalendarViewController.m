@@ -10,6 +10,7 @@
 #import "ProductCalendarMonthViewController.h"
 #import "ProductCalendarWeekendViewController.h"
 #import "MOTabHost.h"
+#import "DateManager.h"
 
 @interface ProductCalendarViewController ()
 
@@ -38,6 +39,8 @@
     self.navigationItem.title = @"活动日历";
     
     __weak ProductCalendarViewController * weakSelf = self;
+    
+    int month = [DateManager shareManager].serverTimeMonth;
     
     MOTabHost * tabHost = [[MOTabHost alloc] initWithItems:[NSArray arrayWithObjects:@"周末", @"七月", @"八月", nil]];
     tabHost.onItemClickedListener = ^(NSInteger index) {

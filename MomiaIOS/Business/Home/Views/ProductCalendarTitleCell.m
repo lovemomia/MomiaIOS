@@ -7,6 +7,7 @@
 //
 
 #import "ProductCalendarTitleCell.h"
+#import "StringUtils.h"
 
 @interface ProductCalendarTitleCell ()
 @property (weak, nonatomic) IBOutlet UILabel *dayLabel;
@@ -30,45 +31,13 @@
         
         [self.monthLabel setText:[NSString stringWithFormat:@"%ld",(long)components1.month]];
         [self.dayLabel setText:[NSString stringWithFormat:@"%ld",(long)components1.day]];
-        [self.timeLabel setText:[self stringOfWeekday:components1.weekday]];
+        [self.timeLabel setText:[NSString stringWithFormat:@"星期%@",[StringUtils stringForWeekday:components1.weekday]]];
         
     } else {
         [self.monthLabel setText:@""];
         [self.dayLabel setText:@""];
         [self.timeLabel setText:@""];
     }
-}
-
--(NSString *)stringOfWeekday:(NSInteger) weekday
-{
-    NSString * str;
-    switch (weekday) {
-        case 1:
-            str = @"日";
-            break;
-        case 2:
-            str = @"一";
-            break;
-        case 3:
-            str = @"二";
-            break;
-        case 4:
-            str = @"三";
-            break;
-        case 5:
-            str = @"四";
-            break;
-        case 6:
-            str = @"五";
-            break;
-        case 7:
-            str = @"六";
-            break;
-        default:
-            str = @"?";
-            break;
-    }
-    return [@"星期" stringByAppendingString:str];
 }
 
 - (void)awakeFromNib {

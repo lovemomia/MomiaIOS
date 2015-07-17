@@ -12,4 +12,8 @@
 
 + (NSString *)stringForPrice:(CGFloat)price;
 
++ (NSString *)stringForWeekday:(NSInteger)weekday;
+
++ (NSString *)stringforMonth:(int) month;
+
 @end
