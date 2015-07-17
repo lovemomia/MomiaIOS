@@ -37,12 +37,10 @@
     } else if (self.status == 3) {
         self.navigationItem.title = @"已付款订单";
     } else {
-        self.navigationItem.title = @"订单列表";
+        self.navigationItem.title = @"全部订单";
     }
     self.orderList = [NSMutableArray new];
     [self requestData];
-    
-    [self.view addSubview:[[MOTabHost alloc] initWithItems:[NSArray arrayWithObjects:@"已付款订单", @"待付款订单", nil]]];
 }
 
 -(void)deleteOrder:(NSIndexPath *) indexPath

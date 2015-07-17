@@ -99,7 +99,8 @@
             break;
         case 1:
             if(row == 0) {
-                NSURL *url = [NSURL URLWithString:@"duola://orderlist?status=3"];
+//                NSURL *url = [NSURL URLWithString:@"duola://orderlist?status=3"];
+                NSURL *url = [NSURL URLWithString:@"duola://myorderlist"];
                 [[UIApplication sharedApplication ] openURL:url];
             } else {
                 NSURL *url = [NSURL URLWithString:@"duola://orderlist?status=2"];
