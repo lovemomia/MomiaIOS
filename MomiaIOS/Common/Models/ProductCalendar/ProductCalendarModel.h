@@ -36,7 +36,7 @@
 @interface ProductCalendarDataModel : JSONModel
 
 @property(nonatomic,strong) NSArray<ProductModel> * list;
-@property(nonatomic,assign) NSInteger nextIndex;
+@property(nonatomic,strong) NSNumber<Optional> * nextIndex;
 @property(nonatomic,assign) NSInteger totalCount;
 
 @end

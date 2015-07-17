@@ -17,6 +17,14 @@
 
 @implementation ProductCalendarCell
 
+-(void)setData:(ProductModel *)model
+{
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:model.cover] placeholderImage:nil];
+    [self.titleLabel setText:model.abstracts];
+    [self.addressLabel setText:model.address];
+    [self.schedualLabel setText:model.scheduler];
+}
+
 - (void)awakeFromNib {
     // Initialization code
     self.iconImageView.clipsToBounds = YES;

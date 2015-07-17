@@ -9,11 +9,14 @@
 #import "ProductCalendarMonthViewController.h"
 #import "ProductCalendarTitleCell.h"
 #import "ProductCalendarCell.h"
+#import "ProductCalendarModel.h"
 
 static NSString * productCalendarMonthTitleIdentifier = @"CellProductCalendarMonthTitle";
 static NSString * productCalendarMonthIdentifier = @"CellProductCalendarMonth";
 
 @interface ProductCalendarMonthViewController ()
+
+@property(nonatomic,strong) ProductCalendarMonthModel * model;
 
 @end
 
@@ -31,12 +34,23 @@ static NSString * productCalendarMonthIdentifier = @"CellProductCalendarMonth";
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return self.model.data.count;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1 + 2;
+    ProductCalendarMonthDataModel * model = self.model.data[section];
+    return 1 + model.products.count;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 10;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.1;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -50,13 +64,17 @@ static NSString * productCalendarMonthIdentifier = @"CellProductCalendarMonth";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     UITableViewCell * cell;
     if(row == 0) {
         ProductCalendarTitleCell * title = [ProductCalendarTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:productCalendarMonthTitleIdentifier];
+        [title setData:self.model.data[section]];
         cell = title;
     } else {
         ProductCalendarCell * content = [ProductCalendarCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:productCalendarMonthIdentifier];
+        ProductCalendarMonthDataModel * dataModel = self.model.data[section];
+        [content setData:dataModel.products[row - 1]];
         cell = content;
     }
     return cell;
@@ -67,11 +85,38 @@ static NSString * productCalendarMonthIdentifier = @"CellProductCalendarMonth";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+#pragma mark - webData Request
+
+- (void)requestData {
+    if (self.model == nil) {
+        [self.view showLoadingBee];
+    }
+    
+    NSDictionary * dic = @{@"city":@1,@"month":@7};
+    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/product/month") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[ProductCalendarMonthModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (self.model == nil) {
+            [self.view removeLoadingBee];
+        }
+        
+        self.model = responseObject;
+        
+        [self.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.view removeLoadingBee];
+        [self showDialogWithTitle:nil message:error.message];
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [ProductCalendarTitleCell registerCellWithTableView:self.tableView withIdentifier:productCalendarMonthTitleIdentifier];
     [ProductCalendarCell registerCellWithTableView:self.tableView withIdentifier:productCalendarMonthIdentifier];
+    
+    [self requestData];
 }
 
 - (void)didReceiveMemoryWarning {
