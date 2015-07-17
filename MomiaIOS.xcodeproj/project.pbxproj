@@ -44,6 +44,11 @@
 		5A33F1A11B2EA1D5002A8258 /* CashPayTopHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A33F19F1B2EA1D5002A8258 /* CashPayTopHeaderView.m */; };
 		5A33F1A21B2EA1D5002A8258 /* CashPayTopHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A33F1A01B2EA1D5002A8258 /* CashPayTopHeaderView.xib */; };
 		5A33F1A81B2EBC2F002A8258 /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A33F1A71B2EBC2F002A8258 /* TitleView.xib */; };
+		5A3C6C721B579F1C006583FB /* ProductCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3C6C701B579F1C006583FB /* ProductCalendarCell.m */; };
+		5A3C6C731B579F1C006583FB /* ProductCalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A3C6C711B579F1C006583FB /* ProductCalendarCell.xib */; };
+		5A3C6C771B57A926006583FB /* ProductCalendarTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3C6C751B57A926006583FB /* ProductCalendarTitleCell.m */; };
+		5A3C6C781B57A926006583FB /* ProductCalendarTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A3C6C761B57A926006583FB /* ProductCalendarTitleCell.xib */; };
+		5A3C6C7B1B57AEC1006583FB /* ProductCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3C6C7A1B57AEC1006583FB /* ProductCalendarViewController.m */; };
 		5A3DBE5A1B18577900E708AC /* FavouriteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DBE591B18577900E708AC /* FavouriteModel.m */; };
 		5A3DBE5D1B185BE500E708AC /* MyCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DBE5C1B185BE500E708AC /* MyCollectionCell.m */; };
 		5A4044321B27D18C0010782C /* OrderPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4044301B27D18C0010782C /* OrderPersonViewController.m */; };
@@ -310,6 +315,14 @@
 		5A33F19F1B2EA1D5002A8258 /* CashPayTopHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashPayTopHeaderView.m; sourceTree = "<group>"; };
 		5A33F1A01B2EA1D5002A8258 /* CashPayTopHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CashPayTopHeaderView.xib; sourceTree = "<group>"; };
 		5A33F1A71B2EBC2F002A8258 /* TitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TitleView.xib; path = Business/Home/Views/TitleView.xib; sourceTree = "<group>"; };
+		5A3C6C6F1B579F1C006583FB /* ProductCalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductCalendarCell.h; path = Business/Home/Views/ProductCalendarCell.h; sourceTree = "<group>"; };
+		5A3C6C701B579F1C006583FB /* ProductCalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductCalendarCell.m; path = Business/Home/Views/ProductCalendarCell.m; sourceTree = "<group>"; };
+		5A3C6C711B579F1C006583FB /* ProductCalendarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductCalendarCell.xib; path = Business/Home/Views/ProductCalendarCell.xib; sourceTree = "<group>"; };
+		5A3C6C741B57A926006583FB /* ProductCalendarTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductCalendarTitleCell.h; path = Business/Home/Views/ProductCalendarTitleCell.h; sourceTree = "<group>"; };
+		5A3C6C751B57A926006583FB /* ProductCalendarTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductCalendarTitleCell.m; path = Business/Home/Views/ProductCalendarTitleCell.m; sourceTree = "<group>"; };
+		5A3C6C761B57A926006583FB /* ProductCalendarTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductCalendarTitleCell.xib; path = Business/Home/Views/ProductCalendarTitleCell.xib; sourceTree = "<group>"; };
+		5A3C6C791B57AEC1006583FB /* ProductCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductCalendarViewController.h; path = Business/Home/ProductCalendarViewController.h; sourceTree = "<group>"; };
+		5A3C6C7A1B57AEC1006583FB /* ProductCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductCalendarViewController.m; path = Business/Home/ProductCalendarViewController.m; sourceTree = "<group>"; };
 		5A3DBE581B18577900E708AC /* FavouriteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavouriteModel.h; path = Common/Models/Favourite/FavouriteModel.h; sourceTree = "<group>"; };
 		5A3DBE591B18577900E708AC /* FavouriteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavouriteModel.m; path = Common/Models/Favourite/FavouriteModel.m; sourceTree = "<group>"; };
 		5A3DBE5B1B185BE500E708AC /* MyCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCollectionCell.h; path = Business/Mine/Views/MyCollectionCell.h; sourceTree = "<group>"; };
@@ -1342,6 +1355,8 @@
 				5A18DC491B295C03001458A4 /* HomeViewController.m */,
 				BCF9ECA81B4171EC00AEBE1E /* CityListViewController.h */,
 				BCF9ECA91B4171EC00AEBE1E /* CityListViewController.m */,
+				5A3C6C791B57AEC1006583FB /* ProductCalendarViewController.h */,
+				5A3C6C7A1B57AEC1006583FB /* ProductCalendarViewController.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -1380,6 +1395,12 @@
 				5A18DC5C1B2996B9001458A4 /* HomeCell.m */,
 				5A8EF0351B31407B003ABAF8 /* HomeCell.xib */,
 				5A33F1A71B2EBC2F002A8258 /* TitleView.xib */,
+				5A3C6C6F1B579F1C006583FB /* ProductCalendarCell.h */,
+				5A3C6C701B579F1C006583FB /* ProductCalendarCell.m */,
+				5A3C6C711B579F1C006583FB /* ProductCalendarCell.xib */,
+				5A3C6C741B57A926006583FB /* ProductCalendarTitleCell.h */,
+				5A3C6C751B57A926006583FB /* ProductCalendarTitleCell.m */,
+				5A3C6C761B57A926006583FB /* ProductCalendarTitleCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1755,7 +1776,9 @@
 				5A6806FD1B01DA5100D02A60 /* MyCollectionCell.xib in Resources */,
 				5AB1BDEB1B4FB7ED004A4511 /* LoadingErrorCell.xib in Resources */,
 				5A33F1A81B2EBC2F002A8258 /* TitleView.xib in Resources */,
+				5A3C6C781B57A926006583FB /* ProductCalendarTitleCell.xib in Resources */,
 				BC97DF1C1B4E1DF0002B1A00 /* PayResultViewController.xib in Resources */,
+				5A3C6C731B579F1C006583FB /* ProductCalendarCell.xib in Resources */,
 				BC41ABA61B0C69BE00A419DA /* read_me.txt in Resources */,
 				BC97DF201B4E3E3D002B1A00 /* AlipaySDK.bundle in Resources */,
 				5A82F1A41B257449000D2C60 /* FillOrderViewController.xib in Resources */,
@@ -1829,9 +1852,11 @@
 				BC2C0C801B14659400E2446E /* MyStatusViewController.m in Sources */,
 				5A5A2A9F1B43EED4000595A9 /* OrderContactCell.m in Sources */,
 				5A33F19A1B2EA0A4002A8258 /* CashPayBottomCell.m in Sources */,
+				5A3C6C7B1B57AEC1006583FB /* ProductCalendarViewController.m in Sources */,
 				5A074F871B3AC39A001E5006 /* FillOrderTopCell.m in Sources */,
 				5A08C1411B39117100642648 /* ProductDetailEnrollCell.m in Sources */,
 				BC77085F1AFC5685000068A8 /* UILabel+ContentSize.m in Sources */,
+				5A3C6C721B579F1C006583FB /* ProductCalendarCell.m in Sources */,
 				BC2C0C571B1309A800E2446E /* MOButton.m in Sources */,
 				BCF0339F1B4FB1BE005B71D6 /* ThirdShareHelper.m in Sources */,
 				BC41ABA91B0C715400A419DA /* Environment.m in Sources */,
@@ -1931,6 +1956,7 @@
 				BC2C0C931B1849FE00E2446E /* MCAvatarView.m in Sources */,
 				BC829A861B53CE850056BE61 /* NSString+MOEncrypt.m in Sources */,
 				5AE4F82D1B3CF21B005879B7 /* FillOrderModel.m in Sources */,
+				5A3C6C771B57A926006583FB /* ProductCalendarTitleCell.m in Sources */,
 				5A8FF9701B450FA5007A8CA4 /* ProductDetailContentCell.m in Sources */,
 				5A08C14A1B3911CA00642648 /* ProductDetailModel.m in Sources */,
 				BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */,

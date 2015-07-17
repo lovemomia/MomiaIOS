@@ -51,6 +51,7 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
     self.navigationItem.title = @"哆啦亲子";
 
     
+    
     NSArray * array = [[NSBundle mainBundle] loadNibNamed:@"TitleView" owner:self options:nil];
     UIView * titleView = array[0];
     self.titleLabel = (UILabel *)[titleView viewWithTag:2001];
@@ -73,6 +74,7 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
         self.navigationItem.leftBarButtonItem = cityItem;
     }
 
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"product_calendar_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(onProductCalendarClick)];
     
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_search"] style:UIBarButtonItemStylePlain target:self action:@selector(onSearchClick)];
     
@@ -98,6 +100,12 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
     self.model = nil;
     [self.tableView reloadData];
     [self requestData];
+}
+
+-(void)onProductCalendarClick
+{
+    NSURL * url = [NSURL URLWithString:@"duola://productcalendar"];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 #pragma mark - webData Request

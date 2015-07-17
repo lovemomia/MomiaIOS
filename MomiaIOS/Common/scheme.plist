@@ -254,5 +254,14 @@
 		<key>desc</key>
 		<string>红包列表页</string>
 	</dict>
+	<key>productcalendar</key>
+	<dict>
+		<key>controller</key>
+		<string>ProductCalendarViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>活动日历页面</string>
+	</dict>
 </dict>
 </plist>
