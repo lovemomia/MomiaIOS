@@ -51,7 +51,7 @@
     return str;
 }
 
-+ (NSString *)stringforMonth:(int) month
++ (NSString *)stringForMonth:(int) month
 {
     NSString * str;
     switch (month) {

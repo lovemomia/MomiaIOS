@@ -11,6 +11,7 @@
 #import "ProductCalendarWeekendViewController.h"
 #import "MOTabHost.h"
 #import "DateManager.h"
+#import "StringUtils.h"
 
 @interface ProductCalendarViewController ()
 
@@ -42,7 +43,12 @@
     
     int month = [DateManager shareManager].serverTimeMonth;
     
-    MOTabHost * tabHost = [[MOTabHost alloc] initWithItems:[NSArray arrayWithObjects:@"周末", @"七月", @"八月", nil]];
+    int nextMonth;
+    if(month + 1 > 12) {
+        nextMonth = 1;
+    } else nextMonth = month + 1;
+    
+    MOTabHost * tabHost = [[MOTabHost alloc] initWithItems:[NSArray arrayWithObjects:@"周末", [StringUtils stringForMonth:month], [StringUtils stringForMonth:nextMonth], nil]];
     tabHost.onItemClickedListener = ^(NSInteger index) {
         MOViewController * toVC = [weakSelf.childViewControllers objectAtIndex:index];
         if(weakSelf.currentViewController == toVC) {
@@ -66,10 +72,14 @@
     ProductCalendarWeekendViewController * firstController = [[ProductCalendarWeekendViewController alloc] initWithParams:nil];
     [self addChildViewController:firstController];
     
-    ProductCalendarMonthViewController * secondController = [[ProductCalendarMonthViewController alloc] initWithParams:nil];
+    NSDictionary * dic1 = @{@"month":@(month)};
+    
+    ProductCalendarMonthViewController * secondController = [[ProductCalendarMonthViewController alloc] initWithParams:dic1];
     [self addChildViewController:secondController];
     
-    ProductCalendarMonthViewController * thirdController = [[ProductCalendarMonthViewController alloc] initWithParams:nil];
+    NSDictionary * dic2 = @{@"month":@(nextMonth)};
+
+    ProductCalendarMonthViewController * thirdController = [[ProductCalendarMonthViewController alloc] initWithParams:dic2];
     [self addChildViewController:thirdController];
     
     [self.contentView addSubview:firstController.view];

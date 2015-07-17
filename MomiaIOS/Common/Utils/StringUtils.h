@@ -14,6 +14,6 @@
 
 + (NSString *)stringForWeekday:(NSInteger)weekday;
 
-+ (NSString *)stringforMonth:(int) month;
++ (NSString *)stringForMonth:(int) month;
 
 @end

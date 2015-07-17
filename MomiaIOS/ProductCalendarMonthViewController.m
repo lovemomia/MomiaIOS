@@ -17,6 +17,7 @@ static NSString * productCalendarMonthIdentifier = @"CellProductCalendarMonth";
 @interface ProductCalendarMonthViewController ()
 
 @property(nonatomic,strong) ProductCalendarMonthModel * model;
+@property(nonatomic,assign) int month;
 
 @end
 
@@ -92,7 +93,7 @@ static NSString * productCalendarMonthIdentifier = @"CellProductCalendarMonth";
         [self.view showLoadingBee];
     }
     
-    NSDictionary * dic = @{@"city":@1,@"month":@7};
+    NSDictionary * dic = @{@"city":@1,@"month":@(self.month)};
     [[HttpService defaultService] GET:URL_APPEND_PATH(@"/product/month") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[ProductCalendarMonthModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.model == nil) {
             [self.view removeLoadingBee];
@@ -109,6 +110,15 @@ static NSString * productCalendarMonthIdentifier = @"CellProductCalendarMonth";
     }];
 }
 
+-(instancetype)initWithParams:(NSDictionary *)params
+{
+    self = [super initWithParams:params];
+    if(self) {
+        NSNumber * num = [params objectForKey:@"month"];
+        self.month = [num intValue];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
