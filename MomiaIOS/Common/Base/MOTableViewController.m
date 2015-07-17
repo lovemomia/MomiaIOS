@@ -56,8 +56,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     if ([self.tableView superview] == nil) {
-        [self.tableView setFrame:self.view.bounds];
+//        [self.tableView setFrame:self.view.bounds];
         [self.view addSubview:self.tableView];
+        [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.view);
+        }];
     }
 }
 

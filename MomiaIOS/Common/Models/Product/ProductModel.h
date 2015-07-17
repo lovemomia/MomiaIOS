@@ -63,7 +63,7 @@
 @property (nonatomic,assign) BOOL soldOut;
 
 @property (nonatomic,strong) NSString<Optional> * thumb; // 分享小图标
-@property (nonatomic,strong) NSArray * tags;
+@property (nonatomic,strong) NSArray<Optional> * tags;
 
 
 @end

@@ -7,78 +7,61 @@
 //
 
 #import "ProductCalendarViewController.h"
-#import "ProductCalendarCell.h"
-#import "ProductCalendarTitleCell.h"
-
-static NSString * productCalendarTitleIdentifier = @"CellProductCalendarTitle";
-static NSString * productCalendarIdentifier = @"CellProductCalendar";
+#import "ProductCalendarMonthViewController.h"
+#import "ProductCalendarWeekendViewController.h"
+#import "MOTabHost.h"
 
 @interface ProductCalendarViewController ()
+
+@property(nonatomic,strong) MOViewController * currentViewController;
+@property(nonatomic,strong) UIView * contentView;
 
 @end
 
 @implementation ProductCalendarViewController
 
--(UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle
+-(UIView *)contentView
 {
-    return UITableViewCellSeparatorStyleSingleLine;
-}
-
--(UITableViewStyle)tableViewStyle
-{
-    return UITableViewStyleGrouped;
-}
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 3;
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 1 + 2;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 10.0f;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 0.1f;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    CGFloat height = 0;
-    NSInteger row = indexPath.row;
-    if(row == 0) {
-        height = 46;
-    } else {
-        height = 104;
+    if(!_contentView) {
+        _contentView = [[UIView alloc] init];
+        [self.view addSubview:_contentView];
+        [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(44, 0, 0, 0));
+        }];
     }
-    return height;
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell * cell;
-    NSInteger row = indexPath.row;
-    if(row == 0) {
-        cell = [ProductCalendarTitleCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:productCalendarTitleIdentifier];
-    } else {
-        cell = [ProductCalendarCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:productCalendarIdentifier];
-    }
-    return cell;
+    return _contentView;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"活动日历";
-    [ProductCalendarTitleCell registerCellWithTableView:self.tableView withIdentifier:productCalendarTitleIdentifier];
-    [ProductCalendarCell registerCellWithTableView:self.tableView withIdentifier:productCalendarIdentifier];
+    
+    MOTabHost * tabHost = [[MOTabHost alloc] initWithItems:[NSArray arrayWithObjects:@"周末", @"七月", @"八月", nil]];
+    tabHost.onItemClickedListener = ^(NSInteger index) {
+        NSLog(@"index:%ld",(long)index);
+    };
+    [tabHost setItemSelect:0];
+    [self.view addSubview:tabHost];
+    
+    
+    ProductCalendarWeekendViewController * firstController = [[ProductCalendarWeekendViewController alloc] initWithParams:nil];
+    [self addChildViewController:firstController];
+    
+    ProductCalendarMonthViewController * secondController = [[ProductCalendarMonthViewController alloc] initWithParams:nil];
+    [self addChildViewController:secondController];
+    
+    ProductCalendarMonthViewController * thirdController = [[ProductCalendarMonthViewController alloc] initWithParams:nil];
+    [self addChildViewController:thirdController];
+    
+    [self.contentView addSubview:firstController.view];
+    
+    [firstController.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.contentView);
+    }];
+    
+    [firstController didMoveToParentViewController:self];
+
 }
 
 - (void)didReceiveMemoryWarning {
