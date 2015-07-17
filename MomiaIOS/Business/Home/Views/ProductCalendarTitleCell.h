@@ -7,7 +7,10 @@
 //
 
 #import "MOTableCell.h"
+#import "ProductCalendarModel.h"
 
-@interface ProductCalendarTitleCell : MOTableCell
+@interface ProductCalendarTitleCell : MOTableCell<MOTableCellDataProtocol>
+
+-(void)setData:(ProductCalendarMonthDataModel *)model;
 
 @end

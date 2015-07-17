@@ -45,7 +45,7 @@
         if(weakSelf.currentViewController == toVC) {
             return ;
         }
-    
+        
         [weakSelf transitionFromViewController:weakSelf.currentViewController toViewController:toVC duration:0.3 options:UIViewAnimationOptionTransitionNone animations:^{
         } completion:^(BOOL finished) {
             if(finished) {

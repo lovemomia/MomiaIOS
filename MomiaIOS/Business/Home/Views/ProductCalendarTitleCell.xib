@@ -43,6 +43,11 @@
                     <constraint firstItem="bDZ-Xd-nEe" firstAttribute="bottom" secondItem="DUd-tJ-f5Q" secondAttribute="bottom" id="yM6-uh-6t7"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="dayLabel" destination="DUd-tJ-f5Q" id="VsD-iz-ep9"/>
+                <outlet property="monthLabel" destination="w7S-s7-bJ0" id="9ED-cE-OI1"/>
+                <outlet property="timeLabel" destination="bDZ-Xd-nEe" id="IIJ-Ng-Z6Y"/>
+            </connections>
             <point key="canvasLocation" x="307" y="138"/>
         </tableViewCell>
     </objects>
