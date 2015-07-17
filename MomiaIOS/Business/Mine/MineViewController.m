@@ -70,7 +70,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 1 || section == 3) {
+    if (section == 1 || section == 2) {
         return 2;
     }
     return 1;
@@ -78,7 +78,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 4;
+    return 3;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -99,19 +99,12 @@
             break;
         case 1:
             if(row == 0) {
-//                NSURL *url = [NSURL URLWithString:@"duola://orderlist?status=3"];
-                NSURL *url = [NSURL URLWithString:@"duola://myorderlist"];
-                [[UIApplication sharedApplication ] openURL:url];
+                [self openURL:@"duola://myorderlist"];
             } else {
-                NSURL *url = [NSURL URLWithString:@"duola://orderlist?status=2"];
-                [[UIApplication sharedApplication ] openURL:url];
+               [self openURL:@"duola://couponlist"];
             }
             break;
         case 2:
-            [self openURL:@"duola://couponlist"];
-            break;
-            
-        case 3:
             if(row == 0) {
                 NSURL *url = [NSURL URLWithString:@"duola://people"];
                 [[UIApplication sharedApplication ] openURL:url];
@@ -185,18 +178,14 @@
         switch (section) {
             case 1:
                 if (row == 0) {
-                    cell.textLabel.text = @"已付款订单";
+                    cell.textLabel.text = @"我的订单";
                     cell.imageView.image = [UIImage imageNamed:@"ic_payed"];
                 } else {
-                    cell.textLabel.text = @"待付款订单";
-                    cell.imageView.image = [UIImage imageNamed:@"ic_paying"];
+                    cell.textLabel.text = @"我的红包";
+                    cell.imageView.image = [UIImage imageNamed:@"ic_coupon"];
                 }
                 break;
             case 2:
-                cell.textLabel.text = @"我的红包";
-                cell.imageView.image = [UIImage imageNamed:@"ic_coupon"];
-                break;
-            case 3:
                 if (row == 0) {
                     cell.textLabel.text = @"常用出行人";
                     cell.imageView.image = [UIImage imageNamed:@"ic_people"];
@@ -213,9 +202,6 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-//    if (section == 0) {
-//        return 0.1;
-//    }
     return 10;
 }
 

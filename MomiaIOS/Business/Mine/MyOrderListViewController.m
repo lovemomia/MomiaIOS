@@ -73,16 +73,19 @@
     };
     [self.view addSubview:tabHost];
     
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 44, SCREEN_WIDTH, SCREEN_HEIGHT - 44)];
+    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 44, SCREEN_WIDTH, self.view.height - 108)];
     [self.view addSubview:contentView];
     
     self.payedOrderListViewController = [[OrderListViewController alloc]initWithParams:@{@"status":@"3"}];
+    self.payedOrderListViewController.view.height = contentView.height;
     [self addChildViewController:self.payedOrderListViewController];
     
     self.payingOrderListViewController = [[OrderListViewController alloc]initWithParams:@{@"status":@"2"}];
+    self.payingOrderListViewController.view.height = contentView.height;
     [self addChildViewController:self.payingOrderListViewController];
     
     self.allOrderListViewController = [[OrderListViewController alloc]initWithParams:@{@"status":@"1"}];
+    self.allOrderListViewController.view.height = contentView.height;
     [self addChildViewController:self.allOrderListViewController];
     
     [contentView addSubview:self.payedOrderListViewController.view];
