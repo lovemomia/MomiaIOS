@@ -13,7 +13,6 @@
 @end
 
 @implementation DateManager
-@synthesize serverTimeSeconds = _serverTimeSeconds;
 
 + (instancetype)shareManager {
     static DateManager *__manager = nil;
@@ -29,7 +28,7 @@
 }
 
 - (long)serverTimeSeconds {
-    return _serverTimeSeconds + self.timeDifference;
+    return (long)[[NSDate date]timeIntervalSince1970] + self.timeDifference;
 }
 
 - (int)serverTimeMonth {
