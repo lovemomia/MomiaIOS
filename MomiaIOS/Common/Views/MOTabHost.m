@@ -10,6 +10,7 @@
 
 @interface MOTabHost()
 @property (nonatomic, strong) NSArray *items;
+@property (nonatomic, strong) NSMutableArray *titleLabels;
 @property (nonatomic, strong) UIView *shadow;
 @end
 
@@ -26,7 +27,7 @@
     return self;
 }
 
-- (UIView *)addItem:(NSString *)title index:(NSInteger)index {
+- (void)addItem:(NSString *)title index:(NSInteger)index {
     UIView *view = [[UIView alloc]init];
     view.height = self.height;
     CGFloat width = self.width / self.items.count;
@@ -40,6 +41,11 @@
     titleLabel.textAlignment = NSTextAlignmentCenter;
     [view addSubview:titleLabel];
     
+    if (self.titleLabels == nil) {
+        self.titleLabels = [[NSMutableArray alloc]init];
+    }
+    [self.titleLabels addObject:titleLabel];
+    
     [self addSubview:view];
     
     UIView *bottomSep = [[UIView alloc]initWithFrame:CGRectMake(0, self.height, self.width, 0.5)];
@@ -49,20 +55,31 @@
     view.tag = index;
     UITapGestureRecognizer * singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTabClick:)];
     [view addGestureRecognizer:singleTap];
-    
-    return view;
 }
 
 -(void)onTabClick:(UITapGestureRecognizer *)recognizer
 {
     NSInteger index = recognizer.view.tag;
+    
     [self setItemSelect:index];
+    for (int i = 0; i < self.titleLabels.count; i++) {
+        UILabel *titleLabel = [self.titleLabels objectAtIndex:i];
+        if (i == index) {
+            titleLabel.textColor = MO_APP_ThemeColor;
+            
+        } else {
+            titleLabel.textColor = UIColorFromRGB(0x333333);
+        }
+    }
+    
     if (self.onItemClickedListener) {
         self.onItemClickedListener(index);
     }
 }
 
 - (void)setItemSelect:(NSInteger)index {
+    ((UILabel *)[self.titleLabels objectAtIndex:index]).textColor = MO_APP_ThemeColor;
+    
     CGFloat width = self.width / self.items.count;
     if (self.shadow == nil) {
         self.shadow = [[UIView alloc]init];

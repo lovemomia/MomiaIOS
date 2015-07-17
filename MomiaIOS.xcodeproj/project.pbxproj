@@ -188,6 +188,7 @@
 		BC8540AB1ADF74E9005A7C54 /* MomiaIOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540AA1ADF74E9005A7C54 /* MomiaIOSTests.m */; };
 		BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540BC1ADF8A09005A7C54 /* MOViewController.m */; };
 		BC90897F1B5797D800A8D85B /* MOTabHost.m in Sources */ = {isa = PBXBuildFile; fileRef = BC90897E1B5797D800A8D85B /* MOTabHost.m */; };
+		BC9089821B58983300A8D85B /* MyOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9089811B58983300A8D85B /* MyOrderListViewController.m */; };
 		BC97DEFC1B4B75A8002B1A00 /* OrderPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DEFB1B4B75A8002B1A00 /* OrderPerson.m */; };
 		BC97DEFF1B4BCFF1002B1A00 /* PayChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DEFE1B4BCFF1002B1A00 /* PayChannel.m */; };
 		BC97DF031B4BE1EF002B1A00 /* WechatPayData.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DF021B4BE1EF002B1A00 /* WechatPayData.m */; };
@@ -574,6 +575,8 @@
 		BC8540C41AE2121E005A7C54 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Common/Base/Constants.h; sourceTree = "<group>"; };
 		BC90897D1B5797D800A8D85B /* MOTabHost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOTabHost.h; path = Common/Views/MOTabHost.h; sourceTree = "<group>"; };
 		BC90897E1B5797D800A8D85B /* MOTabHost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOTabHost.m; path = Common/Views/MOTabHost.m; sourceTree = "<group>"; };
+		BC9089801B58983300A8D85B /* MyOrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyOrderListViewController.h; path = Business/Mine/MyOrderListViewController.h; sourceTree = "<group>"; };
+		BC9089811B58983300A8D85B /* MyOrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyOrderListViewController.m; path = Business/Mine/MyOrderListViewController.m; sourceTree = "<group>"; };
 		BC97DEFA1B4B75A8002B1A00 /* OrderPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderPerson.h; path = Common/Models/Order/OrderPerson.h; sourceTree = "<group>"; };
 		BC97DEFB1B4B75A8002B1A00 /* OrderPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderPerson.m; path = Common/Models/Order/OrderPerson.m; sourceTree = "<group>"; };
 		BC97DEFD1B4BCFF1002B1A00 /* PayChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayChannel.h; sourceTree = "<group>"; };
@@ -1477,6 +1480,8 @@
 				5AC9FFCB1B17298C00C769EF /* FeedbackViewController.m */,
 				BCF033931B4E892F005B71D6 /* PeopleViewController.h */,
 				BCF033941B4E892F005B71D6 /* PeopleViewController.m */,
+				BC9089801B58983300A8D85B /* MyOrderListViewController.h */,
+				BC9089811B58983300A8D85B /* MyOrderListViewController.m */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -1918,6 +1923,7 @@
 				5A33F1A11B2EA1D5002A8258 /* CashPayTopHeaderView.m in Sources */,
 				BC82544E1B3D416300430A6F /* PlaymateOperateCell.m in Sources */,
 				BCF033951B4E892F005B71D6 /* PeopleViewController.m in Sources */,
+				BC9089821B58983300A8D85B /* MyOrderListViewController.m in Sources */,
 				BC97DF061B4BE21F002B1A00 /* WechatPayModel.m in Sources */,
 				BC5063941B53746800AA233C /* SGSheetMenu.m in Sources */,
 				BC97DEFF1B4BCFF1002B1A00 /* PayChannel.m in Sources */,
