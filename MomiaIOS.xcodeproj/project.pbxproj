@@ -28,6 +28,9 @@
 		5A08C1411B39117100642648 /* ProductDetailEnrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C1311B39117100642648 /* ProductDetailEnrollCell.m */; };
 		5A08C1421B39117100642648 /* ProductDetailEnrollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A08C1321B39117100642648 /* ProductDetailEnrollCell.xib */; };
 		5A08C14A1B3911CA00642648 /* ProductDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C1491B3911CA00642648 /* ProductDetailModel.m */; };
+		5A11C7291B589BB600B0CDFE /* ProductCalendarWeekendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A11C7281B589BB600B0CDFE /* ProductCalendarWeekendViewController.m */; };
+		5A11C72C1B589BCB00B0CDFE /* ProductCalendarMonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A11C72B1B589BCB00B0CDFE /* ProductCalendarMonthViewController.m */; };
+		5A11C7301B58B49B00B0CDFE /* ProductCalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A11C72F1B58B49B00B0CDFE /* ProductCalendarModel.m */; };
 		5A18DC471B292BDF001458A4 /* UITableView+FDTemplateLayoutHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A18DC461B292BDF001458A4 /* UITableView+FDTemplateLayoutHeader.m */; };
 		5A18DC4B1B295C03001458A4 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A18DC491B295C03001458A4 /* HomeViewController.m */; };
 		5A18DC581B297431001458A4 /* HomeCarouselCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A18DC571B297431001458A4 /* HomeCarouselCell.m */; };
@@ -286,6 +289,12 @@
 		5A08C1321B39117100642648 /* ProductDetailEnrollCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailEnrollCell.xib; sourceTree = "<group>"; };
 		5A08C1481B3911CA00642648 /* ProductDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailModel.h; sourceTree = "<group>"; };
 		5A08C1491B3911CA00642648 /* ProductDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailModel.m; sourceTree = "<group>"; };
+		5A11C7271B589BB600B0CDFE /* ProductCalendarWeekendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductCalendarWeekendViewController.h; path = Business/Home/ProductCalendarWeekendViewController.h; sourceTree = "<group>"; };
+		5A11C7281B589BB600B0CDFE /* ProductCalendarWeekendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductCalendarWeekendViewController.m; path = Business/Home/ProductCalendarWeekendViewController.m; sourceTree = "<group>"; };
+		5A11C72A1B589BCB00B0CDFE /* ProductCalendarMonthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCalendarMonthViewController.h; sourceTree = "<group>"; };
+		5A11C72B1B589BCB00B0CDFE /* ProductCalendarMonthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCalendarMonthViewController.m; sourceTree = "<group>"; };
+		5A11C72E1B58B49B00B0CDFE /* ProductCalendarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductCalendarModel.h; path = Common/Models/ProductCalendar/ProductCalendarModel.h; sourceTree = "<group>"; };
+		5A11C72F1B58B49B00B0CDFE /* ProductCalendarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductCalendarModel.m; path = Common/Models/ProductCalendar/ProductCalendarModel.m; sourceTree = "<group>"; };
 		5A18DC451B292BDF001458A4 /* UITableView+FDTemplateLayoutHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableView+FDTemplateLayoutHeader.h"; path = "Common/Categorys/UITableView+FDTemplateLayoutHeader.h"; sourceTree = "<group>"; };
 		5A18DC461B292BDF001458A4 /* UITableView+FDTemplateLayoutHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableView+FDTemplateLayoutHeader.m"; path = "Common/Categorys/UITableView+FDTemplateLayoutHeader.m"; sourceTree = "<group>"; };
 		5A18DC481B295C03001458A4 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Business/Home/HomeViewController.h; sourceTree = "<group>"; };
@@ -785,6 +794,15 @@
 			path = Common/Models/ProductDetail;
 			sourceTree = "<group>";
 		};
+		5A11C72D1B58B44B00B0CDFE /* ProductCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				5A11C72E1B58B49B00B0CDFE /* ProductCalendarModel.h */,
+				5A11C72F1B58B49B00B0CDFE /* ProductCalendarModel.m */,
+			);
+			name = ProductCalendar;
+			sourceTree = "<group>";
+		};
 		5A1B35E51B12BB5F00E1D31B /* Comment */ = {
 			isa = PBXGroup;
 			children = (
@@ -1174,6 +1192,7 @@
 		BC7708601AFC56F3000068A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5A11C72D1B58B44B00B0CDFE /* ProductCalendar */,
 				5A9E80D51B4BB1A10028AC47 /* PlayFellow */,
 				BC97DF001B4BE192002B1A00 /* Pay */,
 				BCF9ECA11B41627700AEBE1E /* City */,
@@ -1354,6 +1373,10 @@
 				BCF9ECA91B4171EC00AEBE1E /* CityListViewController.m */,
 				5A3C6C791B57AEC1006583FB /* ProductCalendarViewController.h */,
 				5A3C6C7A1B57AEC1006583FB /* ProductCalendarViewController.m */,
+				5A11C7271B589BB600B0CDFE /* ProductCalendarWeekendViewController.h */,
+				5A11C7281B589BB600B0CDFE /* ProductCalendarWeekendViewController.m */,
+				5A11C72A1B589BCB00B0CDFE /* ProductCalendarMonthViewController.h */,
+				5A11C72B1B589BCB00B0CDFE /* ProductCalendarMonthViewController.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -1846,6 +1869,7 @@
 				BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */,
 				BC2C0C801B14659400E2446E /* MyStatusViewController.m in Sources */,
 				5A5A2A9F1B43EED4000595A9 /* OrderContactCell.m in Sources */,
+				5A11C72C1B589BCB00B0CDFE /* ProductCalendarMonthViewController.m in Sources */,
 				5A33F19A1B2EA0A4002A8258 /* CashPayBottomCell.m in Sources */,
 				5A3C6C7B1B57AEC1006583FB /* ProductCalendarViewController.m in Sources */,
 				5A074F871B3AC39A001E5006 /* FillOrderTopCell.m in Sources */,
@@ -1862,6 +1886,7 @@
 				5A08C1391B39117100642648 /* ProductDetailViewController.m in Sources */,
 				BC5063911B53746800AA233C /* SGAlertMenu.m in Sources */,
 				BCF9ECA71B416C3500AEBE1E /* CityListModel.m in Sources */,
+				5A11C7301B58B49B00B0CDFE /* ProductCalendarModel.m in Sources */,
 				5A9E80E61B4BBF590028AC47 /* ProductPlayFellowCell.m in Sources */,
 				BC41ABB91B0F25AB00A419DA /* SugTagsModel.m in Sources */,
 				BC8540941ADF74E9005A7C54 /* AppDelegate.m in Sources */,
@@ -1952,6 +1977,7 @@
 				5AE4F82D1B3CF21B005879B7 /* FillOrderModel.m in Sources */,
 				5A3C6C771B57A926006583FB /* ProductCalendarTitleCell.m in Sources */,
 				5A8FF9701B450FA5007A8CA4 /* ProductDetailContentCell.m in Sources */,
+				5A11C7291B589BB600B0CDFE /* ProductCalendarWeekendViewController.m in Sources */,
 				5A08C14A1B3911CA00642648 /* ProductDetailModel.m in Sources */,
 				BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */,
 				5A18DC4B1B295C03001458A4 /* HomeViewController.m in Sources */,
