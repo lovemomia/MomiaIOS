@@ -71,6 +71,7 @@ static NSString * productCalendarMonthIdentifier = @"CellProductCalendarMonth";
     if(row == 0) {
         ProductCalendarTitleCell * title = [ProductCalendarTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:productCalendarMonthTitleIdentifier];
         [title setData:self.model.data[section]];
+        title.selectionStyle = UITableViewCellSelectionStyleNone;
         cell = title;
     } else {
         ProductCalendarCell * content = [ProductCalendarCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:productCalendarMonthIdentifier];
@@ -84,6 +85,16 @@ static NSString * productCalendarMonthIdentifier = @"CellProductCalendarMonth";
 -(void)tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    if(row == 0) {
+        
+    } else {
+        ProductCalendarMonthDataModel * dataModel = self.model.data[section];
+        ProductModel * model = dataModel.products[row - 1];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://productdetail?id=%ld", (long)model.pID]];
+        [[UIApplication sharedApplication] openURL:url];
+    }
 }
 
 #pragma mark - webData Request

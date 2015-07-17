@@ -48,7 +48,7 @@
         nextMonth = 1;
     } else nextMonth = month + 1;
     
-    MOTabHost * tabHost = [[MOTabHost alloc] initWithItems:[NSArray arrayWithObjects:@"周末", [StringUtils stringForMonth:month], [StringUtils stringForMonth:nextMonth], nil]];
+    MOTabHost * tabHost = [[MOTabHost alloc] initWithItems:[NSArray arrayWithObjects:@"周末", [[StringUtils stringForMonth:month] stringByAppendingString:@"月"], [[StringUtils stringForMonth:nextMonth] stringByAppendingString:@"月"], nil]];
     tabHost.onItemClickedListener = ^(NSInteger index) {
         MOViewController * toVC = [weakSelf.childViewControllers objectAtIndex:index];
         if(weakSelf.currentViewController == toVC) {
