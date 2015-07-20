@@ -19,6 +19,7 @@ static NSString * productCalendarWeekendIdentifier = @"CellProductCalendarWeeken
 @property(nonatomic,assign) NSInteger index;
 @property(nonatomic,assign) BOOL isLoading;
 
+@property(nonatomic,strong) AFHTTPRequestOperation * curOperation;
 
 @end
 
@@ -95,6 +96,7 @@ static NSString * productCalendarWeekendIdentifier = @"CellProductCalendarWeeken
     
     NSDictionary * dic = @{@"city":@1,@"start":@(self.index)};
     [[HttpService defaultService] GET:URL_APPEND_PATH(@"/product/weekend") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[ProductCalendarModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
         if (self.model == nil) {
             [self.view removeLoadingBee];
         }
@@ -108,14 +110,14 @@ static NSString * productCalendarWeekendIdentifier = @"CellProductCalendarWeeken
         } else {
             self.model = nil;
         }
-        
 
-        
         [self.tableView reloadData];
+        self.isLoading = NO;
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self.view removeLoadingBee];
         [self showDialogWithTitle:nil message:error.message];
+        self.isLoading = NO;
         NSLog(@"Error: %@", error);
     }];
 }
@@ -126,6 +128,7 @@ static NSString * productCalendarWeekendIdentifier = @"CellProductCalendarWeeken
     // Do any additional setup after loading the view.
     [ProductCalendarCell registerCellWithTableView:self.tableView withIdentifier:productCalendarWeekendIdentifier];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+        
     [self requestData];
 }
 

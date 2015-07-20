@@ -29,7 +29,7 @@
         // 出生日期转换 年月日
         NSDateComponents *components1 = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitWeekday fromDate:date];
         
-        [self.monthLabel setText:[NSString stringWithFormat:@"%ld",(long)components1.month]];
+        [self.monthLabel setText:[NSString stringWithFormat:@"%ld月",(long)components1.month]];
         [self.dayLabel setText:[NSString stringWithFormat:@"%ld",(long)components1.day]];
         [self.timeLabel setText:[NSString stringWithFormat:@"星期%@",[StringUtils stringForWeekday:components1.weekday]]];
         
