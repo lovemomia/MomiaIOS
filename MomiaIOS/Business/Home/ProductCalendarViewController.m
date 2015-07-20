@@ -56,12 +56,13 @@
         }
         
         [weakSelf transitionFromViewController:weakSelf.currentViewController toViewController:toVC duration:0.3 options:UIViewAnimationOptionTransitionNone animations:^{
+            [toVC.view mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.edges.equalTo(weakSelf.contentView);
+            }];
+            
         } completion:^(BOOL finished) {
             if(finished) {
                 weakSelf.currentViewController = toVC;
-                [toVC.view mas_updateConstraints:^(MASConstraintMaker *make) {
-                    make.edges.equalTo(weakSelf.contentView);
-                }];
             }
         }];
         
