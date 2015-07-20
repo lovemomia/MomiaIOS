@@ -83,6 +83,16 @@
                                  //                                 [MBProgressHUD hideHUDForView:self.view animated:YES];
                                  OrderListModel *orderListModel = (OrderListModel *)responseObject;
                                  self.totalCount = orderListModel.data.totalCount;
+                                 if (self.totalCount == 0) {
+                                     if (self.status == 2) {
+                                         [self.view showEmptyView:@"您还没有待付款订单哦，\n快去逛一下吧~"];
+                                     } else if (self.status == 3) {
+                                         [self.view showEmptyView:@"您还没有已付款订单哦，\n快去逛一下吧~"];
+                                     } else {
+                                         [self.view showEmptyView:@"订单列表为空"];
+                                     }
+                                     return;
+                                 }
                                  
                                  [self.orderList removeAllObjects];
                                  
@@ -103,7 +113,6 @@
 
 
 - (void)requestData {
-//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     if(self.curOperation) {
         [self.curOperation pause];
     }
@@ -119,12 +128,21 @@
     self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/user/order")
                           parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[OrderListModel class]
                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//                                 [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                 OrderListModel *orderListModel = (OrderListModel *)responseObject;
-                                 self.totalCount = orderListModel.data.totalCount;
-                                 
                                  if ([self.orderList count] == 0) {
                                      [self.view removeLoadingBee];
+                                 }
+                                 
+                                 OrderListModel *orderListModel = (OrderListModel *)responseObject;
+                                 self.totalCount = orderListModel.data.totalCount;
+                                 if (self.totalCount == 0) {
+                                     if (self.status == 2) {
+                                         [self.view showEmptyView:@"您还没有待付款订单哦，快去逛一下吧~"];
+                                     } else if (self.status == 3) {
+                                         [self.view showEmptyView:@"您还没有已付款订单哦，快去逛一下吧~"];
+                                     } else {
+                                         [self.view showEmptyView:@"订单列表为空"];
+                                     }
+                                     return;
                                  }
                                  
                                  for (Order *order in orderListModel.data.list) {
@@ -135,7 +153,6 @@
                              }
      
                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//                                 [MBProgressHUD hideHUDForView:self.view animated:YES];
                                  [self showDialogWithTitle:nil message:error.message];
                                  self.isLoading = NO;
                              }];

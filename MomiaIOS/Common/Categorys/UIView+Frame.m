@@ -179,7 +179,7 @@
     
     UILabel *label = [[UILabel alloc]init];
     label.text = errMsg;
-    label.textColor =  UIColorFromRGB(0x333333);
+    label.textColor =  UIColorFromRGB(0x999999);
     label.font = [UIFont systemFontOfSize:14];
     label.textAlignment = NSTextAlignmentCenter;
     label.numberOfLines = 0;
@@ -220,6 +220,52 @@
 - (void)removeError {
     for ( UIView* errorView in [self subviews]){
         if (errorView.tag == -100) {
+            [errorView removeFromSuperview];
+            break;
+        }
+    }
+}
+
+- (void)showEmptyView:(NSString *)msg {
+    UIView *view = [[UIView alloc] init];
+    view.tag = -101;
+    
+    UILabel *label = [[UILabel alloc]init];
+    label.text = msg;
+    label.textColor =  UIColorFromRGB(0x999999);
+    label.font = [UIFont systemFontOfSize:14];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.numberOfLines = 0;
+    
+    UIImageView *logo = [[UIImageView alloc]init];
+    logo.image = [UIImage imageNamed:@"pay_success_logo"];
+    
+    [view addSubview:logo];
+    [view addSubview:label];
+    [self addSubview:view];
+    
+    [logo mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@60);
+        make.height.equalTo(@60);
+        make.left.equalTo(view.mas_left);
+    }];
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(logo.mas_right).offset(10);
+        make.right.equalTo(view.mas_right);
+        make.centerY.equalTo(logo.mas_centerY);
+    }];
+    
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@200);
+        make.height.equalTo(@80);
+        make.centerX.equalTo(self.mas_centerX);
+        make.top.equalTo(self.mas_top).offset(100);
+    }];
+}
+
+- (void)removeEmptyView {
+    for ( UIView* errorView in [self subviews]){
+        if (errorView.tag == -101) {
             [errorView removeFromSuperview];
             break;
         }

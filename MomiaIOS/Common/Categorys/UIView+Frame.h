@@ -55,6 +55,9 @@ typedef void (^BlockOnRetryButtonClicked)();
 - (void)showError:(NSString *)errMsg retry:(BlockOnRetryButtonClicked)retry;
 - (void)removeError;
 
+- (void)showEmptyView:(NSString *)msg;
+- (void)removeEmptyView;
+
 - (void)removeAllSubviews;
 
 - (void)setBackgroundImage:(UIImage *)image;

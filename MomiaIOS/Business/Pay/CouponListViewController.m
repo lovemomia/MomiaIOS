@@ -63,6 +63,14 @@
                                                      
                                                      CouponListModel *couponListModel = (CouponListModel *)responseObject;
                                                      self.totalCount = couponListModel.data.totalCount;
+                                                     if (self.totalCount == 0) {
+                                                         if ([self.status isEqualToString:@"1"]) {
+                                                             [self.view showEmptyView:@"您还没有可用红包，\n邀请伙伴加入可以获得更多红包~"];
+                                                         } else {
+                                                             [self.view showEmptyView:@"还没有红包哟~"];
+                                                         }
+                                                         return;
+                                                     }
                                                      
                                                      for (Coupon *coupon in couponListModel.data.list) {
                                                          [self.couponList addObject:coupon];
@@ -79,7 +87,7 @@
 }
 
 - (void)onExpireClicked {
-    [self openURL:@"duola://couponlist?status=3"];
+    [self openURL:@"duola://couponlist?status=1"];
 }
 
 - (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle {
@@ -146,7 +154,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     if (section == [self numberOfSectionsInTableView:tableView] - 1) {
-        if ([self.status isEqualToString:@"1"]) {
+        if ([self.status isEqualToString:@"1"] && self.totalCount > 0) {
             return 60;
             
         } else {
@@ -158,7 +166,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     if (section == [self numberOfSectionsInTableView:tableView] - 1) {
-        if ([self.status isEqualToString:@"1"]) {
+        if ([self.status isEqualToString:@"1"] && self.totalCount > 0) {
             UIView *view = [UIView new];
             
             UIButton *forgetPwBtn = [[UIButton alloc]init];
