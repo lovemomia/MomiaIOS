@@ -15,6 +15,7 @@
 @interface CouponListViewController()
 @property (nonatomic, assign) BOOL select;
 @property (nonatomic, strong) NSString *oid;
+@property (nonatomic, strong) NSString *status;
 @property (nonatomic, strong) NSMutableArray *couponList;
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, assign) NSInteger totalCount;
@@ -27,13 +28,21 @@
     if (self = [super initWithParams:params]) {
         self.select = [[params valueForKey:@"select"] boolValue];
         self.oid = [params valueForKey:@"oid"];
+        self.status = [params valueForKey:@"status"];
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"我的红包";
+    if ([self.status isEqualToString:@"2"]) {
+        self.navigationItem.title = @"已使用红包";
+    } else if ([self.status isEqualToString:@"3"]) {
+        self.navigationItem.title = @"已过期红包";
+    } else {
+        self.navigationItem.title = @"我的红包";
+    }
+    
     self.couponList = [NSMutableArray new];
     [self requestData];
 }
@@ -44,7 +53,7 @@
         [self.view showLoadingBee];
     }
     
-    NSDictionary * paramDic = @{@"status":@"0", @"start":[NSString stringWithFormat:@"%ld", (unsigned long)[self.couponList count]], @"count":@"20", @"oid":(self.oid ? self.oid : @"")};
+    NSDictionary * paramDic = @{@"status":self.status, @"start":[NSString stringWithFormat:@"%ld", (unsigned long)[self.couponList count]], @"count":@"20", @"oid":(self.oid ? self.oid : @"")};
     [[HttpService defaultService]GET:URL_APPEND_PATH(@"/user/coupon")
                                               parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[CouponListModel class]
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -67,6 +76,10 @@
                                                      [self showDialogWithTitle:nil message:error.message];
                                                      self.isLoading = NO;
                                                  }];
+}
+
+- (void)onExpireClicked {
+    [self openURL:@"duola://couponlist?status=3"];
 }
 
 - (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle {
@@ -132,10 +145,38 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (section == [self numberOfSectionsInTableView:tableView]) {
-        return SCREEN_HEIGHT;
+    if (section == [self numberOfSectionsInTableView:tableView] - 1) {
+        if ([self.status isEqualToString:@"1"]) {
+            return 60;
+            
+        } else {
+            return SCREEN_HEIGHT;
+        }
     }
     return 0.1;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    if (section == [self numberOfSectionsInTableView:tableView] - 1) {
+        if ([self.status isEqualToString:@"1"]) {
+            UIView *view = [UIView new];
+            
+            UIButton *forgetPwBtn = [[UIButton alloc]init];
+            forgetPwBtn.height = 20;
+            forgetPwBtn.width = 80;
+            [forgetPwBtn setTitle:@"过期红包" forState:UIControlStateNormal];
+            forgetPwBtn.titleLabel.font = [UIFont systemFontOfSize: 12.0];
+            forgetPwBtn.left = SCREEN_WIDTH / 2 - 40;
+            forgetPwBtn.top = 15;
+            forgetPwBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+            [forgetPwBtn setTitleColor:UIColorFromRGB(0x0070C0) forState:UIControlStateNormal];
+            [forgetPwBtn addTarget:self action:@selector(onExpireClicked) forControlEvents:UIControlEventTouchUpInside];
+            [view addSubview:forgetPwBtn];
+            
+            return view;
+        }
+    }
+    return nil;
 }
 
 @end
