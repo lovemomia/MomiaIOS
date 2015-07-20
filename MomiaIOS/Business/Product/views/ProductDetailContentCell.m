@@ -23,6 +23,9 @@
 {
     self = [super init];
     if(self) {
+        
+        self.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+        
         UILabel * titleLabel = [[UILabel alloc] init];
         [self.contentView addSubview:titleLabel];
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
