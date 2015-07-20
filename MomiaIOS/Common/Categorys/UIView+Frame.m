@@ -248,6 +248,7 @@
         make.width.equalTo(@60);
         make.height.equalTo(@60);
         make.left.equalTo(view.mas_left);
+        make.centerY.equalTo(view.mas_centerY);
     }];
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(logo.mas_right).offset(10);
@@ -259,7 +260,7 @@
         make.width.equalTo(@200);
         make.height.equalTo(@80);
         make.centerX.equalTo(self.mas_centerX);
-        make.top.equalTo(self.mas_top).offset(100);
+        make.top.equalTo(self.mas_top).with.offset(100);
     }];
 }
 
