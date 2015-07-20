@@ -101,7 +101,7 @@
             if(row == 0) {
                 [self openURL:@"duola://myorderlist"];
             } else {
-               [self openURL:@"duola://couponlist"];
+               [self openURL:@"duola://couponlist?status=1"];
             }
             break;
         case 2:
