@@ -100,6 +100,9 @@ static NSString * productCalendarMonthIdentifier = @"CellProductCalendarMonth";
 #pragma mark - webData Request
 
 - (void)requestData {
+    
+    [self.view removeEmptyView];
+    
     if (self.model == nil) {
         [self.view showLoadingBee];
     }
@@ -110,9 +113,15 @@ static NSString * productCalendarMonthIdentifier = @"CellProductCalendarMonth";
             [self.view removeLoadingBee];
         }
         
+        
         self.model = responseObject;
         
-        [self.tableView reloadData];
+        if(self.model.data.count > 0) {
+            [self.tableView reloadData];
+        } else {
+            [self.view showEmptyView:@"还没有活动，敬请期待哦！"];
+        }
+        
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self.view removeLoadingBee];
