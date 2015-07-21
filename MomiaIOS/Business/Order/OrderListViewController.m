@@ -87,7 +87,7 @@
                                      if (self.status == 2) {
                                          [self.view showEmptyView:@"您还没有待付款订单哦，\n快去逛一下吧~"];
                                      } else if (self.status == 3) {
-                                         [self.view showEmptyView:@"您还没有已付款订单哦，\n快去逛一下吧~"];
+                                         [self.view showEmptyView:@"您还没有未消费订单哦，\n快去逛一下吧~"];
                                      } else {
                                          [self.view showEmptyView:@"订单列表为空"];
                                      }
