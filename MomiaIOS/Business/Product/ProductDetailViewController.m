@@ -36,7 +36,9 @@ typedef enum
 
 @property(nonatomic,strong) ProductDetailModel * model;
 @property(nonatomic,strong) NSString * productId;
+
 @property(nonatomic,strong) NSMutableDictionary * contentCellDictionary;
+@property(nonatomic,strong) NSMutableDictionary * contentCellHeightCacheDic;
 
 @end
 
@@ -106,12 +108,24 @@ typedef enum
     } else if(section == 2) {
         height = [ProductDetailEnrollCell heightWithTableView:tableView withIdentifier:productDetailEnrollIdentifier forIndexPath:indexPath data:self.model.data.customers];
     } else {
-        height = [ProductDetailContentCell heightWithTableView:tableView contentModel:self.model.data.content[section - 3]];
+        ProductContentModel *model = self.model.data.content[section - 3];
+        NSNumber *cacheHeight;
+        if (self.contentCellHeightCacheDic) {
+            cacheHeight = [self.contentCellHeightCacheDic objectForKey:[NSNumber numberWithInteger:model.hash]];
+        }
+        if (cacheHeight) {
+            height = [cacheHeight floatValue];
+            
+        } else {
+            height = [ProductDetailContentCell heightWithTableView:tableView contentModel:self.model.data.content[section - 3]];
+            if (self.contentCellHeightCacheDic == nil) {
+                self.contentCellHeightCacheDic = [NSMutableDictionary new];
+            }
+            [self.contentCellHeightCacheDic setObject:[NSNumber numberWithFloat:height] forKey:[NSNumber numberWithInteger:model.hash]];
+        }
     }
     return height;
 }
-
-
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
