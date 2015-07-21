@@ -87,7 +87,7 @@
 }
 
 - (void)onExpireClicked {
-    [self openURL:@"duola://couponlist?status=1"];
+    [self openURL:@"duola://couponlist?status=3"];
 }
 
 - (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle {
