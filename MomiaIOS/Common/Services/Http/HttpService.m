@@ -11,7 +11,6 @@
 #import "AFURLSessionManager.h"
 #import "BaseModel.h"
 #import "UploadImageModel.h"
-#import "ISDiskCache.h"
 #import "CityManager.h"
 #import "ServerErrorHandler.h"
 #import "NSString+MOEncrypt.h"
@@ -34,8 +33,6 @@
         
         self.httpClient.requestSerializer = [AFJSONRequestSerializer serializer];
         [self.httpClient.requestSerializer setValue:@"API1.0(com.youxing.DuoLa;iOS)" forHTTPHeaderField:@"User-Agent"];
-        
-        [ISDiskCache sharedCache].limitOfSize = 10 * 1024 * 1024; // 10MB
     }
     return self;
 }
@@ -58,8 +55,9 @@
     BlockMOHTTPRequestSuccess onSuccess = ^(AFHTTPRequestOperation *operation, id responseObject) {
         
         // cache
-        if (cacheType == CacheTypeNormal) {
-            [[ISDiskCache sharedCache] setObject:responseObject forKey:cacheUrl];
+        if (cacheType != CacheTypeDisable) {
+            [[CacheService defaultService] removeObjectForKey:cacheUrl];
+            [[CacheService defaultService] setObject:responseObject forKey:cacheUrl];
         }
         
         if (responseModelClass == nil) {
@@ -100,25 +98,37 @@
         NSLog(@"http (GET) fail: \nurl : %@\nparams : %@\nresult : %@", URLString, allParams, error);
     };
     
-    if (cacheType == CacheTypeNormal) {
+    if (cacheType != CacheTypeDisable) {
         // check cache first
-        id cache = [[ISDiskCache sharedCache] objectForKey:cacheUrl];
+        id cache = [[CacheService defaultService] objectForKey:cacheUrl];
         if (cache) {
-            BaseModel *result = [(BaseModel *)[responseModelClass alloc]initWithDictionary:cache error:nil];
-            if (result == nil) {
-                result = [[BaseModel alloc]initWithDictionary:cache error:nil];
-            }
-            if (result.errNo == 0) {
-                success(nil, result);
-                NSLog(@"http (Cache) success: %@", cache);
-                return nil;
+            while (1) {
+                // check expire
+                long now = [[[NSDate alloc]init] timeIntervalSince1970];
+                long dt = now - [[CacheService defaultService] timeForKey:cacheUrl];
                 
-            } else {
-                NSLog(@"http (Cache) fail: %@", cache);
-                // clear cache
-                [[ISDiskCache sharedCache] removeObjectForKey:cacheUrl];
+                if (cacheType == CacheTypeNormal && dt > 5 * 60) {
+                    // 5 min cache expire
+                    break;
+                }
+                
+                BaseModel *result = [(BaseModel *)[responseModelClass alloc]initWithDictionary:cache error:nil];
+                if (result == nil) {
+                    result = [[BaseModel alloc]initWithDictionary:cache error:nil];
+                }
+                if (result.errNo == 0) {
+                    success(nil, result);
+                    NSLog(@"http (Cache) success: %@", cache);
+                    return nil;
+                    
+                } else {
+                    NSLog(@"http (Cache) fail: %@", cache);
+                    // clear cache
+                    [[CacheService defaultService] removeObjectForKey:cacheUrl];
+                }
+                
+                break;
             }
-            
         }
     }
     

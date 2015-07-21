@@ -22,8 +22,10 @@ typedef void (^BlockMOUploadImageHandler)(NSURLResponse *response, id responseOb
 typedef enum {
     // 禁用缓存（默认）
     CacheTypeDisable,
-    // 普通缓存类型
-    CacheTypeNormal
+    // 普通缓存类型（5分钟缓存有效期）
+    CacheTypeNormal,
+    // 持久化缓存（缓存不会过期）
+    CacheTypePersistant
 } CacheType;
 
 @interface HttpService : NSObject

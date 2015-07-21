@@ -127,6 +127,7 @@
 		BC0BD7031B55173800B95B3A /* CouponListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC0BD7011B55173800B95B3A /* CouponListItemCell.xib */; };
 		BC0BD7061B5518F000B95B3A /* CouponPriceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD7051B5518F000B95B3A /* CouponPriceModel.m */; };
 		BC0EC2941B58EFD200D9A82F /* DateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC2931B58EFD200D9A82F /* DateManager.m */; };
+		BC0EC2981B5E1F5300D9A82F /* CacheService.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC2971B5E1F5300D9A82F /* CacheService.m */; };
 		BC2C0C521B1303BA00E2446E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
 		BC2C0C571B1309A800E2446E /* MOButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C561B1309A800E2446E /* MOButton.m */; };
 		BC2C0C611B130C9300E2446E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C601B130C9300E2446E /* User.m */; };
@@ -461,6 +462,8 @@
 		BC0BD7051B5518F000B95B3A /* CouponPriceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CouponPriceModel.m; path = Common/Models/Pay/CouponPriceModel.m; sourceTree = "<group>"; };
 		BC0EC2921B58EFD200D9A82F /* DateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateManager.h; path = Common/Utils/DateManager.h; sourceTree = "<group>"; };
 		BC0EC2931B58EFD200D9A82F /* DateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateManager.m; path = Common/Utils/DateManager.m; sourceTree = "<group>"; };
+		BC0EC2961B5E1F5300D9A82F /* CacheService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CacheService.h; path = Common/Services/Cache/CacheService.h; sourceTree = "<group>"; };
+		BC0EC2971B5E1F5300D9A82F /* CacheService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CacheService.m; path = Common/Services/Cache/CacheService.m; sourceTree = "<group>"; };
 		BC2C0C4F1B1303BA00E2446E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Business/Login/LoginViewController.h; sourceTree = "<group>"; };
 		BC2C0C501B1303BA00E2446E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Business/Login/LoginViewController.m; sourceTree = "<group>"; };
 		BC2C0C551B1309A800E2446E /* MOButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOButton.h; path = Common/Views/MOButton.h; sourceTree = "<group>"; };
@@ -1033,6 +1036,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BC0EC2951B5E1F2F00D9A82F /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				BC0EC2961B5E1F5300D9A82F /* CacheService.h */,
+				BC0EC2971B5E1F5300D9A82F /* CacheService.m */,
+			);
+			name = Cache;
+			sourceTree = "<group>";
+		};
 		BC2C0C4E1B13033000E2446E /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -1113,6 +1125,7 @@
 		BC2FAA121AFCB1CB00E2071E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				BC0EC2951B5E1F2F00D9A82F /* Cache */,
 				BC82543C1B3C26A900430A6F /* Location */,
 				BC2C0C651B131EAC00E2446E /* Account */,
 				BC2FAA171AFCB65400E2071E /* Http */,
@@ -1906,6 +1919,7 @@
 				5A0643781B3BE9FE00361732 /* OrderUpdatePersonFillCell.m in Sources */,
 				5A5A2A691B43E531000595A9 /* OrderContactViewController.m in Sources */,
 				5A1B35E81B12BBAC00E1D31B /* CommentModel.m in Sources */,
+				BC0EC2981B5E1F5300D9A82F /* CacheService.m in Sources */,
 				BC5063971B5385FD00AA233C /* MONetworkPhotoView.m in Sources */,
 				BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */,
 				BC8254331B3A76F500430A6F /* CustomDarkButton.m in Sources */,

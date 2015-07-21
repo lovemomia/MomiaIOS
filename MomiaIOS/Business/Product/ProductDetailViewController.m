@@ -16,6 +16,7 @@
 #import "CommonHeaderView.h"
 #import "ThirdShareHelper.h"
 #import "SGActionView.h"
+#import "MJRefresh.h"
 
 static NSString * productDetailCarouselIdentifier = @"CellProductDetailCarousel";
 static NSString * productDetailEnrollIdentifier = @"CellProductDetailEnroll";
@@ -221,13 +222,15 @@ typedef enum
 
 #pragma mark - webData Request
 
-- (void)requestData {
+- (void)requestData:(BOOL)refresh {
     if (self.model == nil) {
         [self.view showLoadingBee];
     }
+    
+    CacheType cacheType = refresh ? CacheTypeDisable : CacheTypeNormal;
 
     NSDictionary * dic = @{@"id":self.productId};
-    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/product") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[ProductDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/product") parameters:dic cacheType:cacheType JSONModelClass:[ProductDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.model == nil) {
             [self.view removeLoadingBee];
         }
@@ -243,12 +246,17 @@ typedef enum
         }
         
         [self.tableView reloadData];
+        [self.tableView.header endRefreshing];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self.view removeLoadingBee];
         [self showDialogWithTitle:nil message:error.message];
-        NSLog(@"Error: %@", error);
+        [self.tableView.header endRefreshing];
     }];
+}
+
+- (void)refreshData {
+    [self requestData:YES];
 }
 
 
@@ -277,9 +285,11 @@ typedef enum
     self.tableView.backgroundView = [[UIView alloc] init];
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
     
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData)];
+    
     self.tableView.width = SCREEN_WIDTH;
     
-    [self requestData];
+    [self requestData:NO];
 
 }
 
