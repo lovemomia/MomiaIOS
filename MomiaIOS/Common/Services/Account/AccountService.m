@@ -33,7 +33,7 @@
 
 - (Account *)account {
     if (_account == nil) {
-        Account *ac =[[Account alloc]init];
+        Account *ac;
         NSData *myEncodedObject = [[NSUserDefaults standardUserDefaults] objectForKey:@"account"];
         if (myEncodedObject == nil) {
             return nil;

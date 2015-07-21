@@ -199,11 +199,13 @@ static NSString * identifier = @"CellFeedbackIdentifier";
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     [self registerForKeyboardNotifications];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
 {
+    [super viewDidDisappear:animated];
     [self removeForKeyboardNotifications];
 }
 

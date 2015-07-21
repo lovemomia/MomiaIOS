@@ -42,7 +42,7 @@
 }
 
 + (CGFloat)heightWithData:(CommentItem *)data {
-    CGFloat height;
+    CGFloat height = 0;
     
     if (data.content) {
         CGRect textFrame = [UILabel heightForMutableString:data.content withWidth:(SCREEN_WIDTH - 79)  lineSpace:0 andFontSize:15.0];

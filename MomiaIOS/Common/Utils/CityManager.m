@@ -30,7 +30,7 @@
 
 - (City *)choosedCity {
     if (_choosedCity == nil) {
-        City *ac =[[City alloc]init];
+        City *ac;
         NSData *myEncodedObject = [[NSUserDefaults standardUserDefaults] objectForKey:@"choosedCity"];
         if (myEncodedObject != nil) {
             ac = [NSKeyedUnarchiver unarchiveObjectWithData: myEncodedObject];

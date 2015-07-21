@@ -235,7 +235,7 @@
         
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
-            title = @"性别";
+//            title = @"性别";
             [self showSexPicker:1];
             return;
             
@@ -249,11 +249,11 @@
             title = @"姓名";
             tag = section;
         } else if (indexPath.row == 1) {
-            title = @"性别";
+//            title = @"性别";
             [self showSexPicker:(section)];
             return;
         } else if (indexPath.row == 2) {
-            title = @"生日";
+//            title = @"生日";
             [self showDatePicker:(section)];
             return;
         }
