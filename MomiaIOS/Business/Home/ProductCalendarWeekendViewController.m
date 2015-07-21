@@ -90,6 +90,9 @@ static NSString * productCalendarWeekendIdentifier = @"CellProductCalendarWeeken
 #pragma mark - webData Request
 
 - (void)requestData {
+    
+    [self.view removeEmptyView];
+    
     if (self.model == nil) {
         [self.view showLoadingBee];
     }
@@ -105,14 +108,21 @@ static NSString * productCalendarWeekendIdentifier = @"CellProductCalendarWeeken
         
         [self.array addObjectsFromArray:self.model.data.list];
         
-        if(self.model.data.nextIndex) {
-            self.index = self.model.data.nextIndex.integerValue;
-        } else {
-            self.model = nil;
+        if(self.model.data.totalCount > 0) {
+            
+            if(self.model.data.nextIndex) {
+                self.index = self.model.data.nextIndex.integerValue;
+            } else {
+                self.model = nil;
+            }
+            
+            [self.tableView reloadData];
+            self.isLoading = NO;
+            
+        } else if(self.array.count == 0){
+            [self.view showEmptyView:@"还没有活动，敬请期待哦！"];
         }
-
-        [self.tableView reloadData];
-        self.isLoading = NO;
+        
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self.view removeLoadingBee];
