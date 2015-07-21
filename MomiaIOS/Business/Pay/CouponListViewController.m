@@ -141,9 +141,9 @@
         if (cell == nil) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"CouponListItemCell" owner:self options:nil];
             CouponListItemCell *itemCell = [arr objectAtIndex:0];
-            [itemCell setData:[self.couponList objectAtIndex:indexPath.row]];
             cell = itemCell;
         }
+        [(CouponListItemCell *)cell setData:[self.couponList objectAtIndex:indexPath.row]];
     }
     return cell;
 }
@@ -153,36 +153,31 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (section == [self numberOfSectionsInTableView:tableView] - 1) {
-        if ([self.status isEqualToString:@"1"] && self.totalCount > 0) {
-            return 60;
-            
-        } else {
-            return SCREEN_HEIGHT;
-        }
+    if ([self.status isEqualToString:@"1"] && self.totalCount > 0) {
+        return 60;
     }
     return 0.1;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    if (section == [self numberOfSectionsInTableView:tableView] - 1) {
-        if ([self.status isEqualToString:@"1"] && self.totalCount > 0) {
-            UIView *view = [UIView new];
-            
-            UIButton *forgetPwBtn = [[UIButton alloc]init];
-            forgetPwBtn.height = 20;
-            forgetPwBtn.width = 80;
-            [forgetPwBtn setTitle:@"过期红包" forState:UIControlStateNormal];
-            forgetPwBtn.titleLabel.font = [UIFont systemFontOfSize: 12.0];
-            forgetPwBtn.left = SCREEN_WIDTH / 2 - 40;
-            forgetPwBtn.top = 15;
-            forgetPwBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-            [forgetPwBtn setTitleColor:UIColorFromRGB(0x0070C0) forState:UIControlStateNormal];
-            [forgetPwBtn addTarget:self action:@selector(onExpireClicked) forControlEvents:UIControlEventTouchUpInside];
-            [view addSubview:forgetPwBtn];
-            
-            return view;
-        }
+    if ([self.status isEqualToString:@"1"] && self.totalCount > 0) {
+        UITableViewHeaderFooterView *view = [UITableViewHeaderFooterView new];
+        view.backgroundView = [UIView new];
+        view.backgroundView.backgroundColor = [UIColor clearColor];
+        
+        UIButton *forgetPwBtn = [[UIButton alloc]init];
+        forgetPwBtn.height = 20;
+        forgetPwBtn.width = 80;
+        [forgetPwBtn setTitle:@"过期红包" forState:UIControlStateNormal];
+        forgetPwBtn.titleLabel.font = [UIFont systemFontOfSize: 12.0];
+        forgetPwBtn.left = SCREEN_WIDTH / 2 - 40;
+        forgetPwBtn.top = 15;
+        forgetPwBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+        [forgetPwBtn setTitleColor:UIColorFromRGB(0x0070C0) forState:UIControlStateNormal];
+        [forgetPwBtn addTarget:self action:@selector(onExpireClicked) forControlEvents:UIControlEventTouchUpInside];
+        [view addSubview:forgetPwBtn];
+        
+        return view;
     }
     return nil;
 }
