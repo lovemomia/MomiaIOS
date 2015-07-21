@@ -31,6 +31,12 @@ static NSString * p_p_f_identifier = @"Cell_p_p_f";
 }
 
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger section = indexPath.section;
@@ -94,6 +100,8 @@ static NSString * p_p_f_identifier = @"Cell_p_p_f";
     };
     return headerView;
 }
+
+
 
 #pragma mark - webData Request
 
