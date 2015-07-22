@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "tab_mine_select.png"
+      "filename" : "TabHomeSelect.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "tab_mine_select@2x.png"
+      "filename" : "TabHomeSelect@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "tab_mine_select@3x.png"
+      "filename" : "TabHomeSelect@3x.png"
     }
   ],
   "info" : {
