@@ -106,7 +106,7 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    NSInteger type;
+    NSInteger type = 0;
     for (int i = 0; i < self.payChannels.count; i++) {
         PayChannel *channel = [self.payChannels objectAtIndex:i];
         if (channel.select) {

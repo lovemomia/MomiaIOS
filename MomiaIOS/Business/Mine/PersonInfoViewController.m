@@ -219,7 +219,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     NSString *title;
-    NSInteger tag;
+    NSInteger tag = 0;
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     if (indexPath.section == 0) {
@@ -235,7 +235,6 @@
         
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
-//            title = @"性别";
             [self showSexPicker:1];
             return;
             
@@ -249,11 +248,9 @@
             title = @"姓名";
             tag = section;
         } else if (indexPath.row == 1) {
-//            title = @"性别";
             [self showSexPicker:(section)];
             return;
         } else if (indexPath.row == 2) {
-//            title = @"生日";
             [self showDatePicker:(section)];
             return;
         }
@@ -444,17 +441,9 @@
 }
 
 - (void)saveImage:(UIImage *)image {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSError *error;
-    
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *imageFilePath = [documentsDirectory stringByAppendingPathComponent:@"selfPhoto.jpg"];
-    NSLog(@"imageFile->>%@",imageFilePath);
-    BOOL exists = [fileManager fileExistsAtPath:imageFilePath];
-    if(exists) {
-        exists = [fileManager removeItemAtPath:imageFilePath error:&error];
-    }
     
     //scale
     CGSize size = CGSizeMake(100, 100);

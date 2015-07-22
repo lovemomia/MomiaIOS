@@ -386,20 +386,8 @@ typedef enum {
 }
 
 - (void)saveImage:(UIImage *)image {
-    //    NSLog(@"保存头像！");
-    //    [userPhotoButton setImage:image forState:UIControlStateNormal];
-    BOOL success;
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSError *error;
-    
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *imageFilePath = [documentsDirectory stringByAppendingPathComponent:@"selfPhoto.jpg"];
-    NSLog(@"imageFile->>%@",imageFilePath);
-    success = [fileManager fileExistsAtPath:imageFilePath];
-    if(success) {
-        success = [fileManager removeItemAtPath:imageFilePath error:&error];
-    }
     
     UIImage *smallImage = [self thumbnailWithImageWithoutScale:[self croppImage:image] size:CGSizeMake(self.selectImage.imageView.size.width, self.selectImage.imageView.size.height)];
     
