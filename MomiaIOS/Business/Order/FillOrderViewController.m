@@ -121,7 +121,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
         return;
     }
     
-    self.orderModel.prices = self.prices;
+    self.orderModel.prices = (NSArray<AddOrderPriceModel> *)self.prices;
     self.orderModel.participants = self.participants;
     
     [self postOrder];

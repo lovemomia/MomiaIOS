@@ -118,7 +118,7 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HRl-Hm-2eI" id="Uyu-1N-L9W">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIc-TN-Edo">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIc-TN-Edo">
                         <rect key="frame" x="195" y="11" width="118" height="22"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <state key="normal" title=" 赞100" image="a_d_address">
