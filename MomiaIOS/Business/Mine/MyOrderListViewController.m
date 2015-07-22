@@ -7,22 +7,18 @@
 //
 
 #import "MyOrderListViewController.h"
-#import "MOTabHost.h"
 #import "OrderListViewController.h"
+#import "LJViewPager.h"
+#import "LJTabBar.h"
 
-@interface MyOrderListViewController ()
-@property (nonatomic, strong) OrderListViewController *payedOrderListViewController;
-@property (nonatomic, strong) OrderListViewController *payingOrderListViewController;
-@property (nonatomic, strong) OrderListViewController *allOrderListViewController;
+@interface MyOrderListViewController () <LJViewPagerDataSource, LJViewPagerDelegate>
 
-@property (nonatomic, strong) OrderListViewController *currentViewController;
+@property (strong, nonatomic) LJViewPager *viewPager;
+@property (strong, nonatomic) LJTabBar *tabBar;
+
 @end
 
 @implementation MyOrderListViewController
-@synthesize payedOrderListViewController;
-@synthesize payingOrderListViewController;
-@synthesize allOrderListViewController;
-@synthesize currentViewController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,66 +26,20 @@
     
     self.navigationItem.title = @"我的订单";
     
-    MOTabHost *tabHost = [[MOTabHost alloc] initWithItems:[NSArray arrayWithObjects:@"未消费", @"待付款", @"全部", nil]];
-    [tabHost setItemSelect:0];
-    tabHost.onItemClickedListener = ^(NSInteger index){
-        if ((currentViewController == self.payedOrderListViewController && index == 0) || (currentViewController == payingOrderListViewController && index == 1) ||(currentViewController == allOrderListViewController && index == 2)) {
-            return;
-        }
-        
-        OrderListViewController *oldViewController = currentViewController;
-        if (index == 0) {
-            [self transitionFromViewController:currentViewController toViewController:payedOrderListViewController duration:0 options:UIViewAnimationOptionTransitionNone animations:^{
-            }  completion:^(BOOL finished) {
-                if (finished) {
-                    currentViewController = payedOrderListViewController;
-                } else {
-                    currentViewController = oldViewController;
-                }
-            }];
-            
-        } else if (index == 1) {
-            [self transitionFromViewController:currentViewController toViewController:payingOrderListViewController duration:0 options:UIViewAnimationOptionTransitionNone animations:^{
-            }  completion:^(BOOL finished) {
-                if (finished) {
-                    currentViewController = payingOrderListViewController;
-                } else {
-                    currentViewController = oldViewController;
-                }
-            }];
-            
-        } else if (index == 2) {
-            [self transitionFromViewController:currentViewController toViewController:allOrderListViewController duration:0 options:UIViewAnimationOptionTransitionNone animations:^{
-            }  completion:^(BOOL finished) {
-                if (finished) {
-                    currentViewController = allOrderListViewController;
-                } else {
-                    currentViewController = oldViewController;
-                }
-            }];
-        }
-        
-        
-    };
-    [self.view addSubview:tabHost];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    [self.view addSubview:self.viewPager];
+    [self.view addSubview:self.tabBar];
+    self.viewPager.viewPagerDateSource = self;
+    self.viewPager.viewPagerDelegate = self;
+    self.tabBar.titles = @[@"未消费", @"待付款", @"全部"];
+    self.viewPager.tabBar = self.tabBar;
     
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 44, SCREEN_WIDTH, self.view.height - 108)];
-    [self.view addSubview:contentView];
-    
-    self.payedOrderListViewController = [[OrderListViewController alloc]initWithParams:@{@"status":@"3"}];
-    self.payedOrderListViewController.view.height = contentView.height;
-    [self addChildViewController:self.payedOrderListViewController];
-    
-    self.payingOrderListViewController = [[OrderListViewController alloc]initWithParams:@{@"status":@"2"}];
-    self.payingOrderListViewController.view.height = contentView.height;
-    [self addChildViewController:self.payingOrderListViewController];
-    
-    self.allOrderListViewController = [[OrderListViewController alloc]initWithParams:@{@"status":@"1"}];
-    self.allOrderListViewController.view.height = contentView.height;
-    [self addChildViewController:self.allOrderListViewController];
-    
-    [contentView addSubview:self.payedOrderListViewController.view];
-    self.currentViewController = self.payedOrderListViewController;
+    self.tabBar.itemsPerPage = 3;
+    self.tabBar.showShadow = NO;
+    self.tabBar.textColor = UIColorFromRGB(0x333333);
+    self.tabBar.textFont = [UIFont systemFontOfSize:15];
+    self.tabBar.selectedTextColor = MO_APP_ThemeColor;
+    self.tabBar.indicatorColor = MO_APP_ThemeColor;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -97,14 +47,51 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - pager view data source
+- (UIViewController *)viewPagerInViewController {
+    return self;
 }
-*/
+
+- (NSInteger)numbersOfPage {
+    return 3;
+}
+
+- (UIViewController *)viewPager:(LJViewPager *)viewPager controllerAtPage:(NSInteger)page {
+    if (page == 0) {
+        return [[OrderListViewController alloc]initWithParams:@{@"status":@"3"}];
+    } else if (page == 1) {
+        return [[OrderListViewController alloc]initWithParams:@{@"status":@"2"}];
+    } else {
+        return [[OrderListViewController alloc]initWithParams:@{@"status":@"1"}];
+    }
+}
+
+#pragma mark - pager view delegate
+- (void)viewPager:(LJViewPager *)viewPager didScrollToPage:(NSInteger)page {
+}
+
+- (void)viewPager:(LJViewPager *)viewPager didScrollToOffset:(CGPoint)offset {
+    
+}
+
+- (UIView *)tabBar {
+    if (_tabBar == nil) {
+        int tabHeight = 44;
+        _tabBar = [[LJTabBar alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, tabHeight)];
+        _tabBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    }
+    return _tabBar;
+}
+
+- (LJViewPager *)viewPager {
+    if (_viewPager == nil) {
+        _viewPager = [[LJViewPager alloc] initWithFrame:CGRectMake(0,
+                                                                   CGRectGetMaxY(self.tabBar.frame),
+                                                                   self.view.frame.size.width,
+                                                                   self.view.frame.size.height - CGRectGetMaxY(self.tabBar.frame))];
+        _viewPager.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    }
+    return _viewPager;
+}
 
 @end

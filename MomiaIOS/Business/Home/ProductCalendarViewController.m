@@ -9,37 +9,27 @@
 #import "ProductCalendarViewController.h"
 #import "ProductCalendarMonthViewController.h"
 #import "ProductCalendarWeekendViewController.h"
-#import "MOTabHost.h"
 #import "DateManager.h"
 #import "StringUtils.h"
+#import "LJViewPager.h"
+#import "LJTabBar.h"
 
-@interface ProductCalendarViewController ()
+@interface ProductCalendarViewController ()<LJViewPagerDataSource, LJViewPagerDelegate>
 
-@property(nonatomic,weak) MOViewController * currentViewController;
-@property(nonatomic,strong) UIView * contentView;
+@property (strong, nonatomic) LJViewPager *viewPager;
+@property (strong, nonatomic) LJTabBar *tabBar;
+
+@property (assign, nonatomic) int month;
+@property (assign, nonatomic) int nextMonth;
 
 @end
 
 @implementation ProductCalendarViewController
 
--(UIView *)contentView
-{
-    if(!_contentView) {
-        _contentView = [[UIView alloc] init];
-        [self.view addSubview:_contentView];
-        [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(44, 0, 0, 0));
-        }];
-    }
-    return _contentView;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"活动日历";
-    
-    __weak ProductCalendarViewController * weakSelf = self;
     
     int month = [DateManager shareManager].serverTimeMonth;
     
@@ -48,63 +38,76 @@
         nextMonth = 1;
     } else nextMonth = month + 1;
     
-    MOTabHost * tabHost = [[MOTabHost alloc] initWithItems:[NSArray arrayWithObjects:@"周末", [[StringUtils stringForMonth:month] stringByAppendingString:@"月"], [[StringUtils stringForMonth:nextMonth] stringByAppendingString:@"月"], nil]];
-    tabHost.onItemClickedListener = ^(NSInteger index) {
-        MOViewController * toVC = [weakSelf.childViewControllers objectAtIndex:index];
-        if(weakSelf.currentViewController == toVC) {
-            return ;
-        }
-        
-        [weakSelf transitionFromViewController:weakSelf.currentViewController toViewController:toVC duration:0.3 options:UIViewAnimationOptionTransitionNone animations:^{
-            [toVC.view mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.edges.equalTo(weakSelf.contentView);
-            }];
-            
-        } completion:^(BOOL finished) {
-            if(finished) {
-                weakSelf.currentViewController = toVC;
-            }
-        }];
-        
-    };
-    [tabHost setItemSelect:0];
-    [self.view addSubview:tabHost];
-
-    ProductCalendarWeekendViewController * firstController = [[ProductCalendarWeekendViewController alloc] initWithParams:nil];
-    [self addChildViewController:firstController];
+    self.month = month;
+    self.nextMonth = nextMonth;
     
-    NSDictionary * dic1 = @{@"month":@(month)};
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    [self.view addSubview:self.viewPager];
+    [self.view addSubview:self.tabBar];
+    self.viewPager.viewPagerDateSource = self;
+    self.viewPager.viewPagerDelegate = self;
+    self.tabBar.titles = @[@"周末", [[StringUtils stringForMonth:month] stringByAppendingString:@"月"], [[StringUtils stringForMonth:nextMonth] stringByAppendingString:@"月"]];
+    self.viewPager.tabBar = self.tabBar;
     
-    ProductCalendarMonthViewController * secondController = [[ProductCalendarMonthViewController alloc] initWithParams:dic1];
-    [self addChildViewController:secondController];
-    
-    NSDictionary * dic2 = @{@"month":@(nextMonth)};
-
-    ProductCalendarMonthViewController * thirdController = [[ProductCalendarMonthViewController alloc] initWithParams:dic2];
-    [self addChildViewController:thirdController];
-    
-    [self.contentView addSubview:firstController.view];
-    
-    [firstController.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.contentView);
-    }];
-    
-    self.currentViewController = firstController;
-}
+    self.tabBar.itemsPerPage = 3;
+    self.tabBar.showShadow = NO;
+    self.tabBar.textColor = UIColorFromRGB(0x333333);
+    self.tabBar.textFont = [UIFont systemFontOfSize:15];
+    self.tabBar.selectedTextColor = MO_APP_ThemeColor;
+    self.tabBar.indicatorColor = MO_APP_ThemeColor;}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - pager view data source
+- (UIViewController *)viewPagerInViewController {
+    return self;
 }
-*/
+
+- (NSInteger)numbersOfPage {
+    return 3;
+}
+
+- (UIViewController *)viewPager:(LJViewPager *)viewPager controllerAtPage:(NSInteger)page {
+    if (page == 0) {
+        return [[ProductCalendarWeekendViewController alloc] initWithParams:nil];
+    } else if (page == 1) {
+        NSDictionary * dic = @{@"month":@(self.month)};
+        return [[ProductCalendarMonthViewController alloc] initWithParams:dic];
+    } else {
+        NSDictionary * dic = @{@"month":@(self.nextMonth)};
+        return [[ProductCalendarMonthViewController alloc] initWithParams:dic];
+    }
+}
+
+#pragma mark - pager view delegate
+- (void)viewPager:(LJViewPager *)viewPager didScrollToPage:(NSInteger)page {
+}
+
+- (void)viewPager:(LJViewPager *)viewPager didScrollToOffset:(CGPoint)offset {
+    
+}
+
+- (UIView *)tabBar {
+    if (_tabBar == nil) {
+        int tabHeight = 44;
+        _tabBar = [[LJTabBar alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, tabHeight)];
+        _tabBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    }
+    return _tabBar;
+}
+
+- (LJViewPager *)viewPager {
+    if (_viewPager == nil) {
+        _viewPager = [[LJViewPager alloc] initWithFrame:CGRectMake(0,
+                                                                   CGRectGetMaxY(self.tabBar.frame),
+                                                                   self.view.frame.size.width,
+                                                                   self.view.frame.size.height - CGRectGetMaxY(self.tabBar.frame))];
+        _viewPager.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    }
+    return _viewPager;
+}
 
 @end

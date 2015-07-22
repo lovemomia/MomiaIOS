@@ -128,6 +128,9 @@
 		BC0BD7061B5518F000B95B3A /* CouponPriceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD7051B5518F000B95B3A /* CouponPriceModel.m */; };
 		BC0EC2941B58EFD200D9A82F /* DateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC2931B58EFD200D9A82F /* DateManager.m */; };
 		BC0EC2981B5E1F5300D9A82F /* CacheService.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC2971B5E1F5300D9A82F /* CacheService.m */; };
+		BC0EC2A01B5F880E00D9A82F /* LJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC29B1B5F880E00D9A82F /* LJTabBar.m */; };
+		BC0EC2A11B5F880E00D9A82F /* LJViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC29D1B5F880E00D9A82F /* LJViewPager.m */; };
+		BC0EC2A21B5F880E00D9A82F /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC29F1B5F880E00D9A82F /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m */; };
 		BC2C0C521B1303BA00E2446E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
 		BC2C0C571B1309A800E2446E /* MOButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C561B1309A800E2446E /* MOButton.m */; };
 		BC2C0C611B130C9300E2446E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C601B130C9300E2446E /* User.m */; };
@@ -464,6 +467,12 @@
 		BC0EC2931B58EFD200D9A82F /* DateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateManager.m; path = Common/Utils/DateManager.m; sourceTree = "<group>"; };
 		BC0EC2961B5E1F5300D9A82F /* CacheService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CacheService.h; path = Common/Services/Cache/CacheService.h; sourceTree = "<group>"; };
 		BC0EC2971B5E1F5300D9A82F /* CacheService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CacheService.m; path = Common/Services/Cache/CacheService.m; sourceTree = "<group>"; };
+		BC0EC29A1B5F880E00D9A82F /* LJTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJTabBar.h; sourceTree = "<group>"; };
+		BC0EC29B1B5F880E00D9A82F /* LJTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJTabBar.m; sourceTree = "<group>"; };
+		BC0EC29C1B5F880E00D9A82F /* LJViewPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJViewPager.h; sourceTree = "<group>"; };
+		BC0EC29D1B5F880E00D9A82F /* LJViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJViewPager.m; sourceTree = "<group>"; };
+		BC0EC29E1B5F880E00D9A82F /* UIScrollView+AllowScreenEdgePanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+AllowScreenEdgePanGestureRecognizer.h"; sourceTree = "<group>"; };
+		BC0EC29F1B5F880E00D9A82F /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+AllowScreenEdgePanGestureRecognizer.m"; sourceTree = "<group>"; };
 		BC2C0C4F1B1303BA00E2446E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Business/Login/LoginViewController.h; sourceTree = "<group>"; };
 		BC2C0C501B1303BA00E2446E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Business/Login/LoginViewController.m; sourceTree = "<group>"; };
 		BC2C0C551B1309A800E2446E /* MOButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOButton.h; path = Common/Views/MOButton.h; sourceTree = "<group>"; };
@@ -1045,6 +1054,19 @@
 			name = Cache;
 			sourceTree = "<group>";
 		};
+		BC0EC2991B5F880E00D9A82F /* LJViewPager */ = {
+			isa = PBXGroup;
+			children = (
+				BC0EC29A1B5F880E00D9A82F /* LJTabBar.h */,
+				BC0EC29B1B5F880E00D9A82F /* LJTabBar.m */,
+				BC0EC29C1B5F880E00D9A82F /* LJViewPager.h */,
+				BC0EC29D1B5F880E00D9A82F /* LJViewPager.m */,
+				BC0EC29E1B5F880E00D9A82F /* UIScrollView+AllowScreenEdgePanGestureRecognizer.h */,
+				BC0EC29F1B5F880E00D9A82F /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m */,
+			);
+			path = LJViewPager;
+			sourceTree = "<group>";
+		};
 		BC2C0C4E1B13033000E2446E /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -1064,6 +1086,7 @@
 		BC2C0C541B13095A00E2446E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BC0EC2991B5F880E00D9A82F /* LJViewPager */,
 				BC5063851B53746800AA233C /* SGActionView */,
 				5AB1BDE11B4FB59D004A4511 /* Loading */,
 				5AE4F8631B3D62DB005879B7 /* MOStepper */,
@@ -1905,6 +1928,7 @@
 				5A456F9A1B2E687700E95756 /* MOTableCell.m in Sources */,
 				BC2C0C961B184EA500E2446E /* AvatarImageView.m in Sources */,
 				BC2C0C641B130CDB00E2446E /* Account.m in Sources */,
+				BC0EC2A11B5F880E00D9A82F /* LJViewPager.m in Sources */,
 				5AEB188A1B1865F90098FD5F /* MySuggestModel.m in Sources */,
 				5A08C1391B39117100642648 /* ProductDetailViewController.m in Sources */,
 				BC5063911B53746800AA233C /* SGAlertMenu.m in Sources */,
@@ -2010,6 +2034,7 @@
 				BC2C0C8F1B18075D00E2446E /* UIImage+Color.m in Sources */,
 				BC0BD6FA1B5516DB00B95B3A /* Coupon.m in Sources */,
 				BCF564CF1B4632A1003A2227 /* Child.m in Sources */,
+				BC0EC2A01B5F880E00D9A82F /* LJTabBar.m in Sources */,
 				5A6806FB1B01D9EA00D02A60 /* MyCollectionViewController.m in Sources */,
 				5AB444821B41479800FBADD4 /* OrderPersonModel.m in Sources */,
 				5AE4F8671B3D642B005879B7 /* MOStepperView.m in Sources */,
@@ -2021,6 +2046,7 @@
 				5A8EF0401B31A4A2003ABAF8 /* NSString+MOAttribuedString.m in Sources */,
 				5AB1BDDA1B4F7785004A4511 /* OrderDetailTitleCell.m in Sources */,
 				BC41ABAD1B0C7ABF00A419DA /* UploadImageModel.m in Sources */,
+				BC0EC2A21B5F880E00D9A82F /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m in Sources */,
 				5A18DC471B292BDF001458A4 /* UITableView+FDTemplateLayoutHeader.m in Sources */,
 				5A794F9D1B4E7F0F00BB3B7C /* OrderDetailBottomCell.m in Sources */,
 				5A08C13B1B39117100642648 /* ProductDetailBasicInfoCell.m in Sources */,

@@ -45,6 +45,97 @@ typedef enum
 
 @implementation ProductDetailViewController
 
+
+-(instancetype)initWithParams:(NSDictionary *)params
+{
+    self = [super initWithParams:params];
+    if(self) {
+        self.productId =  [params objectForKey:@"id"];
+    }
+    return self;
+}
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    self.navigationItem.title = @"活动详情";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleFav"] style:UIBarButtonItemStylePlain target:self action:@selector(onFavClick)];
+    
+    [ProductDetailCarouselCell registerCellWithTableView:self.tableView withIdentifier:productDetailCarouselIdentifier];
+    [ProductDetailEnrollCell registerCellWithTableView:self.tableView withIdentifier:productDetailEnrollIdentifier];
+    [ProductDetailBasicInfoCell registerCellWithTableView:self.tableView withIdentifier:productDetailBasicInfoIdentifier];
+    [ProductDetailTagsCell registerCellWithTableView:self.tableView withIdentifier:productDetailTagsIdentifier];
+    [CommonHeaderView registerCellWithTableView:self.tableView];
+    
+    self.tableView.backgroundView = [[UIView alloc] init];
+    self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
+    
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData)];
+    
+    self.tableView.width = SCREEN_WIDTH;
+    
+    [self requestData:NO];
+}
+
+-(void)viewDidLayoutSubviews
+{
+    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self.tableView setSeparatorInset:UIEdgeInsetsMake(-1, 0, 0, 0)];
+    }
+    
+    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [self.tableView setLayoutMargins:UIEdgeInsetsMake(0, 10, 0, 0)];
+    }
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)onFavClick {
+}
+
+#pragma mark - webData Request
+
+- (void)requestData:(BOOL)refresh {
+    if (self.model == nil) {
+        [self.view showLoadingBee];
+    }
+    
+    CacheType cacheType = refresh ? CacheTypeDisable : CacheTypeNormal;
+    
+    NSDictionary * dic = @{@"id":self.productId};
+    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/product") parameters:dic cacheType:cacheType JSONModelClass:[ProductDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (self.model == nil) {
+            [self.view removeLoadingBee];
+        }
+        
+        self.model = responseObject;
+        
+        if(!self.model.data.soldOut) {
+            [self.signUpBtn setBackgroundColor:UIColorFromRGB(0xff5d33)];
+            [self.signUpBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        } else {
+            [self.signUpBtn setBackgroundColor:UIColorFromRGB(0x999999)];
+            [self.signUpBtn setTitleColor:UIColorFromRGB(0x666666) forState:UIControlStateNormal];
+        }
+        
+        [self.tableView reloadData];
+        [self.tableView.header endRefreshing];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.view removeLoadingBee];
+        [self showDialogWithTitle:nil message:error.message];
+        [self.tableView.header endRefreshing];
+    }];
+}
+
+- (void)refreshData {
+    [self requestData:YES];
+}
+
 -(NSMutableDictionary *)contentCellDictionary
 {
     if(!_contentCellDictionary) {
@@ -213,110 +304,5 @@ typedef enum
     }
 
 }
-
-//-(void)onCollectClick
-//{
-//    
-//}
-
-
-#pragma mark - webData Request
-
-- (void)requestData:(BOOL)refresh {
-    if (self.model == nil) {
-        [self.view showLoadingBee];
-    }
-    
-    CacheType cacheType = refresh ? CacheTypeDisable : CacheTypeNormal;
-
-    NSDictionary * dic = @{@"id":self.productId};
-    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/product") parameters:dic cacheType:cacheType JSONModelClass:[ProductDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if (self.model == nil) {
-            [self.view removeLoadingBee];
-        }
-        
-        self.model = responseObject;
-        
-        if(!self.model.data.soldOut) {
-            [self.signUpBtn setBackgroundColor:UIColorFromRGB(0xff5d33)];
-            [self.signUpBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        } else {
-            [self.signUpBtn setBackgroundColor:UIColorFromRGB(0x999999)];
-            [self.signUpBtn setTitleColor:UIColorFromRGB(0x666666) forState:UIControlStateNormal];
-        }
-        
-        [self.tableView reloadData];
-        [self.tableView.header endRefreshing];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [self.view removeLoadingBee];
-        [self showDialogWithTitle:nil message:error.message];
-        [self.tableView.header endRefreshing];
-    }];
-}
-
-- (void)refreshData {
-    [self requestData:YES];
-}
-
-
--(instancetype)initWithParams:(NSDictionary *)params
-{
-    self = [super initWithParams:params];
-    if(self) {
-        self.productId =  [params objectForKey:@"id"];
-    }
-    return self;
-}
-
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.navigationItem.title = @"活动详情";
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"a_d_collect"] style:UIBarButtonItemStylePlain target:self action:@selector(onCollectClick)];
-    
-    [ProductDetailCarouselCell registerCellWithTableView:self.tableView withIdentifier:productDetailCarouselIdentifier];
-    [ProductDetailEnrollCell registerCellWithTableView:self.tableView withIdentifier:productDetailEnrollIdentifier];
-    [ProductDetailBasicInfoCell registerCellWithTableView:self.tableView withIdentifier:productDetailBasicInfoIdentifier];
-    [ProductDetailTagsCell registerCellWithTableView:self.tableView withIdentifier:productDetailTagsIdentifier];
-    [CommonHeaderView registerCellWithTableView:self.tableView];
-    
-    self.tableView.backgroundView = [[UIView alloc] init];
-    self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
-    
-    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData)];
-    
-    self.tableView.width = SCREEN_WIDTH;
-    
-    [self requestData:NO];
-
-}
-
--(void)viewDidLayoutSubviews
-{
-    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-        [self.tableView setSeparatorInset:UIEdgeInsetsMake(-1, 0, 0, 0)];
-    }
-    
-    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-        [self.tableView setLayoutMargins:UIEdgeInsetsMake(0, 10, 0, 0)];
-    }
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
