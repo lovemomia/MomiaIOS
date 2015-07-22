@@ -74,7 +74,7 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
         self.navigationItem.leftBarButtonItem = cityItem;
     }
 
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"product_calendar_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(onProductCalendarClick)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleCalendar"] style:UIBarButtonItemStylePlain target:self action:@selector(onProductCalendarClick)];
     
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_search"] style:UIBarButtonItemStylePlain target:self action:@selector(onSearchClick)];
     

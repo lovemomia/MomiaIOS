@@ -34,7 +34,7 @@
     self.navigationItem.title = [NSString stringWithFormat:@"选择城市-%@", [CityManager shareManager].choosedCity.name];
     UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc]initWithTitle:nil style:UIBarButtonItemStyleDone target:self action:@selector(onCancelClicked)];
     self.navigationItem.leftBarButtonItem = leftBtn;
-    [leftBtn setImage:[UIImage imageNamed:@"cm_cancel"]];
+    [leftBtn setImage:[UIImage imageNamed:@"TitleCancel"]];
     
     [CommonHeaderView registerCellWithTableView:self.tableView];
     

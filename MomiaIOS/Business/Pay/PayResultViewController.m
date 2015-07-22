@@ -41,7 +41,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"支付结果";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"cm_back"] style:UIBarButtonItemStyleDone target:self action:@selector(onBackToHome)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleBack"] style:UIBarButtonItemStyleDone target:self action:@selector(onBackToHome)];
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:nil style:UIBarButtonItemStyleDone target:self action:@selector(onBackToHome)];
     
     if (self.free) {

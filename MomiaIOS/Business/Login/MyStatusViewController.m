@@ -41,7 +41,7 @@
     
     self.navigationItem.title = @"添加孩子信息";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"新增" style:UIBarButtonItemStylePlain target:self action:@selector(onAddChildClicked)];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"cm_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)] style:UIBarButtonItemStylePlain target:self action:@selector(onBackClicked)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"TitleBack"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)] style:UIBarButtonItemStylePlain target:self action:@selector(onBackClicked)];
     
     self.babys = [NSMutableArray new];
     [self.babys addObject:[Baby new]];

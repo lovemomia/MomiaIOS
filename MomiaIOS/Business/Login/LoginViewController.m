@@ -35,7 +35,7 @@
     
     UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc]initWithTitle:nil style:UIBarButtonItemStyleDone target:self action:@selector(onCancelClicked)];
     self.navigationItem.leftBarButtonItem = leftBtn;
-    [leftBtn setImage:[UIImage imageNamed:@"cm_cancel"]];
+    [leftBtn setImage:[UIImage imageNamed:@"TitleCancel"]];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"注册" style:UIBarButtonItemStyleDone target:self action:@selector(onRegisterClicked)];
 }

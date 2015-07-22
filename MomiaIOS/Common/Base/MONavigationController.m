@@ -40,8 +40,8 @@
     [viewController.navigationItem setBackBarButtonItem:backBarButtonItem];
 
     
-    [[UINavigationBar appearance] setBackIndicatorImage:[[UIImage imageNamed:@"cm_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)]];
-    [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[[UIImage imageNamed:@"cm_back"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)]];
+    [[UINavigationBar appearance] setBackIndicatorImage:[[UIImage imageNamed:@"TitleBack"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)]];
+    [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[[UIImage imageNamed:@"TitleBack"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)]];
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, 0)
                                                          forBarMetrics:UIBarMetricsDefault];
 }
