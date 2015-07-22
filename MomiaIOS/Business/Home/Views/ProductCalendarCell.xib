@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="product_calendar_default_icon" translatesAutoresizingMaskIntoConstraints="NO" id="chG-Pp-EOV">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="chG-Pp-EOV">
                         <rect key="frame" x="10" y="10" width="110" height="83"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="110" id="6vt-5e-sYj"/>
@@ -103,7 +103,4 @@
             <point key="canvasLocation" x="307" y="214.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="product_calendar_default_icon" width="800" height="600"/>
-    </resources>
 </document>

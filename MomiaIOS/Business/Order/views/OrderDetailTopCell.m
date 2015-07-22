@@ -22,7 +22,7 @@
 
 -(void)setData:(OrderDetailDataModel *)model
 {
-    [self.iconImgView sd_setImageWithURL:[NSURL URLWithString:model.cover] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    [self.iconImgView sd_setImageWithURL:[NSURL URLWithString:model.cover] placeholderImage:nil];
     self.titleLabel.text = model.title;
     self.timeLabel.text = model.scheduler;
     self.addressLabel.text = model.address;

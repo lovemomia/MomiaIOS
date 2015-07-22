@@ -30,7 +30,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     if (self.addShadow == NO && [self isNavTransparent] == NO) {
         UIImageView *shadow = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 5)];
-        shadow.image = [UIImage imageNamed:@"title_shadow"];
+        shadow.image = [UIImage imageNamed:@"BgTitleShadow"];
         [self.view addSubview:shadow];
         self.addShadow = YES;
     }

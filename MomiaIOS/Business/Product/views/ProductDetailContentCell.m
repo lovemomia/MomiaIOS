@@ -91,7 +91,7 @@
                     make.width.equalTo(@7);
                     make.height.equalTo(@13);
                 }];
-                [goImgView setImage:[UIImage imageNamed:@"cm_go"]];
+                [goImgView setImage:[UIImage imageNamed:@"IconGo"]];
                 
                 [label mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.centerY.equalTo(linkView);
@@ -121,7 +121,7 @@
                     make.height.equalTo(@((SCREEN_WIDTH - 20) * ImgScale));
                     make.bottom.lessThanOrEqualTo(self.contentView).with.offset(-TopMargin);
                 }];
-                [imgView sd_setImageWithURL:[NSURL URLWithString:bodyModel.img] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+                [imgView sd_setImageWithURL:[NSURL URLWithString:bodyModel.img] placeholderImage:nil];
                 
                 imgView.clipsToBounds = YES;
                 imgView.contentMode = UIViewContentModeScaleAspectFill;

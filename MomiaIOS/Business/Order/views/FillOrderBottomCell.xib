@@ -25,7 +25,7 @@
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cm_go" translatesAutoresizingMaskIntoConstraints="NO" id="cNm-14-6Cr">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconGo" translatesAutoresizingMaskIntoConstraints="NO" id="cNm-14-6Cr">
                         <rect key="frame" x="303" y="23" width="7" height="13"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="7" id="CcY-bl-ugI"/>
@@ -62,7 +62,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="cm_go" width="8" height="13"/>
+        <image name="IconGo" width="8" height="13"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

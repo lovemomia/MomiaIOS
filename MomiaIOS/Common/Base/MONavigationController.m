@@ -90,7 +90,7 @@
     self.navigationBar.translucent = NO;
     
     // shadow
-//    [((AppDelegate *)[UIApplication sharedApplication].delegate) setTitleShadow:[UIImage imageNamed:@"title_shadow"] aboveSubview:self.navigationBar];
+//    [((AppDelegate *)[UIApplication sharedApplication].delegate) setTitleShadow:[UIImage imageNamed:@"BgTitleShadow"] aboveSubview:self.navigationBar];
 }
 
 - (void)setLightTitleStyle {
@@ -105,7 +105,7 @@
     self.navigationBar.translucent = NO;
     
     // shadow
-//    [((AppDelegate *)[UIApplication sharedApplication].delegate) setTitleShadow:[UIImage imageNamed:@"title_shadow"] aboveSubview:self.navigationBar];
+//    [((AppDelegate *)[UIApplication sharedApplication].delegate) setTitleShadow:[UIImage imageNamed:@"BgTitleShadow"] aboveSubview:self.navigationBar];
 }
 
 @end

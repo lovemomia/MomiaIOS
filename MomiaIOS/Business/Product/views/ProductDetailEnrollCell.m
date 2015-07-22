@@ -45,7 +45,7 @@
             UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake(10 + (height + 10) * i, 0, height, height)];
             imgView.layer.masksToBounds = YES;
             imgView.layer.cornerRadius = height/2;
-            [imgView sd_setImageWithURL:[NSURL URLWithString:item] placeholderImage:[UIImage imageNamed:@"ic_avatar_default"]];
+            [imgView sd_setImageWithURL:[NSURL URLWithString:item] placeholderImage:[UIImage imageNamed:@"IconAvatarDefault"]];
             [self.scrollView addSubview:imgView];
         }
     }

@@ -22,7 +22,7 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cm_go" translatesAutoresizingMaskIntoConstraints="NO" id="ls1-hr-6u9">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconGo" translatesAutoresizingMaskIntoConstraints="NO" id="ls1-hr-6u9">
                         <rect key="frame" x="303" y="23" width="7" height="13"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="13" id="CV1-u4-ANN"/>
@@ -53,7 +53,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="cm_go" width="8" height="13"/>
+        <image name="IconGo" width="8" height="13"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

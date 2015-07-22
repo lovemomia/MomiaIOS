@@ -164,8 +164,8 @@
         
         UIButton *button = (UIButton *)[footer viewWithTag:1001];
         [button addTarget:self action:@selector(onRigisterButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        [button setBackgroundImage:[UIImage imageNamed:@"cm_large_button_normal"] forState:UIControlStateNormal];
-        [button setBackgroundImage:[UIImage imageNamed:@"cm_large_button_disable"] forState:UIControlStateDisabled];
+        [button setBackgroundImage:[UIImage imageNamed:@"BgLargeButtonNormal"] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:@"BgLargeButtonDisable"] forState:UIControlStateDisabled];
 
         UIButton *agreeBtn = (UIButton *)[footer viewWithTag:1002];
         [agreeBtn addAction:^(UIButton *btn) {
@@ -233,8 +233,8 @@
             
             self.vercodeButton = (UIButton *)[cell viewWithTag:1005];
             [self.vercodeButton addTarget:self action:@selector(onVercodeClicked:) forControlEvents:UIControlEventTouchUpInside];
-            [self.vercodeButton setBackgroundImage:[UIImage imageNamed:@"cm_small_button_normal"] forState:UIControlStateNormal];
-            [self.vercodeButton setBackgroundImage:[UIImage imageNamed:@"cm_small_button_disable"] forState:UIControlStateDisabled];
+            [self.vercodeButton setBackgroundImage:[UIImage imageNamed:@"BgSmallButtonNormal"] forState:UIControlStateNormal];
+            [self.vercodeButton setBackgroundImage:[UIImage imageNamed:@"BgSmallButtonDisable"] forState:UIControlStateDisabled];
         }
     }
     

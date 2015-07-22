@@ -86,11 +86,11 @@
         
         self.currentValue = 0;
         
-        [_plusBtn setImage:[UIImage imageNamed:@"plus_disable"] forState:UIControlStateDisabled];
-        [_plusBtn setImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
+        [_plusBtn setImage:[UIImage imageNamed:@"IconPlusDisable"] forState:UIControlStateDisabled];
+        [_plusBtn setImage:[UIImage imageNamed:@"IconPlusNormal"] forState:UIControlStateNormal];
         
-        [_minusBtn setImage:[UIImage imageNamed:@"minus_disable"] forState:UIControlStateDisabled];
-        [_minusBtn setImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
+        [_minusBtn setImage:[UIImage imageNamed:@"IconMinusDisable"] forState:UIControlStateDisabled];
+        [_minusBtn setImage:[UIImage imageNamed:@"IconMinusNormal"] forState:UIControlStateNormal];
         
     }
     return self;

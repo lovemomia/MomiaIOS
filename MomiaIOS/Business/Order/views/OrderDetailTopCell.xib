@@ -33,7 +33,7 @@
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cm_go" translatesAutoresizingMaskIntoConstraints="NO" id="JMZ-PD-63x">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconGo" translatesAutoresizingMaskIntoConstraints="NO" id="JMZ-PD-63x">
                         <rect key="frame" x="303" y="37" width="7" height="13"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="7" id="KQe-Qt-ELK"/>
@@ -130,6 +130,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="cm_go" width="8" height="13"/>
+        <image name="IconGo" width="8" height="13"/>
     </resources>
 </document>

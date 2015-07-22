@@ -21,8 +21,8 @@ static NSString * identifier = @"CellCashPayBottom";
 
 - (void)awakeFromNib {
     // Initialization code
-    [self.selectBtn setImage:[UIImage imageNamed:@"cm_circle_checked"] forState:UIControlStateSelected];
-    [self.selectBtn setImage:[UIImage imageNamed:@"cm_circle_uncheck"] forState:UIControlStateNormal];
+    [self.selectBtn setImage:[UIImage imageNamed:@"IconChecked"] forState:UIControlStateSelected];
+    [self.selectBtn setImage:[UIImage imageNamed:@"IconUncheck"] forState:UIControlStateNormal];
 }
 
 - (void)setSelected:(BOOL)selected {

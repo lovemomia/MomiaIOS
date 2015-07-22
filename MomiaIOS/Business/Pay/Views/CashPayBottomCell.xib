@@ -56,7 +56,7 @@
                             <constraint firstAttribute="width" constant="25" id="Eqx-OH-JCk"/>
                             <constraint firstAttribute="height" constant="25" id="QuX-nd-UCl"/>
                         </constraints>
-                        <state key="normal" image="cm_circle_checked">
+                        <state key="normal" image="IconChecked-1">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
@@ -108,7 +108,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="cm_circle_checked" width="25" height="25"/>
+        <image name="IconChecked-1" width="25" height="25"/>
         <image name="pay_order" width="48" height="48"/>
     </resources>
 </document>

@@ -186,8 +186,8 @@
     [button setTitle:@"登录" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(onLoginClicked) forControlEvents:UIControlEventTouchUpInside];
-    [button setBackgroundImage:[UIImage imageNamed:@"cm_large_button_normal"] forState:UIControlStateNormal];
-    [button setBackgroundImage:[UIImage imageNamed:@"cm_large_button_disable"] forState:UIControlStateDisabled];
+    [button setBackgroundImage:[UIImage imageNamed:@"BgLargeButtonNormal"] forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageNamed:@"BgLargeButtonDisable"] forState:UIControlStateDisabled];
     [view addSubview:button];
     self.loginButton = button;
     return view;
@@ -221,8 +221,8 @@
             cell = [arr objectAtIndex:1];
 //            self.vercodeButton = (UIButton *)[cell viewWithTag:1003];
 //            [self.vercodeButton addTarget:self action:@selector(onVercodeClicked:) forControlEvents:UIControlEventTouchUpInside];
-//            [self.vercodeButton setBackgroundImage:[UIImage imageNamed:@"cm_small_button_normal"] forState:UIControlStateNormal];
-//            [self.vercodeButton setBackgroundImage:[UIImage imageNamed:@"cm_small_button_disable"] forState:UIControlStateDisabled];
+//            [self.vercodeButton setBackgroundImage:[UIImage imageNamed:@"BgSmallButtonNormal"] forState:UIControlStateNormal];
+//            [self.vercodeButton setBackgroundImage:[UIImage imageNamed:@"BgSmallButtonDisable"] forState:UIControlStateDisabled];
         }
         UITextField *textField = (UITextField *)[cell viewWithTag:1002];
         [textField addTarget:self action:@selector(textFieldWithText:) forControlEvents:UIControlEventEditingChanged];

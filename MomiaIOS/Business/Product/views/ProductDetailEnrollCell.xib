@@ -27,7 +27,7 @@
                             <constraint firstAttribute="height" constant="0.5" id="3v9-og-qGN"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cm_go" translatesAutoresizingMaskIntoConstraints="NO" id="aOQ-k6-mE6">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconGo" translatesAutoresizingMaskIntoConstraints="NO" id="aOQ-k6-mE6">
                         <rect key="frame" x="303" y="16" width="7" height="13"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="7" id="Tzq-c4-2Pm"/>
@@ -65,7 +65,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="cm_go" width="8" height="13"/>
+        <image name="IconGo" width="8" height="13"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
