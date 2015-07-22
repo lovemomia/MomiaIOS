@@ -190,7 +190,7 @@
     } forControlEvents:UIControlEventTouchUpInside];
     [button setTitle:@"重试" forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:14];
-    [button setBackgroundImage:[UIImage imageNamed:@"pay_success_green_button"] forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageNamed:@"BgMediumButtonNormal"] forState:UIControlStateNormal];
     
     
     [view addSubview:label];
@@ -238,7 +238,7 @@
     label.numberOfLines = 0;
     
     UIImageView *logo = [[UIImageView alloc]init];
-    logo.image = [UIImage imageNamed:@"pay_success_logo"];
+    logo.image = [UIImage imageNamed:@"IconCircleLogo"];
     
     [view addSubview:logo];
     [view addSubview:label];

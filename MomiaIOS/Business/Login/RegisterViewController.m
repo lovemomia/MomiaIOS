@@ -171,15 +171,15 @@
         [agreeBtn addAction:^(UIButton *btn) {
             self.agree = !self.agree;
             if (self.agree) {
-                [btn setBackgroundImage:[UIImage imageNamed:@"ic_agree_checked"]];
+                [btn setBackgroundImage:[UIImage imageNamed:@"IconAgreeChecked"]];
             } else {
-                [btn setBackgroundImage:[UIImage imageNamed:@"ic_agree_uncheck"]];
+                [btn setBackgroundImage:[UIImage imageNamed:@"IconAgreeUncheck"]];
             }
         }];
         if (self.agree) {
-            [agreeBtn setBackgroundImage:[UIImage imageNamed:@"ic_agree_checked"]];
+            [agreeBtn setBackgroundImage:[UIImage imageNamed:@"IconAgreeChecked"]];
         } else {
-            [agreeBtn setBackgroundImage:[UIImage imageNamed:@"ic_agree_uncheck"]];
+            [agreeBtn setBackgroundImage:[UIImage imageNamed:@"IconAgreeUncheck"]];
         }
         
         UIButton *agreement = (UIButton *)[footer viewWithTag:1003];

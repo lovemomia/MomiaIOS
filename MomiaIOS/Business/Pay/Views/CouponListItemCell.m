@@ -12,8 +12,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    [self.statusBtn setBackgroundImage:[UIImage imageNamed:@"ic_coupon_tag_green"] forState:UIControlStateNormal];
-    [self.statusBtn setBackgroundImage:[UIImage imageNamed:@"ic_coupon_tag_gray"] forState:UIControlStateDisabled];
+    [self.statusBtn setBackgroundImage:[UIImage imageNamed:@"IconCouponTagGreen"] forState:UIControlStateNormal];
+    [self.statusBtn setBackgroundImage:[UIImage imageNamed:@"IconCouponTagGray"] forState:UIControlStateDisabled];
     [self.statusBtn setTitle:@"未使用" forState:UIControlStateNormal];
     [self.statusBtn setTitle:@"已过期" forState:UIControlStateDisabled];
     [self.statusBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

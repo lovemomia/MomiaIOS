@@ -21,7 +21,7 @@
                             <constraint firstAttribute="width" secondItem="gZs-Pn-IQj" secondAttribute="height" multiplier="320:225" id="6iR-ND-B2I"/>
                         </constraints>
                     </scrollView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_tag" translatesAutoresizingMaskIntoConstraints="NO" id="kZW-kI-UIW">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BgPageNum" translatesAutoresizingMaskIntoConstraints="NO" id="kZW-kI-UIW">
                         <rect key="frame" x="267" y="10" width="43" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="43" id="Jph-Fp-MKl"/>
@@ -114,7 +114,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="bg_tag" width="43" height="16"/>
+        <image name="BgPageNum" width="43" height="16"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

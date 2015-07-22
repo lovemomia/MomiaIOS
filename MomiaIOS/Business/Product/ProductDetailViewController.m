@@ -192,8 +192,8 @@ typedef enum
     ThirdShareHelper *helper = [ThirdShareHelper new];
     [SGActionView showGridMenuWithTitle:@"约伴"
                              itemTitles:@[ @"微信好友", @"微信朋友圈"]
-                                 images:@[ [UIImage imageNamed:@"share_wechat_friend"],
-                                           [UIImage imageNamed:@"share_wechat_timeline"]]
+                                 images:@[ [UIImage imageNamed:@"IconShareWechat"],
+                                           [UIImage imageNamed:@"IconShareWechatTimeline"]]
                          selectedHandle:^(NSInteger index) {
                              if (index == 1) {
                                  [helper shareToWechat:self.model.data.url thumbUrl:self.model.data.thumb title:self.model.data.title desc:self.model.data.abstracts scene:1];

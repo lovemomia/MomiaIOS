@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_p_f_icon" translatesAutoresizingMaskIntoConstraints="NO" id="aVZ-TH-dCF">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconDarkCalendar" translatesAutoresizingMaskIntoConstraints="NO" id="aVZ-TH-dCF">
                     <rect key="frame" x="10" y="16" width="18" height="19"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="18" id="DEz-8B-VXP"/>
@@ -32,7 +32,7 @@
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_p_f_shouqi" translatesAutoresizingMaskIntoConstraints="NO" id="rdm-le-Jjy">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconClose" translatesAutoresizingMaskIntoConstraints="NO" id="rdm-le-Jjy">
                     <rect key="frame" x="297" y="28" width="13" height="8"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="8" id="VvJ-vp-atC"/>
@@ -71,8 +71,8 @@
         </view>
     </objects>
     <resources>
-        <image name="p_p_f_icon" width="17" height="19"/>
-        <image name="p_p_f_shouqi" width="12" height="7"/>
+        <image name="IconClose" width="12" height="7"/>
+        <image name="IconDarkCalendar" width="17" height="19"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

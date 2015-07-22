@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="65" height="25"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" tag="2002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="HYd-Ii-tJS">
+                <imageView userInteractionEnabled="NO" tag="2002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconLightDownArrow" translatesAutoresizingMaskIntoConstraints="NO" id="HYd-Ii-tJS">
                     <rect key="frame" x="49" y="9.5" width="11" height="6"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="6" id="QCX-kr-kHl"/>
@@ -39,7 +39,7 @@
         </view>
     </objects>
     <resources>
-        <image name="home_arrow" width="11" height="6"/>
+        <image name="IconLightDownArrow" width="11" height="6"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

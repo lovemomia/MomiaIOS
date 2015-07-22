@@ -43,9 +43,9 @@ static NSString * identifier = @"p_p_f_header";
     self.timeLabel.text = model.time;
     self.enrollLabel.text = model.joined;
     if([model.selected boolValue]) {
-        [self.selectImgView setImage:[UIImage imageNamed:@"p_p_f_shouqi"]];
+        [self.selectImgView setImage:[UIImage imageNamed:@"IconClose"]];
     } else {
-        [self.selectImgView setImage:[UIImage imageNamed:@"p_p_f_xiala"]];
+        [self.selectImgView setImage:[UIImage imageNamed:@"IconOpen"]];
     }
 }
 

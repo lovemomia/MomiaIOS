@@ -64,8 +64,8 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
     [CommonHeaderView registerCellWithTableView:self.tableView];
     
     self.payChannels = [NSMutableArray new];
-    [self.payChannels addObject:[[PayChannel alloc]initWithType:1 title:@"微信支付" desc:@"微信钱包，银行卡支付" icon:@"pay_wx" select:YES]];
-    [self.payChannels addObject:[[PayChannel alloc]initWithType:2 title:@"支付宝" desc:@"支付宝账号支付，银行卡支付" icon:@"pay_order" select:NO]];
+    [self.payChannels addObject:[[PayChannel alloc]initWithType:1 title:@"微信支付" desc:@"微信钱包，银行卡支付" icon:@"IconWechat" select:YES]];
+    [self.payChannels addObject:[[PayChannel alloc]initWithType:2 title:@"支付宝" desc:@"支付宝账号支付，银行卡支付" icon:@"IconAlipay" select:NO]];
     [self.tableView reloadData];
 }
 

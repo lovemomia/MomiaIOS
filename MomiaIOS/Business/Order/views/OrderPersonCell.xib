@@ -44,7 +44,7 @@
                             <constraint firstAttribute="width" constant="30" id="50L-i3-awb"/>
                             <constraint firstAttribute="height" constant="30" id="I0Z-wL-uxB"/>
                         </constraints>
-                        <state key="normal" image="orderperson_edit">
+                        <state key="normal" image="IconEdit">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
@@ -77,6 +77,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="orderperson_edit" width="17" height="16"/>
+        <image name="IconEdit" width="17" height="16"/>
     </resources>
 </document>

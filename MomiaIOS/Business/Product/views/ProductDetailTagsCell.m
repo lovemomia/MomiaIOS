@@ -40,7 +40,7 @@
             make.width.equalTo(@17);
             make.height.equalTo(@17);
         }];
-        [imgView setImage:[UIImage imageNamed:@"productdetail_suishitui"]];
+        [imgView setImage:[UIImage imageNamed:@"IconProductTag"]];
         
         UILabel * label = [[UILabel alloc] init];
         [self.scrollView addSubview:label];

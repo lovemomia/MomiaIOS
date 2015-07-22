@@ -35,7 +35,7 @@
                             <constraint firstAttribute="width" constant="125" id="Z7I-Xs-5CY"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pay_order" translatesAutoresizingMaskIntoConstraints="NO" id="K0A-l8-B3c">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconAlipay" translatesAutoresizingMaskIntoConstraints="NO" id="K0A-l8-B3c">
                         <rect key="frame" x="15" y="10" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="gT1-Eb-ZVe"/>
@@ -56,7 +56,7 @@
                             <constraint firstAttribute="width" constant="25" id="Eqx-OH-JCk"/>
                             <constraint firstAttribute="height" constant="25" id="QuX-nd-UCl"/>
                         </constraints>
-                        <state key="normal" image="IconChecked-1">
+                        <state key="normal" image="IconChecked">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
@@ -108,7 +108,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="IconChecked-1" width="25" height="25"/>
-        <image name="pay_order" width="48" height="48"/>
+        <image name="IconAlipay" width="48" height="48"/>
+        <image name="IconChecked" width="25" height="25"/>
     </resources>
 </document>

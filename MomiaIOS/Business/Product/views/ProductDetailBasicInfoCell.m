@@ -26,7 +26,7 @@
 */
 -(void)setData:(NSString *)data;
 {
-    self.imgView.image = [UIImage imageNamed:@"a_d_umbrella"];
+    self.imgView.image = [UIImage imageNamed:@"IconChild"];
     self.titleLabel.text = data;
 
 }
@@ -34,15 +34,15 @@
 -(void)setData:(ProductModel *)model withIndex:(NSInteger) index
 {
     if(index == 0) {
-        self.imgView.image = [UIImage imageNamed:@"a_d_umbrella"];
+        self.imgView.image = [UIImage imageNamed:@"IconChild"];
         self.titleLabel.text = model.crowd;
         
     } else if(index == 1) {
-        self.imgView.image = [UIImage imageNamed:@"a_d_alarm"];
+        self.imgView.image = [UIImage imageNamed:@"IconAlarm"];
         self.titleLabel.text = model.scheduler;
 
     } else {
-        self.imgView.image = [UIImage imageNamed:@"a_d_address"];
+        self.imgView.image = [UIImage imageNamed:@"IconAddress"];
         self.titleLabel.text = model.address;
 
     }

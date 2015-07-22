@@ -179,19 +179,19 @@
             case 1:
                 if (row == 0) {
                     cell.textLabel.text = @"我的订单";
-                    cell.imageView.image = [UIImage imageNamed:@"ic_payed"];
+                    cell.imageView.image = [UIImage imageNamed:@"IconPayed"];
                 } else {
                     cell.textLabel.text = @"我的红包";
-                    cell.imageView.image = [UIImage imageNamed:@"ic_coupon"];
+                    cell.imageView.image = [UIImage imageNamed:@"IconCoupon"];
                 }
                 break;
             case 2:
                 if (row == 0) {
                     cell.textLabel.text = @"常用出行人";
-                    cell.imageView.image = [UIImage imageNamed:@"ic_people"];
+                    cell.imageView.image = [UIImage imageNamed:@"IconPeople"];
                 } else {
                     cell.textLabel.text = @"意见反馈";
-                    cell.imageView.image = [UIImage imageNamed:@"ic_feedback"];
+                    cell.imageView.image = [UIImage imageNamed:@"IconFeedback"];
                 }
                 break;
             default:
