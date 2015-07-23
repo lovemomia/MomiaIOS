@@ -178,6 +178,7 @@
 		BC50639A1B539F0300AA233C /* StringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5063991B539F0300AA233C /* StringUtils.m */; };
 		BC50639D1B53A37200AA233C /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC50639C1B53A37200AA233C /* ForgetPasswordViewController.m */; };
 		BC50639F1B53A3A000AA233C /* ForgetPasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC50639E1B53A3A000AA233C /* ForgetPasswordCell.xib */; };
+		BC66D3BE1B60F24C00A5BFC6 /* MyFavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC66D3BD1B60F24C00A5BFC6 /* MyFavViewController.m */; };
 		BC7708511AFAFD54000068A8 /* MOTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7708501AFAFD54000068A8 /* MOTableViewController.m */; };
 		BC77085F1AFC5685000068A8 /* UILabel+ContentSize.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77085E1AFC5685000068A8 /* UILabel+ContentSize.m */; };
 		BC82542B1B3917AC00430A6F /* MORootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82542A1B3917AC00430A6F /* MORootViewController.m */; };
@@ -560,6 +561,8 @@
 		BC50639B1B53A37200AA233C /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForgetPasswordViewController.h; path = Business/Login/ForgetPasswordViewController.h; sourceTree = "<group>"; };
 		BC50639C1B53A37200AA233C /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForgetPasswordViewController.m; path = Business/Login/ForgetPasswordViewController.m; sourceTree = "<group>"; };
 		BC50639E1B53A3A000AA233C /* ForgetPasswordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ForgetPasswordCell.xib; path = Business/Login/Views/ForgetPasswordCell.xib; sourceTree = "<group>"; };
+		BC66D3BC1B60F24C00A5BFC6 /* MyFavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyFavViewController.h; path = Business/Mine/MyFavViewController.h; sourceTree = "<group>"; };
+		BC66D3BD1B60F24C00A5BFC6 /* MyFavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyFavViewController.m; path = Business/Mine/MyFavViewController.m; sourceTree = "<group>"; };
 		BC77084F1AFAFD54000068A8 /* MOTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOTableViewController.h; path = Common/Base/MOTableViewController.h; sourceTree = "<group>"; };
 		BC7708501AFAFD54000068A8 /* MOTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOTableViewController.m; path = Common/Base/MOTableViewController.m; sourceTree = "<group>"; };
 		BC77085D1AFC5685000068A8 /* UILabel+ContentSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+ContentSize.h"; path = "Common/Categorys/UILabel+ContentSize.h"; sourceTree = "<group>"; };
@@ -1532,6 +1535,8 @@
 				BCF033941B4E892F005B71D6 /* PeopleViewController.m */,
 				BC9089801B58983300A8D85B /* MyOrderListViewController.h */,
 				BC9089811B58983300A8D85B /* MyOrderListViewController.m */,
+				BC66D3BC1B60F24C00A5BFC6 /* MyFavViewController.h */,
+				BC66D3BD1B60F24C00A5BFC6 /* MyFavViewController.m */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -1978,6 +1983,7 @@
 				5AB1BDE51B4FB6C8004A4511 /* LoadingCell.m in Sources */,
 				5A33F1A11B2EA1D5002A8258 /* CashPayTopHeaderView.m in Sources */,
 				BCF033951B4E892F005B71D6 /* PeopleViewController.m in Sources */,
+				BC66D3BE1B60F24C00A5BFC6 /* MyFavViewController.m in Sources */,
 				BC9089821B58983300A8D85B /* MyOrderListViewController.m in Sources */,
 				BC97DF061B4BE21F002B1A00 /* WechatPayModel.m in Sources */,
 				BC5063941B53746800AA233C /* SGSheetMenu.m in Sources */,

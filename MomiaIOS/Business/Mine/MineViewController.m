@@ -70,7 +70,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 1 || section == 2) {
+    if (section >= 1) {
         return 2;
     }
     return 1;
@@ -78,7 +78,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 4;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -106,12 +106,18 @@
             break;
         case 2:
             if(row == 0) {
-                NSURL *url = [NSURL URLWithString:@"duola://people"];
-                [[UIApplication sharedApplication ] openURL:url];
+                [self openURL:@"duola://myfav"];
                 
             } else {
-                NSURL *url = [NSURL URLWithString:@"duola://feedback"];
-                [[UIApplication sharedApplication ] openURL:url];
+                [self openURL:@"duola://people"];
+            }
+            break;
+        case 3:
+            if(row == 0) {
+                [self openURL:@"duola://feedback"];
+                
+            } else {
+                [self openURL:@"duola://setting"];
             }
             break;
             
@@ -179,7 +185,7 @@
             case 1:
                 if (row == 0) {
                     cell.textLabel.text = @"我的订单";
-                    cell.imageView.image = [UIImage imageNamed:@"IconPayed"];
+                    cell.imageView.image = [UIImage imageNamed:@"IconOrder"];
                 } else {
                     cell.textLabel.text = @"我的红包";
                     cell.imageView.image = [UIImage imageNamed:@"IconCoupon"];
@@ -187,11 +193,21 @@
                 break;
             case 2:
                 if (row == 0) {
+                    cell.textLabel.text = @"我的收藏";
+                    cell.imageView.image = [UIImage imageNamed:@"IconFav"];
+                } else {
                     cell.textLabel.text = @"常用出行人";
                     cell.imageView.image = [UIImage imageNamed:@"IconPeople"];
-                } else {
+                }
+                break;
+            case 3:
+                if (row == 0) {
                     cell.textLabel.text = @"意见反馈";
                     cell.imageView.image = [UIImage imageNamed:@"IconFeedback"];
+                    
+                } else {
+                    cell.textLabel.text = @"设置";
+                    cell.imageView.image = [UIImage imageNamed:@"IconSetting"];
                 }
                 break;
             default:

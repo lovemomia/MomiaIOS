@@ -85,9 +85,14 @@
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:CellDefault];
         if(cell == nil) {
-            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellDefault];
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellDefault];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
+        cell.textLabel.textColor = UIColorFromRGB(0x333333);
+        cell.textLabel.font = [UIFont systemFontOfSize: 15.0];
+        
+        cell.detailTextLabel.textColor = UIColorFromRGB(0x999999);
+        cell.detailTextLabel.font = [UIFont systemFontOfSize: 12.0];
         
         switch (section) {
             case 0:
@@ -111,6 +116,14 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 10;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.1;
 }
 
 

@@ -65,6 +65,15 @@
 		<key>desc</key>
 		<string>我的推荐</string>
 	</dict>
+	<key>myfav</key>
+	<dict>
+		<key>controller</key>
+		<string>MyFavViewController</string>
+		<key>needlogin</key>
+		<true/>
+		<key>desc</key>
+		<string>我的收藏</string>
+	</dict>
 	<key>sugsubmit</key>
 	<dict>
 		<key>controller</key>
