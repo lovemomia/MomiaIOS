@@ -8,10 +8,6 @@
 
 #import "FavouriteModel.h"
 
-@implementation FavouriteItem
-
-@end
-
 @implementation FavouriteData
 
 @end

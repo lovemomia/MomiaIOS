@@ -10,7 +10,6 @@
 #import "OrderListModel.h"
 #import "OrderListItemCell.h"
 #import "PostPersonModel.h"
-#import "MOTabHost.h"
 
 @interface OrderListViewController()
 @property (nonatomic, assign) NSInteger status;

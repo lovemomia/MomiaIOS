@@ -53,7 +53,6 @@
 		5A3C6C781B57A926006583FB /* ProductCalendarTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A3C6C761B57A926006583FB /* ProductCalendarTitleCell.xib */; };
 		5A3C6C7B1B57AEC1006583FB /* ProductCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3C6C7A1B57AEC1006583FB /* ProductCalendarViewController.m */; };
 		5A3DBE5A1B18577900E708AC /* FavouriteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DBE591B18577900E708AC /* FavouriteModel.m */; };
-		5A3DBE5D1B185BE500E708AC /* MyCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DBE5C1B185BE500E708AC /* MyCollectionCell.m */; };
 		5A4044321B27D18C0010782C /* OrderPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4044301B27D18C0010782C /* OrderPersonViewController.m */; };
 		5A4044331B27D18C0010782C /* OrderPersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A4044311B27D18C0010782C /* OrderPersonViewController.xib */; };
 		5A4044371B27DB110010782C /* OrderPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4044351B27DB110010782C /* OrderPersonCell.m */; };
@@ -68,9 +67,6 @@
 		5A6806F01B01A9BD00D02A60 /* SettingMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A6806EF1B01A9BD00D02A60 /* SettingMsgCell.xib */; };
 		5A6806F31B01C9C700D02A60 /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806F21B01C9C700D02A60 /* PersonInfoViewController.m */; };
 		5A6806F51B01CEF700D02A60 /* PersonLogoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A6806F41B01CEF700D02A60 /* PersonLogoCell.xib */; };
-		5A6806FB1B01D9EA00D02A60 /* MyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806FA1B01D9EA00D02A60 /* MyCollectionViewController.m */; };
-		5A6806FD1B01DA5100D02A60 /* MyCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A6806FC1B01DA5100D02A60 /* MyCollectionCell.xib */; };
-		5A6807001B01FBDD00D02A60 /* MySuggestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806FF1B01FBDD00D02A60 /* MySuggestViewController.m */; };
 		5A794F941B4E68C900BB3B7C /* OrderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A794F931B4E68C900BB3B7C /* OrderDetailModel.m */; };
 		5A794F981B4E703600BB3B7C /* OrderDetailMiddleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A794F961B4E703600BB3B7C /* OrderDetailMiddleCell.m */; };
 		5A794F991B4E703600BB3B7C /* OrderDetailMiddleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A794F971B4E703600BB3B7C /* OrderDetailMiddleCell.xib */; };
@@ -179,6 +175,8 @@
 		BC50639D1B53A37200AA233C /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC50639C1B53A37200AA233C /* ForgetPasswordViewController.m */; };
 		BC50639F1B53A3A000AA233C /* ForgetPasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC50639E1B53A3A000AA233C /* ForgetPasswordCell.xib */; };
 		BC66D3BE1B60F24C00A5BFC6 /* MyFavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC66D3BD1B60F24C00A5BFC6 /* MyFavViewController.m */; };
+		BC66D3C51B60FBBE00A5BFC6 /* MyFavCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC66D3C31B60FBBE00A5BFC6 /* MyFavCell.m */; };
+		BC66D3C61B60FBBE00A5BFC6 /* MyFavCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC66D3C41B60FBBE00A5BFC6 /* MyFavCell.xib */; };
 		BC7708511AFAFD54000068A8 /* MOTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7708501AFAFD54000068A8 /* MOTableViewController.m */; };
 		BC77085F1AFC5685000068A8 /* UILabel+ContentSize.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77085E1AFC5685000068A8 /* UILabel+ContentSize.m */; };
 		BC82542B1B3917AC00430A6F /* MORootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82542A1B3917AC00430A6F /* MORootViewController.m */; };
@@ -341,8 +339,6 @@
 		5A3C6C7A1B57AEC1006583FB /* ProductCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductCalendarViewController.m; path = Business/Home/ProductCalendarViewController.m; sourceTree = "<group>"; };
 		5A3DBE581B18577900E708AC /* FavouriteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavouriteModel.h; path = Common/Models/Favourite/FavouriteModel.h; sourceTree = "<group>"; };
 		5A3DBE591B18577900E708AC /* FavouriteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavouriteModel.m; path = Common/Models/Favourite/FavouriteModel.m; sourceTree = "<group>"; };
-		5A3DBE5B1B185BE500E708AC /* MyCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCollectionCell.h; path = Business/Mine/Views/MyCollectionCell.h; sourceTree = "<group>"; };
-		5A3DBE5C1B185BE500E708AC /* MyCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCollectionCell.m; path = Business/Mine/Views/MyCollectionCell.m; sourceTree = "<group>"; };
 		5A40442F1B27D18C0010782C /* OrderPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderPersonViewController.h; path = Business/Order/OrderPersonViewController.h; sourceTree = "<group>"; };
 		5A4044301B27D18C0010782C /* OrderPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderPersonViewController.m; path = Business/Order/OrderPersonViewController.m; sourceTree = "<group>"; };
 		5A4044311B27D18C0010782C /* OrderPersonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderPersonViewController.xib; path = Business/Order/OrderPersonViewController.xib; sourceTree = "<group>"; };
@@ -365,11 +361,6 @@
 		5A6806F11B01C9C700D02A60 /* PersonInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonInfoViewController.h; path = Business/Mine/PersonInfoViewController.h; sourceTree = "<group>"; };
 		5A6806F21B01C9C700D02A60 /* PersonInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonInfoViewController.m; path = Business/Mine/PersonInfoViewController.m; sourceTree = "<group>"; };
 		5A6806F41B01CEF700D02A60 /* PersonLogoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PersonLogoCell.xib; path = Business/Mine/Views/PersonLogoCell.xib; sourceTree = "<group>"; };
-		5A6806F91B01D9EA00D02A60 /* MyCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCollectionViewController.h; path = Business/Mine/MyCollectionViewController.h; sourceTree = "<group>"; };
-		5A6806FA1B01D9EA00D02A60 /* MyCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCollectionViewController.m; path = Business/Mine/MyCollectionViewController.m; sourceTree = "<group>"; };
-		5A6806FC1B01DA5100D02A60 /* MyCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyCollectionCell.xib; path = Business/Mine/Views/MyCollectionCell.xib; sourceTree = "<group>"; };
-		5A6806FE1B01FBDD00D02A60 /* MySuggestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySuggestViewController.h; path = Business/Mine/MySuggestViewController.h; sourceTree = "<group>"; };
-		5A6806FF1B01FBDD00D02A60 /* MySuggestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySuggestViewController.m; path = Business/Mine/MySuggestViewController.m; sourceTree = "<group>"; };
 		5A794F921B4E68C900BB3B7C /* OrderDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDetailModel.h; path = Common/Models/Order/OrderDetailModel.h; sourceTree = "<group>"; };
 		5A794F931B4E68C900BB3B7C /* OrderDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDetailModel.m; path = Common/Models/Order/OrderDetailModel.m; sourceTree = "<group>"; };
 		5A794F951B4E703600BB3B7C /* OrderDetailMiddleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDetailMiddleCell.h; path = Business/Order/views/OrderDetailMiddleCell.h; sourceTree = "<group>"; };
@@ -563,6 +554,9 @@
 		BC50639E1B53A3A000AA233C /* ForgetPasswordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ForgetPasswordCell.xib; path = Business/Login/Views/ForgetPasswordCell.xib; sourceTree = "<group>"; };
 		BC66D3BC1B60F24C00A5BFC6 /* MyFavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyFavViewController.h; path = Business/Mine/MyFavViewController.h; sourceTree = "<group>"; };
 		BC66D3BD1B60F24C00A5BFC6 /* MyFavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyFavViewController.m; path = Business/Mine/MyFavViewController.m; sourceTree = "<group>"; };
+		BC66D3C21B60FBBE00A5BFC6 /* MyFavCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyFavCell.h; path = Business/Mine/Views/MyFavCell.h; sourceTree = "<group>"; };
+		BC66D3C31B60FBBE00A5BFC6 /* MyFavCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyFavCell.m; path = Business/Mine/Views/MyFavCell.m; sourceTree = "<group>"; };
+		BC66D3C41B60FBBE00A5BFC6 /* MyFavCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyFavCell.xib; path = Business/Mine/Views/MyFavCell.xib; sourceTree = "<group>"; };
 		BC77084F1AFAFD54000068A8 /* MOTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOTableViewController.h; path = Common/Base/MOTableViewController.h; sourceTree = "<group>"; };
 		BC7708501AFAFD54000068A8 /* MOTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOTableViewController.m; path = Common/Base/MOTableViewController.m; sourceTree = "<group>"; };
 		BC77085D1AFC5685000068A8 /* UILabel+ContentSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+ContentSize.h"; path = "Common/Categorys/UILabel+ContentSize.h"; sourceTree = "<group>"; };
@@ -1521,10 +1515,6 @@
 				BCA272FB1AE8A2C7002E7534 /* MineViewController.m */,
 				5A6806F11B01C9C700D02A60 /* PersonInfoViewController.h */,
 				5A6806F21B01C9C700D02A60 /* PersonInfoViewController.m */,
-				5A6806F91B01D9EA00D02A60 /* MyCollectionViewController.h */,
-				5A6806FA1B01D9EA00D02A60 /* MyCollectionViewController.m */,
-				5A6806FE1B01FBDD00D02A60 /* MySuggestViewController.h */,
-				5A6806FF1B01FBDD00D02A60 /* MySuggestViewController.m */,
 				BC38D2871B099D0B0051C7E9 /* SuggestSubmitViewController.h */,
 				BC38D2881B099D0B0051C7E9 /* SuggestSubmitViewController.m */,
 				BC41ABBA1B0F266F00A419DA /* SuggestTagsViewController.h */,
@@ -1600,21 +1590,21 @@
 			children = (
 				BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */,
 				5A6806F41B01CEF700D02A60 /* PersonLogoCell.xib */,
-				5A6806FC1B01DA5100D02A60 /* MyCollectionCell.xib */,
 				BCCDF5D71B09E345008BAE12 /* SugSubmitProductNameCell.h */,
 				BCCDF5D81B09E345008BAE12 /* SugSubmitProductNameCell.m */,
 				BCCDF5DD1B09E6C7008BAE12 /* SugSubmitProductContentCell.h */,
 				BCCDF5DE1B09E6C7008BAE12 /* SugSubmitProductContentCell.m */,
 				BC41ABBD1B0F269100A419DA /* SugTagsCell.h */,
 				BC41ABBE1B0F269100A419DA /* SugTagsCell.m */,
-				5A3DBE5B1B185BE500E708AC /* MyCollectionCell.h */,
-				5A3DBE5C1B185BE500E708AC /* MyCollectionCell.m */,
 				BCF564E11B4A54D0003A2227 /* PersonChildHeaderCell.h */,
 				BCF564E21B4A54D0003A2227 /* PersonChildHeaderCell.m */,
 				BCF564E31B4A54D0003A2227 /* PersonChildHeaderCell.xib */,
 				5AD5275B1B53C7A300D01E1F /* FeedbackCell.h */,
 				5AD5275C1B53C7A300D01E1F /* FeedbackCell.m */,
 				5AD5275D1B53C7A300D01E1F /* FeedbackCell.xib */,
+				BC66D3C21B60FBBE00A5BFC6 /* MyFavCell.h */,
+				BC66D3C31B60FBBE00A5BFC6 /* MyFavCell.m */,
+				BC66D3C41B60FBBE00A5BFC6 /* MyFavCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1843,6 +1833,7 @@
 				5A08C13C1B39117100642648 /* ProductDetailBasicInfoCell.xib in Resources */,
 				5A0643671B3BC4A800361732 /* FillOrderMiddleCell.xib in Resources */,
 				5A06436C1B3BCE9A00361732 /* FillOrderBottomCell.xib in Resources */,
+				BC66D3C61B60FBBE00A5BFC6 /* MyFavCell.xib in Resources */,
 				5A9E80E71B4BBF590028AC47 /* ProductPlayFellowCell.xib in Resources */,
 				BCA273101AE9D79F002E7534 /* scheme.plist in Resources */,
 				5A5A2A6A1B43E531000595A9 /* OrderContactViewController.xib in Resources */,
@@ -1854,7 +1845,6 @@
 				5A0643701B3BE9A800361732 /* OrderUpdatePersonFillCell.xib in Resources */,
 				5A0642FA1B3B95D400361732 /* FillOrderChooseCell.xib in Resources */,
 				BC0EC2A71B5F91ED00D9A82F /* PlaymateUserHeadCell.xib in Resources */,
-				5A6806FD1B01DA5100D02A60 /* MyCollectionCell.xib in Resources */,
 				5AB1BDEB1B4FB7ED004A4511 /* LoadingErrorCell.xib in Resources */,
 				5A33F1A81B2EBC2F002A8258 /* TitleView.xib in Resources */,
 				5A3C6C781B57A926006583FB /* ProductCalendarTitleCell.xib in Resources */,
@@ -2004,7 +1994,6 @@
 				5AABF70F1B281BEF000A9D3F /* ConvertFromXib.m in Sources */,
 				BCF564E41B4A54D0003A2227 /* PersonChildHeaderCell.m in Sources */,
 				5A33F1921B2E9FC5002A8258 /* CashPayViewController.m in Sources */,
-				5A3DBE5D1B185BE500E708AC /* MyCollectionCell.m in Sources */,
 				BC0EC2941B58EFD200D9A82F /* DateManager.m in Sources */,
 				5ABDA57E1B42625B003BAE80 /* AddOrderModel.m in Sources */,
 				BCE5893F1B2AB62500736923 /* payRequsestHandler.mm in Sources */,
@@ -2037,6 +2026,7 @@
 				BC38D2441AFEEA300051C7E9 /* HttpService.m in Sources */,
 				BC2C0C7A1B141A3D00E2446E /* AccountModel.m in Sources */,
 				BC5063931B53746800AA233C /* SGGridMenu.m in Sources */,
+				BC66D3C51B60FBBE00A5BFC6 /* MyFavCell.m in Sources */,
 				BCF564C91B43EAB2003A2227 /* UIButton+Block.m in Sources */,
 				BC50639A1B539F0300AA233C /* StringUtils.m in Sources */,
 				BC5063921B53746800AA233C /* SGBaseMenu.m in Sources */,
@@ -2054,7 +2044,6 @@
 				BC0BD6FA1B5516DB00B95B3A /* Coupon.m in Sources */,
 				BCF564CF1B4632A1003A2227 /* Child.m in Sources */,
 				BC0EC2A01B5F880E00D9A82F /* LJTabBar.m in Sources */,
-				5A6806FB1B01D9EA00D02A60 /* MyCollectionViewController.m in Sources */,
 				5AB444821B41479800FBADD4 /* OrderPersonModel.m in Sources */,
 				5AE4F8671B3D642B005879B7 /* MOStepperView.m in Sources */,
 				5A2144581B0C6A8A0072682F /* AlertNotice.m in Sources */,
@@ -2076,7 +2065,6 @@
 				BCF564DA1B48FE90003A2227 /* Order.m in Sources */,
 				BC0BD6FB1B5516DB00B95B3A /* CouponListModel.m in Sources */,
 				BC0BD7061B5518F000B95B3A /* CouponPriceModel.m in Sources */,
-				5A6807001B01FBDD00D02A60 /* MySuggestViewController.m in Sources */,
 				BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */,
 				BCE5893E1B2AB62500736923 /* ApiXml.mm in Sources */,
 				5AE4F8301B3D2FE5005879B7 /* FillOrderChooseCell.m in Sources */,

@@ -8,24 +8,15 @@
 
 #import "BaseModel.h"
 
-@interface FavouriteItem : JSONModel
-
-@property(nonatomic,assign) NSInteger favoriteId;
-@property(nonatomic,strong) NSString * picUrl;
-@property(nonatomic,assign) NSInteger refId;
-@property(nonatomic,strong) NSString * time;
-@property(nonatomic,strong) NSString * title;
-@property(nonatomic,assign) NSInteger type;
-
-@end
-
-@protocol FavouriteItem
+@protocol ProductModel
 
 @end
 
 @interface FavouriteData : JSONModel
 
-@property(nonatomic,strong) NSArray<FavouriteItem> * favoriteList;
+@property(nonatomic,strong) NSArray<ProductModel> * list;
+@property (nonatomic, assign) NSInteger totalCount;
+@property (nonatomic, strong) NSNumber<Optional> *nextIndex;
 
 @end
 
