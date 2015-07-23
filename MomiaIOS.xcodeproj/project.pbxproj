@@ -120,6 +120,7 @@
 		5AE4F8681B3D642B005879B7 /* MOStepperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE4F8661B3D642B005879B7 /* MOStepperView.xib */; };
 		5AE4F86B1B3D645E005879B7 /* MOStepperGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE4F86A1B3D645E005879B7 /* MOStepperGroup.m */; };
 		5AEB188A1B1865F90098FD5F /* MySuggestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB18891B1865F90098FD5F /* MySuggestModel.m */; };
+		BC064C7C1B60967B0018D142 /* PlaymateFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = BC064C7B1B60967B0018D142 /* PlaymateFeed.m */; };
 		BC0BD6FA1B5516DB00B95B3A /* Coupon.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD6F71B5516DB00B95B3A /* Coupon.m */; };
 		BC0BD6FB1B5516DB00B95B3A /* CouponListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD6F91B5516DB00B95B3A /* CouponListModel.m */; };
 		BC0BD6FE1B55170A00B95B3A /* CouponListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD6FD1B55170A00B95B3A /* CouponListViewController.m */; };
@@ -131,6 +132,10 @@
 		BC0EC2A01B5F880E00D9A82F /* LJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC29B1B5F880E00D9A82F /* LJTabBar.m */; };
 		BC0EC2A11B5F880E00D9A82F /* LJViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC29D1B5F880E00D9A82F /* LJViewPager.m */; };
 		BC0EC2A21B5F880E00D9A82F /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC29F1B5F880E00D9A82F /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m */; };
+		BC0EC2A61B5F91ED00D9A82F /* PlaymateUserHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC2A41B5F91ED00D9A82F /* PlaymateUserHeadCell.m */; };
+		BC0EC2A71B5F91ED00D9A82F /* PlaymateUserHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC0EC2A51B5F91ED00D9A82F /* PlaymateUserHeadCell.xib */; };
+		BC0EC2AB1B5F947100D9A82F /* PlaymateUgcCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC2A91B5F947100D9A82F /* PlaymateUgcCell.m */; };
+		BC0EC2AC1B5F947100D9A82F /* PlaymateUgcCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC0EC2AA1B5F947100D9A82F /* PlaymateUgcCell.xib */; };
 		BC2C0C521B1303BA00E2446E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
 		BC2C0C571B1309A800E2446E /* MOButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C561B1309A800E2446E /* MOButton.m */; };
 		BC2C0C611B130C9300E2446E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C601B130C9300E2446E /* User.m */; };
@@ -181,11 +186,7 @@
 		BC8254361B3AA0A500430A6F /* LoginCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC8254351B3AA0A500430A6F /* LoginCell.xib */; };
 		BC8254381B3AB01E00430A6F /* RegisterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC8254371B3AB01E00430A6F /* RegisterCell.xib */; };
 		BC82543F1B3C26E400430A6F /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82543E1B3C26E400430A6F /* LocationService.m */; };
-		BC8254421B3CE87F00430A6F /* PlaymateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC8254411B3CE87F00430A6F /* PlaymateCell.xib */; };
-		BC8254481B3D33FC00430A6F /* PlaymateUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8254471B3D33FC00430A6F /* PlaymateUserCell.m */; };
 		BC82544B1B3D414000430A6F /* PlaymateContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82544A1B3D414000430A6F /* PlaymateContentCell.m */; };
-		BC82544E1B3D416300430A6F /* PlaymateOperateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82544D1B3D416300430A6F /* PlaymateOperateCell.m */; };
-		BC8254511B3D419F00430A6F /* PlaymatePeopleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8254501B3D419F00430A6F /* PlaymatePeopleCell.m */; };
 		BC829A861B53CE850056BE61 /* NSString+MOEncrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = BC829A851B53CE850056BE61 /* NSString+MOEncrypt.m */; };
 		BC8540911ADF74E9005A7C54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540901ADF74E9005A7C54 /* main.m */; };
 		BC8540941ADF74E9005A7C54 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540931ADF74E9005A7C54 /* AppDelegate.m */; };
@@ -452,6 +453,8 @@
 		5AEB18881B1865F90098FD5F /* MySuggestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySuggestModel.h; path = Common/Models/MySuggest/MySuggestModel.h; sourceTree = "<group>"; };
 		5AEB18891B1865F90098FD5F /* MySuggestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySuggestModel.m; path = Common/Models/MySuggest/MySuggestModel.m; sourceTree = "<group>"; };
 		5B9DF4BE98C18CC18BDADCD8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC064C7A1B60967B0018D142 /* PlaymateFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaymateFeed.h; path = Common/Models/Playmate/PlaymateFeed.h; sourceTree = "<group>"; };
+		BC064C7B1B60967B0018D142 /* PlaymateFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaymateFeed.m; path = Common/Models/Playmate/PlaymateFeed.m; sourceTree = "<group>"; };
 		BC0BD6F61B5516DB00B95B3A /* Coupon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Coupon.h; path = Common/Models/Pay/Coupon.h; sourceTree = "<group>"; };
 		BC0BD6F71B5516DB00B95B3A /* Coupon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Coupon.m; path = Common/Models/Pay/Coupon.m; sourceTree = "<group>"; };
 		BC0BD6F81B5516DB00B95B3A /* CouponListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CouponListModel.h; path = Common/Models/Pay/CouponListModel.h; sourceTree = "<group>"; };
@@ -473,6 +476,12 @@
 		BC0EC29D1B5F880E00D9A82F /* LJViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJViewPager.m; sourceTree = "<group>"; };
 		BC0EC29E1B5F880E00D9A82F /* UIScrollView+AllowScreenEdgePanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+AllowScreenEdgePanGestureRecognizer.h"; sourceTree = "<group>"; };
 		BC0EC29F1B5F880E00D9A82F /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+AllowScreenEdgePanGestureRecognizer.m"; sourceTree = "<group>"; };
+		BC0EC2A31B5F91ED00D9A82F /* PlaymateUserHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaymateUserHeadCell.h; path = Business/Playmate/Views/PlaymateUserHeadCell.h; sourceTree = "<group>"; };
+		BC0EC2A41B5F91ED00D9A82F /* PlaymateUserHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaymateUserHeadCell.m; path = Business/Playmate/Views/PlaymateUserHeadCell.m; sourceTree = "<group>"; };
+		BC0EC2A51B5F91ED00D9A82F /* PlaymateUserHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaymateUserHeadCell.xib; path = Business/Playmate/Views/PlaymateUserHeadCell.xib; sourceTree = "<group>"; };
+		BC0EC2A81B5F947100D9A82F /* PlaymateUgcCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaymateUgcCell.h; path = Business/Playmate/Views/PlaymateUgcCell.h; sourceTree = "<group>"; };
+		BC0EC2A91B5F947100D9A82F /* PlaymateUgcCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaymateUgcCell.m; path = Business/Playmate/Views/PlaymateUgcCell.m; sourceTree = "<group>"; };
+		BC0EC2AA1B5F947100D9A82F /* PlaymateUgcCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaymateUgcCell.xib; path = Business/Playmate/Views/PlaymateUgcCell.xib; sourceTree = "<group>"; };
 		BC2C0C4F1B1303BA00E2446E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Business/Login/LoginViewController.h; sourceTree = "<group>"; };
 		BC2C0C501B1303BA00E2446E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Business/Login/LoginViewController.m; sourceTree = "<group>"; };
 		BC2C0C551B1309A800E2446E /* MOButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOButton.h; path = Common/Views/MOButton.h; sourceTree = "<group>"; };
@@ -565,15 +574,8 @@
 		BC8254371B3AB01E00430A6F /* RegisterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RegisterCell.xib; path = Business/Login/Views/RegisterCell.xib; sourceTree = "<group>"; };
 		BC82543D1B3C26E400430A6F /* LocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationService.h; path = Common/Services/Location/LocationService.h; sourceTree = "<group>"; };
 		BC82543E1B3C26E400430A6F /* LocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationService.m; path = Common/Services/Location/LocationService.m; sourceTree = "<group>"; };
-		BC8254411B3CE87F00430A6F /* PlaymateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaymateCell.xib; path = Business/Playmate/Views/PlaymateCell.xib; sourceTree = "<group>"; };
-		BC8254461B3D33FC00430A6F /* PlaymateUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaymateUserCell.h; path = Business/Playmate/Views/PlaymateUserCell.h; sourceTree = "<group>"; };
-		BC8254471B3D33FC00430A6F /* PlaymateUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaymateUserCell.m; path = Business/Playmate/Views/PlaymateUserCell.m; sourceTree = "<group>"; };
 		BC8254491B3D414000430A6F /* PlaymateContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaymateContentCell.h; path = Business/Playmate/Views/PlaymateContentCell.h; sourceTree = "<group>"; };
 		BC82544A1B3D414000430A6F /* PlaymateContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaymateContentCell.m; path = Business/Playmate/Views/PlaymateContentCell.m; sourceTree = "<group>"; };
-		BC82544C1B3D416300430A6F /* PlaymateOperateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaymateOperateCell.h; path = Business/Playmate/Views/PlaymateOperateCell.h; sourceTree = "<group>"; };
-		BC82544D1B3D416300430A6F /* PlaymateOperateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaymateOperateCell.m; path = Business/Playmate/Views/PlaymateOperateCell.m; sourceTree = "<group>"; };
-		BC82544F1B3D419F00430A6F /* PlaymatePeopleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaymatePeopleCell.h; path = Business/Playmate/Views/PlaymatePeopleCell.h; sourceTree = "<group>"; };
-		BC8254501B3D419F00430A6F /* PlaymatePeopleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaymatePeopleCell.m; path = Business/Playmate/Views/PlaymatePeopleCell.m; sourceTree = "<group>"; };
 		BC829A841B53CE850056BE61 /* NSString+MOEncrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MOEncrypt.h"; path = "Common/Categorys/NSString+MOEncrypt.h"; sourceTree = "<group>"; };
 		BC829A851B53CE850056BE61 /* NSString+MOEncrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MOEncrypt.m"; path = "Common/Categorys/NSString+MOEncrypt.m"; sourceTree = "<group>"; };
 		BC85408B1ADF74E9005A7C54 /* MomiaIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MomiaIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1045,6 +1047,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BC064C791B60960F0018D142 /* Playmate */ = {
+			isa = PBXGroup;
+			children = (
+				BC064C7A1B60967B0018D142 /* PlaymateFeed.h */,
+				BC064C7B1B60967B0018D142 /* PlaymateFeed.m */,
+			);
+			name = Playmate;
+			sourceTree = "<group>";
+		};
 		BC0EC2951B5E1F2F00D9A82F /* Cache */ = {
 			isa = PBXGroup;
 			children = (
@@ -1234,6 +1245,7 @@
 		BC7708601AFC56F3000068A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BC064C791B60960F0018D142 /* Playmate */,
 				5A11C72D1B58B44B00B0CDFE /* ProductCalendar */,
 				5A9E80D51B4BB1A10028AC47 /* PlayFellow */,
 				BC97DF001B4BE192002B1A00 /* Pay */,
@@ -1287,15 +1299,14 @@
 		BC8254401B3CE76800430A6F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BC8254411B3CE87F00430A6F /* PlaymateCell.xib */,
-				BC8254461B3D33FC00430A6F /* PlaymateUserCell.h */,
-				BC8254471B3D33FC00430A6F /* PlaymateUserCell.m */,
 				BC8254491B3D414000430A6F /* PlaymateContentCell.h */,
 				BC82544A1B3D414000430A6F /* PlaymateContentCell.m */,
-				BC82544C1B3D416300430A6F /* PlaymateOperateCell.h */,
-				BC82544D1B3D416300430A6F /* PlaymateOperateCell.m */,
-				BC82544F1B3D419F00430A6F /* PlaymatePeopleCell.h */,
-				BC8254501B3D419F00430A6F /* PlaymatePeopleCell.m */,
+				BC0EC2A31B5F91ED00D9A82F /* PlaymateUserHeadCell.h */,
+				BC0EC2A41B5F91ED00D9A82F /* PlaymateUserHeadCell.m */,
+				BC0EC2A51B5F91ED00D9A82F /* PlaymateUserHeadCell.xib */,
+				BC0EC2A81B5F947100D9A82F /* PlaymateUgcCell.h */,
+				BC0EC2A91B5F947100D9A82F /* PlaymateUgcCell.m */,
+				BC0EC2AA1B5F947100D9A82F /* PlaymateUgcCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1803,7 +1814,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A794F991B4E703600BB3B7C /* OrderDetailMiddleCell.xib in Resources */,
-				BC8254421B3CE87F00430A6F /* PlaymateCell.xib in Resources */,
 				5A08C1421B39117100642648 /* ProductDetailEnrollCell.xib in Resources */,
 				5A6806F01B01A9BD00D02A60 /* SettingMsgCell.xib in Resources */,
 				BC0BD7031B55173800B95B3A /* CouponListItemCell.xib in Resources */,
@@ -1824,6 +1834,7 @@
 				5A4044381B27DB110010782C /* OrderPersonCell.xib in Resources */,
 				5A0643721B3BE9C300361732 /* OrderUpdatePersonSelectCell.xib in Resources */,
 				5A18DC5A1B29828F001458A4 /* HomeCarouselCell.xib in Resources */,
+				BC0EC2AC1B5F947100D9A82F /* PlaymateUgcCell.xib in Resources */,
 				5A08C13C1B39117100642648 /* ProductDetailBasicInfoCell.xib in Resources */,
 				5A0643671B3BC4A800361732 /* FillOrderMiddleCell.xib in Resources */,
 				5A06436C1B3BCE9A00361732 /* FillOrderBottomCell.xib in Resources */,
@@ -1837,6 +1848,7 @@
 				5A074F881B3AC39A001E5006 /* FillOrderTopCell.xib in Resources */,
 				5A0643701B3BE9A800361732 /* OrderUpdatePersonFillCell.xib in Resources */,
 				5A0642FA1B3B95D400361732 /* FillOrderChooseCell.xib in Resources */,
+				BC0EC2A71B5F91ED00D9A82F /* PlaymateUserHeadCell.xib in Resources */,
 				5A6806FD1B01DA5100D02A60 /* MyCollectionCell.xib in Resources */,
 				5AB1BDEB1B4FB7ED004A4511 /* LoadingErrorCell.xib in Resources */,
 				5A33F1A81B2EBC2F002A8258 /* TitleView.xib in Resources */,
@@ -1948,6 +1960,7 @@
 				BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */,
 				BC8254331B3A76F500430A6F /* CustomDarkButton.m in Sources */,
 				BCF9ECA01B4161EE00AEBE1E /* CityManager.m in Sources */,
+				BC0EC2AB1B5F947100D9A82F /* PlaymateUgcCell.m in Sources */,
 				BCF033991B4F72B0005B71D6 /* AlipayOrder.m in Sources */,
 				5A6806F31B01C9C700D02A60 /* PersonInfoViewController.m in Sources */,
 				BCCDF5DF1B09E6C7008BAE12 /* SugSubmitProductContentCell.m in Sources */,
@@ -1964,7 +1977,6 @@
 				BC2C0C991B1858E800E2446E /* MOLabel.m in Sources */,
 				5AB1BDE51B4FB6C8004A4511 /* LoadingCell.m in Sources */,
 				5A33F1A11B2EA1D5002A8258 /* CashPayTopHeaderView.m in Sources */,
-				BC82544E1B3D416300430A6F /* PlaymateOperateCell.m in Sources */,
 				BCF033951B4E892F005B71D6 /* PeopleViewController.m in Sources */,
 				BC9089821B58983300A8D85B /* MyOrderListViewController.m in Sources */,
 				BC97DF061B4BE21F002B1A00 /* WechatPayModel.m in Sources */,
@@ -1980,6 +1992,7 @@
 				BC82542F1B39505E00430A6F /* PlaymateViewController.m in Sources */,
 				BC82542B1B3917AC00430A6F /* MORootViewController.m in Sources */,
 				5ABDA57B1B423FD8003BAE80 /* PostPersonModel.m in Sources */,
+				BC064C7C1B60967B0018D142 /* PlaymateFeed.m in Sources */,
 				BC82543F1B3C26E400430A6F /* LocationService.m in Sources */,
 				BC2C0C861B15668000E2446E /* DatePickerSheet.m in Sources */,
 				5AABF70F1B281BEF000A9D3F /* ConvertFromXib.m in Sources */,
@@ -1998,7 +2011,6 @@
 				5A5A2AA41B4412FC000595A9 /* NSString+Predicate.m in Sources */,
 				5A08C13D1B39117100642648 /* ProductDetailCarouselCell.m in Sources */,
 				BCF0339C1B4F77BE005B71D6 /* AlipayOrderModel.m in Sources */,
-				BC8254511B3D419F00430A6F /* PlaymatePeopleCell.m in Sources */,
 				5AB1BDDF1B4F9B49004A4511 /* ProductDetailTagsCell.m in Sources */,
 				5A9E81251B4BE8B40028AC47 /* OrderDetailTopCell.m in Sources */,
 				5A06436A1B3BCE7B00361732 /* FillOrderBottomCell.m in Sources */,
@@ -2007,6 +2019,7 @@
 				BC97DF271B4E4AA4002B1A00 /* PayTool.m in Sources */,
 				BC97DF1B1B4E1DF0002B1A00 /* PayResultViewController.m in Sources */,
 				5A794F981B4E703600BB3B7C /* OrderDetailMiddleCell.m in Sources */,
+				BC0EC2A61B5F91ED00D9A82F /* PlaymateUserHeadCell.m in Sources */,
 				5A9E80D81B4BB2450028AC47 /* PlayFellowModel.m in Sources */,
 				BC2C0C681B131ED500E2446E /* AccountService.m in Sources */,
 				BC41ABBF1B0F269100A419DA /* SugTagsCell.m in Sources */,
@@ -2056,7 +2069,6 @@
 				BC2C0C761B140BF100E2446E /* RegisterViewController.m in Sources */,
 				BCF564DA1B48FE90003A2227 /* Order.m in Sources */,
 				BC0BD6FB1B5516DB00B95B3A /* CouponListModel.m in Sources */,
-				BC8254481B3D33FC00430A6F /* PlaymateUserCell.m in Sources */,
 				BC0BD7061B5518F000B95B3A /* CouponPriceModel.m in Sources */,
 				5A6807001B01FBDD00D02A60 /* MySuggestViewController.m in Sources */,
 				BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */,

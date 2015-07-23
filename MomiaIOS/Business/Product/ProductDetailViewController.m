@@ -71,7 +71,10 @@ typedef enum
     self.tableView.backgroundView = [[UIView alloc] init];
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
     
-    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData)];
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData)];
+    header.lastUpdatedTimeLabel.hidden = YES;
+    
+    self.tableView.header = header;
     
     self.tableView.width = SCREEN_WIDTH;
     

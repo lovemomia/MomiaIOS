@@ -88,8 +88,10 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
     
     // 设置下拉刷新
-    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
+    header.lastUpdatedTimeLabel.hidden = YES;
     
+    self.tableView.header = header;
     self.tableView.width = SCREEN_WIDTH;
     
     [self requestData];

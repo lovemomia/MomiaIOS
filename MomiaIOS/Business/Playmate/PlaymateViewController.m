@@ -7,10 +7,17 @@
 //
 
 #import "PlaymateViewController.h"
-#import "PlaymateUserCell.h"
+
+#import "PlaymateUserHeadCell.h"
+#import "PlaymateUgcCell.h"
 #import "PlaymateContentCell.h"
-#import "PlaymateOperateCell.h"
-#import "PlaymatePeopleCell.h"
+
+static NSString *identifierPlaymateUserHeadCell = @"PlaymateUserHeadCell";
+static NSString *identifierPlaymateUgcCell = @"PlaymateUgcCell";
+
+@interface PlaymateViewController()
+@property(nonatomic,strong) NSMutableDictionary * contentCellHeightCacheDic;
+@end
 
 @implementation PlaymateViewController
 
@@ -19,6 +26,9 @@
     // Do any additional setup after loading the view from its nib.
     
     self.navigationItem.title = @"玩伴";
+    
+    [PlaymateUserHeadCell registerCellWithTableView:self.tableView withIdentifier:identifierPlaymateUserHeadCell];
+    [PlaymateUgcCell registerCellWithTableView:self.tableView withIdentifier:identifierPlaymateUgcCell];
 }
 
 - (UITableViewStyle)tableViewStyle {
@@ -30,7 +40,7 @@
 }
 
 - (UIEdgeInsets)separatorInset {
-    return UIEdgeInsetsMake(0,57,0,0);
+    return UIEdgeInsetsMake(0,65,0,0);
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -41,15 +51,39 @@
     return 3;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        return [PlaymateUserHeadCell heightWithTableView:tableView withIdentifier:identifierPlaymateUserHeadCell forIndexPath:indexPath data:@"x"];
+    } else if (indexPath.row == 2) {
+        return [PlaymateUgcCell heightWithTableView:tableView withIdentifier:identifierPlaymateUgcCell forIndexPath:indexPath data:@"x"];
+    } else {
+        return [PlaymateContentCell heightWithTableView:tableView contentModel:nil];
+    }
+    return 155;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 10;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
     if (indexPath.row == 0) {
-        cell = [PlaymateUserCell cellWithTableView:tableView data:nil];
+        PlaymateUserHeadCell * userHead = [PlaymateUserHeadCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierPlaymateUserHeadCell];
+        [userHead setData:@""];
+        cell = userHead;
+        
     } else if (indexPath.row == 1) {
-        cell = [PlaymateContentCell cellWithTableView:tableView data:nil];
+        cell = [[PlaymateContentCell alloc]initWithTableView:tableView contentModel:nil];
     } else {
-        cell = [PlaymateOperateCell cellWithTableView:tableView data:nil];
+        PlaymateUgcCell * ugc = [PlaymateUgcCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierPlaymateUgcCell];
+        cell = ugc;
     }
+    cell.selectionStyle = UITableViewCellSeparatorStyleNone;
     return cell;
 }
 

@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class PlaymateFeed;
+
 @interface PlaymateContentCell : UITableViewCell
 
-+ (instancetype)cellWithTableView:(UITableView *)tableView data:(id)data;
+- (instancetype)initWithTableView:(UITableView *) tableView contentModel:(PlaymateFeed *)model;
+
++ (CGFloat)heightWithTableView:(UITableView *) tableView contentModel:(PlaymateFeed *)model;
 
 @end

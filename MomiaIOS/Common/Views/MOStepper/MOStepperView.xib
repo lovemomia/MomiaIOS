@@ -19,8 +19,8 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fM4-NN-VSZ">
-                    <rect key="frame" x="0.0" y="0.0" width="99" height="67"/>
-                    <state key="normal" image="minus">
+                    <rect key="frame" x="0.0" y="0.0" width="99.5" height="67"/>
+                    <state key="normal" image="IconMinusNormal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -35,21 +35,21 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAV-ce-gJz">
-                    <rect key="frame" x="100" y="0.0" width="100" height="67"/>
+                    <rect key="frame" x="100.5" y="0.0" width="99" height="67"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hky-aK-d29">
-                    <rect key="frame" x="200" y="0.0" width="1" height="67"/>
+                    <rect key="frame" x="199" y="0.0" width="1" height="67"/>
                     <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="1" id="xfc-5Z-0ec"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlZ-Zt-AZV">
-                    <rect key="frame" x="201" y="0.0" width="99" height="67"/>
-                    <state key="normal" image="plus">
+                    <rect key="frame" x="200" y="0.0" width="99.5" height="67"/>
+                    <state key="normal" image="IconPlusNormal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -84,8 +84,8 @@
         </view>
     </objects>
     <resources>
-        <image name="minus" width="10" height="2"/>
-        <image name="plus" width="10" height="10"/>
+        <image name="IconMinusNormal" width="10" height="2"/>
+        <image name="IconPlusNormal" width="10" height="10"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
