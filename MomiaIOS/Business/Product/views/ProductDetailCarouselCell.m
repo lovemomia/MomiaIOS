@@ -124,7 +124,12 @@
     
     
     self.titleLabel.text = model.title;
-    self.enrollLabel.text = [NSString stringWithFormat:@"%ld人已报名",(long)model.joined];
+    if (model.joined == 0) {
+        self.enrollLabel.hidden = YES;
+    } else {
+        self.enrollLabel.hidden = NO;
+        self.enrollLabel.text = [NSString stringWithFormat:@"%ld人已报名",(long)model.joined];
+    }
     self.priceLabel.text = [StringUtils stringForPrice:model.price];
     
 }

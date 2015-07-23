@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *descLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *enrollmentLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *enrollmentBg;
 
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 

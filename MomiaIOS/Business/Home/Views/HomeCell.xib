@@ -125,6 +125,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="descLabel" destination="w2E-YZ-DvU" id="Inf-Ev-0Ya"/>
+                <outlet property="enrollmentBg" destination="iCx-Fl-Oy8" id="sJO-kM-rRi"/>
                 <outlet property="enrollmentLabel" destination="Lgc-5C-aNX" id="zFJ-n3-EbV"/>
                 <outlet property="imgView" destination="du3-AC-695" id="YVr-1v-Lv8"/>
                 <outlet property="priceLabel" destination="7Ay-h8-Gwa" id="wXD-nU-N8H"/>

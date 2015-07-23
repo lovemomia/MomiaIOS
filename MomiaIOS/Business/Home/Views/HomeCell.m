@@ -19,8 +19,17 @@
     self.titleLabel.text = model.title;
     self.timeLabel.text = model.scheduler;
     self.descLabel.text = model.address;
-//    self.enrollmentLabel.titleLabel.text = [NSString stringWithFormat:@"%ld人报名", model.joined];
-    self.enrollmentLabel.text = [NSString stringWithFormat:@"%ld人报名", (long)model.joined];
+    
+    if (model.joined == 0) {
+        self.enrollmentLabel.hidden = YES;
+        self.enrollmentBg.hidden = YES;
+        
+    } else {
+        self.enrollmentLabel.hidden = NO;
+        self.enrollmentBg.hidden = NO;
+        self.enrollmentLabel.text = [NSString stringWithFormat:@"%ld人报名", (long)model.joined];
+    }
+    
     self.priceLabel.text = [StringUtils stringForPrice:model.price];
 }
 
