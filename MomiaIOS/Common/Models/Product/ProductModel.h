@@ -44,26 +44,28 @@
 
 @interface ProductModel : JSONModel
 
-@property (nonatomic,strong) NSString * cover;
-@property (nonatomic,strong) NSString * scheduler;
-@property (nonatomic,strong) NSString * title;
-@property (nonatomic,assign) NSInteger pID;
-@property (nonatomic,assign) CGFloat price;
-@property (nonatomic,assign) NSInteger joined;
-@property (nonatomic,strong) NSString * address;
-@property (nonatomic,strong) NSString * poi;
-@property (nonatomic,strong) NSArray<ProductContentModel,Optional> * content;
-@property (nonatomic,strong) NSString<Optional> * crowd;
-@property (nonatomic,strong) ProductCustomersModel<Optional> * customers;
-@property (nonatomic,strong) NSArray<Optional> * imgs;
+@property (nonatomic, strong) NSString * cover;
+@property (nonatomic, strong) NSString * scheduler;
+@property (nonatomic, strong) NSString * title;
+@property (nonatomic, assign) NSInteger pID;
+@property (nonatomic, assign) CGFloat price;
+@property (nonatomic, assign) NSInteger joined;
+@property (nonatomic, strong) NSString * address;
+@property (nonatomic, strong) NSString * poi;
+@property (nonatomic, strong) NSArray<ProductContentModel,Optional> * content;
+@property (nonatomic, strong) NSString<Optional> * crowd;
+@property (nonatomic, strong) ProductCustomersModel<Optional> * customers;
+@property (nonatomic, strong) NSArray<Optional> * imgs;
 
-@property (nonatomic,strong) NSString<Optional> * url; // 分享url
-@property (nonatomic,strong) NSString<Optional> * abstracts; // 分享简介
+@property (nonatomic, strong) NSString<Optional> * url; // 分享url
+@property (nonatomic, strong) NSString<Optional> * abstracts; // 分享简介
 
-@property (nonatomic,assign) BOOL soldOut;
+@property (nonatomic, assign) BOOL soldOut;
+@property (nonatomic, assign) BOOL favored; //是否收藏
+@property (nonatomic, assign) BOOL opened; //是否报名开放中
 
-@property (nonatomic,strong) NSString<Optional> * thumb; // 分享小图标
-@property (nonatomic,strong) NSArray<Optional> * tags;
+@property (nonatomic, strong) NSString<Optional> * thumb; // 分享小图标
+@property (nonatomic, strong) NSArray<Optional> * tags;
 
 
 @end

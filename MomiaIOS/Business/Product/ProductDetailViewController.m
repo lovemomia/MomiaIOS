@@ -98,6 +98,30 @@ typedef enum
 }
 
 - (void)onFavClick {
+    if (self.model == nil) {
+        return;
+    }
+    
+    if (self.model.data.favored) {
+        NSDictionary * dic = @{@"id":self.productId};
+        [[HttpService defaultService] POST:URL_APPEND_PATH(@"/product/unfavor") parameters:dic JSONModelClass:[BaseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            self.model.data.favored = NO;
+            [self changeFavStatus];
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+        }];
+        
+    } else {
+        NSDictionary * dic = @{@"id":self.productId};
+        [[HttpService defaultService] POST:URL_APPEND_PATH(@"/product/favor") parameters:dic JSONModelClass:[BaseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            self.model.data.favored = YES;
+            [self changeFavStatus];
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+        }];
+    }
 }
 
 #pragma mark - webData Request
@@ -107,7 +131,7 @@ typedef enum
         [self.view showLoadingBee];
     }
     
-    CacheType cacheType = refresh ? CacheTypeDisable : CacheTypeNormal;
+    CacheType cacheType = refresh ? CacheTypeDisable : CacheTypeDisable;
     
     NSDictionary * dic = @{@"id":self.productId};
     [[HttpService defaultService] GET:URL_APPEND_PATH(@"/product") parameters:dic cacheType:cacheType JSONModelClass:[ProductDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -117,13 +141,24 @@ typedef enum
         
         self.model = responseObject;
         
-        if(!self.model.data.soldOut) {
-            [self.signUpBtn setBackgroundColor:UIColorFromRGB(0xff5d33)];
-            [self.signUpBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        } else {
+        if (self.model.data.soldOut || !self.model.data.opened) {
             [self.signUpBtn setBackgroundColor:UIColorFromRGB(0x999999)];
             [self.signUpBtn setTitleColor:UIColorFromRGB(0x666666) forState:UIControlStateNormal];
+            if (self.model.data.soldOut) {
+                // 已卖完
+                [self.signUpBtn setTitle:@"报名人数已满" forState:UIControlStateNormal];
+            } else {
+                // 已结束
+                [self.signUpBtn setTitle:@"报名已结束" forState:UIControlStateNormal];
+            }
+            
+        } else {
+            [self.signUpBtn setBackgroundColor:UIColorFromRGB(0xff5d33)];
+            [self.signUpBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         }
+        
+        // 收藏
+        [self changeFavStatus];
         
         [self.tableView reloadData];
         [self.tableView.header endRefreshing];
@@ -137,6 +172,14 @@ typedef enum
 
 - (void)refreshData {
     [self requestData:YES];
+}
+
+- (void)changeFavStatus {
+    if (self.model.data.favored) {
+        self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"TitleFaved"];
+    } else {
+        self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"TitleFav"];
+    }
 }
 
 -(NSMutableDictionary *)contentCellDictionary

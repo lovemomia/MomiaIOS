@@ -1376,6 +1376,7 @@
 		BC8540B41ADF8614005A7C54 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BC8540C41AE2121E005A7C54 /* Constants.h */,
 				BC38D2141AFE0FD60051C7E9 /* Utility */,
 				BC2FAA121AFCB1CB00E2071E /* Services */,
 				BC7708601AFC56F3000068A8 /* Models */,
@@ -1439,7 +1440,6 @@
 			children = (
 				BC8540BB1ADF8A09005A7C54 /* MOViewController.h */,
 				BC8540BC1ADF8A09005A7C54 /* MOViewController.m */,
-				BC8540C41AE2121E005A7C54 /* Constants.h */,
 				BCA273221AEB166E002E7534 /* MONavigationController.h */,
 				BCA273231AEB166E002E7534 /* MONavigationController.m */,
 				BCFC2C311AF9C09400164BC2 /* MOWebViewController.h */,
