@@ -8,6 +8,8 @@
 
 #import "PlaymateContentCell.h"
 #import "TTTAttributedLabel.h"
+#import "MJPhotoBrowser.h"
+#import "MJPhoto.h"
 
 #define LineSpacing 6
 #define contentFontSize 13.0f
@@ -41,16 +43,114 @@
         label.textColor = UIColorFromRGB(0x333333);
         label.font = [UIFont systemFontOfSize:contentFontSize];
         label.lineSpacing = LineSpacing;
-        label.text = @"参加了#来哆啦a梦家，参观密室逃脱#活动不错，大朋友和小朋友都很投入，我家小宝很开心，下次如果能按年龄分组就更好了...";
+        
+        NSString *text = @"参加了#来哆啦a梦家，参观密室逃脱#活动不错，大朋友和小朋友都很投入，我家小宝很开心，下次如果能按年龄分组就更好了...";
+        NSArray *tagIndexs = [self indexForTag:@"#" inText:text];
+        if (tagIndexs.count > 1) {
+            [label setText:text afterInheritingLabelAttributesAndConfiguringWithBlock:^ NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+                NSRange boldRange = NSMakeRange([[tagIndexs objectAtIndex:0] integerValue],[[tagIndexs objectAtIndex:1] integerValue] - 2);
+                
+//                UIFont *boldSystemFont = [UIFont boldSystemFontOfSize:contentFontSize];
+//                CTFontRef font = CTFontCreateWithName((__bridge CFStringRef)boldSystemFont.fontName, boldSystemFont.pointSize, NULL);
+//                if (font) {
+//                    [mutableAttributedString addAttribute:(NSString *)kCTFontAttributeName value:(__bridge id)font range:boldRange];
+//                    CFRelease(font);
+//                }
+                
+                [mutableAttributedString addAttribute:(NSString *)kCTForegroundColorAttributeName value:MO_APP_ThemeColor range:boldRange];
+                
+                return mutableAttributedString;
+            }];
+            
+        } else {
+            label.text = text;
+        }
         
         // images
-        
+        NSNumber *imageSize = [[NSNumber alloc]initWithInt:(SCREEN_WIDTH - 65 - 40) / 3];
+        UIImageView *lastImage;
+        for (int i = 0; i < 5; i++) {
+            UIImageView *imageView = [[UIImageView alloc]init];
+            [self.contentView addSubview:imageView];
+            [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.width.equalTo(imageSize);
+                make.height.equalTo(imageSize);
+                
+                make.right.lessThanOrEqualTo(self.contentView).with.offset(-5);
+                make.bottom.lessThanOrEqualTo(self.contentView).with.offset(-12);
+                
+                
+                if (fmod(i, 3) == 0) {
+                    make.left.equalTo(self.contentView).with.offset(65);
+                    if (lastImage) {
+                        if (i/3 == 0) {
+                            make.top.equalTo(lastImage.mas_top).with.offset(0);
+                        } else {
+                            make.top.equalTo(lastImage.mas_bottom).with.offset(5);
+                        }
+                        
+                    } else {
+                        make.top.equalTo(label.mas_bottom).with.offset(12);
+                    }
+                    
+                } else {
+                    make.left.equalTo(lastImage.mas_right).with.offset(5);
+                    if (lastImage) {
+                        make.top.equalTo(lastImage.mas_top).with.offset(0);
+                        
+                    } else {
+                        make.top.equalTo(label.mas_bottom).with.offset(12);
+                    }
+                    
+                }
+            }];
+            
+            imageView.contentMode = UIViewContentModeScaleAspectFill;
+            imageView.clipsToBounds = YES;
+            imageView.backgroundColor = UIColorFromRGB(0xcccccc);
+            [imageView sd_setImageWithURL:@"http://maitian.qiniudn.com/dc530090-faef-42a1-85ed-c82f8d0e2610.jpg?imageView2/1/w/240/h/180/q/80/format/jpg"];
+            imageView.tag = i;
+            imageView.userInteractionEnabled = YES;
+            UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onImageClick:)];
+            [imageView addGestureRecognizer:singleTap];
+            
+            lastImage = imageView;
+        }
         
         
         // location
         
     }
     return self;
+}
+
+- (NSArray *)indexForTag:(NSString *)tag inText:(NSString *)text {
+    NSMutableArray *array = [[NSMutableArray alloc]init];
+    for(int i =0; i < [text length]; i++)
+    {
+        NSString *temp = [text substringWithRange:NSMakeRange(i, 1)];
+        if ([temp isEqualToString:tag]) {
+            [array addObject:[[NSNumber alloc] initWithInt:i]];
+        }
+    }
+    return array;
+}
+
+- (void)onImageClick:(UIGestureRecognizer *)recognizer {
+    NSMutableArray *photos = [NSMutableArray arrayWithCapacity:5];
+    for (int i = 0; i < 5; i++) {
+        NSString *url = @"http://maitian.qiniudn.com/dc530090-faef-42a1-85ed-c82f8d0e2610.jpg?imageView2/1/w/240/h/180/q/80/format/jpg";
+        MJPhoto *photo = [[MJPhoto alloc] init];
+        photo.url = [NSURL URLWithString:url];
+        photo.srcImageView = (UIImageView *)recognizer.view;
+        [photos addObject:photo];
+    }
+    
+    NSInteger index = recognizer.view.tag;
+    MJPhotoBrowser *browser = [[MJPhotoBrowser alloc] init];
+    browser.currentPhotoIndex = index;
+    browser.photos = photos;
+    [browser show];
 }
 
 + (CGFloat)heightWithTableView:(UITableView *) tableView contentModel:(PlaymateFeed *)model {

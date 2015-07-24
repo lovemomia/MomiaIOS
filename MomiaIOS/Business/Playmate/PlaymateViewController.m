@@ -83,7 +83,7 @@ static NSString *identifierPlaymateUgcCell = @"PlaymateUgcCell";
         PlaymateUgcCell * ugc = [PlaymateUgcCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierPlaymateUgcCell];
         cell = ugc;
     }
-    cell.selectionStyle = UITableViewCellSeparatorStyleNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

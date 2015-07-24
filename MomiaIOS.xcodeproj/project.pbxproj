@@ -225,6 +225,19 @@
 		BCCDF6741B0B4F90008BAE12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCDF6731B0B4F90008BAE12 /* Foundation.framework */; };
 		BCCDF6761B0B4F97008BAE12 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCDF6751B0B4F97008BAE12 /* CoreGraphics.framework */; };
 		BCCDF6801B0C331B008BAE12 /* ThirdAccountHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCDF67F1B0C331B008BAE12 /* ThirdAccountHelper.m */; };
+		BCD755D21B62155F0098752B /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD755C61B62155F0098752B /* MJPhoto.m */; };
+		BCD755D31B62155F0098752B /* MJPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BCD755C71B62155F0098752B /* MJPhotoBrowser.bundle */; };
+		BCD755D41B62155F0098752B /* MJPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD755C91B62155F0098752B /* MJPhotoBrowser.m */; };
+		BCD755D51B62155F0098752B /* MJPhotoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD755CB1B62155F0098752B /* MJPhotoLoadingView.m */; };
+		BCD755D61B62155F0098752B /* MJPhotoProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD755CD1B62155F0098752B /* MJPhotoProgressView.m */; };
+		BCD755D71B62155F0098752B /* MJPhotoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD755CF1B62155F0098752B /* MJPhotoToolbar.m */; };
+		BCD755D81B62155F0098752B /* MJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD755D11B62155F0098752B /* MJPhotoView.m */; };
+		BCD755DB1B6219660098752B /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD755DA1B6219660098752B /* MBProgressHUD+Add.m */; };
+		BCD755DE1B621A570098752B /* SDWebImageManager+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD755DD1B621A570098752B /* SDWebImageManager+MJ.m */; };
+		BCD755E21B6229700098752B /* PlaymateSuggestHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD755E01B6229700098752B /* PlaymateSuggestHeadCell.m */; };
+		BCD755E31B6229700098752B /* PlaymateSuggestHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD755E11B6229700098752B /* PlaymateSuggestHeadCell.xib */; };
+		BCD755E71B6229B50098752B /* PlaymateSuggestUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD755E51B6229B50098752B /* PlaymateSuggestUserCell.m */; };
+		BCD755E81B6229B50098752B /* PlaymateSuggestUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD755E61B6229B50098752B /* PlaymateSuggestUserCell.xib */; };
 		BCE5893E1B2AB62500736923 /* ApiXml.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCE589391B2AB62500736923 /* ApiXml.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BCE5893F1B2AB62500736923 /* payRequsestHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCE5893B1B2AB62500736923 /* payRequsestHandler.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BCE589401B2AB62500736923 /* WXUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCE5893D1B2AB62500736923 /* WXUtil.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -648,6 +661,29 @@
 		BCCDF6751B0B4F97008BAE12 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		BCCDF67E1B0C331B008BAE12 /* ThirdAccountHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirdAccountHelper.h; path = Common/Utils/ThirdAccountHelper.h; sourceTree = "<group>"; };
 		BCCDF67F1B0C331B008BAE12 /* ThirdAccountHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThirdAccountHelper.m; path = Common/Utils/ThirdAccountHelper.m; sourceTree = "<group>"; };
+		BCD755C51B62155F0098752B /* MJPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhoto.h; sourceTree = "<group>"; };
+		BCD755C61B62155F0098752B /* MJPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhoto.m; sourceTree = "<group>"; };
+		BCD755C71B62155F0098752B /* MJPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJPhotoBrowser.bundle; sourceTree = "<group>"; };
+		BCD755C81B62155F0098752B /* MJPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoBrowser.h; sourceTree = "<group>"; };
+		BCD755C91B62155F0098752B /* MJPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoBrowser.m; sourceTree = "<group>"; };
+		BCD755CA1B62155F0098752B /* MJPhotoLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoLoadingView.h; sourceTree = "<group>"; };
+		BCD755CB1B62155F0098752B /* MJPhotoLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoLoadingView.m; sourceTree = "<group>"; };
+		BCD755CC1B62155F0098752B /* MJPhotoProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoProgressView.h; sourceTree = "<group>"; };
+		BCD755CD1B62155F0098752B /* MJPhotoProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoProgressView.m; sourceTree = "<group>"; };
+		BCD755CE1B62155F0098752B /* MJPhotoToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoToolbar.h; sourceTree = "<group>"; };
+		BCD755CF1B62155F0098752B /* MJPhotoToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoToolbar.m; sourceTree = "<group>"; };
+		BCD755D01B62155F0098752B /* MJPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhotoView.h; sourceTree = "<group>"; };
+		BCD755D11B62155F0098752B /* MJPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoView.m; sourceTree = "<group>"; };
+		BCD755D91B6219660098752B /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
+		BCD755DA1B6219660098752B /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
+		BCD755DC1B621A570098752B /* SDWebImageManager+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SDWebImageManager+MJ.h"; sourceTree = "<group>"; };
+		BCD755DD1B621A570098752B /* SDWebImageManager+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SDWebImageManager+MJ.m"; sourceTree = "<group>"; };
+		BCD755DF1B6229700098752B /* PlaymateSuggestHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaymateSuggestHeadCell.h; path = Business/Playmate/Views/PlaymateSuggestHeadCell.h; sourceTree = "<group>"; };
+		BCD755E01B6229700098752B /* PlaymateSuggestHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaymateSuggestHeadCell.m; path = Business/Playmate/Views/PlaymateSuggestHeadCell.m; sourceTree = "<group>"; };
+		BCD755E11B6229700098752B /* PlaymateSuggestHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaymateSuggestHeadCell.xib; path = Business/Playmate/Views/PlaymateSuggestHeadCell.xib; sourceTree = "<group>"; };
+		BCD755E41B6229B50098752B /* PlaymateSuggestUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaymateSuggestUserCell.h; path = Business/Playmate/Views/PlaymateSuggestUserCell.h; sourceTree = "<group>"; };
+		BCD755E51B6229B50098752B /* PlaymateSuggestUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaymateSuggestUserCell.m; path = Business/Playmate/Views/PlaymateSuggestUserCell.m; sourceTree = "<group>"; };
+		BCD755E61B6229B50098752B /* PlaymateSuggestUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaymateSuggestUserCell.xib; path = Business/Playmate/Views/PlaymateSuggestUserCell.xib; sourceTree = "<group>"; };
 		BCE589381B2AB62500736923 /* ApiXml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiXml.h; sourceTree = "<group>"; };
 		BCE589391B2AB62500736923 /* ApiXml.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ApiXml.mm; sourceTree = "<group>"; };
 		BCE5893A1B2AB62500736923 /* payRequsestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = payRequsestHandler.h; sourceTree = "<group>"; };
@@ -1094,6 +1130,7 @@
 		BC2C0C541B13095A00E2446E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BCD755C41B62155F0098752B /* MJPhotoBrowser */,
 				BC0EC2991B5F880E00D9A82F /* LJViewPager */,
 				BC5063851B53746800AA233C /* SGActionView */,
 				5AB1BDE11B4FB59D004A4511 /* Loading */,
@@ -1304,6 +1341,12 @@
 				BC0EC2A81B5F947100D9A82F /* PlaymateUgcCell.h */,
 				BC0EC2A91B5F947100D9A82F /* PlaymateUgcCell.m */,
 				BC0EC2AA1B5F947100D9A82F /* PlaymateUgcCell.xib */,
+				BCD755DF1B6229700098752B /* PlaymateSuggestHeadCell.h */,
+				BCD755E01B6229700098752B /* PlaymateSuggestHeadCell.m */,
+				BCD755E11B6229700098752B /* PlaymateSuggestHeadCell.xib */,
+				BCD755E41B6229B50098752B /* PlaymateSuggestUserCell.h */,
+				BCD755E51B6229B50098752B /* PlaymateSuggestUserCell.m */,
+				BCD755E61B6229B50098752B /* PlaymateSuggestUserCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1553,6 +1596,10 @@
 		BCA2731B1AE9FA83002E7534 /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
+				BCD755DC1B621A570098752B /* SDWebImageManager+MJ.h */,
+				BCD755DD1B621A570098752B /* SDWebImageManager+MJ.m */,
+				BCD755D91B6219660098752B /* MBProgressHUD+Add.h */,
+				BCD755DA1B6219660098752B /* MBProgressHUD+Add.m */,
 				BCCDF5E31B09EBF8008BAE12 /* UITextView+Placeholder.h */,
 				BCCDF5E41B09EBF8008BAE12 /* UITextView+Placeholder.m */,
 				BC2FAA0D1AFCA92D00E2071E /* UIView+Frame.h */,
@@ -1636,6 +1683,26 @@
 				BCCDF66C1B0B4E4C008BAE12 /* WeiboUser.h */,
 			);
 			path = libWeiboSDK;
+			sourceTree = "<group>";
+		};
+		BCD755C41B62155F0098752B /* MJPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				BCD755C51B62155F0098752B /* MJPhoto.h */,
+				BCD755C61B62155F0098752B /* MJPhoto.m */,
+				BCD755C71B62155F0098752B /* MJPhotoBrowser.bundle */,
+				BCD755C81B62155F0098752B /* MJPhotoBrowser.h */,
+				BCD755C91B62155F0098752B /* MJPhotoBrowser.m */,
+				BCD755CA1B62155F0098752B /* MJPhotoLoadingView.h */,
+				BCD755CB1B62155F0098752B /* MJPhotoLoadingView.m */,
+				BCD755CC1B62155F0098752B /* MJPhotoProgressView.h */,
+				BCD755CD1B62155F0098752B /* MJPhotoProgressView.m */,
+				BCD755CE1B62155F0098752B /* MJPhotoToolbar.h */,
+				BCD755CF1B62155F0098752B /* MJPhotoToolbar.m */,
+				BCD755D01B62155F0098752B /* MJPhotoView.h */,
+				BCD755D11B62155F0098752B /* MJPhotoView.m */,
+			);
+			path = MJPhotoBrowser;
 			sourceTree = "<group>";
 		};
 		BCE589371B2AB62500736923 /* lib */ = {
@@ -1818,6 +1885,7 @@
 				BCA273271AEB1EBA002E7534 /* MineInfoCell.xib in Resources */,
 				5A33F19B1B2EA0A4002A8258 /* CashPayBottomCell.xib in Resources */,
 				5A4044331B27D18C0010782C /* OrderPersonViewController.xib in Resources */,
+				BCD755E81B6229B50098752B /* PlaymateSuggestUserCell.xib in Resources */,
 				BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */,
 				BCF564E51B4A54D0003A2227 /* PersonChildHeaderCell.xib in Resources */,
 				5AB1BDE01B4F9B49004A4511 /* ProductDetailTagsCell.xib in Resources */,
@@ -1833,6 +1901,7 @@
 				5A08C13C1B39117100642648 /* ProductDetailBasicInfoCell.xib in Resources */,
 				5A0643671B3BC4A800361732 /* FillOrderMiddleCell.xib in Resources */,
 				5A06436C1B3BCE9A00361732 /* FillOrderBottomCell.xib in Resources */,
+				BCD755E31B6229700098752B /* PlaymateSuggestHeadCell.xib in Resources */,
 				BC66D3C61B60FBBE00A5BFC6 /* MyFavCell.xib in Resources */,
 				5A9E80E71B4BBF590028AC47 /* ProductPlayFellowCell.xib in Resources */,
 				BCA273101AE9D79F002E7534 /* scheme.plist in Resources */,
@@ -1856,6 +1925,7 @@
 				5A9E81261B4BE8B40028AC47 /* OrderDetailTopCell.xib in Resources */,
 				5A83074F1B3291430057412A /* CommonHeaderView.xib in Resources */,
 				5AB1BDDB1B4F7785004A4511 /* OrderDetailTitleCell.xib in Resources */,
+				BCD755D31B62155F0098752B /* MJPhotoBrowser.bundle in Resources */,
 				5A08C13E1B39117100642648 /* ProductDetailCarouselCell.xib in Resources */,
 				5A8EF0361B31407B003ABAF8 /* HomeCell.xib in Resources */,
 				5A9E80E21B4BBD2B0028AC47 /* ProductPlayFellowHeaderView.xib in Resources */,
@@ -1936,6 +2006,7 @@
 				BC2C0C961B184EA500E2446E /* AvatarImageView.m in Sources */,
 				BC2C0C641B130CDB00E2446E /* Account.m in Sources */,
 				BC0EC2A11B5F880E00D9A82F /* LJViewPager.m in Sources */,
+				BCD755D21B62155F0098752B /* MJPhoto.m in Sources */,
 				5AEB188A1B1865F90098FD5F /* MySuggestModel.m in Sources */,
 				5A08C1391B39117100642648 /* ProductDetailViewController.m in Sources */,
 				BC5063911B53746800AA233C /* SGAlertMenu.m in Sources */,
@@ -1965,6 +2036,7 @@
 				5A6806EE1B01A48300D02A60 /* SettingViewController.m in Sources */,
 				5AABF6FA1B28120C000A9D3F /* OrderUpdatePersonViewController.m in Sources */,
 				5AE4F86B1B3D645E005879B7 /* MOStepperGroup.m in Sources */,
+				BCD755D51B62155F0098752B /* MJPhotoLoadingView.m in Sources */,
 				BCA272FD1AE8A2C7002E7534 /* MineViewController.m in Sources */,
 				5A9E80E01B4BBCCD0028AC47 /* ProductPlayFellowHeaderView.m in Sources */,
 				5A1B35EF1B12BD0500E1D31B /* CommentViewController.m in Sources */,
@@ -2008,6 +2080,7 @@
 				BCF0339C1B4F77BE005B71D6 /* AlipayOrderModel.m in Sources */,
 				5AB1BDDF1B4F9B49004A4511 /* ProductDetailTagsCell.m in Sources */,
 				5A9E81251B4BE8B40028AC47 /* OrderDetailTopCell.m in Sources */,
+				BCD755D81B62155F0098752B /* MJPhotoView.m in Sources */,
 				5A06436A1B3BCE7B00361732 /* FillOrderBottomCell.m in Sources */,
 				BCF564E01B491799003A2227 /* OrderListItemCell.m in Sources */,
 				BCA2731E1AE9FB1D002E7534 /* NSString+MOURLEncode.m in Sources */,
@@ -2020,6 +2093,7 @@
 				BC41ABBF1B0F269100A419DA /* SugTagsCell.m in Sources */,
 				BC41ABBC1B0F266F00A419DA /* SuggestTagsViewController.m in Sources */,
 				5A0643631B3BC3F800361732 /* FillOrderMiddleCell.m in Sources */,
+				BCD755D41B62155F0098752B /* MJPhotoBrowser.m in Sources */,
 				5A3DBE5A1B18577900E708AC /* FavouriteModel.m in Sources */,
 				BC0BD6FE1B55170A00B95B3A /* CouponListViewController.m in Sources */,
 				5A9E80DC1B4BBB1F0028AC47 /* ProductPlayFellowViewController.m in Sources */,
@@ -2043,6 +2117,7 @@
 				BC2C0C8F1B18075D00E2446E /* UIImage+Color.m in Sources */,
 				BC0BD6FA1B5516DB00B95B3A /* Coupon.m in Sources */,
 				BCF564CF1B4632A1003A2227 /* Child.m in Sources */,
+				BCD755DB1B6219660098752B /* MBProgressHUD+Add.m in Sources */,
 				BC0EC2A01B5F880E00D9A82F /* LJTabBar.m in Sources */,
 				5AB444821B41479800FBADD4 /* OrderPersonModel.m in Sources */,
 				5AE4F8671B3D642B005879B7 /* MOStepperView.m in Sources */,
@@ -2055,16 +2130,20 @@
 				5AB1BDDA1B4F7785004A4511 /* OrderDetailTitleCell.m in Sources */,
 				BC41ABAD1B0C7ABF00A419DA /* UploadImageModel.m in Sources */,
 				BC0EC2A21B5F880E00D9A82F /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m in Sources */,
+				BCD755D61B62155F0098752B /* MJPhotoProgressView.m in Sources */,
 				5A18DC471B292BDF001458A4 /* UITableView+FDTemplateLayoutHeader.m in Sources */,
 				5A794F9D1B4E7F0F00BB3B7C /* OrderDetailBottomCell.m in Sources */,
 				5A08C13B1B39117100642648 /* ProductDetailBasicInfoCell.m in Sources */,
 				5A4044371B27DB110010782C /* OrderPersonCell.m in Sources */,
+				BCD755E71B6229B50098752B /* PlaymateSuggestUserCell.m in Sources */,
 				BCCDF6801B0C331B008BAE12 /* ThirdAccountHelper.m in Sources */,
 				BCA273241AEB166E002E7534 /* MONavigationController.m in Sources */,
 				BC2C0C761B140BF100E2446E /* RegisterViewController.m in Sources */,
+				BCD755E21B6229700098752B /* PlaymateSuggestHeadCell.m in Sources */,
 				BCF564DA1B48FE90003A2227 /* Order.m in Sources */,
 				BC0BD6FB1B5516DB00B95B3A /* CouponListModel.m in Sources */,
 				BC0BD7061B5518F000B95B3A /* CouponPriceModel.m in Sources */,
+				BCD755D71B62155F0098752B /* MJPhotoToolbar.m in Sources */,
 				BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */,
 				BCE5893E1B2AB62500736923 /* ApiXml.mm in Sources */,
 				5AE4F8301B3D2FE5005879B7 /* FillOrderChooseCell.m in Sources */,
@@ -2072,6 +2151,7 @@
 				5A18DC581B297431001458A4 /* HomeCarouselCell.m in Sources */,
 				BC82544B1B3D414000430A6F /* PlaymateContentCell.m in Sources */,
 				5A18DC5E1B2996B9001458A4 /* HomeCell.m in Sources */,
+				BCD755DE1B621A570098752B /* SDWebImageManager+MJ.m in Sources */,
 				BC97DF031B4BE1EF002B1A00 /* WechatPayData.m in Sources */,
 				BCFC2C371AF9C6B800164BC2 /* ActivityWebViewController.m in Sources */,
 				BC38D2891B099D0B0051C7E9 /* SuggestSubmitViewController.m in Sources */,

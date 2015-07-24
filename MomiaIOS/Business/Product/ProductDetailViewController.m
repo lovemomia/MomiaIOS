@@ -143,7 +143,6 @@ typedef enum
         
         if (self.model.data.soldOut || !self.model.data.opened) {
             [self.signUpBtn setBackgroundColor:UIColorFromRGB(0x999999)];
-            [self.signUpBtn setTitleColor:UIColorFromRGB(0x666666) forState:UIControlStateNormal];
             if (self.model.data.soldOut) {
                 // 已卖完
                 [self.signUpBtn setTitle:@"报名人数已满" forState:UIControlStateNormal];
@@ -154,7 +153,6 @@ typedef enum
             
         } else {
             [self.signUpBtn setBackgroundColor:UIColorFromRGB(0xff5d33)];
-            [self.signUpBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         }
         
         // 收藏
