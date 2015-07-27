@@ -61,8 +61,8 @@
 @property (nonatomic, strong) NSString<Optional> * abstracts; // 分享简介
 
 @property (nonatomic, assign) BOOL soldOut;
-@property (nonatomic, assign) BOOL favored; //是否收藏
-@property (nonatomic, assign) BOOL opened; //是否报名开放中
+@property (nonatomic, strong) NSNumber<Optional> *favored; //是否收藏
+@property (nonatomic, strong) NSNumber<Optional> *opened; //是否报名开放中
 
 @property (nonatomic, strong) NSString<Optional> * thumb; // 分享小图标
 @property (nonatomic, strong) NSArray<Optional> * tags;

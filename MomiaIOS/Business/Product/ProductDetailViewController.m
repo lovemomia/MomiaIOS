@@ -102,10 +102,10 @@ typedef enum
         return;
     }
     
-    if (self.model.data.favored) {
+    if ([self.model.data.favored boolValue]) {
         NSDictionary * dic = @{@"id":self.productId};
         [[HttpService defaultService] POST:URL_APPEND_PATH(@"/product/unfavor") parameters:dic JSONModelClass:[BaseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            self.model.data.favored = NO;
+            self.model.data.favored = [NSNumber numberWithBool:NO];
             [self changeFavStatus];
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -115,7 +115,7 @@ typedef enum
     } else {
         NSDictionary * dic = @{@"id":self.productId};
         [[HttpService defaultService] POST:URL_APPEND_PATH(@"/product/favor") parameters:dic JSONModelClass:[BaseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            self.model.data.favored = YES;
+            self.model.data.favored = [NSNumber numberWithBool:YES];
             [self changeFavStatus];
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -141,7 +141,7 @@ typedef enum
         
         self.model = responseObject;
         
-        if (self.model.data.soldOut || !self.model.data.opened) {
+        if (self.model.data.soldOut || ![self.model.data.opened boolValue]) {
             [self.signUpBtn setBackgroundColor:UIColorFromRGB(0x999999)];
             if (self.model.data.soldOut) {
                 // 已卖完
@@ -173,7 +173,7 @@ typedef enum
 }
 
 - (void)changeFavStatus {
-    if (self.model.data.favored) {
+    if ([self.model.data.favored boolValue]) {
         self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"TitleFaved"];
     } else {
         self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"TitleFav"];
