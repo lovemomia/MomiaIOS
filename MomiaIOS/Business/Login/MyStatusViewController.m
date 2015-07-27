@@ -70,12 +70,15 @@
 }
 
 - (void)onFinishClicked {
-    if ([self check]) {
+    if ([self check].count > 0) {
         [self addBabysInfo];
+    } else {
+        self.operateSuccessBlock();
     }
 }
 
-- (BOOL)check {
+- (NSArray *)check {
+    NSMutableArray *array = [[NSMutableArray alloc]init];
     for (Baby *baby in self.babys) {
         if (baby.name.length == 0) {
             [self showDialogWithTitle:nil message:@"宝宝姓名缺失"];
@@ -89,8 +92,9 @@
             [self showDialogWithTitle:nil message:@"宝宝生日缺失"];
             return NO;
         }
+        [array addObject:baby];
     }
-    return YES;
+    return array;
 }
 
 - (void)addBabysInfo {

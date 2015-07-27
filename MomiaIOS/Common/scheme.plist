@@ -218,6 +218,15 @@
 		<key>desc</key>
 		<string>玩伴</string>
 	</dict>
+	<key>playmatedetail</key>
+	<dict>
+		<key>controller</key>
+		<string>FeedDetailViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>feed详情</string>
+	</dict>
 	<key>citylist</key>
 	<dict>
 		<key>controller</key>

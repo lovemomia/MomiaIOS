@@ -34,8 +34,8 @@
         TTTAttributedLabel *label = [[TTTAttributedLabel alloc]initWithFrame:CGRectZero];
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.contentView).with.offset(65);
             make.top.equalTo(self.contentView).with.offset(12);
+            make.left.equalTo(self.contentView).with.offset(65);
             make.right.equalTo(self.contentView).with.offset(-10);
             make.bottom.lessThanOrEqualTo(self.contentView).with.offset(-12);
         }];
@@ -49,14 +49,6 @@
         if (tagIndexs.count > 1) {
             [label setText:text afterInheritingLabelAttributesAndConfiguringWithBlock:^ NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
                 NSRange boldRange = NSMakeRange([[tagIndexs objectAtIndex:0] integerValue],[[tagIndexs objectAtIndex:1] integerValue] - 2);
-                
-//                UIFont *boldSystemFont = [UIFont boldSystemFontOfSize:contentFontSize];
-//                CTFontRef font = CTFontCreateWithName((__bridge CFStringRef)boldSystemFont.fontName, boldSystemFont.pointSize, NULL);
-//                if (font) {
-//                    [mutableAttributedString addAttribute:(NSString *)kCTFontAttributeName value:(__bridge id)font range:boldRange];
-//                    CFRelease(font);
-//                }
-                
                 [mutableAttributedString addAttribute:(NSString *)kCTForegroundColorAttributeName value:MO_APP_ThemeColor range:boldRange];
                 
                 return mutableAttributedString;
@@ -76,7 +68,7 @@
                 make.width.equalTo(imageSize);
                 make.height.equalTo(imageSize);
                 
-                make.right.lessThanOrEqualTo(self.contentView).with.offset(-5);
+//                make.right.lessThanOrEqualTo(self.contentView).with.offset(-5);
                 make.bottom.lessThanOrEqualTo(self.contentView).with.offset(-12);
                 
                 
@@ -101,7 +93,6 @@
                     } else {
                         make.top.equalTo(label.mas_bottom).with.offset(12);
                     }
-                    
                 }
             }];
             

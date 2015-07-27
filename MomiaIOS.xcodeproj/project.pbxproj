@@ -179,6 +179,10 @@
 		BC66D3C61B60FBBE00A5BFC6 /* MyFavCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC66D3C41B60FBBE00A5BFC6 /* MyFavCell.xib */; };
 		BC7708511AFAFD54000068A8 /* MOTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7708501AFAFD54000068A8 /* MOTableViewController.m */; };
 		BC77085F1AFC5685000068A8 /* UILabel+ContentSize.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77085E1AFC5685000068A8 /* UILabel+ContentSize.m */; };
+		BC7CBADB1B662CAF0047211D /* FeedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBADA1B662CAF0047211D /* FeedDetailViewController.m */; };
+		BC7CBADE1B662E590047211D /* MOTagLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBADD1B662E590047211D /* MOTagLabel.m */; };
+		BC7CBAE21B6639670047211D /* FeedZanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBAE01B6639670047211D /* FeedZanCell.m */; };
+		BC7CBAE31B6639670047211D /* FeedZanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7CBAE11B6639670047211D /* FeedZanCell.xib */; };
 		BC82542B1B3917AC00430A6F /* MORootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82542A1B3917AC00430A6F /* MORootViewController.m */; };
 		BC82542F1B39505E00430A6F /* PlaymateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82542E1B39505E00430A6F /* PlaymateViewController.m */; };
 		BC8254331B3A76F500430A6F /* CustomDarkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8254321B3A76F500430A6F /* CustomDarkButton.m */; };
@@ -574,6 +578,13 @@
 		BC7708501AFAFD54000068A8 /* MOTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOTableViewController.m; path = Common/Base/MOTableViewController.m; sourceTree = "<group>"; };
 		BC77085D1AFC5685000068A8 /* UILabel+ContentSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+ContentSize.h"; path = "Common/Categorys/UILabel+ContentSize.h"; sourceTree = "<group>"; };
 		BC77085E1AFC5685000068A8 /* UILabel+ContentSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+ContentSize.m"; path = "Common/Categorys/UILabel+ContentSize.m"; sourceTree = "<group>"; };
+		BC7CBAD91B662CAF0047211D /* FeedDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedDetailViewController.h; path = Business/Playmate/FeedDetailViewController.h; sourceTree = "<group>"; };
+		BC7CBADA1B662CAF0047211D /* FeedDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedDetailViewController.m; path = Business/Playmate/FeedDetailViewController.m; sourceTree = "<group>"; };
+		BC7CBADC1B662E590047211D /* MOTagLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOTagLabel.h; path = Common/Views/MOTagLabel.h; sourceTree = "<group>"; };
+		BC7CBADD1B662E590047211D /* MOTagLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOTagLabel.m; path = Common/Views/MOTagLabel.m; sourceTree = "<group>"; };
+		BC7CBADF1B6639670047211D /* FeedZanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedZanCell.h; path = Business/Playmate/Views/FeedZanCell.h; sourceTree = "<group>"; };
+		BC7CBAE01B6639670047211D /* FeedZanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedZanCell.m; path = Business/Playmate/Views/FeedZanCell.m; sourceTree = "<group>"; };
+		BC7CBAE11B6639670047211D /* FeedZanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FeedZanCell.xib; path = Business/Playmate/Views/FeedZanCell.xib; sourceTree = "<group>"; };
 		BC8254291B3917AC00430A6F /* MORootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MORootViewController.h; path = Business/MORootViewController.h; sourceTree = "<group>"; };
 		BC82542A1B3917AC00430A6F /* MORootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MORootViewController.m; path = Business/MORootViewController.m; sourceTree = "<group>"; };
 		BC82542D1B39505E00430A6F /* PlaymateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaymateViewController.h; path = Business/Playmate/PlaymateViewController.h; sourceTree = "<group>"; };
@@ -1153,6 +1164,8 @@
 				BC5063961B5385FD00AA233C /* MONetworkPhotoView.m */,
 				BC90897D1B5797D800A8D85B /* MOTabHost.h */,
 				BC90897E1B5797D800A8D85B /* MOTabHost.m */,
+				BC7CBADC1B662E590047211D /* MOTagLabel.h */,
+				BC7CBADD1B662E590047211D /* MOTagLabel.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1307,6 +1320,8 @@
 				BC8254401B3CE76800430A6F /* Views */,
 				BC82542D1B39505E00430A6F /* PlaymateViewController.h */,
 				BC82542E1B39505E00430A6F /* PlaymateViewController.m */,
+				BC7CBAD91B662CAF0047211D /* FeedDetailViewController.h */,
+				BC7CBADA1B662CAF0047211D /* FeedDetailViewController.m */,
 			);
 			name = Playmate;
 			sourceTree = "<group>";
@@ -1347,6 +1362,9 @@
 				BCD755E41B6229B50098752B /* PlaymateSuggestUserCell.h */,
 				BCD755E51B6229B50098752B /* PlaymateSuggestUserCell.m */,
 				BCD755E61B6229B50098752B /* PlaymateSuggestUserCell.xib */,
+				BC7CBADF1B6639670047211D /* FeedZanCell.h */,
+				BC7CBAE01B6639670047211D /* FeedZanCell.m */,
+				BC7CBAE11B6639670047211D /* FeedZanCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1904,6 +1922,7 @@
 				BCD755E31B6229700098752B /* PlaymateSuggestHeadCell.xib in Resources */,
 				BC66D3C61B60FBBE00A5BFC6 /* MyFavCell.xib in Resources */,
 				5A9E80E71B4BBF590028AC47 /* ProductPlayFellowCell.xib in Resources */,
+				BC7CBAE31B6639670047211D /* FeedZanCell.xib in Resources */,
 				BCA273101AE9D79F002E7534 /* scheme.plist in Resources */,
 				5A5A2A6A1B43E531000595A9 /* OrderContactViewController.xib in Resources */,
 				BC50639F1B53A3A000AA233C /* ForgetPasswordCell.xib in Resources */,
@@ -2056,6 +2075,7 @@
 				5A0643751B3BE9E500361732 /* OrderUpdatePersonSelectCell.m in Sources */,
 				5A794F941B4E68C900BB3B7C /* OrderDetailModel.m in Sources */,
 				5A8EF03D1B31619E003ABAF8 /* ProductModel.m in Sources */,
+				BC7CBADE1B662E590047211D /* MOTagLabel.m in Sources */,
 				5AC9FFC91B17020300C769EF /* SubmitPostModel.m in Sources */,
 				BC82542F1B39505E00430A6F /* PlaymateViewController.m in Sources */,
 				BC82542B1B3917AC00430A6F /* MORootViewController.m in Sources */,
@@ -2069,6 +2089,7 @@
 				BC0EC2941B58EFD200D9A82F /* DateManager.m in Sources */,
 				5ABDA57E1B42625B003BAE80 /* AddOrderModel.m in Sources */,
 				BCE5893F1B2AB62500736923 /* payRequsestHandler.mm in Sources */,
+				BC7CBADB1B662CAF0047211D /* FeedDetailViewController.m in Sources */,
 				BC2FAA0F1AFCA92D00E2071E /* UIView+Frame.m in Sources */,
 				5A9E811C1B4BDF560028AC47 /* NSDate+Age.m in Sources */,
 				5AD5275E1B53C7A300D01E1F /* FeedbackCell.m in Sources */,
@@ -2084,6 +2105,7 @@
 				5A06436A1B3BCE7B00361732 /* FillOrderBottomCell.m in Sources */,
 				BCF564E01B491799003A2227 /* OrderListItemCell.m in Sources */,
 				BCA2731E1AE9FB1D002E7534 /* NSString+MOURLEncode.m in Sources */,
+				BC7CBAE21B6639670047211D /* FeedZanCell.m in Sources */,
 				BC97DF271B4E4AA4002B1A00 /* PayTool.m in Sources */,
 				BC97DF1B1B4E1DF0002B1A00 /* PayResultViewController.m in Sources */,
 				5A794F981B4E703600BB3B7C /* OrderDetailMiddleCell.m in Sources */,

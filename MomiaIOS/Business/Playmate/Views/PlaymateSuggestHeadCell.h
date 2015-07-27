@@ -6,8 +6,15 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MOTableCell.h"
+#import "AvatarImageView.h"
 
-@interface PlaymateSuggestHeadCell : UITableViewCell
+@interface PlaymateSuggestHeadCell : MOTableCell<MOTableCellDataProtocol>
+
+@property (weak, nonatomic) IBOutlet AvatarImageView *avatarIv;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descLabel;
+
+-(void)setData:(id)data;
 
 @end

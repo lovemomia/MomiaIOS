@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,7 +14,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVR-jS-xPH">
-                        <rect key="frame" x="194.5" y="10" width="117.5" height="14.5"/>
+                        <rect key="frame" x="202.5" y="9" width="117.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <state key="normal" title=" 100" image="IconZan">
                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -26,7 +25,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cre-VW-lw1">
-                        <rect key="frame" x="60" y="10" width="117.5" height="14.5"/>
+                        <rect key="frame" x="65" y="9" width="117.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <state key="normal" title=" 12" image="IconComment">
                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -37,31 +36,35 @@
                         </connections>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PKD-Uf-zyl">
-                        <rect key="frame" x="184" y="11" width="1" height="15"/>
+                        <rect key="frame" x="191.5" y="10" width="1" height="15"/>
                         <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="0.5" id="Ggp-wv-i2g"/>
+                            <constraint firstAttribute="width" constant="1" id="a4A-gl-xB9"/>
+                            <constraint firstAttribute="height" constant="15" id="azw-c0-Kpx"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="aVR-jS-xPH" secondAttribute="trailing" constant="8" id="92i-Ph-Dva"/>
-                    <constraint firstItem="Cre-VW-lw1" firstAttribute="top" secondItem="Dos-7L-tPb" secondAttribute="top" constant="10" id="BYu-X0-0Xb"/>
-                    <constraint firstItem="aVR-jS-xPH" firstAttribute="leading" secondItem="PKD-Uf-zyl" secondAttribute="trailing" constant="9.5" id="Naf-iO-8Ra"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="PKD-Uf-zyl" secondAttribute="bottom" constant="0.5" id="S7q-mN-W5u"/>
-                    <constraint firstItem="PKD-Uf-zyl" firstAttribute="top" secondItem="Dos-7L-tPb" secondAttribute="topMargin" constant="3" id="abK-2q-MFe"/>
-                    <constraint firstItem="PKD-Uf-zyl" firstAttribute="leading" secondItem="Cre-VW-lw1" secondAttribute="trailing" constant="6.5" id="ahf-O4-R3P"/>
-                    <constraint firstItem="aVR-jS-xPH" firstAttribute="leading" secondItem="Cre-VW-lw1" secondAttribute="trailing" constant="17" id="gms-Qg-EBW"/>
-                    <constraint firstAttribute="bottom" secondItem="aVR-jS-xPH" secondAttribute="bottom" constant="10" id="jSf-Y5-Ba1"/>
-                    <constraint firstItem="aVR-jS-xPH" firstAttribute="width" secondItem="Cre-VW-lw1" secondAttribute="width" id="lXk-zd-WiZ"/>
-                    <constraint firstAttribute="bottom" secondItem="Cre-VW-lw1" secondAttribute="bottom" constant="10" id="rQb-PW-zrg"/>
-                    <constraint firstItem="aVR-jS-xPH" firstAttribute="leading" secondItem="Cre-VW-lw1" secondAttribute="trailing" constant="17" id="uQS-vW-2gb"/>
-                    <constraint firstItem="aVR-jS-xPH" firstAttribute="top" secondItem="Dos-7L-tPb" secondAttribute="top" constant="10" id="urJ-eP-oEd"/>
-                    <constraint firstItem="Cre-VW-lw1" firstAttribute="leading" secondItem="Dos-7L-tPb" secondAttribute="leading" constant="60" id="z5V-SQ-xt4"/>
+                    <constraint firstAttribute="trailing" secondItem="aVR-jS-xPH" secondAttribute="trailing" id="1RF-9h-bWp"/>
+                    <constraint firstItem="Cre-VW-lw1" firstAttribute="top" secondItem="Dos-7L-tPb" secondAttribute="top" constant="9" id="6OE-up-WqA"/>
+                    <constraint firstAttribute="bottom" secondItem="Cre-VW-lw1" secondAttribute="bottom" constant="8.5" id="C8K-xh-uIo"/>
+                    <constraint firstItem="PKD-Uf-zyl" firstAttribute="leading" secondItem="Cre-VW-lw1" secondAttribute="trailing" constant="10" id="GgL-M9-XgT"/>
+                    <constraint firstItem="PKD-Uf-zyl" firstAttribute="leading" secondItem="Cre-VW-lw1" secondAttribute="trailing" constant="10" id="LuT-ja-zrM"/>
+                    <constraint firstAttribute="bottom" secondItem="aVR-jS-xPH" secondAttribute="bottom" constant="8.5" id="W0e-Vk-egZ"/>
+                    <constraint firstItem="aVR-jS-xPH" firstAttribute="leading" secondItem="Cre-VW-lw1" secondAttribute="trailing" constant="20" id="Wur-M8-aYk"/>
+                    <constraint firstItem="Cre-VW-lw1" firstAttribute="leading" secondItem="Dos-7L-tPb" secondAttribute="leading" constant="65" id="cNC-Hm-Jwf"/>
+                    <constraint firstItem="Cre-VW-lw1" firstAttribute="baseline" secondItem="aVR-jS-xPH" secondAttribute="baseline" id="kwX-WU-9Z4"/>
+                    <constraint firstItem="Cre-VW-lw1" firstAttribute="width" secondItem="aVR-jS-xPH" secondAttribute="width" id="pHP-XE-LiR"/>
+                    <constraint firstItem="aVR-jS-xPH" firstAttribute="leading" secondItem="PKD-Uf-zyl" secondAttribute="trailing" constant="10" id="rx4-SX-2fn"/>
+                    <constraint firstAttribute="centerY" secondItem="PKD-Uf-zyl" secondAttribute="centerY" id="wJK-os-osB"/>
+                    <constraint firstItem="PKD-Uf-zyl" firstAttribute="leading" secondItem="Cre-VW-lw1" secondAttribute="trailing" constant="10" id="wkk-pw-di2"/>
+                    <constraint firstItem="aVR-jS-xPH" firstAttribute="top" secondItem="Dos-7L-tPb" secondAttribute="top" constant="9" id="yDI-dB-xko"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
-                        <exclude reference="ahf-O4-R3P"/>
+                        <exclude reference="GgL-M9-XgT"/>
+                        <exclude reference="LuT-ja-zrM"/>
+                        <exclude reference="wkk-pw-di2"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
