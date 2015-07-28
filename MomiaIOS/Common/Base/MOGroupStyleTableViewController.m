@@ -72,7 +72,7 @@
     return UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
-- (UIEdgeInsets)separatorInset {
+- (UIEdgeInsets)separatorInsetForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UIEdgeInsetsMake(0,15,0,0);
 }
 

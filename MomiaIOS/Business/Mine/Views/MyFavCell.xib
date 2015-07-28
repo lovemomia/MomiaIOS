@@ -16,6 +16,7 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YF7-aj-uiO">
                         <rect key="frame" x="10" y="9" width="90" height="68"/>
+                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="90" id="pxf-jg-Org"/>
                             <constraint firstAttribute="height" constant="68" id="zU4-CW-fu0"/>
@@ -100,12 +101,12 @@
                     <mask key="constraints">
                         <exclude reference="ckO-ZN-Bh6"/>
                         <exclude reference="mn9-uD-I3N"/>
-                        <exclude reference="6Go-LK-Lwt"/>
                         <exclude reference="0DR-Rg-GXd"/>
                         <exclude reference="2Gx-DB-AFg"/>
+                        <exclude reference="6Go-LK-Lwt"/>
                         <exclude reference="xFm-rm-8cF"/>
-                        <exclude reference="9ac-yg-QzG"/>
                         <exclude reference="8Wl-It-3yo"/>
+                        <exclude reference="9ac-yg-QzG"/>
                         <exclude reference="mRj-rK-IJm"/>
                     </mask>
                 </variation>

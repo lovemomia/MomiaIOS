@@ -109,6 +109,10 @@
     return UIEdgeInsetsMake(0,0,0,0);
 }
 
+- (UIEdgeInsets)separatorInsetForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UIEdgeInsetsMake(0,0,0,0);
+}
+
 -(void)viewDidLayoutSubviews
 {
     if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
@@ -123,12 +127,14 @@
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:[self separatorInset]];
+        [cell setSeparatorInset:[self separatorInsetForRowAtIndexPath:indexPath]];
     }
     
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:[self separatorInset]];
+        [cell setLayoutMargins:[self separatorInsetForRowAtIndexPath:indexPath]];
     }
 }
+
+
 
 @end

@@ -183,6 +183,12 @@
 		BC7CBADE1B662E590047211D /* MOTagLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBADD1B662E590047211D /* MOTagLabel.m */; };
 		BC7CBAE21B6639670047211D /* FeedZanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBAE01B6639670047211D /* FeedZanCell.m */; };
 		BC7CBAE31B6639670047211D /* FeedZanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7CBAE11B6639670047211D /* FeedZanCell.xib */; };
+		BC7CBAE71B664C0D0047211D /* FeedTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBAE51B664C0D0047211D /* FeedTitleCell.m */; };
+		BC7CBAE81B664C0D0047211D /* FeedTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7CBAE61B664C0D0047211D /* FeedTitleCell.xib */; };
+		BC7CBAEC1B6757F70047211D /* FeedMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBAEA1B6757F70047211D /* FeedMoreCell.m */; };
+		BC7CBAED1B6757F70047211D /* FeedMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7CBAEB1B6757F70047211D /* FeedMoreCell.xib */; };
+		BC7CBAF11B67673A0047211D /* FeedCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBAEF1B67673A0047211D /* FeedCommentCell.m */; };
+		BC7CBAF21B67673A0047211D /* FeedCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7CBAF01B67673A0047211D /* FeedCommentCell.xib */; };
 		BC82542B1B3917AC00430A6F /* MORootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82542A1B3917AC00430A6F /* MORootViewController.m */; };
 		BC82542F1B39505E00430A6F /* PlaymateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82542E1B39505E00430A6F /* PlaymateViewController.m */; };
 		BC8254331B3A76F500430A6F /* CustomDarkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8254321B3A76F500430A6F /* CustomDarkButton.m */; };
@@ -585,6 +591,15 @@
 		BC7CBADF1B6639670047211D /* FeedZanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedZanCell.h; path = Business/Playmate/Views/FeedZanCell.h; sourceTree = "<group>"; };
 		BC7CBAE01B6639670047211D /* FeedZanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedZanCell.m; path = Business/Playmate/Views/FeedZanCell.m; sourceTree = "<group>"; };
 		BC7CBAE11B6639670047211D /* FeedZanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FeedZanCell.xib; path = Business/Playmate/Views/FeedZanCell.xib; sourceTree = "<group>"; };
+		BC7CBAE41B664C0D0047211D /* FeedTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedTitleCell.h; path = Business/Playmate/Views/FeedTitleCell.h; sourceTree = "<group>"; };
+		BC7CBAE51B664C0D0047211D /* FeedTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedTitleCell.m; path = Business/Playmate/Views/FeedTitleCell.m; sourceTree = "<group>"; };
+		BC7CBAE61B664C0D0047211D /* FeedTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FeedTitleCell.xib; path = Business/Playmate/Views/FeedTitleCell.xib; sourceTree = "<group>"; };
+		BC7CBAE91B6757F70047211D /* FeedMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedMoreCell.h; path = Business/Playmate/Views/FeedMoreCell.h; sourceTree = "<group>"; };
+		BC7CBAEA1B6757F70047211D /* FeedMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedMoreCell.m; path = Business/Playmate/Views/FeedMoreCell.m; sourceTree = "<group>"; };
+		BC7CBAEB1B6757F70047211D /* FeedMoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FeedMoreCell.xib; path = Business/Playmate/Views/FeedMoreCell.xib; sourceTree = "<group>"; };
+		BC7CBAEE1B67673A0047211D /* FeedCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedCommentCell.h; path = Business/Playmate/Views/FeedCommentCell.h; sourceTree = "<group>"; };
+		BC7CBAEF1B67673A0047211D /* FeedCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedCommentCell.m; path = Business/Playmate/Views/FeedCommentCell.m; sourceTree = "<group>"; };
+		BC7CBAF01B67673A0047211D /* FeedCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FeedCommentCell.xib; path = Business/Playmate/Views/FeedCommentCell.xib; sourceTree = "<group>"; };
 		BC8254291B3917AC00430A6F /* MORootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MORootViewController.h; path = Business/MORootViewController.h; sourceTree = "<group>"; };
 		BC82542A1B3917AC00430A6F /* MORootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MORootViewController.m; path = Business/MORootViewController.m; sourceTree = "<group>"; };
 		BC82542D1B39505E00430A6F /* PlaymateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaymateViewController.h; path = Business/Playmate/PlaymateViewController.h; sourceTree = "<group>"; };
@@ -1365,6 +1380,15 @@
 				BC7CBADF1B6639670047211D /* FeedZanCell.h */,
 				BC7CBAE01B6639670047211D /* FeedZanCell.m */,
 				BC7CBAE11B6639670047211D /* FeedZanCell.xib */,
+				BC7CBAE41B664C0D0047211D /* FeedTitleCell.h */,
+				BC7CBAE51B664C0D0047211D /* FeedTitleCell.m */,
+				BC7CBAE61B664C0D0047211D /* FeedTitleCell.xib */,
+				BC7CBAE91B6757F70047211D /* FeedMoreCell.h */,
+				BC7CBAEA1B6757F70047211D /* FeedMoreCell.m */,
+				BC7CBAEB1B6757F70047211D /* FeedMoreCell.xib */,
+				BC7CBAEE1B67673A0047211D /* FeedCommentCell.h */,
+				BC7CBAEF1B67673A0047211D /* FeedCommentCell.m */,
+				BC7CBAF01B67673A0047211D /* FeedCommentCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1915,6 +1939,7 @@
 				5A4044381B27DB110010782C /* OrderPersonCell.xib in Resources */,
 				5A0643721B3BE9C300361732 /* OrderUpdatePersonSelectCell.xib in Resources */,
 				5A18DC5A1B29828F001458A4 /* HomeCarouselCell.xib in Resources */,
+				BC7CBAE81B664C0D0047211D /* FeedTitleCell.xib in Resources */,
 				BC0EC2AC1B5F947100D9A82F /* PlaymateUgcCell.xib in Resources */,
 				5A08C13C1B39117100642648 /* ProductDetailBasicInfoCell.xib in Resources */,
 				5A0643671B3BC4A800361732 /* FillOrderMiddleCell.xib in Resources */,
@@ -1927,10 +1952,12 @@
 				5A5A2A6A1B43E531000595A9 /* OrderContactViewController.xib in Resources */,
 				BC50639F1B53A3A000AA233C /* ForgetPasswordCell.xib in Resources */,
 				5A33F1A21B2EA1D5002A8258 /* CashPayTopHeaderView.xib in Resources */,
+				BC7CBAF21B67673A0047211D /* FeedCommentCell.xib in Resources */,
 				5AE4F8681B3D642B005879B7 /* MOStepperView.xib in Resources */,
 				BC8254361B3AA0A500430A6F /* LoginCell.xib in Resources */,
 				5A074F881B3AC39A001E5006 /* FillOrderTopCell.xib in Resources */,
 				5A0643701B3BE9A800361732 /* OrderUpdatePersonFillCell.xib in Resources */,
+				BC7CBAED1B6757F70047211D /* FeedMoreCell.xib in Resources */,
 				5A0642FA1B3B95D400361732 /* FillOrderChooseCell.xib in Resources */,
 				BC0EC2A71B5F91ED00D9A82F /* PlaymateUserHeadCell.xib in Resources */,
 				5AB1BDEB1B4FB7ED004A4511 /* LoadingErrorCell.xib in Resources */,
@@ -2072,6 +2099,7 @@
 				5A1B35F61B12C0D200E1D31B /* CommentCell.m in Sources */,
 				BC8540911ADF74E9005A7C54 /* main.m in Sources */,
 				BC97DF111B4D463C002B1A00 /* PayCheckModel.m in Sources */,
+				BC7CBAE71B664C0D0047211D /* FeedTitleCell.m in Sources */,
 				5A0643751B3BE9E500361732 /* OrderUpdatePersonSelectCell.m in Sources */,
 				5A794F941B4E68C900BB3B7C /* OrderDetailModel.m in Sources */,
 				5A8EF03D1B31619E003ABAF8 /* ProductModel.m in Sources */,
@@ -2098,6 +2126,7 @@
 				5AB1BDEA1B4FB7ED004A4511 /* LoadingErrorCell.m in Sources */,
 				5A5A2AA41B4412FC000595A9 /* NSString+Predicate.m in Sources */,
 				5A08C13D1B39117100642648 /* ProductDetailCarouselCell.m in Sources */,
+				BC7CBAF11B67673A0047211D /* FeedCommentCell.m in Sources */,
 				BCF0339C1B4F77BE005B71D6 /* AlipayOrderModel.m in Sources */,
 				5AB1BDDF1B4F9B49004A4511 /* ProductDetailTagsCell.m in Sources */,
 				5A9E81251B4BE8B40028AC47 /* OrderDetailTopCell.m in Sources */,
@@ -2161,6 +2190,7 @@
 				BCCDF6801B0C331B008BAE12 /* ThirdAccountHelper.m in Sources */,
 				BCA273241AEB166E002E7534 /* MONavigationController.m in Sources */,
 				BC2C0C761B140BF100E2446E /* RegisterViewController.m in Sources */,
+				BC7CBAEC1B6757F70047211D /* FeedMoreCell.m in Sources */,
 				BCD755E21B6229700098752B /* PlaymateSuggestHeadCell.m in Sources */,
 				BCF564DA1B48FE90003A2227 /* Order.m in Sources */,
 				BC0BD6FB1B5516DB00B95B3A /* CouponListModel.m in Sources */,

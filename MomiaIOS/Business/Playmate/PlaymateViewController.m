@@ -45,8 +45,12 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
     return UITableViewCellSeparatorStyleSingleLine;
 }
 
-- (UIEdgeInsets)separatorInset {
+- (UIEdgeInsets)separatorInsetForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UIEdgeInsetsMake(0,65,0,0);
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self openURL:@"duola://feeddetail"];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

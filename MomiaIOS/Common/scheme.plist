@@ -218,7 +218,7 @@
 		<key>desc</key>
 		<string>玩伴</string>
 	</dict>
-	<key>playmatedetail</key>
+	<key>feeddetail</key>
 	<dict>
 		<key>controller</key>
 		<string>FeedDetailViewController</string>
