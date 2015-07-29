@@ -189,6 +189,9 @@
 		BC7CBAED1B6757F70047211D /* FeedMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7CBAEB1B6757F70047211D /* FeedMoreCell.xib */; };
 		BC7CBAF11B67673A0047211D /* FeedCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBAEF1B67673A0047211D /* FeedCommentCell.m */; };
 		BC7CBAF21B67673A0047211D /* FeedCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7CBAF01B67673A0047211D /* FeedCommentCell.xib */; };
+		BC7CBAF91B6868930047211D /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBAF71B6868930047211D /* AboutViewController.m */; };
+		BC7CBAFC1B68698A0047211D /* AboutHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7CBAFB1B68698A0047211D /* AboutHeaderView.xib */; };
+		BC7CBAFF1B6879100047211D /* PushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBAFE1B6879100047211D /* PushManager.m */; };
 		BC82542B1B3917AC00430A6F /* MORootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82542A1B3917AC00430A6F /* MORootViewController.m */; };
 		BC82542F1B39505E00430A6F /* PlaymateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82542E1B39505E00430A6F /* PlaymateViewController.m */; };
 		BC8254331B3A76F500430A6F /* CustomDarkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8254321B3A76F500430A6F /* CustomDarkButton.m */; };
@@ -600,6 +603,11 @@
 		BC7CBAEE1B67673A0047211D /* FeedCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedCommentCell.h; path = Business/Playmate/Views/FeedCommentCell.h; sourceTree = "<group>"; };
 		BC7CBAEF1B67673A0047211D /* FeedCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedCommentCell.m; path = Business/Playmate/Views/FeedCommentCell.m; sourceTree = "<group>"; };
 		BC7CBAF01B67673A0047211D /* FeedCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FeedCommentCell.xib; path = Business/Playmate/Views/FeedCommentCell.xib; sourceTree = "<group>"; };
+		BC7CBAF61B6868930047211D /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Business/Setting/AboutViewController.h; sourceTree = "<group>"; };
+		BC7CBAF71B6868930047211D /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = Business/Setting/AboutViewController.m; sourceTree = "<group>"; };
+		BC7CBAFB1B68698A0047211D /* AboutHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AboutHeaderView.xib; path = Business/Setting/Views/AboutHeaderView.xib; sourceTree = "<group>"; };
+		BC7CBAFD1B6879100047211D /* PushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushManager.h; path = Common/Utils/PushManager.h; sourceTree = "<group>"; };
+		BC7CBAFE1B6879100047211D /* PushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushManager.m; path = Common/Utils/PushManager.m; sourceTree = "<group>"; };
 		BC8254291B3917AC00430A6F /* MORootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MORootViewController.h; path = Business/MORootViewController.h; sourceTree = "<group>"; };
 		BC82542A1B3917AC00430A6F /* MORootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MORootViewController.m; path = Business/MORootViewController.m; sourceTree = "<group>"; };
 		BC82542D1B39505E00430A6F /* PlaymateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaymateViewController.h; path = Business/Playmate/PlaymateViewController.h; sourceTree = "<group>"; };
@@ -927,6 +935,8 @@
 				5A6806E91B01A07E00D02A60 /* Views */,
 				5A6806EC1B01A48300D02A60 /* SettingViewController.h */,
 				5A6806ED1B01A48300D02A60 /* SettingViewController.m */,
+				BC7CBAF61B6868930047211D /* AboutViewController.h */,
+				BC7CBAF71B6868930047211D /* AboutViewController.m */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -935,6 +945,7 @@
 			isa = PBXGroup;
 			children = (
 				5A6806EF1B01A9BD00D02A60 /* SettingMsgCell.xib */,
+				BC7CBAFB1B68698A0047211D /* AboutHeaderView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1631,6 +1642,8 @@
 				BC5063991B539F0300AA233C /* StringUtils.m */,
 				BC0EC2921B58EFD200D9A82F /* DateManager.h */,
 				BC0EC2931B58EFD200D9A82F /* DateManager.m */,
+				BC7CBAFD1B6879100047211D /* PushManager.h */,
+				BC7CBAFE1B6879100047211D /* PushManager.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1939,6 +1952,7 @@
 				5A4044381B27DB110010782C /* OrderPersonCell.xib in Resources */,
 				5A0643721B3BE9C300361732 /* OrderUpdatePersonSelectCell.xib in Resources */,
 				5A18DC5A1B29828F001458A4 /* HomeCarouselCell.xib in Resources */,
+				BC7CBAFC1B68698A0047211D /* AboutHeaderView.xib in Resources */,
 				BC7CBAE81B664C0D0047211D /* FeedTitleCell.xib in Resources */,
 				BC0EC2AC1B5F947100D9A82F /* PlaymateUgcCell.xib in Resources */,
 				5A08C13C1B39117100642648 /* ProductDetailBasicInfoCell.xib in Resources */,
@@ -2090,6 +2104,7 @@
 				BC2C0C991B1858E800E2446E /* MOLabel.m in Sources */,
 				5AB1BDE51B4FB6C8004A4511 /* LoadingCell.m in Sources */,
 				5A33F1A11B2EA1D5002A8258 /* CashPayTopHeaderView.m in Sources */,
+				BC7CBAFF1B6879100047211D /* PushManager.m in Sources */,
 				BCF033951B4E892F005B71D6 /* PeopleViewController.m in Sources */,
 				BC66D3BE1B60F24C00A5BFC6 /* MyFavViewController.m in Sources */,
 				BC9089821B58983300A8D85B /* MyOrderListViewController.m in Sources */,
@@ -2189,6 +2204,7 @@
 				BCD755E71B6229B50098752B /* PlaymateSuggestUserCell.m in Sources */,
 				BCCDF6801B0C331B008BAE12 /* ThirdAccountHelper.m in Sources */,
 				BCA273241AEB166E002E7534 /* MONavigationController.m in Sources */,
+				BC7CBAF91B6868930047211D /* AboutViewController.m in Sources */,
 				BC2C0C761B140BF100E2446E /* RegisterViewController.m in Sources */,
 				BC7CBAEC1B6757F70047211D /* FeedMoreCell.m in Sources */,
 				BCD755E21B6229700098752B /* PlaymateSuggestHeadCell.m in Sources */,

@@ -29,6 +29,15 @@
 		<key>desc</key>
 		<string>设置</string>
 	</dict>
+	<key>about</key>
+	<dict>
+		<key>controller</key>
+		<string>AboutViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>关于我们</string>
+	</dict>
 	<key>personinfo</key>
 	<dict>
 		<key>controller</key>

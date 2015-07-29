@@ -36,39 +36,32 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-//    HomeViewController *home = [[HomeViewController alloc]initWithParams:nil];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     self.root = [[MORootViewController alloc] init];
     self.window.rootViewController = self.root;
-    
-//    self.root = [[MONavigationController alloc]init];
-//    self.window.rootViewController = self.root;
-    
-//    [self.root pushViewController:home animated:NO];
     [self.window makeKeyAndVisible];
     
     // 微信注册
     [WXApi registerApp:kWechatAppKey];
     
-    // [1]:使用APPID/APPKEY/APPSECRENT创建个推实例
-    [self startSdkWith:kAppId appKey:kAppKey appSecret:kAppSecret];
-    
-    // [2]:注册APNS
-    [self registerRemoteNotification];
-    
-    // [2-EXT]: 获取启动时收到的APN
-    NSDictionary* message = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-    if (message) {
-        NSString *payloadMsg = [message objectForKey:@"payload"];
-        NSString *record = [NSString stringWithFormat:@"[APN]%@, %@", [NSDate date], payloadMsg];
-        NSLog(@"apn message:%@", record);
+    // 推送相关
+    if (![[PushManager shareManager]isPushClose]) {
+        [[PushManager shareManager]openPush];
+        
+        // [2-EXT]: 获取启动时收到的APN
+        NSDictionary* message = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        if (message) {
+            NSString *payloadMsg = [message objectForKey:@"payload"];
+            NSString *record = [NSString stringWithFormat:@"[APN]%@, %@", [NSDate date], payloadMsg];
+            NSLog(@"apn message:%@", record);
+        }
+        
+        [self handleRemoteNotification:[launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]];
     }
     
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-    
-    [self handleRemoteNotification:[launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]];
     
     // 友盟统计
     [MobClick startWithAppkey:kUMengAppKey reportPolicy:BATCH   channelId:MO_APP_CHANNEL];
@@ -86,62 +79,6 @@
         NSString *action = [dict objectForKey:@"action"];
         NSURL *url = [NSURL URLWithString:action];
         [[UIApplication sharedApplication ] openURL:url];
-    }
-}
-
-- (void)startSdkWith:(NSString *)appID appKey:(NSString *)appKey appSecret:(NSString *)appSecret
-{
-    if (!_gexinPusher) {
-        _sdkStatus = SdkStatusStoped;
-        
-        self.appID = appID;
-        self.appKey = appKey;
-        self.appSecret = appSecret;
-        
-        _clientId = nil;
-        
-        NSError *err = nil;
-        _gexinPusher = [GexinSdk createSdkWithAppId:_appID
-                                             appKey:_appKey
-                                          appSecret:_appSecret
-                                         appVersion:@"0.0.0"
-                                           delegate:self
-                                              error:&err];
-        if (!_gexinPusher) {
-            NSLog(@"start sdk err:%@", [err localizedDescription]);
-        } else {
-            _sdkStatus = SdkStatusStarting;
-        }
-    }
-}
-
-- (void)registerRemoteNotification
-{
-#ifdef __IPHONE_8_0
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
-        
-        UIUserNotificationSettings *uns = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound) categories:nil];
-        [[UIApplication sharedApplication] registerForRemoteNotifications];
-        [[UIApplication sharedApplication] registerUserNotificationSettings:uns];
-    } else {
-        UIRemoteNotificationType apn_type = (UIRemoteNotificationType)(UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeSound|UIRemoteNotificationTypeBadge);
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:apn_type];
-    }
-#else
-    UIRemoteNotificationType apn_type = (UIRemoteNotificationType)(UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeSound|UIRemoteNotificationTypeBadge);
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:apn_type];
-#endif
-}
-
-- (void)stopSdk
-{
-    if (_gexinPusher) {
-        [_gexinPusher destroy];
-        _gexinPusher = nil;
-        
-        _sdkStatus = SdkStatusStoped;
-        
-        _clientId = nil;
     }
 }
 
@@ -195,8 +132,10 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
-    // [EXT] 切后台关闭SDK，让SDK第一时间断线，让个推先用APN推送
-    [self stopSdk];
+    if (![[PushManager shareManager]isPushClose]) {
+        // [EXT] 切后台关闭SDK，让SDK第一时间断线，让个推先用APN推送
+        [[PushManager shareManager]stopSdk];
+    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -206,8 +145,10 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
-    // [EXT] 重新上线
-    [self startSdkWith:_appID appKey:_appKey appSecret:_appSecret];
+    if (![[PushManager shareManager]isPushClose]) {
+        // [EXT] 重新上线
+        [[PushManager shareManager]openPush];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -218,25 +159,29 @@
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
-    NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-    _deviceToken = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSLog(@"deviceToken:%@", _deviceToken);
-    
-    
-    // [3]:向个推服务器注册deviceToken
-    if (_gexinPusher) {
-        [_gexinPusher registerDeviceToken:_deviceToken];
+    if (![[PushManager shareManager]isPushClose]) {
+        NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+        _deviceToken = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+        NSLog(@"deviceToken:%@", _deviceToken);
+        
+        
+        // [3]:向个推服务器注册deviceToken
+        if (_gexinPusher) {
+            [_gexinPusher registerDeviceToken:_deviceToken];
+        }
     }
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
 {
-    // [3-EXT]:如果APNS注册失败，通知个推服务器
-    if (_gexinPusher) {
-        [_gexinPusher registerDeviceToken:@""];
+    if (![[PushManager shareManager]isPushClose]) {
+        // [3-EXT]:如果APNS注册失败，通知个推服务器
+        if (_gexinPusher) {
+            [_gexinPusher registerDeviceToken:@""];
+        }
+        
+        NSLog(@"didFailToRegisterForRemoteNotificationsWithError:%@", [error localizedDescription]);
     }
-    
-    NSLog(@"didFailToRegisterForRemoteNotificationsWithError:%@", [error localizedDescription]);
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userinfo
@@ -244,24 +189,28 @@
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     
-    // [4-EXT]:处理APN
-    NSString *payloadMsg = [userinfo objectForKey:@"payload"];
-    NSLog(@"[APN]%@, %@", [NSDate date], payloadMsg);
+    if (![[PushManager shareManager]isPushClose]) {
+        // [4-EXT]:处理APN
+        NSString *payloadMsg = [userinfo objectForKey:@"payload"];
+        NSLog(@"[APN]%@, %@", [NSDate date], payloadMsg);
+    }
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     
-    // [4-EXT]:处理APN
-    NSString *payloadMsg = [userInfo objectForKey:@"payload"];
-    
-    NSDictionary *aps = [userInfo objectForKey:@"aps"];
-    NSNumber *contentAvailable = aps == nil ? nil : [aps objectForKeyedSubscript:@"content-available"];
-    
-    NSLog(@"[APN]%@, %@, [content-available: %@]", [NSDate date], payloadMsg, contentAvailable);
-    
-    completionHandler(UIBackgroundFetchResultNewData);
+    if (![[PushManager shareManager]isPushClose]) {
+        // [4-EXT]:处理APN
+        NSString *payloadMsg = [userInfo objectForKey:@"payload"];
+        
+        NSDictionary *aps = [userInfo objectForKey:@"aps"];
+        NSNumber *contentAvailable = aps == nil ? nil : [aps objectForKeyedSubscript:@"content-available"];
+        
+        NSLog(@"[APN]%@, %@, [content-available: %@]", [NSDate date], payloadMsg, contentAvailable);
+        
+        completionHandler(UIBackgroundFetchResultNewData);
+    }
 }
 
 #pragma mark - GexinSdkDelegate

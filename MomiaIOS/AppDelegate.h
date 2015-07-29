@@ -13,12 +13,13 @@
 #import "WechatPayDelegate.h"
 #import "MORootViewController.h"
 #import "WechatPayData.h"
+#import "PushManager.h"
 
-typedef enum {
-    SdkStatusStoped,
-    SdkStatusStarting,
-    SdkStatusStarted
-} SdkStatus;
+//typedef enum {
+//    SdkStatusStoped,
+//    SdkStatusStarting,
+//    SdkStatusStarted
+//} SdkStatus;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, GexinSdkDelegate, WXApiDelegate, WeiboSDKDelegate, WechatPayDelegate>
 

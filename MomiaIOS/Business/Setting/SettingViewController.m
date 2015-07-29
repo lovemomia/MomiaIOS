@@ -7,6 +7,10 @@
 //
 
 #import "SettingViewController.h"
+#import "ThirdShareHelper.h"
+#import "SGActionView.h"
+#import "PushManager.h"
+
 
 @interface SettingViewController ()
 
@@ -37,6 +41,18 @@
  }
  */
 
+-(void)switchAction:(id)sender
+{
+    UISwitch *switchButton = (UISwitch*)sender;
+    BOOL isOn = [switchButton isOn];
+    if (isOn) {
+        [[PushManager shareManager]openPush];
+        
+    }else {
+        [[PushManager shareManager]closePush];
+    }
+}
+
 
 #pragma mark - tableview delegate & datasource
 
@@ -62,6 +78,39 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == 0) {
+        if (indexPath.row == 1) {
+            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
+                [MBProgressHUD hideHUDForView:self.view animated:NO];
+                [self.tableView reloadData];
+            }];
+        }
+        
+    } else if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            ThirdShareHelper *helper = [ThirdShareHelper new];
+            [SGActionView showGridMenuWithTitle:@"分享给好友"
+                                     itemTitles:@[ @"微信好友", @"微信朋友圈"]
+                                         images:@[ [UIImage imageNamed:@"IconShareWechat"],
+                                                   [UIImage imageNamed:@"IconShareWechatTimeline"]]
+                                 selectedHandle:^(NSInteger index) {
+                                     NSString *url = @"http://m.duolaqinzi.com/";
+                                     UIImage *thumb = [UIImage imageNamed:@"IconShareLogo"];
+                                     NSString *title = @"哆啦亲子，和孩子一起探索世界";
+                                     NSString *desc = @"这里有最新鲜、最有趣、最具特色的亲子活动、手工DIY、游乐场、家庭出游等服务，来这里给孩子最美好的童年吧";
+                                     if (index == 1) {
+                                         [helper shareToWechat:url thumb:thumb title:title desc:desc scene:1];
+                                     } else if (index == 2) {
+                                         [helper shareToWechat:url thumb:thumb title:title desc:desc scene:2];
+                                     }
+                                 }];
+            
+        } else {
+            [self openURL:@"duola://about"];
+        }
+    }
 
 }
 
@@ -81,6 +130,9 @@
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"SettingMsgCell" owner:self options:nil];
             cell = [arr objectAtIndex:0];
         }
+        UISwitch *pushSwitch = (UISwitch *)[cell viewWithTag:1001];
+        [pushSwitch setOn:![[PushManager shareManager] isPushClose]];
+        [pushSwitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
         
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:CellDefault];
@@ -98,12 +150,12 @@
             case 0:
                 if (row == 1) {
                     cell.textLabel.text = @"清除缓存";
+                    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.1fM", (float)[[SDImageCache sharedImageCache] getSize] / (1024 * 1024)];
                 }
                 break;
             case 1:
                 if (row == 0) {
-                    cell.textLabel.text = @"版本更新";
-                    cell.detailTextLabel.text = @"已是最新版";
+                    cell.textLabel.text = @"分享给好友";
                 } else {
                     cell.textLabel.text = @"关于我们";
                 }
@@ -113,7 +165,6 @@
         }
 
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }
