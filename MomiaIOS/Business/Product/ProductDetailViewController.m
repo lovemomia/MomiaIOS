@@ -60,7 +60,10 @@ typedef enum
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"活动详情";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleFav"] style:UIBarButtonItemStylePlain target:self action:@selector(onFavClick)];
+    
+    UIBarButtonItem *favItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleFav"] style:UIBarButtonItemStylePlain target:self action:@selector(onFavClick)];
+    UIBarButtonItem *shareItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleShare"] style:UIBarButtonItemStylePlain target:self action:@selector(onShareClick)];
+    self.navigationItem.rightBarButtonItems = @[favItem, shareItem];
     
     [ProductDetailCarouselCell registerCellWithTableView:self.tableView withIdentifier:productDetailCarouselIdentifier];
     [ProductDetailEnrollCell registerCellWithTableView:self.tableView withIdentifier:productDetailEnrollIdentifier];
@@ -124,6 +127,25 @@ typedef enum
     }
 }
 
+- (void)onShareClick {
+    if (self.model == nil) {
+        return;
+    }
+    
+    ThirdShareHelper *helper = [ThirdShareHelper new];
+    [SGActionView showGridMenuWithTitle:@"约伴"
+                             itemTitles:@[ @"微信好友", @"微信朋友圈"]
+                                 images:@[ [UIImage imageNamed:@"IconShareWechat"],
+                                           [UIImage imageNamed:@"IconShareWechatTimeline"]]
+                         selectedHandle:^(NSInteger index) {
+                             if (index == 1) {
+                                 [helper shareToWechat:self.model.data.url thumbUrl:self.model.data.thumb title:self.model.data.title desc:self.model.data.abstracts scene:1];
+                             } else if (index == 2) {
+                                 [helper shareToWechat:self.model.data.url thumbUrl:self.model.data.thumb title:self.model.data.title desc:self.model.data.abstracts scene:2];
+                             }
+                         }];
+}
+
 #pragma mark - webData Request
 
 - (void)requestData:(BOOL)refresh {
@@ -173,10 +195,11 @@ typedef enum
 }
 
 - (void)changeFavStatus {
+    UIBarButtonItem *favItem = self.navigationItem.rightBarButtonItems[0];
     if ([self.model.data.favored boolValue]) {
-        self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"TitleFaved"];
+        favItem.image = [UIImage imageNamed:@"TitleFaved"];
     } else {
-        self.navigationItem.rightBarButtonItem.image = [UIImage imageNamed:@"TitleFav"];
+        favItem.image = [UIImage imageNamed:@"TitleFav"];
     }
 }
 
@@ -324,18 +347,7 @@ typedef enum
 }
 
 - (IBAction)dateFriend:(id)sender {
-    ThirdShareHelper *helper = [ThirdShareHelper new];
-    [SGActionView showGridMenuWithTitle:@"约伴"
-                             itemTitles:@[ @"微信好友", @"微信朋友圈"]
-                                 images:@[ [UIImage imageNamed:@"IconShareWechat"],
-                                           [UIImage imageNamed:@"IconShareWechatTimeline"]]
-                         selectedHandle:^(NSInteger index) {
-                             if (index == 1) {
-                                 [helper shareToWechat:self.model.data.url thumbUrl:self.model.data.thumb title:self.model.data.title desc:self.model.data.abstracts scene:1];
-                             } else if (index == 2) {
-                                 [helper shareToWechat:self.model.data.url thumbUrl:self.model.data.thumb title:self.model.data.title desc:self.model.data.abstracts scene:2];
-                             }
-                         }];
+    [self openURL:@"duola://applyleader"];
 }
 
 - (IBAction)signUp:(id)sender {

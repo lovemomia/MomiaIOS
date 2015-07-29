@@ -192,6 +192,9 @@
 		BC7CBAF91B6868930047211D /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBAF71B6868930047211D /* AboutViewController.m */; };
 		BC7CBAFC1B68698A0047211D /* AboutHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7CBAFB1B68698A0047211D /* AboutHeaderView.xib */; };
 		BC7CBAFF1B6879100047211D /* PushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBAFE1B6879100047211D /* PushManager.m */; };
+		BC7CBB041B68D6A50047211D /* ApplyLeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBB021B68D6A50047211D /* ApplyLeaderViewController.m */; };
+		BC7CBB051B68D6A50047211D /* ApplyLeaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7CBB031B68D6A50047211D /* ApplyLeaderViewController.xib */; };
+		BC7CBB081B68E6360047211D /* SubmitLeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBB071B68E6360047211D /* SubmitLeaderViewController.m */; };
 		BC82542B1B3917AC00430A6F /* MORootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82542A1B3917AC00430A6F /* MORootViewController.m */; };
 		BC82542F1B39505E00430A6F /* PlaymateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82542E1B39505E00430A6F /* PlaymateViewController.m */; };
 		BC8254331B3A76F500430A6F /* CustomDarkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8254321B3A76F500430A6F /* CustomDarkButton.m */; };
@@ -608,6 +611,11 @@
 		BC7CBAFB1B68698A0047211D /* AboutHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AboutHeaderView.xib; path = Business/Setting/Views/AboutHeaderView.xib; sourceTree = "<group>"; };
 		BC7CBAFD1B6879100047211D /* PushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushManager.h; path = Common/Utils/PushManager.h; sourceTree = "<group>"; };
 		BC7CBAFE1B6879100047211D /* PushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushManager.m; path = Common/Utils/PushManager.m; sourceTree = "<group>"; };
+		BC7CBB011B68D6A50047211D /* ApplyLeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApplyLeaderViewController.h; path = Business/Leader/ApplyLeaderViewController.h; sourceTree = "<group>"; };
+		BC7CBB021B68D6A50047211D /* ApplyLeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApplyLeaderViewController.m; path = Business/Leader/ApplyLeaderViewController.m; sourceTree = "<group>"; };
+		BC7CBB031B68D6A50047211D /* ApplyLeaderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ApplyLeaderViewController.xib; path = Business/Leader/ApplyLeaderViewController.xib; sourceTree = "<group>"; };
+		BC7CBB061B68E6360047211D /* SubmitLeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubmitLeaderViewController.h; path = Business/Leader/SubmitLeaderViewController.h; sourceTree = "<group>"; };
+		BC7CBB071B68E6360047211D /* SubmitLeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubmitLeaderViewController.m; path = Business/Leader/SubmitLeaderViewController.m; sourceTree = "<group>"; };
 		BC8254291B3917AC00430A6F /* MORootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MORootViewController.h; path = Business/MORootViewController.h; sourceTree = "<group>"; };
 		BC82542A1B3917AC00430A6F /* MORootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MORootViewController.m; path = Business/MORootViewController.m; sourceTree = "<group>"; };
 		BC82542D1B39505E00430A6F /* PlaymateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaymateViewController.h; path = Business/Playmate/PlaymateViewController.h; sourceTree = "<group>"; };
@@ -1340,6 +1348,18 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		BC7CBB001B68D65C0047211D /* Leader */ = {
+			isa = PBXGroup;
+			children = (
+				BC7CBB011B68D6A50047211D /* ApplyLeaderViewController.h */,
+				BC7CBB021B68D6A50047211D /* ApplyLeaderViewController.m */,
+				BC7CBB031B68D6A50047211D /* ApplyLeaderViewController.xib */,
+				BC7CBB061B68E6360047211D /* SubmitLeaderViewController.h */,
+				BC7CBB071B68E6360047211D /* SubmitLeaderViewController.m */,
+			);
+			name = Leader;
+			sourceTree = "<group>";
+		};
 		BC82542C1B394FC100430A6F /* Playmate */ = {
 			isa = PBXGroup;
 			children = (
@@ -1489,6 +1509,7 @@
 			children = (
 				BC8540B71ADF881A005A7C54 /* Home */,
 				5A08C1221B39117100642648 /* Product */,
+				BC7CBB001B68D65C0047211D /* Leader */,
 				BC82542C1B394FC100430A6F /* Playmate */,
 				BCA272F91AE8A27C002E7534 /* Mine */,
 				5A82F19C1B25721E000D2C60 /* Order */,
@@ -1954,6 +1975,7 @@
 				5A18DC5A1B29828F001458A4 /* HomeCarouselCell.xib in Resources */,
 				BC7CBAFC1B68698A0047211D /* AboutHeaderView.xib in Resources */,
 				BC7CBAE81B664C0D0047211D /* FeedTitleCell.xib in Resources */,
+				BC7CBB051B68D6A50047211D /* ApplyLeaderViewController.xib in Resources */,
 				BC0EC2AC1B5F947100D9A82F /* PlaymateUgcCell.xib in Resources */,
 				5A08C13C1B39117100642648 /* ProductDetailBasicInfoCell.xib in Resources */,
 				5A0643671B3BC4A800361732 /* FillOrderMiddleCell.xib in Resources */,
@@ -2061,6 +2083,7 @@
 				5A3C6C721B579F1C006583FB /* ProductCalendarCell.m in Sources */,
 				BC2C0C571B1309A800E2446E /* MOButton.m in Sources */,
 				BCF0339F1B4FB1BE005B71D6 /* ThirdShareHelper.m in Sources */,
+				BC7CBB041B68D6A50047211D /* ApplyLeaderViewController.m in Sources */,
 				BC41ABA91B0C715400A419DA /* Environment.m in Sources */,
 				5A456F9A1B2E687700E95756 /* MOTableCell.m in Sources */,
 				BC2C0C961B184EA500E2446E /* AvatarImageView.m in Sources */,
@@ -2213,6 +2236,7 @@
 				BC0BD7061B5518F000B95B3A /* CouponPriceModel.m in Sources */,
 				BCD755D71B62155F0098752B /* MJPhotoToolbar.m in Sources */,
 				BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */,
+				BC7CBB081B68E6360047211D /* SubmitLeaderViewController.m in Sources */,
 				BCE5893E1B2AB62500736923 /* ApiXml.mm in Sources */,
 				5AE4F8301B3D2FE5005879B7 /* FillOrderChooseCell.m in Sources */,
 				5A82F1A31B257449000D2C60 /* FillOrderViewController.m in Sources */,

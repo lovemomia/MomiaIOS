@@ -290,5 +290,23 @@
 		<key>desc</key>
 		<string>活动日历页面</string>
 	</dict>
+	<key>applyleader</key>
+	<dict>
+		<key>controller</key>
+		<string>ApplyLeaderViewController</string>
+		<key>needlogin</key>
+		<true/>
+		<key>desc</key>
+		<string>成为领队</string>
+	</dict>
+	<key>submitleader</key>
+	<dict>
+		<key>controller</key>
+		<string>SubmitLeaderViewController</string>
+		<key>needlogin</key>
+		<true/>
+		<key>desc</key>
+		<string>提交领队申请</string>
+	</dict>
 </dict>
 </plist>
