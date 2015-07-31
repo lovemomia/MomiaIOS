@@ -42,6 +42,10 @@ static NSString * identifier = @"CellCommonIdentifier";
     [self.titleLabel setText:title];
 }
 
+- (void)awakeFromNib {
+    // Initialization code
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

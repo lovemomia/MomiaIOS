@@ -11,18 +11,17 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ab9-3i-jnJ">
-                    <rect key="frame" x="10" y="13" width="33" height="14"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ab9-3i-jnJ">
+                    <rect key="frame" x="12" y="12" width="296" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <constraints>
-                <constraint firstItem="Ab9-3i-jnJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="FUH-AP-5XI"/>
-                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ab9-3i-jnJ" secondAttribute="trailing" constant="10" id="GZJ-jo-ukh"/>
-                <constraint firstAttribute="bottom" secondItem="Ab9-3i-jnJ" secondAttribute="bottom" constant="13" id="Xmn-eA-31q"/>
-                <constraint firstItem="Ab9-3i-jnJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13" id="o9h-7T-Ek3"/>
+                <constraint firstItem="Ab9-3i-jnJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="FUH-AP-5XI"/>
+                <constraint firstAttribute="trailing" secondItem="Ab9-3i-jnJ" secondAttribute="trailing" constant="12" id="GZJ-jo-ukh"/>
+                <constraint firstAttribute="centerY" secondItem="Ab9-3i-jnJ" secondAttribute="centerY" id="bco-Af-fW9"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
