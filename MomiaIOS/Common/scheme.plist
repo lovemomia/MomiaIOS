@@ -317,5 +317,23 @@
 		<key>desc</key>
 		<string>提交领队申请</string>
 	</dict>
+	<key>selectproduct</key>
+	<dict>
+		<key>controller</key>
+		<string>SelectProductViewController</string>
+		<key>needlogin</key>
+		<true/>
+		<key>desc</key>
+		<string>选择活动</string>
+	</dict>
+	<key>selectsku</key>
+	<dict>
+		<key>controller</key>
+		<string>SelectSkuViewController</string>
+		<key>needlogin</key>
+		<true/>
+		<key>desc</key>
+		<string>选择场次</string>
+	</dict>
 </dict>
 </plist>

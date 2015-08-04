@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectSkuCell" rowHeight="82" id="xMV-Vg-Gm6" userLabel="SelectSkuCell" customClass="SelectSkuCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xMV-Vg-Gm6" id="eK9-jf-XcD">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="￥100起" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wqv-3q-bwd">
+                        <rect key="frame" x="10" y="35" width="45" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="仅剩9个名额" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHY-qY-w42">
+                        <rect key="frame" x="75" y="35" width="67" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6月27日（周六）上午10:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50A-RD-kUu">
+                        <rect key="frame" x="10" y="9" width="172" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张君雅已是领队" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zP-eS-bML">
+                        <rect key="frame" x="226" y="35" width="84" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Wqv-3q-bwd" firstAttribute="top" secondItem="50A-RD-kUu" secondAttribute="bottom" constant="9" id="Kze-hi-FqV"/>
+                    <constraint firstItem="KHY-qY-w42" firstAttribute="top" secondItem="8zP-eS-bML" secondAttribute="top" id="NKo-mn-9JG"/>
+                    <constraint firstItem="KHY-qY-w42" firstAttribute="top" secondItem="Wqv-3q-bwd" secondAttribute="top" id="SS7-5R-Mx3"/>
+                    <constraint firstAttribute="trailing" secondItem="8zP-eS-bML" secondAttribute="trailing" constant="10" id="XfN-7F-PhB"/>
+                    <constraint firstItem="Wqv-3q-bwd" firstAttribute="leading" secondItem="eK9-jf-XcD" secondAttribute="leading" constant="10" id="bjM-mk-plF"/>
+                    <constraint firstItem="50A-RD-kUu" firstAttribute="top" secondItem="eK9-jf-XcD" secondAttribute="top" constant="9" id="d92-WT-ICC"/>
+                    <constraint firstItem="50A-RD-kUu" firstAttribute="leading" secondItem="eK9-jf-XcD" secondAttribute="leading" constant="10" id="gR7-H0-vnm"/>
+                    <constraint firstAttribute="bottom" secondItem="Wqv-3q-bwd" secondAttribute="bottom" constant="9" id="npR-pC-95O"/>
+                    <constraint firstItem="KHY-qY-w42" firstAttribute="leading" secondItem="Wqv-3q-bwd" secondAttribute="trailing" constant="20" id="pS7-Nw-F3T"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="tintColor" red="0.1176470588" green="0.73333333329999995" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="leaderInfoLabel" destination="8zP-eS-bML" id="Gg4-jS-OUj"/>
+                <outlet property="priceLabel" destination="Wqv-3q-bwd" id="iwo-bc-1bo"/>
+                <outlet property="stockLabel" destination="KHY-qY-w42" id="gcp-YC-ScH"/>
+                <outlet property="timeLabel" destination="50A-RD-kUu" id="59H-ze-N0C"/>
+            </connections>
+            <point key="canvasLocation" x="249" y="399"/>
+        </tableViewCell>
+    </objects>
+</document>

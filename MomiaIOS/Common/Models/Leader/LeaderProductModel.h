@@ -12,7 +12,7 @@
 @end
 
 @interface LeaderProductData : JSONModel
-@property(nonatomic,strong) NSArray<ProductModel> * list;
+@property (nonatomic, strong) NSArray<ProductModel> * list;
 @property (nonatomic, assign) NSInteger totalCount;
 @property (nonatomic, strong) NSNumber<Optional> *nextIndex;
 @end

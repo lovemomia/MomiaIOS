@@ -165,6 +165,11 @@
 		BC3D0BA31B6F7546004C7B81 /* LeaderJoinedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0BA11B6F7546004C7B81 /* LeaderJoinedCell.m */; };
 		BC3D0BA41B6F7546004C7B81 /* LeaderJoinedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3D0BA21B6F7546004C7B81 /* LeaderJoinedCell.xib */; };
 		BC3D0BA71B6F77AF004C7B81 /* LeaderProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0BA61B6F77AF004C7B81 /* LeaderProductModel.m */; };
+		BC3D0BAA1B70A947004C7B81 /* SelectProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0BA91B70A947004C7B81 /* SelectProductViewController.m */; };
+		BC3D0BAD1B70B04E004C7B81 /* SelectSkuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0BAC1B70B04E004C7B81 /* SelectSkuViewController.m */; };
+		BC3D0BB01B70B361004C7B81 /* LeaderSkuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0BAF1B70B361004C7B81 /* LeaderSkuModel.m */; };
+		BC3D0BB41B70C5A1004C7B81 /* SelectSkuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0BB21B70C5A1004C7B81 /* SelectSkuCell.m */; };
+		BC3D0BB51B70C5A1004C7B81 /* SelectSkuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3D0BB31B70C5A1004C7B81 /* SelectSkuCell.xib */; };
 		BC41ABA51B0C69BE00A419DA /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC41ABA11B0C69BE00A419DA /* libWeChatSDK.a */; };
 		BC41ABA61B0C69BE00A419DA /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = BC41ABA21B0C69BE00A419DA /* read_me.txt */; };
 		BC41ABA91B0C715400A419DA /* Environment.m in Sources */ = {isa = PBXBuildFile; fileRef = BC41ABA81B0C715400A419DA /* Environment.m */; };
@@ -575,6 +580,15 @@
 		BC3D0BA21B6F7546004C7B81 /* LeaderJoinedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LeaderJoinedCell.xib; path = Business/Leader/Views/LeaderJoinedCell.xib; sourceTree = "<group>"; };
 		BC3D0BA51B6F77AF004C7B81 /* LeaderProductModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeaderProductModel.h; path = Common/Models/Leader/LeaderProductModel.h; sourceTree = "<group>"; };
 		BC3D0BA61B6F77AF004C7B81 /* LeaderProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaderProductModel.m; path = Common/Models/Leader/LeaderProductModel.m; sourceTree = "<group>"; };
+		BC3D0BA81B70A947004C7B81 /* SelectProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectProductViewController.h; path = Business/Leader/SelectProductViewController.h; sourceTree = "<group>"; };
+		BC3D0BA91B70A947004C7B81 /* SelectProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectProductViewController.m; path = Business/Leader/SelectProductViewController.m; sourceTree = "<group>"; };
+		BC3D0BAB1B70B04E004C7B81 /* SelectSkuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectSkuViewController.h; path = Business/Leader/SelectSkuViewController.h; sourceTree = "<group>"; };
+		BC3D0BAC1B70B04E004C7B81 /* SelectSkuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectSkuViewController.m; path = Business/Leader/SelectSkuViewController.m; sourceTree = "<group>"; };
+		BC3D0BAE1B70B361004C7B81 /* LeaderSkuModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeaderSkuModel.h; path = Common/Models/Leader/LeaderSkuModel.h; sourceTree = "<group>"; };
+		BC3D0BAF1B70B361004C7B81 /* LeaderSkuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaderSkuModel.m; path = Common/Models/Leader/LeaderSkuModel.m; sourceTree = "<group>"; };
+		BC3D0BB11B70C5A1004C7B81 /* SelectSkuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectSkuCell.h; path = Business/Leader/Views/SelectSkuCell.h; sourceTree = "<group>"; };
+		BC3D0BB21B70C5A1004C7B81 /* SelectSkuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectSkuCell.m; path = Business/Leader/Views/SelectSkuCell.m; sourceTree = "<group>"; };
+		BC3D0BB31B70C5A1004C7B81 /* SelectSkuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectSkuCell.xib; path = Business/Leader/Views/SelectSkuCell.xib; sourceTree = "<group>"; };
 		BC41ABA11B0C69BE00A419DA /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		BC41ABA21B0C69BE00A419DA /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
 		BC41ABA31B0C69BE00A419DA /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
@@ -1325,6 +1339,8 @@
 				BC3D0B981B6F3F2C004C7B81 /* LeaderStatusModel.m */,
 				BC3D0BA51B6F77AF004C7B81 /* LeaderProductModel.h */,
 				BC3D0BA61B6F77AF004C7B81 /* LeaderProductModel.m */,
+				BC3D0BAE1B70B361004C7B81 /* LeaderSkuModel.h */,
+				BC3D0BAF1B70B361004C7B81 /* LeaderSkuModel.m */,
 			);
 			name = Leader;
 			sourceTree = "<group>";
@@ -1415,6 +1431,10 @@
 				BC3D0B9B1B6F50C7004C7B81 /* LeaderStatusViewController.m */,
 				BC3D0B9D1B6F51AB004C7B81 /* LeaderJoinedViewController.h */,
 				BC3D0B9E1B6F51AB004C7B81 /* LeaderJoinedViewController.m */,
+				BC3D0BA81B70A947004C7B81 /* SelectProductViewController.h */,
+				BC3D0BA91B70A947004C7B81 /* SelectProductViewController.m */,
+				BC3D0BAB1B70B04E004C7B81 /* SelectSkuViewController.h */,
+				BC3D0BAC1B70B04E004C7B81 /* SelectSkuViewController.m */,
 			);
 			name = Leader;
 			sourceTree = "<group>";
@@ -1434,6 +1454,9 @@
 				BC3D0BA01B6F7546004C7B81 /* LeaderJoinedCell.h */,
 				BC3D0BA11B6F7546004C7B81 /* LeaderJoinedCell.m */,
 				BC3D0BA21B6F7546004C7B81 /* LeaderJoinedCell.xib */,
+				BC3D0BB11B70C5A1004C7B81 /* SelectSkuCell.h */,
+				BC3D0BB21B70C5A1004C7B81 /* SelectSkuCell.m */,
+				BC3D0BB31B70C5A1004C7B81 /* SelectSkuCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2074,6 +2097,7 @@
 				5A074F881B3AC39A001E5006 /* FillOrderTopCell.xib in Resources */,
 				5A0643701B3BE9A800361732 /* OrderUpdatePersonFillCell.xib in Resources */,
 				BC7CBAED1B6757F70047211D /* FeedMoreCell.xib in Resources */,
+				BC3D0BB51B70C5A1004C7B81 /* SelectSkuCell.xib in Resources */,
 				5A0642FA1B3B95D400361732 /* FillOrderChooseCell.xib in Resources */,
 				BC0EC2A71B5F91ED00D9A82F /* PlaymateUserHeadCell.xib in Resources */,
 				5AB1BDEB1B4FB7ED004A4511 /* LoadingErrorCell.xib in Resources */,
@@ -2155,6 +2179,7 @@
 				BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */,
 				BC2C0C801B14659400E2446E /* MyStatusViewController.m in Sources */,
 				5A5A2A9F1B43EED4000595A9 /* OrderContactCell.m in Sources */,
+				BC3D0BAD1B70B04E004C7B81 /* SelectSkuViewController.m in Sources */,
 				5A11C72C1B589BCB00B0CDFE /* ProductCalendarMonthViewController.m in Sources */,
 				5A33F19A1B2EA0A4002A8258 /* CashPayBottomCell.m in Sources */,
 				5A3C6C7B1B57AEC1006583FB /* ProductCalendarViewController.m in Sources */,
@@ -2224,8 +2249,10 @@
 				5A794F941B4E68C900BB3B7C /* OrderDetailModel.m in Sources */,
 				5A8EF03D1B31619E003ABAF8 /* ProductModel.m in Sources */,
 				BC7CBADE1B662E590047211D /* MOTagLabel.m in Sources */,
+				BC3D0BAA1B70A947004C7B81 /* SelectProductViewController.m in Sources */,
 				5AC9FFC91B17020300C769EF /* SubmitPostModel.m in Sources */,
 				BC82542F1B39505E00430A6F /* PlaymateViewController.m in Sources */,
+				BC3D0BB01B70B361004C7B81 /* LeaderSkuModel.m in Sources */,
 				BC82542B1B3917AC00430A6F /* MORootViewController.m in Sources */,
 				5ABDA57B1B423FD8003BAE80 /* PostPersonModel.m in Sources */,
 				BC064C7C1B60967B0018D142 /* PlaymateFeed.m in Sources */,
@@ -2294,6 +2321,7 @@
 				BC0BD6FA1B5516DB00B95B3A /* Coupon.m in Sources */,
 				BCF564CF1B4632A1003A2227 /* Child.m in Sources */,
 				BCD755DB1B6219660098752B /* MBProgressHUD+Add.m in Sources */,
+				BC3D0BB41B70C5A1004C7B81 /* SelectSkuCell.m in Sources */,
 				BC3D0B951B6F0190004C7B81 /* ConfigService.m in Sources */,
 				BC0EC2A01B5F880E00D9A82F /* LJTabBar.m in Sources */,
 				5AB444821B41479800FBADD4 /* OrderPersonModel.m in Sources */,

@@ -80,7 +80,7 @@
 }
 
 - (void)onApplyLeaderClick {
-    
+    [self openURL:@"duola://selectproduct"];
 }
 
 /*
