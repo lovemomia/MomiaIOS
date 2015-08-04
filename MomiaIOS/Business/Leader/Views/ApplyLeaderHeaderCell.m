@@ -12,6 +12,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    [self.applyBtn setBackgroundImage:[UIImage imageNamed:@"BgLargeButtonNormal"] forState:UIControlStateNormal];
+    [self.applyBtn setBackgroundImage:[UIImage imageNamed:@"BgLargeButtonDisable"] forState:UIControlStateDisabled];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

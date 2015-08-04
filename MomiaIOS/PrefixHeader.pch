@@ -16,6 +16,7 @@
 #import "AccountService.h"
 #import "LocationService.h"
 #import "CacheService.h"
+#import "ConfigService.h"
 
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "AlertNotice.h"

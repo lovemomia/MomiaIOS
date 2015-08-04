@@ -20,7 +20,7 @@
 @property (nonatomic, strong) NSString *sex;
 @property (nonatomic, strong) NSString *mobile;
 @property (nonatomic, strong) NSString *address;
-@property (nonatomic, strong) NSNumber *city;
+@property (nonatomic, strong) NSNumber<Optional> *city;
 @property (nonatomic, strong) Child<Optional> *bigChild;
 @property (nonatomic, strong) NSArray *children;
 

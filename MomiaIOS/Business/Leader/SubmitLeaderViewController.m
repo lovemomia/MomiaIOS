@@ -10,15 +10,17 @@
 #import "CommonHeaderView.h"
 #import "UITextView+Placeholder.h"
 
-@interface SubmitLeaderViewController ()
+@interface SubmitLeaderViewController ()<MOTextViewDelegate,UITextFieldDelegate>
 
 @property(nonatomic,weak) UIView * activeView;
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *phone;
-@property (nonatomic, strong) NSString *address;
+//@property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) NSString *job;
 @property (nonatomic, strong) NSString *intro;
+
+@property (nonatomic, strong) UITableViewCell *introCell;
 
 @end
 
@@ -118,10 +120,10 @@
         return;
     }
     
-    if (self.address.length == 0) {
-        [self showDialogWithTitle:nil message:@"常居地不能为空"];
-        return;
-    }
+//    if (self.address.length == 0) {
+//        [self showDialogWithTitle:nil message:@"常居地不能为空"];
+//        return;
+//    }
     
     if (self.job.length == 0) {
         [self showDialogWithTitle:nil message:@"职业不能为空"];
@@ -135,7 +137,7 @@
     
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    NSDictionary *params = @{@"name":self.name, @"mobile":self.phone, @"address":self.address, @"career":self.job, @"intro":self.intro};
+    NSDictionary *params = @{@"name":self.name, @"mobile":self.phone, @"career":self.job, @"intro":self.intro};
     [[HttpService defaultService]POST:URL_APPEND_PATH(@"/leader/signup")
                            parameters:params JSONModelClass:[BaseModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -179,7 +181,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 4;
+        return 3;
     }
     return 2;
 }
@@ -204,11 +206,8 @@
             title = @"手机号";
             tag = 1;
         } else if (row == 2) {
-            title = @"常居地";
-            tag = 2;
-        }else if (row == 3) {
             title = @"职业";
-            tag = 3;
+            tag = 2;
         }
     } else {
         return;
@@ -230,10 +229,9 @@
         } else if (alertView.tag == 1) {
             self.phone = tf.text;
         } else if (alertView.tag == 2) {
-            self.address = tf.text;
-        } else if (alertView.tag == 3) {
             self.job = tf.text;
         }
+        [self.tableView reloadSections:[[NSIndexSet alloc]initWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 }
 
@@ -252,11 +250,11 @@
     if (section == 1 && row == 1) {
         cell = [[UITableViewCell alloc] init];
         UITextView *tv = [[UITextView alloc]init];
-        [tv addPlaceHolder:@"至少20字"];
         tv.textColor = UIColorFromRGB(0x333333);
         tv.font = [UIFont systemFontOfSize: 15.0];
         tv.placeHolderTextView.font = [UIFont systemFontOfSize: 15.0];
         tv.moDelegate = self;
+        tv.tag = 1001;
         [cell.contentView addSubview:tv];
         
         [tv mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -265,6 +263,12 @@
             make.top.equalTo(cell).with.offset(5);
             make.bottom.equalTo(cell).with.offset(-5);
         }];
+        
+        if ([self.intro length] > 0) {
+            tv.text = self.intro;
+        } else {
+            [tv addPlaceHolder:@"至少20字"];
+        }
         
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:CellDefault];
@@ -288,10 +292,6 @@
                 cell.detailTextLabel.text = self.phone;
                 
             } else if (row == 2) {
-                cell.textLabel.text = @"常居地";
-                cell.detailTextLabel.text = self.address;
-                
-            } else if (row == 3) {
                 cell.textLabel.text = @"职业";
                 cell.detailTextLabel.text = self.job;
             }

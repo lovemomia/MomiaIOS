@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -31,12 +32,21 @@
                             </mask>
                         </variation>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HcN-vX-ZAA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="377"/>
-                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ApplyLeaderHeader" translatesAutoresizingMaskIntoConstraints="NO" id="HcN-vX-ZAA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="367" id="Qvi-ET-4sc"/>
+                            <constraint firstAttribute="width" secondItem="HcN-vX-ZAA" secondAttribute="height" multiplier="320:367" id="wUg-8e-hRb"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Qvi-ET-4sc"/>
+                            </mask>
+                        </variation>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4X-cJ-Uae">
-                        <rect key="frame" x="20" y="422" width="280" height="40"/>
+                        <rect key="frame" x="20" y="444" width="280" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="280" id="ehh-0g-Bdy"/>
                             <constraint firstAttribute="height" constant="40" id="teH-QA-QNG"/>
@@ -54,6 +64,7 @@
                         </constraints>
                     </imageView>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="centerX" secondItem="o4X-cJ-Uae" secondAttribute="centerX" id="9Uq-SX-lTr"/>
                     <constraint firstItem="HcN-vX-ZAA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="9qG-PQ-xsl"/>
@@ -65,10 +76,18 @@
                     <constraint firstItem="aVi-VJ-zvY" firstAttribute="top" secondItem="2CP-mG-3QM" secondAttribute="bottom" id="dgc-6F-EXp"/>
                     <constraint firstAttribute="trailing" secondItem="2CP-mG-3QM" secondAttribute="trailing" constant="20" id="gWU-xY-FhY"/>
                     <constraint firstAttribute="centerX" secondItem="2CP-mG-3QM" secondAttribute="centerX" id="iNF-4q-kfb"/>
+                    <constraint firstItem="o4X-cJ-Uae" firstAttribute="top" relation="greaterThanOrEqual" secondItem="HcN-vX-ZAA" secondAttribute="bottom" constant="10" id="j1c-qV-ktr"/>
                     <constraint firstAttribute="centerX" secondItem="aVi-VJ-zvY" secondAttribute="centerX" id="jP7-p7-fJy"/>
-                    <constraint firstItem="2CP-mG-3QM" firstAttribute="top" secondItem="o4X-cJ-Uae" secondAttribute="bottom" constant="65" id="oqy-HI-Wgc"/>
+                    <constraint firstItem="2CP-mG-3QM" firstAttribute="top" secondItem="o4X-cJ-Uae" secondAttribute="bottom" constant="43" id="oqy-HI-Wgc"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Et1-I4-NQi"/>
+                        <exclude reference="j1c-qV-ktr"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="applyBtn" destination="o4X-cJ-Uae" id="1q2-gO-p8R"/>
                 <outlet property="detailLabel" destination="2CP-mG-3QM" id="7OR-fO-U69"/>
@@ -76,6 +95,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="ApplyLeaderHeader" width="320" height="367"/>
         <image name="BgLargeButtonNormal" width="280" height="40"/>
         <image name="IconDarkDownArrow" width="11" height="5"/>
     </resources>

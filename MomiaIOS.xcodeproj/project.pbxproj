@@ -158,6 +158,13 @@
 		BC38D2911B09B8B30051C7E9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC38D2901B09B8B30051C7E9 /* Security.framework */; };
 		BC38D2931B09B8DC0051C7E9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC38D2921B09B8DC0051C7E9 /* SystemConfiguration.framework */; };
 		BC38D2951B09B8E50051C7E9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC38D2941B09B8E50051C7E9 /* CFNetwork.framework */; };
+		BC3D0B951B6F0190004C7B81 /* ConfigService.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0B941B6F0190004C7B81 /* ConfigService.m */; };
+		BC3D0B991B6F3F2C004C7B81 /* LeaderStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0B981B6F3F2C004C7B81 /* LeaderStatusModel.m */; };
+		BC3D0B9C1B6F50C7004C7B81 /* LeaderStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0B9B1B6F50C7004C7B81 /* LeaderStatusViewController.m */; };
+		BC3D0B9F1B6F51AB004C7B81 /* LeaderJoinedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0B9E1B6F51AB004C7B81 /* LeaderJoinedViewController.m */; };
+		BC3D0BA31B6F7546004C7B81 /* LeaderJoinedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0BA11B6F7546004C7B81 /* LeaderJoinedCell.m */; };
+		BC3D0BA41B6F7546004C7B81 /* LeaderJoinedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3D0BA21B6F7546004C7B81 /* LeaderJoinedCell.xib */; };
+		BC3D0BA71B6F77AF004C7B81 /* LeaderProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0BA61B6F77AF004C7B81 /* LeaderProductModel.m */; };
 		BC41ABA51B0C69BE00A419DA /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC41ABA11B0C69BE00A419DA /* libWeChatSDK.a */; };
 		BC41ABA61B0C69BE00A419DA /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = BC41ABA21B0C69BE00A419DA /* read_me.txt */; };
 		BC41ABA91B0C715400A419DA /* Environment.m in Sources */ = {isa = PBXBuildFile; fileRef = BC41ABA81B0C715400A419DA /* Environment.m */; };
@@ -555,6 +562,19 @@
 		BC38D2901B09B8B30051C7E9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BC38D2921B09B8DC0051C7E9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		BC38D2941B09B8E50051C7E9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		BC3D0B931B6F0190004C7B81 /* ConfigService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfigService.h; path = Common/Services/Config/ConfigService.h; sourceTree = "<group>"; };
+		BC3D0B941B6F0190004C7B81 /* ConfigService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfigService.m; path = Common/Services/Config/ConfigService.m; sourceTree = "<group>"; };
+		BC3D0B971B6F3F2C004C7B81 /* LeaderStatusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeaderStatusModel.h; path = Common/Models/Leader/LeaderStatusModel.h; sourceTree = "<group>"; };
+		BC3D0B981B6F3F2C004C7B81 /* LeaderStatusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaderStatusModel.m; path = Common/Models/Leader/LeaderStatusModel.m; sourceTree = "<group>"; };
+		BC3D0B9A1B6F50C7004C7B81 /* LeaderStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeaderStatusViewController.h; path = Business/Leader/LeaderStatusViewController.h; sourceTree = "<group>"; };
+		BC3D0B9B1B6F50C7004C7B81 /* LeaderStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaderStatusViewController.m; path = Business/Leader/LeaderStatusViewController.m; sourceTree = "<group>"; };
+		BC3D0B9D1B6F51AB004C7B81 /* LeaderJoinedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeaderJoinedViewController.h; path = Business/Leader/LeaderJoinedViewController.h; sourceTree = "<group>"; };
+		BC3D0B9E1B6F51AB004C7B81 /* LeaderJoinedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaderJoinedViewController.m; path = Business/Leader/LeaderJoinedViewController.m; sourceTree = "<group>"; };
+		BC3D0BA01B6F7546004C7B81 /* LeaderJoinedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeaderJoinedCell.h; path = Business/Leader/Views/LeaderJoinedCell.h; sourceTree = "<group>"; };
+		BC3D0BA11B6F7546004C7B81 /* LeaderJoinedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaderJoinedCell.m; path = Business/Leader/Views/LeaderJoinedCell.m; sourceTree = "<group>"; };
+		BC3D0BA21B6F7546004C7B81 /* LeaderJoinedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LeaderJoinedCell.xib; path = Business/Leader/Views/LeaderJoinedCell.xib; sourceTree = "<group>"; };
+		BC3D0BA51B6F77AF004C7B81 /* LeaderProductModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeaderProductModel.h; path = Common/Models/Leader/LeaderProductModel.h; sourceTree = "<group>"; };
+		BC3D0BA61B6F77AF004C7B81 /* LeaderProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaderProductModel.m; path = Common/Models/Leader/LeaderProductModel.m; sourceTree = "<group>"; };
 		BC41ABA11B0C69BE00A419DA /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		BC41ABA21B0C69BE00A419DA /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
 		BC41ABA31B0C69BE00A419DA /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
@@ -1253,6 +1273,7 @@
 		BC2FAA121AFCB1CB00E2071E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				BC3D0B921B6F0166004C7B81 /* Config */,
 				BC0EC2951B5E1F2F00D9A82F /* Cache */,
 				BC82543C1B3C26A900430A6F /* Location */,
 				BC2C0C651B131EAC00E2446E /* Account */,
@@ -1286,6 +1307,26 @@
 				BC38D2371AFEE2B50051C7E9 /* HomeModel.m */,
 			);
 			name = Home;
+			sourceTree = "<group>";
+		};
+		BC3D0B921B6F0166004C7B81 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				BC3D0B931B6F0190004C7B81 /* ConfigService.h */,
+				BC3D0B941B6F0190004C7B81 /* ConfigService.m */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		BC3D0B961B6F3E14004C7B81 /* Leader */ = {
+			isa = PBXGroup;
+			children = (
+				BC3D0B971B6F3F2C004C7B81 /* LeaderStatusModel.h */,
+				BC3D0B981B6F3F2C004C7B81 /* LeaderStatusModel.m */,
+				BC3D0BA51B6F77AF004C7B81 /* LeaderProductModel.h */,
+				BC3D0BA61B6F77AF004C7B81 /* LeaderProductModel.m */,
+			);
+			name = Leader;
 			sourceTree = "<group>";
 		};
 		BC41ABA01B0C69BE00A419DA /* WeChatSDK_1.5 */ = {
@@ -1339,6 +1380,7 @@
 		BC7708601AFC56F3000068A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BC3D0B961B6F3E14004C7B81 /* Leader */,
 				BC064C791B60960F0018D142 /* Playmate */,
 				5A11C72D1B58B44B00B0CDFE /* ProductCalendar */,
 				5A9E80D51B4BB1A10028AC47 /* PlayFellow */,
@@ -1369,6 +1411,10 @@
 				BC7CBB021B68D6A50047211D /* ApplyLeaderViewController.m */,
 				BC7CBB061B68E6360047211D /* SubmitLeaderViewController.h */,
 				BC7CBB071B68E6360047211D /* SubmitLeaderViewController.m */,
+				BC3D0B9A1B6F50C7004C7B81 /* LeaderStatusViewController.h */,
+				BC3D0B9B1B6F50C7004C7B81 /* LeaderStatusViewController.m */,
+				BC3D0B9D1B6F51AB004C7B81 /* LeaderJoinedViewController.h */,
+				BC3D0B9E1B6F51AB004C7B81 /* LeaderJoinedViewController.m */,
 			);
 			name = Leader;
 			sourceTree = "<group>";
@@ -1385,6 +1431,9 @@
 				BC7CBB141B69CF050047211D /* ApplyLeaderIntroContentCell.h */,
 				BC7CBB151B69CF050047211D /* ApplyLeaderIntroContentCell.m */,
 				BC7CBB161B69CF050047211D /* ApplyLeaderIntroContentCell.xib */,
+				BC3D0BA01B6F7546004C7B81 /* LeaderJoinedCell.h */,
+				BC3D0BA11B6F7546004C7B81 /* LeaderJoinedCell.m */,
+				BC3D0BA21B6F7546004C7B81 /* LeaderJoinedCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1982,6 +2031,7 @@
 			files = (
 				5A794F991B4E703600BB3B7C /* OrderDetailMiddleCell.xib in Resources */,
 				5A08C1421B39117100642648 /* ProductDetailEnrollCell.xib in Resources */,
+				BC3D0BA41B6F7546004C7B81 /* LeaderJoinedCell.xib in Resources */,
 				5A6806F01B01A9BD00D02A60 /* SettingMsgCell.xib in Resources */,
 				BC0BD7031B55173800B95B3A /* CouponListItemCell.xib in Resources */,
 				5A6806F51B01CEF700D02A60 /* PersonLogoCell.xib in Resources */,
@@ -2129,6 +2179,7 @@
 				5A9E80E61B4BBF590028AC47 /* ProductPlayFellowCell.m in Sources */,
 				BC41ABB91B0F25AB00A419DA /* SugTagsModel.m in Sources */,
 				BC8540941ADF74E9005A7C54 /* AppDelegate.m in Sources */,
+				BC3D0BA71B6F77AF004C7B81 /* LeaderProductModel.m in Sources */,
 				5ABDA5B31B42CD4B003BAE80 /* PostOrderModel.m in Sources */,
 				BC97DEFC1B4B75A8002B1A00 /* OrderPerson.m in Sources */,
 				5A83074D1B327FB40057412A /* CommonHeaderView.m in Sources */,
@@ -2187,10 +2238,12 @@
 				BC0EC2941B58EFD200D9A82F /* DateManager.m in Sources */,
 				5ABDA57E1B42625B003BAE80 /* AddOrderModel.m in Sources */,
 				BCE5893F1B2AB62500736923 /* payRequsestHandler.mm in Sources */,
+				BC3D0BA31B6F7546004C7B81 /* LeaderJoinedCell.m in Sources */,
 				BC7CBADB1B662CAF0047211D /* FeedDetailViewController.m in Sources */,
 				BC2FAA0F1AFCA92D00E2071E /* UIView+Frame.m in Sources */,
 				5A9E811C1B4BDF560028AC47 /* NSDate+Age.m in Sources */,
 				5AD5275E1B53C7A300D01E1F /* FeedbackCell.m in Sources */,
+				BC3D0B991B6F3F2C004C7B81 /* LeaderStatusModel.m in Sources */,
 				BCF564D51B48E018003A2227 /* OrderListViewController.m in Sources */,
 				BC7708511AFAFD54000068A8 /* MOTableViewController.m in Sources */,
 				5AB1BDEA1B4FB7ED004A4511 /* LoadingErrorCell.m in Sources */,
@@ -2212,6 +2265,7 @@
 				5A9E80D81B4BB2450028AC47 /* PlayFellowModel.m in Sources */,
 				BC2C0C681B131ED500E2446E /* AccountService.m in Sources */,
 				BC41ABBF1B0F269100A419DA /* SugTagsCell.m in Sources */,
+				BC3D0B9F1B6F51AB004C7B81 /* LeaderJoinedViewController.m in Sources */,
 				BC41ABBC1B0F266F00A419DA /* SuggestTagsViewController.m in Sources */,
 				5A0643631B3BC3F800361732 /* FillOrderMiddleCell.m in Sources */,
 				BCD755D41B62155F0098752B /* MJPhotoBrowser.m in Sources */,
@@ -2236,9 +2290,11 @@
 				BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */,
 				5A18DC4B1B295C03001458A4 /* HomeViewController.m in Sources */,
 				BC2C0C8F1B18075D00E2446E /* UIImage+Color.m in Sources */,
+				BC3D0B9C1B6F50C7004C7B81 /* LeaderStatusViewController.m in Sources */,
 				BC0BD6FA1B5516DB00B95B3A /* Coupon.m in Sources */,
 				BCF564CF1B4632A1003A2227 /* Child.m in Sources */,
 				BCD755DB1B6219660098752B /* MBProgressHUD+Add.m in Sources */,
+				BC3D0B951B6F0190004C7B81 /* ConfigService.m in Sources */,
 				BC0EC2A01B5F880E00D9A82F /* LJTabBar.m in Sources */,
 				5AB444821B41479800FBADD4 /* OrderPersonModel.m in Sources */,
 				5AE4F8671B3D642B005879B7 /* MOStepperView.m in Sources */,

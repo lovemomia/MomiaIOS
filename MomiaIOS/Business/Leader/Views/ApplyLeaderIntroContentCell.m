@@ -21,7 +21,11 @@
 }
 
 -(void)setData:(id)data {
-    self.contentLabel.text = data;
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:data];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:7];//调整行间距
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [data length])];
+    self.contentLabel.attributedText = attributedString;
 }
 
 @end

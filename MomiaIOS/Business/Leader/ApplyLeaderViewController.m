@@ -51,6 +51,11 @@ static NSString *identifierApplyLeaderIntroContentCell = @"ApplyLeaderIntroConte
     [self.tableView scrollToRowAtIndexPath:[[NSIndexPath alloc] initWithIndex:1] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
+- (void)setModel:(LeaderStatusModel *)model {
+    _model = model;
+    [self.tableView reloadData];
+}
+
 /*
 #pragma mark - Navigation
 
@@ -62,14 +67,22 @@ static NSString *identifierApplyLeaderIntroContentCell = @"ApplyLeaderIntroConte
 */
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+    if (self.model == nil) {
+        return 0;
+    } else if ([self.model.data.status intValue] == 3) {
+        return 2;
+    }
+    return [self.model.data.desc.content count] + 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
         return 1;
+    } else if ([self.model.data.status intValue] == 3) {
+        return 2;
     }
-    return 4;
+    LeaderStatusDescContent *contentModel = [self.model.data.desc.content objectAtIndex:section - 1];
+    return [contentModel.body count] + 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -77,10 +90,27 @@ static NSString *identifierApplyLeaderIntroContentCell = @"ApplyLeaderIntroConte
         return SCREEN_HEIGHT - 65;
         
     } else if (indexPath.row == 0) {
-        return [ApplyLeaderIntroHeaderCell heightWithTableView:tableView withIdentifier:identifierApplyLeaderIntroHeaderCell forIndexPath:indexPath data:@"成为领队，你将获得"];
+        NSString *title;
+        if ([self.model.data.status intValue] == 3) {
+            title = @"未通过原因";
+        } else {
+            title = ((LeaderStatusDescContent *)[self.model.data.desc.content objectAtIndex:indexPath.section - 1]).title;
+        }
+        return [ApplyLeaderIntroHeaderCell heightWithTableView:tableView withIdentifier:identifierApplyLeaderIntroHeaderCell forIndexPath:indexPath data:title];
         
     } else {
-        return [ApplyLeaderIntroContentCell heightWithTableView:tableView withIdentifier:identifierApplyLeaderIntroContentCell forIndexPath:indexPath data:@"哈哈哈哈哈哈"];
+        NSString *content;
+        if ([self.model.data.status intValue] == 3) {
+            content = self.model.data.msg;
+            
+        } else {
+            LeaderStatusDescContent *contentModel = [self.model.data.desc.content objectAtIndex:indexPath.section - 1];
+            content = ((LeaderStatusDescContentBody *)[contentModel.body objectAtIndex:indexPath.row - 1]).text;
+            if ([contentModel.body count] > 1) {
+                content = [NSString stringWithFormat:@"- %@", content];
+            }
+        }
+        return [ApplyLeaderIntroContentCell heightWithTableView:tableView withIdentifier:identifierApplyLeaderIntroContentCell forIndexPath:indexPath data:content];
     }
 }
 
@@ -88,19 +118,75 @@ static NSString *identifierApplyLeaderIntroContentCell = @"ApplyLeaderIntroConte
     UITableViewCell *cell;
     if (indexPath.section == 0) {
         ApplyLeaderHeaderCell *header = [ApplyLeaderHeaderCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:identifierApplyLeaderHeaderCell];
+        if ([self.model.data.status intValue] == 2) {
+            [header.applyBtn setTitle:@"正在审核中..." forState:UIControlStateDisabled];
+            header.applyBtn.enabled = NO;
+            
+        } else if ([self.model.data.status intValue] == 3) {
+            [header.applyBtn setTitle:@"重新申请当领队" forState:UIControlStateNormal];
+            
+        } else {
+            [header.applyBtn setTitle:@"我要当领队" forState:UIControlStateNormal];
+        }
         [header.applyBtn addTarget:self action:@selector(onApplyBtnClick) forControlEvents:UIControlEventTouchUpInside];
         UITapGestureRecognizer * tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onDetailClick)];
         [header.detailLabel addGestureRecognizer:tapRecognizer];
         cell = header;
         
     } else if (indexPath.row == 0) {
-        cell = [ApplyLeaderIntroHeaderCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:identifierApplyLeaderIntroHeaderCell];
+        ApplyLeaderIntroHeaderCell *header = [ApplyLeaderIntroHeaderCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:identifierApplyLeaderIntroHeaderCell];
+
+        if ([self.model.data.status intValue] == 3) {
+            header.data = @"未通过原因";
+        } else {
+            header.data = ((LeaderStatusDescContent *)[self.model.data.desc.content objectAtIndex:indexPath.section - 1]).title;
+        }
+        cell = header;
+        
     } else {
-        cell = [ApplyLeaderIntroContentCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:identifierApplyLeaderIntroContentCell];
+        ApplyLeaderIntroContentCell *intro = [ApplyLeaderIntroContentCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:identifierApplyLeaderIntroContentCell];
+        if ([self.model.data.status intValue] == 3) {
+            intro.data = self.model.data.msg;
+            
+        } else {
+            LeaderStatusDescContent *contentModel = [self.model.data.desc.content objectAtIndex:indexPath.section - 1];
+            NSString *content = ((LeaderStatusDescContentBody *)[contentModel.body objectAtIndex:indexPath.row - 1]).text;
+            if ([contentModel.body count] > 1) {
+                content = [NSString stringWithFormat:@"- %@", content];
+            }
+            intro.data = content;
+        }
+        
+        cell = intro;
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section > 0) {
+        return 35;
+    }
+    return 0.1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (section == [self numberOfSectionsInTableView:tableView] - 1) {
+        return 50;
+    }
+    return 0.1;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [UIView new];
+    view.backgroundColor = [UIColor clearColor];
+    return view;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *view = [UIView new];
+    view.backgroundColor = [UIColor clearColor];
+    return view;
+}
 
 @end

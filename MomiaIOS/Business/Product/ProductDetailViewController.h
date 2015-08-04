@@ -9,6 +9,7 @@
 #import "MOViewController.h"
 
 @interface ProductDetailViewController : MOViewController<UITableViewDataSource,UITableViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

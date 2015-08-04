@@ -62,8 +62,8 @@ typedef enum
     self.navigationItem.title = @"活动详情";
     
     UIBarButtonItem *favItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleFav"] style:UIBarButtonItemStylePlain target:self action:@selector(onFavClick)];
-    UIBarButtonItem *shareItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleShare"] style:UIBarButtonItemStylePlain target:self action:@selector(onShareClick)];
-    self.navigationItem.rightBarButtonItems = @[favItem, shareItem];
+//    UIBarButtonItem *shareItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleShare"] style:UIBarButtonItemStylePlain target:self action:@selector(onShareClick)];
+    self.navigationItem.rightBarButtonItem = favItem;
     
     [ProductDetailCarouselCell registerCellWithTableView:self.tableView withIdentifier:productDetailCarouselIdentifier];
     [ProductDetailEnrollCell registerCellWithTableView:self.tableView withIdentifier:productDetailEnrollIdentifier];
@@ -87,7 +87,7 @@ typedef enum
 -(void)viewDidLayoutSubviews
 {
     if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-        [self.tableView setSeparatorInset:UIEdgeInsetsMake(-1, 0, 0, 0)];
+        [self.tableView setSeparatorInset:UIEdgeInsetsMake(-1, 10, 0, 0)];
     }
     
     if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
@@ -343,11 +343,11 @@ typedef enum
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
 }
 
 - (IBAction)dateFriend:(id)sender {
-    [self openURL:@"duola://applyleader"];
+//    [self openURL:@"duola://applyleader"];
+    [self onShareClick];
 }
 
 - (IBAction)signUp:(id)sender {

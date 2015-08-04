@@ -70,7 +70,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section >= 1) {
+    if (section == 1 || section > 2) {
         return 2;
     }
     return 1;
@@ -78,7 +78,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 4;
+    return 5;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -105,6 +105,9 @@
             }
             break;
         case 2:
+            [self openURL:@"duola://leaderstatus"];
+            break;
+        case 3:
             if(row == 0) {
                 [self openURL:@"duola://myfav"];
                 
@@ -112,7 +115,7 @@
                 [self openURL:@"duola://people"];
             }
             break;
-        case 3:
+        case 4:
             if(row == 0) {
                 [self openURL:@"duola://feedback"];
                 
@@ -192,6 +195,10 @@
                 }
                 break;
             case 2:
+                cell.textLabel.text = @"成为领队";
+                cell.imageView.image = [UIImage imageNamed:@"IconLeader"];
+                break;
+            case 3:
                 if (row == 0) {
                     cell.textLabel.text = @"我的收藏";
                     cell.imageView.image = [UIImage imageNamed:@"IconFav"];
@@ -200,7 +207,7 @@
                     cell.imageView.image = [UIImage imageNamed:@"IconPeople"];
                 }
                 break;
-            case 3:
+            case 4:
                 if (row == 0) {
                     cell.textLabel.text = @"意见反馈";
                     cell.imageView.image = [UIImage imageNamed:@"IconFeedback"];
