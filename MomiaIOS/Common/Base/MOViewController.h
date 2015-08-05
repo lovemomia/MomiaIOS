@@ -30,4 +30,6 @@
 
 - (void)showDialogWithTitle:(NSString *)title message:(NSString *)message;
 
+- (void)showDialogWithTitle:(NSString *)title message:(NSString *)message tag:(NSInteger)tag;
+
 @end

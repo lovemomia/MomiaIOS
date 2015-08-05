@@ -23,7 +23,7 @@
 
 -(void)setData:(LeaderSku *) model {
     if (model.hasLeader) {
-        self.contentView.backgroundColor = UIColorFromRGB(0xf1f1f1);
+        self.backgroundColor = UIColorFromRGB(0xf1f1f1);
         self.leaderInfoLabel.text = model.leaderInfo;
         self.leaderInfoLabel.hidden = NO;
         

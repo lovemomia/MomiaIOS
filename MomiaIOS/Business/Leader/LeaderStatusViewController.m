@@ -49,7 +49,8 @@
                                  LeaderStatusModel *result = (LeaderStatusModel *)responseObject;
                                  if ([result.data.status intValue] == 1) {
                                      //title
-                                     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"成为领队" style:UIBarButtonItemStylePlain target:self action:@selector(onApplyLeaderClick)];
+                                     self.navigationItem.title = @"活动列表";
+                                     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"认领活动" style:UIBarButtonItemStylePlain target:self action:@selector(onApplyLeaderClick)];
                                      
                                      LeaderJoinedViewController *leaderJoinedVC = [[LeaderJoinedViewController alloc]initWithParams:nil];
                                      leaderJoinedVC.model = result;

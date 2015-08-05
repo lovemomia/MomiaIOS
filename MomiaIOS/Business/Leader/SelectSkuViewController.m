@@ -11,6 +11,7 @@
 #import "ProductModel.h"
 #import "MyFavCell.h"
 #import "SelectSkuCell.h"
+#import "LeaderStatusViewController.h"
 
 static NSString *myFavCellIdentifier = @"MyFavCell";
 static NSString *selectSkuCellIdentifier = @"SelectSkuCell";
@@ -29,6 +30,10 @@ static NSString *selectSkuCellIdentifier = @"SelectSkuCell";
         self.pid = [params objectForKey:@"pid"];
     }
     return self;
+}
+
+- (UIEdgeInsets)separatorInsetForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UIEdgeInsetsMake(0,10,0,0);
 }
 
 - (void)viewDidLoad {
@@ -56,12 +61,64 @@ static NSString *selectSkuCellIdentifier = @"SelectSkuCell";
                                                      
                                                      self.model = (LeaderSkuModel *)responseObject;
                                                      [self.tableView reloadData];
+                                                     
+                                                     [self addFootButton];
                                                  }
                          
                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                      [self.view removeLoadingBee];
                                                      [self showDialogWithTitle:nil message:error.message];
                                                  }];
+}
+
+- (void)addFootButton {
+    UIButton *okButton = [[UIButton alloc]init];
+    [okButton setTitle:@"成为领队" forState:UIControlStateNormal];
+    okButton.backgroundColor = MO_APP_ThemeColor;
+    [okButton addTarget:self action:@selector(onOKClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:okButton];
+    
+    [okButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@50);
+        make.width.equalTo(self.view);
+        make.bottom.equalTo(self.view);
+        make.left.equalTo(self.view);
+        make.right.equalTo(self.view);
+    }];
+}
+
+- (void)onOKClicked {
+    if (self.model == nil || self.model.data.skus.count == 0) {
+        return;
+    }
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    LeaderSku *sku = [self.model.data.skus objectAtIndex:self.selectIndex];
+    NSDictionary * paramDic = @{@"pid":self.pid, @"sid":[NSString stringWithFormat:@"%ld", (long)sku.skuId]};
+    self.curOperation = [[HttpService defaultService]POST:URL_APPEND_PATH(@"/leader/apply")
+                                               parameters:paramDic JSONModelClass:[BaseModel class]
+                                                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                     [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                                     
+                                                     [[NSNotificationCenter defaultCenter]postNotificationName:@"leaderDataChanged" object:nil];
+                                                     [self showDialogWithTitle:nil message:@"申请成功" tag:1001];
+                                                 }
+                         
+                                                 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                     [self.view removeLoadingBee];
+                                                     [self showDialogWithTitle:nil message:error.message];
+                                                 }];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (alertView.tag == 1001) {
+        for (UIViewController *controller in self.navigationController.viewControllers) {
+            if ([controller isKindOfClass:[LeaderStatusViewController class]]) {
+                [self.navigationController popToViewController:controller animated:YES];
+            }
+        }
+    }
 }
 
 - (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle {
@@ -71,6 +128,7 @@ static NSString *selectSkuCellIdentifier = @"SelectSkuCell";
 #pragma mark - tableview delegate & datasource
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
         [self openURL:[NSString stringWithFormat:@"duola://productdetail?id=%ld", (long)self.model.data.product.pID]];
         
@@ -84,8 +142,6 @@ static NSString *selectSkuCellIdentifier = @"SelectSkuCell";
             [self.tableView reloadData];
         }
     }
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -116,9 +172,9 @@ static NSString *selectSkuCellIdentifier = @"SelectSkuCell";
         SelectSkuCell *selectSkuCell = [SelectSkuCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:selectSkuCellIdentifier];
         selectSkuCell.data = [self.model.data.skus objectAtIndex:indexPath.row];
         if(self.selectIndex == indexPath.row) {
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            selectSkuCell.accessoryType = UITableViewCellAccessoryCheckmark;
         } else {
-            cell.accessoryType = UITableViewCellAccessoryNone;
+            selectSkuCell.accessoryType = UITableViewCellAccessoryNone;
         }
         cell = selectSkuCell;
     }
@@ -127,7 +183,7 @@ static NSString *selectSkuCellIdentifier = @"SelectSkuCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return [MyFavCell heightWithTableView:tableView withIdentifier:myFavCellIdentifier forIndexPath:indexPath data:self.model.data.product];
+        return 87;
     }
     return [SelectSkuCell heightWithTableView:tableView withIdentifier:selectSkuCellIdentifier forIndexPath:indexPath data:[self.model.data.skus objectAtIndex:indexPath.row]];
 }
@@ -141,6 +197,12 @@ static NSString *selectSkuCellIdentifier = @"SelectSkuCell";
         return 50;
     }
     return 10;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *footer = [[UIView alloc]init];
+    footer.backgroundColor = [UIColor clearColor];
+    return footer;
 }
 
 @end

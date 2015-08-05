@@ -27,6 +27,12 @@ static NSString * leaderJoinedCellIdentifier = @"LeaderJoinedCell";
     self.navigationItem.title = @"活动列表";
     
     [LeaderJoinedCell registerCellWithTableView:self.tableView withIdentifier:leaderJoinedCellIdentifier];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLeaderDataChanged:) name:@"leaderDataChanged" object:nil];
+}
+
+-(void)onLeaderDataChanged:(NSNotification*)notify {
+    [self requestData:YES];
 }
 
 - (void)setModel:(LeaderStatusModel *)model {
@@ -34,7 +40,14 @@ static NSString * leaderJoinedCellIdentifier = @"LeaderJoinedCell";
     
     self.list = [[NSMutableArray alloc]initWithArray:model.data.products.list];
     self.nextIndex = [model.data.products.nextIndex integerValue];
-    [self.tableView reloadData];
+    if ([self.list count] == 0) {
+        [self.view showError:@"您还没有组织活动，\n快来认领活动赚取红包吧~" retryTitle:@"认领活动" withBlock:^{
+            [self openURL:@"duola://selectproduct"];
+        }];
+
+    } else {
+        [self.tableView reloadData];
+    }
 }
 
 - (void)requestData:(BOOL)refresh {
@@ -58,6 +71,7 @@ static NSString * leaderJoinedCellIdentifier = @"LeaderJoinedCell";
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                      if ([self.list count] == 0) {
                                                          [self.view removeLoadingBee];
+                                                         [self.view removeError];
                                                      }
                                                      
                                                      LeaderProductModel *orderListModel = (LeaderProductModel *)responseObject;
@@ -72,7 +86,6 @@ static NSString * leaderJoinedCellIdentifier = @"LeaderJoinedCell";
                                                      }
                                                      [self.tableView reloadData];
                                                      self.isLoading = NO;
-                                                     
                                                  }
                          
                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -102,6 +115,9 @@ static NSString * leaderJoinedCellIdentifier = @"LeaderJoinedCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    if (self.list.count == 0) {
+//        return 1;
+//    }
     if (self.nextIndex > 0) {
         return self.list.count + 1;
     }

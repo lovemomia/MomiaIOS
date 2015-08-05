@@ -133,6 +133,12 @@
     [alter show];
 }
 
+- (void)showDialogWithTitle:(NSString *)title message:(NSString *)message tag:(NSInteger)tag {
+    UIAlertView *alter = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    alter.tag = tag;
+    [alter show];
+}
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
 }

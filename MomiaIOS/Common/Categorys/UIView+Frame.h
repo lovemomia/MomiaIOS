@@ -52,6 +52,7 @@ typedef void (^BlockOnRetryButtonClicked)();
 - (void)showLoadingBee;
 - (void)removeLoadingBee;
 
+- (void)showError:(NSString *)errMsg retryTitle:(NSString *)title withBlock:(BlockOnRetryButtonClicked)retry;
 - (void)showError:(NSString *)errMsg retry:(BlockOnRetryButtonClicked)retry;
 - (void)removeError;
 

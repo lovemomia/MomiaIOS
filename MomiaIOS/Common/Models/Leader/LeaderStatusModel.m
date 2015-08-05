@@ -17,6 +17,9 @@
 @implementation LeaderStatusDesc
 @end
 
+@implementation LeaderStatusProducts
+@end
+
 @implementation LeaderStatusData
 @end
 

@@ -138,12 +138,22 @@
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     NSDictionary *params = @{@"name":self.name, @"mobile":self.phone, @"career":self.job, @"intro":self.intro};
+    NSString *jsonString = nil;
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params
+                                                       options:NSJSONWritingPrettyPrinted error:&error];
+    if (!jsonData) {
+        NSLog(@"fail: %@", error);
+        return;
+    } else {
+        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
     [[HttpService defaultService]POST:URL_APPEND_PATH(@"/leader/signup")
-                           parameters:params JSONModelClass:[BaseModel class]
+                           parameters:@{@"leader":jsonString} JSONModelClass:[BaseModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
                                   
-                                  [self showDialogWithTitle:nil message:@"您的申请已提交，审核通过后我们会尽快通知您"];
+                                  [self showDialogWithTitle:nil message:@"您的申请已提交，审核通过后我们会尽快通知您" tag:1001];
                               }
      
                               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -151,6 +161,7 @@
                                   [self showDialogWithTitle:nil message:error.message];
                               }];
 }
+
 
 /*
 #pragma mark - Navigation
@@ -221,7 +232,13 @@
 
 - (void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1) {
+    if (buttonIndex == 0) {
+        if (alertView.tag == 1001) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+            return;
+        }
+        
+    } else if (buttonIndex == 1) {
         UITextField *tf=[alertView textFieldAtIndex:0];
         if (alertView.tag == 0) {
             self.name = tf.text;

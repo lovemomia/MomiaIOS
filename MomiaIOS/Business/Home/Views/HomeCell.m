@@ -18,7 +18,7 @@
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:model.cover] placeholderImage:nil];
     self.titleLabel.text = model.title;
     self.timeLabel.text = model.scheduler;
-    self.descLabel.text = model.address;
+    self.descLabel.text = model.region;
     
     if (model.joined == 0) {
         self.enrollmentLabel.hidden = YES;

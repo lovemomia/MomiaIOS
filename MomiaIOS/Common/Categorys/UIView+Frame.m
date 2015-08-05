@@ -174,6 +174,10 @@
 }
 
 - (void)showError:(NSString *)errMsg retry:(BlockOnRetryButtonClicked)retry {
+    [self showError:errMsg retryTitle:@"重试" withBlock:retry];
+}
+
+- (void)showError:(NSString *)errMsg retryTitle:(NSString *)title withBlock:(BlockOnRetryButtonClicked)retry {
     UIView *view = [[UIView alloc] init];
     view.tag = -100;
     
@@ -188,10 +192,9 @@
     [button addAction:^(UIButton *btn) {
         retry();
     } forControlEvents:UIControlEventTouchUpInside];
-    [button setTitle:@"重试" forState:UIControlStateNormal];
-    button.titleLabel.font = [UIFont systemFontOfSize:14];
+    [button setTitle:title forState:UIControlStateNormal];
+//    button.titleLabel.font = [UIFont systemFontOfSize:14];
     [button setBackgroundImage:[UIImage imageNamed:@"BgMediumButtonNormal"] forState:UIControlStateNormal];
-    
     
     [view addSubview:label];
     [view addSubview:button];
@@ -204,21 +207,23 @@
         make.centerX.equalTo(view.mas_centerX);
     }];
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@80);
-        make.height.equalTo(@30);
-        make.top.equalTo(label.mas_bottom).with.offset(10);
+        make.width.equalTo(@280);
+        make.height.equalTo(@40);
+        make.top.equalTo(label.mas_bottom).with.offset(40);
         make.centerX.equalTo(view.mas_centerX);
     }];
     
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@200);
-        make.height.greaterThanOrEqualTo(@100);
-        make.center.equalTo(self);
+        make.width.equalTo(self);
+        make.height.equalTo(self);
+        make.top.equalTo(self).with.offset(120);
+        make.left.equalTo(self).with.offset(0);
+        make.right.equalTo(self).with.offset(0);
     }];
 }
 
 - (void)removeError {
-    for ( UIView* errorView in [self subviews]){
+    for (UIView *errorView in [self subviews]){
         if (errorView.tag == -100) {
             [errorView removeFromSuperview];
             break;
