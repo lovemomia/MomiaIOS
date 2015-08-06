@@ -9,7 +9,6 @@
 #import "BaseModel.h"
 
 @protocol ProductModel
-
 @end
 
 @interface FavouriteData : JSONModel

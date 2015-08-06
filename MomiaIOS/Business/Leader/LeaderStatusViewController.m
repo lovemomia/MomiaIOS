@@ -28,6 +28,11 @@
     [self addChildViewController:self.applyLeaderVC];
     
     [self.view addSubview:self.applyLeaderVC.view];
+    [self.applyLeaderVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.view);
+        make.height.equalTo(self.view);
+    }];
+    
     self.currentViewController = self.applyLeaderVC;
     
     [self requestData];

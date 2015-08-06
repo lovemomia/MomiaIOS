@@ -12,6 +12,7 @@
 #import "MyFavCell.h"
 #import "SelectSkuCell.h"
 #import "LeaderStatusViewController.h"
+#import "UIImage+Color.h"
 
 static NSString *myFavCellIdentifier = @"MyFavCell";
 static NSString *selectSkuCellIdentifier = @"SelectSkuCell";
@@ -21,9 +22,11 @@ static NSString *selectSkuCellIdentifier = @"SelectSkuCell";
 @property (nonatomic, strong) NSString *pid;
 @property (nonatomic, strong) LeaderSkuModel *model;
 @property (nonatomic, assign) NSInteger selectIndex;
+@property (nonatomic, strong) UIButton *okButton;
 @end
 
 @implementation SelectSkuViewController
+@synthesize okButton;
 
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
@@ -60,9 +63,10 @@ static NSString *selectSkuCellIdentifier = @"SelectSkuCell";
                                                      [self.view removeLoadingBee];
                                                      
                                                      self.model = (LeaderSkuModel *)responseObject;
-                                                     [self.tableView reloadData];
                                                      
                                                      [self addFootButton];
+                                                     self.selectIndex = -1;
+                                                     [self.tableView reloadData];
                                                  }
                          
                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -72,9 +76,10 @@ static NSString *selectSkuCellIdentifier = @"SelectSkuCell";
 }
 
 - (void)addFootButton {
-    UIButton *okButton = [[UIButton alloc]init];
+    okButton = [[UIButton alloc]init];
     [okButton setTitle:@"成为领队" forState:UIControlStateNormal];
-    okButton.backgroundColor = MO_APP_ThemeColor;
+    [okButton setBackgroundImage:[UIImage imageWithColor:MO_APP_ThemeColor size:CGSizeMake(self.view.width, 50)] forState:UIControlStateNormal];
+    [okButton setBackgroundImage:[UIImage imageWithColor:UIColorFromRGB(0xcccccc) size:CGSizeMake(self.view.width, 50)] forState:UIControlStateDisabled];
     [okButton addTarget:self action:@selector(onOKClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:okButton];
     
@@ -85,6 +90,8 @@ static NSString *selectSkuCellIdentifier = @"SelectSkuCell";
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
     }];
+    
+    okButton.enabled = NO;
 }
 
 - (void)onOKClicked {
@@ -173,6 +180,7 @@ static NSString *selectSkuCellIdentifier = @"SelectSkuCell";
         selectSkuCell.data = [self.model.data.skus objectAtIndex:indexPath.row];
         if(self.selectIndex == indexPath.row) {
             selectSkuCell.accessoryType = UITableViewCellAccessoryCheckmark;
+            okButton.enabled = YES;
         } else {
             selectSkuCell.accessoryType = UITableViewCellAccessoryNone;
         }

@@ -82,15 +82,15 @@
     for (Baby *baby in self.babys) {
         if (baby.name.length == 0) {
             [self showDialogWithTitle:nil message:@"宝宝姓名缺失"];
-            return NO;
+            return nil;
         }
         if (baby.sex.length == 0) {
             [self showDialogWithTitle:nil message:@"宝宝性别缺失"];
-            return NO;
+            return nil;
         }
         if (baby.birthday.length == 0) {
             [self showDialogWithTitle:nil message:@"宝宝生日缺失"];
-            return NO;
+            return nil;
         }
         [array addObject:baby];
     }
