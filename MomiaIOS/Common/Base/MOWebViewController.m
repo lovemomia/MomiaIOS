@@ -78,6 +78,7 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    self.navigationItem.title = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
