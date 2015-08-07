@@ -216,7 +216,7 @@
 		<key>needlogin</key>
 		<false/>
 		<key>desc</key>
-		<string>活动详情页</string>
+		<string>活动详情页(id)</string>
 	</dict>
 	<key>playmate</key>
 	<dict>
