@@ -70,7 +70,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 1 || section > 2) {
+    if (section > 0) {
         return 2;
     }
     return 1;
@@ -105,7 +105,11 @@
             }
             break;
         case 2:
-            [self openURL:@"duola://leaderstatus"];
+            if (row == 0) {
+                [self openURL:@"duola://leaderstatus"];
+            } else {
+                [self openURL:@"duola://web?url=http://m.duolaqinzi.com/recommend"];
+            }
             break;
         case 3:
             if(row == 0) {
@@ -195,8 +199,13 @@
                 }
                 break;
             case 2:
-                cell.textLabel.text = @"成为领队";
-                cell.imageView.image = [UIImage imageNamed:@"IconLeader"];
+                if (row == 0) {
+                    cell.textLabel.text = @"成为领队";
+                    cell.imageView.image = [UIImage imageNamed:@"IconLeader"];
+                } else {
+                    cell.textLabel.text = @"我要爆料";
+                    cell.imageView.image = [UIImage imageNamed:@"IconRecommend"];
+                }
                 break;
             case 3:
                 if (row == 0) {
