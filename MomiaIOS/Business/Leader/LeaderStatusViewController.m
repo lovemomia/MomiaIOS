@@ -31,6 +31,7 @@
     [self.applyLeaderVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view);
         make.height.equalTo(self.view);
+        make.top.equalTo(self.view);
     }];
     
     self.currentViewController = self.applyLeaderVC;

@@ -14,8 +14,6 @@
     // Initialization code
     [self.statusBtn setBackgroundImage:[UIImage imageNamed:@"IconCouponTagGreen"] forState:UIControlStateNormal];
     [self.statusBtn setBackgroundImage:[UIImage imageNamed:@"IconCouponTagGray"] forState:UIControlStateDisabled];
-    [self.statusBtn setTitle:@"未使用" forState:UIControlStateNormal];
-    [self.statusBtn setTitle:@"已过期" forState:UIControlStateDisabled];
     [self.statusBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.statusBtn setTitleColor:UIColorFromRGB(0x999999) forState:UIControlStateDisabled];
     self.statusBtn.titleLabel.transform = CGAffineTransformMakeRotation(M_PI * 1.0/4);
