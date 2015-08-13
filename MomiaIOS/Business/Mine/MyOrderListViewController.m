@@ -15,10 +15,18 @@
 
 @property (strong, nonatomic) LJViewPager *viewPager;
 @property (strong, nonatomic) LJTabBar *tabBar;
+@property (nonatomic, assign) NSInteger status;
 
 @end
 
 @implementation MyOrderListViewController
+
+- (instancetype)initWithParams:(NSDictionary *)params {
+    if (self = [super initWithParams:params]) {
+        self.status = [[params valueForKey:@"status"] integerValue];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

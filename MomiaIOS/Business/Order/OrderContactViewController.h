@@ -6,12 +6,12 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "MOViewController.h"
+#import "MOGroupStyleTableViewController.h"
 #import "FillOrderModel.h"
 
 typedef void(^OnContactFinishClick)();
 
-@interface OrderContactViewController : MOViewController<UITableViewDataSource,UITableViewDelegate>
+@interface OrderContactViewController : MOGroupStyleTableViewController
 
 @property (nonatomic, strong) OnContactFinishClick onContactFinishClick;
 @property(nonatomic,strong) FillOrderContactsModel * model;

@@ -59,7 +59,6 @@
 		5A4044381B27DB110010782C /* OrderPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A4044361B27DB110010782C /* OrderPersonCell.xib */; };
 		5A456F9A1B2E687700E95756 /* MOTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A456F991B2E687700E95756 /* MOTableCell.m */; };
 		5A5A2A691B43E531000595A9 /* OrderContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5A2A671B43E531000595A9 /* OrderContactViewController.m */; };
-		5A5A2A6A1B43E531000595A9 /* OrderContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A5A2A681B43E531000595A9 /* OrderContactViewController.xib */; };
 		5A5A2A9F1B43EED4000595A9 /* OrderContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5A2A9E1B43EED4000595A9 /* OrderContactCell.m */; };
 		5A5A2AA11B43EEF4000595A9 /* OrderContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A5A2AA01B43EEF3000595A9 /* OrderContactCell.xib */; };
 		5A5A2AA41B4412FC000595A9 /* NSString+Predicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5A2AA31B4412FC000595A9 /* NSString+Predicate.m */; };
@@ -395,7 +394,6 @@
 		5A456F991B2E687700E95756 /* MOTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOTableCell.m; path = Common/Base/MOTableCell.m; sourceTree = "<group>"; };
 		5A5A2A661B43E531000595A9 /* OrderContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderContactViewController.h; path = Business/Order/OrderContactViewController.h; sourceTree = "<group>"; };
 		5A5A2A671B43E531000595A9 /* OrderContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderContactViewController.m; path = Business/Order/OrderContactViewController.m; sourceTree = "<group>"; };
-		5A5A2A681B43E531000595A9 /* OrderContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderContactViewController.xib; path = Business/Order/OrderContactViewController.xib; sourceTree = "<group>"; };
 		5A5A2A9D1B43EED4000595A9 /* OrderContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderContactCell.h; path = Business/Order/views/OrderContactCell.h; sourceTree = "<group>"; };
 		5A5A2A9E1B43EED4000595A9 /* OrderContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderContactCell.m; path = Business/Order/views/OrderContactCell.m; sourceTree = "<group>"; };
 		5A5A2AA01B43EEF3000595A9 /* OrderContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderContactCell.xib; path = Business/Order/views/OrderContactCell.xib; sourceTree = "<group>"; };
@@ -1020,7 +1018,6 @@
 				5AABF6F91B28120C000A9D3F /* OrderUpdatePersonViewController.xib */,
 				5A5A2A661B43E531000595A9 /* OrderContactViewController.h */,
 				5A5A2A671B43E531000595A9 /* OrderContactViewController.m */,
-				5A5A2A681B43E531000595A9 /* OrderContactViewController.xib */,
 				BCF564D31B48E018003A2227 /* OrderListViewController.h */,
 				BCF564D41B48E018003A2227 /* OrderListViewController.m */,
 				5A9E811D1B4BE7CA0028AC47 /* OrderDetailViewController.h */,
@@ -2088,7 +2085,6 @@
 				5A9E80E71B4BBF590028AC47 /* ProductPlayFellowCell.xib in Resources */,
 				BC7CBAE31B6639670047211D /* FeedZanCell.xib in Resources */,
 				BCA273101AE9D79F002E7534 /* scheme.plist in Resources */,
-				5A5A2A6A1B43E531000595A9 /* OrderContactViewController.xib in Resources */,
 				BC50639F1B53A3A000AA233C /* ForgetPasswordCell.xib in Resources */,
 				5A33F1A21B2EA1D5002A8258 /* CashPayTopHeaderView.xib in Resources */,
 				BC7CBAF21B67673A0047211D /* FeedCommentCell.xib in Resources */,

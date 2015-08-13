@@ -239,7 +239,7 @@
     label.text = msg;
     label.textColor =  UIColorFromRGB(0x999999);
     label.font = [UIFont systemFontOfSize:14];
-    label.textAlignment = NSTextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentLeft;
     label.numberOfLines = 0;
     
     UIImageView *logo = [[UIImageView alloc]init];

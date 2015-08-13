@@ -37,7 +37,7 @@
         }
     }
     
-    int instrinctNum = 5;
+    int instrinctNum = 6;
     
     for (int i = 0; i < model.avatars.count; i++) {
         if(i < instrinctNum) {

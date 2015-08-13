@@ -54,6 +54,40 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 
 @implementation FillOrderViewController
 
+- (UIEdgeInsets)tableViewOriginalContentInset {
+    return UIEdgeInsetsMake(-1, 0, 0, 0);
+}
+
+- (UIEdgeInsets)separatorInset {
+    return UIEdgeInsetsMake(0,0,0,0);
+}
+
+- (UIEdgeInsets)separatorInsetForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UIEdgeInsetsMake(0,10,0,0);
+}
+
+-(void)viewDidLayoutSubviews
+{
+    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self.tableView setSeparatorInset:[self separatorInset]];
+    }
+    
+    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [self.tableView setLayoutMargins:[self separatorInset]];
+    }
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:[self separatorInsetForRowAtIndexPath:indexPath]];
+    }
+    
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:[self separatorInsetForRowAtIndexPath:indexPath]];
+    }
+}
+
 -(NSMutableDictionary *)selectedDictionary
 {
     if(!_selectedDictionary) {
@@ -295,7 +329,8 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
                 
             } else {//有上限
                 if(skuModel.stock == 0) {//名额已满
-                
+                    
+                    
                 } else {//还剩XX名额
                     
                 }
@@ -456,7 +491,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
             }
             
         } else {//单击联系人信息
-            OrderContactViewController * contactViewController = [[OrderContactViewController alloc] initWithNibName:@"OrderContactViewController" bundle:nil];
+            OrderContactViewController * contactViewController = [[OrderContactViewController alloc] initWithParams:nil];
             contactViewController.model = self.model.data.contacts;
             contactViewController.onContactFinishClick = ^{
                 self.middleDataChanged = NO;

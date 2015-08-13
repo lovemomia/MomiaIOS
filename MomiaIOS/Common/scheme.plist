@@ -151,7 +151,7 @@
 		<key>controller</key>
 		<string>FillOrderViewController</string>
 		<key>desc</key>
-		<string>填写订单页</string>
+		<string>填写订单页（id）</string>
 		<key>needlogin</key>
 		<true/>
 	</dict>

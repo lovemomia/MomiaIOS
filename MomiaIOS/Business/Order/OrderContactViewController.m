@@ -14,12 +14,15 @@ static NSString * identifier = @"CellOrderContact";
 
 @interface OrderContactViewController ()
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) FillOrderContactsModel * showModel;
 
 @end
 
 @implementation OrderContactViewController
+
+- (UIEdgeInsets)separatorInsetForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UIEdgeInsetsMake(0,10,0,0);
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

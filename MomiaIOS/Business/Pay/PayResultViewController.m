@@ -133,6 +133,6 @@
 }
 
 - (IBAction)onRightButtonClicked:(id)sender {
-    [self openURL:@"duola://orderlist?status=3"];
+    [self openURL:@"duola://myorderlist?status=3"];
 }
 @end
