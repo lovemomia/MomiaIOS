@@ -48,7 +48,7 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.title = @"哆啦亲子";
+    self.navigationItem.title = @"松果亲子";
 
     
     

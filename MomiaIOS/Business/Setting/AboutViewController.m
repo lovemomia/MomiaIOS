@@ -43,9 +43,9 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0) {
-        [self openURL:@"duola://web?url=http://baidu.com"];
+        [self openURL:@"duola://web?url=http%3a%2f%2fitunes.apple.com%2fapp%2fid1019473117%3fmt%3d8"];
     } else {
-        [self openURL:@"duola://web?url=http://m.duolaqinzi.com/agreement.html"];
+        [self openURL:@"duola://web?url=http://www.duolaqinzi.com/agreement.html"];
     }
 }
 

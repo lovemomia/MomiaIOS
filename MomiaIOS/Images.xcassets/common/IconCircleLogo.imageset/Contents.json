@@ -2,18 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "pay_success_logo.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "pay_success_logo@2x.png"
+      "filename" : "IconCircleLogo@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "pay_success_logo@3x.png"
+      "filename" : "IconCircleLogo@3x.png"
     }
   ],
   "info" : {

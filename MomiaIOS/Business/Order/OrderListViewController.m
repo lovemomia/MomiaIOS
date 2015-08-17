@@ -228,9 +228,9 @@
         if (cell == nil) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"OrderListItemCell" owner:self options:nil];
             OrderListItemCell *itemCell = [arr objectAtIndex:0];
-            [itemCell setData:[self.orderList objectAtIndex:indexPath.row]];
             cell = itemCell;
         }
+        [(OrderListItemCell *)cell setData:[self.orderList objectAtIndex:indexPath.row]];
     }
     return cell;
 }

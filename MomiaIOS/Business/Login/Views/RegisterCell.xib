@@ -179,7 +179,7 @@
                         <constraint firstAttribute="width" constant="124" id="gu0-Jv-0oa"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="哆啦亲子用户服务协议">
+                    <state key="normal" title="松果亲子用户服务协议">
                         <color key="titleColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>

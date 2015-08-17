@@ -114,7 +114,7 @@
     }
     
     if (self.agree == NO) {
-        [self showDialogWithTitle:nil message:@"您必须同意哆啦亲子用户服务协议才能进行下一步操作"];
+        [self showDialogWithTitle:nil message:@"您必须同意松果亲子用户服务协议才能进行下一步操作"];
         return;
     }
     

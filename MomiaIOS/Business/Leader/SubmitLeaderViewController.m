@@ -334,7 +334,7 @@
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == 0) {
         CommonHeaderView *view = [CommonHeaderView cellWithTableView:self.tableView];
-        view.data = @"如果您感兴趣，请花10分钟填写以下表格，我们的领队顾问将在2个工作日之内与您联系。";
+        view.data = @"如果您感兴趣，请花2分钟填写以下表格，我们的领队顾问将在1个工作日之内与您联系。";
         return view;
     }
     return nil;
