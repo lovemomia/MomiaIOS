@@ -95,7 +95,8 @@
 #define kSinaRedirectURI    @"https://api.weibo.com/oauth2/default.html"
 
 // wechat
-#define kWechatAppKey         @"wxcf7b15b51d3b4e53"
+//#define kWechatAppKey         @"wxcf7b15b51d3b4e53" //哆啦亲子
+#define kWechatAppKey         @"wx50b2ac03c88ad6e7" //松果亲子
 
 
 // umeng
