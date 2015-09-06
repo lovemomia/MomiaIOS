@@ -101,6 +101,11 @@ typedef enum
 }
 
 - (void)onFavClick {
+    if (![[AccountService defaultService]isLogin]) {
+        [[AccountService defaultService] login:self];
+        return;
+    }
+    
     if (self.model == nil) {
         return;
     }
