@@ -55,7 +55,7 @@
     }
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    NSDictionary *params = @{@"mobile":self.phone, @"type":@"register"};
+    NSDictionary *params = @{@"mobile":self.phone};
     [[HttpService defaultService]POST:URL_APPEND_PATH(@"/auth/send")
                            parameters:params JSONModelClass:[BaseModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {

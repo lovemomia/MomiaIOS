@@ -94,7 +94,7 @@
     <resources>
         <image name="BgMediumButtonNormal" width="145" height="40"/>
         <image name="BgRedMediumButtonNormal" width="145" height="40"/>
-        <image name="IconCircleLogo" width="116" height="116"/>
+        <image name="IconCircleLogo" width="100" height="100"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

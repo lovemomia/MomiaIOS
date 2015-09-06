@@ -54,7 +54,7 @@ static NSString * identifier = @"CellFeedbackIdentifier";
     
     [[HttpService defaultService]POST:URL_APPEND_PATH(@"/feedback")
                            parameters:params
-                       JSONModelClass:[PostPersonModel class]
+                       JSONModelClass:[BaseModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                   [MBProgressHUD hideHUDForView:self.view animated:NO];
                                   [AlertNotice showNotice:@"感谢您的反馈"];
