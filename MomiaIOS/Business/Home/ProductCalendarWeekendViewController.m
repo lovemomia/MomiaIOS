@@ -110,7 +110,7 @@ static NSString * productCalendarWeekendIdentifier = @"CellProductCalendarWeeken
         
         if(self.model.data.totalCount > 0) {
             
-            if(self.model.data.nextIndex) {
+            if(self.model.data.nextIndex && [self.model.data.nextIndex intValue] > 0) {
                 self.index = self.model.data.nextIndex.integerValue;
             } else {
                 self.model = nil;
