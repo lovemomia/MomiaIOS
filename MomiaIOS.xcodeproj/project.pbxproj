@@ -146,6 +146,7 @@
 		BC2C0C931B1849FE00E2446E /* MCAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C921B1849FE00E2446E /* MCAvatarView.m */; };
 		BC2C0C961B184EA500E2446E /* AvatarImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C951B184EA500E2446E /* AvatarImageView.m */; };
 		BC2C0C991B1858E800E2446E /* MOLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C981B1858E800E2446E /* MOLabel.m */; };
+		BC2E68311BA0129200175E2D /* ConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2E68301BA0129200175E2D /* ConfigModel.m */; };
 		BC2FAA0F1AFCA92D00E2071E /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA0E1AFCA92D00E2071E /* UIView+Frame.m */; };
 		BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA151AFCB2EE00E2071E /* BaseModel.m */; };
 		BC38D23C1AFEE2B50051C7E9 /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38D2371AFEE2B50051C7E9 /* HomeModel.m */; };
@@ -548,6 +549,8 @@
 		BC2C0C951B184EA500E2446E /* AvatarImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AvatarImageView.m; path = Common/Views/AvatarImageView.m; sourceTree = "<group>"; };
 		BC2C0C971B1858E800E2446E /* MOLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOLabel.h; path = Common/Views/MOLabel.h; sourceTree = "<group>"; };
 		BC2C0C981B1858E800E2446E /* MOLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOLabel.m; path = Common/Views/MOLabel.m; sourceTree = "<group>"; };
+		BC2E682F1BA0129200175E2D /* ConfigModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfigModel.h; path = Common/Services/Config/ConfigModel.h; sourceTree = "<group>"; };
+		BC2E68301BA0129200175E2D /* ConfigModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfigModel.m; path = Common/Services/Config/ConfigModel.m; sourceTree = "<group>"; };
 		BC2FAA0C1AFC8E9600E2071E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		BC2FAA0D1AFCA92D00E2071E /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Frame.h"; path = "Common/Categorys/UIView+Frame.h"; sourceTree = "<group>"; };
 		BC2FAA0E1AFCA92D00E2071E /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Frame.m"; path = "Common/Categorys/UIView+Frame.m"; sourceTree = "<group>"; };
@@ -1325,6 +1328,8 @@
 			children = (
 				BC3D0B931B6F0190004C7B81 /* ConfigService.h */,
 				BC3D0B941B6F0190004C7B81 /* ConfigService.m */,
+				BC2E682F1BA0129200175E2D /* ConfigModel.h */,
+				BC2E68301BA0129200175E2D /* ConfigModel.m */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -2283,6 +2288,7 @@
 				BC7CBAE21B6639670047211D /* FeedZanCell.m in Sources */,
 				BC97DF271B4E4AA4002B1A00 /* PayTool.m in Sources */,
 				BC97DF1B1B4E1DF0002B1A00 /* PayResultViewController.m in Sources */,
+				BC2E68311BA0129200175E2D /* ConfigModel.m in Sources */,
 				5A794F981B4E703600BB3B7C /* OrderDetailMiddleCell.m in Sources */,
 				BC0EC2A61B5F91ED00D9A82F /* PlaymateUserHeadCell.m in Sources */,
 				5A9E80D81B4BB2450028AC47 /* PlayFellowModel.m in Sources */,

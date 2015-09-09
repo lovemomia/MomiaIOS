@@ -149,6 +149,9 @@
         // [EXT] 重新上线
         [[PushManager shareManager]openPush];
     }
+    
+    // config
+    [[ConfigService defaultService] refresh];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
