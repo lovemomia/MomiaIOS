@@ -33,10 +33,13 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 
 @property(nonatomic, strong) NSArray * dataArray;
 @property(nonatomic, strong) NSArray * HeaderArray;
+
 @property(nonatomic, weak) UIView * activeView;
+
 @property(nonatomic, strong) FillOrderModel * model;
 @property(nonatomic, strong) NSString * productId;
-//@property(nonatomic, strong) NSString * utoken;
+@property(nonatomic, strong) NSArray *showSkus;
+
 @property(nonatomic, assign) BOOL isShowAllTopCell;//是否显示所有场次
 @property(nonatomic, assign) NSInteger topIndex;
 @property(nonatomic, assign) BOOL needRealName;
@@ -50,6 +53,9 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 
 @property(nonatomic, strong) NSMutableDictionary * selectedDictionary;
 
+@property(nonatomic, strong) NSMutableArray *selectPlaceSkus;
+@property(nonatomic, assign) BOOL isShowPlaces;
+@property(nonatomic, strong) FillOrderPlaceModel *selectedPlace;
 @end
 
 @implementation FillOrderViewController
@@ -112,14 +118,6 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
     }
     return _stepperGroup;
 }
-
-//-(NSMutableArray *)currentValueArray
-//{
-//    if(!_currentValueArray) {
-//        _currentValueArray = [[NSMutableArray alloc] init];
-//    }
-//    return _currentValueArray;
-//}
 
 - (IBAction)onSureClick:(id)sender {
     
@@ -195,10 +193,14 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if(section == 0)
+    NSInteger sec = section;
+    if (self.isShowPlaces) {
+        sec--;
+    }
+    if(sec <= 0)
         return 40.0f;
-    if(section == 1) {
-        FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
+    if(sec == 1) {
+        FillOrderSkuModel * skuModel = self.showSkus[self.topIndex];
         if(skuModel.stock > 0) {
             return 40.0f;
         } else {
@@ -212,8 +214,19 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    NSInteger sec = section;
+    if (self.isShowPlaces) {
+        sec--;
+    }
     UITableViewHeaderFooterView * view;
-    switch (section) {
+    switch (sec) {
+        case -1:
+        {
+            CommonHeaderView * header = [CommonHeaderView cellWithTableView:self.tableView];
+            header.data = @"选择区域";
+            view = header;
+        }
+            break;
         case 0:
         {
             CommonHeaderView * header = [CommonHeaderView cellWithTableView:self.tableView];
@@ -223,7 +236,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
             break;
         case 1:
         {
-            FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
+            FillOrderSkuModel * skuModel = self.showSkus[self.topIndex];
             if(skuModel.stock > 0) {
                 CommonHeaderView * header = [CommonHeaderView cellWithTableView:self.tableView];
                 header.data = @"选择出行人数";
@@ -246,8 +259,12 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if(self.model)
+    if(self.model) {
+        if (self.isShowPlaces) {
+            return 4;
+        }
         return 3;
+    }
     else return 0;
 }
 
@@ -255,7 +272,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 {
     NSInteger topIndex = 0;
     if(self.model) {
-        for (int i = 0; i < self.model.data.skus.count; i++) {
+        for (int i = 0; i < self.showSkus.count; i++) {
             FillOrderSkuModel * model = self.model.data.skus[i];
             if(model.type == 1) {//无上限，不显示stock
                 topIndex = i;
@@ -279,8 +296,8 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
     BOOL isFull = NO;
     
     if(self.model) {
-        if(index < self.model.data.skus.count) {
-            FillOrderSkuModel * model = self.model.data.skus[index];
+        if(index < self.showSkus.count) {
+            FillOrderSkuModel * model = self.showSkus[index];
             if(model.type == 1) {//无上限，不显示stock
                
             } else {//有上限
@@ -300,15 +317,23 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSInteger sec = section;
+    if (self.isShowPlaces) {
+        sec--;
+    }
     NSInteger rows;
-    if(section == 0) {
-        if(self.model.data.skus.count > TopNumber && !self.isShowAllTopCell) {
+    if (sec == -1) {
+        return [self.model.data.places count];
+        
+    } else if (sec == 0) {
+        NSInteger count = self.showSkus.count;
+        if(count > TopNumber && !self.isShowAllTopCell) {
             rows = TopNumber + 1;
         } else {
-            rows = self.model.data.skus.count;
+            rows = count;
         }
-    } else if(section == 1) {
-        FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
+    } else if(sec == 1) {
+        FillOrderSkuModel * skuModel = self.showSkus[self.topIndex];
         if(skuModel.stock > 0)
             rows = skuModel.prices.count;
         else rows = 0;//库存为零
@@ -358,7 +383,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
         /**
          *2015-07-08修改，"needRealName":// 是否实名，如果为true，需要填写出行人信息
          */
-        FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
+        FillOrderSkuModel * skuModel = self.showSkus[self.topIndex];
         if(skuModel.needRealName)
             rows = 2;
         else rows = 1;
@@ -374,9 +399,36 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger section = indexPath.section;
+    if (self.isShowPlaces) {
+        section--;
+    }
     NSInteger row = indexPath.row;
     UITableViewCell * cell;
     switch (section) {
+        case -1:
+        {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+            FillOrderPlaceModel *place = [self.model.data.places objectAtIndex:row];
+            UILabel *titleLabel = [UILabel new];
+            [titleLabel setText:place.name];
+            titleLabel.font = [UIFont systemFontOfSize:14];
+            [titleLabel setTextColor:UIColorFromRGB(0x333333)];
+            
+            [cell addSubview:titleLabel];
+            
+            [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(cell.mas_left).with.offset(10);
+                make.centerY.equalTo(cell.mas_centerY);
+            }];
+            
+            cell.tintColor = MO_APP_ThemeColor;
+            if ([self.selectedPlace isEqual:place]) {
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            } else {
+                cell.accessoryType = UITableViewCellAccessoryNone;
+            }
+        }
+            break;
         case 0:
         {
             if(row == TopNumber && !self.isShowAllTopCell) {
@@ -385,7 +437,8 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
                 
             } else {
                 FillOrderTopCell * top = [FillOrderTopCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:fillOrderTopIdentifier];
-                [top setData:self.model.data.skus[row]];
+                FillOrderSkuModel *sku = self.showSkus[row];
+                [top setData:sku];
                 cell = top;
                 
                 if(self.topIndex == row) {
@@ -403,7 +456,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
         {
             FillOrderMiddleCell * middle = [self.middleCellArray objectAtIndex:row];
             middle.selectionStyle = UITableViewCellSelectionStyleNone;
-            FillOrderSkuModel * model = self.model.data.skus[self.topIndex];
+            FillOrderSkuModel * model = self.showSkus[self.topIndex];
             
             [middle setData:model.prices[row]];
             
@@ -419,7 +472,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
         {
             FillOrderBottomCell * bottom = [FillOrderBottomCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:fillOrderBottomIdentifier];
             
-            FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
+            FillOrderSkuModel * skuModel = self.showSkus[self.topIndex];
             
             NSString * personStr = @"";
             if(self.selectedPersonStyle.adult > 0) {
@@ -443,7 +496,24 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     
-    if(section == 0) {
+    if (self.isShowPlaces) {
+        section--;
+    }
+    
+    if (section == -1) {
+        FillOrderPlaceModel *place = self.model.data.places[row];
+        if ([place isEqual:self.selectedPlace]) {
+            return;
+        }
+        self.selectedPlace = place;
+        [self resetSelectPlaceSkus];
+        self.topIndex = [self indexForFirstTopIndex]; // reset selectSku
+        FillOrderSkuModel * skuModel = self.showSkus[self.topIndex];
+        self.needRealName = skuModel.needRealName;
+        self.middleDataChanged = YES;
+        [self.tableView reloadData];
+        
+    } else if(section == 0) {
         
         if(row == TopNumber && !self.isShowAllTopCell) {//表明点击的是选择其他场次，需要刷新table，但是middle不能改变
             self.isShowAllTopCell = YES;
@@ -454,9 +524,8 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
                 if([self isFullWithIndex:row]) {//单击的这一行名额已满
                     
                 } else {
-                    
                     self.topIndex = row;
-                    FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
+                    FillOrderSkuModel * skuModel = self.showSkus[self.topIndex];
                     self.needRealName = skuModel.needRealName;
                     self.middleDataChanged = YES;
                     [self.tableView reloadData];
@@ -508,7 +577,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 {
     PersonStyle personStyle = {0,0};
     
-    FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
+    FillOrderSkuModel * skuModel = self.showSkus[self.topIndex];
     for (int i = 0; i < skuModel.prices.count; i++) {
         FillOrderPriceModel * priceModel = skuModel.prices[i];
         MOStepperView * stepper = [self.stepperGroup objectAtIndex:i];
@@ -538,7 +607,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 -(CGFloat)totalPrice
 {
     CGFloat totalPrice = 0;
-    FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
+    FillOrderSkuModel * skuModel = self.showSkus[self.topIndex];
     for (int i = 0; i < skuModel.prices.count; i++) {
         FillOrderPriceModel * priceModel = skuModel.prices[i];
         MOStepperView * stepper = [self.stepperGroup objectAtIndex:i];
@@ -551,7 +620,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 -(NSArray *)prices//用来计算orderModel的prices属性
 {
     NSMutableArray * array = [[NSMutableArray alloc] init];
-    FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
+    FillOrderSkuModel * skuModel = self.showSkus[self.topIndex];
     for (int i = 0; i < skuModel.prices.count; i++) {
         FillOrderPriceModel * priceModel = skuModel.prices[i];
         MOStepperView * stepper = [self.stepperGroup objectAtIndex:i];
@@ -574,93 +643,8 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
 }
 
 
-/*
-
-#pragma mark - solve active textObject hidden by keyboard
-// Call this method somewhere in your view controller setup code.
-- (void)registerForKeyboardNotifications
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWasShown:)
-                                                 name:UIKeyboardDidShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillBeHidden:)
-                                                 name:UIKeyboardWillHideNotification object:nil];
-    
-}
-
--(void)removeForKeyboardNotifications
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-}
-
-// Called when the UIKeyboardDidShowNotification is sent.
-- (void)keyboardWasShown:(NSNotification*)aNotification
-{
-    
-    NSDictionary* info = [aNotification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
-    self.tableView.contentInset = contentInsets;
-    self.tableView.scrollIndicatorInsets = contentInsets;
-    
-    CGRect textRect = [self.view convertRect:self.activeView.bounds fromView:self.activeView];
-    CGRect aRect = self.view.frame;
-    aRect.size.height -= kbSize.height;
-    
-    UITableViewCell * cell;
-    UIView *view = self.activeView;
-    while (view != nil && ![view isKindOfClass:[UITableViewCell class]]) {
-        view = [view superview];
-    }
-    cell = (UITableViewCell *)view;
-    
-    NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
-    
-    if (!CGRectContainsPoint(aRect, textRect.origin) ) {
-        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-    }
-}
-
-// Called when the UIKeyboardWillHideNotification is sent
-- (void)keyboardWillBeHidden:(NSNotification*)aNotification
-{
-    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-    self.tableView.contentInset = contentInsets;
-    self.tableView.scrollIndicatorInsets = contentInsets;
-}
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    self.activeView = textField;
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-    self.activeView = nil;
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    return YES;
-}
-
-- (void)moTextViewDidBeginEditing:(UITextView *)textView
-{
-    self.activeView = textView;
-}
-- (void)moTextViewDidEndEditing:(UITextView *)textView
-{
-    self.activeView = nil;
-}
-*/
-
 
 - (void)requestData {
-    
     if (self.model == nil) {
         [self.view showLoadingBee];
     }
@@ -672,17 +656,26 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
         }
         
         self.model = responseObject;
+
+        FillOrderSkuModel * skuModel = self.showSkus[self.topIndex];
+        self.needRealName = skuModel.needRealName;
+        
+        if (self.model.data.places && [self.model.data.places count] > 0) {
+            self.isShowPlaces = YES;
+            self.selectedPlace = [self.model.data.places objectAtIndex:0];
+            self.selectPlaceSkus = [NSMutableArray new];
+            [self resetSelectPlaceSkus];
+            self.showSkus = self.selectPlaceSkus;
+            
+        } else {
+            self.showSkus = self.model.data.skus;
+        }
         
         self.topIndex = [self indexForFirstTopIndex];
-        
         //在请求到SKU信息后开始为AddOrderModel分配空间并初始化
         self.orderModel = [[AddOrderModel alloc] init];
         //设置orderModel的contacts和mobile属性
-       
         self.middleDataChanged = YES;
-
-        FillOrderSkuModel * skuModel = self.model.data.skus[self.topIndex];
-        self.needRealName = skuModel.needRealName;
         
         [self.tableView reloadData];
         
@@ -693,6 +686,18 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
     }];
 }
 
+- (void)resetSelectPlaceSkus {
+    if (!self.selectedPlace || !self.model) {
+        return;
+    }
+    
+    [self.selectPlaceSkus removeAllObjects];
+    for (FillOrderSkuModel *sku in self.model.data.skus) {
+        if (sku.placeId && [sku.placeId isEqualToNumber:self.selectedPlace.ids]) {
+            [self.selectPlaceSkus addObject:sku];
+        }
+    }
+}
 
 #pragma mark - view life cycle
 

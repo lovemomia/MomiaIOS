@@ -20,6 +20,16 @@
 
 @end
 
+@implementation FillOrderPlaceModel
+
++ (JSONKeyMapper *)keyMapper {
+    return [[JSONKeyMapper alloc] initWithDictionary:@{
+                                                       @"id":@"ids"
+                                                       }];
+}
+
+@end
+
 @implementation FillOrderDataModel
 
 @end

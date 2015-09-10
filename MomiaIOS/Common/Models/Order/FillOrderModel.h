@@ -34,12 +34,11 @@
 @property(nonatomic,assign) BOOL needRealName;// 是否实名，如果为true，需要填写出行人信息
 @property(nonatomic,strong) NSString<Optional> * desc;
 @property(nonatomic,assign) NSInteger type;
+@property(nonatomic,strong) NSNumber<Optional> *placeId;
 
 @end
 
 @protocol FillOrderSkuModel <NSObject>
-
-
 @end
 
 @interface FillOrderContactsModel : JSONModel
@@ -49,9 +48,20 @@
 
 @end
 
+@interface FillOrderPlaceModel : JSONModel
+@property (nonatomic, strong) NSNumber * ids;
+@property (nonatomic, strong) NSString * name;
+@property (nonatomic, strong) NSString * region;
+@property (nonatomic, strong) NSString * address;
+@end
+
+@protocol FillOrderPlaceModel <NSObject>
+@end
+
 @interface FillOrderDataModel : JSONModel
 
 @property(nonatomic,strong) FillOrderContactsModel * contacts;
+@property(nonatomic,strong) NSArray<FillOrderPlaceModel> *places;
 @property(nonatomic,strong) NSArray<FillOrderSkuModel> * skus;
 
 @end
