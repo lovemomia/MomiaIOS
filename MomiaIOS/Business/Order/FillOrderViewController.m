@@ -511,6 +511,7 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
         FillOrderSkuModel * skuModel = self.showSkus[self.topIndex];
         self.needRealName = skuModel.needRealName;
         self.middleDataChanged = YES;
+        self.isShowAllTopCell = NO;
         [self.tableView reloadData];
         
     } else if(section == 0) {
