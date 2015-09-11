@@ -318,15 +318,16 @@ typedef enum
             [self.contentCellDictionary setObject:content forKey:indexPath];
         }
         content.linkBlock = ^(UIView * linkView) {
-            UIColor * originColor = linkView.backgroundColor;
+            ProductBodyModel * bodyModel = model.body[(long)linkView.tag];
+            [self openURL:bodyModel.link];
 
-            NSLog(@"content:%ld body:%ld", (long)indexPath.section, (long)linkView.tag);
-
-            [UIView animateWithDuration:0.3 animations:^{
-                linkView.backgroundColor = UIColor.lightGrayColor;
-            } completion:^(BOOL finished) {
-                linkView.backgroundColor = originColor;
-            }];
+//            UIColor * originColor = linkView.backgroundColor;
+//            [UIView animateWithDuration:0.3 animations:^{
+//                linkView.backgroundColor = UIColor.lightGrayColor;
+//            } completion:^(BOOL finished) {
+//                linkView.backgroundColor = originColor;
+//            }];
+            
         };
         cell = content;
     }
