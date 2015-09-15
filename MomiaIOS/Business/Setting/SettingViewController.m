@@ -10,6 +10,7 @@
 #import "ThirdShareHelper.h"
 #import "SGActionView.h"
 #import "PushManager.h"
+#import "AppDelegate.h"
 
 
 @interface SettingViewController ()
@@ -46,7 +47,7 @@
     UISwitch *switchButton = (UISwitch*)sender;
     BOOL isOn = [switchButton isOn];
     if (isOn) {
-        [[PushManager shareManager]openPush];
+        [[PushManager shareManager]openPush:(AppDelegate *)[[UIApplication sharedApplication] delegate]];
         
     }else {
         [[PushManager shareManager]closePush];

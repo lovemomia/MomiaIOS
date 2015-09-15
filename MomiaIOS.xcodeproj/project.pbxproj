@@ -131,6 +131,9 @@
 		BC0EC2A71B5F91ED00D9A82F /* PlaymateUserHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC0EC2A51B5F91ED00D9A82F /* PlaymateUserHeadCell.xib */; };
 		BC0EC2AB1B5F947100D9A82F /* PlaymateUgcCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC2A91B5F947100D9A82F /* PlaymateUgcCell.m */; };
 		BC0EC2AC1B5F947100D9A82F /* PlaymateUgcCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC0EC2AA1B5F947100D9A82F /* PlaymateUgcCell.xib */; };
+		BC1CC9EC1BA7E228001841E7 /* libGeTuiSdk-1.2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1CC9EB1BA7E228001841E7 /* libGeTuiSdk-1.2.1.a */; };
+		BC1CC9EE1BA7E49F001841E7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1CC9ED1BA7E49F001841E7 /* CoreLocation.framework */; };
+		BC1CC9F01BA7E4AD001841E7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1CC9EF1BA7E4AD001841E7 /* AVFoundation.framework */; };
 		BC2C0C521B1303BA00E2446E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
 		BC2C0C571B1309A800E2446E /* MOButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C561B1309A800E2446E /* MOButton.m */; };
 		BC2C0C611B130C9300E2446E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C601B130C9300E2446E /* User.m */; };
@@ -152,7 +155,6 @@
 		BC38D23C1AFEE2B50051C7E9 /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38D2371AFEE2B50051C7E9 /* HomeModel.m */; };
 		BC38D2441AFEEA300051C7E9 /* HttpService.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38D2431AFEEA300051C7E9 /* HttpService.m */; };
 		BC38D2891B099D0B0051C7E9 /* SuggestSubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38D2881B099D0B0051C7E9 /* SuggestSubmitViewController.m */; };
-		BC38D28B1B09B8740051C7E9 /* libGexinSdk-1.1.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC38D28A1B09B8740051C7E9 /* libGexinSdk-1.1.1.a */; };
 		BC38D28D1B09B8960051C7E9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC38D28C1B09B8960051C7E9 /* libz.dylib */; };
 		BC38D28F1B09B8AA0051C7E9 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC38D28E1B09B8AA0051C7E9 /* libsqlite3.dylib */; };
 		BC38D2911B09B8B30051C7E9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC38D2901B09B8B30051C7E9 /* Security.framework */; };
@@ -274,7 +276,6 @@
 		BCE5893E1B2AB62500736923 /* ApiXml.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCE589391B2AB62500736923 /* ApiXml.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BCE5893F1B2AB62500736923 /* payRequsestHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCE5893B1B2AB62500736923 /* payRequsestHandler.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BCE589401B2AB62500736923 /* WXUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = BCE5893D1B2AB62500736923 /* WXUtil.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		BCE589471B2AEFF400736923 /* libGexinSdk-1.1.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE589461B2AEFF400736923 /* libGexinSdk-1.1.1.a */; };
 		BCF033951B4E892F005B71D6 /* PeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF033941B4E892F005B71D6 /* PeopleViewController.m */; };
 		BCF033991B4F72B0005B71D6 /* AlipayOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF033981B4F72B0005B71D6 /* AlipayOrder.m */; };
 		BCF0339C1B4F77BE005B71D6 /* AlipayOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF0339B1B4F77BE005B71D6 /* AlipayOrderModel.m */; };
@@ -519,6 +520,11 @@
 		BC0EC2A81B5F947100D9A82F /* PlaymateUgcCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaymateUgcCell.h; path = Business/Playmate/Views/PlaymateUgcCell.h; sourceTree = "<group>"; };
 		BC0EC2A91B5F947100D9A82F /* PlaymateUgcCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaymateUgcCell.m; path = Business/Playmate/Views/PlaymateUgcCell.m; sourceTree = "<group>"; };
 		BC0EC2AA1B5F947100D9A82F /* PlaymateUgcCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaymateUgcCell.xib; path = Business/Playmate/Views/PlaymateUgcCell.xib; sourceTree = "<group>"; };
+		BC1CC9E91BA7E228001841E7 /* GeTuiSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiSdk.h; sourceTree = "<group>"; };
+		BC1CC9EA1BA7E228001841E7 /* GeTuiSdkError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiSdkError.h; sourceTree = "<group>"; };
+		BC1CC9EB1BA7E228001841E7 /* libGeTuiSdk-1.2.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGeTuiSdk-1.2.1.a"; sourceTree = "<group>"; };
+		BC1CC9ED1BA7E49F001841E7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		BC1CC9EF1BA7E4AD001841E7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		BC2C0C4F1B1303BA00E2446E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Business/Login/LoginViewController.h; sourceTree = "<group>"; };
 		BC2C0C501B1303BA00E2446E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Business/Login/LoginViewController.m; sourceTree = "<group>"; };
 		BC2C0C551B1309A800E2446E /* MOButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOButton.h; path = Common/Views/MOButton.h; sourceTree = "<group>"; };
@@ -780,9 +786,6 @@
 		BCE5893B1B2AB62500736923 /* payRequsestHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = payRequsestHandler.mm; sourceTree = "<group>"; };
 		BCE5893C1B2AB62500736923 /* WXUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXUtil.h; sourceTree = "<group>"; };
 		BCE5893D1B2AB62500736923 /* WXUtil.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WXUtil.mm; sourceTree = "<group>"; };
-		BCE589441B2AEFF400736923 /* GexinSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GexinSdk.h; sourceTree = "<group>"; };
-		BCE589451B2AEFF400736923 /* GXSdkError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXSdkError.h; sourceTree = "<group>"; };
-		BCE589461B2AEFF400736923 /* libGexinSdk-1.1.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGexinSdk-1.1.1.a"; sourceTree = "<group>"; };
 		BCE589591B2AF37C00736923 /* WechatPayDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatPayDelegate.h; sourceTree = "<group>"; };
 		BCF033931B4E892F005B71D6 /* PeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleViewController.h; path = Business/Mine/PeopleViewController.h; sourceTree = "<group>"; };
 		BCF033941B4E892F005B71D6 /* PeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleViewController.m; path = Business/Mine/PeopleViewController.m; sourceTree = "<group>"; };
@@ -831,11 +834,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC1CC9F01BA7E4AD001841E7 /* AVFoundation.framework in Frameworks */,
+				BC1CC9EE1BA7E49F001841E7 /* CoreLocation.framework in Frameworks */,
 				BC38D2931B09B8DC0051C7E9 /* SystemConfiguration.framework in Frameworks */,
 				BCCDF6761B0B4F97008BAE12 /* CoreGraphics.framework in Frameworks */,
 				BC41ABA51B0C69BE00A419DA /* libWeChatSDK.a in Frameworks */,
 				BC97DF211B4E3E3D002B1A00 /* AlipaySDK.framework in Frameworks */,
-				BCE589471B2AEFF400736923 /* libGexinSdk-1.1.1.a in Frameworks */,
 				BCCDF6741B0B4F90008BAE12 /* Foundation.framework in Frameworks */,
 				BCCDF6721B0B4F82008BAE12 /* UIKit.framework in Frameworks */,
 				BCCDF6701B0B4F7A008BAE12 /* CoreText.framework in Frameworks */,
@@ -848,7 +852,7 @@
 				BC38D2951B09B8E50051C7E9 /* CFNetwork.framework in Frameworks */,
 				BCCDF66D1B0B4E4C008BAE12 /* libWeiboSDK.a in Frameworks */,
 				BC38D28D1B09B8960051C7E9 /* libz.dylib in Frameworks */,
-				BC38D28B1B09B8740051C7E9 /* libGexinSdk-1.1.1.a in Frameworks */,
+				BC1CC9EC1BA7E228001841E7 /* libGeTuiSdk-1.2.1.a in Frameworks */,
 				087C98AEC54638860E9ACAB0 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -866,6 +870,8 @@
 		26D758803C76A62629C50A39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BC1CC9EF1BA7E4AD001841E7 /* AVFoundation.framework */,
+				BC1CC9ED1BA7E49F001841E7 /* CoreLocation.framework */,
 				BCCDF6751B0B4F97008BAE12 /* CoreGraphics.framework */,
 				BCCDF6731B0B4F90008BAE12 /* Foundation.framework */,
 				BCCDF6711B0B4F82008BAE12 /* UIKit.framework */,
@@ -1201,6 +1207,16 @@
 				BC0EC29F1B5F880E00D9A82F /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m */,
 			);
 			path = LJViewPager;
+			sourceTree = "<group>";
+		};
+		BC1CC9E81BA7E21B001841E7 /* GeTui */ = {
+			isa = PBXGroup;
+			children = (
+				BC1CC9E91BA7E228001841E7 /* GeTuiSdk.h */,
+				BC1CC9EA1BA7E228001841E7 /* GeTuiSdkError.h */,
+				BC1CC9EB1BA7E228001841E7 /* libGeTuiSdk-1.2.1.a */,
+			);
+			path = GeTui;
 			sourceTree = "<group>";
 		};
 		BC2C0C4E1B13033000E2446E /* Login */ = {
@@ -1838,8 +1854,8 @@
 		BCCDF6601B0B4E3F008BAE12 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				BC1CC9E81BA7E21B001841E7 /* GeTui */,
 				BC97DF1D1B4E3E2E002B1A00 /* Alipay */,
-				BCE589431B2AEFF400736923 /* Gexin */,
 				BC41ABA01B0C69BE00A419DA /* WeChatSDK_1.5 */,
 				BCCDF6611B0B4E4C008BAE12 /* libWeiboSDK */,
 			);
@@ -1895,16 +1911,6 @@
 				BCE5893D1B2AB62500736923 /* WXUtil.mm */,
 			);
 			path = lib;
-			sourceTree = "<group>";
-		};
-		BCE589431B2AEFF400736923 /* Gexin */ = {
-			isa = PBXGroup;
-			children = (
-				BCE589441B2AEFF400736923 /* GexinSdk.h */,
-				BCE589451B2AEFF400736923 /* GXSdkError.h */,
-				BCE589461B2AEFF400736923 /* libGexinSdk-1.1.1.a */,
-			);
-			path = Gexin;
 			sourceTree = "<group>";
 		};
 		BCE589481B2AF35E00736923 /* Pay */ = {
@@ -2506,6 +2512,7 @@
 					"$(PROJECT_DIR)/ThirdParty/WeChatSDK_1.5",
 					"$(PROJECT_DIR)/MomiaIOS/SDKExport",
 					"$(PROJECT_DIR)/ThirdParty/Gexin",
+					"$(PROJECT_DIR)/ThirdParty/GeTui",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -2574,6 +2581,7 @@
 					"$(PROJECT_DIR)/ThirdParty/WeChatSDK_1.5",
 					"$(PROJECT_DIR)/MomiaIOS/SDKExport",
 					"$(PROJECT_DIR)/ThirdParty/Gexin",
+					"$(PROJECT_DIR)/ThirdParty/GeTui",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (

@@ -7,17 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GexinSdk.h"
-
-typedef enum {
-    SdkStatusStoped,
-    SdkStatusStarting,
-    SdkStatusStarted
-} SdkStatus;
+#import "GeTuiSdk.h"
 
 @interface PushManager : NSObject
-
-@property (strong, nonatomic) GexinSdk *gexinPusher;
 
 @property (retain, nonatomic) NSString *appKey;
 @property (retain, nonatomic) NSString *appSecret;
@@ -27,7 +19,7 @@ typedef enum {
 
 + (instancetype)shareManager;
 
-- (void)openPush;
+- (void)openPush:(id<GeTuiSdkDelegate>)delegate ;
 
 - (void)closePush;
 
