@@ -13,6 +13,7 @@
 //APP端签名相关头文件
 #import "payRequsestHandler.h"
 #import <AlipaySDK/AlipaySDK.h>
+#import "GeTuiSdk.h"
 
 @interface AppDelegate () {
 @private
@@ -47,7 +48,7 @@
     
     // 推送相关
     if (![[PushManager shareManager]isPushClose]) {
-        [[PushManager shareManager]openPush];
+        [[PushManager shareManager] openPush:self];
         
         // [2-EXT]: 获取启动时收到的APN
         NSDictionary* message = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
@@ -73,7 +74,6 @@
 
 
 #pragma mark - 'GeTui' push sdk manager
-
 - (void)handleRemoteNotification:(NSDictionary *)dict {
     if (dict) {
         NSString *action = [dict objectForKey:@"action"];
@@ -147,8 +147,11 @@
     
     if (![[PushManager shareManager]isPushClose]) {
         // [EXT] 重新上线
-        [[PushManager shareManager]openPush];
+        [[PushManager shareManager]openPush:self];
     }
+    
+    // config
+    [[ConfigService defaultService] refresh];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -163,22 +166,21 @@
         NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
         _deviceToken = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
         NSLog(@"deviceToken:%@", _deviceToken);
-        
-        
-        // [3]:向个推服务器注册deviceToken
-        if (_gexinPusher) {
-            [_gexinPusher registerDeviceToken:_deviceToken];
-        }
+        // [3]:向个推服务器注册 deviceToken
+        [GeTuiSdk registerDeviceToken:_deviceToken];
     }
+}
+
+- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    [GeTuiSdk resume]; // 恢复个推 SDK 运行
+    completionHandler(UIBackgroundFetchResultNewData);
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
 {
     if (![[PushManager shareManager]isPushClose]) {
-        // [3-EXT]:如果APNS注册失败，通知个推服务器
-        if (_gexinPusher) {
-            [_gexinPusher registerDeviceToken:@""];
-        }
+        // [3-EXT]:如果 APNS 注册失败,通知个推服务器
+        [GeTuiSdk registerDeviceToken:@""];
         
         NSLog(@"didFailToRegisterForRemoteNotificationsWithError:%@", [error localizedDescription]);
     }
@@ -214,7 +216,7 @@
 }
 
 #pragma mark - GexinSdkDelegate
-- (void)GexinSdkDidRegisterClient:(NSString *)clientId
+- (void)GeTuiSdkDidRegisterClient:(NSString *)clientId
 {
     // [4-EXT-1]: 个推SDK已注册
     _sdkStatus = SdkStatusStarted;
@@ -223,10 +225,10 @@
     //    [self stopSdk];
 }
 
-- (void)GexinSdkDidReceivePayload:(NSString *)payloadId fromApplication:(NSString *)appId
+-(void)GeTuiSdkDidReceivePayload:(NSString*)payloadId andTaskId:(NSString*)taskId andMessageId:(NSString *)aMsgId fromApplication:(NSString *)appId
 {
     // [4]: 收到个推消息
-    NSData *payload = [_gexinPusher retrivePayloadById:payloadId];
+    NSData *payload = [GeTuiSdk retrivePayloadById:payloadId];
     NSString *payloadMsg = nil;
     if (payload) {
         payloadMsg = [[NSString alloc] initWithBytes:payload.bytes
@@ -243,12 +245,12 @@
     NSLog(@"payloadMsg:%@", payloadMsg);
 }
 
-- (void)GexinSdkDidSendMessage:(NSString *)messageId result:(int)result {
+- (void)GeTuiSdkDidSendMessage:(NSString *)messageId result:(int)result {
     // [4-EXT]:发送上行消息结果反馈
     NSLog(@"Received sendmessage:%@ result:%d", messageId, result);
 }
 
-- (void)GexinSdkDidOccurError:(NSError *)error
+- (void)GeTuiSdkDidOccurError:(NSError *)error
 {
     // [EXT]:个推错误报告，集成步骤发生的任何错误都在这里通知，如果集成后，无法正常收到消息，查看这里的通知。
     NSLog(@"payloadMsg:%@", [NSString stringWithFormat:@">>>[GexinSdk error]:%@", [error localizedDescription]]);

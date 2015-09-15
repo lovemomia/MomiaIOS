@@ -8,6 +8,7 @@
 
 #import "PushManager.h"
 #import "AppDelegate.h"
+#import "GeTuiSdk.h"
 
 @interface PushManager () {
 @private
@@ -26,12 +27,12 @@
     return __manager;
 }
 
-- (void)openPush {
+- (void)openPush:(id<GeTuiSdkDelegate>)delegate {
     NSUserDefaults *myDefault =[NSUserDefaults standardUserDefaults];
     [myDefault setBool:NO forKey:@"isPushClose"];
     
     // [1]:使用APPID/APPKEY/APPSECRENT创建个推实例
-    [self startSdkWith:kAppId appKey:kAppKey appSecret:kAppSecret];
+    [self startSdkWith:kAppId appKey:kAppKey appSecret:kAppSecret delegate:delegate];
     
     // [2]:注册APNS
     [self registerRemoteNotification];
@@ -56,29 +57,19 @@
     }
 }
 
-- (void)startSdkWith:(NSString *)appID appKey:(NSString *)appKey appSecret:(NSString *)appSecret
+- (void)startSdkWith:(NSString *)appID appKey:(NSString *)appKey appSecret:(NSString *)appSecret delegate:(id<GeTuiSdkDelegate>)delegate
 {
-    if (!_gexinPusher) {
-        _sdkStatus = SdkStatusStoped;
-        
-        self.appID = appID;
-        self.appKey = appKey;
-        self.appSecret = appSecret;
-        
-        _clientId = nil;
-        
-        NSError *err = nil;
-        _gexinPusher = [GexinSdk createSdkWithAppId:_appID
-                                             appKey:_appKey
-                                          appSecret:_appSecret
-                                         appVersion:@"0.0.0"
-                                           delegate:(AppDelegate *)[UIApplication sharedApplication].delegate
-                                              error:&err];
-        if (!_gexinPusher) {
-            NSLog(@"start sdk err:%@", [err localizedDescription]);
-        } else {
-            _sdkStatus = SdkStatusStarting;
-        }
+    NSError *err = nil;
+    //[1-1]:通过 AppId、 appKey 、appSecret 启动 SDK
+    [GeTuiSdk startSdkWithAppId:appID appKey:appKey appSecret:appSecret delegate:delegate
+                          error:&err];
+    //[1-2]:设置是否后台运行开关
+    [GeTuiSdk runBackgroundEnable:YES];
+    //[1-3]:设置地理围栏功能,开启 LBS 定位服务和是否允许 SDK 弹出用户定位请求,请求
+    //NSLocationAlwaysUsageDescription 权限,如果 UserVerify 设置为 NO,需第三方负责提示用户定位授权。
+    [GeTuiSdk lbsLocationEnable:YES andUserVerify:YES];
+    if (err) {
+        NSLog(@"start sdk err:%@", [err localizedDescription]);
     }
 }
 
@@ -102,14 +93,8 @@
 
 - (void)stopSdk
 {
-    if (_gexinPusher) {
-        [_gexinPusher destroy];
-        _gexinPusher = nil;
-        
-        _sdkStatus = SdkStatusStoped;
-        
-        _clientId = nil;
-    }
+    // [EXT] APP 进入后台时,通知个推 SDK 进入后台
+    [GeTuiSdk enterBackground];
 }
 
 @end

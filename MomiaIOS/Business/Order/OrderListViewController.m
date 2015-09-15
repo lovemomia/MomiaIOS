@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSMutableArray *orderList;
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, assign) NSInteger totalCount;
+@property (nonatomic, strong) NSNumber *nextIndex;
 @property (nonatomic, strong) AFHTTPRequestOperation * curOperation;
 
 @end
@@ -39,6 +40,7 @@
         self.navigationItem.title = @"全部订单";
     }
     self.orderList = [NSMutableArray new];
+    self.nextIndex = 0;
     [self requestData];
 }
 
@@ -82,6 +84,7 @@
                                  //                                 [MBProgressHUD hideHUDForView:self.view animated:YES];
                                  OrderListModel *orderListModel = (OrderListModel *)responseObject;
                                  self.totalCount = orderListModel.data.totalCount;
+                                 self.nextIndex = orderListModel.data.nextIndex;
                                  if (self.totalCount == 0) {
                                      if (self.status == 2) {
                                          [self.view showEmptyView:@"您还没有待付款订单哦，\n快去逛一下吧~"];
@@ -123,7 +126,7 @@
     NSString *type = self.status == 2 ? @"le" : @"ge";
     NSDictionary * paramDic = @{@"status":[NSString stringWithFormat:@"%d", (int)self.status],
                                 @"type":type, @"start":[NSString stringWithFormat:@"%d",
-                                                        (int)self.orderList.count], @"count":@"20"};
+                                                        [self.nextIndex intValue]], @"count":@"20"};
     self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/user/order")
                           parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[OrderListModel class]
                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -133,6 +136,7 @@
                                  
                                  OrderListModel *orderListModel = (OrderListModel *)responseObject;
                                  self.totalCount = orderListModel.data.totalCount;
+                                 self.nextIndex = orderListModel.data.nextIndex;
                                  if (self.totalCount == 0) {
                                      if (self.status == 2) {
                                          [self.view showEmptyView:@"您还没有待付款订单哦，快去逛一下吧~"];
@@ -196,7 +200,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.orderList.count < self.totalCount) {
+    if (self.nextIndex && self.nextIndex > 0) {
         return self.orderList.count + 1;
     }
     return self.orderList.count;

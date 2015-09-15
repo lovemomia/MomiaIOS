@@ -57,14 +57,19 @@ static NSString * myFavCellIdentifier = @"MyFavCell";
                                                          [self.view removeLoadingBee];
                                                      }
                                                      
-                                                     FavouriteModel *orderListModel = (FavouriteModel *)responseObject;
-                                                     self.nextIndex = [orderListModel.data.nextIndex integerValue];
-                                                     if (orderListModel.data.totalCount == 0) {
+                                                     FavouriteModel *favModel = (FavouriteModel *)responseObject;
+                                                     if (favModel.data.nextIndex) {
+                                                         self.nextIndex = [favModel.data.nextIndex integerValue];
+                                                     } else {
+                                                         self.nextIndex = -1;
+                                                     }
+                                                     
+                                                     if (favModel.data.totalCount == 0) {
                                                          [self.view showEmptyView:@"您还没有收藏活动哦，赶快去浏览一下吧~"];
                                                          return;
                                                      }
                                                      
-                                                     for (ProductModel *order in orderListModel.data.list) {
+                                                     for (ProductModel *order in favModel.data.list) {
                                                          [self.list addObject:order];
                                                      }
                                                      [self.tableView reloadData];

@@ -100,7 +100,7 @@
                 }];
                 label.numberOfLines = 1;
                 label.text = bodyModel.text;
-                label.textColor = UIColorFromRGB(0x999999);
+                label.textColor = UIColorFromRGB(0x333333);
                 label.font = [UIFont systemFontOfSize:contentFontSize];
                 
                 UITapGestureRecognizer * singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onLinkClick:)];

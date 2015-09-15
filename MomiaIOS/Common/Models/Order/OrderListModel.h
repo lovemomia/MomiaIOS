@@ -14,6 +14,7 @@
 
 @interface OrderListData : JSONModel
 @property (nonatomic, assign) NSInteger totalCount;
+@property (nonatomic, strong) NSNumber<Optional> *nextIndex;
 @property (nonatomic, strong) NSArray<Order> *list;
 @end
 
