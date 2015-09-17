@@ -8,7 +8,7 @@
 
 #import "MOTableCell.h"
 
-@interface PlaymateUgcCell : MOTableCell<MOTableCellDataProtocol>
+@interface FeedUgcCell : MOTableCell<MOTableCellDataProtocol>
 
 @property (weak, nonatomic) IBOutlet UIButton *commentBtn;
 @property (weak, nonatomic) IBOutlet UIButton *zanBtn;

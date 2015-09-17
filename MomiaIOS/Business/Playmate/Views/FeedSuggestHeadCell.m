@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "PlaymateSuggestHeadCell.h"
+#import "FeedSuggestHeadCell.h"
 
-@implementation PlaymateSuggestHeadCell
+@implementation FeedSuggestHeadCell
 
 - (void)awakeFromNib {
     // Initialization code

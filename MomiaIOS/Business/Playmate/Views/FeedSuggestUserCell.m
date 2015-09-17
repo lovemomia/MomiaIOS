@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "PlaymateSuggestUserCell.h"
+#import "FeedSuggestUserCell.h"
 
-@implementation PlaymateSuggestUserCell
+@implementation FeedSuggestUserCell
 
 - (void)awakeFromNib {
     // Initialization code

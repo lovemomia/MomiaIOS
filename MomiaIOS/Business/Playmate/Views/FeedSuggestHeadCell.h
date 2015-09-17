@@ -9,7 +9,7 @@
 #import "MOTableCell.h"
 #import "AvatarImageView.h"
 
-@interface PlaymateSuggestHeadCell : MOTableCell<MOTableCellDataProtocol>
+@interface FeedSuggestHeadCell : MOTableCell<MOTableCellDataProtocol>
 
 @property (weak, nonatomic) IBOutlet AvatarImageView *avatarIv;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

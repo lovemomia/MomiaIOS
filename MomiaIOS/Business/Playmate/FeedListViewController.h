@@ -8,7 +8,7 @@
 
 #import "MOTableViewController.h"
 
-@interface PlaymateViewController : MOTableViewController
+@interface FeedListViewController : MOTableViewController
 
 
 @end

@@ -8,7 +8,7 @@
 
 #import "MOTableCell.h"
 
-@interface PlaymateUserHeadCell : MOTableCell<MOTableCellDataProtocol>
+@interface FeedUserHeadCell : MOTableCell<MOTableCellDataProtocol>
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarIv;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;

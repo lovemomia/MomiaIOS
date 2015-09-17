@@ -11,12 +11,19 @@
 @implementation StringUtils
 
 + (NSString *)stringForPrice:(CGFloat)price {
+
     NSString *priceStr = [NSString stringWithFormat:@"%f", price];
     NSRange change = [priceStr rangeOfString:@".00"];
     if(change.length > 0) {
         return [NSString stringWithFormat:@"%d", (int)price];
     }
-    return [NSString stringWithFormat:@"%.2f", price];
+    
+    NSString *cutStr = [NSString stringWithFormat:@"%.2f", price];
+    NSRange end = [cutStr rangeOfString:@".[0-9][1-9]" options:NSRegularExpressionSearch];
+    if (end.length > 0) {
+        return cutStr;
+    }
+    return [NSString stringWithFormat:@"%.1f", price];
 }
 
 + (NSString *)stringForWeekday:(NSInteger)weekday

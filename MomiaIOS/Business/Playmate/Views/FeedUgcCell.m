@@ -6,9 +6,10 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "PlaymateUgcCell.h"
+#import "FeedUgcCell.h"
+#import "Feed.h"
 
-@implementation PlaymateUgcCell
+@implementation FeedUgcCell
 
 - (void)awakeFromNib {
     // Initialization code
@@ -26,7 +27,9 @@
 - (IBAction)onZanBtnClick:(id)sender {
 }
 
--(void)setData:(id)data {
+-(void)setData:(Feed *)data {
+    [self.commentBtn setTitle:[NSString stringWithFormat:@"%@", data.commentCount] forState:UIControlStateNormal];
+    [self.zanBtn setTitle:[NSString stringWithFormat:@"%@", data.starCount] forState:UIControlStateNormal];
 }
 
 @end

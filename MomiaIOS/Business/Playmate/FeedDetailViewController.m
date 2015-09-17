@@ -9,8 +9,8 @@
 #import "FeedDetailViewController.h"
 #import "FeedTitleCell.h"
 #import "MyFavCell.h"
-#import "PlaymateUserHeadCell.h"
-#import "PlaymateContentCell.h"
+#import "FeedUserHeadCell.h"
+#import "FeedContentCell.h"
 #import "FeedZanCell.h"
 #import "FeedMoreCell.h"
 #import "FeedCommentCell.h"
@@ -34,7 +34,7 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
     
     self.navigationItem.title = @"详情";
     
-    [PlaymateUserHeadCell registerCellWithTableView:self.tableView withIdentifier:identifierPlaymateUserHeadCell];
+    [FeedUserHeadCell registerCellWithTableView:self.tableView withIdentifier:identifierPlaymateUserHeadCell];
     [FeedZanCell registerCellWithTableView:self.tableView withIdentifier:identifierFeedZanCell];
     [FeedTitleCell registerCellWithTableView:self.tableView withIdentifier:identifierFeedTitleCell];
     [MyFavCell registerCellWithTableView:self.tableView withIdentifier:identifierMyFavCell];
@@ -78,9 +78,9 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            return [PlaymateUserHeadCell heightWithTableView:tableView withIdentifier:identifierPlaymateUserHeadCell forIndexPath:indexPath data:nil];
+            return [FeedUserHeadCell heightWithTableView:tableView withIdentifier:identifierPlaymateUserHeadCell forIndexPath:indexPath data:nil];
         } else if (indexPath.row == 1) {
-            return [PlaymateContentCell heightWithTableView:tableView contentModel:nil];
+            return [FeedContentCell heightWithTableView:tableView contentModel:nil];
         } else {
             return [FeedZanCell heightWithTableView:tableView withIdentifier:identifierFeedZanCell forIndexPath:indexPath data:nil];
         }
@@ -119,12 +119,12 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
     UITableViewCell *cell;
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            PlaymateUserHeadCell * userHead = [PlaymateUserHeadCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierPlaymateUserHeadCell];
+            FeedUserHeadCell * userHead = [FeedUserHeadCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierPlaymateUserHeadCell];
             [userHead setData:@""];
             cell = userHead;
             
         } else if (indexPath.row == 1) {
-            cell = [[PlaymateContentCell alloc]initWithTableView:tableView contentModel:nil];
+            cell = [[FeedContentCell alloc]initWithTableView:tableView contentModel:nil];
             
         } else {
             cell = [FeedZanCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierFeedZanCell];
