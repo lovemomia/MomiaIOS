@@ -7,15 +7,19 @@
 //
 
 #import "MOTableCell.h"
+#import "FeedDetailModel.h"
+
+typedef void (^BlockOnZanClicked)();
 
 @interface FeedZanCell : MOTableCell<MOTableCellDataProtocol>
 
 @property (weak, nonatomic) IBOutlet UILabel *zanLabel;
 @property (weak, nonatomic) IBOutlet UIView *avatarsView;
 
+@property (nonatomic, strong) BlockOnZanClicked blockOnZanClicked;
 
 - (IBAction)onZanClicked:(id)sender;
 
--(void)setData:(id)data;
+- (void)setData:(id)data;
 
 @end

@@ -115,7 +115,10 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self openURL:@"duola://feeddetail"];
+    if (indexPath.section < self.list.count) {
+        Feed *feed = [self.list objectAtIndex:indexPath.section];
+        [self openURL:[NSString stringWithFormat:@"duola://feeddetail?id=%@&pid=%@", feed.ids, feed.topicProductId]];
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

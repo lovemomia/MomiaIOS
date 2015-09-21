@@ -14,6 +14,7 @@
 #import "FeedZanCell.h"
 #import "FeedMoreCell.h"
 #import "FeedCommentCell.h"
+#import "FeedDetailModel.h"
 
 static NSString *identifierPlaymateUserHeadCell = @"PlaymateUserHeadCell";
 static NSString *identifierFeedZanCell = @"FeedZanCell";
@@ -24,9 +25,21 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
 
 @interface FeedDetailViewController ()
 
+@property (nonatomic, strong) NSString *ids;
+@property (nonatomic, strong) NSString *pid;
+@property (nonatomic, strong) FeedDetailModel *model;
+
 @end
 
 @implementation FeedDetailViewController
+
+- (instancetype)initWithParams:(NSDictionary *)params {
+    if (self = [super initWithParams:params]) {
+        self.ids = [params objectForKey:@"id"];
+        self.pid = [params objectForKey:@"pid"];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,6 +53,30 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
     [MyFavCell registerCellWithTableView:self.tableView withIdentifier:identifierMyFavCell];
     [FeedMoreCell registerCellWithTableView:self.tableView withIdentifier:identifierFeedMoreCell];
     [FeedCommentCell registerCellWithTableView:self.tableView withIdentifier:identifierFeedCommentCell];
+    
+    [self requestData];
+}
+
+- (void)requestData {
+    if (self.model == nil) {
+        [self.view showLoadingBee];
+    }
+
+    NSDictionary * dic = @{@"id":self.ids,@"pid":self.pid};
+    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/feed/detail") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[FeedDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (self.model == nil) {
+            [self.view removeLoadingBee];
+        }
+        
+        self.model = responseObject;
+        
+        [self.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.view removeLoadingBee];
+        [self showDialogWithTitle:nil message:error.message];
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,6 +100,9 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if (self.model == nil) {
+        return 0;
+    }
     return 3;
 }
 
@@ -72,15 +112,19 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
     } else if (section == 1) {
         return 2;
     }
-    return 5;
+    FeedCommentList *comments = self.model.data.comments;
+    if (comments.list.count >= 3) {
+        return 5;
+    }
+    return comments.list.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            return [FeedUserHeadCell heightWithTableView:tableView withIdentifier:identifierPlaymateUserHeadCell forIndexPath:indexPath data:nil];
+            return [FeedUserHeadCell heightWithTableView:tableView withIdentifier:identifierPlaymateUserHeadCell forIndexPath:indexPath data:self.model.data.feed];
         } else if (indexPath.row == 1) {
-            return [FeedContentCell heightWithTableView:tableView contentModel:nil];
+            return [FeedContentCell heightWithTableView:tableView contentModel:self.model.data.feed];
         } else {
             return [FeedZanCell heightWithTableView:tableView withIdentifier:identifierFeedZanCell forIndexPath:indexPath data:nil];
         }
@@ -99,7 +143,8 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
         } else if (indexPath.row == 4) {
             return [FeedMoreCell heightWithTableView:tableView withIdentifier:identifierFeedMoreCell forIndexPath:indexPath data:@"查看更多评论"];
         } else {
-            return [FeedCommentCell heightWithTableView:tableView withIdentifier:identifierFeedCommentCell forIndexPath:indexPath data:nil];
+            FeedComment *comment = [self.model.data.comments.list objectAtIndex:(indexPath.row - 1)];
+            return [FeedCommentCell heightWithTableView:tableView withIdentifier:identifierFeedCommentCell forIndexPath:indexPath data:comment];
         }
     }
 }
@@ -120,14 +165,35 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             FeedUserHeadCell * userHead = [FeedUserHeadCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierPlaymateUserHeadCell];
-            [userHead setData:@""];
+            [userHead setData:self.model.data.feed];
             cell = userHead;
             
         } else if (indexPath.row == 1) {
-            cell = [[FeedContentCell alloc]initWithTableView:tableView contentModel:nil];
+            cell = [[FeedContentCell alloc]initWithTableView:tableView contentModel:self.model.data.feed];
             
         } else {
-            cell = [FeedZanCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierFeedZanCell];
+            __weak FeedZanCell *zanCell = [FeedZanCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierFeedZanCell];
+            [zanCell setData:self.model.data.staredUsers];
+            zanCell.blockOnZanClicked = ^(){
+                if (![[AccountService defaultService] isLogin]) {
+                    [[AccountService defaultService] login:self];
+                }
+                NSDictionary * dic = @{@"id":self.model.data.feed.ids};
+                [[HttpService defaultService] POST:URL_APPEND_PATH(@"/feed/star") parameters:dic JSONModelClass:[BaseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    NSMutableArray *array = [[NSMutableArray alloc]initWithArray:self.model.data.staredUsers.list];
+                    FeedStar *me = [[FeedStar alloc]init];
+                    me.nickName = [[AccountService defaultService] account].nickName;
+                    me.avatar = [[AccountService defaultService] account].avatar;
+                    [array addObject:me];
+                    self.model.data.staredUsers.list = (NSArray<FeedStar> *)array;
+                    self.model.data.staredUsers.totalCount = [NSNumber numberWithInt:self.model.data.staredUsers.totalCount.intValue + 1];
+                    [zanCell setData:self.model.data.staredUsers];
+                    
+                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    
+                }];
+            };
+            cell = zanCell;
         }
         
     } else if (indexPath.section == 1) {
@@ -137,7 +203,9 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
             cell = titleCell;
             
         } else {
-            cell = [MyFavCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierMyFavCell];
+            MyFavCell *productCell = [MyFavCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierMyFavCell];
+            [productCell setData:self.model.data.product];
+            cell = productCell;
         }
         
     } else {
@@ -150,8 +218,9 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
             cell = [FeedMoreCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierFeedMoreCell];
             
         } else {
+            FeedComment *comment = [self.model.data.comments.list objectAtIndex:(indexPath.row - 1)];
             FeedCommentCell *commentCell = [FeedCommentCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierFeedCommentCell];
-            commentCell.data = nil;
+            commentCell.data = comment;
             cell = commentCell;
         }
     }

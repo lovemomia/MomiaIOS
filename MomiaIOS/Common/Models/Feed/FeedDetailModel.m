@@ -8,6 +8,25 @@
 
 #import "FeedDetailModel.h"
 
-@implementation FeedDetailModel
+@implementation FeedComment
+@end
 
+@implementation FeedCommentList
+@end
+
+@implementation FeedStar
++ (JSONKeyMapper *)keyMapper {
+    return [[JSONKeyMapper alloc] initWithDictionary:@{
+                                                       @"id":@"ids"
+                                                       }];
+}
+@end
+
+@implementation FeedStarList
+@end
+
+@implementation FeedDetailData
+@end
+
+@implementation FeedDetailModel
 @end

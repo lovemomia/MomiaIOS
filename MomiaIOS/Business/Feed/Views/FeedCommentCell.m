@@ -7,6 +7,8 @@
 //
 
 #import "FeedCommentCell.h"
+#import "FeedDetailModel.h"
+
 
 @implementation FeedCommentCell
 
@@ -20,8 +22,11 @@
     // Configure the view for the selected state
 }
 
--(void)setData:(id)data {
-    [self.avatarIv sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"IconAvatarDefault"]];
+-(void)setData:(FeedComment *)data {
+    [self.avatarIv sd_setImageWithURL:[NSURL URLWithString:data.avatar] placeholderImage:[UIImage imageNamed:@"IconAvatarDefault"]];
+    [self.nameLabel setText:data.nickName];
+    [self.commentLabel setText:data.content];
+    [self.dateLabel setText:data.addTime];
 }
 
 @end
