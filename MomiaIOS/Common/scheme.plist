@@ -335,5 +335,14 @@
 		<key>desc</key>
 		<string>feed添加评论</string>
 	</dict>
+	<key>commentlist</key>
+	<dict>
+		<key>controller</key>
+		<string>CommentListViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>feed评论列表</string>
+	</dict>
 </dict>
 </plist>

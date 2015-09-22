@@ -12,8 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *onZanClicked;
-
 - (IBAction)onZanClicked:(id)sender;
 - (IBAction)onCommentClicked:(id)sender;
 

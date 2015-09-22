@@ -16,6 +16,8 @@
 #import "FeedCommentCell.h"
 #import "FeedDetailModel.h"
 #import "MJRefresh.h"
+#import "AddCommentViewController.h"
+#import "MONavigationController.h"
 
 static NSString *identifierPlaymateUserHeadCell = @"PlaymateUserHeadCell";
 static NSString *identifierFeedZanCell = @"FeedZanCell";
@@ -29,6 +31,10 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
 @property (nonatomic, strong) NSString *ids;
 @property (nonatomic, strong) NSString *pid;
 @property (nonatomic, strong) FeedDetailModel *model;
+@property (nonatomic, strong) AFHTTPRequestOperation * curOperation;
+
+@property (weak, nonatomic) IBOutlet UIButton *zanBtn;
+@property (weak, nonatomic) IBOutlet UIButton *commentBtn;
 
 @end
 
@@ -74,16 +80,29 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
     header.lastUpdatedTimeLabel.hidden = YES;
     self.tableView.header = header;
     
+    [self.commentBtn setImageEdgeInsets:UIEdgeInsetsMake(0.0, -10, 0.0, 0.0)];
+    [self.zanBtn setImageEdgeInsets:UIEdgeInsetsMake(0.0, -10, 0.0, 0.0)];
+    [self.commentBtn setTitleEdgeInsets:UIEdgeInsetsMake(0.0, 10, 0.0, 0.0)];
+    [self.zanBtn setTitleEdgeInsets:UIEdgeInsetsMake(0.0, 10, 0.0, 0.0)];
+    
     [self requestData];
 }
 
 - (void)requestData {
+    [self requestData:YES];
+}
+
+- (void)requestData:(BOOL)refresh {
+    if(self.curOperation) {
+        [self.curOperation pause];
+    }
+    
     if (self.model == nil) {
         [self.view showLoadingBee];
     }
 
     NSDictionary * dic = @{@"id":self.ids,@"pid":self.pid};
-    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/feed/detail") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[FeedDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    self.curOperation = [[HttpService defaultService] GET:URL_APPEND_PATH(@"/feed/detail") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[FeedDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.model == nil) {
             [self.view removeLoadingBee];
         }
@@ -126,6 +145,16 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
         return 0;
     }
     return 3;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1 && indexPath.row == 1) {
+        //活动详情
+        [self openURL:[NSString stringWithFormat:@"duola://productdetail?id=%ld", (long)self.model.data.product.pID]];
+    } else if (indexPath.section == 2 && indexPath.row == 4) {
+        //查看更多评论
+        [self openURL:[NSString stringWithFormat:@"duola://commentlist?id=%@", self.ids]];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -172,6 +201,9 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
         } else if (indexPath.row == 4) {
             return [FeedMoreCell heightWithTableView:tableView withIdentifier:identifierFeedMoreCell forIndexPath:indexPath data:@"查看更多评论"];
         } else {
+            if (self.model.data.comments.list.count == 0) {
+                return 110;
+            }
             FeedComment *comment = [self.model.data.comments.list objectAtIndex:(indexPath.row - 1)];
             return [FeedCommentCell heightWithTableView:tableView withIdentifier:identifierFeedCommentCell forIndexPath:indexPath data:comment];
         }
@@ -247,10 +279,17 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
             cell = [FeedMoreCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierFeedMoreCell];
             
         } else {
-            FeedComment *comment = [self.model.data.comments.list objectAtIndex:(indexPath.row - 1)];
-            FeedCommentCell *commentCell = [FeedCommentCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierFeedCommentCell];
-            commentCell.data = comment;
-            cell = commentCell;
+            if (self.model.data.comments.list.count == 0) {
+                FeedMoreCell *infoCell = [FeedMoreCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierFeedMoreCell];
+                [infoCell setData:@"还没有人评论，快来抢沙发哟~"];
+                cell = infoCell;
+                
+            } else {
+                FeedComment *comment = [self.model.data.comments.list objectAtIndex:(indexPath.row - 1)];
+                FeedCommentCell *commentCell = [FeedCommentCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierFeedCommentCell];
+                commentCell.data = comment;
+                cell = commentCell;
+            }
         }
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -258,7 +297,19 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
 }
 
 - (IBAction)onCommentClicked:(id)sender {
-    [self openURL:@"duola://addcomment"];
+    NSDictionary * dic = @{@"id":self.ids};
+    AddCommentViewController *controller = [[AddCommentViewController alloc]initWithParams:dic];
+    
+    controller.successBlock = ^(){
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [self requestData];
+    };
+    controller.cancelBlock = ^(){
+        [self dismissViewControllerAnimated:YES completion:nil];
+    };
+    
+    MONavigationController *navController = [[MONavigationController alloc]initWithRootViewController:controller];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 - (IBAction)onZanClicked:(id)sender {

@@ -126,9 +126,12 @@
 		BC0EC2A01B5F880E00D9A82F /* LJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC29B1B5F880E00D9A82F /* LJTabBar.m */; };
 		BC0EC2A11B5F880E00D9A82F /* LJViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC29D1B5F880E00D9A82F /* LJViewPager.m */; };
 		BC0EC2A21B5F880E00D9A82F /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC29F1B5F880E00D9A82F /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m */; };
+		BC1052891BB1530200D81C15 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052881BB1530200D81C15 /* Toast.m */; settings = {ASSET_TAGS = (); }; };
+		BC10528C1BB15BAE00D81C15 /* CommentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC10528B1BB15BAE00D81C15 /* CommentListViewController.m */; settings = {ASSET_TAGS = (); }; };
+		BC10528F1BB15DA400D81C15 /* FeedComment.m in Sources */ = {isa = PBXBuildFile; fileRef = BC10528E1BB15DA400D81C15 /* FeedComment.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052921BB15E4C00D81C15 /* FeedCommentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052911BB15E4C00D81C15 /* FeedCommentListModel.m */; settings = {ASSET_TAGS = (); }; };
 		BC1601DE1BB00459005F11FD /* FeedDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1601DD1BB00459005F11FD /* FeedDetailViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		BC1601E21BB0EC55005F11FD /* AddCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1601E01BB0EC55005F11FD /* AddCommentViewController.m */; settings = {ASSET_TAGS = (); }; };
-		BC1601E31BB0EC55005F11FD /* AddCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1601E11BB0EC55005F11FD /* AddCommentViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		BC1CC9EC1BA7E228001841E7 /* libGeTuiSdk-1.2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1CC9EB1BA7E228001841E7 /* libGeTuiSdk-1.2.1.a */; };
 		BC1CC9EE1BA7E49F001841E7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1CC9ED1BA7E49F001841E7 /* CoreLocation.framework */; };
 		BC1CC9F01BA7E4AD001841E7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1CC9EF1BA7E4AD001841E7 /* AVFoundation.framework */; };
@@ -315,8 +318,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		081C0A2B3B84523909EC659D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		36BF39E53B6AA82DBC50D3EB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		569FE54592CF71500372F186 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5A0642F91B3B95D400361732 /* FillOrderChooseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FillOrderChooseCell.xib; path = Business/Order/views/FillOrderChooseCell.xib; sourceTree = "<group>"; };
 		5A0643611B3BC3F800361732 /* FillOrderMiddleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FillOrderMiddleCell.h; path = Business/Order/views/FillOrderMiddleCell.h; sourceTree = "<group>"; };
 		5A0643621B3BC3F800361732 /* FillOrderMiddleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FillOrderMiddleCell.m; path = Business/Order/views/FillOrderMiddleCell.m; sourceTree = "<group>"; };
@@ -517,11 +519,17 @@
 		BC0EC29D1B5F880E00D9A82F /* LJViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJViewPager.m; sourceTree = "<group>"; };
 		BC0EC29E1B5F880E00D9A82F /* UIScrollView+AllowScreenEdgePanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+AllowScreenEdgePanGestureRecognizer.h"; sourceTree = "<group>"; };
 		BC0EC29F1B5F880E00D9A82F /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+AllowScreenEdgePanGestureRecognizer.m"; sourceTree = "<group>"; };
+		BC1052871BB1530200D81C15 /* Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Toast.h; path = Common/Views/Toast.h; sourceTree = "<group>"; };
+		BC1052881BB1530200D81C15 /* Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Toast.m; path = Common/Views/Toast.m; sourceTree = "<group>"; };
+		BC10528A1BB15BAE00D81C15 /* CommentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentListViewController.h; sourceTree = "<group>"; };
+		BC10528B1BB15BAE00D81C15 /* CommentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentListViewController.m; sourceTree = "<group>"; };
+		BC10528D1BB15DA400D81C15 /* FeedComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedComment.h; path = Common/Models/Feed/FeedComment.h; sourceTree = "<group>"; };
+		BC10528E1BB15DA400D81C15 /* FeedComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedComment.m; path = Common/Models/Feed/FeedComment.m; sourceTree = "<group>"; };
+		BC1052901BB15E4C00D81C15 /* FeedCommentListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedCommentListModel.h; path = Common/Models/Feed/FeedCommentListModel.h; sourceTree = "<group>"; };
+		BC1052911BB15E4C00D81C15 /* FeedCommentListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedCommentListModel.m; path = Common/Models/Feed/FeedCommentListModel.m; sourceTree = "<group>"; };
 		BC1601DD1BB00459005F11FD /* FeedDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedDetailViewController.xib; sourceTree = "<group>"; };
 		BC1601DF1BB0EC55005F11FD /* AddCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCommentViewController.h; sourceTree = "<group>"; };
 		BC1601E01BB0EC55005F11FD /* AddCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCommentViewController.m; sourceTree = "<group>"; };
-		BC1601E11BB0EC55005F11FD /* AddCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCommentViewController.xib; sourceTree = "<group>"; };
-		BC1601E91BB1258E005F11FD /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "Pods/../build/Debug-iphoneos/libAFNetworking.a"; sourceTree = "<group>"; };
 		BC1CC9E91BA7E228001841E7 /* GeTuiSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiSdk.h; sourceTree = "<group>"; };
 		BC1CC9EA1BA7E228001841E7 /* GeTuiSdkError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiSdkError.h; sourceTree = "<group>"; };
 		BC1CC9EB1BA7E228001841E7 /* libGeTuiSdk-1.2.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGeTuiSdk-1.2.1.a"; sourceTree = "<group>"; };
@@ -841,6 +849,7 @@
 		BCFC2C321AF9C09400164BC2 /* MOWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOWebViewController.m; path = Common/Base/MOWebViewController.m; sourceTree = "<group>"; };
 		BCFC2C351AF9C6B800164BC2 /* ActivityWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityWebViewController.h; path = Business/Web/ActivityWebViewController.h; sourceTree = "<group>"; };
 		BCFC2C361AF9C6B800164BC2 /* ActivityWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityWebViewController.m; path = Business/Web/ActivityWebViewController.m; sourceTree = "<group>"; };
+		CD4DAFFDE6B36FEA8B30C4C2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -884,7 +893,6 @@
 		26D758803C76A62629C50A39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BC1601E91BB1258E005F11FD /* libAFNetworking.a */,
 				BC1CC9EF1BA7E4AD001841E7 /* AVFoundation.framework */,
 				BC1CC9ED1BA7E49F001841E7 /* CoreLocation.framework */,
 				BCCDF6751B0B4F97008BAE12 /* CoreGraphics.framework */,
@@ -1187,8 +1195,8 @@
 		A6F45CE3FFFD30E793606A24 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				081C0A2B3B84523909EC659D /* Pods.debug.xcconfig */,
-				36BF39E53B6AA82DBC50D3EB /* Pods.release.xcconfig */,
+				CD4DAFFDE6B36FEA8B30C4C2 /* Pods.debug.xcconfig */,
+				569FE54592CF71500372F186 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1234,6 +1242,10 @@
 				BC1CC9F91BA910AF001841E7 /* FeedListModel.m */,
 				BC753EA91BAAD15900D2663C /* FeedDetailModel.h */,
 				BC753EAA1BAAD15900D2663C /* FeedDetailModel.m */,
+				BC10528D1BB15DA400D81C15 /* FeedComment.h */,
+				BC10528E1BB15DA400D81C15 /* FeedComment.m */,
+				BC1052901BB15E4C00D81C15 /* FeedCommentListModel.h */,
+				BC1052911BB15E4C00D81C15 /* FeedCommentListModel.m */,
 			);
 			name = Feed;
 			sourceTree = "<group>";
@@ -1282,6 +1294,8 @@
 				BC90897E1B5797D800A8D85B /* MOTabHost.m */,
 				BC7CBADC1B662E590047211D /* MOTagLabel.h */,
 				BC7CBADD1B662E590047211D /* MOTagLabel.m */,
+				BC1052871BB1530200D81C15 /* Toast.h */,
+				BC1052881BB1530200D81C15 /* Toast.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1441,7 +1455,8 @@
 				BC753EB01BAC07D300D2663C /* FeedListViewController.m */,
 				BC1601DF1BB0EC55005F11FD /* AddCommentViewController.h */,
 				BC1601E01BB0EC55005F11FD /* AddCommentViewController.m */,
-				BC1601E11BB0EC55005F11FD /* AddCommentViewController.xib */,
+				BC10528A1BB15BAE00D81C15 /* CommentListViewController.h */,
+				BC10528B1BB15BAE00D81C15 /* CommentListViewController.m */,
 			);
 			name = Feed;
 			path = Business/Feed;
@@ -2001,11 +2016,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC8540AE1ADF74E9005A7C54 /* Build configuration list for PBXNativeTarget "MomiaIOS" */;
 			buildPhases = (
-				B26D383844E3596D80052DD3 /* Check Pods Manifest.lock */,
 				BC8540871ADF74E9005A7C54 /* Sources */,
 				BC8540881ADF74E9005A7C54 /* Frameworks */,
 				BC8540891ADF74E9005A7C54 /* Resources */,
-				91CD6E65FCEFADE01BCD64A5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2099,7 +2112,6 @@
 				5A33F19B1B2EA0A4002A8258 /* CashPayBottomCell.xib in Resources */,
 				5A4044331B27D18C0010782C /* OrderPersonViewController.xib in Resources */,
 				BC7CBB181B69CF050047211D /* ApplyLeaderIntroContentCell.xib in Resources */,
-				BC1601E31BB0EC55005F11FD /* AddCommentViewController.xib in Resources */,
 				BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */,
 				BCF564E51B4A54D0003A2227 /* PersonChildHeaderCell.xib in Resources */,
 				BC753EDE1BAC07D300D2663C /* FeedZanCell.xib in Resources */,
@@ -2163,39 +2175,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		91CD6E65FCEFADE01BCD64A5 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B26D383844E3596D80052DD3 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		BC8540871ADF74E9005A7C54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -2246,6 +2225,7 @@
 				5A83074D1B327FB40057412A /* CommonHeaderView.m in Sources */,
 				5A0643781B3BE9FE00361732 /* OrderUpdatePersonFillCell.m in Sources */,
 				5A5A2A691B43E531000595A9 /* OrderContactViewController.m in Sources */,
+				BC10528C1BB15BAE00D81C15 /* CommentListViewController.m in Sources */,
 				5A1B35E81B12BBAC00E1D31B /* CommentModel.m in Sources */,
 				BC0EC2981B5E1F5300D9A82F /* CacheService.m in Sources */,
 				BC5063971B5385FD00AA233C /* MONetworkPhotoView.m in Sources */,
@@ -2390,8 +2370,11 @@
 				BC0BD7061B5518F000B95B3A /* CouponPriceModel.m in Sources */,
 				BCD755D71B62155F0098752B /* MJPhotoToolbar.m in Sources */,
 				BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */,
+				BC1052891BB1530200D81C15 /* Toast.m in Sources */,
+				BC1052921BB15E4C00D81C15 /* FeedCommentListModel.m in Sources */,
 				BC7CBB081B68E6360047211D /* SubmitLeaderViewController.m in Sources */,
 				BCE5893E1B2AB62500736923 /* ApiXml.mm in Sources */,
+				BC10528F1BB15DA400D81C15 /* FeedComment.m in Sources */,
 				5AE4F8301B3D2FE5005879B7 /* FillOrderChooseCell.m in Sources */,
 				5A82F1A31B257449000D2C60 /* FillOrderViewController.m in Sources */,
 				5A18DC581B297431001458A4 /* HomeCarouselCell.m in Sources */,
@@ -2517,13 +2500,13 @@
 		};
 		BC8540AF1ADF74E9005A7C54 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 081C0A2B3B84523909EC659D /* Pods.debug.xcconfig */;
+			baseConfigurationReference = CD4DAFFDE6B36FEA8B30C4C2 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/ThirdParty";
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2590,13 +2573,13 @@
 		};
 		BC8540B01ADF74E9005A7C54 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36BF39E53B6AA82DBC50D3EB /* Pods.release.xcconfig */;
+			baseConfigurationReference = 569FE54592CF71500372F186 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/ThirdParty";
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (

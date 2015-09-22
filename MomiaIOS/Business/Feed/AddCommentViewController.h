@@ -8,10 +8,12 @@
 
 #import "MOViewController.h"
 
+typedef void (^BlockSuccess)();
+typedef void (^BlockCancel)();
+
 @interface AddCommentViewController : MOViewController<MOTextViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIView *contentLay;
-@property (weak, nonatomic) IBOutlet UITextView *inputTv;
-@property (weak, nonatomic) IBOutlet UILabel *numLabel;
+@property (nonatomic, strong) BlockSuccess successBlock;
+@property (nonatomic, strong) BlockCancel cancelBlock;
 
 @end

@@ -9,13 +9,7 @@
 #import "BaseModel.h"
 #import "ProductModel.h"
 #import "Feed.h"
-
-@interface FeedComment : JSONModel
-@property (nonatomic, strong) NSString *addTime;
-@property (nonatomic, strong) NSString *avatar;
-@property (nonatomic, strong) NSString *content;
-@property (nonatomic, strong) NSString *nickName;
-@end
+#import "FeedComment.h"
 
 @protocol FeedComment <NSObject>
 @end

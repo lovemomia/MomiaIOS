@@ -13,6 +13,10 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    [self.commentBtn setImageEdgeInsets:UIEdgeInsetsMake(0.0, -10, 0.0, 0.0)];
+    [self.zanBtn setImageEdgeInsets:UIEdgeInsetsMake(0.0, -10, 0.0, 0.0)];
+    [self.commentBtn setTitleEdgeInsets:UIEdgeInsetsMake(0.0, 10, 0.0, 0.0)];
+    [self.zanBtn setTitleEdgeInsets:UIEdgeInsetsMake(0.0, 10, 0.0, 0.0)];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

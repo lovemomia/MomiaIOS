@@ -7,9 +7,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedDetailViewController">
             <connections>
+                <outlet property="commentBtn" destination="Pf6-1s-13w" id="0tX-13-UCv"/>
                 <outlet property="tableView" destination="1EG-BA-4kR" id="hDB-Ug-fOE"/>
                 <outlet property="view" destination="iN0-l3-epB" id="8a2-hf-Ytj"/>
-                <outletCollection property="onZanClicked" destination="WWK-bH-vcx" id="QPx-7J-qpb"/>
+                <outlet property="zanBtn" destination="cFy-Kf-FCx" id="bz5-tE-i6E"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -35,26 +36,22 @@
                                 <constraint firstAttribute="width" constant="0.5" id="uTt-uG-RZx"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评论" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfE-YQ-3LK">
-                            <rect key="frame" x="161.5" y="0.0" width="158.5" height="45"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFy-Kf-FCx">
+                            <rect key="frame" x="0.0" y="0.0" width="158" height="45"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="赞" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWK-bH-vcx">
-                            <rect key="frame" x="0.0" y="0.0" width="158.5" height="45"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFy-Kf-FCx">
-                            <rect key="frame" x="0.0" y="0.0" width="160" height="45"/>
+                            <state key="normal" title="赞" image="IconZan">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
                             <connections>
                                 <action selector="onZanClicked:" destination="-1" eventType="touchUpInside" id="wD4-zH-CSE"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pf6-1s-13w">
-                            <rect key="frame" x="159" y="0.0" width="161" height="45"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pf6-1s-13w">
+                            <rect key="frame" x="162" y="0.0" width="158" height="45"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <state key="normal" title="评论" image="IconComment">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
                             <connections>
                                 <action selector="onCommentClicked:" destination="-1" eventType="touchUpInside" id="aba-Ft-ZD4"/>
                             </connections>
@@ -63,26 +60,17 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="cFy-Kf-FCx" secondAttribute="bottom" id="2Ko-f1-yh3"/>
+                        <constraint firstItem="Pf6-1s-13w" firstAttribute="leading" secondItem="54y-rK-Cpj" secondAttribute="trailing" constant="2" id="6sb-7O-JA0"/>
                         <constraint firstAttribute="bottom" secondItem="Pf6-1s-13w" secondAttribute="bottom" id="6tl-KC-pwe"/>
                         <constraint firstAttribute="trailing" secondItem="Pf6-1s-13w" secondAttribute="trailing" id="B58-Aw-GVG"/>
                         <constraint firstAttribute="bottom" secondItem="54y-rK-Cpj" secondAttribute="bottom" constant="8" id="CUY-ES-HE6"/>
-                        <constraint firstItem="pfE-YQ-3LK" firstAttribute="width" secondItem="WWK-bH-vcx" secondAttribute="width" id="FDL-Tr-aUr"/>
-                        <constraint firstItem="pfE-YQ-3LK" firstAttribute="top" secondItem="ns0-Vp-ERv" secondAttribute="top" id="J8q-Mm-XCL"/>
-                        <constraint firstItem="WWK-bH-vcx" firstAttribute="leading" secondItem="ns0-Vp-ERv" secondAttribute="leading" id="M92-RR-IEk"/>
-                        <constraint firstItem="WWK-bH-vcx" firstAttribute="top" secondItem="ns0-Vp-ERv" secondAttribute="top" id="OwR-dj-005"/>
-                        <constraint firstAttribute="bottom" secondItem="WWK-bH-vcx" secondAttribute="bottom" id="QDg-1Z-fJb"/>
-                        <constraint firstAttribute="bottom" secondItem="pfE-YQ-3LK" secondAttribute="bottom" id="WWN-jC-234"/>
-                        <constraint firstItem="pfE-YQ-3LK" firstAttribute="leading" secondItem="cFy-Kf-FCx" secondAttribute="trailing" constant="1.5" id="XMZ-2X-x0Y"/>
+                        <constraint firstItem="Pf6-1s-13w" firstAttribute="width" secondItem="cFy-Kf-FCx" secondAttribute="width" id="KQr-2X-qcd"/>
                         <constraint firstItem="54y-rK-Cpj" firstAttribute="top" secondItem="ns0-Vp-ERv" secondAttribute="top" constant="8" id="cFM-Ma-XTU"/>
                         <constraint firstAttribute="height" constant="45" id="cXH-vD-atM"/>
                         <constraint firstItem="Pf6-1s-13w" firstAttribute="top" secondItem="ns0-Vp-ERv" secondAttribute="top" id="eWc-uX-W9F"/>
                         <constraint firstItem="cFy-Kf-FCx" firstAttribute="leading" secondItem="ns0-Vp-ERv" secondAttribute="leading" id="hfh-e6-X6k"/>
                         <constraint firstItem="cFy-Kf-FCx" firstAttribute="top" secondItem="ns0-Vp-ERv" secondAttribute="top" id="kIV-7Y-EPD"/>
-                        <constraint firstItem="54y-rK-Cpj" firstAttribute="leading" secondItem="WWK-bH-vcx" secondAttribute="trailing" constant="0.5" id="mfU-RF-Rkh"/>
-                        <constraint firstItem="pfE-YQ-3LK" firstAttribute="leading" secondItem="54y-rK-Cpj" secondAttribute="trailing" constant="1.5" id="oiY-GN-xai"/>
-                        <constraint firstItem="Pf6-1s-13w" firstAttribute="leading" secondItem="WWK-bH-vcx" secondAttribute="trailing" constant="0.5" id="v6V-Dd-aWa"/>
-                        <constraint firstAttribute="trailing" secondItem="pfE-YQ-3LK" secondAttribute="trailing" id="xQZ-QC-bFw"/>
-                        <constraint firstItem="pfE-YQ-3LK" firstAttribute="leading" secondItem="WWK-bH-vcx" secondAttribute="trailing" constant="3" id="y5x-io-z4b"/>
+                        <constraint firstItem="54y-rK-Cpj" firstAttribute="leading" secondItem="cFy-Kf-FCx" secondAttribute="trailing" constant="1" id="yTH-dl-e99"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7E-SG-Sqe">
@@ -109,4 +97,8 @@
             <point key="canvasLocation" x="387" y="380"/>
         </view>
     </objects>
+    <resources>
+        <image name="IconComment" width="17" height="17"/>
+        <image name="IconZan" width="17" height="17"/>
+    </resources>
 </document>

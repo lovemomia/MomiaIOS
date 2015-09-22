@@ -1,29 +1,19 @@
 //
-//  FeedDetailModel.m
+//  FeedComment.m
 //  MomiaIOS
 //
-//  Created by Deng Jun on 15/9/17.
+//  Created by Deng Jun on 15/9/22.
 //  Copyright © 2015年 Deng Jun. All rights reserved.
 //
 
-#import "FeedDetailModel.h"
+#import "FeedComment.h"
 
-@implementation FeedCommentList
-@end
+@implementation FeedComment
 
-@implementation FeedStar
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithDictionary:@{
                                                        @"id":@"ids"
                                                        }];
 }
-@end
 
-@implementation FeedStarList
-@end
-
-@implementation FeedDetailData
-@end
-
-@implementation FeedDetailModel
 @end

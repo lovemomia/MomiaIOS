@@ -14,6 +14,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.avatarIv.layer.masksToBounds = YES;
+    self.avatarIv.layer.cornerRadius = 19;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
