@@ -52,20 +52,25 @@ static const char *moTextView = "moTextView";
 # pragma mark - UITextViewDelegate
 - (void)textViewDidBeginEditing:(UITextView *)textView {
     self.placeHolderTextView.hidden = YES;
-    //    if (self.textViewDelegate) {
-    //
-    //    }
-    [self.moDelegate moTextViewDidBeginEditing:textView];
+    if ([self.moDelegate respondsToSelector:@selector(moTextViewDidBeginEditing:)]) {
+        [self.moDelegate moTextViewDidBeginEditing:textView];
+    }
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView {
     if (textView.text && [textView.text isEqualToString:@""]) {
         self.placeHolderTextView.hidden = NO;
     }
-    [self.moDelegate moTextViewDidEndEditing:textView];
+    if ([self.moDelegate respondsToSelector:@selector(moTextViewDidEndEditing:)]) {
+        [self.moDelegate moTextViewDidEndEditing:textView];
+    }
 }
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if ([self.moDelegate respondsToSelector:@selector(moTextView:shouldChangeTextInRange:replacementText:)]) {
+        [self.moDelegate moTextView:textView shouldChangeTextInRange:range replacementText:text];
+    }
+    
     if (self.returnKeyType == UIReturnKeyDone && [text isEqualToString:@"\n"]){
         [textView resignFirstResponder];//关闭键盘
         return NO;
@@ -74,9 +79,10 @@ static const char *moTextView = "moTextView";
     return YES;
 }
 
--(void)textViewDidChange:(UITextView *)textView
-{
-    [self.moDelegate moTextViewDidChange:textView];
+- (void)textViewDidChange:(UITextView *)textView {
+    if ([self.moDelegate respondsToSelector:@selector(moTextViewDidChange:)]) {
+        [self.moDelegate moTextViewDidChange:textView];
+    }
 }
 
 @end

@@ -126,6 +126,9 @@
 		BC0EC2A01B5F880E00D9A82F /* LJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC29B1B5F880E00D9A82F /* LJTabBar.m */; };
 		BC0EC2A11B5F880E00D9A82F /* LJViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC29D1B5F880E00D9A82F /* LJViewPager.m */; };
 		BC0EC2A21B5F880E00D9A82F /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC29F1B5F880E00D9A82F /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m */; };
+		BC1601DE1BB00459005F11FD /* FeedDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1601DD1BB00459005F11FD /* FeedDetailViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		BC1601E21BB0EC55005F11FD /* AddCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1601E01BB0EC55005F11FD /* AddCommentViewController.m */; settings = {ASSET_TAGS = (); }; };
+		BC1601E31BB0EC55005F11FD /* AddCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1601E11BB0EC55005F11FD /* AddCommentViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		BC1CC9EC1BA7E228001841E7 /* libGeTuiSdk-1.2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1CC9EB1BA7E228001841E7 /* libGeTuiSdk-1.2.1.a */; };
 		BC1CC9EE1BA7E49F001841E7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1CC9ED1BA7E49F001841E7 /* CoreLocation.framework */; };
 		BC1CC9F01BA7E4AD001841E7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1CC9EF1BA7E4AD001841E7 /* AVFoundation.framework */; };
@@ -514,6 +517,11 @@
 		BC0EC29D1B5F880E00D9A82F /* LJViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJViewPager.m; sourceTree = "<group>"; };
 		BC0EC29E1B5F880E00D9A82F /* UIScrollView+AllowScreenEdgePanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+AllowScreenEdgePanGestureRecognizer.h"; sourceTree = "<group>"; };
 		BC0EC29F1B5F880E00D9A82F /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+AllowScreenEdgePanGestureRecognizer.m"; sourceTree = "<group>"; };
+		BC1601DD1BB00459005F11FD /* FeedDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedDetailViewController.xib; sourceTree = "<group>"; };
+		BC1601DF1BB0EC55005F11FD /* AddCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCommentViewController.h; sourceTree = "<group>"; };
+		BC1601E01BB0EC55005F11FD /* AddCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCommentViewController.m; sourceTree = "<group>"; };
+		BC1601E11BB0EC55005F11FD /* AddCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCommentViewController.xib; sourceTree = "<group>"; };
+		BC1601E91BB1258E005F11FD /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "Pods/../build/Debug-iphoneos/libAFNetworking.a"; sourceTree = "<group>"; };
 		BC1CC9E91BA7E228001841E7 /* GeTuiSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiSdk.h; sourceTree = "<group>"; };
 		BC1CC9EA1BA7E228001841E7 /* GeTuiSdkError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiSdkError.h; sourceTree = "<group>"; };
 		BC1CC9EB1BA7E228001841E7 /* libGeTuiSdk-1.2.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGeTuiSdk-1.2.1.a"; sourceTree = "<group>"; };
@@ -876,6 +884,7 @@
 		26D758803C76A62629C50A39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BC1601E91BB1258E005F11FD /* libAFNetworking.a */,
 				BC1CC9EF1BA7E4AD001841E7 /* AVFoundation.framework */,
 				BC1CC9ED1BA7E49F001841E7 /* CoreLocation.framework */,
 				BCCDF6751B0B4F97008BAE12 /* CoreGraphics.framework */,
@@ -1427,8 +1436,12 @@
 				BC753EB11BAC07D300D2663C /* Views */,
 				BC753EAD1BAC07D300D2663C /* FeedDetailViewController.h */,
 				BC753EAE1BAC07D300D2663C /* FeedDetailViewController.m */,
+				BC1601DD1BB00459005F11FD /* FeedDetailViewController.xib */,
 				BC753EAF1BAC07D300D2663C /* FeedListViewController.h */,
 				BC753EB01BAC07D300D2663C /* FeedListViewController.m */,
+				BC1601DF1BB0EC55005F11FD /* AddCommentViewController.h */,
+				BC1601E01BB0EC55005F11FD /* AddCommentViewController.m */,
+				BC1601E11BB0EC55005F11FD /* AddCommentViewController.xib */,
 			);
 			name = Feed;
 			path = Business/Feed;
@@ -2027,7 +2040,7 @@
 		BC8540831ADF74E9005A7C54 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Deng Jun";
 				TargetAttributes = {
 					BC85408A1ADF74E9005A7C54 = {
@@ -2086,6 +2099,7 @@
 				5A33F19B1B2EA0A4002A8258 /* CashPayBottomCell.xib in Resources */,
 				5A4044331B27D18C0010782C /* OrderPersonViewController.xib in Resources */,
 				BC7CBB181B69CF050047211D /* ApplyLeaderIntroContentCell.xib in Resources */,
+				BC1601E31BB0EC55005F11FD /* AddCommentViewController.xib in Resources */,
 				BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */,
 				BCF564E51B4A54D0003A2227 /* PersonChildHeaderCell.xib in Resources */,
 				BC753EDE1BAC07D300D2663C /* FeedZanCell.xib in Resources */,
@@ -2120,6 +2134,7 @@
 				5AB1BDEB1B4FB7ED004A4511 /* LoadingErrorCell.xib in Resources */,
 				5A33F1A81B2EBC2F002A8258 /* TitleView.xib in Resources */,
 				5A3C6C781B57A926006583FB /* ProductCalendarTitleCell.xib in Resources */,
+				BC1601DE1BB00459005F11FD /* FeedDetailViewController.xib in Resources */,
 				BC753ED61BAC07D300D2663C /* FeedSuggestUserCell.xib in Resources */,
 				BC97DF1C1B4E1DF0002B1A00 /* PayResultViewController.xib in Resources */,
 				5A3C6C731B579F1C006583FB /* ProductCalendarCell.xib in Resources */,
@@ -2262,6 +2277,7 @@
 				BC97DF061B4BE21F002B1A00 /* WechatPayModel.m in Sources */,
 				BC5063941B53746800AA233C /* SGSheetMenu.m in Sources */,
 				BC97DEFF1B4BCFF1002B1A00 /* PayChannel.m in Sources */,
+				BC1601E21BB0EC55005F11FD /* AddCommentViewController.m in Sources */,
 				5A1B35F61B12C0D200E1D31B /* CommentCell.m in Sources */,
 				BC8540911ADF74E9005A7C54 /* main.m in Sources */,
 				BC97DF111B4D463C002B1A00 /* PayCheckModel.m in Sources */,
@@ -2436,6 +2452,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2506,6 +2523,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/ThirdParty";
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2526,6 +2544,8 @@
 					"$(PROJECT_DIR)/MomiaIOS/SDKExport",
 					"$(PROJECT_DIR)/ThirdParty/Gexin",
 					"$(PROJECT_DIR)/ThirdParty/GeTui",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Pods/",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -2561,6 +2581,7 @@
 					"-framework",
 					"\"UIKit\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.youxing.DuoLa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s arm64";
@@ -2575,6 +2596,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/ThirdParty";
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2595,6 +2617,8 @@
 					"$(PROJECT_DIR)/MomiaIOS/SDKExport",
 					"$(PROJECT_DIR)/ThirdParty/Gexin",
 					"$(PROJECT_DIR)/ThirdParty/GeTui",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Pods/",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
@@ -2630,6 +2654,7 @@
 					"-framework",
 					"\"UIKit\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.youxing.DuoLa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s arm64";
@@ -2652,6 +2677,7 @@
 				);
 				INFOPLIST_FILE = MomiaIOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.youxing.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MomiaIOS.app/MomiaIOS";
@@ -2670,6 +2696,7 @@
 				);
 				INFOPLIST_FILE = MomiaIOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.youxing.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MomiaIOS.app/MomiaIOS";

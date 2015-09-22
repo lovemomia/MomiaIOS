@@ -37,7 +37,8 @@
     for (int i = 0; i < data.list.count; i++) {
         if(i < maxNum) {
             FeedStar *item = data.list[i];
-            UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake(5 + (height + 5) * i, 0, height, height)];
+            int leftPadding = (i == 0) ? 0 : 5;
+            UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake(leftPadding + (height + 5) * i, 0, height, height)];
             imgView.layer.masksToBounds = YES;
             imgView.layer.cornerRadius = height/2;
             [imgView sd_setImageWithURL:[NSURL URLWithString:item.avatar] placeholderImage:[UIImage imageNamed:@"IconAvatarDefault"]];

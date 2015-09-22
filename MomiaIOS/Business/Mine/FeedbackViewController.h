@@ -7,7 +7,6 @@
 //
 
 #import "MOTableViewController.h"
-#import "UITextView+Placeholder.h"
 
 
 @interface FeedbackViewController : MOTableViewController<MOTextViewDelegate,UITextFieldDelegate>

@@ -8,6 +8,7 @@
 
 #import "Constants.h"
 
+#import "UITextView+Placeholder.h"
 #import "UIView+Frame.h"
 #import "UILabel+ContentSize.h"
 #import "UIButton+Block.h"

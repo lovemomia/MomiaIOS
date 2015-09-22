@@ -15,6 +15,7 @@
 #import "FeedMoreCell.h"
 #import "FeedCommentCell.h"
 #import "FeedDetailModel.h"
+#import "MJRefresh.h"
 
 static NSString *identifierPlaymateUserHeadCell = @"PlaymateUserHeadCell";
 static NSString *identifierFeedZanCell = @"FeedZanCell";
@@ -41,6 +42,17 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
     return self;
 }
 
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:[self separatorInsetForRowAtIndexPath:indexPath]];
+    }
+    
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:[self separatorInsetForRowAtIndexPath:indexPath]];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -53,6 +65,14 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
     [MyFavCell registerCellWithTableView:self.tableView withIdentifier:identifierMyFavCell];
     [FeedMoreCell registerCellWithTableView:self.tableView withIdentifier:identifierFeedMoreCell];
     [FeedCommentCell registerCellWithTableView:self.tableView withIdentifier:identifierFeedCommentCell];
+    
+    self.tableView.backgroundView = [[UIView alloc] init];
+    self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
+    
+    // 设置下拉刷新
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
+    header.lastUpdatedTimeLabel.hidden = YES;
+    self.tableView.header = header;
     
     [self requestData];
 }
@@ -71,11 +91,13 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
         self.model = responseObject;
         
         [self.tableView reloadData];
+        [self.tableView.header endRefreshing];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self.view removeLoadingBee];
         [self showDialogWithTitle:nil message:error.message];
         NSLog(@"Error: %@", error);
+        [self.tableView.header endRefreshing];
     }];
 }
 
@@ -108,7 +130,11 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 3;
+        FeedStarList *starUsers = self.model.data.staredUsers;
+        if (starUsers && starUsers.list && starUsers.list.count > 0) {
+            return 3;
+        }
+        return 2;
     } else if (section == 1) {
         return 2;
     }
@@ -116,7 +142,10 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
     if (comments.list.count >= 3) {
         return 5;
     }
-    return comments.list.count;
+    if (comments.list.count == 0) {
+        return 2; //还没有人评论，快来抢沙发哟~
+    }
+    return comments.list.count + 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -184,7 +213,7 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
                     FeedStar *me = [[FeedStar alloc]init];
                     me.nickName = [[AccountService defaultService] account].nickName;
                     me.avatar = [[AccountService defaultService] account].avatar;
-                    [array addObject:me];
+                    [array insertObject:me atIndex:0];
                     self.model.data.staredUsers.list = (NSArray<FeedStar> *)array;
                     self.model.data.staredUsers.totalCount = [NSNumber numberWithInt:self.model.data.staredUsers.totalCount.intValue + 1];
                     [zanCell setData:self.model.data.staredUsers];
@@ -226,6 +255,30 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+
+- (IBAction)onCommentClicked:(id)sender {
+    [self openURL:@"duola://addcomment"];
+}
+
+- (IBAction)onZanClicked:(id)sender {
+    if (![[AccountService defaultService] isLogin]) {
+        [[AccountService defaultService] login:self];
+    }
+    NSDictionary * dic = @{@"id":self.model.data.feed.ids};
+    [[HttpService defaultService] POST:URL_APPEND_PATH(@"/feed/star") parameters:dic JSONModelClass:[BaseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSMutableArray *array = [[NSMutableArray alloc]initWithArray:self.model.data.staredUsers.list];
+        FeedStar *me = [[FeedStar alloc]init];
+        me.nickName = [[AccountService defaultService] account].nickName;
+        me.avatar = [[AccountService defaultService] account].avatar;
+        [array insertObject:me atIndex:0];
+        self.model.data.staredUsers.list = (NSArray<FeedStar> *)array;
+        self.model.data.staredUsers.totalCount = [NSNumber numberWithInt:self.model.data.staredUsers.totalCount.intValue + 1];
+        [self.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
 }
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "SugSubmitProductContentCell.h"
-#import "UITextView+Placeholder.h"
 
 @interface SugSubmitProductContentCell()
 

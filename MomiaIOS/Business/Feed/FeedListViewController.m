@@ -45,9 +45,18 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
     [FeedSuggestHeadCell registerCellWithTableView:self.tableView withIdentifier:identifierPlaymateSuggestHeadCell];
     [FeedSuggestUserCell registerCellWithTableView:self.tableView withIdentifier:identifierPlaymateSuggestUserCell];
     
+    // 设置下拉刷新
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
+    header.lastUpdatedTimeLabel.hidden = YES;
+    self.tableView.header = header;
+    
     self.list = [NSMutableArray new];
     self.nextIndex = 0;
     [self requestData:true];
+}
+
+- (void)requestData {
+    [self requestData:YES];
 }
 
 - (void)requestData:(BOOL)refresh {
@@ -91,6 +100,7 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
                                                      [self.tableView reloadData];
                                                      self.isLoading = NO;
                                                      
+                                                     [self.tableView.header endRefreshing];
                                                  }
                          
                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -99,6 +109,7 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
                                                      }
                                                      [self showDialogWithTitle:nil message:error.message];
                                                      self.isLoading = NO;
+                                                     [self.tableView.header endRefreshing];
                                                  }];
 }
 

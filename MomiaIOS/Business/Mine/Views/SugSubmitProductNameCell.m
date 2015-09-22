@@ -7,7 +7,6 @@
 //
 
 #import "SugSubmitProductNameCell.h"
-#import "UITextView+Placeholder.h"
 
 
 @implementation SugSubmitProductNameCell

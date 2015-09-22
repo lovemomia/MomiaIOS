@@ -14,6 +14,7 @@
 - (void)moTextViewDidBeginEditing:(UITextView *)textView;
 - (void)moTextViewDidEndEditing:(UITextView *)textView;
 - (void)moTextViewDidChange:(UITextView *)textView;
+- (BOOL)moTextView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;
 
 @end
 

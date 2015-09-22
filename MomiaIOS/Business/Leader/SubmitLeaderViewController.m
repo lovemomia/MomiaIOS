@@ -8,7 +8,6 @@
 
 #import "SubmitLeaderViewController.h"
 #import "CommonHeaderView.h"
-#import "UITextView+Placeholder.h"
 
 @interface SubmitLeaderViewController ()<MOTextViewDelegate,UITextFieldDelegate>
 

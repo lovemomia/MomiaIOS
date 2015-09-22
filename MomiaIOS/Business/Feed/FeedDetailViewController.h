@@ -6,8 +6,15 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "MOTableViewController.h"
+#import "MOViewController.h"
 
-@interface FeedDetailViewController : MOTableViewController
+@interface FeedDetailViewController : MOViewController<UITableViewDataSource,UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *onZanClicked;
+
+- (IBAction)onZanClicked:(id)sender;
+- (IBAction)onCommentClicked:(id)sender;
 
 @end
