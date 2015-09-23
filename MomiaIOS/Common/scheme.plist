@@ -344,5 +344,14 @@
 		<key>desc</key>
 		<string>feed评论列表</string>
 	</dict>
+	<key>addfeed</key>
+	<dict>
+		<key>controller</key>
+		<string>AddFeedViewController</string>
+		<key>needlogin</key>
+		<true/>
+		<key>desc</key>
+		<string>添加feed</string>
+	</dict>
 </dict>
 </plist>

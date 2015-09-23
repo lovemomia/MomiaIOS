@@ -80,7 +80,7 @@
 
 + (instancetype)cellWithTableView:(UITableView *)tableView {
     static NSString *identifier = @"CellContent";
-    SugSubmitProductContentCell  *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    SugSubmitProductContentCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
         cell = [[SugSubmitProductContentCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;

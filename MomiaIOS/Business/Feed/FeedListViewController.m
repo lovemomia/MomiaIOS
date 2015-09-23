@@ -38,7 +38,8 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.navigationItem.title = @"玩伴";
+    self.navigationItem.title = @"成长说";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleAdd"] style:UIBarButtonItemStylePlain target:self action:@selector(onAddFeedClick)];
     
     [FeedUserHeadCell registerCellWithTableView:self.tableView withIdentifier:identifierPlaymateUserHeadCell];
     [FeedUgcCell registerCellWithTableView:self.tableView withIdentifier:identifierPlaymateUgcCell];
@@ -53,6 +54,11 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
     self.list = [NSMutableArray new];
     self.nextIndex = 0;
     [self requestData:true];
+}
+
+- (void)onAddFeedClick {
+//    [self openURL:@"duola://addfeed"];
+    [self openURL:@"duola://sugsubmit"];
 }
 
 - (void)requestData {

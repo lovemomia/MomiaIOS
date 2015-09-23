@@ -43,12 +43,12 @@
 
         
         _home = [[HomeViewController alloc]initWithParams:nil];
-        _home.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"精选" image:[UIImage imageNamed:@"TabHomeNormal"] selectedImage:[UIImage imageNamed:@"TabHomeSelect"]];
+        _home.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"好活动" image:[UIImage imageNamed:@"TabHomeNormal"] selectedImage:[UIImage imageNamed:@"TabHomeSelect"]];
         _home.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -2);
         
         
         _playmate = [[FeedListViewController alloc]initWithParams:nil];
-        _playmate.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"玩伴" image:[UIImage imageNamed:@"TabPlaymateNormal"] selectedImage:[UIImage imageNamed:@"TabPlaymateSelect"]];
+        _playmate.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"成长说" image:[UIImage imageNamed:@"TabPlaymateNormal"] selectedImage:[UIImage imageNamed:@"TabPlaymateSelect"]];
         _playmate.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -2);
         
         _mine = [[MineViewController alloc]initWithParams:nil];

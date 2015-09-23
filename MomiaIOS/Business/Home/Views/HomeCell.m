@@ -27,7 +27,7 @@
     } else {
         self.enrollmentLabel.hidden = NO;
         self.enrollmentBg.hidden = NO;
-        self.enrollmentLabel.text = [NSString stringWithFormat:@"%ld人报名", (long)model.joined];
+        self.enrollmentLabel.text = [NSString stringWithFormat:@"%ld人参加", (long)model.joined];
     }
     
     self.priceLabel.text = [StringUtils stringForPrice:model.price];

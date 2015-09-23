@@ -130,6 +130,9 @@
 		BC10528C1BB15BAE00D81C15 /* CommentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC10528B1BB15BAE00D81C15 /* CommentListViewController.m */; settings = {ASSET_TAGS = (); }; };
 		BC10528F1BB15DA400D81C15 /* FeedComment.m in Sources */ = {isa = PBXBuildFile; fileRef = BC10528E1BB15DA400D81C15 /* FeedComment.m */; settings = {ASSET_TAGS = (); }; };
 		BC1052921BB15E4C00D81C15 /* FeedCommentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052911BB15E4C00D81C15 /* FeedCommentListModel.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052951BB1709900D81C15 /* AddFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052941BB1709900D81C15 /* AddFeedViewController.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052991BB24E4A00D81C15 /* AddFeedContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052971BB24E4A00D81C15 /* AddFeedContentCell.m */; settings = {ASSET_TAGS = (); }; };
+		BC10529D1BB2580A00D81C15 /* AddFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = BC10529C1BB2580A00D81C15 /* AddFeed.m */; settings = {ASSET_TAGS = (); }; };
 		BC1601DE1BB00459005F11FD /* FeedDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1601DD1BB00459005F11FD /* FeedDetailViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		BC1601E21BB0EC55005F11FD /* AddCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1601E01BB0EC55005F11FD /* AddCommentViewController.m */; settings = {ASSET_TAGS = (); }; };
 		BC1CC9EC1BA7E228001841E7 /* libGeTuiSdk-1.2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1CC9EB1BA7E228001841E7 /* libGeTuiSdk-1.2.1.a */; };
@@ -527,6 +530,12 @@
 		BC10528E1BB15DA400D81C15 /* FeedComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedComment.m; path = Common/Models/Feed/FeedComment.m; sourceTree = "<group>"; };
 		BC1052901BB15E4C00D81C15 /* FeedCommentListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedCommentListModel.h; path = Common/Models/Feed/FeedCommentListModel.h; sourceTree = "<group>"; };
 		BC1052911BB15E4C00D81C15 /* FeedCommentListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedCommentListModel.m; path = Common/Models/Feed/FeedCommentListModel.m; sourceTree = "<group>"; };
+		BC1052931BB1709900D81C15 /* AddFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFeedViewController.h; sourceTree = "<group>"; };
+		BC1052941BB1709900D81C15 /* AddFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFeedViewController.m; sourceTree = "<group>"; };
+		BC1052961BB24E4A00D81C15 /* AddFeedContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFeedContentCell.h; sourceTree = "<group>"; };
+		BC1052971BB24E4A00D81C15 /* AddFeedContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFeedContentCell.m; sourceTree = "<group>"; };
+		BC10529B1BB2580A00D81C15 /* AddFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFeed.h; sourceTree = "<group>"; };
+		BC10529C1BB2580A00D81C15 /* AddFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFeed.m; sourceTree = "<group>"; };
 		BC1601DD1BB00459005F11FD /* FeedDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedDetailViewController.xib; sourceTree = "<group>"; };
 		BC1601DF1BB0EC55005F11FD /* AddCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCommentViewController.h; sourceTree = "<group>"; };
 		BC1601E01BB0EC55005F11FD /* AddCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCommentViewController.m; sourceTree = "<group>"; };
@@ -1457,6 +1466,10 @@
 				BC1601E01BB0EC55005F11FD /* AddCommentViewController.m */,
 				BC10528A1BB15BAE00D81C15 /* CommentListViewController.h */,
 				BC10528B1BB15BAE00D81C15 /* CommentListViewController.m */,
+				BC1052931BB1709900D81C15 /* AddFeedViewController.h */,
+				BC1052941BB1709900D81C15 /* AddFeedViewController.m */,
+				BC10529B1BB2580A00D81C15 /* AddFeed.h */,
+				BC10529C1BB2580A00D81C15 /* AddFeed.m */,
 			);
 			name = Feed;
 			path = Business/Feed;
@@ -1491,6 +1504,8 @@
 				BC753EC91BAC07D300D2663C /* FeedZanCell.h */,
 				BC753ECA1BAC07D300D2663C /* FeedZanCell.m */,
 				BC753ECB1BAC07D300D2663C /* FeedZanCell.xib */,
+				BC1052961BB24E4A00D81C15 /* AddFeedContentCell.h */,
+				BC1052971BB24E4A00D81C15 /* AddFeedContentCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2210,6 +2225,7 @@
 				BC0EC2A11B5F880E00D9A82F /* LJViewPager.m in Sources */,
 				BC753ECD1BAC07D300D2663C /* FeedListViewController.m in Sources */,
 				BCD755D21B62155F0098752B /* MJPhoto.m in Sources */,
+				BC1052951BB1709900D81C15 /* AddFeedViewController.m in Sources */,
 				5AEB188A1B1865F90098FD5F /* MySuggestModel.m in Sources */,
 				5A08C1391B39117100642648 /* ProductDetailViewController.m in Sources */,
 				BC753ED01BAC07D300D2663C /* FeedContentCell.m in Sources */,
@@ -2241,6 +2257,7 @@
 				5A6806EE1B01A48300D02A60 /* SettingViewController.m in Sources */,
 				5AABF6FA1B28120C000A9D3F /* OrderUpdatePersonViewController.m in Sources */,
 				BC1CC9F71BA90A9A001841E7 /* Feed.m in Sources */,
+				BC1052991BB24E4A00D81C15 /* AddFeedContentCell.m in Sources */,
 				5AE4F86B1B3D645E005879B7 /* MOStepperGroup.m in Sources */,
 				BCD755D51B62155F0098752B /* MJPhotoLoadingView.m in Sources */,
 				BCA272FD1AE8A2C7002E7534 /* MineViewController.m in Sources */,
@@ -2287,6 +2304,7 @@
 				BCF564D51B48E018003A2227 /* OrderListViewController.m in Sources */,
 				BC7708511AFAFD54000068A8 /* MOTableViewController.m in Sources */,
 				5AB1BDEA1B4FB7ED004A4511 /* LoadingErrorCell.m in Sources */,
+				BC10529D1BB2580A00D81C15 /* AddFeed.m in Sources */,
 				5A5A2AA41B4412FC000595A9 /* NSString+Predicate.m in Sources */,
 				5A08C13D1B39117100642648 /* ProductDetailCarouselCell.m in Sources */,
 				BCF0339C1B4F77BE005B71D6 /* AlipayOrderModel.m in Sources */,
