@@ -25,20 +25,6 @@
                     </imageView>
                     <view tag="1001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMd-qQ-7os">
                         <rect key="frame" x="65" y="12" width="205" height="38"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NiC-DQ-JsP" customClass="AvatarImageView">
-                                <rect key="frame" x="0.0" y="0.0" width="38" height="38"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nyp-KN-sKr" customClass="AvatarImageView">
-                                <rect key="frame" x="42" y="0.0" width="38" height="38"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MR0-NT-dgo" customClass="AvatarImageView">
-                                <rect key="frame" x="84" y="0.0" width="38" height="38"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l5i-5Z-Yad" customClass="AvatarImageView">
-                                <rect key="frame" x="126" y="0.0" width="38" height="38"/>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="38" id="Qsm-QE-lSq"/>

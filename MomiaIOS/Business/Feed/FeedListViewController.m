@@ -81,7 +81,6 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
     
     if (refresh) {
         self.nextIndex = 0;
-        [self.list removeAllObjects];
         self.isLoading = NO;
     }
     
@@ -105,6 +104,9 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
                                                          return;
                                                      }
                                                      
+                                                     if (refresh) {
+                                                         [self.list removeAllObjects];
+                                                     }
                                                      for (Feed *feed in model.data.list) {
                                                          [self.list addObject:feed];
                                                      }
@@ -161,23 +163,24 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Feed *feed = [self.list objectAtIndex:indexPath.section];
-    if ([feed.type intValue] == 1) {
-        if (indexPath.row == 0) {
-            return [FeedUserHeadCell heightWithTableView:tableView withIdentifier:identifierPlaymateUserHeadCell forIndexPath:indexPath data:feed];
-        } else if (indexPath.row == 2) {
-            return [FeedUgcCell heightWithTableView:tableView withIdentifier:identifierPlaymateUgcCell forIndexPath:indexPath data:feed];
+    if (indexPath.section < self.list.count) {
+        Feed *feed = [self.list objectAtIndex:indexPath.section];
+        if ([feed.type intValue] == 1) {
+            if (indexPath.row == 0) {
+                return [FeedUserHeadCell heightWithTableView:tableView withIdentifier:identifierPlaymateUserHeadCell forIndexPath:indexPath data:feed];
+            } else if (indexPath.row == 2) {
+                return [FeedUgcCell heightWithTableView:tableView withIdentifier:identifierPlaymateUgcCell forIndexPath:indexPath data:feed];
+            } else {
+                return [FeedContentCell heightWithTableView:tableView contentModel:feed];
+            }
         } else {
-            return [FeedContentCell heightWithTableView:tableView contentModel:feed];
-        }
-    } else {
-        if (indexPath.row == 0) {
-            return [FeedSuggestHeadCell heightWithTableView:tableView withIdentifier:identifierPlaymateSuggestHeadCell forIndexPath:indexPath data:nil];
-        } else {
-            return [FeedSuggestUserCell heightWithTableView:tableView withIdentifier:identifierPlaymateSuggestUserCell forIndexPath:indexPath data:nil];
+            if (indexPath.row == 0) {
+                return [FeedSuggestHeadCell heightWithTableView:tableView withIdentifier:identifierPlaymateSuggestHeadCell forIndexPath:indexPath data:nil];
+            } else {
+                return [FeedSuggestUserCell heightWithTableView:tableView withIdentifier:identifierPlaymateSuggestUserCell forIndexPath:indexPath data:nil];
+            }
         }
     }
-    
     return 155;
 }
 
@@ -238,8 +241,6 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
         }
         return cell;
     }
-    
-    
 }
 
 @end
