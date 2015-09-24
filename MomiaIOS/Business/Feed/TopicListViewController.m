@@ -49,7 +49,6 @@ static NSString *identifierTopicListCell = @"TopicListCell";
     
     if (refresh) {
         self.nextIndex = 0;
-        [self.list removeAllObjects];
         self.isLoading = NO;
     }
     
@@ -73,6 +72,9 @@ static NSString *identifierTopicListCell = @"TopicListCell";
                                                          return;
                                                      }
                                                      
+                                                     if (refresh) {
+                                                         [self.list removeAllObjects];
+                                                     }
                                                      for (Topic *topic in model.data.list) {
                                                          [self.list addObject:topic];
                                                      }

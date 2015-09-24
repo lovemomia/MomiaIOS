@@ -45,7 +45,6 @@ static NSString * myFavCellIdentifier = @"MyFavCell";
     
     if (refresh) {
         self.nextIndex = 0;
-        [self.list removeAllObjects];
         self.isLoading = NO;
     }
     
@@ -64,6 +63,9 @@ static NSString * myFavCellIdentifier = @"MyFavCell";
                                                          self.nextIndex = -1;
                                                      }
                                                      
+                                                     if (refresh) {
+                                                         [self.list removeAllObjects];
+                                                     }
                                                      if (favModel.data.totalCount == 0) {
                                                          [self.view showEmptyView:@"您还没有收藏活动哦，赶快去浏览一下吧~"];
                                                          return;

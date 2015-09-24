@@ -70,7 +70,6 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
     
     if (refresh) {
         self.nextIndex = 0;
-        [self.list removeAllObjects];
         self.isLoading = NO;
     }
     
@@ -94,6 +93,9 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
                                                          return;
                                                      }
                                                      
+                                                     if (refresh) {
+                                                         [self.list removeAllObjects];
+                                                     }
                                                      for (FeedComment *comment in model.data.list) {
                                                          [self.list addObject:comment];
                                                      }

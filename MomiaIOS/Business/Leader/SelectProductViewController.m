@@ -45,7 +45,6 @@ static NSString * myFavCellIdentifier = @"MyFavCell";
     
     if (refresh) {
         self.nextIndex = 0;
-        [self.list removeAllObjects];
         self.isLoading = NO;
     }
     
@@ -64,6 +63,9 @@ static NSString * myFavCellIdentifier = @"MyFavCell";
                                                          return;
                                                      }
                                                      
+                                                     if (refresh) {
+                                                         [self.list removeAllObjects];
+                                                     }
                                                      for (ProductModel *order in orderListModel.data.list) {
                                                          [self.list addObject:order];
                                                      }
