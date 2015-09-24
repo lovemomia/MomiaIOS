@@ -25,7 +25,6 @@ PODS:
   - Masonry (0.6.2)
   - MBProgressHUD (0.9.1)
   - MJRefresh (2.4.10)
-  - QBImagePickerController (2.5.2)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
@@ -41,7 +40,6 @@ DEPENDENCIES:
   - Masonry
   - MBProgressHUD (~> 0.9.1)
   - MJRefresh
-  - QBImagePickerController (~> 2.5.2)
   - SDWebImage
   - THProgressView (~> 1.0)
   - TTTAttributedLabel
@@ -55,7 +53,6 @@ SPEC CHECKSUMS:
   Masonry: 362e8a1cc0beada4a4c4832d5e863da2a51533be
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MJRefresh: e52328552ed9cbfce3501e3820b18bf7643c65cc
-  QBImagePickerController: 96c2e340edb7fcac5acf21b72314fac9201ffb8e
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   THProgressView: 999dc78f748f4cb6d69408f545de4d82ef7f1cec
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f

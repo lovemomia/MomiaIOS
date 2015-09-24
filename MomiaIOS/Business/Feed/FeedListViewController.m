@@ -54,11 +54,16 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
     self.list = [NSMutableArray new];
     self.nextIndex = 0;
     [self requestData:true];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDataChanged:) name:@"onDataChanged" object:nil];
+}
+
+- (void)onDataChanged:(NSNotification*)notify {
+    [self.tableView.header beginRefreshing];
 }
 
 - (void)onAddFeedClick {
-//    [self openURL:@"duola://addfeed"];
-    [self openURL:@"duola://sugsubmit"];
+    [self openURL:@"duola://addfeed"];
 }
 
 - (void)requestData {

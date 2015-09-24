@@ -13,6 +13,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.avatarIv.layer.masksToBounds = YES;
+    self.avatarIv.layer.cornerRadius = self.avatarIv.width / 2;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

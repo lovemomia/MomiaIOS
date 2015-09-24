@@ -353,5 +353,14 @@
 		<key>desc</key>
 		<string>添加feed</string>
 	</dict>
+	<key>topiclist</key>
+	<dict>
+		<key>controller</key>
+		<string>TopicListViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>选择主题</string>
+	</dict>
 </dict>
 </plist>

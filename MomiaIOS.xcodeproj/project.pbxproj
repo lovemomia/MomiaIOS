@@ -133,6 +133,31 @@
 		BC1052951BB1709900D81C15 /* AddFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052941BB1709900D81C15 /* AddFeedViewController.m */; settings = {ASSET_TAGS = (); }; };
 		BC1052991BB24E4A00D81C15 /* AddFeedContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052971BB24E4A00D81C15 /* AddFeedContentCell.m */; settings = {ASSET_TAGS = (); }; };
 		BC10529D1BB2580A00D81C15 /* AddFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = BC10529C1BB2580A00D81C15 /* AddFeed.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052A01BB2B33700D81C15 /* TopicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC10529F1BB2B33700D81C15 /* TopicListViewController.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052A41BB394CE00D81C15 /* TopicListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052A21BB394CE00D81C15 /* TopicListCell.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052A51BB394CE00D81C15 /* TopicListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1052A31BB394CE00D81C15 /* TopicListCell.xib */; settings = {ASSET_TAGS = (); }; };
+		BC1052A81BB3955800D81C15 /* TopicListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052A71BB3955800D81C15 /* TopicListModel.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052D81BB3E18000D81C15 /* UIImage+MLTint.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052AD1BB3E18000D81C15 /* UIImage+MLTint.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052D91BB3E18000D81C15 /* UIView+MLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052AF1BB3E18000D81C15 /* UIView+MLExtension.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052DA1BB3E18000D81C15 /* MLSelectPhotoAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052B41BB3E18000D81C15 /* MLSelectPhotoAssets.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052DB1BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052B61BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhoto.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052DC1BB3E18000D81C15 /* MLSelectPhotoPickerDatas.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052B81BB3E18000D81C15 /* MLSelectPhotoPickerDatas.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052DD1BB3E18000D81C15 /* MLSelectPhotoPickerGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052BA1BB3E18000D81C15 /* MLSelectPhotoPickerGroup.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052DE1BB3E18000D81C15 /* MLSelectPhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052BD1BB3E18000D81C15 /* MLSelectPhotoBrowserViewController.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052DF1BB3E18000D81C15 /* MLSelectPhotoNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052BF1BB3E18000D81C15 /* MLSelectPhotoNavigationViewController.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052E01BB3E18000D81C15 /* MLSelectPhotoPickerAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052C11BB3E18000D81C15 /* MLSelectPhotoPickerAssetsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052E11BB3E18000D81C15 /* MLSelectPhotoPickerGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052C31BB3E18000D81C15 /* MLSelectPhotoPickerGroupViewController.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052E21BB3E18000D81C15 /* MLSelectPhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052C51BB3E18000D81C15 /* MLSelectPhotoPickerViewController.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052E31BB3E18000D81C15 /* MLPhotoPickerImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052C81BB3E18000D81C15 /* MLPhotoPickerImageView.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052E41BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhotoImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052CA1BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhotoImageView.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052E51BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhotoScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052CC1BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhotoScrollView.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052E61BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052CE1BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhotoView.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052E71BB3E18000D81C15 /* MLSelectPhotoPickerCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052D01BB3E18000D81C15 /* MLSelectPhotoPickerCollectionView.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052E81BB3E18000D81C15 /* MLSelectPhotoPickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052D21BB3E18000D81C15 /* MLSelectPhotoPickerCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052E91BB3E18000D81C15 /* MLSelectPhotoPickerFooterCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052D41BB3E18000D81C15 /* MLSelectPhotoPickerFooterCollectionReusableView.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052EA1BB3E18000D81C15 /* MLSelectPhotoPickerGroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052D61BB3E18000D81C15 /* MLSelectPhotoPickerGroupTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		BC1052EB1BB3E18000D81C15 /* MLSelectPhoto.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BC1052D71BB3E18000D81C15 /* MLSelectPhoto.bundle */; settings = {ASSET_TAGS = (); }; };
+		BC1052EE1BB3F64900D81C15 /* SelectImage.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052ED1BB3F64900D81C15 /* SelectImage.m */; settings = {ASSET_TAGS = (); }; };
 		BC1601DE1BB00459005F11FD /* FeedDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1601DD1BB00459005F11FD /* FeedDetailViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		BC1601E21BB0EC55005F11FD /* AddCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1601E01BB0EC55005F11FD /* AddCommentViewController.m */; settings = {ASSET_TAGS = (); }; };
 		BC1CC9EC1BA7E228001841E7 /* libGeTuiSdk-1.2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1CC9EB1BA7E228001841E7 /* libGeTuiSdk-1.2.1.a */; };
@@ -160,7 +185,6 @@
 		BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA151AFCB2EE00E2071E /* BaseModel.m */; };
 		BC38D23C1AFEE2B50051C7E9 /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38D2371AFEE2B50051C7E9 /* HomeModel.m */; };
 		BC38D2441AFEEA300051C7E9 /* HttpService.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38D2431AFEEA300051C7E9 /* HttpService.m */; };
-		BC38D2891B099D0B0051C7E9 /* SuggestSubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38D2881B099D0B0051C7E9 /* SuggestSubmitViewController.m */; };
 		BC38D28D1B09B8960051C7E9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC38D28C1B09B8960051C7E9 /* libz.dylib */; };
 		BC38D28F1B09B8AA0051C7E9 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC38D28E1B09B8AA0051C7E9 /* libsqlite3.dylib */; };
 		BC38D2911B09B8B30051C7E9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC38D2901B09B8B30051C7E9 /* Security.framework */; };
@@ -183,8 +207,6 @@
 		BC41ABA91B0C715400A419DA /* Environment.m in Sources */ = {isa = PBXBuildFile; fileRef = BC41ABA81B0C715400A419DA /* Environment.m */; };
 		BC41ABAD1B0C7ABF00A419DA /* UploadImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC41ABAC1B0C7ABF00A419DA /* UploadImageModel.m */; };
 		BC41ABB91B0F25AB00A419DA /* SugTagsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC41ABB81B0F25AB00A419DA /* SugTagsModel.m */; };
-		BC41ABBC1B0F266F00A419DA /* SuggestTagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC41ABBB1B0F266F00A419DA /* SuggestTagsViewController.m */; };
-		BC41ABBF1B0F269100A419DA /* SugTagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC41ABBE1B0F269100A419DA /* SugTagsCell.m */; };
 		BC5063901B53746800AA233C /* SGActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5063871B53746800AA233C /* SGActionView.m */; };
 		BC5063911B53746800AA233C /* SGAlertMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5063891B53746800AA233C /* SGAlertMenu.m */; };
 		BC5063921B53746800AA233C /* SGBaseMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BC50638B1B53746800AA233C /* SGBaseMenu.m */; };
@@ -261,8 +283,6 @@
 		BCA273211AE9FB78002E7534 /* NSURL+MOURL.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273201AE9FB78002E7534 /* NSURL+MOURL.m */; };
 		BCA273241AEB166E002E7534 /* MONavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273231AEB166E002E7534 /* MONavigationController.m */; };
 		BCA273271AEB1EBA002E7534 /* MineInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */; };
-		BCCDF5D91B09E345008BAE12 /* SugSubmitProductNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCDF5D81B09E345008BAE12 /* SugSubmitProductNameCell.m */; };
-		BCCDF5DF1B09E6C7008BAE12 /* SugSubmitProductContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCDF5DE1B09E6C7008BAE12 /* SugSubmitProductContentCell.m */; };
 		BCCDF5E51B09EBF8008BAE12 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCDF5E41B09EBF8008BAE12 /* UITextView+Placeholder.m */; };
 		BCCDF6571B0B1EC0008BAE12 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCDF6561B0B1EC0008BAE12 /* QuartzCore.framework */; };
 		BCCDF6591B0B1ECC008BAE12 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCDF6581B0B1ECB008BAE12 /* CoreTelephony.framework */; };
@@ -536,6 +556,56 @@
 		BC1052971BB24E4A00D81C15 /* AddFeedContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFeedContentCell.m; sourceTree = "<group>"; };
 		BC10529B1BB2580A00D81C15 /* AddFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFeed.h; sourceTree = "<group>"; };
 		BC10529C1BB2580A00D81C15 /* AddFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFeed.m; sourceTree = "<group>"; };
+		BC10529E1BB2B33700D81C15 /* TopicListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicListViewController.h; sourceTree = "<group>"; };
+		BC10529F1BB2B33700D81C15 /* TopicListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicListViewController.m; sourceTree = "<group>"; };
+		BC1052A11BB394CE00D81C15 /* TopicListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicListCell.h; sourceTree = "<group>"; };
+		BC1052A21BB394CE00D81C15 /* TopicListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicListCell.m; sourceTree = "<group>"; };
+		BC1052A31BB394CE00D81C15 /* TopicListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicListCell.xib; sourceTree = "<group>"; };
+		BC1052A61BB3955800D81C15 /* TopicListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicListModel.h; path = Common/Models/Feed/TopicListModel.h; sourceTree = "<group>"; };
+		BC1052A71BB3955800D81C15 /* TopicListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicListModel.m; path = Common/Models/Feed/TopicListModel.m; sourceTree = "<group>"; };
+		BC1052AC1BB3E18000D81C15 /* UIImage+MLTint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MLTint.h"; sourceTree = "<group>"; };
+		BC1052AD1BB3E18000D81C15 /* UIImage+MLTint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MLTint.m"; sourceTree = "<group>"; };
+		BC1052AE1BB3E18000D81C15 /* UIView+MLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MLExtension.h"; sourceTree = "<group>"; };
+		BC1052AF1BB3E18000D81C15 /* UIView+MLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MLExtension.m"; sourceTree = "<group>"; };
+		BC1052B01BB3E18000D81C15 /* MLSelectPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhoto.h; sourceTree = "<group>"; };
+		BC1052B11BB3E18000D81C15 /* MLSelectPhotoCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoCommon.h; sourceTree = "<group>"; };
+		BC1052B31BB3E18000D81C15 /* MLSelectPhotoAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoAssets.h; sourceTree = "<group>"; };
+		BC1052B41BB3E18000D81C15 /* MLSelectPhotoAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoAssets.m; sourceTree = "<group>"; };
+		BC1052B51BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerBrowserPhoto.h; sourceTree = "<group>"; };
+		BC1052B61BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerBrowserPhoto.m; sourceTree = "<group>"; };
+		BC1052B71BB3E18000D81C15 /* MLSelectPhotoPickerDatas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerDatas.h; sourceTree = "<group>"; };
+		BC1052B81BB3E18000D81C15 /* MLSelectPhotoPickerDatas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerDatas.m; sourceTree = "<group>"; };
+		BC1052B91BB3E18000D81C15 /* MLSelectPhotoPickerGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerGroup.h; sourceTree = "<group>"; };
+		BC1052BA1BB3E18000D81C15 /* MLSelectPhotoPickerGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerGroup.m; sourceTree = "<group>"; };
+		BC1052BC1BB3E18000D81C15 /* MLSelectPhotoBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoBrowserViewController.h; sourceTree = "<group>"; };
+		BC1052BD1BB3E18000D81C15 /* MLSelectPhotoBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoBrowserViewController.m; sourceTree = "<group>"; };
+		BC1052BE1BB3E18000D81C15 /* MLSelectPhotoNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoNavigationViewController.h; sourceTree = "<group>"; };
+		BC1052BF1BB3E18000D81C15 /* MLSelectPhotoNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoNavigationViewController.m; sourceTree = "<group>"; };
+		BC1052C01BB3E18000D81C15 /* MLSelectPhotoPickerAssetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerAssetsViewController.h; sourceTree = "<group>"; };
+		BC1052C11BB3E18000D81C15 /* MLSelectPhotoPickerAssetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerAssetsViewController.m; sourceTree = "<group>"; };
+		BC1052C21BB3E18000D81C15 /* MLSelectPhotoPickerGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerGroupViewController.h; sourceTree = "<group>"; };
+		BC1052C31BB3E18000D81C15 /* MLSelectPhotoPickerGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerGroupViewController.m; sourceTree = "<group>"; };
+		BC1052C41BB3E18000D81C15 /* MLSelectPhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerViewController.h; sourceTree = "<group>"; };
+		BC1052C51BB3E18000D81C15 /* MLSelectPhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerViewController.m; sourceTree = "<group>"; };
+		BC1052C71BB3E18000D81C15 /* MLPhotoPickerImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPhotoPickerImageView.h; sourceTree = "<group>"; };
+		BC1052C81BB3E18000D81C15 /* MLPhotoPickerImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPhotoPickerImageView.m; sourceTree = "<group>"; };
+		BC1052C91BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhotoImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerBrowserPhotoImageView.h; sourceTree = "<group>"; };
+		BC1052CA1BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhotoImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerBrowserPhotoImageView.m; sourceTree = "<group>"; };
+		BC1052CB1BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhotoScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerBrowserPhotoScrollView.h; sourceTree = "<group>"; };
+		BC1052CC1BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhotoScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerBrowserPhotoScrollView.m; sourceTree = "<group>"; };
+		BC1052CD1BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerBrowserPhotoView.h; sourceTree = "<group>"; };
+		BC1052CE1BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerBrowserPhotoView.m; sourceTree = "<group>"; };
+		BC1052CF1BB3E18000D81C15 /* MLSelectPhotoPickerCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerCollectionView.h; sourceTree = "<group>"; };
+		BC1052D01BB3E18000D81C15 /* MLSelectPhotoPickerCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerCollectionView.m; sourceTree = "<group>"; };
+		BC1052D11BB3E18000D81C15 /* MLSelectPhotoPickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerCollectionViewCell.h; sourceTree = "<group>"; };
+		BC1052D21BB3E18000D81C15 /* MLSelectPhotoPickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerCollectionViewCell.m; sourceTree = "<group>"; };
+		BC1052D31BB3E18000D81C15 /* MLSelectPhotoPickerFooterCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerFooterCollectionReusableView.h; sourceTree = "<group>"; };
+		BC1052D41BB3E18000D81C15 /* MLSelectPhotoPickerFooterCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerFooterCollectionReusableView.m; sourceTree = "<group>"; };
+		BC1052D51BB3E18000D81C15 /* MLSelectPhotoPickerGroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSelectPhotoPickerGroupTableViewCell.h; sourceTree = "<group>"; };
+		BC1052D61BB3E18000D81C15 /* MLSelectPhotoPickerGroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSelectPhotoPickerGroupTableViewCell.m; sourceTree = "<group>"; };
+		BC1052D71BB3E18000D81C15 /* MLSelectPhoto.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MLSelectPhoto.bundle; sourceTree = "<group>"; };
+		BC1052EC1BB3F64900D81C15 /* SelectImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectImage.h; sourceTree = "<group>"; };
+		BC1052ED1BB3F64900D81C15 /* SelectImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectImage.m; sourceTree = "<group>"; };
 		BC1601DD1BB00459005F11FD /* FeedDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedDetailViewController.xib; sourceTree = "<group>"; };
 		BC1601DF1BB0EC55005F11FD /* AddCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCommentViewController.h; sourceTree = "<group>"; };
 		BC1601E01BB0EC55005F11FD /* AddCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCommentViewController.m; sourceTree = "<group>"; };
@@ -589,8 +659,6 @@
 		BC38D2371AFEE2B50051C7E9 /* HomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeModel.m; path = Common/Models/Home/HomeModel.m; sourceTree = "<group>"; };
 		BC38D2421AFEEA300051C7E9 /* HttpService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpService.h; path = Common/Services/Http/HttpService.h; sourceTree = "<group>"; };
 		BC38D2431AFEEA300051C7E9 /* HttpService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpService.m; path = Common/Services/Http/HttpService.m; sourceTree = "<group>"; };
-		BC38D2871B099D0B0051C7E9 /* SuggestSubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuggestSubmitViewController.h; path = Business/Mine/SuggestSubmitViewController.h; sourceTree = "<group>"; };
-		BC38D2881B099D0B0051C7E9 /* SuggestSubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SuggestSubmitViewController.m; path = Business/Mine/SuggestSubmitViewController.m; sourceTree = "<group>"; };
 		BC38D28A1B09B8740051C7E9 /* libGexinSdk-1.1.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libGexinSdk-1.1.1.a"; path = "include/libGexinSdk-1.1.1.a"; sourceTree = "<group>"; };
 		BC38D28C1B09B8960051C7E9 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BC38D28E1B09B8AA0051C7E9 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -629,10 +697,6 @@
 		BC41ABAC1B0C7ABF00A419DA /* UploadImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadImageModel.m; path = Common/Models/Mine/UploadImageModel.m; sourceTree = "<group>"; };
 		BC41ABB71B0F25AB00A419DA /* SugTagsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SugTagsModel.h; sourceTree = "<group>"; };
 		BC41ABB81B0F25AB00A419DA /* SugTagsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SugTagsModel.m; sourceTree = "<group>"; };
-		BC41ABBA1B0F266F00A419DA /* SuggestTagsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuggestTagsViewController.h; path = Business/Mine/SuggestTagsViewController.h; sourceTree = "<group>"; };
-		BC41ABBB1B0F266F00A419DA /* SuggestTagsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SuggestTagsViewController.m; path = Business/Mine/SuggestTagsViewController.m; sourceTree = "<group>"; };
-		BC41ABBD1B0F269100A419DA /* SugTagsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SugTagsCell.h; path = Business/Mine/Views/SugTagsCell.h; sourceTree = "<group>"; };
-		BC41ABBE1B0F269100A419DA /* SugTagsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SugTagsCell.m; path = Business/Mine/Views/SugTagsCell.m; sourceTree = "<group>"; };
 		BC5063861B53746800AA233C /* SGActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGActionView.h; sourceTree = "<group>"; };
 		BC5063871B53746800AA233C /* SGActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGActionView.m; sourceTree = "<group>"; };
 		BC5063881B53746800AA233C /* SGAlertMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGAlertMenu.h; sourceTree = "<group>"; };
@@ -766,10 +830,6 @@
 		BCA273221AEB166E002E7534 /* MONavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MONavigationController.h; path = Common/Base/MONavigationController.h; sourceTree = "<group>"; };
 		BCA273231AEB166E002E7534 /* MONavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MONavigationController.m; path = Common/Base/MONavigationController.m; sourceTree = "<group>"; };
 		BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MineInfoCell.xib; path = Business/Mine/Views/MineInfoCell.xib; sourceTree = "<group>"; };
-		BCCDF5D71B09E345008BAE12 /* SugSubmitProductNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SugSubmitProductNameCell.h; path = Business/Mine/Views/SugSubmitProductNameCell.h; sourceTree = "<group>"; };
-		BCCDF5D81B09E345008BAE12 /* SugSubmitProductNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SugSubmitProductNameCell.m; path = Business/Mine/Views/SugSubmitProductNameCell.m; sourceTree = "<group>"; };
-		BCCDF5DD1B09E6C7008BAE12 /* SugSubmitProductContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SugSubmitProductContentCell.h; path = Business/Mine/Views/SugSubmitProductContentCell.h; sourceTree = "<group>"; };
-		BCCDF5DE1B09E6C7008BAE12 /* SugSubmitProductContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SugSubmitProductContentCell.m; path = Business/Mine/Views/SugSubmitProductContentCell.m; sourceTree = "<group>"; };
 		BCCDF5E31B09EBF8008BAE12 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
 		BCCDF5E41B09EBF8008BAE12 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
 		BCCDF6561B0B1EC0008BAE12 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1232,6 +1292,94 @@
 			path = LJViewPager;
 			sourceTree = "<group>";
 		};
+		BC1052A91BB3E18000D81C15 /* MLSelectPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				BC1052AA1BB3E18000D81C15 /* Classes */,
+				BC1052D71BB3E18000D81C15 /* MLSelectPhoto.bundle */,
+			);
+			path = MLSelectPhoto;
+			sourceTree = "<group>";
+		};
+		BC1052AA1BB3E18000D81C15 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BC1052AB1BB3E18000D81C15 /* Category */,
+				BC1052B01BB3E18000D81C15 /* MLSelectPhoto.h */,
+				BC1052B11BB3E18000D81C15 /* MLSelectPhotoCommon.h */,
+				BC1052B21BB3E18000D81C15 /* Models */,
+				BC1052BB1BB3E18000D81C15 /* ViewControllers */,
+				BC1052C61BB3E18000D81C15 /* Views */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		BC1052AB1BB3E18000D81C15 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				BC1052AC1BB3E18000D81C15 /* UIImage+MLTint.h */,
+				BC1052AD1BB3E18000D81C15 /* UIImage+MLTint.m */,
+				BC1052AE1BB3E18000D81C15 /* UIView+MLExtension.h */,
+				BC1052AF1BB3E18000D81C15 /* UIView+MLExtension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		BC1052B21BB3E18000D81C15 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BC1052B31BB3E18000D81C15 /* MLSelectPhotoAssets.h */,
+				BC1052B41BB3E18000D81C15 /* MLSelectPhotoAssets.m */,
+				BC1052B51BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhoto.h */,
+				BC1052B61BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhoto.m */,
+				BC1052B71BB3E18000D81C15 /* MLSelectPhotoPickerDatas.h */,
+				BC1052B81BB3E18000D81C15 /* MLSelectPhotoPickerDatas.m */,
+				BC1052B91BB3E18000D81C15 /* MLSelectPhotoPickerGroup.h */,
+				BC1052BA1BB3E18000D81C15 /* MLSelectPhotoPickerGroup.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BC1052BB1BB3E18000D81C15 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC1052BC1BB3E18000D81C15 /* MLSelectPhotoBrowserViewController.h */,
+				BC1052BD1BB3E18000D81C15 /* MLSelectPhotoBrowserViewController.m */,
+				BC1052BE1BB3E18000D81C15 /* MLSelectPhotoNavigationViewController.h */,
+				BC1052BF1BB3E18000D81C15 /* MLSelectPhotoNavigationViewController.m */,
+				BC1052C01BB3E18000D81C15 /* MLSelectPhotoPickerAssetsViewController.h */,
+				BC1052C11BB3E18000D81C15 /* MLSelectPhotoPickerAssetsViewController.m */,
+				BC1052C21BB3E18000D81C15 /* MLSelectPhotoPickerGroupViewController.h */,
+				BC1052C31BB3E18000D81C15 /* MLSelectPhotoPickerGroupViewController.m */,
+				BC1052C41BB3E18000D81C15 /* MLSelectPhotoPickerViewController.h */,
+				BC1052C51BB3E18000D81C15 /* MLSelectPhotoPickerViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BC1052C61BB3E18000D81C15 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BC1052C71BB3E18000D81C15 /* MLPhotoPickerImageView.h */,
+				BC1052C81BB3E18000D81C15 /* MLPhotoPickerImageView.m */,
+				BC1052C91BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhotoImageView.h */,
+				BC1052CA1BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhotoImageView.m */,
+				BC1052CB1BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhotoScrollView.h */,
+				BC1052CC1BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhotoScrollView.m */,
+				BC1052CD1BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhotoView.h */,
+				BC1052CE1BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhotoView.m */,
+				BC1052CF1BB3E18000D81C15 /* MLSelectPhotoPickerCollectionView.h */,
+				BC1052D01BB3E18000D81C15 /* MLSelectPhotoPickerCollectionView.m */,
+				BC1052D11BB3E18000D81C15 /* MLSelectPhotoPickerCollectionViewCell.h */,
+				BC1052D21BB3E18000D81C15 /* MLSelectPhotoPickerCollectionViewCell.m */,
+				BC1052D31BB3E18000D81C15 /* MLSelectPhotoPickerFooterCollectionReusableView.h */,
+				BC1052D41BB3E18000D81C15 /* MLSelectPhotoPickerFooterCollectionReusableView.m */,
+				BC1052D51BB3E18000D81C15 /* MLSelectPhotoPickerGroupTableViewCell.h */,
+				BC1052D61BB3E18000D81C15 /* MLSelectPhotoPickerGroupTableViewCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		BC1CC9E81BA7E21B001841E7 /* GeTui */ = {
 			isa = PBXGroup;
 			children = (
@@ -1255,6 +1403,8 @@
 				BC10528E1BB15DA400D81C15 /* FeedComment.m */,
 				BC1052901BB15E4C00D81C15 /* FeedCommentListModel.h */,
 				BC1052911BB15E4C00D81C15 /* FeedCommentListModel.m */,
+				BC1052A61BB3955800D81C15 /* TopicListModel.h */,
+				BC1052A71BB3955800D81C15 /* TopicListModel.m */,
 			);
 			name = Feed;
 			sourceTree = "<group>";
@@ -1278,6 +1428,7 @@
 		BC2C0C541B13095A00E2446E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BC1052A91BB3E18000D81C15 /* MLSelectPhoto */,
 				BCD755C41B62155F0098752B /* MJPhotoBrowser */,
 				BC0EC2991B5F880E00D9A82F /* LJViewPager */,
 				BC5063851B53746800AA233C /* SGActionView */,
@@ -1470,6 +1621,10 @@
 				BC1052941BB1709900D81C15 /* AddFeedViewController.m */,
 				BC10529B1BB2580A00D81C15 /* AddFeed.h */,
 				BC10529C1BB2580A00D81C15 /* AddFeed.m */,
+				BC10529E1BB2B33700D81C15 /* TopicListViewController.h */,
+				BC10529F1BB2B33700D81C15 /* TopicListViewController.m */,
+				BC1052EC1BB3F64900D81C15 /* SelectImage.h */,
+				BC1052ED1BB3F64900D81C15 /* SelectImage.m */,
 			);
 			name = Feed;
 			path = Business/Feed;
@@ -1506,6 +1661,9 @@
 				BC753ECB1BAC07D300D2663C /* FeedZanCell.xib */,
 				BC1052961BB24E4A00D81C15 /* AddFeedContentCell.h */,
 				BC1052971BB24E4A00D81C15 /* AddFeedContentCell.m */,
+				BC1052A11BB394CE00D81C15 /* TopicListCell.h */,
+				BC1052A21BB394CE00D81C15 /* TopicListCell.m */,
+				BC1052A31BB394CE00D81C15 /* TopicListCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1805,10 +1963,6 @@
 				BCA272FB1AE8A2C7002E7534 /* MineViewController.m */,
 				5A6806F11B01C9C700D02A60 /* PersonInfoViewController.h */,
 				5A6806F21B01C9C700D02A60 /* PersonInfoViewController.m */,
-				BC38D2871B099D0B0051C7E9 /* SuggestSubmitViewController.h */,
-				BC38D2881B099D0B0051C7E9 /* SuggestSubmitViewController.m */,
-				BC41ABBA1B0F266F00A419DA /* SuggestTagsViewController.h */,
-				BC41ABBB1B0F266F00A419DA /* SuggestTagsViewController.m */,
 				5AC9FFCA1B17298C00C769EF /* FeedbackViewController.h */,
 				5AC9FFCB1B17298C00C769EF /* FeedbackViewController.m */,
 				BCF033931B4E892F005B71D6 /* PeopleViewController.h */,
@@ -1886,12 +2040,6 @@
 			children = (
 				BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */,
 				5A6806F41B01CEF700D02A60 /* PersonLogoCell.xib */,
-				BCCDF5D71B09E345008BAE12 /* SugSubmitProductNameCell.h */,
-				BCCDF5D81B09E345008BAE12 /* SugSubmitProductNameCell.m */,
-				BCCDF5DD1B09E6C7008BAE12 /* SugSubmitProductContentCell.h */,
-				BCCDF5DE1B09E6C7008BAE12 /* SugSubmitProductContentCell.m */,
-				BC41ABBD1B0F269100A419DA /* SugTagsCell.h */,
-				BC41ABBE1B0F269100A419DA /* SugTagsCell.m */,
 				BCF564E11B4A54D0003A2227 /* PersonChildHeaderCell.h */,
 				BCF564E21B4A54D0003A2227 /* PersonChildHeaderCell.m */,
 				BCF564E31B4A54D0003A2227 /* PersonChildHeaderCell.xib */,
@@ -2129,6 +2277,7 @@
 				BC7CBB181B69CF050047211D /* ApplyLeaderIntroContentCell.xib in Resources */,
 				BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */,
 				BCF564E51B4A54D0003A2227 /* PersonChildHeaderCell.xib in Resources */,
+				BC1052A51BB394CE00D81C15 /* TopicListCell.xib in Resources */,
 				BC753EDE1BAC07D300D2663C /* FeedZanCell.xib in Resources */,
 				5AB1BDE01B4F9B49004A4511 /* ProductDetailTagsCell.xib in Resources */,
 				5AD5275F1B53C7A300D01E1F /* FeedbackCell.xib in Resources */,
@@ -2150,6 +2299,7 @@
 				5A9E80E71B4BBF590028AC47 /* ProductPlayFellowCell.xib in Resources */,
 				BCA273101AE9D79F002E7534 /* scheme.plist in Resources */,
 				BC50639F1B53A3A000AA233C /* ForgetPasswordCell.xib in Resources */,
+				BC1052EB1BB3E18000D81C15 /* MLSelectPhoto.bundle in Resources */,
 				5A33F1A21B2EA1D5002A8258 /* CashPayTopHeaderView.xib in Resources */,
 				5AE4F8681B3D642B005879B7 /* MOStepperView.xib in Resources */,
 				BC8254361B3AA0A500430A6F /* LoginCell.xib in Resources */,
@@ -2200,10 +2350,12 @@
 				BCE589401B2AB62500736923 /* WXUtil.mm in Sources */,
 				BCF564DD1B490052003A2227 /* OrderListModel.m in Sources */,
 				BCF564CC1B43EC53003A2227 /* NSTimer+Block.m in Sources */,
+				BC1052E51BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhotoScrollView.m in Sources */,
 				BC2C0C891B15698B00E2446E /* NSError+MOError.m in Sources */,
 				BCF564D21B46A437003A2227 /* ServerErrorHandler.m in Sources */,
 				5A9E81201B4BE7CA0028AC47 /* OrderDetailViewController.m in Sources */,
 				BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */,
+				BC1052DB1BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhoto.m in Sources */,
 				BC2C0C801B14659400E2446E /* MyStatusViewController.m in Sources */,
 				5A5A2A9F1B43EED4000595A9 /* OrderContactCell.m in Sources */,
 				BC3D0BAD1B70B04E004C7B81 /* SelectSkuViewController.m in Sources */,
@@ -2219,6 +2371,7 @@
 				BC7CBB041B68D6A50047211D /* ApplyLeaderViewController.m in Sources */,
 				BC41ABA91B0C715400A419DA /* Environment.m in Sources */,
 				5A456F9A1B2E687700E95756 /* MOTableCell.m in Sources */,
+				BC1052E71BB3E18000D81C15 /* MLSelectPhotoPickerCollectionView.m in Sources */,
 				BC2C0C961B184EA500E2446E /* AvatarImageView.m in Sources */,
 				BC753ED51BAC07D300D2663C /* FeedSuggestUserCell.m in Sources */,
 				BC2C0C641B130CDB00E2446E /* Account.m in Sources */,
@@ -2227,19 +2380,23 @@
 				BCD755D21B62155F0098752B /* MJPhoto.m in Sources */,
 				BC1052951BB1709900D81C15 /* AddFeedViewController.m in Sources */,
 				5AEB188A1B1865F90098FD5F /* MySuggestModel.m in Sources */,
+				BC1052E01BB3E18000D81C15 /* MLSelectPhotoPickerAssetsViewController.m in Sources */,
 				5A08C1391B39117100642648 /* ProductDetailViewController.m in Sources */,
 				BC753ED01BAC07D300D2663C /* FeedContentCell.m in Sources */,
 				BC5063911B53746800AA233C /* SGAlertMenu.m in Sources */,
 				BCF9ECA71B416C3500AEBE1E /* CityListModel.m in Sources */,
 				5A11C7301B58B49B00B0CDFE /* ProductCalendarModel.m in Sources */,
 				5A9E80E61B4BBF590028AC47 /* ProductPlayFellowCell.m in Sources */,
+				BC1052EA1BB3E18000D81C15 /* MLSelectPhotoPickerGroupTableViewCell.m in Sources */,
 				BC41ABB91B0F25AB00A419DA /* SugTagsModel.m in Sources */,
 				BC8540941ADF74E9005A7C54 /* AppDelegate.m in Sources */,
 				BC3D0BA71B6F77AF004C7B81 /* LeaderProductModel.m in Sources */,
 				5ABDA5B31B42CD4B003BAE80 /* PostOrderModel.m in Sources */,
 				BC97DEFC1B4B75A8002B1A00 /* OrderPerson.m in Sources */,
 				5A83074D1B327FB40057412A /* CommonHeaderView.m in Sources */,
+				BC1052E91BB3E18000D81C15 /* MLSelectPhotoPickerFooterCollectionReusableView.m in Sources */,
 				5A0643781B3BE9FE00361732 /* OrderUpdatePersonFillCell.m in Sources */,
+				BC1052EE1BB3F64900D81C15 /* SelectImage.m in Sources */,
 				5A5A2A691B43E531000595A9 /* OrderContactViewController.m in Sources */,
 				BC10528C1BB15BAE00D81C15 /* CommentListViewController.m in Sources */,
 				5A1B35E81B12BBAC00E1D31B /* CommentModel.m in Sources */,
@@ -2248,13 +2405,14 @@
 				BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */,
 				BC8254331B3A76F500430A6F /* CustomDarkButton.m in Sources */,
 				BCF9ECA01B4161EE00AEBE1E /* CityManager.m in Sources */,
+				BC1052E41BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhotoImageView.m in Sources */,
 				BCF033991B4F72B0005B71D6 /* AlipayOrder.m in Sources */,
 				5A6806F31B01C9C700D02A60 /* PersonInfoViewController.m in Sources */,
-				BCCDF5DF1B09E6C7008BAE12 /* SugSubmitProductContentCell.m in Sources */,
 				BCF9ECA41B4162B800AEBE1E /* City.m in Sources */,
 				BC50639D1B53A37200AA233C /* ForgetPasswordViewController.m in Sources */,
 				BC0BD7021B55173800B95B3A /* CouponListItemCell.m in Sources */,
 				5A6806EE1B01A48300D02A60 /* SettingViewController.m in Sources */,
+				BC1052DF1BB3E18000D81C15 /* MLSelectPhotoNavigationViewController.m in Sources */,
 				5AABF6FA1B28120C000A9D3F /* OrderUpdatePersonViewController.m in Sources */,
 				BC1CC9F71BA90A9A001841E7 /* Feed.m in Sources */,
 				BC1052991BB24E4A00D81C15 /* AddFeedContentCell.m in Sources */,
@@ -2275,12 +2433,15 @@
 				BC5063941B53746800AA233C /* SGSheetMenu.m in Sources */,
 				BC97DEFF1B4BCFF1002B1A00 /* PayChannel.m in Sources */,
 				BC1601E21BB0EC55005F11FD /* AddCommentViewController.m in Sources */,
+				BC1052E31BB3E18000D81C15 /* MLPhotoPickerImageView.m in Sources */,
 				5A1B35F61B12C0D200E1D31B /* CommentCell.m in Sources */,
 				BC8540911ADF74E9005A7C54 /* main.m in Sources */,
 				BC97DF111B4D463C002B1A00 /* PayCheckModel.m in Sources */,
 				5A0643751B3BE9E500361732 /* OrderUpdatePersonSelectCell.m in Sources */,
 				5A794F941B4E68C900BB3B7C /* OrderDetailModel.m in Sources */,
+				BC1052E81BB3E18000D81C15 /* MLSelectPhotoPickerCollectionViewCell.m in Sources */,
 				5A8EF03D1B31619E003ABAF8 /* ProductModel.m in Sources */,
+				BC1052E61BB3E18000D81C15 /* MLSelectPhotoPickerBrowserPhotoView.m in Sources */,
 				BC7CBADE1B662E590047211D /* MOTagLabel.m in Sources */,
 				BC3D0BAA1B70A947004C7B81 /* SelectProductViewController.m in Sources */,
 				5AC9FFC91B17020300C769EF /* SubmitPostModel.m in Sources */,
@@ -2321,11 +2482,12 @@
 				5A794F981B4E703600BB3B7C /* OrderDetailMiddleCell.m in Sources */,
 				5A9E80D81B4BB2450028AC47 /* PlayFellowModel.m in Sources */,
 				BC2C0C681B131ED500E2446E /* AccountService.m in Sources */,
-				BC41ABBF1B0F269100A419DA /* SugTagsCell.m in Sources */,
+				BC1052DA1BB3E18000D81C15 /* MLSelectPhotoAssets.m in Sources */,
 				BC3D0B9F1B6F51AB004C7B81 /* LeaderJoinedViewController.m in Sources */,
-				BC41ABBC1B0F266F00A419DA /* SuggestTagsViewController.m in Sources */,
 				5A0643631B3BC3F800361732 /* FillOrderMiddleCell.m in Sources */,
 				BCD755D41B62155F0098752B /* MJPhotoBrowser.m in Sources */,
+				BC1052E21BB3E18000D81C15 /* MLSelectPhotoPickerViewController.m in Sources */,
+				BC1052E11BB3E18000D81C15 /* MLSelectPhotoPickerGroupViewController.m in Sources */,
 				5A3DBE5A1B18577900E708AC /* FavouriteModel.m in Sources */,
 				BC0BD6FE1B55170A00B95B3A /* CouponListViewController.m in Sources */,
 				5A9E80DC1B4BBB1F0028AC47 /* ProductPlayFellowViewController.m in Sources */,
@@ -2334,13 +2496,17 @@
 				BC753ED31BAC07D300D2663C /* FeedSuggestHeadCell.m in Sources */,
 				BC5063931B53746800AA233C /* SGGridMenu.m in Sources */,
 				BC66D3C51B60FBBE00A5BFC6 /* MyFavCell.m in Sources */,
+				BC1052A01BB2B33700D81C15 /* TopicListViewController.m in Sources */,
 				BCF564C91B43EAB2003A2227 /* UIButton+Block.m in Sources */,
 				BC50639A1B539F0300AA233C /* StringUtils.m in Sources */,
 				BC5063921B53746800AA233C /* SGBaseMenu.m in Sources */,
+				BC1052DC1BB3E18000D81C15 /* MLSelectPhotoPickerDatas.m in Sources */,
 				BCF9ECAA1B4171EC00AEBE1E /* CityListViewController.m in Sources */,
 				BC2C0C931B1849FE00E2446E /* MCAvatarView.m in Sources */,
 				BC829A861B53CE850056BE61 /* NSString+MOEncrypt.m in Sources */,
+				BC1052A41BB394CE00D81C15 /* TopicListCell.m in Sources */,
 				5AE4F82D1B3CF21B005879B7 /* FillOrderModel.m in Sources */,
+				BC1052D91BB3E18000D81C15 /* UIView+MLExtension.m in Sources */,
 				5A3C6C771B57A926006583FB /* ProductCalendarTitleCell.m in Sources */,
 				5A8FF9701B450FA5007A8CA4 /* ProductDetailContentCell.m in Sources */,
 				5A11C7291B589BB600B0CDFE /* ProductCalendarWeekendViewController.m in Sources */,
@@ -2348,6 +2514,7 @@
 				BC753EDD1BAC07D300D2663C /* FeedZanCell.m in Sources */,
 				BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */,
 				5A18DC4B1B295C03001458A4 /* HomeViewController.m in Sources */,
+				BC1052D81BB3E18000D81C15 /* UIImage+MLTint.m in Sources */,
 				BC753ED91BAC07D300D2663C /* FeedUgcCell.m in Sources */,
 				BC753ECC1BAC07D300D2663C /* FeedDetailViewController.m in Sources */,
 				BC2C0C8F1B18075D00E2446E /* UIImage+Color.m in Sources */,
@@ -2362,6 +2529,7 @@
 				5AE4F8671B3D642B005879B7 /* MOStepperView.m in Sources */,
 				BC7CBB0D1B69BE9F0047211D /* ApplyLeaderHeaderCell.m in Sources */,
 				5A2144581B0C6A8A0072682F /* AlertNotice.m in Sources */,
+				BC1052DE1BB3E18000D81C15 /* MLSelectPhotoBrowserViewController.m in Sources */,
 				BC2C0C611B130C9300E2446E /* User.m in Sources */,
 				5AA9B8251B416CDB00265C67 /* UpdatePersonModel.m in Sources */,
 				5A1B35F31B12BE2400E1D31B /* SendCommentView.m in Sources */,
@@ -2370,6 +2538,7 @@
 				5AB1BDDA1B4F7785004A4511 /* OrderDetailTitleCell.m in Sources */,
 				BC41ABAD1B0C7ABF00A419DA /* UploadImageModel.m in Sources */,
 				BC0EC2A21B5F880E00D9A82F /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m in Sources */,
+				BC1052A81BB3955800D81C15 /* TopicListModel.m in Sources */,
 				BCD755D61B62155F0098752B /* MJPhotoProgressView.m in Sources */,
 				5A18DC471B292BDF001458A4 /* UITableView+FDTemplateLayoutHeader.m in Sources */,
 				BC7CBB121B69C6560047211D /* ApplyLeaderIntroHeaderCell.m in Sources */,
@@ -2377,6 +2546,7 @@
 				5A08C13B1B39117100642648 /* ProductDetailBasicInfoCell.m in Sources */,
 				5A4044371B27DB110010782C /* OrderPersonCell.m in Sources */,
 				BCCDF6801B0C331B008BAE12 /* ThirdAccountHelper.m in Sources */,
+				BC1052DD1BB3E18000D81C15 /* MLSelectPhotoPickerGroup.m in Sources */,
 				BCA273241AEB166E002E7534 /* MONavigationController.m in Sources */,
 				BC7CBAF91B6868930047211D /* AboutViewController.m in Sources */,
 				BC2C0C761B140BF100E2446E /* RegisterViewController.m in Sources */,
@@ -2400,11 +2570,9 @@
 				BCD755DE1B621A570098752B /* SDWebImageManager+MJ.m in Sources */,
 				BC97DF031B4BE1EF002B1A00 /* WechatPayData.m in Sources */,
 				BCFC2C371AF9C6B800164BC2 /* ActivityWebViewController.m in Sources */,
-				BC38D2891B099D0B0051C7E9 /* SuggestSubmitViewController.m in Sources */,
 				BC753ED11BAC07D300D2663C /* FeedMoreCell.m in Sources */,
 				BC38D23C1AFEE2B50051C7E9 /* HomeModel.m in Sources */,
 				BC90897F1B5797D800A8D85B /* MOTabHost.m in Sources */,
-				BCCDF5D91B09E345008BAE12 /* SugSubmitProductNameCell.m in Sources */,
 				BC2C0C8C1B15AF6E00E2446E /* MOGroupStyleTableViewController.m in Sources */,
 				BC753ECE1BAC07D300D2663C /* FeedCommentCell.m in Sources */,
 				5A4044321B27D18C0010782C /* OrderPersonViewController.m in Sources */,

@@ -8,14 +8,15 @@
 
 #import "AddFeedContentCell.h"
 
-#define LineSpacing 6
-#define contentFontSize 13.0f
+#define CONTENT_INPUT_HEIGHT         115
+#define IMAGE_LIMITE                 9
 
 @interface AddFeedContentCell()
-@property (nonatomic, strong) AddFeed *feed;
+@property (nonatomic, strong) NSArray *images;
 @end
 
 @implementation AddFeedContentCell
+@synthesize contentTv;
 
 - (void)awakeFromNib {
     // Initialization code
@@ -23,136 +24,129 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 
-- (instancetype)initWithTableView:(UITableView *) tableView contentModel:(AddFeed *)model {
-    self.feed = model;
-    if (self = [super init]) {
-        // text content
-        UITextView *input = [[UITextView alloc]initWithFrame:CGRectZero];
-        [self.contentView addSubview:input];
-        [input mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(@70);
-            make.top.equalTo(self.contentView).with.offset(10);
-            make.left.equalTo(self.contentView).with.offset(10);
-            make.right.equalTo(self.contentView).with.offset(-10);
-        }];
-        input.textColor = UIColorFromRGB(0x333333);
-        input.font = [UIFont systemFontOfSize:contentFontSize];
++ (CGSize)sizeOfImage {
+    CGFloat width = (SCREEN_WIDTH - 60)/4;
+    return CGSizeMake(width, width);
+}
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        contentTv = [[UITextView alloc]init];
+        contentTv.returnKeyType = UIReturnKeyDone;
+        [contentTv addPlaceHolder:@"说说参加活动的感受吧..."];
+        contentTv.height = CONTENT_INPUT_HEIGHT - 15;
+        contentTv.width = SCREEN_WIDTH - 20;
+        contentTv.top = 5;
+        contentTv.left = 8;
+        [contentTv setFont:[UIFont systemFontOfSize:15]];
+        contentTv.placeHolderTextView.font = [UIFont systemFontOfSize:15];
         
-        [input addPlaceHolder:@"说说参加活动的感受吧..."];
-        input.text = model.baseFeed.content;
+//        [self addSelectPhotoViewAtIndex:0];
         
-        NSMutableArray *images = [[NSMutableArray alloc]initWithArray:model.imgs];
-        if (!model.imgs || (model.imgs && model.imgs.count < 9)) {
-            [images addObject:[[UploadImageData alloc]init]];
-        }
-        NSNumber *imageSize = [[NSNumber alloc]initWithInt:(SCREEN_WIDTH - 50) / 4];
-        UIImageView *lastImage;
-        for (int i = 0; i < model.imgs.count; i++) {
-            UIImageView *imageView = [[UIImageView alloc]init];
-            [self.contentView addSubview:imageView];
-            [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.width.equalTo(imageSize);
-                make.height.equalTo(imageSize);
-                
-                make.bottom.lessThanOrEqualTo(self.contentView).with.offset(-10);
-                
-                if (fmod(i, 4) == 0) {
-                    make.left.equalTo(self.contentView).with.offset(10);
-                    if (lastImage) {
-                        if (i/4 == 0) {
-                            make.top.equalTo(lastImage.mas_top).with.offset(0);
-                        } else {
-                            make.top.equalTo(lastImage.mas_bottom).with.offset(10);
-                        }
-                        
-                    } else {
-                        make.top.equalTo(input.mas_bottom).with.offset(10);
-                    }
-                    
-                } else {
-                    make.left.equalTo(lastImage.mas_right).with.offset(10);
-                    if (lastImage) {
-                        make.top.equalTo(lastImage.mas_top).with.offset(0);
-                        
-                    } else {
-                        make.top.equalTo(input.mas_bottom).with.offset(10);
-                    }
-                }
-            }];
-            
-            imageView.contentMode = UIViewContentModeScaleAspectFill;
-            imageView.clipsToBounds = YES;
-            imageView.backgroundColor = UIColorFromRGB(0xcccccc);
-            UploadImageData *data = [images objectAtIndex:i];
-            if (data.path) {
-                [imageView sd_setImageWithURL:[NSURL URLWithString:data.path]];
-            } else {
-                [imageView setImage:[UIImage imageNamed:@"IconUploadImage"]];
-                UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onChooseImage:)];
-                [imageView addGestureRecognizer:singleTap];
-            }
-            imageView.tag = i;
-            imageView.userInteractionEnabled = YES;
-            
-            lastImage = imageView;
-        }
+        [contentTv setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:contentTv];
     }
     return self;
 }
 
-- (void)onChooseImage:(UITapGestureRecognizer *)tap {
-    
-}
-
-+ (CGFloat)heightWithTableView:(UITableView *) tableView contentModel:(AddFeed *)model {
-    AddFeedContentCell * cell = [[AddFeedContentCell alloc] initWithTableView:tableView contentModel:model];
-    CGFloat contentViewWidth = CGRectGetWidth(tableView.frame);
-    
-    
-    // If a cell has accessory view or system accessory type, its content view's width is smaller
-    // than cell's by some fixed value.
-    if (cell.accessoryView) {
-        contentViewWidth -= 16 + CGRectGetWidth(cell.accessoryView.frame);
+- (void)setData:(NSString *)content andImages:(NSArray *)images {
+    [self removeAllSubviews];
+    self.photoCount = 0;
+    // content
+    if (self.contentTv == nil) {
+        contentTv = [[UITextView alloc]init];
+        contentTv.returnKeyType = UIReturnKeyDone;
+        [contentTv addPlaceHolder:@"说说参加活动的感受吧..."];
+        contentTv.height = CONTENT_INPUT_HEIGHT - 15;
+        contentTv.width = SCREEN_WIDTH - 20;
+        contentTv.top = 5;
+        contentTv.left = 8;
+        [contentTv setFont:[UIFont systemFontOfSize:15]];
+        contentTv.placeHolderTextView.font = [UIFont systemFontOfSize:15];
+        
+        [contentTv setBackgroundColor:[UIColor clearColor]];
     } else {
-        static CGFloat systemAccessoryWidths[] = {
-            [UITableViewCellAccessoryNone] = 0,
-            [UITableViewCellAccessoryDisclosureIndicator] = 34,
-            [UITableViewCellAccessoryDetailDisclosureButton] = 68,
-            [UITableViewCellAccessoryCheckmark] = 40,
-            [UITableViewCellAccessoryDetailButton] = 48
-        };
-        contentViewWidth -= systemAccessoryWidths[cell.accessoryType];
+        [self.contentTv removeFromSuperview];
     }
+    self.contentTv.text = content;
+    [self addSubview:contentTv];
     
-    CGSize fittingSize = CGSizeZero;
-    
-    
-    // Add a hard width constraint to make dynamic content views (like labels) expand vertically instead
-    // of growing horizontally, in a flow-layout manner.
-    NSLayoutConstraint *tempWidthConstraint =
-    [NSLayoutConstraint constraintWithItem:cell.contentView
-                                 attribute:NSLayoutAttributeWidth
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:nil
-                                 attribute:NSLayoutAttributeNotAnAttribute
-                                multiplier:1.0
-                                  constant:contentViewWidth];
-    [cell.contentView addConstraint:tempWidthConstraint];
-    
-    
-    // Auto layout engine does its math
-    fittingSize = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    [cell.contentView removeConstraint:tempWidthConstraint];
-    
-    if (tableView.separatorStyle != UITableViewCellSeparatorStyleNone) {
-        fittingSize.height += 1.0 / [UIScreen mainScreen].scale;
+    // images
+    CGFloat photoHeight = (SCREEN_WIDTH - 60)/4;
+    for (int i = 0; i < images.count; i++) {
+        SelectImage *image = images[i];
+        UIImageView *imageView = [[UIImageView alloc]init];
+        [imageView setContentMode:UIViewContentModeScaleAspectFill];
+        
+        // image frame
+        int cloumn = fmod(i, 4);
+        int row = i / 4;
+        imageView.frame = CGRectMake(15 + cloumn * (photoHeight + 10), CONTENT_INPUT_HEIGHT + (photoHeight + 10) * row, photoHeight, photoHeight);
+        
+        // click
+        imageView.userInteractionEnabled=YES;
+        imageView.tag = i;
+        imageView.image = image.thumb;
+        
+        [self addSubview:imageView];
+        self.photoCount ++;
     }
-    
-    return fittingSize.height;
+    [self addNextPhotoView];
 }
 
+- (UIImageView *)addNextPhotoView {
+    if (self.photoCount < IMAGE_LIMITE) {
+        return [self addSelectPhotoViewAtIndex:self.photoCount];
+    }
+    return nil;
+}
+
+- (UIImageView *)addSelectPhotoViewAtIndex:(int)index {
+    CGFloat photoHeight = (SCREEN_WIDTH - 60)/4;
+    UIImageView *imageView = [[UIImageView alloc]init];
+    [imageView setContentMode:UIViewContentModeScaleAspectFill];
+    
+    // image frame
+    int cloumn = fmod(index, 4);
+    int row = index / 4;
+    imageView.frame = CGRectMake(15 + cloumn * (photoHeight + 10), CONTENT_INPUT_HEIGHT + (photoHeight + 10) * row, photoHeight, photoHeight);
+    
+    // click
+    imageView.userInteractionEnabled=YES;
+    imageView.tag = -1;
+    UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onClickImage:)];
+    [imageView addGestureRecognizer:singleTap];
+    imageView.image = [UIImage imageNamed:@"IconUploadImage"];
+    
+    [self addSubview:imageView];
+
+    return imageView;
+}
+
+- (void)onClickImage:(UITapGestureRecognizer *)tap {
+    UIImageView *imageView = (UIImageView *)tap.view;
+    if (self.delegate && imageView.tag == -1) {
+        [self.delegate onPhotoViewClick:(UIImageView *)(tap.view)];
+    }
+}
+
++ (instancetype)cellWithTableView:(UITableView *)tableView {
+    static NSString *identifier = @"CellContent";
+    AddFeedContentCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (cell == nil) {
+        cell = [[AddFeedContentCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    return cell;
+}
+
++ (CGFloat)heightWithImageCount:(int)count {
+    int row = count / 4;
+    CGFloat photoHeight = (SCREEN_WIDTH - 60)/4;
+    return CONTENT_INPUT_HEIGHT + (photoHeight + 10) * (row + 1);
+}
 @end

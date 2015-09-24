@@ -8,11 +8,30 @@
 
 #import <UIKit/UIKit.h>
 #import "AddFeed.h"
+#import "SelectImage.h"
+
+@protocol FeedPhotoPickDelegate <NSObject>
+
+-(void)onPhotoViewClick:(UIImageView *)photoView;
+
+@end
 
 @interface AddFeedContentCell : UITableViewCell
 
-- (instancetype)initWithTableView:(UITableView *) tableView content:(NSString *)content andImages:(NSArray *)images;
+@property (assign, nonatomic) int photoCount;
 
-+ (CGFloat)heightWithTableView:(UITableView *) tableView content:(AddFeed *)model;
+@property (strong, nonatomic) UITextView *contentTv;
+
+@property(assign,nonatomic)id<FeedPhotoPickDelegate> delegate;
+
++ (instancetype)cellWithTableView:(UITableView *)tableView;
+
++ (CGSize)sizeOfImage;
+
++ (CGFloat)heightWithImageCount:(int)count;
+
+- (UIImageView *)addNextPhotoView;
+
+- (void)setData:(NSString *)content andImages:(NSArray *)images;
 
 @end
