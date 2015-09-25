@@ -11,7 +11,6 @@
 #import "URLMappingManager.h"
 #import "MONavigationController.h"
 //APP端签名相关头文件
-#import "payRequsestHandler.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "GeTuiSdk.h"
 

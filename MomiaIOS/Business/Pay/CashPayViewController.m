@@ -22,6 +22,7 @@
 #import "CouponListViewController.h"
 #import "CouponPriceModel.h"
 #import "StringUtils.h"
+#import "PayResultViewController.h"
 
 static NSString * identifier = @"HeaderViewCashPayBottomHeader";
 static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
@@ -98,9 +99,14 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
 - (void)onPayClicked {
     // 0元购
     if (self.order.data.totalFee == 0.0f || (self.couponPrice && self.couponPrice.data == 0.0f)) {
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://payresult?oid=%ld&pid=%ld&sid=%ld&coupon=%@&free=1",
-                                           (long)self.order.data.orderId, (long)self.order.data.productId, (long)self.order.data.skuId, self.coupon.ids]];
-        [[UIApplication sharedApplication] openURL:url];
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+        [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.orderId] forKey:@"oid"];
+        [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.productId] forKey:@"pid"];
+        [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.skuId] forKey:@"sid"];
+        [dic setValue:self.coupon.ids forKey:@"coupon"];
+        [dic setValue:@"1" forKey:@"free"];
+        PayResultViewController *payResult = [[PayResultViewController alloc]initWithParams:dic];
+        [self.navigationController pushViewController:payResult animated:YES];
         return;
     }
     
@@ -158,9 +164,12 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
                                           PayTool *payTool = [PayTool new];
                                           [payTool startAlipay:((AlipayOrderModel *)responseObject).data payResult:^(BOOL success){
                                               if (success) {
-                                                  NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://payresult?oid=%ld&pid=%ld&sid=%ld",
-                                                                                     (long)self.order.data.orderId, (long)self.order.data.productId, (long)self.order.data.skuId]];
-                                                  [[UIApplication sharedApplication] openURL:url];
+                                                  NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+                                                  [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.orderId] forKey:@"oid"];
+                                                  [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.productId] forKey:@"pid"];
+                                                  [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.skuId] forKey:@"sid"];
+                                                  PayResultViewController *payResult = [[PayResultViewController alloc]initWithParams:dic];
+                                                  [self.navigationController pushViewController:payResult animated:YES];
                                               } else {
                                                   [self showDialogWithTitle:nil message:@"支付失败，请重新尝试或选择其他方式支付"];
                                               }
@@ -188,9 +197,12 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
         
     } else if([resp isKindOfClass:[PayResp class]]) {
         if (resp.errCode == WXSuccess) {
-            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://payresult?oid=%ld&pid=%ld&sid=%ld",
-                                               (long)self.order.data.orderId, (long)self.order.data.productId, (long)self.order.data.skuId]];
-            [[UIApplication sharedApplication] openURL:url];
+            NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+            [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.orderId] forKey:@"oid"];
+            [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.productId] forKey:@"pid"];
+            [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.skuId] forKey:@"sid"];
+            PayResultViewController *payResult = [[PayResultViewController alloc]initWithParams:dic];
+            [self.navigationController pushViewController:payResult animated:YES];
             
         } else {
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];

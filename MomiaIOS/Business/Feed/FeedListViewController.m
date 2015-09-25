@@ -80,11 +80,11 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
     }
     
     if (refresh) {
-        self.nextIndex = 0;
+        self.nextIndex = [NSNumber numberWithInt:0];
         self.isLoading = NO;
     }
     
-    NSDictionary * paramDic = @{@"start":[NSString stringWithFormat:@"%ld", (long)self.nextIndex]};
+    NSDictionary * paramDic = @{@"start":[NSString stringWithFormat:@"%@", self.nextIndex]};
     self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/feed")
                                               parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[FeedListModel class]
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
