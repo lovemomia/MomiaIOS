@@ -95,8 +95,7 @@
     BaseFeed *baseFeed = [[BaseFeed alloc]init];
     baseFeed.content = self.contentCell.contentTv.text;
     baseFeed.topicId = self.topicId;
-    baseFeed.productId = self.productId;
-    baseFeed.topic = self.topic;
+    baseFeed.type = [NSNumber numberWithInt:1];
     addFeed.baseFeed = baseFeed;
     
     NSMutableArray *imageArray = [[NSMutableArray alloc]init];
@@ -301,7 +300,6 @@
             pickerVc.maxCount = 9 - self.uploadImages.count;
             pickerVc.status = PickerViewShowStatusCameraRoll;
             [pickerVc showPickerVc:self];
-            __weak typeof(self) weakSelf = self;
             pickerVc.callBack = ^(NSArray *assets){
                 NSMutableArray *images = [[NSMutableArray alloc]init];
                 for (MLSelectPhotoAssets *asset in assets) {
@@ -447,7 +445,6 @@
 
 -(void)onChooseFinish:(Topic *)topic {
     self.topicId = topic.ids;
-    self.productId = topic.productId;
     self.topic = topic.title;
     
     self.content = self.contentCell.contentTv.text;

@@ -10,7 +10,8 @@
 
 @interface Topic : JSONModel
 @property (nonatomic, strong) NSNumber *ids;
-@property (nonatomic, strong) NSNumber *productId;
+@property (nonatomic, strong) NSNumber *type;
+@property (nonatomic, strong) NSNumber *refId;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *scheduler;
 @property (nonatomic, strong) NSString *region;

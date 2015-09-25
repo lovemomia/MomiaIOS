@@ -37,7 +37,7 @@
 @interface FeedDetailData : JSONModel
 @property (nonatomic, strong) FeedCommentList *comments;
 @property (nonatomic, strong) Feed *feed;
-@property (nonatomic, strong) ProductModel *product;
+@property (nonatomic, strong) ProductModel<Optional> *product;
 @property (nonatomic, strong) FeedStarList *staredUsers;
 @end
 

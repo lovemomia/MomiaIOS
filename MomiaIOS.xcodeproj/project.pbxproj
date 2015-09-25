@@ -2666,6 +2666,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/ThirdParty";
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
@@ -2683,9 +2684,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdParty/libWeiboSDK",
-					"$(PROJECT_DIR)/ThirdParty/WeChatSDK_1.5",
 					"$(PROJECT_DIR)/MomiaIOS/SDKExport",
-					"$(PROJECT_DIR)/ThirdParty/Gexin",
 					"$(PROJECT_DIR)/ThirdParty/GeTui",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Pods/",
@@ -2740,6 +2739,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/ThirdParty";
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
@@ -2757,9 +2757,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdParty/libWeiboSDK",
-					"$(PROJECT_DIR)/ThirdParty/WeChatSDK_1.5",
 					"$(PROJECT_DIR)/MomiaIOS/SDKExport",
-					"$(PROJECT_DIR)/ThirdParty/Gexin",
 					"$(PROJECT_DIR)/ThirdParty/GeTui",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Pods/",

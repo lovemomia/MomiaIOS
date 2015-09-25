@@ -29,7 +29,6 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
 @interface FeedDetailViewController ()
 
 @property (nonatomic, strong) NSString *ids;
-@property (nonatomic, strong) NSString *pid;
 @property (nonatomic, strong) FeedDetailModel *model;
 @property (nonatomic, strong) AFHTTPRequestOperation * curOperation;
 
@@ -43,7 +42,6 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
         self.ids = [params objectForKey:@"id"];
-        self.pid = [params objectForKey:@"pid"];
     }
     return self;
 }
@@ -101,7 +99,7 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
         [self.view showLoadingBee];
     }
 
-    NSDictionary * dic = @{@"id":self.ids,@"pid":self.pid};
+    NSDictionary * dic = @{@"id":self.ids};
     self.curOperation = [[HttpService defaultService] GET:URL_APPEND_PATH(@"/feed/detail") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[FeedDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.model == nil) {
             [self.view removeLoadingBee];

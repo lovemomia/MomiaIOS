@@ -141,7 +141,7 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section < self.list.count) {
         Feed *feed = [self.list objectAtIndex:indexPath.section];
-        [self openURL:[NSString stringWithFormat:@"duola://feeddetail?id=%@&pid=%@", feed.ids, feed.topicProductId]];
+        [self openURL:[NSString stringWithFormat:@"duola://feeddetail?id=%@", feed.ids]];
     }
 }
 

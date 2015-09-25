@@ -12,10 +12,10 @@
 @interface BaseFeed : JSONModel
 
 //@property (nonatomic, assign) NSInteger type;
-@property (nonatomic, strong) NSNumber *productId;
-@property (nonatomic, strong) NSNumber *topicId;
-@property (nonatomic, strong) NSString *topic;
+@property (nonatomic, strong) NSNumber *type; // 1 参加了  2 评论了
 @property (nonatomic, strong) NSString *content;
+
+@property (nonatomic, strong) NSNumber *topicId;
 @property (nonatomic, assign) CGFloat lng;
 @property (nonatomic, assign) CGFloat lat;
 

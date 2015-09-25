@@ -29,7 +29,8 @@
 // topic
 @property (nonatomic, strong) NSString *topic;
 @property (nonatomic, strong) NSNumber *topicId;
-@property (nonatomic, strong) NSNumber *topicProductId;
+@property (nonatomic, strong) NSNumber *topicType;
+@property (nonatomic, strong) NSNumber *refId;
 
 
 
