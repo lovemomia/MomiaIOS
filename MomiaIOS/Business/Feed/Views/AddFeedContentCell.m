@@ -17,6 +17,7 @@
 
 @implementation AddFeedContentCell
 @synthesize contentTv;
+@synthesize container;
 
 - (void)awakeFromNib {
     // Initialization code
@@ -35,6 +36,8 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        container = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, CONTENT_INPUT_HEIGHT)];
+        
         contentTv = [[UITextView alloc]init];
         contentTv.returnKeyType = UIReturnKeyDone;
         [contentTv addPlaceHolder:@"说说参加活动的感受吧..."];
@@ -45,16 +48,15 @@
         [contentTv setFont:[UIFont systemFontOfSize:15]];
         contentTv.placeHolderTextView.font = [UIFont systemFontOfSize:15];
         
-//        [self addSelectPhotoViewAtIndex:0];
-        
         [contentTv setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:contentTv];
+        [container addSubview:contentTv];
+        [self addSubview:container];
     }
     return self;
 }
 
 - (void)setData:(NSString *)content andImages:(NSArray *)images {
-    [self removeAllSubviews];
+    [container removeAllSubviews];
     self.photoCount = 0;
     // content
     if (self.contentTv == nil) {
@@ -73,7 +75,7 @@
         [self.contentTv removeFromSuperview];
     }
     self.contentTv.text = content;
-    [self addSubview:contentTv];
+    [container addSubview:contentTv];
     
     // images
     CGFloat photoHeight = (SCREEN_WIDTH - 60)/4;
@@ -92,10 +94,11 @@
         imageView.tag = i;
         imageView.image = image.thumb;
         
-        [self addSubview:imageView];
+        [container addSubview:imageView];
         self.photoCount ++;
     }
     [self addNextPhotoView];
+    container.height = [AddFeedContentCell heightWithImageCount:(self.photoCount)];
 }
 
 - (UIImageView *)addNextPhotoView {
@@ -122,7 +125,7 @@
     [imageView addGestureRecognizer:singleTap];
     imageView.image = [UIImage imageNamed:@"IconUploadImage"];
     
-    [self addSubview:imageView];
+    [container addSubview:imageView];
 
     return imageView;
 }
@@ -147,6 +150,7 @@
 + (CGFloat)heightWithImageCount:(int)count {
     int row = count / 4;
     CGFloat photoHeight = (SCREEN_WIDTH - 60)/4;
-    return CONTENT_INPUT_HEIGHT + (photoHeight + 10) * (row + 1);
+    CGFloat height = CONTENT_INPUT_HEIGHT + (photoHeight + 10) * (row + 1);
+    return height;
 }
 @end

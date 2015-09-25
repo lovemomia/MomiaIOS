@@ -21,6 +21,7 @@
 @property (assign, nonatomic) int photoCount;
 
 @property (strong, nonatomic) UITextView *contentTv;
+@property (strong, nonatomic) UIView *container;
 
 @property(assign,nonatomic)id<FeedPhotoPickDelegate> delegate;
 
