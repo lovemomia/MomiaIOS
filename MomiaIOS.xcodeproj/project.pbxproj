@@ -216,6 +216,8 @@
 		BC50639A1B539F0300AA233C /* StringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5063991B539F0300AA233C /* StringUtils.m */; };
 		BC50639D1B53A37200AA233C /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC50639C1B53A37200AA233C /* ForgetPasswordViewController.m */; };
 		BC50639F1B53A3A000AA233C /* ForgetPasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC50639E1B53A3A000AA233C /* ForgetPasswordCell.xib */; };
+		BC5CF2F71BB5275B00EC5227 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BC5CF2F51BB5275B00EC5227 /* AlipaySDK.bundle */; settings = {ASSET_TAGS = (); }; };
+		BC5CF2F81BB5275B00EC5227 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5CF2F61BB5275B00EC5227 /* AlipaySDK.framework */; settings = {ASSET_TAGS = (); }; };
 		BC66D3BE1B60F24C00A5BFC6 /* MyFavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC66D3BD1B60F24C00A5BFC6 /* MyFavViewController.m */; };
 		BC66D3C51B60FBBE00A5BFC6 /* MyFavCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC66D3C31B60FBBE00A5BFC6 /* MyFavCell.m */; };
 		BC66D3C61B60FBBE00A5BFC6 /* MyFavCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC66D3C41B60FBBE00A5BFC6 /* MyFavCell.xib */; };
@@ -273,8 +275,6 @@
 		BC97DF111B4D463C002B1A00 /* PayCheckModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DF101B4D463C002B1A00 /* PayCheckModel.m */; };
 		BC97DF1B1B4E1DF0002B1A00 /* PayResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DF191B4E1DF0002B1A00 /* PayResultViewController.m */; };
 		BC97DF1C1B4E1DF0002B1A00 /* PayResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC97DF1A1B4E1DF0002B1A00 /* PayResultViewController.xib */; };
-		BC97DF201B4E3E3D002B1A00 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BC97DF1E1B4E3E3D002B1A00 /* AlipaySDK.bundle */; };
-		BC97DF211B4E3E3D002B1A00 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC97DF1F1B4E3E3D002B1A00 /* AlipaySDK.framework */; };
 		BC97DF271B4E4AA4002B1A00 /* PayTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DF261B4E4AA4002B1A00 /* PayTool.m */; };
 		BCA272FD1AE8A2C7002E7534 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA272FB1AE8A2C7002E7534 /* MineViewController.m */; };
 		BCA273101AE9D79F002E7534 /* scheme.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCA2730F1AE9D79F002E7534 /* scheme.plist */; };
@@ -714,6 +714,8 @@
 		BC50639B1B53A37200AA233C /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForgetPasswordViewController.h; path = Business/Login/ForgetPasswordViewController.h; sourceTree = "<group>"; };
 		BC50639C1B53A37200AA233C /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForgetPasswordViewController.m; path = Business/Login/ForgetPasswordViewController.m; sourceTree = "<group>"; };
 		BC50639E1B53A3A000AA233C /* ForgetPasswordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ForgetPasswordCell.xib; path = Business/Login/Views/ForgetPasswordCell.xib; sourceTree = "<group>"; };
+		BC5CF2F51BB5275B00EC5227 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		BC5CF2F61BB5275B00EC5227 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		BC66D3BC1B60F24C00A5BFC6 /* MyFavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyFavViewController.h; path = Business/Mine/MyFavViewController.h; sourceTree = "<group>"; };
 		BC66D3BD1B60F24C00A5BFC6 /* MyFavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyFavViewController.m; path = Business/Mine/MyFavViewController.m; sourceTree = "<group>"; };
 		BC66D3C21B60FBBE00A5BFC6 /* MyFavCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyFavCell.h; path = Business/Mine/Views/MyFavCell.h; sourceTree = "<group>"; };
@@ -814,8 +816,6 @@
 		BC97DF181B4E1DF0002B1A00 /* PayResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayResultViewController.h; sourceTree = "<group>"; };
 		BC97DF191B4E1DF0002B1A00 /* PayResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayResultViewController.m; sourceTree = "<group>"; };
 		BC97DF1A1B4E1DF0002B1A00 /* PayResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayResultViewController.xib; sourceTree = "<group>"; };
-		BC97DF1E1B4E3E3D002B1A00 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
-		BC97DF1F1B4E3E3D002B1A00 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		BC97DF251B4E4AA4002B1A00 /* PayTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayTool.h; sourceTree = "<group>"; };
 		BC97DF261B4E4AA4002B1A00 /* PayTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayTool.m; sourceTree = "<group>"; };
 		BCA272FA1AE8A2C7002E7534 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineViewController.h; path = Business/Mine/MineViewController.h; sourceTree = "<group>"; };
@@ -927,11 +927,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC1CC9F01BA7E4AD001841E7 /* AVFoundation.framework in Frameworks */,
+				BC5CF2F81BB5275B00EC5227 /* AlipaySDK.framework in Frameworks */,
 				BC1CC9EE1BA7E49F001841E7 /* CoreLocation.framework in Frameworks */,
 				BC38D2931B09B8DC0051C7E9 /* SystemConfiguration.framework in Frameworks */,
 				BCCDF6761B0B4F97008BAE12 /* CoreGraphics.framework in Frameworks */,
 				BC41ABA51B0C69BE00A419DA /* libWeChatSDK.a in Frameworks */,
-				BC97DF211B4E3E3D002B1A00 /* AlipaySDK.framework in Frameworks */,
 				BCCDF6741B0B4F90008BAE12 /* Foundation.framework in Frameworks */,
 				BCCDF6721B0B4F82008BAE12 /* UIKit.framework in Frameworks */,
 				BCCDF6701B0B4F7A008BAE12 /* CoreText.framework in Frameworks */,
@@ -1949,8 +1949,8 @@
 		BC97DF1D1B4E3E2E002B1A00 /* Alipay */ = {
 			isa = PBXGroup;
 			children = (
-				BC97DF1E1B4E3E3D002B1A00 /* AlipaySDK.bundle */,
-				BC97DF1F1B4E3E3D002B1A00 /* AlipaySDK.framework */,
+				BC5CF2F51BB5275B00EC5227 /* AlipaySDK.bundle */,
+				BC5CF2F61BB5275B00EC5227 /* AlipaySDK.framework */,
 			);
 			name = Alipay;
 			sourceTree = "<group>";
@@ -2266,6 +2266,7 @@
 				BC3D0BA41B6F7546004C7B81 /* LeaderJoinedCell.xib in Resources */,
 				5A6806F01B01A9BD00D02A60 /* SettingMsgCell.xib in Resources */,
 				BC753ED41BAC07D300D2663C /* FeedSuggestHeadCell.xib in Resources */,
+				BC5CF2F71BB5275B00EC5227 /* AlipaySDK.bundle in Resources */,
 				BC0BD7031B55173800B95B3A /* CouponListItemCell.xib in Resources */,
 				5A6806F51B01CEF700D02A60 /* PersonLogoCell.xib in Resources */,
 				BC8254381B3AB01E00430A6F /* RegisterCell.xib in Resources */,
@@ -2316,7 +2317,6 @@
 				BC97DF1C1B4E1DF0002B1A00 /* PayResultViewController.xib in Resources */,
 				5A3C6C731B579F1C006583FB /* ProductCalendarCell.xib in Resources */,
 				BC41ABA61B0C69BE00A419DA /* read_me.txt in Resources */,
-				BC97DF201B4E3E3D002B1A00 /* AlipaySDK.bundle in Resources */,
 				5A82F1A41B257449000D2C60 /* FillOrderViewController.xib in Resources */,
 				5A9E81261B4BE8B40028AC47 /* OrderDetailTopCell.xib in Resources */,
 				5A83074F1B3291430057412A /* CommonHeaderView.xib in Resources */,
