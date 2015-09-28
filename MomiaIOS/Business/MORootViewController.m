@@ -46,7 +46,6 @@
         _home.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"好活动" image:[UIImage imageNamed:@"TabHomeNormal"] selectedImage:[UIImage imageNamed:@"TabHomeSelect"]];
         _home.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -2);
         
-        
         _playmate = [[FeedListViewController alloc]initWithParams:nil];
         _playmate.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"成长说" image:[UIImage imageNamed:@"TabPlaymateNormal"] selectedImage:[UIImage imageNamed:@"TabPlaymateSelect"]];
         _playmate.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -2);
@@ -71,20 +70,19 @@
 }
 
 - (void)makeTabBarHidden:(BOOL)hide {
-    if ( [self.view.subviews count] < 2 )
+    if ([self.view.subviews count] < 2)
         return;
     
     UIView *contentView;
     
-    if ( [[self.view.subviews objectAtIndex:0] isKindOfClass:[UITabBar class]] )
+    if ([[self.view.subviews objectAtIndex:0] isKindOfClass:[UITabBar class]])
         contentView = [self.view.subviews objectAtIndex:1];
     else
         contentView = [self.view.subviews objectAtIndex:0];
     
-    if ( hide ){
+    if (hide) {
         contentView.frame = self.view.bounds;
-    }
-    else{
+    } else {
         contentView.frame = CGRectMake(self.view.bounds.origin.x,
                                        self.view.bounds.origin.y,
                                        self.view.bounds.size.width,
