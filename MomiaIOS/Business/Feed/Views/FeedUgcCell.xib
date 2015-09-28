@@ -15,7 +15,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVR-jS-xPH">
-                        <rect key="frame" x="202.5" y="9" width="117.5" height="17"/>
+                        <rect key="frame" x="193.5" y="0.0" width="126.5" height="34.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="34.5" id="upH-Pa-KGz"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <state key="normal" title=" 100" image="IconZan">
                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -26,7 +29,10 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cre-VW-lw1">
-                        <rect key="frame" x="65" y="9" width="117.5" height="17"/>
+                        <rect key="frame" x="65" y="0.0" width="126.5" height="34.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="34.5" id="ziI-g9-tmT"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <state key="normal" title=" 12" image="IconComment">
                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -53,22 +59,23 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="aVR-jS-xPH" secondAttribute="trailing" id="1RF-9h-bWp"/>
-                    <constraint firstItem="Cre-VW-lw1" firstAttribute="top" secondItem="Dos-7L-tPb" secondAttribute="top" constant="9" id="6OE-up-WqA"/>
-                    <constraint firstAttribute="bottom" secondItem="Cre-VW-lw1" secondAttribute="bottom" constant="8.5" id="C8K-xh-uIo"/>
+                    <constraint firstItem="Cre-VW-lw1" firstAttribute="top" secondItem="Dos-7L-tPb" secondAttribute="top" id="6OE-up-WqA"/>
+                    <constraint firstAttribute="bottom" secondItem="Cre-VW-lw1" secondAttribute="bottom" id="C8K-xh-uIo"/>
                     <constraint firstItem="PKD-Uf-zyl" firstAttribute="leading" secondItem="Cre-VW-lw1" secondAttribute="trailing" constant="10" id="GgL-M9-XgT"/>
                     <constraint firstItem="PKD-Uf-zyl" firstAttribute="leading" secondItem="Cre-VW-lw1" secondAttribute="trailing" constant="10" id="LuT-ja-zrM"/>
-                    <constraint firstAttribute="bottom" secondItem="aVR-jS-xPH" secondAttribute="bottom" constant="8.5" id="W0e-Vk-egZ"/>
-                    <constraint firstItem="aVR-jS-xPH" firstAttribute="leading" secondItem="Cre-VW-lw1" secondAttribute="trailing" constant="20" id="Wur-M8-aYk"/>
+                    <constraint firstAttribute="bottom" secondItem="aVR-jS-xPH" secondAttribute="bottom" id="W0e-Vk-egZ"/>
+                    <constraint firstItem="aVR-jS-xPH" firstAttribute="leading" secondItem="Cre-VW-lw1" secondAttribute="trailing" constant="2" id="Wur-M8-aYk"/>
                     <constraint firstItem="Cre-VW-lw1" firstAttribute="leading" secondItem="Dos-7L-tPb" secondAttribute="leading" constant="65" id="cNC-Hm-Jwf"/>
                     <constraint firstItem="Cre-VW-lw1" firstAttribute="baseline" secondItem="aVR-jS-xPH" secondAttribute="baseline" id="kwX-WU-9Z4"/>
                     <constraint firstItem="Cre-VW-lw1" firstAttribute="width" secondItem="aVR-jS-xPH" secondAttribute="width" id="pHP-XE-LiR"/>
-                    <constraint firstItem="aVR-jS-xPH" firstAttribute="leading" secondItem="PKD-Uf-zyl" secondAttribute="trailing" constant="10" id="rx4-SX-2fn"/>
+                    <constraint firstItem="aVR-jS-xPH" firstAttribute="leading" secondItem="PKD-Uf-zyl" secondAttribute="trailing" constant="1" id="rx4-SX-2fn"/>
                     <constraint firstAttribute="centerY" secondItem="PKD-Uf-zyl" secondAttribute="centerY" id="wJK-os-osB"/>
                     <constraint firstItem="PKD-Uf-zyl" firstAttribute="leading" secondItem="Cre-VW-lw1" secondAttribute="trailing" constant="10" id="wkk-pw-di2"/>
-                    <constraint firstItem="aVR-jS-xPH" firstAttribute="top" secondItem="Dos-7L-tPb" secondAttribute="top" constant="9" id="yDI-dB-xko"/>
+                    <constraint firstItem="aVR-jS-xPH" firstAttribute="top" secondItem="Dos-7L-tPb" secondAttribute="top" id="yDI-dB-xko"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="kwX-WU-9Z4"/>
                         <exclude reference="GgL-M9-XgT"/>
                         <exclude reference="LuT-ja-zrM"/>
                         <exclude reference="wkk-pw-di2"/>

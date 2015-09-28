@@ -26,9 +26,15 @@
 }
 
 - (IBAction)onCommentBtnClick:(id)sender {
+    if (self.delegate) {
+        [self.delegate onCommentClicked:self];
+    }
 }
 
 - (IBAction)onZanBtnClick:(id)sender {
+    if (self.delegate) {
+        [self.delegate onZanClicked:self];
+    }
 }
 
 -(void)setData:(Feed *)data {

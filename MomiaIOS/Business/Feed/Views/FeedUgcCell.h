@@ -8,7 +8,14 @@
 
 #import "MOTableCell.h"
 
+@protocol FeedUgcCellDelegate <NSObject>
+- (void)onCommentClicked:(id)cell;
+- (void)onZanClicked:(id)cell;
+@end
+
 @interface FeedUgcCell : MOTableCell<MOTableCellDataProtocol>
+
+@property (nonatomic, strong) id<FeedUgcCellDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UIButton *commentBtn;
 @property (weak, nonatomic) IBOutlet UIButton *zanBtn;

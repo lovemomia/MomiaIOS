@@ -20,7 +20,7 @@ static NSString *identifierPlaymateUgcCell = @"PlaymateUgcCell";
 static NSString *identifierPlaymateSuggestHeadCell = @"PlaymateSuggestHeadCell";
 static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
 
-@interface FeedListViewController()
+@interface FeedListViewController()<FeedUgcCellDelegate>
 
 @property(nonatomic,strong) NSMutableDictionary * contentCellHeightCacheDic;
 @property (nonatomic, strong) NSMutableArray *list;
@@ -224,6 +224,8 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
         } else {
             FeedUgcCell *ugcCell = [FeedUgcCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierPlaymateUgcCell];
             [ugcCell setData:feed];
+            ugcCell.delegate = self;
+            ugcCell.tag = indexPath.section;
             cell = ugcCell;
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -241,6 +243,29 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
         }
         return cell;
     }
+}
+
+#pragma mark - FeedUgcCell delegate
+
+- (void)onCommentClicked:(id)cell {
+    FeedUgcCell *ugcCell = cell;
+    Feed *feed = [self.list objectAtIndex:ugcCell.tag];
+    [self openURL:[NSString stringWithFormat:@"duola://commentlist?id=%@", feed.ids]];
+}
+
+- (void)onZanClicked:(id)cell {
+    FeedUgcCell *ugcCell = cell;
+    Feed *feed = [self.list objectAtIndex:ugcCell.tag];
+    if (![[AccountService defaultService] isLogin]) {
+        [[AccountService defaultService] login:self];
+    }
+    NSDictionary * dic = @{@"id":feed.ids};
+    [[HttpService defaultService] POST:URL_APPEND_PATH(@"/feed/star") parameters:dic JSONModelClass:[BaseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [ugcCell.zanBtn setTitle:[NSString stringWithFormat:@"%d", ([feed.starCount intValue] + 1)] forState:UIControlStateNormal];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
 }
 
 @end
