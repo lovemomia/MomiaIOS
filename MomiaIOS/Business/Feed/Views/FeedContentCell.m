@@ -136,8 +136,8 @@
 
 - (void)onImageClick:(UIGestureRecognizer *)recognizer {
     NSMutableArray *photos = [NSMutableArray arrayWithCapacity:self.feed.imgs.count];
-    for (int i = 0; i < self.feed.imgs.count; i++) {
-        NSString *url = [self.feed.imgs objectAtIndex:i];
+    for (int i = 0; i < self.feed.largeImgs.count; i++) {
+        NSString *url = [self.feed.largeImgs objectAtIndex:i];
         MJPhoto *photo = [[MJPhoto alloc] init];
         photo.url = [NSURL URLWithString:url];
         photo.srcImageView = (UIImageView *)recognizer.view;

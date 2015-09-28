@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSString *poi;
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSArray *imgs;
+@property (nonatomic, strong) NSArray *largeImgs;
 @property (nonatomic, strong) NSArray<Optional> *children;
 @property (nonatomic, strong) NSNumber *type;
 
