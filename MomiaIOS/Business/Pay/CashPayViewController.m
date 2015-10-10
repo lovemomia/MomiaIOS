@@ -61,8 +61,8 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
     self.navigationItem.title = @"收银台";
     
     [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:identifier];
-    [CashPayBottomCell registerCellWithTableView:self.tableView withIdentifier:cashPayBottomIdentifier];
-    [CommonHeaderView registerCellWithTableView:self.tableView];
+    [CashPayBottomCell registerCellFromNibWithTableView:self.tableView withIdentifier:cashPayBottomIdentifier];
+    [CommonHeaderView registerCellFromNibWithTableView:self.tableView];
     
     self.payChannels = [NSMutableArray new];
     [self.payChannels addObject:[[PayChannel alloc]initWithType:1 title:@"微信支付" desc:@"推荐已安装微信的用户使用" icon:@"IconWechat" select:YES]];

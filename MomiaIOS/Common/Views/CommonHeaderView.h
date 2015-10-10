@@ -13,7 +13,7 @@
 
 +(instancetype)cellWithTableView:(UITableView *)tableView;
 
-+(void)registerCellWithTableView:(UITableView *)tableView;
++(void)registerCellFromNibWithTableView:(UITableView *)tableView;
 
 -(void)setData:(NSString *) title;
 

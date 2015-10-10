@@ -29,9 +29,9 @@ static NSString *identifierApplyLeaderIntroContentCell = @"ApplyLeaderIntroConte
     
     self.navigationItem.title = @"成为领队";
     
-    [ApplyLeaderHeaderCell registerCellWithTableView:self.tableView withIdentifier:identifierApplyLeaderHeaderCell];
-    [ApplyLeaderIntroHeaderCell registerCellWithTableView:self.tableView withIdentifier:identifierApplyLeaderIntroHeaderCell];
-    [ApplyLeaderIntroContentCell registerCellWithTableView:self.tableView withIdentifier:identifierApplyLeaderIntroContentCell];
+    [ApplyLeaderHeaderCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierApplyLeaderHeaderCell];
+    [ApplyLeaderIntroHeaderCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierApplyLeaderIntroHeaderCell];
+    [ApplyLeaderIntroContentCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierApplyLeaderIntroContentCell];
 }
 
 - (void)didReceiveMemoryWarning {

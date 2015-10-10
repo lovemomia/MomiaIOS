@@ -65,11 +65,11 @@ typedef enum
 //    UIBarButtonItem *shareItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleShare"] style:UIBarButtonItemStylePlain target:self action:@selector(onShareClick)];
     self.navigationItem.rightBarButtonItem = favItem;
     
-    [ProductDetailCarouselCell registerCellWithTableView:self.tableView withIdentifier:productDetailCarouselIdentifier];
-    [ProductDetailEnrollCell registerCellWithTableView:self.tableView withIdentifier:productDetailEnrollIdentifier];
-    [ProductDetailBasicInfoCell registerCellWithTableView:self.tableView withIdentifier:productDetailBasicInfoIdentifier];
-    [ProductDetailTagsCell registerCellWithTableView:self.tableView withIdentifier:productDetailTagsIdentifier];
-    [CommonHeaderView registerCellWithTableView:self.tableView];
+    [ProductDetailCarouselCell registerCellFromNibWithTableView:self.tableView withIdentifier:productDetailCarouselIdentifier];
+    [ProductDetailEnrollCell registerCellFromNibWithTableView:self.tableView withIdentifier:productDetailEnrollIdentifier];
+    [ProductDetailBasicInfoCell registerCellFromNibWithTableView:self.tableView withIdentifier:productDetailBasicInfoIdentifier];
+    [ProductDetailTagsCell registerCellFromNibWithTableView:self.tableView withIdentifier:productDetailTagsIdentifier];
+    [CommonHeaderView registerCellFromNibWithTableView:self.tableView];
     
     self.tableView.backgroundView = [[UIView alloc] init];
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);

@@ -148,7 +148,7 @@ static NSString * p_p_f_identifier = @"Cell_p_p_f";
     self.navigationItem.title = @"玩伴信息";
     
     [ProductPlayFellowHeaderView registerHeaderWithTableView:self.tableView];
-    [ProductPlayFellowCell registerCellWithTableView:self.tableView withIdentifier:p_p_f_identifier];
+    [ProductPlayFellowCell registerCellFromNibWithTableView:self.tableView withIdentifier:p_p_f_identifier];
     
     [self requestData];
     

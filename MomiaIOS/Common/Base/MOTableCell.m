@@ -10,24 +10,26 @@
 
 @implementation MOTableCell
 
-+(instancetype)cellWithTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath withIdentifier:(NSString *) identifier
-{
++ (instancetype)cellWithTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath withIdentifier:(NSString *) identifier {
     id cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     return cell;
 }
 
-+(void)registerCellWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier
-{
++ (void)registerCellFromNibWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier {
      [tableView registerNib:[UINib nibWithNibName:NSStringFromClass(self) bundle:nil] forCellReuseIdentifier:identifier];
 }
-+(CGFloat)heightWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath data:(id)data
-{
+
++ (void)registerCellFromClassWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier {
+    [tableView registerClass:self forCellReuseIdentifier:identifier];
+}
+
++ (CGFloat)heightWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath data:(id)data {
     return [tableView fd_heightForCellWithIdentifier:identifier cacheByIndexPath:indexPath configuration:^(MOTableCell * cell) {
         cell.data = data;
     }];
 }
--(void)setData:(id)data
-{
+
+- (void)setData:(id)data {
     //do nothing, the subclass must implementation it
 }
 

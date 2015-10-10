@@ -36,7 +36,7 @@
     self.navigationItem.leftBarButtonItem = leftBtn;
     [leftBtn setImage:[UIImage imageNamed:@"TitleCancel"]];
     
-    [CommonHeaderView registerCellWithTableView:self.tableView];
+    [CommonHeaderView registerCellFromNibWithTableView:self.tableView];
     
     [self requestData];
 }

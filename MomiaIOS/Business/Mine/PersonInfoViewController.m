@@ -33,7 +33,7 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"个人信息";
     
-    [CommonHeaderView registerCellWithTableView:self.tableView];
+    [CommonHeaderView registerCellFromNibWithTableView:self.tableView];
     
     [self refreshAccount];
 }

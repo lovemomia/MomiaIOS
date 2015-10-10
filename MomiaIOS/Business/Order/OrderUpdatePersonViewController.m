@@ -221,8 +221,8 @@ static NSString * orderUpdatePersonSelectIdentifier = @"CellOrderUpdatePersonSel
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
 
-    [OrderUpdatePersonFillCell registerCellWithTableView:self.tableView withIdentifier:orderUpdatePersonFillIdentifier];
-    [OrderUpdatePersonSelectCell registerCellWithTableView:self.tableView withIdentifier:orderUpdatePersonSelectIdentifier];
+    [OrderUpdatePersonFillCell registerCellFromNibWithTableView:self.tableView withIdentifier:orderUpdatePersonFillIdentifier];
+    [OrderUpdatePersonSelectCell registerCellFromNibWithTableView:self.tableView withIdentifier:orderUpdatePersonSelectIdentifier];
     
     if(!self.personId) {
         self.navigationItem.title = @"新增出行人";

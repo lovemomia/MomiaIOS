@@ -24,7 +24,7 @@ static NSString * identifier = @"CellCommonIdentifier";
     return view;
 }
 
-+(void)registerCellWithTableView:(UITableView *)tableView
++(void)registerCellFromNibWithTableView:(UITableView *)tableView
 {
     [tableView registerNib:[UINib nibWithNibName:NSStringFromClass(self) bundle:nil] forHeaderFooterViewReuseIdentifier:identifier];
 }

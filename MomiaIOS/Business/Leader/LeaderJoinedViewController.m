@@ -26,7 +26,7 @@ static NSString * leaderJoinedCellIdentifier = @"LeaderJoinedCell";
     [super viewDidLoad];
     self.navigationItem.title = @"活动列表";
     
-    [LeaderJoinedCell registerCellWithTableView:self.tableView withIdentifier:leaderJoinedCellIdentifier];
+    [LeaderJoinedCell registerCellFromNibWithTableView:self.tableView withIdentifier:leaderJoinedCellIdentifier];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLeaderDataChanged:) name:@"leaderDataChanged" object:nil];
 }

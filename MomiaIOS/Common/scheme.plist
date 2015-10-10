@@ -362,5 +362,23 @@
 		<key>desc</key>
 		<string>选择主题</string>
 	</dict>
+	<key>packagedetail</key>
+	<dict>
+		<key>controller</key>
+		<string>PackageDetailViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>课程包详情页</string>
+	</dict>
+	<key>coursedetail</key>
+	<dict>
+		<key>controller</key>
+		<string>CourseDetailViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>课程详情页</string>
+	</dict>
 </dict>
 </plist>

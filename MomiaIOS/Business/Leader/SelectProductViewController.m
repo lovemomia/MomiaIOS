@@ -28,7 +28,7 @@ static NSString * myFavCellIdentifier = @"MyFavCell";
     [super viewDidLoad];
     self.navigationItem.title = @"选择活动";
     
-    [MyFavCell registerCellWithTableView:self.tableView withIdentifier:myFavCellIdentifier];
+    [MyFavCell registerCellFromNibWithTableView:self.tableView withIdentifier:myFavCellIdentifier];
     
     self.list = [NSMutableArray new];
     [self requestData:YES];

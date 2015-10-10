@@ -41,10 +41,10 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
     self.navigationItem.title = @"成长说";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleAdd"] style:UIBarButtonItemStylePlain target:self action:@selector(onAddFeedClick)];
     
-    [FeedUserHeadCell registerCellWithTableView:self.tableView withIdentifier:identifierPlaymateUserHeadCell];
-    [FeedUgcCell registerCellWithTableView:self.tableView withIdentifier:identifierPlaymateUgcCell];
-    [FeedSuggestHeadCell registerCellWithTableView:self.tableView withIdentifier:identifierPlaymateSuggestHeadCell];
-    [FeedSuggestUserCell registerCellWithTableView:self.tableView withIdentifier:identifierPlaymateSuggestUserCell];
+    [FeedUserHeadCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierPlaymateUserHeadCell];
+    [FeedUgcCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierPlaymateUgcCell];
+    [FeedSuggestHeadCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierPlaymateSuggestHeadCell];
+    [FeedSuggestUserCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierPlaymateSuggestUserCell];
     
     // 设置下拉刷新
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];

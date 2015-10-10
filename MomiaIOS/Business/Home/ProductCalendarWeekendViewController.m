@@ -136,7 +136,7 @@ static NSString * productCalendarWeekendIdentifier = @"CellProductCalendarWeeken
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [ProductCalendarCell registerCellWithTableView:self.tableView withIdentifier:productCalendarWeekendIdentifier];
+    [ProductCalendarCell registerCellFromNibWithTableView:self.tableView withIdentifier:productCalendarWeekendIdentifier];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
         
     [self requestData];

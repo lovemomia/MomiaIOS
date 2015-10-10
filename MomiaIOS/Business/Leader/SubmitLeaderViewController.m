@@ -33,7 +33,7 @@
     
     self.navigationItem.title = @"成为领队";
     
-    [CommonHeaderView registerCellWithTableView:self.tableView];
+    [CommonHeaderView registerCellFromNibWithTableView:self.tableView];
 }
 
 -(void)viewDidAppear:(BOOL)animated

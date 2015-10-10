@@ -176,9 +176,9 @@ static NSString * orderPersonIdentifier = @"CellOrderPerson";
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"新增" style:UIBarButtonItemStylePlain target:self action:@selector(onNewAddClick)];
     
-    [CommonHeaderView registerCellWithTableView:self.tableView];
+    [CommonHeaderView registerCellFromNibWithTableView:self.tableView];
     
-    [OrderPersonCell registerCellWithTableView:self.tableView withIdentifier:orderPersonIdentifier];
+    [OrderPersonCell registerCellFromNibWithTableView:self.tableView withIdentifier:orderPersonIdentifier];
     
     self.tableView.backgroundView = [[UIView alloc] init];
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);

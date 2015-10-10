@@ -91,7 +91,7 @@ static NSString * identifier = @"CellOrderContact";
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
     
-    [OrderContactCell registerCellWithTableView:self.tableView withIdentifier:identifier];
+    [OrderContactCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifier];
     
 }
 

@@ -37,7 +37,7 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
     self.navigationItem.title = @"评论列表";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发表评论" style:UIBarButtonItemStylePlain target:self action:@selector(onCommentClicked)];
     
-    [FeedCommentCell registerCellWithTableView:self.tableView withIdentifier:identifierFeedCommentCell];
+    [FeedCommentCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierFeedCommentCell];
     
     self.list = [NSMutableArray new];
     [self requestData:YES];

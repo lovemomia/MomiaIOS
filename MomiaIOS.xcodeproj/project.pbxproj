@@ -114,6 +114,12 @@
 		5AE4F8681B3D642B005879B7 /* MOStepperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE4F8661B3D642B005879B7 /* MOStepperView.xib */; };
 		5AE4F86B1B3D645E005879B7 /* MOStepperGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE4F86A1B3D645E005879B7 /* MOStepperGroup.m */; };
 		5AEB188A1B1865F90098FD5F /* MySuggestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB18891B1865F90098FD5F /* MySuggestModel.m */; };
+		BC040D091BC8ABA900988AB2 /* CourseTagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC040D081BC8ABA900988AB2 /* CourseTagsCell.m */; settings = {ASSET_TAGS = (); }; };
+		BC040D0C1BC8BB5500988AB2 /* CourseDiscCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC040D0B1BC8BB5500988AB2 /* CourseDiscCell.m */; settings = {ASSET_TAGS = (); }; };
+		BC040D0F1BC8E62F00988AB2 /* CourseSectionTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC040D0E1BC8E62F00988AB2 /* CourseSectionTitleCell.m */; settings = {ASSET_TAGS = (); }; };
+		BC040D131BC8EDB600988AB2 /* CourseListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC040D111BC8EDB600988AB2 /* CourseListItemCell.m */; settings = {ASSET_TAGS = (); }; };
+		BC040D141BC8EDB600988AB2 /* CourseListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC040D121BC8EDB600988AB2 /* CourseListItemCell.xib */; settings = {ASSET_TAGS = (); }; };
+		BC040D161BC9176000988AB2 /* CourseSectionTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC040D151BC9176000988AB2 /* CourseSectionTitleCell.xib */; settings = {ASSET_TAGS = (); }; };
 		BC0BD6FA1B5516DB00B95B3A /* Coupon.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD6F71B5516DB00B95B3A /* Coupon.m */; };
 		BC0BD6FB1B5516DB00B95B3A /* CouponListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD6F91B5516DB00B95B3A /* CouponListModel.m */; };
 		BC0BD6FE1B55170A00B95B3A /* CouponListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD6FD1B55170A00B95B3A /* CouponListViewController.m */; };
@@ -200,6 +206,12 @@
 		BC359A3A1BC61F89002DE863 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A351BC61F89002DE863 /* MBProgressHUD+Add.m */; settings = {ASSET_TAGS = (); }; };
 		BC359A3B1BC61F89002DE863 /* SDWebImageManager+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A371BC61F89002DE863 /* SDWebImageManager+MJ.m */; settings = {ASSET_TAGS = (); }; };
 		BC359A3C1BC61F89002DE863 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A391BC61F89002DE863 /* UITextView+Placeholder.m */; settings = {ASSET_TAGS = (); }; };
+		BC359A401BC648BF002DE863 /* PhotoTitleHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A3E1BC648BF002DE863 /* PhotoTitleHeaderCell.m */; settings = {ASSET_TAGS = (); }; };
+		BC359A411BC648BF002DE863 /* PhotoTitleHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC359A3F1BC648BF002DE863 /* PhotoTitleHeaderCell.xib */; settings = {ASSET_TAGS = (); }; };
+		BC359A451BC66447002DE863 /* CourseBuyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A431BC66447002DE863 /* CourseBuyCell.m */; settings = {ASSET_TAGS = (); }; };
+		BC359A461BC66447002DE863 /* CourseBuyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC359A441BC66447002DE863 /* CourseBuyCell.xib */; settings = {ASSET_TAGS = (); }; };
+		BC359A491BC679EF002DE863 /* HomeGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A481BC679EF002DE863 /* HomeGridCell.m */; settings = {ASSET_TAGS = (); }; };
+		BC359A4C1BC67B4F002DE863 /* HomeOperateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A4B1BC67B4F002DE863 /* HomeOperateCell.m */; settings = {ASSET_TAGS = (); }; };
 		BC38D23C1AFEE2B50051C7E9 /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38D2371AFEE2B50051C7E9 /* HomeModel.m */; };
 		BC38D2441AFEEA300051C7E9 /* HttpService.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38D2431AFEEA300051C7E9 /* HttpService.m */; };
 		BC38D28D1B09B8960051C7E9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC38D28C1B09B8960051C7E9 /* libz.dylib */; };
@@ -520,6 +532,16 @@
 		5AEB18881B1865F90098FD5F /* MySuggestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySuggestModel.h; path = Common/Models/MySuggest/MySuggestModel.h; sourceTree = "<group>"; };
 		5AEB18891B1865F90098FD5F /* MySuggestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySuggestModel.m; path = Common/Models/MySuggest/MySuggestModel.m; sourceTree = "<group>"; };
 		5B9DF4BE98C18CC18BDADCD8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC040D071BC8ABA900988AB2 /* CourseTagsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseTagsCell.h; path = Business/Course/Views/CourseTagsCell.h; sourceTree = "<group>"; };
+		BC040D081BC8ABA900988AB2 /* CourseTagsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseTagsCell.m; path = Business/Course/Views/CourseTagsCell.m; sourceTree = "<group>"; };
+		BC040D0A1BC8BB5500988AB2 /* CourseDiscCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseDiscCell.h; path = Business/Course/Views/CourseDiscCell.h; sourceTree = "<group>"; };
+		BC040D0B1BC8BB5500988AB2 /* CourseDiscCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseDiscCell.m; path = Business/Course/Views/CourseDiscCell.m; sourceTree = "<group>"; };
+		BC040D0D1BC8E62F00988AB2 /* CourseSectionTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseSectionTitleCell.h; path = Business/Course/Views/CourseSectionTitleCell.h; sourceTree = "<group>"; };
+		BC040D0E1BC8E62F00988AB2 /* CourseSectionTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseSectionTitleCell.m; path = Business/Course/Views/CourseSectionTitleCell.m; sourceTree = "<group>"; };
+		BC040D101BC8EDB600988AB2 /* CourseListItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseListItemCell.h; path = Business/Course/Views/CourseListItemCell.h; sourceTree = "<group>"; };
+		BC040D111BC8EDB600988AB2 /* CourseListItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseListItemCell.m; path = Business/Course/Views/CourseListItemCell.m; sourceTree = "<group>"; };
+		BC040D121BC8EDB600988AB2 /* CourseListItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CourseListItemCell.xib; path = Business/Course/Views/CourseListItemCell.xib; sourceTree = "<group>"; };
+		BC040D151BC9176000988AB2 /* CourseSectionTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CourseSectionTitleCell.xib; path = Business/Course/Views/CourseSectionTitleCell.xib; sourceTree = "<group>"; };
 		BC0BD6F61B5516DB00B95B3A /* Coupon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Coupon.h; path = Common/Models/Pay/Coupon.h; sourceTree = "<group>"; };
 		BC0BD6F71B5516DB00B95B3A /* Coupon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Coupon.m; path = Common/Models/Pay/Coupon.m; sourceTree = "<group>"; };
 		BC0BD6F81B5516DB00B95B3A /* CouponListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CouponListModel.h; path = Common/Models/Pay/CouponListModel.h; sourceTree = "<group>"; };
@@ -688,6 +710,16 @@
 		BC359A371BC61F89002DE863 /* SDWebImageManager+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SDWebImageManager+MJ.m"; path = "Common/Categorys/SDWebImageManager+MJ.m"; sourceTree = "<group>"; };
 		BC359A381BC61F89002DE863 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITextView+Placeholder.h"; path = "Common/Categorys/UITextView+Placeholder.h"; sourceTree = "<group>"; };
 		BC359A391BC61F89002DE863 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITextView+Placeholder.m"; path = "Common/Categorys/UITextView+Placeholder.m"; sourceTree = "<group>"; };
+		BC359A3D1BC648BF002DE863 /* PhotoTitleHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoTitleHeaderCell.h; path = Business/Course/Views/PhotoTitleHeaderCell.h; sourceTree = "<group>"; };
+		BC359A3E1BC648BF002DE863 /* PhotoTitleHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoTitleHeaderCell.m; path = Business/Course/Views/PhotoTitleHeaderCell.m; sourceTree = "<group>"; };
+		BC359A3F1BC648BF002DE863 /* PhotoTitleHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PhotoTitleHeaderCell.xib; path = Business/Course/Views/PhotoTitleHeaderCell.xib; sourceTree = "<group>"; };
+		BC359A421BC66447002DE863 /* CourseBuyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseBuyCell.h; path = Business/Course/Views/CourseBuyCell.h; sourceTree = "<group>"; };
+		BC359A431BC66447002DE863 /* CourseBuyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseBuyCell.m; path = Business/Course/Views/CourseBuyCell.m; sourceTree = "<group>"; };
+		BC359A441BC66447002DE863 /* CourseBuyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CourseBuyCell.xib; path = Business/Course/Views/CourseBuyCell.xib; sourceTree = "<group>"; };
+		BC359A471BC679EF002DE863 /* HomeGridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeGridCell.h; path = Business/Home/Views/HomeGridCell.h; sourceTree = "<group>"; };
+		BC359A481BC679EF002DE863 /* HomeGridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeGridCell.m; path = Business/Home/Views/HomeGridCell.m; sourceTree = "<group>"; };
+		BC359A4A1BC67B4F002DE863 /* HomeOperateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeOperateCell.h; path = Business/Home/Views/HomeOperateCell.h; sourceTree = "<group>"; };
+		BC359A4B1BC67B4F002DE863 /* HomeOperateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeOperateCell.m; path = Business/Home/Views/HomeOperateCell.m; sourceTree = "<group>"; };
 		BC38D2361AFEE2B50051C7E9 /* HomeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeModel.h; path = Common/Models/Home/HomeModel.h; sourceTree = "<group>"; };
 		BC38D2371AFEE2B50051C7E9 /* HomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeModel.m; path = Common/Models/Home/HomeModel.m; sourceTree = "<group>"; };
 		BC38D2421AFEEA300051C7E9 /* HttpService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpService.h; path = Common/Services/Http/HttpService.h; sourceTree = "<group>"; };
@@ -1411,6 +1443,22 @@
 		BC3599B71BC61DDF002DE863 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BC359A3D1BC648BF002DE863 /* PhotoTitleHeaderCell.h */,
+				BC359A3E1BC648BF002DE863 /* PhotoTitleHeaderCell.m */,
+				BC359A3F1BC648BF002DE863 /* PhotoTitleHeaderCell.xib */,
+				BC359A421BC66447002DE863 /* CourseBuyCell.h */,
+				BC359A431BC66447002DE863 /* CourseBuyCell.m */,
+				BC359A441BC66447002DE863 /* CourseBuyCell.xib */,
+				BC040D071BC8ABA900988AB2 /* CourseTagsCell.h */,
+				BC040D081BC8ABA900988AB2 /* CourseTagsCell.m */,
+				BC040D0A1BC8BB5500988AB2 /* CourseDiscCell.h */,
+				BC040D0B1BC8BB5500988AB2 /* CourseDiscCell.m */,
+				BC040D0D1BC8E62F00988AB2 /* CourseSectionTitleCell.h */,
+				BC040D0E1BC8E62F00988AB2 /* CourseSectionTitleCell.m */,
+				BC040D151BC9176000988AB2 /* CourseSectionTitleCell.xib */,
+				BC040D101BC8EDB600988AB2 /* CourseListItemCell.h */,
+				BC040D111BC8EDB600988AB2 /* CourseListItemCell.m */,
+				BC040D121BC8EDB600988AB2 /* CourseListItemCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1953,6 +2001,10 @@
 				5A3C6C741B57A926006583FB /* ProductCalendarTitleCell.h */,
 				5A3C6C751B57A926006583FB /* ProductCalendarTitleCell.m */,
 				5A3C6C761B57A926006583FB /* ProductCalendarTitleCell.xib */,
+				BC359A471BC679EF002DE863 /* HomeGridCell.h */,
+				BC359A481BC679EF002DE863 /* HomeGridCell.m */,
+				BC359A4A1BC67B4F002DE863 /* HomeOperateCell.h */,
+				BC359A4B1BC67B4F002DE863 /* HomeOperateCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2276,6 +2328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A794F991B4E703600BB3B7C /* OrderDetailMiddleCell.xib in Resources */,
+				BC040D141BC8EDB600988AB2 /* CourseListItemCell.xib in Resources */,
 				5A08C1421B39117100642648 /* ProductDetailEnrollCell.xib in Resources */,
 				BC753EDA1BAC07D300D2663C /* FeedUgcCell.xib in Resources */,
 				BC3D0BA41B6F7546004C7B81 /* LeaderJoinedCell.xib in Resources */,
@@ -2311,12 +2364,15 @@
 				5A18DC5A1B29828F001458A4 /* HomeCarouselCell.xib in Resources */,
 				BC359A0D1BC61F1B002DE863 /* MJPhotoBrowser.bundle in Resources */,
 				BC7CBAFC1B68698A0047211D /* AboutHeaderView.xib in Resources */,
+				BC359A461BC66447002DE863 /* CourseBuyCell.xib in Resources */,
 				5A08C13C1B39117100642648 /* ProductDetailBasicInfoCell.xib in Resources */,
 				5A0643671B3BC4A800361732 /* FillOrderMiddleCell.xib in Resources */,
 				5A06436C1B3BCE9A00361732 /* FillOrderBottomCell.xib in Resources */,
 				BC66D3C61B60FBBE00A5BFC6 /* MyFavCell.xib in Resources */,
 				5A9E80E71B4BBF590028AC47 /* ProductPlayFellowCell.xib in Resources */,
+				BC359A411BC648BF002DE863 /* PhotoTitleHeaderCell.xib in Resources */,
 				BC5CF2FF1BB53E6400EC5227 /* read_me.txt in Resources */,
+				BC040D161BC9176000988AB2 /* CourseSectionTitleCell.xib in Resources */,
 				BCA273101AE9D79F002E7534 /* scheme.plist in Resources */,
 				BC50639F1B53A3A000AA233C /* ForgetPasswordCell.xib in Resources */,
 				5A33F1A21B2EA1D5002A8258 /* CashPayTopHeaderView.xib in Resources */,
@@ -2365,8 +2421,10 @@
 				BC2C0C521B1303BA00E2446E /* LoginViewController.m in Sources */,
 				BCF564DD1B490052003A2227 /* OrderListModel.m in Sources */,
 				BCF564CC1B43EC53003A2227 /* NSTimer+Block.m in Sources */,
+				BC040D0C1BC8BB5500988AB2 /* CourseDiscCell.m in Sources */,
 				BC2C0C891B15698B00E2446E /* NSError+MOError.m in Sources */,
 				BC3599F71BC61F0C002DE863 /* MLSelectPhotoPickerBrowserPhotoScrollView.m in Sources */,
+				BC359A4C1BC67B4F002DE863 /* HomeOperateCell.m in Sources */,
 				BCF564D21B46A437003A2227 /* ServerErrorHandler.m in Sources */,
 				5A9E81201B4BE7CA0028AC47 /* OrderDetailViewController.m in Sources */,
 				BC359A3A1BC61F89002DE863 /* MBProgressHUD+Add.m in Sources */,
@@ -2395,6 +2453,8 @@
 				BC1052951BB1709900D81C15 /* AddFeedViewController.m in Sources */,
 				5AEB188A1B1865F90098FD5F /* MySuggestModel.m in Sources */,
 				5A08C1391B39117100642648 /* ProductDetailViewController.m in Sources */,
+				BC040D0F1BC8E62F00988AB2 /* CourseSectionTitleCell.m in Sources */,
+				BC040D131BC8EDB600988AB2 /* CourseListItemCell.m in Sources */,
 				BC753ED01BAC07D300D2663C /* FeedContentCell.m in Sources */,
 				BC359A2F1BC61F56002DE863 /* DatePickerSheet.m in Sources */,
 				BC3599F21BC61F0C002DE863 /* MLSelectPhotoPickerAssetsViewController.m in Sources */,
@@ -2420,6 +2480,7 @@
 				BC359A2A1BC61F3B002DE863 /* SGBaseMenu.m in Sources */,
 				BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */,
 				BC8254331B3A76F500430A6F /* CustomDarkButton.m in Sources */,
+				BC040D091BC8ABA900988AB2 /* CourseTagsCell.m in Sources */,
 				BCF9ECA01B4161EE00AEBE1E /* CityManager.m in Sources */,
 				BCF033991B4F72B0005B71D6 /* AlipayOrder.m in Sources */,
 				BC3599F61BC61F0C002DE863 /* MLSelectPhotoPickerBrowserPhotoImageView.m in Sources */,
@@ -2441,6 +2502,7 @@
 				5A1B35EF1B12BD0500E1D31B /* CommentViewController.m in Sources */,
 				BCA273211AE9FB78002E7534 /* NSURL+MOURL.m in Sources */,
 				BC359A101BC61F1B002DE863 /* MJPhotoProgressView.m in Sources */,
+				BC359A451BC66447002DE863 /* CourseBuyCell.m in Sources */,
 				BC359A3C1BC61F89002DE863 /* UITextView+Placeholder.m in Sources */,
 				BC2C0C991B1858E800E2446E /* MOLabel.m in Sources */,
 				5AB1BDE51B4FB6C8004A4511 /* LoadingCell.m in Sources */,
@@ -2448,6 +2510,8 @@
 				BC7CBAFF1B6879100047211D /* PushManager.m in Sources */,
 				BCF033951B4E892F005B71D6 /* PeopleViewController.m in Sources */,
 				BC66D3BE1B60F24C00A5BFC6 /* MyFavViewController.m in Sources */,
+				BC359A401BC648BF002DE863 /* PhotoTitleHeaderCell.m in Sources */,
+				BC359A491BC679EF002DE863 /* HomeGridCell.m in Sources */,
 				BC9089821B58983300A8D85B /* MyOrderListViewController.m in Sources */,
 				BC97DF061B4BE21F002B1A00 /* WechatPayModel.m in Sources */,
 				BC97DEFF1B4BCFF1002B1A00 /* PayChannel.m in Sources */,

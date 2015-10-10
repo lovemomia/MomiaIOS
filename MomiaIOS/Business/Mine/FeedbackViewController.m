@@ -215,7 +215,7 @@ static NSString * identifier = @"CellFeedbackIdentifier";
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"意见反馈";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(onFinishClick)];
-    [FeedbackCell registerCellWithTableView:self.tableView withIdentifier:identifier];
+    [FeedbackCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifier];
   
 }
 

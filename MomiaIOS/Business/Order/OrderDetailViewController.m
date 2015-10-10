@@ -236,10 +236,10 @@ static NSString * orderDetailBottomIdentifier = @"CellOrderDetailBottom";
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"我的订单";
     
-    [OrderDetailTitleCell registerCellWithTableView:self.tableView withIdentifier:orderDetailTitleIdentifier];
-    [OrderDetailTopCell registerCellWithTableView:self.tableView withIdentifier:orderDetailTopIdentifier];
-    [OrderDetailMiddleCell registerCellWithTableView:self.tableView withIdentifier:orderDetailMiddleIdentifier];
-    [OrderDetailBottomCell registerCellWithTableView:self.tableView withIdentifier:orderDetailBottomIdentifier];
+    [OrderDetailTitleCell registerCellFromNibWithTableView:self.tableView withIdentifier:orderDetailTitleIdentifier];
+    [OrderDetailTopCell registerCellFromNibWithTableView:self.tableView withIdentifier:orderDetailTopIdentifier];
+    [OrderDetailMiddleCell registerCellFromNibWithTableView:self.tableView withIdentifier:orderDetailMiddleIdentifier];
+    [OrderDetailBottomCell registerCellFromNibWithTableView:self.tableView withIdentifier:orderDetailBottomIdentifier];
     
     [self requestData];
 }

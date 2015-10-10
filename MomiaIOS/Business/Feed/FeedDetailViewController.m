@@ -21,7 +21,7 @@
 
 static NSString *identifierPlaymateUserHeadCell = @"PlaymateUserHeadCell";
 static NSString *identifierFeedZanCell = @"FeedZanCell";
-static NSString * identifierMyFavCell = @"MyFavCell";
+static NSString *identifierMyFavCell = @"MyFavCell";
 static NSString *identifierFeedTitleCell = @"FeedTitleCell";
 static NSString *identifierFeedMoreCell = @"FeedMoreCell";
 static NSString *identifierFeedCommentCell = @"FeedCommentCell";
@@ -63,12 +63,12 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
     
     self.navigationItem.title = @"详情";
     
-    [FeedUserHeadCell registerCellWithTableView:self.tableView withIdentifier:identifierPlaymateUserHeadCell];
-    [FeedZanCell registerCellWithTableView:self.tableView withIdentifier:identifierFeedZanCell];
-    [FeedTitleCell registerCellWithTableView:self.tableView withIdentifier:identifierFeedTitleCell];
-    [MyFavCell registerCellWithTableView:self.tableView withIdentifier:identifierMyFavCell];
-    [FeedMoreCell registerCellWithTableView:self.tableView withIdentifier:identifierFeedMoreCell];
-    [FeedCommentCell registerCellWithTableView:self.tableView withIdentifier:identifierFeedCommentCell];
+    [FeedUserHeadCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierPlaymateUserHeadCell];
+    [FeedZanCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierFeedZanCell];
+    [FeedTitleCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierFeedTitleCell];
+    [MyFavCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierMyFavCell];
+    [FeedMoreCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierFeedMoreCell];
+    [FeedCommentCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierFeedCommentCell];
     
     self.tableView.backgroundView = [[UIView alloc] init];
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);

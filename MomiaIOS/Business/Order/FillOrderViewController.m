@@ -720,10 +720,10 @@ static NSString * fillOrderBottomIdentifier = @"CellFillOrderBottom";
     
     self.navigationItem.title = @"提交订单";
   
-    [CommonHeaderView registerCellWithTableView:self.tableView];
-    [FillOrderTopCell registerCellWithTableView:self.tableView withIdentifier:fillOrderTopIdentifier];
-    [FillOrderChooseCell registerCellWithTableView:self.tableView withIdentifier:fillOrderChooseIdentifier];
-    [FillOrderBottomCell registerCellWithTableView:self.tableView withIdentifier:fillOrderBottomIdentifier];
+    [CommonHeaderView registerCellFromNibWithTableView:self.tableView];
+    [FillOrderTopCell registerCellFromNibWithTableView:self.tableView withIdentifier:fillOrderTopIdentifier];
+    [FillOrderChooseCell registerCellFromNibWithTableView:self.tableView withIdentifier:fillOrderChooseIdentifier];
+    [FillOrderBottomCell registerCellFromNibWithTableView:self.tableView withIdentifier:fillOrderBottomIdentifier];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     self.tableView.backgroundView = [[UIView alloc] init];

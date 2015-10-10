@@ -43,8 +43,8 @@ static NSString *selectSkuCellIdentifier = @"SelectSkuCell";
     [super viewDidLoad];
     self.navigationItem.title = @"选择场次";
     
-    [MyFavCell registerCellWithTableView:self.tableView withIdentifier:myFavCellIdentifier];
-    [SelectSkuCell registerCellWithTableView:self.tableView withIdentifier:selectSkuCellIdentifier];
+    [MyFavCell registerCellFromNibWithTableView:self.tableView withIdentifier:myFavCellIdentifier];
+    [SelectSkuCell registerCellFromNibWithTableView:self.tableView withIdentifier:selectSkuCellIdentifier];
     
     [self requestData];
 }

@@ -143,8 +143,8 @@ static NSString * productCalendarMonthIdentifier = @"CellProductCalendarMonth";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [ProductCalendarTitleCell registerCellWithTableView:self.tableView withIdentifier:productCalendarMonthTitleIdentifier];
-    [ProductCalendarCell registerCellWithTableView:self.tableView withIdentifier:productCalendarMonthIdentifier];
+    [ProductCalendarTitleCell registerCellFromNibWithTableView:self.tableView withIdentifier:productCalendarMonthTitleIdentifier];
+    [ProductCalendarCell registerCellFromNibWithTableView:self.tableView withIdentifier:productCalendarMonthIdentifier];
     
     [self requestData];
 }

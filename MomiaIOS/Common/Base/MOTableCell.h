@@ -11,17 +11,19 @@
 @protocol MOTableCellDataProtocol <NSObject>
 
 @required
--(void)setData:(id)data;
+- (void)setData:(id)data;
 
 @end
 
 @interface MOTableCell : UITableViewCell
 
-+(instancetype)cellWithTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath withIdentifier:(NSString *) identifier;
++ (instancetype)cellWithTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath withIdentifier:(NSString *) identifier;
 
-+(void)registerCellWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier;
++ (void)registerCellFromNibWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier;
 
-+(CGFloat)heightWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath data:(id)data;
++ (void)registerCellFromClassWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier;
+
++ (CGFloat)heightWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath data:(id)data;
 
 
 @end

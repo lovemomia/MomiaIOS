@@ -12,11 +12,15 @@
 #import "HomeCell.h"
 #import "LoadingCell.h"
 #import "LoadingErrorCell.h"
+#import "HomeGridCell.h"
+#import "HomeOperateCell.h"
 
-static NSString * homeIdentifier = @"CellHome";
-static NSString * homeCarouselIdentifier = @"CellHomeCarousel";
-static NSString * homeLoadingIdentifier = @"CellHomeLoading";
-static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
+static NSString *homeGridIdentifier = @"CellGrid";
+static NSString *homeOperateIdentifier = @"CellOperate";
+static NSString *homeIdentifier = @"CellHome";
+static NSString *homeCarouselIdentifier = @"CellHomeCarousel";
+static NSString *homeLoadingIdentifier = @"CellHomeLoading";
+static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
 
 @interface HomeViewController ()
 
@@ -79,10 +83,10 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_search"] style:UIBarButtonItemStylePlain target:self action:@selector(onSearchClick)];
     
     
-    [HomeCarouselCell registerCellWithTableView:self.tableView withIdentifier:homeCarouselIdentifier];
-    [HomeCell registerCellWithTableView:self.tableView withIdentifier:homeIdentifier];
-    [LoadingCell registerCellWithTableView:self.tableView withIdentifier:homeLoadingIdentifier];
-    [LoadingErrorCell registerCellWithTableView:self.tableView withIdentifier:homeLoadingErrorIdentifier];
+    [HomeCarouselCell registerCellFromNibWithTableView:self.tableView withIdentifier:homeCarouselIdentifier];
+    [HomeCell registerCellFromNibWithTableView:self.tableView withIdentifier:homeIdentifier];
+    [LoadingCell registerCellFromNibWithTableView:self.tableView withIdentifier:homeLoadingIdentifier];
+    [LoadingErrorCell registerCellFromNibWithTableView:self.tableView withIdentifier:homeLoadingErrorIdentifier];
     
     self.tableView.backgroundView = [[UIView alloc] init];
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
@@ -227,7 +231,7 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
 {
     if(section == 0) {
         if(self.banners.count > 0) {
-            return 1;
+            return 2;
         } else return 0;
     } else
         return 1;
@@ -236,8 +240,17 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger section = indexPath.section;
-    if(section == 0) return [HomeCarouselCell heightWithTableView:tableView];
-    else if(section < self.array.count + 1)
+    if(section == 0) {
+        if (indexPath.row == 0) {
+            return [HomeCarouselCell heightWithTableView:tableView];
+        } else {
+            return [HomeGridCell heightWithTableView:tableView forModel:@""];
+        }
+        
+    } else if (section == 1) {
+        return [HomeOperateCell heightWithTableView:tableView forModel:@""];
+        
+    } else if(section < self.array.count + 1)
         return [HomeCell heightWithTableView:tableView withIdentifier:homeIdentifier forIndexPath:indexPath data:self.array[section - 1]];
     else return 40;
 }
@@ -248,16 +261,32 @@ static NSString * homeLoadingErrorIdentifier = @"CellHomeLoadingError";
     UITableViewCell * cell;
 
     if(section == 0) {
-        HomeCarouselCell * carousel = [HomeCarouselCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeCarouselIdentifier];
-        carousel.data = self.banners;
-        carousel.scrollClick = ^void(NSInteger index) {
-            NSLog(@"index:%ld",(long)index);
-            if(index < self.model.data.banners.count) {
-                HomeBannerModel * model = self.model.data.banners[index];
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:model.action]];
+        if (indexPath.row == 0) {
+            HomeCarouselCell * carousel = [HomeCarouselCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeCarouselIdentifier];
+            carousel.data = self.banners;
+            carousel.scrollClick = ^void(NSInteger index) {
+                NSLog(@"index:%ld",(long)index);
+                if(index < self.model.data.banners.count) {
+                    HomeBannerModel * model = self.model.data.banners[index];
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:model.action]];
+                }
+            };
+            cell = carousel;
+            
+        } else {
+            HomeGridCell *gridCell = [tableView dequeueReusableCellWithIdentifier:homeGridIdentifier];
+            if (gridCell == nil) {
+                gridCell = [[HomeGridCell alloc]initWithTableView:tableView forModel:@"" reuseIdentifier:homeGridIdentifier];
             }
-        };
-        cell = carousel;
+            cell = gridCell;
+        }
+        
+    } else if (section == 1) {
+        HomeOperateCell *operateCell = [tableView dequeueReusableCellWithIdentifier:homeOperateIdentifier];
+        if (operateCell == nil) {
+            operateCell = [[HomeOperateCell alloc]initWithTableView:tableView forModel:@"" reuseIdentifier:homeOperateIdentifier];
+        }
+        cell = operateCell;
         
     } else if(section < self.array.count + 1){
         HomeCell * home = [HomeCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeIdentifier];

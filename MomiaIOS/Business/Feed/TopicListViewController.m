@@ -28,7 +28,7 @@ static NSString *identifierTopicListCell = @"TopicListCell";
     self.navigationItem.leftBarButtonItem = leftBtn;
     [leftBtn setImage:[UIImage imageNamed:@"TitleCancel"]];
     
-    [TopicListCell registerCellWithTableView:self.tableView withIdentifier:identifierTopicListCell];
+    [TopicListCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierTopicListCell];
     
     self.list = [NSMutableArray new];
     [self requestData:YES];
