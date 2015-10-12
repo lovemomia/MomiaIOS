@@ -4,6 +4,7 @@
 <dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>baidumap</string>
 		<string>weixin</string>
 	</array>
 	<key>LSApplicationCategoryType</key>
@@ -34,6 +35,8 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
+	<string>松果亲子</string>
+	<key>CFBundleDisplayName</key>
 	<string>松果亲子</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>

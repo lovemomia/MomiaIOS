@@ -14,6 +14,7 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "GeTuiSdk.h"
 
+BMKMapManager* _mapManager;
 @interface AppDelegate () {
 @private
     NSString *_deviceToken;
@@ -65,6 +66,10 @@
     
     // 友盟统计
     [MobClick startWithAppkey:kUMengAppKey reportPolicy:BATCH   channelId:MO_APP_CHANNEL];
+    
+    // 百度地图
+    _mapManager = [[BMKMapManager alloc]init];
+    [_mapManager start:@"dnSVNUqriaNXYqhD6ATZQ2zF" generalDelegate:self];
 
     return YES;
 }
@@ -131,10 +136,11 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
-    if (![[PushManager shareManager]isPushClose]) {
+    if (![[PushManager shareManager] isPushClose]) {
         // [EXT] 切后台关闭SDK，让SDK第一时间断线，让个推先用APN推送
-        [[PushManager shareManager]stopSdk];
+        [[PushManager shareManager] stopSdk];
     }
+    [[LocationService defaultService] stop];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -144,13 +150,16 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
-    if (![[PushManager shareManager]isPushClose]) {
+    if (![[PushManager shareManager] isPushClose]) {
         // [EXT] 重新上线
         [[PushManager shareManager]openPush:self];
     }
     
     // config
     [[ConfigService defaultService] refresh];
+    
+    // 定位sdk
+    [[LocationService defaultService] start];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -313,6 +322,29 @@
 
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
     
+}
+
+#pragma mark - baidu map delegate
+
+- (void)onGetNetworkState:(int)iError
+{
+    if (0 == iError) {
+        NSLog(@"联网成功");
+    }
+    else{
+        NSLog(@"onGetNetworkState %d",iError);
+    }
+    
+}
+
+- (void)onGetPermissionState:(int)iError
+{
+    if (0 == iError) {
+        NSLog(@"授权成功");
+    }
+    else {
+        NSLog(@"onGetPermissionState %d",iError);
+    }
 }
 
 @end

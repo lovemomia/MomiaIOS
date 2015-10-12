@@ -10,14 +10,42 @@
 
 #import <Foundation/Foundation.h>
 #import "City.h"
+#import <BaiduMapAPI/BMapKit.h>
 
-@interface LocationService : NSObject
+@protocol LocationChangeListener<NSObject>
+- (void)onLocationChange;
+@end
+
+typedef enum {
+    STATUS_FAIL = -1,
+    STATUS_IDLE = 0,
+    STATUS_TRYING = 1,
+    STATUS_LOCATED = 2
+} STATUS;
+
+@interface LocationService : NSObject<BMKLocationServiceDelegate> {
+    BMKLocationService* _locService;
+}
 
 /**
  *  获取location服务单例
  */
 + (instancetype)defaultService;
 
+@property (nonatomic, strong) CLLocation *location;
+@property (nonatomic, assign) STATUS status;
 @property (nonatomic, strong) City *locateCity;
+
+- (BOOL)hasLocation;
+
+- (void)start;
+
+- (void)stop;
+
+- (void)refresh;
+
+- (void)addListener:(id<LocationChangeListener>)listener;
+
+- (void)removeListener:(id<LocationChangeListener>)listener;
 
 @end

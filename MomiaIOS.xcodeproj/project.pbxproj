@@ -267,6 +267,8 @@
 		BC753EDE1BAC07D300D2663C /* FeedZanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC753ECB1BAC07D300D2663C /* FeedZanCell.xib */; settings = {ASSET_TAGS = (); }; };
 		BC7708511AFAFD54000068A8 /* MOTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7708501AFAFD54000068A8 /* MOTableViewController.m */; };
 		BC77085F1AFC5685000068A8 /* UILabel+ContentSize.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77085E1AFC5685000068A8 /* UILabel+ContentSize.m */; };
+		BC7737591BCB92A400987B22 /* BaiduMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC7737581BCB92A400987B22 /* BaiduMapAPI.framework */; settings = {ASSET_TAGS = (); }; };
+		BC77375B1BCB94BB00987B22 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC77375A1BCB94BB00987B22 /* OpenGLES.framework */; };
 		BC7CBADE1B662E590047211D /* MOTagLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBADD1B662E590047211D /* MOTagLabel.m */; };
 		BC7CBAF91B6868930047211D /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBAF71B6868930047211D /* AboutViewController.m */; };
 		BC7CBAFC1B68698A0047211D /* AboutHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7CBAFB1B68698A0047211D /* AboutHeaderView.xib */; };
@@ -812,6 +814,8 @@
 		BC7708501AFAFD54000068A8 /* MOTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOTableViewController.m; path = Common/Base/MOTableViewController.m; sourceTree = "<group>"; };
 		BC77085D1AFC5685000068A8 /* UILabel+ContentSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+ContentSize.h"; path = "Common/Categorys/UILabel+ContentSize.h"; sourceTree = "<group>"; };
 		BC77085E1AFC5685000068A8 /* UILabel+ContentSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+ContentSize.m"; path = "Common/Categorys/UILabel+ContentSize.m"; sourceTree = "<group>"; };
+		BC7737581BCB92A400987B22 /* BaiduMapAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI.framework; path = BaiduMap/BaiduMapAPI.framework; sourceTree = "<group>"; };
+		BC77375A1BCB94BB00987B22 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BC7CBADC1B662E590047211D /* MOTagLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOTagLabel.h; path = Common/Views/MOTagLabel.h; sourceTree = "<group>"; };
 		BC7CBADD1B662E590047211D /* MOTagLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOTagLabel.m; path = Common/Views/MOTagLabel.m; sourceTree = "<group>"; };
 		BC7CBAF61B6868930047211D /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Business/Setting/AboutViewController.h; sourceTree = "<group>"; };
@@ -959,6 +963,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC77375B1BCB94BB00987B22 /* OpenGLES.framework in Frameworks */,
 				BC1CC9F01BA7E4AD001841E7 /* AVFoundation.framework in Frameworks */,
 				BC5CF2F81BB5275B00EC5227 /* AlipaySDK.framework in Frameworks */,
 				BC1CC9EE1BA7E49F001841E7 /* CoreLocation.framework in Frameworks */,
@@ -976,6 +981,7 @@
 				BC5CF2FE1BB53E6400EC5227 /* libWeChatSDK.a in Frameworks */,
 				BC38D2951B09B8E50051C7E9 /* CFNetwork.framework in Frameworks */,
 				BCCDF66D1B0B4E4C008BAE12 /* libWeiboSDK.a in Frameworks */,
+				BC7737591BCB92A400987B22 /* BaiduMapAPI.framework in Frameworks */,
 				BC38D28D1B09B8960051C7E9 /* libz.dylib in Frameworks */,
 				BC1CC9EC1BA7E228001841E7 /* libGeTuiSdk-1.2.1.a in Frameworks */,
 				087C98AEC54638860E9ACAB0 /* libPods.a in Frameworks */,
@@ -995,6 +1001,7 @@
 		26D758803C76A62629C50A39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BC77375A1BCB94BB00987B22 /* OpenGLES.framework */,
 				BC1CC9EF1BA7E4AD001841E7 /* AVFoundation.framework */,
 				BC1CC9ED1BA7E49F001841E7 /* CoreLocation.framework */,
 				BCCDF6751B0B4F97008BAE12 /* CoreGraphics.framework */,
@@ -1775,6 +1782,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		BC7737571BCB927800987B22 /* BaiduMap */ = {
+			isa = PBXGroup;
+			children = (
+				BC7737581BCB92A400987B22 /* BaiduMapAPI.framework */,
+			);
+			name = BaiduMap;
+			sourceTree = "<group>";
+		};
 		BC7CBB001B68D65C0047211D /* Leader */ = {
 			isa = PBXGroup;
 			children = (
@@ -2156,6 +2171,7 @@
 		BCCDF6601B0B4E3F008BAE12 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				BC7737571BCB927800987B22 /* BaiduMap */,
 				BC5CF2F91BB53E6400EC5227 /* WeChatSDK_1.6 */,
 				BC1CC9E81BA7E21B001841E7 /* GeTui */,
 				BC97DF1D1B4E3E2E002B1A00 /* Alipay */,
@@ -2774,7 +2790,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/ThirdParty";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/ThirdParty",
+					"$(PROJECT_DIR)/ThirdParty/BaiduMap",
+				);
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2847,7 +2866,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/ThirdParty";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/ThirdParty",
+					"$(PROJECT_DIR)/ThirdParty/BaiduMap",
+				);
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

@@ -45,7 +45,6 @@ static NSString *identifierCourseListItemCell = @"CourseListItemCell";
     
     self.buyView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
     self.buyView.hidden = YES;
-    self.buyView.backgroundColor = [UIColor greenColor];
     [self.view addSubview:self.buyView];
 }
 

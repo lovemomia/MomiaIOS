@@ -48,9 +48,7 @@
                             <constraint firstAttribute="width" constant="108" id="r4L-pq-YU3"/>
                             <constraint firstAttribute="height" constant="34.5" id="uQq-CQ-mAg"/>
                         </constraints>
-                        <state key="normal" title="立即抢购" backgroundImage="BgRedMediumButtonNormal">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
+                        <state key="normal" title="立即抢购" backgroundImage="BgRedMediumButtonNormal"/>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="r4L-pq-YU3"/>

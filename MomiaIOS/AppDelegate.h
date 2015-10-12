@@ -14,8 +14,9 @@
 #import "MORootViewController.h"
 #import "WechatPayData.h"
 #import "PushManager.h"
+#import <BaiduMapAPI/BMapKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, GeTuiSdkDelegate, WXApiDelegate, WeiboSDKDelegate, WechatPayDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, GeTuiSdkDelegate, WXApiDelegate, WeiboSDKDelegate, WechatPayDelegate, BMKGeneralDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

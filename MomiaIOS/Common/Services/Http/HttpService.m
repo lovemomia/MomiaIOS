@@ -228,6 +228,7 @@
     if (params) {
         [dic addEntriesFromDictionary:params];
     }
+    
     // 用户token
     if ([[AccountService defaultService] isLogin]) {
         [dic setObject:[AccountService defaultService].account.token forKey:@"utoken"];
@@ -259,6 +260,11 @@
     NSString *sysSign = [self doSignWithParameters:dic];
     if (sysSign != nil) {
         [dic setObject:sysSign forKey:@"sign"];
+    }
+    
+    if ([[LocationService defaultService] hasLocation]) {
+        CLLocation *location = [LocationService defaultService].location;
+        [self.httpClient.requestSerializer setValue:[NSString stringWithFormat:@"%f,%f", location.coordinate.longitude, location.coordinate.latitude] forHTTPHeaderField:@"User-Location"];
     }
 
     return dic;
