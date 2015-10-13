@@ -7,7 +7,7 @@
 //
 
 #import "HomeViewController.h"
-#import "HomeModel.h"
+#import "IndexModel.h"
 #import "HomeCarouselCell.h"
 #import "HomeCell.h"
 #import "LoadingCell.h"
@@ -26,10 +26,11 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
 
 @property (nonatomic,strong) NSMutableArray * array;
 @property (nonatomic,strong) NSArray * banners;//当pageIndex为0时才有数据
-@property (strong,nonatomic) HomeModel * model;
-@property (nonatomic,assign) NSInteger pageIndex;
+@property (nonatomic,strong) NSArray * icons;//当pageIndex为0时才有数据
+@property (nonatomic,strong) NSArray * events;//当pageIndex为0时才有数据
+@property (strong,nonatomic) IndexModel * model;
+@property (nonatomic,assign) NSInteger nextIndex;
 
-@property (nonatomic,assign) BOOL continueLoading;
 @property (nonatomic,assign) BOOL isLoading;
 @property (nonatomic,assign) BOOL isError;//加载更多的时候出错
 
@@ -98,14 +99,14 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
     self.tableView.header = header;
     self.tableView.width = SCREEN_WIDTH;
     
-    [self requestData];
+    [self requestData:YES];
 }
 
 - (void)onCityChanged:(City *)newCity {
     [self.titleLabel setText:newCity.name];
     self.model = nil;
     [self.tableView reloadData];
-    [self requestData];
+    [self requestData:YES];
 }
 
 -(void)onProductCalendarClick
@@ -117,6 +118,10 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
 #pragma mark - webData Request
 
 - (void)requestData {
+    [self requestData:YES];
+}
+
+- (void)requestData:(BOOL)refresh {
     if(self.curOperation) {
         [self.curOperation pause];
     }
@@ -127,40 +132,44 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
         [self.view showLoadingBee];
     }
     
-    if(self.isLoading) {//表明是在进行加载更多的刷新
-        
-    } else {//表明就是刷新
-        self.pageIndex = 0;
+    if (refresh) {
+        self.nextIndex = 0;
+        self.isLoading = NO;
     }
     
-    NSDictionary * dic = @{@"pageindex":@(self.pageIndex)};
-    self.curOperation = [[HttpService defaultService] GET:URL_APPEND_PATH(@"/home") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[HomeModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSDictionary * dic = @{@"start":@(self.nextIndex)};
+    self.curOperation = [[HttpService defaultService] GET:URL_APPEND_PATH(@"/index") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[IndexModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         [self.view removeLoadingBee];
         
         self.model = responseObject;
         
-        if(self.isLoading) {
-            
-        } else {
-            self.banners = nil;
+        if (refresh) {
             [self.array removeAllObjects];
         }
         
-        self.isError = NO;
-        
-        self.isLoading = NO;
-        if(self.pageIndex == 0)
+        if(self.nextIndex == 0) {
             self.banners = self.model.data.banners;
-        
-        if(self.model.data.products.count > 0) {
-            self.continueLoading = YES;
-            [self.array addObjectsFromArray:self.model.data.products];
+            self.icons = self.model.data.icons;
+            self.events = self.model.data.events;
         }
-        else self.continueLoading = NO;
+        
+        if (self.model.data.courses.list.count > 0) {
+            [self.array addObjectsFromArray:self.model.data.courses.list];
+        }
+        
+        if (self.model.data.courses.nextIndex && [self.model.data.courses.nextIndex intValue] > 0) {
+            self.nextIndex = [self.model.data.courses.nextIndex integerValue];
+            
+        } else {
+            self.nextIndex = 0;
+        }
         
         [self.tableView reloadData];
         [self.tableView.header endRefreshing];
+        
+        self.isError = NO;
+        self.isLoading = NO;
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self.view removeLoadingBee];
@@ -179,7 +188,7 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
                 [self.view removeError];
                 [self.view showError:error.message retry:^{
                     [self.view removeError];
-                    [self requestData];
+                    [self requestData:YES];
                 }];
             }
             
@@ -200,12 +209,57 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
+    BOOL hasBannerSec = self.banners.count > 0 || self.icons.count > 0;
+    BOOL hasEventSec = self.events.count > 0;
+    
+    int number = 0;
+    if (hasBannerSec) {
+        number++;
+    }
+    if (hasEventSec) {
+        number++;
+    }
+    
+    if (section == number) {
+        return 30;
+    }
     return 0.01;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     return 10;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    BOOL hasBannerSec = self.banners.count > 0 || self.icons.count > 0;
+    BOOL hasEventSec = self.events.count > 0;
+    
+    int number = 0;
+    if (hasBannerSec) {
+        number++;
+    }
+    if (hasEventSec) {
+        number++;
+    }
+    
+    UIView *view = [[UIView alloc]init];
+    if (section == number) {
+        view.frame = CGRectMake(0, 10, SCREEN_WIDTH, 20);
+        
+        UIView *line = [[UIView alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - 180)/2, 10, 180, 0.5)];
+        line.backgroundColor = UIColorFromRGB(0xdddddd);
+        [view addSubview:line];
+        
+        UILabel *text = [[UILabel alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - 60)/2, 0, 60, 20)];
+        text.textAlignment = NSTextAlignmentCenter;
+        text.textColor = UIColorFromRGB(0x999999);
+        text.backgroundColor = MO_APP_VCBackgroundColor;
+        text.font = [UIFont systemFontOfSize:12];
+        text.text = @"体验课";
+        [view addSubview:text];
+    }
+    return view;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
@@ -218,41 +272,57 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     if(self.model) {
-        NSInteger number = 0;
-        if(self.continueLoading) {
-            number = 1;
+        int number = 0;
+        if (self.banners.count > 0 || self.icons.count > 0) {
+            number++;
         }
-        return 1 + self.array.count + number;//第一个+1是可能有轮播，最后一个+1是分页加载更多
+        if (self.events.count > 0) {
+            number++;
+        }
+        if (self.nextIndex > 0) {
+            number++;
+        }
+        return self.array.count + number;//第一个+1是可能有轮播，最后一个+1是分页加载更多
     }
     return 0;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if(section == 0) {
-        if(self.banners.count > 0) {
+        if(self.banners.count > 0 && self.icons.count > 0) {
             return 2;
-        } else return 0;
-    } else
-        return 1;
+        }
+    }
+    return 1;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger section = indexPath.section;
-    if(section == 0) {
-        if (indexPath.row == 0) {
+    BOOL hasBannerSec = self.banners.count > 0 || self.icons.count > 0;
+    BOOL hasEventSec = self.events.count > 0;
+    
+    int number = 0;
+    if (hasBannerSec) {
+        number++;
+    }
+    if (hasEventSec) {
+        number++;
+    }
+    
+    if (hasBannerSec && section == 0) {
+        if (hasBannerSec && indexPath.row == 0) {
             return [HomeCarouselCell heightWithTableView:tableView];
         } else {
-            return [HomeGridCell heightWithTableView:tableView forModel:@""];
+            return [HomeGridCell heightWithTableView:tableView forModel:self.icons];
         }
         
-    } else if (section == 1) {
-        return [HomeOperateCell heightWithTableView:tableView forModel:@""];
+    } else if ((hasBannerSec && hasEventSec && section == 1) || (!hasBannerSec && hasEventSec && section == 0)) {
+        return [HomeOperateCell heightWithTableView:tableView forModel:self.events];
         
-    } else if(section < self.array.count + 1)
-        return [HomeCell heightWithTableView:tableView withIdentifier:homeIdentifier forIndexPath:indexPath data:self.array[section - 1]];
-    else return 40;
+    } else if(section < self.array.count + number) {
+        return [HomeCell heightWithTableView:tableView withIdentifier:homeIdentifier forIndexPath:indexPath data:self.array[section - number]];
+        
+    } else return 40;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -260,39 +330,50 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
     NSInteger section = indexPath.section;
     UITableViewCell * cell;
 
-    if(section == 0) {
-        if (indexPath.row == 0) {
+    BOOL hasBannerSec = self.banners.count > 0 || self.icons.count > 0;
+    BOOL hasEventSec = self.events.count > 0;
+    
+    int number = 0;
+    if (hasBannerSec) {
+        number++;
+    }
+    if (hasEventSec) {
+        number++;
+    }
+    
+    if (hasBannerSec && section == 0) {
+        if (hasBannerSec && indexPath.row == 0) {
             HomeCarouselCell * carousel = [HomeCarouselCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeCarouselIdentifier];
             carousel.data = self.banners;
             carousel.scrollClick = ^void(NSInteger index) {
                 NSLog(@"index:%ld",(long)index);
                 if(index < self.model.data.banners.count) {
-                    HomeBannerModel * model = self.model.data.banners[index];
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:model.action]];
+                    IndexBanner * banner = self.model.data.banners[index];
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:banner.action]];
                 }
             };
             cell = carousel;
-            
         } else {
             HomeGridCell *gridCell = [tableView dequeueReusableCellWithIdentifier:homeGridIdentifier];
             if (gridCell == nil) {
-                gridCell = [[HomeGridCell alloc]initWithTableView:tableView forModel:@"" reuseIdentifier:homeGridIdentifier];
+                gridCell = [[HomeGridCell alloc]initWithTableView:tableView forModel:self.icons reuseIdentifier:homeGridIdentifier];
             }
             cell = gridCell;
         }
         
-    } else if (section == 1) {
+    } else if ((hasBannerSec && hasEventSec && section == 1) || (!hasBannerSec && hasEventSec && section == 0)) {
         HomeOperateCell *operateCell = [tableView dequeueReusableCellWithIdentifier:homeOperateIdentifier];
         if (operateCell == nil) {
-            operateCell = [[HomeOperateCell alloc]initWithTableView:tableView forModel:@"" reuseIdentifier:homeOperateIdentifier];
+            operateCell = [[HomeOperateCell alloc]initWithTableView:tableView forModel:self.events reuseIdentifier:homeOperateIdentifier];
         }
         cell = operateCell;
         
-    } else if(section < self.array.count + 1){
+    } else if(section < self.array.count + number) {
         HomeCell * home = [HomeCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeIdentifier];
-        home.data = self.array[section - 1];
+        home.data = self.array[section - number];
         
         cell = home;
+        
     } else {
         if(self.isError) {
             LoadingErrorCell * error = [LoadingErrorCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:homeLoadingErrorIdentifier];
@@ -303,13 +384,13 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
             [loading startAnimating];
             if(!self.isLoading) {
                 self.isLoading = YES;
-                self.pageIndex++;
-                [self requestData];
+                [self requestData:NO];
             }
             loading.backgroundColor = MO_APP_VCBackgroundColor;
             cell = loading;
         }
     }
+    
     cell.selectionStyle = UITableViewCellSeparatorStyleNone;
     return cell;
 }
@@ -317,20 +398,30 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger section = indexPath.section;
-    if(section == 0) {
+    BOOL hasBannerSec = self.banners.count > 0 || self.icons.count > 0;
+    BOOL hasEventSec = self.events.count > 0;
+    
+    int number = 0;
+    if (hasBannerSec) {
+        number++;
+    }
+    if (hasEventSec) {
+        number++;
+    }
+    if (section < number) {
         
-    } else if(section < self.array.count + 1) {
-        ProductModel *product;
-        product = self.array[indexPath.section - 1];
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://productdetail?id=%ld", (long)product.pID]];
+    } else if(section < self.array.count + number) {
+        Course *course = self.array[indexPath.section - number];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://coursedetail?id=%@", course.ids]];
         [[UIApplication sharedApplication] openURL:url];
+        
     } else {
         if(self.isError) {
             self.isError = NO;
             [self.tableView reloadData];
             if(!self.isLoading) {
                 self.isLoading = YES;
-                [self requestData];
+                [self requestData:NO];
             }
 
         }

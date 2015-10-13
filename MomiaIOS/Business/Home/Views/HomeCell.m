@@ -7,13 +7,12 @@
 //
 
 #import "HomeCell.h"
-#import "HomeModel.h"
 #import "StringUtils.h"
 
 
 @implementation HomeCell
 
--(void)setData:(ProductModel *) model;
+-(void)setData:(Course *) model;
 {
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:model.cover] placeholderImage:nil];
     self.titleLabel.text = model.title;
@@ -27,7 +26,7 @@
     } else {
         self.enrollmentLabel.hidden = NO;
         self.enrollmentBg.hidden = NO;
-        self.enrollmentLabel.text = [NSString stringWithFormat:@"%ld人参加", (long)model.joined];
+        self.enrollmentLabel.text = [NSString stringWithFormat:@"%@人参加", model.joined];
     }
     
     self.priceLabel.text = [StringUtils stringForPrice:model.price];

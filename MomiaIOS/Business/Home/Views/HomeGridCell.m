@@ -7,6 +7,7 @@
 //
 
 #import "HomeGridCell.h"
+#import "IndexModel.h"
 
 static const int kItemHeight = 80;
 
@@ -24,10 +25,12 @@ static const int kItemHeight = 80;
 
 - (instancetype)initWithTableView:(UITableView *) tableView forModel:(id)model reuseIdentifier:(NSString *)identifier {
     if (self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier]) {
+        NSArray *items = model;
         CGFloat padding = 10.0;
         CGFloat iconSize = 50.0;
         CGFloat itemWidth = (SCREEN_WIDTH - 20) / 4;
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < items.count; i++) {
+            IndexIcon *icon = items[i];
             int row = i / 4;
             int col = i < 4 ? i : (i - 4);
             CGRect frame = CGRectMake(padding + col * itemWidth, (row + 1) * padding + row * kItemHeight, iconSize, iconSize);
@@ -47,8 +50,8 @@ static const int kItemHeight = 80;
             
             [self.contentView addSubview:container];
             
-            imageView.image = [UIImage imageNamed:@"IconAvatarDefault"];
-            label.text = [NSString stringWithFormat:@"职业梦想%d", i];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:icon.img] placeholderImage:[UIImage imageNamed:@"IconAvatarDefault"]];
+            label.text = icon.title;
         }
     }
     return self;
@@ -60,7 +63,8 @@ static const int kItemHeight = 80;
 }
 
 + (CGFloat)heightWithTableView:(UITableView *) tableView forModel:(id)model {
-    int i = 8; // TODO
+    NSArray *items = model;
+    int i = items.count;
     int row = i / 4;
     if (fmod(i, 4) != 0) {
         row += 1;

@@ -7,6 +7,7 @@
 //
 
 #import "HomeOperateCell.h"
+#import "IndexModel.h"
 
 static const int kItemHeight = 80;
 
@@ -24,25 +25,27 @@ static const int kItemHeight = 80;
 
 - (instancetype)initWithTableView:(UITableView *) tableView forModel:(id)model reuseIdentifier:(NSString *)identifier {
     if (self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier]) {
+        NSArray *items = model;
         CGFloat padding = 10.0;
-        CGFloat iconSize = 60.0;
+        CGFloat iconSize = 40.0;
         CGFloat itemWidth = SCREEN_WIDTH / 2;
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < items.count; i++) {
+            IndexEvent *event = items[i];
             int row = i / 2;
             int col = fmod(i, 2);
             CGRect frame = CGRectMake(col * itemWidth, row * kItemHeight, itemWidth, kItemHeight);
             UIView *container = [[UIView alloc]initWithFrame:frame];
             
-            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(itemWidth - padding - iconSize, padding, iconSize, iconSize)];
+            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(itemWidth - padding - iconSize, 2 * padding, iconSize, iconSize)];
             [container addSubview:imageView];
             
-            UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding, padding, itemWidth - iconSize - 2 * padding, 30)];
+            UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding, padding * 1.5, itemWidth - iconSize - 2 * padding, 30)];
             titleLabel.textAlignment = NSTextAlignmentLeft;
             titleLabel.font = [UIFont systemFontOfSize:14];
             titleLabel.textColor = UIColorFromRGB(0x333333);
             [container addSubview:titleLabel];
             
-            UILabel *subTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding, padding + 30, itemWidth - iconSize - 2 * padding, 20)];
+            UILabel *subTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding, padding * 1.5 + 30, itemWidth - iconSize - 2 * padding, 20)];
             subTitleLabel.textAlignment = NSTextAlignmentLeft;
             subTitleLabel.font = [UIFont systemFontOfSize:12];
             subTitleLabel.textColor = UIColorFromRGB(0x999999);
@@ -50,12 +53,12 @@ static const int kItemHeight = 80;
             
             [self.contentView addSubview:container];
             
-            imageView.image = [UIImage imageNamed:@"IconAvatarDefault"];
-            titleLabel.text = [NSString stringWithFormat:@"邀请好友领红包%d", i];
-            subTitleLabel.text = [NSString stringWithFormat:@"最高立减50元%d", i];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:event.img] placeholderImage:[UIImage imageNamed:@"IconAvatarDefault"]];
+            titleLabel.text = event.title;
+            subTitleLabel.text = event.desc;
         }
         
-        int i = 4; // TODO
+        int i = items.count;
         int row = i / 2;
         if (fmod(i, 2) != 0) {
             row += 1;
@@ -64,12 +67,12 @@ static const int kItemHeight = 80;
         
         UIView *verLine = [[UIView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH / 2, padding, 0.5, height - 2 * padding)];
         [self.contentView addSubview:verLine];
-        verLine.backgroundColor = MO_APP_VCBackgroundColor;
+        verLine.backgroundColor = UIColorFromRGB(0xdddddd);
         
         for (int i = 0; i < row; i ++) {
             UIView *line = [[UIView alloc]initWithFrame:CGRectMake(padding, i * kItemHeight, SCREEN_WIDTH - 2 * padding, 0.5)];
             [self.contentView addSubview:line];
-            line.backgroundColor = MO_APP_VCBackgroundColor;
+            line.backgroundColor = UIColorFromRGB(0xdddddd);
         }
         
     }
@@ -77,7 +80,8 @@ static const int kItemHeight = 80;
 }
 
 + (CGFloat)heightWithTableView:(UITableView *) tableView forModel:(id)model {
-    int i = 4; // TODO
+    NSArray *items = model;
+    int i = items.count;
     int row = i / 2;
     if (fmod(i, 2) != 0) {
         row += 1;

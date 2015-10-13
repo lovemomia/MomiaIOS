@@ -269,6 +269,8 @@
 		BC77085F1AFC5685000068A8 /* UILabel+ContentSize.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77085E1AFC5685000068A8 /* UILabel+ContentSize.m */; };
 		BC7737591BCB92A400987B22 /* BaiduMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC7737581BCB92A400987B22 /* BaiduMapAPI.framework */; settings = {ASSET_TAGS = (); }; };
 		BC77375B1BCB94BB00987B22 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC77375A1BCB94BB00987B22 /* OpenGLES.framework */; };
+		BC77375F1BCCA31B00987B22 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77375E1BCCA31B00987B22 /* Course.m */; settings = {ASSET_TAGS = (); }; };
+		BC7737621BCCA9F900987B22 /* IndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737611BCCA9F900987B22 /* IndexModel.m */; settings = {ASSET_TAGS = (); }; };
 		BC7CBADE1B662E590047211D /* MOTagLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBADD1B662E590047211D /* MOTagLabel.m */; };
 		BC7CBAF91B6868930047211D /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBAF71B6868930047211D /* AboutViewController.m */; };
 		BC7CBAFC1B68698A0047211D /* AboutHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7CBAFB1B68698A0047211D /* AboutHeaderView.xib */; };
@@ -816,6 +818,10 @@
 		BC77085E1AFC5685000068A8 /* UILabel+ContentSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+ContentSize.m"; path = "Common/Categorys/UILabel+ContentSize.m"; sourceTree = "<group>"; };
 		BC7737581BCB92A400987B22 /* BaiduMapAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI.framework; path = BaiduMap/BaiduMapAPI.framework; sourceTree = "<group>"; };
 		BC77375A1BCB94BB00987B22 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		BC77375D1BCCA31B00987B22 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Course.h; path = Common/Models/Course/Course.h; sourceTree = "<group>"; };
+		BC77375E1BCCA31B00987B22 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Course.m; path = Common/Models/Course/Course.m; sourceTree = "<group>"; };
+		BC7737601BCCA9F900987B22 /* IndexModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IndexModel.h; path = Common/Models/Home/IndexModel.h; sourceTree = "<group>"; };
+		BC7737611BCCA9F900987B22 /* IndexModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IndexModel.m; path = Common/Models/Home/IndexModel.m; sourceTree = "<group>"; };
 		BC7CBADC1B662E590047211D /* MOTagLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOTagLabel.h; path = Common/Views/MOTagLabel.h; sourceTree = "<group>"; };
 		BC7CBADD1B662E590047211D /* MOTagLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOTagLabel.m; path = Common/Views/MOTagLabel.m; sourceTree = "<group>"; };
 		BC7CBAF61B6868930047211D /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Business/Setting/AboutViewController.h; sourceTree = "<group>"; };
@@ -1634,6 +1640,8 @@
 			children = (
 				BC38D2361AFEE2B50051C7E9 /* HomeModel.h */,
 				BC38D2371AFEE2B50051C7E9 /* HomeModel.m */,
+				BC7737601BCCA9F900987B22 /* IndexModel.h */,
+				BC7737611BCCA9F900987B22 /* IndexModel.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -1759,6 +1767,7 @@
 		BC7708601AFC56F3000068A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BC77375C1BCCA2ED00987B22 /* Course */,
 				BC1CC9F41BA90A4F001841E7 /* Feed */,
 				BC3D0B961B6F3E14004C7B81 /* Leader */,
 				5A11C72D1B58B44B00B0CDFE /* ProductCalendar */,
@@ -1788,6 +1797,15 @@
 				BC7737581BCB92A400987B22 /* BaiduMapAPI.framework */,
 			);
 			name = BaiduMap;
+			sourceTree = "<group>";
+		};
+		BC77375C1BCCA2ED00987B22 /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				BC77375D1BCCA31B00987B22 /* Course.h */,
+				BC77375E1BCCA31B00987B22 /* Course.m */,
+			);
+			name = Course;
 			sourceTree = "<group>";
 		};
 		BC7CBB001B68D65C0047211D /* Leader */ = {
@@ -2438,6 +2456,7 @@
 				BCF564DD1B490052003A2227 /* OrderListModel.m in Sources */,
 				BCF564CC1B43EC53003A2227 /* NSTimer+Block.m in Sources */,
 				BC040D0C1BC8BB5500988AB2 /* CourseDiscCell.m in Sources */,
+				BC77375F1BCCA31B00987B22 /* Course.m in Sources */,
 				BC2C0C891B15698B00E2446E /* NSError+MOError.m in Sources */,
 				BC3599F71BC61F0C002DE863 /* MLSelectPhotoPickerBrowserPhotoScrollView.m in Sources */,
 				BC359A4C1BC67B4F002DE863 /* HomeOperateCell.m in Sources */,
@@ -2477,6 +2496,7 @@
 				BCF9ECA71B416C3500AEBE1E /* CityListModel.m in Sources */,
 				5A11C7301B58B49B00B0CDFE /* ProductCalendarModel.m in Sources */,
 				5A9E80E61B4BBF590028AC47 /* ProductPlayFellowCell.m in Sources */,
+				BC7737621BCCA9F900987B22 /* IndexModel.m in Sources */,
 				BC41ABB91B0F25AB00A419DA /* SugTagsModel.m in Sources */,
 				BC8540941ADF74E9005A7C54 /* AppDelegate.m in Sources */,
 				BC3599FC1BC61F0C002DE863 /* MLSelectPhotoPickerGroupTableViewCell.m in Sources */,

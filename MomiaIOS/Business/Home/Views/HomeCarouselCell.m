@@ -7,7 +7,7 @@
 //
 
 #import "HomeCarouselCell.h"
-#import "HomeModel.h"
+#import "IndexModel.h"
 
 #define cellScale 0.45
 
@@ -71,7 +71,7 @@
     
     if(banners.count == 1) {//只有一张图
         self.scrollView.contentSize = CGSizeMake(width,0);
-        HomeBannerModel * item = banners[0];
+        IndexBanner * item = banners[0];
         UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
         [imgView sd_setImageWithURL:[NSURL URLWithString:item.cover] placeholderImage:nil];
         imgView.contentMode = UIViewContentModeScaleAspectFill;
@@ -86,13 +86,13 @@
         UIImageView * firstImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
         firstImgView.contentMode = UIViewContentModeScaleAspectFill;
         firstImgView.clipsToBounds = YES;
-        [firstImgView sd_setImageWithURL:[NSURL URLWithString:((HomeBannerModel *)banners.lastObject).cover] placeholderImage:nil];
+        [firstImgView sd_setImageWithURL:[NSURL URLWithString:((IndexBanner *)banners.lastObject).cover] placeholderImage:nil];
         
         [self.scrollView addSubview:firstImgView];
         self.imgsNum ++;
         
         for (int i = 0; i < banners.count; i++) {
-            HomeBannerModel * item = banners[i];
+            IndexBanner * item = banners[i];
             UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake((i + 1) * width, 0, width, height)];
             imgView.contentMode = UIViewContentModeScaleAspectFill;
             imgView.clipsToBounds = YES;
@@ -104,7 +104,7 @@
         UIImageView * lastImgView = [[UIImageView alloc] initWithFrame:CGRectMake((banners.count + 1) * width, 0, width, height)];
         lastImgView.contentMode = UIViewContentModeScaleAspectFill;
         lastImgView.clipsToBounds = YES;
-        [lastImgView sd_setImageWithURL:[NSURL URLWithString:((HomeBannerModel *)banners.firstObject).cover] placeholderImage:nil];
+        [lastImgView sd_setImageWithURL:[NSURL URLWithString:((IndexBanner *)banners.firstObject).cover] placeholderImage:nil];
         [self.scrollView addSubview:lastImgView];
         
         self.imgsNum ++;
