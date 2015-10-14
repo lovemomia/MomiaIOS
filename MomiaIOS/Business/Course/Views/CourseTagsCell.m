@@ -7,6 +7,7 @@
 //
 
 #import "CourseTagsCell.h"
+#import "Package.h"
 
 @implementation CourseTagsCell
 
@@ -20,7 +21,7 @@
     // Configure the view for the selected state
 }
 
--(void)setData:(id)model {
+-(void)setData:(Package *)model {
     for (UIView * view in self.contentView.subviews) {
         if([view isKindOfClass:[UIImageView class]] || [view isKindOfClass:[UILabel class]]) {
             [view removeFromSuperview];
@@ -35,7 +36,7 @@
         [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.contentView);
             if(i == 0) make.leading.equalTo(self.contentView).with.offset(10);
-            else make.leading.equalTo(lastView.mas_trailing).with.offset(50);
+            else make.leading.equalTo(lastView.mas_trailing).with.offset(40);
             make.width.equalTo(@17);
             make.height.equalTo(@17);
         }];
@@ -47,7 +48,13 @@
             make.centerY.equalTo(self.contentView);
             make.leading.equalTo(imgView.mas_trailing).with.offset(5);
         }];
-        label.text = @"适合4-8岁";
+        
+        if (i == 0) {
+            label.text = [NSString stringWithFormat:@"适合%@", model.age];
+        } else if (i == 1) {
+            label.text = [NSString stringWithFormat:@"%@人参加", model.joined];
+        }
+        
         label.textColor = UIColorFromRGB(0x999999);
         label.font = [UIFont systemFontOfSize:13.0f];
         

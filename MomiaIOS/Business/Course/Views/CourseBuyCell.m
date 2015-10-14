@@ -7,6 +7,8 @@
 //
 
 #import "CourseBuyCell.h"
+#import "Package.h"
+#import "StringUtils.h"
 
 @interface CourseBuyCell()
 
@@ -31,10 +33,10 @@
     // Configure the view for the selected state
 }
 
-- (void)setData:(id)data {
-    self.priceLabel.text = @"199";
+- (void)setData:(Package *)data {
+    self.priceLabel.text = [StringUtils stringForPrice:data.price];
     
-    NSString *oldPrice = @"¥300";
+    NSString *oldPrice = [StringUtils stringForPrice:data.originalPrice];
     NSUInteger length = [oldPrice length];
     
     NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:oldPrice];

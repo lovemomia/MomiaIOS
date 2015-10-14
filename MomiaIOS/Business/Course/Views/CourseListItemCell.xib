@@ -99,18 +99,25 @@
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
-                        <exclude reference="VVI-Ws-dJV"/>
                         <exclude reference="JV9-hH-bAV"/>
-                        <exclude reference="ajB-w0-Dwp"/>
+                        <exclude reference="VVI-Ws-dJV"/>
                         <exclude reference="4QW-rc-Tg1"/>
-                        <exclude reference="ktz-e5-XPR"/>
                         <exclude reference="Cl0-pA-b69"/>
+                        <exclude reference="ajB-w0-Dwp"/>
+                        <exclude reference="ktz-e5-XPR"/>
+                        <exclude reference="bST-sV-wRt"/>
                         <exclude reference="q0C-70-kJ7"/>
                         <exclude reference="x0s-Mb-yqt"/>
-                        <exclude reference="bST-sV-wRt"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="H1b-kM-u0w" id="lfL-GF-z0s"/>
+                <outlet property="iconIv" destination="zib-Vd-k6v" id="0ff-8B-3vb"/>
+                <outlet property="placeLabel" destination="x2L-fa-ZOo" id="XTV-8l-vLg"/>
+                <outlet property="priceLabel" destination="MdF-eU-Unt" id="OLc-d1-hL7"/>
+                <outlet property="titleLabel" destination="LRa-ua-otw" id="u5L-UW-dR5"/>
+            </connections>
             <point key="canvasLocation" x="292" y="263.5"/>
         </tableViewCell>
     </objects>

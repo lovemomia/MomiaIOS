@@ -11,6 +11,10 @@
 
 static const int kItemHeight = 80;
 
+@interface HomeOperateCell()
+@property (nonatomic, strong) NSArray *data;
+@end
+
 @implementation HomeOperateCell
 
 - (void)awakeFromNib {
@@ -25,16 +29,18 @@ static const int kItemHeight = 80;
 
 - (instancetype)initWithTableView:(UITableView *) tableView forModel:(id)model reuseIdentifier:(NSString *)identifier {
     if (self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier]) {
-        NSArray *items = model;
+        self.data = model;
         CGFloat padding = 10.0;
         CGFloat iconSize = 40.0;
         CGFloat itemWidth = SCREEN_WIDTH / 2;
-        for (int i = 0; i < items.count; i++) {
-            IndexEvent *event = items[i];
+        for (int i = 0; i < self.data.count; i++) {
+            IndexEvent *event = self.data[i];
             int row = i / 2;
             int col = fmod(i, 2);
             CGRect frame = CGRectMake(col * itemWidth, row * kItemHeight, itemWidth, kItemHeight);
             UIView *container = [[UIView alloc]initWithFrame:frame];
+            UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onItemClicked:)];
+            [container addGestureRecognizer:singleTap];
             
             UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(itemWidth - padding - iconSize, 2 * padding, iconSize, iconSize)];
             [container addSubview:imageView];
@@ -58,7 +64,7 @@ static const int kItemHeight = 80;
             subTitleLabel.text = event.desc;
         }
         
-        int i = items.count;
+        int i = self.data.count;
         int row = i / 2;
         if (fmod(i, 2) != 0) {
             row += 1;
@@ -77,6 +83,12 @@ static const int kItemHeight = 80;
         
     }
     return self;
+}
+
+- (void)onItemClicked:(UITapGestureRecognizer *)tap {
+    UIView *view = tap.view;
+    IndexEvent *event = self.data[view.tag];
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:event.action]];
 }
 
 + (CGFloat)heightWithTableView:(UITableView *) tableView forModel:(id)model {

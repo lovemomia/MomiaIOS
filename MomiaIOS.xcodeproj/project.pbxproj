@@ -271,6 +271,11 @@
 		BC77375B1BCB94BB00987B22 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC77375A1BCB94BB00987B22 /* OpenGLES.framework */; };
 		BC77375F1BCCA31B00987B22 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77375E1BCCA31B00987B22 /* Course.m */; settings = {ASSET_TAGS = (); }; };
 		BC7737621BCCA9F900987B22 /* IndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737611BCCA9F900987B22 /* IndexModel.m */; settings = {ASSET_TAGS = (); }; };
+		BC7737651BCD07D200987B22 /* Package.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737641BCD07D200987B22 /* Package.m */; settings = {ASSET_TAGS = (); }; };
+		BC7737681BCD096E00987B22 /* Notice.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737671BCD096E00987B22 /* Notice.m */; settings = {ASSET_TAGS = (); }; };
+		BC77376B1BCD0B1200987B22 /* CourseList.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77376A1BCD0B1200987B22 /* CourseList.m */; settings = {ASSET_TAGS = (); }; };
+		BC77376E1BCD12CB00987B22 /* PackageDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77376D1BCD12CB00987B22 /* PackageDetailModel.m */; settings = {ASSET_TAGS = (); }; };
+		BC7737711BCDEFE200987B22 /* CourseNoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737701BCDEFE200987B22 /* CourseNoticeCell.m */; settings = {ASSET_TAGS = (); }; };
 		BC7CBADE1B662E590047211D /* MOTagLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBADD1B662E590047211D /* MOTagLabel.m */; };
 		BC7CBAF91B6868930047211D /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBAF71B6868930047211D /* AboutViewController.m */; };
 		BC7CBAFC1B68698A0047211D /* AboutHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7CBAFB1B68698A0047211D /* AboutHeaderView.xib */; };
@@ -822,6 +827,16 @@
 		BC77375E1BCCA31B00987B22 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Course.m; path = Common/Models/Course/Course.m; sourceTree = "<group>"; };
 		BC7737601BCCA9F900987B22 /* IndexModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IndexModel.h; path = Common/Models/Home/IndexModel.h; sourceTree = "<group>"; };
 		BC7737611BCCA9F900987B22 /* IndexModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IndexModel.m; path = Common/Models/Home/IndexModel.m; sourceTree = "<group>"; };
+		BC7737631BCD07D200987B22 /* Package.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Package.h; path = Common/Models/Course/Package.h; sourceTree = "<group>"; };
+		BC7737641BCD07D200987B22 /* Package.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Package.m; path = Common/Models/Course/Package.m; sourceTree = "<group>"; };
+		BC7737661BCD096E00987B22 /* Notice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Notice.h; path = Common/Models/Course/Notice.h; sourceTree = "<group>"; };
+		BC7737671BCD096E00987B22 /* Notice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Notice.m; path = Common/Models/Course/Notice.m; sourceTree = "<group>"; };
+		BC7737691BCD0B1200987B22 /* CourseList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseList.h; path = Common/Models/Course/CourseList.h; sourceTree = "<group>"; };
+		BC77376A1BCD0B1200987B22 /* CourseList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseList.m; path = Common/Models/Course/CourseList.m; sourceTree = "<group>"; };
+		BC77376C1BCD12CB00987B22 /* PackageDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PackageDetailModel.h; path = Common/Models/Course/PackageDetailModel.h; sourceTree = "<group>"; };
+		BC77376D1BCD12CB00987B22 /* PackageDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PackageDetailModel.m; path = Common/Models/Course/PackageDetailModel.m; sourceTree = "<group>"; };
+		BC77376F1BCDEFE200987B22 /* CourseNoticeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseNoticeCell.h; path = Business/Course/Views/CourseNoticeCell.h; sourceTree = "<group>"; };
+		BC7737701BCDEFE200987B22 /* CourseNoticeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseNoticeCell.m; path = Business/Course/Views/CourseNoticeCell.m; sourceTree = "<group>"; };
 		BC7CBADC1B662E590047211D /* MOTagLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOTagLabel.h; path = Common/Views/MOTagLabel.h; sourceTree = "<group>"; };
 		BC7CBADD1B662E590047211D /* MOTagLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOTagLabel.m; path = Common/Views/MOTagLabel.m; sourceTree = "<group>"; };
 		BC7CBAF61B6868930047211D /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Business/Setting/AboutViewController.h; sourceTree = "<group>"; };
@@ -1472,6 +1487,8 @@
 				BC040D101BC8EDB600988AB2 /* CourseListItemCell.h */,
 				BC040D111BC8EDB600988AB2 /* CourseListItemCell.m */,
 				BC040D121BC8EDB600988AB2 /* CourseListItemCell.xib */,
+				BC77376F1BCDEFE200987B22 /* CourseNoticeCell.h */,
+				BC7737701BCDEFE200987B22 /* CourseNoticeCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1804,6 +1821,14 @@
 			children = (
 				BC77375D1BCCA31B00987B22 /* Course.h */,
 				BC77375E1BCCA31B00987B22 /* Course.m */,
+				BC7737631BCD07D200987B22 /* Package.h */,
+				BC7737641BCD07D200987B22 /* Package.m */,
+				BC7737661BCD096E00987B22 /* Notice.h */,
+				BC7737671BCD096E00987B22 /* Notice.m */,
+				BC7737691BCD0B1200987B22 /* CourseList.h */,
+				BC77376A1BCD0B1200987B22 /* CourseList.m */,
+				BC77376C1BCD12CB00987B22 /* PackageDetailModel.h */,
+				BC77376D1BCD12CB00987B22 /* PackageDetailModel.m */,
 			);
 			name = Course;
 			sourceTree = "<group>";
@@ -2462,6 +2487,7 @@
 				BC359A4C1BC67B4F002DE863 /* HomeOperateCell.m in Sources */,
 				BCF564D21B46A437003A2227 /* ServerErrorHandler.m in Sources */,
 				5A9E81201B4BE7CA0028AC47 /* OrderDetailViewController.m in Sources */,
+				BC7737651BCD07D200987B22 /* Package.m in Sources */,
 				BC359A3A1BC61F89002DE863 /* MBProgressHUD+Add.m in Sources */,
 				BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */,
 				BC2C0C801B14659400E2446E /* MyStatusViewController.m in Sources */,
@@ -2501,6 +2527,7 @@
 				BC8540941ADF74E9005A7C54 /* AppDelegate.m in Sources */,
 				BC3599FC1BC61F0C002DE863 /* MLSelectPhotoPickerGroupTableViewCell.m in Sources */,
 				BC359A3B1BC61F89002DE863 /* SDWebImageManager+MJ.m in Sources */,
+				BC7737711BCDEFE200987B22 /* CourseNoticeCell.m in Sources */,
 				BC3D0BA71B6F77AF004C7B81 /* LeaderProductModel.m in Sources */,
 				5ABDA5B31B42CD4B003BAE80 /* PostOrderModel.m in Sources */,
 				BC97DEFC1B4B75A8002B1A00 /* OrderPerson.m in Sources */,
@@ -2568,6 +2595,7 @@
 				BC3D0BAA1B70A947004C7B81 /* SelectProductViewController.m in Sources */,
 				BCCDC6EA1BBA9661007C2F57 /* CourseDetailViewController.m in Sources */,
 				5AC9FFC91B17020300C769EF /* SubmitPostModel.m in Sources */,
+				BC77376E1BCD12CB00987B22 /* PackageDetailModel.m in Sources */,
 				BC3D0BB01B70B361004C7B81 /* LeaderSkuModel.m in Sources */,
 				BC82542B1B3917AC00430A6F /* MORootViewController.m in Sources */,
 				5ABDA57B1B423FD8003BAE80 /* PostPersonModel.m in Sources */,
@@ -2603,6 +2631,7 @@
 				BC359A2C1BC61F3B002DE863 /* SGSheetMenu.m in Sources */,
 				BC97DF271B4E4AA4002B1A00 /* PayTool.m in Sources */,
 				BC97DF1B1B4E1DF0002B1A00 /* PayResultViewController.m in Sources */,
+				BC77376B1BCD0B1200987B22 /* CourseList.m in Sources */,
 				BC2E68311BA0129200175E2D /* ConfigModel.m in Sources */,
 				5A794F981B4E703600BB3B7C /* OrderDetailMiddleCell.m in Sources */,
 				5A9E80D81B4BB2450028AC47 /* PlayFellowModel.m in Sources */,
@@ -2634,6 +2663,7 @@
 				5A8FF9701B450FA5007A8CA4 /* ProductDetailContentCell.m in Sources */,
 				5A11C7291B589BB600B0CDFE /* ProductCalendarWeekendViewController.m in Sources */,
 				5A08C14A1B3911CA00642648 /* ProductDetailModel.m in Sources */,
+				BC7737681BCD096E00987B22 /* Notice.m in Sources */,
 				BC753EDD1BAC07D300D2663C /* FeedZanCell.m in Sources */,
 				BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */,
 				BC3599EA1BC61F0C002DE863 /* UIImage+MLTint.m in Sources */,

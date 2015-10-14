@@ -11,6 +11,10 @@
 
 static const int kItemHeight = 80;
 
+@interface HomeGridCell()
+@property (nonatomic, strong) NSArray *data;
+@end
+
 @implementation HomeGridCell
 
 - (void)awakeFromNib {
@@ -25,12 +29,12 @@ static const int kItemHeight = 80;
 
 - (instancetype)initWithTableView:(UITableView *) tableView forModel:(id)model reuseIdentifier:(NSString *)identifier {
     if (self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier]) {
-        NSArray *items = model;
+        self.data = model;
         CGFloat padding = 10.0;
         CGFloat iconSize = 50.0;
         CGFloat itemWidth = (SCREEN_WIDTH - 20) / 4;
-        for (int i = 0; i < items.count; i++) {
-            IndexIcon *icon = items[i];
+        for (int i = 0; i < self.data.count; i++) {
+            IndexIcon *icon = self.data[i];
             int row = i / 4;
             int col = i < 4 ? i : (i - 4);
             CGRect frame = CGRectMake(padding + col * itemWidth, (row + 1) * padding + row * kItemHeight, iconSize, iconSize);
@@ -59,7 +63,8 @@ static const int kItemHeight = 80;
 
 - (void)onItemClicked:(UITapGestureRecognizer *)tap {
     UIView *view = tap.view;
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"duola://packagedetail"]];
+    IndexIcon *icon = self.data[view.tag];
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:icon.action]];
 }
 
 + (CGFloat)heightWithTableView:(UITableView *) tableView forModel:(id)model {

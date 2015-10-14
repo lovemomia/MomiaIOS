@@ -8,6 +8,7 @@
 
 #import "CourseDiscCell.h"
 #import "TTTAttributedLabel.h"
+#import "Package.h"
 
 @implementation CourseDiscCell
 
@@ -21,13 +22,13 @@
     // Configure the view for the selected state
 }
 
-- (instancetype)initWithTableView:(UITableView *) tableView forModel:(id)model reuseIdentifier:(NSString *)identifier {
+- (instancetype)initWithTableView:(UITableView *) tableView forModel:(Package *)model reuseIdentifier:(NSString *)identifier {
     if (self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier]) {
         self.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
         
         TTTAttributedLabel *label = [TTTAttributedLabel new];
         label.numberOfLines = 0;
-        label.textColor = UIColorFromRGB(0x666666);
+        label.textColor = UIColorFromRGB(0x333333);
         label.font = [UIFont systemFontOfSize:13];
         label.lineSpacing = 6;
         [self.contentView addSubview:label];
@@ -38,7 +39,7 @@
             make.right.equalTo(self.contentView).with.offset(-10);
         }];
         
-        label.text = @"职业梦想是松果亲子为4-8岁孩子研发的体验类课程，旨在让孩子通过社会实践，对各种职业有良好的认知，并发现兴趣";
+        label.text = model.intro;
     }
     return self;
 }
