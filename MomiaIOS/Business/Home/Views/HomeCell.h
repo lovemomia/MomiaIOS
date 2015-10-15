@@ -7,7 +7,7 @@
 //
 
 #import "MOTableCell.h"
-#import "Course.h"
+#import "Package.h"
 
 @interface HomeCell : MOTableCell<MOTableCellDataProtocol>
 
@@ -20,6 +20,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
--(void)setData:(Course *) model;
+-(void)setData:(Package *) model;
 
 @end

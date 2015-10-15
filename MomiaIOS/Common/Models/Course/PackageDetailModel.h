@@ -7,9 +7,8 @@
 //
 
 #import "BaseModel.h"
-
-@class Package;
-@class CourseList;
+#import "Package.h"
+#import "CourseList.h"
 
 @interface PackageDetailData : JSONModel
 @property (nonatomic, strong) Package *subject;

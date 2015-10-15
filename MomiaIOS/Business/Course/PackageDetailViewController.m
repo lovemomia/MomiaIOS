@@ -42,7 +42,7 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.navigationItem.title = @"课程包详情";
+    self.navigationItem.title = @"课程包";
     
     [PhotoTitleHeaderCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierPhotoTitleHeaderCell];
     [CourseBuyCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierCourseBuyCell];
@@ -50,6 +50,7 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
     [CourseSectionTitleCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierCourseSectionTitleCell];
     [CourseListItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierCourseListItemCell];
     [CourseNoticeCell registerCellFromClassWithTableView:self.tableView withIdentifier:identifierCourseNoticeCell];
+    [CourseDiscCell registerCellFromClassWithTableView:self.tableView withIdentifier:identifierCourseDiscCell];
     
     self.buyView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
     self.buyView.hidden = YES;
@@ -142,6 +143,13 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
 
 #pragma mark - tableview delegate & datasource
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 2 && indexPath.row > 0) {
+        Course *course = self.model.data.courses.list[indexPath.row - 1];
+        [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@", course.ids]];
+    }
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (self.model) {
         return 4;
@@ -184,14 +192,12 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
     } else if (section == 1) {
         if (row == 0) {
             CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
-            titleCell.titleLabel.text = @"课程介绍";
+            titleCell.titleLabel.text = @"课程目标";
             cell = titleCell;
             
         } else {
-            CourseDiscCell *discCell = [tableView dequeueReusableCellWithIdentifier:identifierCourseDiscCell];
-            if (discCell == nil) {
-                discCell = [[CourseDiscCell alloc]initWithTableView:tableView forModel:self.model.data.subject reuseIdentifier:identifierCourseDiscCell];
-            }
+            CourseDiscCell *discCell = [CourseDiscCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseDiscCell];
+            discCell.data = self.model.data.subject.intro;
             cell = discCell;
         }
     } else if (section == 2) {
@@ -240,7 +246,7 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
             return 44;
             
         } else {
-            return [CourseDiscCell heightWithTableView:tableView forModel:self.model.data.subject];
+            return [CourseDiscCell heightWithTableView:tableView withIdentifier:identifierCourseDiscCell forIndexPath:indexPath data:self.model.data.subject.intro];
         }
     } else if (section == 2) {
         if (row == 0) {

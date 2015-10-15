@@ -9,6 +9,7 @@
 #import "PhotoTitleHeaderCell.h"
 #import "MONetworkPhotoView.h"
 #import "Package.h"
+#import "Course.h"
 #import "NSString+MOAttribuedString.h"
 
 @interface PhotoTitleHeaderCell()<UIScrollViewDelegate>
@@ -37,8 +38,9 @@
     return SCREEN_WIDTH * 225 / 320;
 }
 
--(void)setData:(Package *)model
+-(void)setData:(id)model
 {
+    BOOL isPackage = [model isKindOfClass:[Package class]];
     [self layoutIfNeeded];
     
     CGFloat width = SCREEN_WIDTH;
@@ -52,7 +54,7 @@
     
     self.imgsNum = 0;
     
-    NSArray * array = model.imgs;
+    NSArray * array = isPackage ? ((Package *)model).imgs : ((Course *)model).imgs;
     NSString * pageLabelStr = [NSString stringWithFormat:@"%d/%ld",1,(unsigned long)array.count];
     NSMutableAttributedString * attrStr = [[NSMutableAttributedString alloc] init];
     NSRange range = [pageLabelStr rangeOfString:@"/"];
@@ -113,7 +115,7 @@
     }
     
     
-    self.titleLabel.text = model.title;
+    self.titleLabel.text = isPackage ? ((Package *)model).title : ((Course *)model).title;
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView

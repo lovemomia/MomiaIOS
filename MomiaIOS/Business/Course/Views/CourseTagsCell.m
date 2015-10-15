@@ -8,6 +8,7 @@
 
 #import "CourseTagsCell.h"
 #import "Package.h"
+#import "Course.h"
 
 @implementation CourseTagsCell
 
@@ -21,7 +22,9 @@
     // Configure the view for the selected state
 }
 
--(void)setData:(Package *)model {
+-(void)setData:(id)model {
+    BOOL isPackage = [model isKindOfClass:[Package class]];
+    
     for (UIView * view in self.contentView.subviews) {
         if([view isKindOfClass:[UIImageView class]] || [view isKindOfClass:[UILabel class]]) {
             [view removeFromSuperview];
@@ -50,9 +53,9 @@
         }];
         
         if (i == 0) {
-            label.text = [NSString stringWithFormat:@"适合%@", model.age];
+            label.text = [NSString stringWithFormat:@"适合%@", isPackage ? ((Package *)model).age : ((Course *)model).age];
         } else if (i == 1) {
-            label.text = [NSString stringWithFormat:@"%@人参加", model.joined];
+            label.text = [NSString stringWithFormat:@"%@人参加", isPackage ? ((Package *)model).joined : ((Course *)model).joined];
         }
         
         label.textColor = UIColorFromRGB(0x999999);

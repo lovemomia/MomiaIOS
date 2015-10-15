@@ -20,6 +20,10 @@
 
 @end
 
+@implementation CourseTeacher
+
+@end
+
 
 @implementation Course
 

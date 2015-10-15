@@ -6,10 +6,8 @@
 //  Copyright © 2015年 Deng Jun. All rights reserved.
 //
 
-@interface CourseDiscCell : UITableViewCell
+#import "MOTableCell.h"
 
-- (instancetype)initWithTableView:(UITableView *) tableView forModel:(id)model reuseIdentifier:(NSString *)identifier;
-
-+ (CGFloat)heightWithTableView:(UITableView *) tableView forModel:(id)model;
+@interface CourseDiscCell : MOTableCell<MOTableCellDataProtocol>
 
 @end

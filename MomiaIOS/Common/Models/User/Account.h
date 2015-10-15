@@ -22,7 +22,7 @@
 @property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) NSNumber<Optional> *city;
 @property (nonatomic, strong) Child<Optional> *bigChild;
-@property (nonatomic, strong) NSArray *children;
+@property (nonatomic, strong) NSArray<Optional> *children;
 
 - (void)save;
 

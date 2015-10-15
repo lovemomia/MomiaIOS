@@ -75,7 +75,7 @@ static const int kItemHeight = 80;
         [self.contentView addSubview:verLine];
         verLine.backgroundColor = UIColorFromRGB(0xdddddd);
         
-        for (int i = 0; i < row; i ++) {
+        for (int i = 1; i < row; i ++) {
             UIView *line = [[UIView alloc]initWithFrame:CGRectMake(padding, i * kItemHeight, SCREEN_WIDTH - 2 * padding, 0.5)];
             [self.contentView addSubview:line];
             line.backgroundColor = UIColorFromRGB(0xdddddd);

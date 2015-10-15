@@ -20,10 +20,6 @@
 
 @end
 
-@implementation IndexCourseList
-
-@end
-
 @implementation IndexData
 
 @end

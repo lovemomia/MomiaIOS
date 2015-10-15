@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="83" id="KGk-i7-Jjw" customClass="CoursePoiCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="83"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="82.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="瑞尔齿科（中山公园店）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opf-ME-0hC">
+                        <rect key="frame" x="10" y="10" width="143" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="长宁区长宁路999号龙之梦" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFf-Rb-sGU">
+                        <rect key="frame" x="29" y="34" width="281" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="ljq-3x-jVU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="10月27日-12月27日，3场可选" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TiU-Dt-xYt">
+                        <rect key="frame" x="29" y="56.5" width="281" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="Rbp-oG-c8B"/>
+                            <constraint firstAttribute="height" constant="16" id="nLb-df-NVK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Rbp-oG-c8B"/>
+                            </mask>
+                        </variation>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconAddress" translatesAutoresizingMaskIntoConstraints="NO" id="lCA-Ex-moH">
+                        <rect key="frame" x="10" y="34" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="6Bt-cu-ikJ"/>
+                            <constraint firstAttribute="width" constant="16" id="dZg-Xr-jhf"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconAlarm" translatesAutoresizingMaskIntoConstraints="NO" id="tQq-W1-O9F">
+                        <rect key="frame" x="10" y="56.5" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="3fL-OA-Ihv"/>
+                            <constraint firstAttribute="height" constant="16" id="aM4-tx-Ycf"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="200m" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFd-BM-7Ma">
+                        <rect key="frame" x="155" y="10" width="155" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="TiU-Dt-xYt" secondAttribute="bottom" constant="10" id="0kt-zp-beZ"/>
+                    <constraint firstItem="tQq-W1-O9F" firstAttribute="top" secondItem="lCA-Ex-moH" secondAttribute="bottom" constant="8" id="6ce-0K-ujJ"/>
+                    <constraint firstAttribute="trailing" secondItem="kFd-BM-7Ma" secondAttribute="trailing" constant="10" id="6kM-BS-BEG"/>
+                    <constraint firstItem="HFf-Rb-sGU" firstAttribute="top" secondItem="opf-ME-0hC" secondAttribute="bottom" constant="8" id="94d-Bt-Mq6"/>
+                    <constraint firstItem="HFf-Rb-sGU" firstAttribute="leading" secondItem="lCA-Ex-moH" secondAttribute="trailing" constant="3" id="Bja-bk-blS"/>
+                    <constraint firstItem="HFf-Rb-sGU" firstAttribute="leading" secondItem="lCA-Ex-moH" secondAttribute="trailing" constant="3" id="EyA-KF-qe7"/>
+                    <constraint firstItem="lCA-Ex-moH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Pql-LA-JMI"/>
+                    <constraint firstItem="kFd-BM-7Ma" firstAttribute="leading" secondItem="opf-ME-0hC" secondAttribute="trailing" constant="2" id="QED-lN-1KE"/>
+                    <constraint firstItem="TiU-Dt-xYt" firstAttribute="top" secondItem="HFf-Rb-sGU" secondAttribute="bottom" constant="8" id="SW7-pX-870"/>
+                    <constraint firstItem="tQq-W1-O9F" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Vcd-yg-05E"/>
+                    <constraint firstItem="lCA-Ex-moH" firstAttribute="top" secondItem="opf-ME-0hC" secondAttribute="bottom" constant="8" id="WXN-O3-QjX"/>
+                    <constraint firstItem="opf-ME-0hC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="bRW-IR-CFy"/>
+                    <constraint firstAttribute="bottom" secondItem="tQq-W1-O9F" secondAttribute="bottom" constant="10" id="cGr-l2-Knm"/>
+                    <constraint firstItem="lCA-Ex-moH" firstAttribute="top" secondItem="opf-ME-0hC" secondAttribute="bottom" constant="6" id="d0b-ZZ-taW"/>
+                    <constraint firstAttribute="trailing" secondItem="TiU-Dt-xYt" secondAttribute="trailing" constant="10" id="g1M-w2-jqB"/>
+                    <constraint firstItem="kFd-BM-7Ma" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="gxF-ZZ-y2M"/>
+                    <constraint firstItem="TiU-Dt-xYt" firstAttribute="leading" secondItem="tQq-W1-O9F" secondAttribute="trailing" constant="3" id="mw1-Dj-SST"/>
+                    <constraint firstItem="TiU-Dt-xYt" firstAttribute="leading" secondItem="tQq-W1-O9F" secondAttribute="trailing" constant="3" id="nUQ-lL-uAM"/>
+                    <constraint firstAttribute="trailing" secondItem="HFf-Rb-sGU" secondAttribute="trailing" constant="10" id="njL-Cs-Tu5"/>
+                    <constraint firstItem="opf-ME-0hC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="p1B-Kn-p4r"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="d0b-ZZ-taW"/>
+                        <exclude reference="Bja-bk-blS"/>
+                        <exclude reference="6ce-0K-ujJ"/>
+                        <exclude reference="SW7-pX-870"/>
+                        <exclude reference="nUQ-lL-uAM"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="addressLabel" destination="HFf-Rb-sGU" id="fVs-NP-hIb"/>
+                <outlet property="dateLabel" destination="TiU-Dt-xYt" id="glc-pf-Z25"/>
+                <outlet property="distanceLabel" destination="kFd-BM-7Ma" id="GMQ-Rl-V2d"/>
+                <outlet property="nameLabel" destination="opf-ME-0hC" id="qrK-TG-LfT"/>
+            </connections>
+            <point key="canvasLocation" x="278" y="399.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="IconAddress" width="16" height="16"/>
+        <image name="IconAlarm" width="16" height="16"/>
+    </resources>
+</document>
