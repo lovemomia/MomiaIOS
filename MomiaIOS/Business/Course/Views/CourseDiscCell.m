@@ -8,7 +8,7 @@
 
 #import "CourseDiscCell.h"
 #import "TTTAttributedLabel.h"
-#import "Package.h"
+#import "Subject.h"
 
 @implementation CourseDiscCell
 

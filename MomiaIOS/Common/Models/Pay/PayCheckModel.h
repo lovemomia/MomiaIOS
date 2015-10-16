@@ -10,10 +10,12 @@
 
 @interface PayCheckData : JSONModel
 
-@property (nonatomic, strong) NSString *thumb;
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *abstracts;
-@property (nonatomic, strong) NSString *url;
+@property (nonatomic, strong) NSString<Optional> *thumb;
+@property (nonatomic, strong) NSString<Optional> *title;
+@property (nonatomic, strong) NSString<Optional> *abstracts;
+@property (nonatomic, strong) NSString<Optional> *url;
+
+@property (nonatomic, assign) BOOL payed;
 
 @end
 

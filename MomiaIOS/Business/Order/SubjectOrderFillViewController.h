@@ -8,7 +8,7 @@
 
 #import "MOGroupStyleTableViewController.h"
 
-@interface PackageOrderFillViewController : MOViewController<UITableViewDataSource,UITableViewDelegate>
+@interface SubjectOrderFillViewController : MOViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;

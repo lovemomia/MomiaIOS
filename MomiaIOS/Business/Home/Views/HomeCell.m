@@ -12,7 +12,7 @@
 
 @implementation HomeCell
 
--(void)setData:(Package *) model;
+-(void)setData:(Subject *) model;
 {
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:model.cover] placeholderImage:nil];
     self.titleLabel.text = model.title;

@@ -6,8 +6,8 @@
 //  Copyright © 2015年 Deng Jun. All rights reserved.
 //
 
-#import "PackageList.h"
+#import "SubjectList.h"
 
-@implementation PackageList
+@implementation SubjectList
 
 @end

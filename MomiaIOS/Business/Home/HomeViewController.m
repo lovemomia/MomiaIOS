@@ -255,7 +255,7 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
         text.textAlignment = NSTextAlignmentCenter;
         text.textColor = UIColorFromRGB(0x999999);
         text.backgroundColor = MO_APP_VCBackgroundColor;
-        text.font = [UIFont systemFontOfSize:12];
+        text.font = [UIFont systemFontOfSize:14];
         text.text = @"体验课";
         [view addSubview:text];
     }
@@ -411,8 +411,8 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
     if (section < number) {
         
     } else if(section < self.array.count + number) {
-        Package *package = self.array[indexPath.section - number];
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://packagedetail?id=%@", package.ids]];
+        Subject *subject = self.array[indexPath.section - number];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://subjectdetail?id=%@", subject.ids]];
         [[UIApplication sharedApplication] openURL:url];
         
     } else {

@@ -6,9 +6,9 @@
 //  Copyright © 2015年 Deng Jun. All rights reserved.
 //
 
-#import "Package.h"
+#import "Subject.h"
 
-@implementation Package
+@implementation Subject
 
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithDictionary:@{

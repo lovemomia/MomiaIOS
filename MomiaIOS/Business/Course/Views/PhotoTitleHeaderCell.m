@@ -8,7 +8,7 @@
 
 #import "PhotoTitleHeaderCell.h"
 #import "MONetworkPhotoView.h"
-#import "Package.h"
+#import "Subject.h"
 #import "Course.h"
 #import "NSString+MOAttribuedString.h"
 
@@ -40,7 +40,7 @@
 
 -(void)setData:(id)model
 {
-    BOOL isPackage = [model isKindOfClass:[Package class]];
+    BOOL isPackage = [model isKindOfClass:[Subject class]];
     [self layoutIfNeeded];
     
     CGFloat width = SCREEN_WIDTH;
@@ -54,7 +54,7 @@
     
     self.imgsNum = 0;
     
-    NSArray * array = isPackage ? ((Package *)model).imgs : ((Course *)model).imgs;
+    NSArray * array = isPackage ? ((Subject *)model).imgs : ((Course *)model).imgs;
     NSString * pageLabelStr = [NSString stringWithFormat:@"%d/%ld",1,(unsigned long)array.count];
     NSMutableAttributedString * attrStr = [[NSMutableAttributedString alloc] init];
     NSRange range = [pageLabelStr rangeOfString:@"/"];

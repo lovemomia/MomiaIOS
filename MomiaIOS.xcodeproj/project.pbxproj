@@ -162,7 +162,8 @@
 		BC2E68311BA0129200175E2D /* ConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2E68301BA0129200175E2D /* ConfigModel.m */; };
 		BC2FAA0F1AFCA92D00E2071E /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA0E1AFCA92D00E2071E /* UIView+Frame.m */; };
 		BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA151AFCB2EE00E2071E /* BaseModel.m */; };
-		BC3599B51BC61DD0002DE863 /* PackageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599B31BC61DD0002DE863 /* PackageDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
+		BC3504921BD0F865009A24B0 /* Subject.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3504911BD0F865009A24B0 /* Subject.m */; settings = {ASSET_TAGS = (); }; };
+		BC3599B51BC61DD0002DE863 /* SubjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599B31BC61DD0002DE863 /* SubjectDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		BC3599BA1BC61ED7002DE863 /* ProductCalendarMonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599B91BC61ED7002DE863 /* ProductCalendarMonthViewController.m */; settings = {ASSET_TAGS = (); }; };
 		BC3599EA1BC61F0C002DE863 /* UIImage+MLTint.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599BF1BC61F0C002DE863 /* UIImage+MLTint.m */; settings = {ASSET_TAGS = (); }; };
 		BC3599EB1BC61F0C002DE863 /* UIView+MLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599C11BC61F0C002DE863 /* UIView+MLExtension.m */; settings = {ASSET_TAGS = (); }; };
@@ -269,10 +270,9 @@
 		BC77375B1BCB94BB00987B22 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC77375A1BCB94BB00987B22 /* OpenGLES.framework */; };
 		BC77375F1BCCA31B00987B22 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77375E1BCCA31B00987B22 /* Course.m */; settings = {ASSET_TAGS = (); }; };
 		BC7737621BCCA9F900987B22 /* IndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737611BCCA9F900987B22 /* IndexModel.m */; settings = {ASSET_TAGS = (); }; };
-		BC7737651BCD07D200987B22 /* Package.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737641BCD07D200987B22 /* Package.m */; settings = {ASSET_TAGS = (); }; };
 		BC7737681BCD096E00987B22 /* Notice.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737671BCD096E00987B22 /* Notice.m */; settings = {ASSET_TAGS = (); }; };
 		BC77376B1BCD0B1200987B22 /* CourseList.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77376A1BCD0B1200987B22 /* CourseList.m */; settings = {ASSET_TAGS = (); }; };
-		BC77376E1BCD12CB00987B22 /* PackageDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77376D1BCD12CB00987B22 /* PackageDetailModel.m */; settings = {ASSET_TAGS = (); }; };
+		BC77376E1BCD12CB00987B22 /* SubjectDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77376D1BCD12CB00987B22 /* SubjectDetailModel.m */; settings = {ASSET_TAGS = (); }; };
 		BC7737711BCDEFE200987B22 /* CourseNoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737701BCDEFE200987B22 /* CourseNoticeCell.m */; settings = {ASSET_TAGS = (); }; };
 		BC7737741BCE0E8100987B22 /* HomeworkList.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737731BCE0E8100987B22 /* HomeworkList.m */; settings = {ASSET_TAGS = (); }; };
 		BC7737771BCE11AA00987B22 /* CourseCommentList.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737761BCE11AA00987B22 /* CourseCommentList.m */; settings = {ASSET_TAGS = (); }; };
@@ -283,9 +283,9 @@
 		BC7737851BCE49B900987B22 /* CourseDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737841BCE49B900987B22 /* CourseDetailModel.m */; settings = {ASSET_TAGS = (); }; };
 		BC7737891BCE4A9E00987B22 /* CoursePriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737871BCE4A9E00987B22 /* CoursePriceCell.m */; settings = {ASSET_TAGS = (); }; };
 		BC77378A1BCE4A9E00987B22 /* CoursePriceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7737881BCE4A9E00987B22 /* CoursePriceCell.xib */; settings = {ASSET_TAGS = (); }; };
-		BC77378D1BCE6AD200987B22 /* PackageList.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77378C1BCE6AD200987B22 /* PackageList.m */; settings = {ASSET_TAGS = (); }; };
-		BC7737911BCF91CA00987B22 /* PackageOrderFillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77378F1BCF91CA00987B22 /* PackageOrderFillViewController.m */; settings = {ASSET_TAGS = (); }; };
-		BC7737921BCF91CA00987B22 /* PackageOrderFillViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7737901BCF91CA00987B22 /* PackageOrderFillViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		BC77378D1BCE6AD200987B22 /* SubjectList.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77378C1BCE6AD200987B22 /* SubjectList.m */; settings = {ASSET_TAGS = (); }; };
+		BC7737911BCF91CA00987B22 /* SubjectOrderFillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77378F1BCF91CA00987B22 /* SubjectOrderFillViewController.m */; settings = {ASSET_TAGS = (); }; };
+		BC7737921BCF91CA00987B22 /* SubjectOrderFillViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7737901BCF91CA00987B22 /* SubjectOrderFillViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		BC7737951BCF9C1E00987B22 /* SkuListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737941BCF9C1E00987B22 /* SkuListModel.m */; settings = {ASSET_TAGS = (); }; };
 		BC77379A1BCFAA1500987B22 /* SkuItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737981BCFAA1500987B22 /* SkuItemCell.m */; settings = {ASSET_TAGS = (); }; };
 		BC77379B1BCFAA1500987B22 /* SkuItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7737991BCFAA1500987B22 /* SkuItemCell.xib */; settings = {ASSET_TAGS = (); }; };
@@ -644,8 +644,10 @@
 		BC2FAA0E1AFCA92D00E2071E /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Frame.m"; path = "Common/Categorys/UIView+Frame.m"; sourceTree = "<group>"; };
 		BC2FAA141AFCB2EE00E2071E /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseModel.h; path = Common/Models/BaseModel.h; sourceTree = "<group>"; };
 		BC2FAA151AFCB2EE00E2071E /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseModel.m; path = Common/Models/BaseModel.m; sourceTree = "<group>"; };
-		BC3599B21BC61DD0002DE863 /* PackageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PackageDetailViewController.h; path = Business/Course/PackageDetailViewController.h; sourceTree = "<group>"; };
-		BC3599B31BC61DD0002DE863 /* PackageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PackageDetailViewController.m; path = Business/Course/PackageDetailViewController.m; sourceTree = "<group>"; };
+		BC3504901BD0F865009A24B0 /* Subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Subject.h; path = Common/Models/Course/Subject.h; sourceTree = "<group>"; };
+		BC3504911BD0F865009A24B0 /* Subject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Subject.m; path = Common/Models/Course/Subject.m; sourceTree = "<group>"; };
+		BC3599B21BC61DD0002DE863 /* SubjectDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectDetailViewController.h; path = Business/Course/SubjectDetailViewController.h; sourceTree = "<group>"; };
+		BC3599B31BC61DD0002DE863 /* SubjectDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectDetailViewController.m; path = Business/Course/SubjectDetailViewController.m; sourceTree = "<group>"; };
 		BC3599B81BC61ED7002DE863 /* ProductCalendarMonthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductCalendarMonthViewController.h; path = Business/Home/ProductCalendarMonthViewController.h; sourceTree = "<group>"; };
 		BC3599B91BC61ED7002DE863 /* ProductCalendarMonthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductCalendarMonthViewController.m; path = Business/Home/ProductCalendarMonthViewController.m; sourceTree = "<group>"; };
 		BC3599BE1BC61F0C002DE863 /* UIImage+MLTint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MLTint.h"; sourceTree = "<group>"; };
@@ -836,14 +838,12 @@
 		BC77375E1BCCA31B00987B22 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Course.m; path = Common/Models/Course/Course.m; sourceTree = "<group>"; };
 		BC7737601BCCA9F900987B22 /* IndexModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IndexModel.h; path = Common/Models/Home/IndexModel.h; sourceTree = "<group>"; };
 		BC7737611BCCA9F900987B22 /* IndexModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IndexModel.m; path = Common/Models/Home/IndexModel.m; sourceTree = "<group>"; };
-		BC7737631BCD07D200987B22 /* Package.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Package.h; path = Common/Models/Course/Package.h; sourceTree = "<group>"; };
-		BC7737641BCD07D200987B22 /* Package.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Package.m; path = Common/Models/Course/Package.m; sourceTree = "<group>"; };
 		BC7737661BCD096E00987B22 /* Notice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Notice.h; path = Common/Models/Course/Notice.h; sourceTree = "<group>"; };
 		BC7737671BCD096E00987B22 /* Notice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Notice.m; path = Common/Models/Course/Notice.m; sourceTree = "<group>"; };
 		BC7737691BCD0B1200987B22 /* CourseList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseList.h; path = Common/Models/Course/CourseList.h; sourceTree = "<group>"; };
 		BC77376A1BCD0B1200987B22 /* CourseList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseList.m; path = Common/Models/Course/CourseList.m; sourceTree = "<group>"; };
-		BC77376C1BCD12CB00987B22 /* PackageDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PackageDetailModel.h; path = Common/Models/Course/PackageDetailModel.h; sourceTree = "<group>"; };
-		BC77376D1BCD12CB00987B22 /* PackageDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PackageDetailModel.m; path = Common/Models/Course/PackageDetailModel.m; sourceTree = "<group>"; };
+		BC77376C1BCD12CB00987B22 /* SubjectDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectDetailModel.h; path = Common/Models/Course/SubjectDetailModel.h; sourceTree = "<group>"; };
+		BC77376D1BCD12CB00987B22 /* SubjectDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectDetailModel.m; path = Common/Models/Course/SubjectDetailModel.m; sourceTree = "<group>"; };
 		BC77376F1BCDEFE200987B22 /* CourseNoticeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseNoticeCell.h; path = Business/Course/Views/CourseNoticeCell.h; sourceTree = "<group>"; };
 		BC7737701BCDEFE200987B22 /* CourseNoticeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseNoticeCell.m; path = Business/Course/Views/CourseNoticeCell.m; sourceTree = "<group>"; };
 		BC7737721BCE0E8100987B22 /* HomeworkList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeworkList.h; path = Common/Models/Course/HomeworkList.h; sourceTree = "<group>"; };
@@ -862,11 +862,11 @@
 		BC7737861BCE4A9E00987B22 /* CoursePriceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoursePriceCell.h; path = Business/Course/Views/CoursePriceCell.h; sourceTree = "<group>"; };
 		BC7737871BCE4A9E00987B22 /* CoursePriceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoursePriceCell.m; path = Business/Course/Views/CoursePriceCell.m; sourceTree = "<group>"; };
 		BC7737881BCE4A9E00987B22 /* CoursePriceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CoursePriceCell.xib; path = Business/Course/Views/CoursePriceCell.xib; sourceTree = "<group>"; };
-		BC77378B1BCE6AD200987B22 /* PackageList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PackageList.h; path = Common/Models/Course/PackageList.h; sourceTree = "<group>"; };
-		BC77378C1BCE6AD200987B22 /* PackageList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PackageList.m; path = Common/Models/Course/PackageList.m; sourceTree = "<group>"; };
-		BC77378E1BCF91CA00987B22 /* PackageOrderFillViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PackageOrderFillViewController.h; path = Business/Order/PackageOrderFillViewController.h; sourceTree = "<group>"; };
-		BC77378F1BCF91CA00987B22 /* PackageOrderFillViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PackageOrderFillViewController.m; path = Business/Order/PackageOrderFillViewController.m; sourceTree = "<group>"; };
-		BC7737901BCF91CA00987B22 /* PackageOrderFillViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PackageOrderFillViewController.xib; path = Business/Order/PackageOrderFillViewController.xib; sourceTree = "<group>"; };
+		BC77378B1BCE6AD200987B22 /* SubjectList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectList.h; path = Common/Models/Course/SubjectList.h; sourceTree = "<group>"; };
+		BC77378C1BCE6AD200987B22 /* SubjectList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectList.m; path = Common/Models/Course/SubjectList.m; sourceTree = "<group>"; };
+		BC77378E1BCF91CA00987B22 /* SubjectOrderFillViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectOrderFillViewController.h; path = Business/Order/SubjectOrderFillViewController.h; sourceTree = "<group>"; };
+		BC77378F1BCF91CA00987B22 /* SubjectOrderFillViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectOrderFillViewController.m; path = Business/Order/SubjectOrderFillViewController.m; sourceTree = "<group>"; };
+		BC7737901BCF91CA00987B22 /* SubjectOrderFillViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SubjectOrderFillViewController.xib; path = Business/Order/SubjectOrderFillViewController.xib; sourceTree = "<group>"; };
 		BC7737931BCF9C1E00987B22 /* SkuListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SkuListModel.h; path = Business/Order/SkuListModel.h; sourceTree = "<group>"; };
 		BC7737941BCF9C1E00987B22 /* SkuListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SkuListModel.m; path = Business/Order/SkuListModel.m; sourceTree = "<group>"; };
 		BC7737971BCFAA1500987B22 /* SkuItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SkuItemCell.h; path = Business/Order/views/SkuItemCell.h; sourceTree = "<group>"; };
@@ -1220,9 +1220,9 @@
 				BCF564D41B48E018003A2227 /* OrderListViewController.m */,
 				5A9E811D1B4BE7CA0028AC47 /* OrderDetailViewController.h */,
 				5A9E811E1B4BE7CA0028AC47 /* OrderDetailViewController.m */,
-				BC77378E1BCF91CA00987B22 /* PackageOrderFillViewController.h */,
-				BC77378F1BCF91CA00987B22 /* PackageOrderFillViewController.m */,
-				BC7737901BCF91CA00987B22 /* PackageOrderFillViewController.xib */,
+				BC77378E1BCF91CA00987B22 /* SubjectOrderFillViewController.h */,
+				BC77378F1BCF91CA00987B22 /* SubjectOrderFillViewController.m */,
+				BC7737901BCF91CA00987B22 /* SubjectOrderFillViewController.xib */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -1867,24 +1867,24 @@
 		BC77375C1BCCA2ED00987B22 /* Course */ = {
 			isa = PBXGroup;
 			children = (
+				BC3504901BD0F865009A24B0 /* Subject.h */,
+				BC3504911BD0F865009A24B0 /* Subject.m */,
 				BC77375D1BCCA31B00987B22 /* Course.h */,
 				BC77375E1BCCA31B00987B22 /* Course.m */,
-				BC7737631BCD07D200987B22 /* Package.h */,
-				BC7737641BCD07D200987B22 /* Package.m */,
 				BC7737661BCD096E00987B22 /* Notice.h */,
 				BC7737671BCD096E00987B22 /* Notice.m */,
 				BC7737691BCD0B1200987B22 /* CourseList.h */,
 				BC77376A1BCD0B1200987B22 /* CourseList.m */,
-				BC77376C1BCD12CB00987B22 /* PackageDetailModel.h */,
-				BC77376D1BCD12CB00987B22 /* PackageDetailModel.m */,
+				BC77376C1BCD12CB00987B22 /* SubjectDetailModel.h */,
+				BC77376D1BCD12CB00987B22 /* SubjectDetailModel.m */,
 				BC7737721BCE0E8100987B22 /* HomeworkList.h */,
 				BC7737731BCE0E8100987B22 /* HomeworkList.m */,
 				BC7737751BCE11AA00987B22 /* CourseCommentList.h */,
 				BC7737761BCE11AA00987B22 /* CourseCommentList.m */,
 				BC7737831BCE49B900987B22 /* CourseDetailModel.h */,
 				BC7737841BCE49B900987B22 /* CourseDetailModel.m */,
-				BC77378B1BCE6AD200987B22 /* PackageList.h */,
-				BC77378C1BCE6AD200987B22 /* PackageList.m */,
+				BC77378B1BCE6AD200987B22 /* SubjectList.h */,
+				BC77378C1BCE6AD200987B22 /* SubjectList.m */,
 			);
 			name = Course;
 			sourceTree = "<group>";
@@ -2269,8 +2269,8 @@
 				BC3599B71BC61DDF002DE863 /* Views */,
 				BCCDC6E71BBA9661007C2F57 /* CourseDetailViewController.h */,
 				BCCDC6E81BBA9661007C2F57 /* CourseDetailViewController.m */,
-				BC3599B21BC61DD0002DE863 /* PackageDetailViewController.h */,
-				BC3599B31BC61DD0002DE863 /* PackageDetailViewController.m */,
+				BC3599B21BC61DD0002DE863 /* SubjectDetailViewController.h */,
+				BC3599B31BC61DD0002DE863 /* SubjectDetailViewController.m */,
 			);
 			name = Course;
 			sourceTree = "<group>";
@@ -2462,7 +2462,7 @@
 				BC0BD7031B55173800B95B3A /* CouponListItemCell.xib in Resources */,
 				5A6806F51B01CEF700D02A60 /* PersonLogoCell.xib in Resources */,
 				BC8254381B3AB01E00430A6F /* RegisterCell.xib in Resources */,
-				BC7737921BCF91CA00987B22 /* PackageOrderFillViewController.xib in Resources */,
+				BC7737921BCF91CA00987B22 /* SubjectOrderFillViewController.xib in Resources */,
 				BCF564D71B48E1E7003A2227 /* OrderListItemCell.xib in Resources */,
 				BC753EDC1BAC07D300D2663C /* FeedUserHeadCell.xib in Resources */,
 				BCA273271AEB1EBA002E7534 /* MineInfoCell.xib in Resources */,
@@ -2553,7 +2553,6 @@
 				BC359A4C1BC67B4F002DE863 /* HomeOperateCell.m in Sources */,
 				BCF564D21B46A437003A2227 /* ServerErrorHandler.m in Sources */,
 				5A9E81201B4BE7CA0028AC47 /* OrderDetailViewController.m in Sources */,
-				BC7737651BCD07D200987B22 /* Package.m in Sources */,
 				BC359A3A1BC61F89002DE863 /* MBProgressHUD+Add.m in Sources */,
 				BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */,
 				BC2C0C801B14659400E2446E /* MyStatusViewController.m in Sources */,
@@ -2606,7 +2605,7 @@
 				BC3599FB1BC61F0C002DE863 /* MLSelectPhotoPickerFooterCollectionReusableView.m in Sources */,
 				5A5A2A691B43E531000595A9 /* OrderContactViewController.m in Sources */,
 				BC10528C1BB15BAE00D81C15 /* CommentListViewController.m in Sources */,
-				BC7737911BCF91CA00987B22 /* PackageOrderFillViewController.m in Sources */,
+				BC7737911BCF91CA00987B22 /* SubjectOrderFillViewController.m in Sources */,
 				5A1B35E81B12BBAC00E1D31B /* CommentModel.m in Sources */,
 				BC0EC2981B5E1F5300D9A82F /* CacheService.m in Sources */,
 				BC5063971B5385FD00AA233C /* MONetworkPhotoView.m in Sources */,
@@ -2651,7 +2650,7 @@
 				BC7737951BCF9C1E00987B22 /* SkuListModel.m in Sources */,
 				BC97DF061B4BE21F002B1A00 /* WechatPayModel.m in Sources */,
 				BC97DEFF1B4BCFF1002B1A00 /* PayChannel.m in Sources */,
-				BC77378D1BCE6AD200987B22 /* PackageList.m in Sources */,
+				BC77378D1BCE6AD200987B22 /* SubjectList.m in Sources */,
 				BC1601E21BB0EC55005F11FD /* AddCommentViewController.m in Sources */,
 				5A1B35F61B12C0D200E1D31B /* CommentCell.m in Sources */,
 				BC3599F51BC61F0C002DE863 /* MLPhotoPickerImageView.m in Sources */,
@@ -2670,7 +2669,7 @@
 				BCCDC6EA1BBA9661007C2F57 /* CourseDetailViewController.m in Sources */,
 				BC7737771BCE11AA00987B22 /* CourseCommentList.m in Sources */,
 				5AC9FFC91B17020300C769EF /* SubmitPostModel.m in Sources */,
-				BC77376E1BCD12CB00987B22 /* PackageDetailModel.m in Sources */,
+				BC77376E1BCD12CB00987B22 /* SubjectDetailModel.m in Sources */,
 				BC3D0BB01B70B361004C7B81 /* LeaderSkuModel.m in Sources */,
 				BC82542B1B3917AC00430A6F /* MORootViewController.m in Sources */,
 				5ABDA57B1B423FD8003BAE80 /* PostPersonModel.m in Sources */,
@@ -2717,7 +2716,7 @@
 				5A0643631B3BC3F800361732 /* FillOrderMiddleCell.m in Sources */,
 				BC3599F41BC61F0C002DE863 /* MLSelectPhotoPickerViewController.m in Sources */,
 				BC3599F31BC61F0C002DE863 /* MLSelectPhotoPickerGroupViewController.m in Sources */,
-				BC3599B51BC61DD0002DE863 /* PackageDetailViewController.m in Sources */,
+				BC3599B51BC61DD0002DE863 /* SubjectDetailViewController.m in Sources */,
 				5A3DBE5A1B18577900E708AC /* FavouriteModel.m in Sources */,
 				BC0BD6FE1B55170A00B95B3A /* CouponListViewController.m in Sources */,
 				BC359A281BC61F3B002DE863 /* SGActionView.m in Sources */,
@@ -2743,6 +2742,7 @@
 				BC7737681BCD096E00987B22 /* Notice.m in Sources */,
 				BC753EDD1BAC07D300D2663C /* FeedZanCell.m in Sources */,
 				BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */,
+				BC3504921BD0F865009A24B0 /* Subject.m in Sources */,
 				BC3599EA1BC61F0C002DE863 /* UIImage+MLTint.m in Sources */,
 				5A18DC4B1B295C03001458A4 /* HomeViewController.m in Sources */,
 				BC753ED91BAC07D300D2663C /* FeedUgcCell.m in Sources */,

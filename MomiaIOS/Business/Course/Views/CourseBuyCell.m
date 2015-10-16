@@ -7,7 +7,7 @@
 //
 
 #import "CourseBuyCell.h"
-#import "Package.h"
+#import "Subject.h"
 #import "StringUtils.h"
 
 @interface CourseBuyCell()
@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *oldPriceLabel;
 @property (weak, nonatomic) IBOutlet UIButton *buyButton;
 
-@property (nonatomic, strong) Package *data;
+@property (nonatomic, strong) Subject *data;
 
 @end
 
@@ -33,7 +33,7 @@
     // Configure the view for the selected state
 }
 
-- (void)setData:(Package *)data {
+- (void)setData:(Subject *)data {
     _data = data;
     self.priceLabel.text = [StringUtils stringForPrice:data.price];
     

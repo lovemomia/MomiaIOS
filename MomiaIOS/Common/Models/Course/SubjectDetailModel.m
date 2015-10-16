@@ -6,12 +6,12 @@
 //  Copyright © 2015年 Deng Jun. All rights reserved.
 //
 
-#import "PackageDetailModel.h"
+#import "SubjectDetailModel.h"
 
-@implementation PackageDetailData
+@implementation SubjectDetailData
 
 @end
 
-@implementation PackageDetailModel
+@implementation SubjectDetailModel
 
 @end

@@ -6,9 +6,9 @@
 //  Copyright © 2015年 Deng Jun. All rights reserved.
 //
 
-#import "PackageDetailViewController.h"
+#import "SubjectDetailViewController.h"
 
-#import "PackageDetailModel.h"
+#import "SubjectDetailModel.h"
 #import "CourseList.h"
 
 #import "PhotoTitleHeaderCell.h"
@@ -27,15 +27,15 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
 static NSString *identifierCourseListItemCell = @"CourseListItemCell";
 static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
 
-@interface PackageDetailViewController ()
+@interface SubjectDetailViewController ()
 
 @property (nonatomic, strong) UIView *buyView;
 @property (nonatomic, assign) CGRect rectInTableView;
-@property (nonatomic, strong) PackageDetailModel *model;
+@property (nonatomic, strong) SubjectDetailModel *model;
 
 @end
 
-@implementation PackageDetailViewController
+@implementation SubjectDetailViewController
 
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
@@ -84,7 +84,7 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
     CacheType cacheType = refresh ? CacheTypeDisable : CacheTypeDisable;
     
     NSDictionary * dic = @{@"id":@"1"};
-    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/subject") parameters:dic cacheType:cacheType JSONModelClass:[PackageDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/subject") parameters:dic cacheType:cacheType JSONModelClass:[SubjectDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.model == nil) {
             [self.view removeLoadingBee];
         }

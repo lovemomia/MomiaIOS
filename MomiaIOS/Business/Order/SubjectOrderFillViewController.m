@@ -6,7 +6,7 @@
 //  Copyright © 2015年 Deng Jun. All rights reserved.
 //
 
-#import "PackageOrderFillViewController.h"
+#import "SubjectOrderFillViewController.h"
 #import "SkuListModel.h"
 #import "PostOrderModel.h"
 #import "StringUtils.h"
@@ -18,12 +18,12 @@
 static NSString *identifierSkuItemCell = @"SkuItemCell";
 static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
 
-@interface PackageOrderFillViewController ()
+@interface SubjectOrderFillViewController ()
 @property (nonatomic, strong) NSString *ids;
 @property (nonatomic, strong) SkuListModel *model;
 @end
 
-@implementation PackageOrderFillViewController
+@implementation SubjectOrderFillViewController
 
 - (instancetype)initWithParams:(NSDictionary *)params
 {

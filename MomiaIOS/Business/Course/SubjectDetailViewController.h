@@ -8,6 +8,6 @@
 
 #import "MOGroupStyleTableViewController.h"
 
-@interface PackageDetailViewController : MOGroupStyleTableViewController
+@interface SubjectDetailViewController : MOGroupStyleTableViewController
 
 @end

@@ -127,7 +127,7 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
         if (self.coupon) {
             [params setValue:[NSString stringWithFormat:@"%@", self.coupon.ids] forKey:@"coupon"];
         }
-        [[HttpService defaultService]POST:URL_HTTPS_APPEND_PATH(@"/payment/prepay/wechatpay")
+        [[HttpService defaultService]POST:URL_HTTPS_APPEND_PATH(@"/payment/prepay/weixin")
                                parameters:params JSONModelClass:[WechatPayModel class]
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                       [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -162,8 +162,6 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
                                               if (success) {
                                                   NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
                                                   [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.orderId] forKey:@"oid"];
-//                                                  [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.productId] forKey:@"pid"];
-//                                                  [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.skuId] forKey:@"sid"];
                                                   PayResultViewController *payResult = [[PayResultViewController alloc]initWithParams:dic];
                                                   [self.navigationController pushViewController:payResult animated:YES];
                                               } else {

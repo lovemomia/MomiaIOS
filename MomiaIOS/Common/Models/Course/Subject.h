@@ -11,7 +11,7 @@
 @protocol Notice <NSObject>
 @end
 
-@interface Package : JSONModel
+@interface Subject : JSONModel
 
 @property (nonatomic, strong) NSNumber *ids;
 @property (nonatomic, strong) NSString *title;

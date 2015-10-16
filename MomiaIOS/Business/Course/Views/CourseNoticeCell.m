@@ -8,7 +8,7 @@
 
 #import "CourseNoticeCell.h"
 #import "TTTAttributedLabel.h"
-#import "Package.h"
+#import "Subject.h"
 #import "Notice.h"
 
 @implementation CourseNoticeCell
@@ -24,7 +24,7 @@
     // Configure the view for the selected state
 }
 
-- (void)setData:(Package *)data {
+- (void)setData:(Subject *)data {
     for (UIView * view in self.contentView.subviews) {
         if([view isKindOfClass:[TTTAttributedLabel class]]) {
             [view removeFromSuperview];

@@ -7,13 +7,13 @@
 //
 
 #import "JSONModel.h"
-#import "Package.h"
+#import "Subject.h"
 
-@protocol Package <NSObject>
+@protocol Subject <NSObject>
 @end
 
-@interface PackageList : JSONModel
-@property (nonatomic, strong) NSArray<Package> *list;
+@interface SubjectList : JSONModel
+@property (nonatomic, strong) NSArray<Subject> *list;
 @property (nonatomic, strong) NSNumber<Optional> *nextIndex;
 @property (nonatomic, strong) NSNumber *totalCount;
 @end
