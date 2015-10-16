@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *sex;
 @property (nonatomic, strong) NSString *birthday;
+@property (nonatomic, strong) NSString *avatar;
 
 - (NSMutableDictionary *)toNSDictionary;
 

@@ -140,7 +140,7 @@
 	<key>fillorder</key>
 	<dict>
 		<key>controller</key>
-		<string>FillOrderViewController</string>
+		<string>PackageOrderFillViewController</string>
 		<key>desc</key>
 		<string>填写订单页（id）</string>
 		<key>needlogin</key>

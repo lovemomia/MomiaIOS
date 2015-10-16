@@ -12,9 +12,9 @@
 
 @property(nonatomic,assign) NSInteger count;
 @property(nonatomic,assign) NSInteger orderId;
-@property(nonatomic,strong) NSString * participants;
-@property(nonatomic,assign) NSInteger productId;
-@property(nonatomic,assign) NSInteger skuId;
+//@property(nonatomic,strong) NSString * participants;
+//@property(nonatomic,assign) NSInteger productId;
+//@property(nonatomic,assign) NSInteger skuId;
 @property(nonatomic,assign) CGFloat totalFee;
 
 @end

@@ -168,9 +168,9 @@ static NSString * orderDetailBottomIdentifier = @"CellOrderDetailBottom";
     PostOrderData * data = [[PostOrderData alloc] init];
     data.count = self.model.data.count;
     data.orderId = self.model.data.orderNo;
-    data.participants = self.model.data.participants;
-    data.productId = self.model.data.productId;
-    data.skuId = self.model.data.skuId;
+//    data.participants = self.model.data.participants;
+//    data.productId = self.model.data.productId;
+//    data.skuId = self.model.data.skuId;
     data.totalFee = self.model.data.totalFee;
     
     model.errMsg = self.model.errMsg;

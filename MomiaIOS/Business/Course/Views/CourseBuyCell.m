@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *oldPriceLabel;
 @property (weak, nonatomic) IBOutlet UIButton *buyButton;
 
+@property (nonatomic, strong) Package *data;
+
 - (IBAction)onBuyClicked:(id)sender;
 
 @end
@@ -34,6 +36,7 @@
 }
 
 - (void)setData:(Package *)data {
+    _data = data;
     self.priceLabel.text = [StringUtils stringForPrice:data.price];
     
     NSString *oldPrice = [StringUtils stringForPrice:data.originalPrice];
@@ -46,6 +49,7 @@
 }
 
 - (IBAction)onBuyClicked:(id)sender {
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://fillorder?id=%@", self.data.ids]]];
 }
 
 + (CGFloat)heightWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath data:(id)data {

@@ -101,8 +101,8 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
     if (self.order.data.totalFee == 0.0f || (self.couponPrice && self.couponPrice.data == 0.0f)) {
         NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
         [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.orderId] forKey:@"oid"];
-        [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.productId] forKey:@"pid"];
-        [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.skuId] forKey:@"sid"];
+//        [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.productId] forKey:@"pid"];
+//        [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.skuId] forKey:@"sid"];
         [dic setValue:self.coupon.ids forKey:@"coupon"];
         [dic setValue:@"1" forKey:@"free"];
         PayResultViewController *payResult = [[PayResultViewController alloc]initWithParams:dic];
@@ -122,10 +122,8 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
     }
     
     if (type == 1) {
-        NSMutableDictionary * params = [[NSMutableDictionary alloc]initWithDictionary:@{@"trade_type":@"APP",
-                                                                                       @"oid":[NSString stringWithFormat:@"%ld", (long)self.order.data.orderId],
-                                                                                       @"pid":[NSString stringWithFormat:@"%ld", (long)self.order.data.productId],
-                                                                                       @"sid":[NSString stringWithFormat:@"%ld", (long)self.order.data.skuId]}];
+        NSMutableDictionary * params = [[NSMutableDictionary alloc]initWithDictionary:@{@"type":@"APP",
+                                                                                        @"oid":[NSString stringWithFormat:@"%ld", (long)self.order.data.orderId]}];
         if (self.coupon) {
             [params setValue:[NSString stringWithFormat:@"%@", self.coupon.ids] forKey:@"coupon"];
         }
@@ -147,10 +145,8 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
                                   }];
         
     } else if (type == 2) {
-        NSMutableDictionary * params = [[NSMutableDictionary alloc]initWithDictionary:@{@"trade_type":@"APP",
-                                                                                        @"oid":[NSString stringWithFormat:@"%ld", (long)self.order.data.orderId],
-                                                                                        @"pid":[NSString stringWithFormat:@"%ld", (long)self.order.data.productId],
-                                                                                        @"sid":[NSString stringWithFormat:@"%ld", (long)self.order.data.skuId]}];
+        NSMutableDictionary * params = [[NSMutableDictionary alloc]initWithDictionary:@{@"type":@"APP",
+                                                                                        @"oid":[NSString stringWithFormat:@"%ld", (long)self.order.data.orderId]}];
         if (self.coupon) {
             [params setValue:[NSString stringWithFormat:@"%@", self.coupon.ids] forKey:@"coupon"];
         }
@@ -166,8 +162,8 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
                                               if (success) {
                                                   NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
                                                   [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.orderId] forKey:@"oid"];
-                                                  [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.productId] forKey:@"pid"];
-                                                  [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.skuId] forKey:@"sid"];
+//                                                  [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.productId] forKey:@"pid"];
+//                                                  [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.skuId] forKey:@"sid"];
                                                   PayResultViewController *payResult = [[PayResultViewController alloc]initWithParams:dic];
                                                   [self.navigationController pushViewController:payResult animated:YES];
                                               } else {
@@ -199,8 +195,6 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
         if (resp.errCode == WXSuccess) {
             NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
             [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.orderId] forKey:@"oid"];
-            [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.productId] forKey:@"pid"];
-            [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.skuId] forKey:@"sid"];
             PayResultViewController *payResult = [[PayResultViewController alloc]initWithParams:dic];
             [self.navigationController pushViewController:payResult animated:YES];
             
@@ -222,7 +216,6 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 1) {
         if (indexPath.row == 0) {
-            
             CouponListViewController *couponListViewController = [[CouponListViewController alloc]initWithParams:@{@"select":@YES, @"oid":[NSString stringWithFormat:@"%ld", (long)self.order.data.orderId], @"status":@"1"}];
             couponListViewController.selectCouponBlock = ^(Coupon *coupon){
                 self.coupon = coupon;

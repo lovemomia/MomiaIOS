@@ -13,8 +13,8 @@
 @property(nonatomic,assign) NSInteger adult;
 @property(nonatomic,assign) NSInteger child;
 @property(nonatomic,assign) CGFloat price;
-@property(nonatomic,strong) NSString * unit;
-@property(nonatomic,strong) NSString<Optional> * desc;
+@property(nonatomic,strong) NSString *unit;
+@property(nonatomic,strong) NSString<Optional> *desc;
 
 @end
 

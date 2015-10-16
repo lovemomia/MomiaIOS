@@ -29,20 +29,27 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
 
 @interface PackageDetailViewController ()
 
-@property(nonatomic, strong) UIView *buyView;
-@property(nonatomic, assign) CGRect rectInTableView;
-
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) UIView *buyView;
+@property (nonatomic, assign) CGRect rectInTableView;
 @property (nonatomic, strong) PackageDetailModel *model;
 
 @end
 
 @implementation PackageDetailViewController
 
+- (instancetype)initWithParams:(NSDictionary *)params {
+    if (self = [super initWithParams:params]) {
+        self.title = [params objectForKey:@"title"];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.navigationItem.title = @"课程包";
+    self.navigationItem.title = self.title ? self.title : @"课程体系";
     
     [PhotoTitleHeaderCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierPhotoTitleHeaderCell];
     [CourseBuyCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierCourseBuyCell];
