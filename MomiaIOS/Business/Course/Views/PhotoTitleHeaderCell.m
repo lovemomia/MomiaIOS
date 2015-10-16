@@ -114,8 +114,12 @@
         [self.scrollView setContentOffset:CGPointMake(width, 0)];
     }
     
-    
-    self.titleLabel.text = isPackage ? ((Package *)model).title : ((Course *)model).title;
+    if (isPackage) {
+        self.bgShadowView.hidden = YES;
+        self.titleLabel.hidden = YES;
+    } else {
+        self.titleLabel.text = ((Course *)model).title;
+    }
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView

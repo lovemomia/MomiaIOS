@@ -18,8 +18,6 @@
 
 @property (nonatomic, strong) Package *data;
 
-- (IBAction)onBuyClicked:(id)sender;
-
 @end
 
 @implementation CourseBuyCell
@@ -40,16 +38,12 @@
     self.priceLabel.text = [StringUtils stringForPrice:data.price];
     
     NSString *oldPrice = [StringUtils stringForPrice:data.originalPrice];
-    NSUInteger length = [oldPrice length];
+    NSUInteger length = [oldPrice length] + 1;
     
-    NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:oldPrice];
+    NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@", oldPrice]];
     [attri addAttribute:NSStrikethroughStyleAttributeName value:@(NSUnderlinePatternSolid | NSUnderlineStyleSingle) range:NSMakeRange(0, length)];
     [attri addAttribute:NSStrikethroughColorAttributeName value:UIColorFromRGB(0x999999) range:NSMakeRange(0, length)];
     [self.oldPriceLabel setAttributedText:attri];
-}
-
-- (IBAction)onBuyClicked:(id)sender {
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://fillorder?id=%@", self.data.ids]]];
 }
 
 + (CGFloat)heightWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath data:(id)data {

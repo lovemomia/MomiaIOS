@@ -17,12 +17,13 @@
 
 @interface PersonInfoViewController ()<UIAlertViewDelegate, DatePickerSheetDelegate, UIActionSheetDelegate>
 
-@property (nonatomic, strong) UIImageView *userIcon;
 @property (nonatomic, strong) UITableViewCell *nickCell;
 @property (nonatomic, strong) UITableViewCell *babyAgeCell;
 @property (nonatomic, strong) UITableViewCell *addressCell;
 
 @property (nonatomic, strong) MOStepperView *stepperView;
+
+@property (nonatomic, assign) NSInteger uploadBabyAvatarIndex;
 
 @end
 
@@ -141,8 +142,8 @@
         if ([account.children count] == 0) {
             return 0;
         }
-        return 3;
-    } else return 3;
+        return 4;
+    } else return 4;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -224,6 +225,7 @@
     NSInteger row = indexPath.row;
     if (indexPath.section == 0) {
         if (row == 0) {
+            self.uploadBabyAvatarIndex = -1;
             [self takePictureClick];
             return;
         } else if (row == 1) {
@@ -245,12 +247,16 @@
         
     } else {
         if (indexPath.row == 0) {
+            self.uploadBabyAvatarIndex = section - 2;
+            [self takePictureClick];
+            return;
+        } else if (indexPath.row == 1) {
             title = @"姓名";
             tag = section;
-        } else if (indexPath.row == 1) {
+        } else if (indexPath.row == 2) {
             [self showSexPicker:(section)];
             return;
-        } else if (indexPath.row == 2) {
+        } else if (indexPath.row == 3) {
             [self showDatePicker:(section)];
             return;
         }
@@ -269,16 +275,24 @@
     static NSString *CellDefault = @"DefaultCell";
     static NSString *CellLogo = @"LogoCell";
     UITableViewCell *cell;
-    if (section == 0 && row == 0) {
+    if ((section == 0 || section >= 2) && row == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:CellLogo];
         if (cell == nil) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"PersonLogoCell" owner:self options:nil];
             cell = [arr objectAtIndex:0];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
+        UIImageView *avatarIv = (UIImageView *)[cell viewWithTag:1];
+        UILabel *titleLabel = (UILabel *)[cell viewWithTag:2];
+        if (section == 0) {
+            titleLabel.text = @"头像";
+            [avatarIv sd_setImageWithURL:[NSURL URLWithString:account.avatar]];
+        } else {
+            Child *child = [self childAtIndex:(section - 2)];
+            titleLabel.text = @"孩子头像";
+            [avatarIv sd_setImageWithURL:[NSURL URLWithString:child.avatar]];
+        }
         
-        self.userIcon = (UIImageView *)[cell viewWithTag:1];
-        [self.userIcon sd_setImageWithURL:[NSURL URLWithString:account.avatar]];
         
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:CellDefault];
@@ -317,14 +331,14 @@
             
         } else {
             Child *child = [self childAtIndex:(section - 2)];
-            if (row == 0) {
+            if (row == 1) {
                 cell.textLabel.text = @"孩子昵称";
                 cell.detailTextLabel.text = child.name;
                 
-            } else if (row == 1) {
+            } else if (row == 2) {
                 cell.textLabel.text = @"性别";
                 cell.detailTextLabel.text = child.sex;
-            } else if (row == 2) {
+            } else if (row == 3) {
                 cell.textLabel.text = @"生日";
                 cell.detailTextLabel.text = child.birthday;
             }
@@ -464,8 +478,16 @@
             
         } else {
             UploadImageData *data = ((UploadImageModel *)responseObject).data;
-            NSDictionary *params = @{@"avatar":data.path};
-            [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/avatar") parameters:params JSONModelClass:[AccountModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSDictionary *params;
+            NSString *path;
+            if (self.uploadBabyAvatarIndex == -1) {
+                path = @"/user/avatar";
+                params = @{@"avatar":data.path};
+            } else {
+                path = @"/user/child/avatar";
+                params = @{@"cid":[self childAtIndex:(self.uploadBabyAvatarIndex)].ids, @"avatar":data.path};
+            }
+            [[HttpService defaultService]POST:URL_APPEND_PATH(path) parameters:params JSONModelClass:[AccountModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
                 
                 AccountModel *result = (AccountModel *)responseObject;
@@ -474,7 +496,7 @@
                 
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
-                [self showDialogWithTitle:nil message:@"更新用户头像失败，请稍后再试"];
+                [self showDialogWithTitle:nil message:error.message];
             }];
         }
     }];

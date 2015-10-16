@@ -23,7 +23,7 @@
 }
 
 - (void)setData:(Sku *)data {
-    self.titleLabel.text = [NSString stringWithFormat:@"¥%@元/组", [StringUtils stringForPrice:data.price]];
+    self.titleLabel.text = [NSString stringWithFormat:@"￥%@元/组", [StringUtils stringForPrice:data.price]];
     self.descLabel.text = data.desc;
     self.stepperView.currentValue = [data.count intValue];
 }

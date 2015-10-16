@@ -149,7 +149,7 @@ typedef enum {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     CellType type = [self cellTypeForRowAtIndexPath:indexPath];
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (CellType)cellTypeForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -276,44 +276,52 @@ typedef enum {
         CoursePriceCell *priceCell = [CoursePriceCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCoursePriceCell];
         priceCell.data = self.model.data;
         cell = priceCell;
+        cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         
     } else if (type == CellTag) {
         CourseTagsCell *tagsCell = [CourseTagsCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseTagsCell];
         tagsCell.data = self.model.data;
         cell = tagsCell;
+        cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         
     } else if (type == CellTitleGoal) {
         CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
         titleCell.accessoryType = UITableViewCellAccessoryNone;
         titleCell.titleLabel.text = @"课程目标";
         cell = titleCell;
+        cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         
     } else if (type == CellGoal) {
         CourseDiscCell *discCell = [CourseDiscCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseDiscCell];
         discCell.data = self.model.data.goal;
         cell = discCell;
+        cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         
     } else if (type == CellTitlePoi) {
         CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
         titleCell.titleLabel.text = @"上课时间/地点";
         titleCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell = titleCell;
+        cell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;
         
     } else if (type == CellPoi) {
         CoursePoiCell *poiCell = [CoursePoiCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCoursePoiCell];
         poiCell.data = self.model.data.place;
         cell = poiCell;
+        cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         
     } else if (type == CellTitleBook) {
         CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
         titleCell.titleLabel.text = @"课前绘本";
         titleCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell = titleCell;
+        cell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;
         
     } else if (type == CellBook) {
         CourseBookCell *bookCell = [CourseBookCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseBookCell];
         bookCell.data = self.model.data.book;
         cell = bookCell;
+        cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         
     } else if (type == CellTitleFlow) {
         CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
@@ -321,44 +329,52 @@ typedef enum {
         titleCell.subTitleLabel.text = @"更多图文详情";
         titleCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell = titleCell;
+        cell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;
         
     } else if (type == CellFlow) {
         CourseDiscCell *discCell = [CourseDiscCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseDiscCell];
         discCell.data = self.model.data.flow;
         cell = discCell;
+        cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         
     } else if (type == CellTitleTeacher) {
         CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
         titleCell.titleLabel.text = @"讲师团";
         titleCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell = titleCell;
+        cell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;
         
     } else if (type == CellTeacher) {
         CourseTeacherCell *bookCell = [CourseTeacherCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseTeacherCell];
         bookCell.data = self.model.data.teachers;
         cell = bookCell;
+        cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         
     } else if (type == CellTitleTips) {
         CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
         titleCell.titleLabel.text = @"特别提示";
         titleCell.accessoryType = UITableViewCellAccessoryNone;
         cell = titleCell;
+        cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         
     } else if (type == CellTips) {
         CourseDiscCell *discCell = [CourseDiscCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseDiscCell];
         discCell.data = self.model.data.tips;
         cell = discCell;
+        cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         
     } else if (type == CellTitleOrg) {
         CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
         titleCell.titleLabel.text = @"合作机构介绍";
         titleCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell = titleCell;
+        cell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;
         
     } else if (type == CellOrg) {
         CourseDiscCell *discCell = [CourseDiscCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseDiscCell];
         discCell.data = self.model.data.institution;
         cell = discCell;
+        cell.selectionStyle = UITableViewCellSeparatorStyleNone;
     }
     
     return cell;

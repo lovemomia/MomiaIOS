@@ -105,6 +105,7 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="bgShadowView" destination="z8c-AP-ldS" id="gvi-JV-cFB"/>
                 <outlet property="pageLabel" destination="SJk-dn-Ivt" id="Njp-IW-8cq"/>
                 <outlet property="scrollView" destination="NDp-DU-ouL" id="bkr-0v-EKX"/>
                 <outlet property="titleLabel" destination="ZFo-Kw-zAU" id="DsA-NR-xg5"/>

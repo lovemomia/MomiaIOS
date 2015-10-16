@@ -25,6 +25,7 @@
     [encoder encodeObject:self.name forKey:@"name"];
     [encoder encodeObject:self.sex forKey:@"sex"];
     [encoder encodeObject:self.birthday forKey:@"birthday"];
+    [encoder encodeObject:self.avatar forKey:@"avatar"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder//解码
@@ -36,6 +37,7 @@
         self.name = [decoder decodeObjectForKey:@"name"];
         self.sex = [decoder decodeObjectForKey:@"sex"];
         self.birthday = [decoder decodeObjectForKey:@"birthday"];
+        self.avatar = [decoder decodeObjectForKey:@"avatar"];
     }
     return self;
 }
@@ -56,11 +58,16 @@
     _birthday = birthday;
 }
 
+- (void)setAvatar:(NSString *)avatar {
+    _avatar = avatar;
+}
+
 - (NSMutableDictionary *)toNSDictionary {
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
     [dictionary setValue:self.name forKey:@"name"];
     [dictionary setValue:self.sex forKey:@"sex"];
     [dictionary setValue:self.birthday forKey:@"birthday"];
+    [dictionary setValue:self.avatar forKey:@"avatar"];
     
     return dictionary;
 }

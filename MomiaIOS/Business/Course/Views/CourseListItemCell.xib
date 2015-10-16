@@ -21,6 +21,11 @@
                             <constraint firstAttribute="width" constant="90" id="kQF-y8-YqF"/>
                             <constraint firstAttribute="height" constant="68" id="swT-uW-AeB"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="来哆啦A梦家,和大雄一起" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRa-ua-otw">
                         <rect key="frame" x="110" y="10" width="164.5" height="18"/>
@@ -73,6 +78,7 @@
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="x2L-fa-ZOo" secondAttribute="trailing" constant="85" id="4QW-rc-Tg1"/>
                     <constraint firstItem="mqP-e7-HMW" firstAttribute="leading" secondItem="MdF-eU-Unt" secondAttribute="trailing" id="4YS-po-sYP"/>
                     <constraint firstAttribute="trailing" secondItem="x2L-fa-ZOo" secondAttribute="trailing" constant="141" id="Cl0-pA-b69"/>
+                    <constraint firstAttribute="bottom" secondItem="27E-X0-ufm" secondAttribute="bottom" constant="11.5" id="Fsw-FJ-eLx"/>
                     <constraint firstItem="XEx-LV-nby" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="x2L-fa-ZOo" secondAttribute="trailing" constant="2" id="FzA-Ij-ZjJ"/>
                     <constraint firstItem="H1b-kM-u0w" firstAttribute="leading" secondItem="zib-Vd-k6v" secondAttribute="trailing" constant="10" id="GAq-bP-EWX"/>
                     <constraint firstItem="MdF-eU-Unt" firstAttribute="leading" secondItem="27E-X0-ufm" secondAttribute="trailing" id="ICf-UZ-6fN"/>
@@ -92,7 +98,7 @@
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LRa-ua-otw" secondAttribute="trailing" constant="20" id="nRK-CS-dfK"/>
                     <constraint firstItem="MdF-eU-Unt" firstAttribute="leading" secondItem="x2L-fa-ZOo" secondAttribute="trailing" constant="58" id="q0C-70-kJ7"/>
                     <constraint firstItem="x2L-fa-ZOo" firstAttribute="leading" secondItem="zib-Vd-k6v" secondAttribute="trailing" constant="10" id="q2T-Km-c6S"/>
-                    <constraint firstItem="27E-X0-ufm" firstAttribute="bottom" secondItem="MdF-eU-Unt" secondAttribute="bottom" constant="-2" id="q5d-34-k2R"/>
+                    <constraint firstItem="27E-X0-ufm" firstAttribute="bottom" secondItem="MdF-eU-Unt" secondAttribute="bottom" constant="-3" id="q5d-34-k2R"/>
                     <constraint firstItem="zib-Vd-k6v" firstAttribute="leading" secondItem="xqK-rr-qcB" secondAttribute="leading" constant="10" id="sbH-3m-DLs"/>
                     <constraint firstAttribute="trailing" secondItem="MdF-eU-Unt" secondAttribute="trailing" constant="20" id="x0s-Mb-yqt"/>
                     <constraint firstAttribute="trailing" secondItem="XEx-LV-nby" secondAttribute="trailing" constant="70" id="xbm-jq-pVR"/>

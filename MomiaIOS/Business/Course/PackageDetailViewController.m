@@ -29,7 +29,6 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
 
 @interface PackageDetailViewController ()
 
-@property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) UIView *buyView;
 @property (nonatomic, assign) CGRect rectInTableView;
 @property (nonatomic, strong) PackageDetailModel *model;
@@ -40,7 +39,6 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
 
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
-        self.title = [params objectForKey:@"title"];
     }
     return self;
 }
@@ -48,8 +46,6 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    self.navigationItem.title = self.title ? self.title : @"课程体系";
     
     [PhotoTitleHeaderCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierPhotoTitleHeaderCell];
     [CourseBuyCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierCourseBuyCell];
@@ -94,6 +90,7 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
         }
         
         self.model = responseObject;
+        self.navigationItem.title = self.model.data.subject.title;
         
         [self.tableView reloadData];
         [self.tableView.header endRefreshing];
@@ -131,6 +128,9 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
         //复制一份用于显示在悬停View
         NSData * tempArchive = [NSKeyedArchiver archivedDataWithRootObject:cell];
         UITableViewCell *cellCopy = [NSKeyedUnarchiver unarchiveObjectWithData:tempArchive];
+        UIView *buyBtn = [cellCopy viewWithTag:1001];
+        UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onBuyClicked:)];
+        [buyBtn addGestureRecognizer:singleTap];
         cellCopy.frame = CGRectMake(0, 0, SCREEN_WIDTH, 64);
         [self.buyView addSubview:cellCopy];
     }
@@ -148,6 +148,10 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
     }
 }
 
+- (void)onBuyClicked:(UITapGestureRecognizer *)tap {
+    [self openURL:[NSString stringWithFormat:@"duola://fillorder?id=%@", self.model.data.subject.ids]];
+}
+
 #pragma mark - tableview delegate & datasource
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -155,6 +159,7 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
         Course *course = self.model.data.courses.list[indexPath.row - 1];
         [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@", course.ids]];
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -190,22 +195,30 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
         } else if (row == 1) {
             CourseBuyCell *buyCell = [CourseBuyCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseBuyCell];
             buyCell.data = self.model.data.subject;
+            UIView *buyBtn = [buyCell viewWithTag:1001];
+            UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onBuyClicked:)];
+            [buyBtn addGestureRecognizer:singleTap];
             cell = buyCell;
+            cell.selectionStyle = UITableViewCellSeparatorStyleNone;
+            
         } else {
             CourseTagsCell *tagsCell = [CourseTagsCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseTagsCell];
             tagsCell.data = self.model.data.subject;
             cell = tagsCell;
+            cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         }
     } else if (section == 1) {
         if (row == 0) {
             CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
             titleCell.titleLabel.text = @"课程目标";
             cell = titleCell;
+            cell.selectionStyle = UITableViewCellSeparatorStyleNone;
             
         } else {
             CourseDiscCell *discCell = [CourseDiscCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseDiscCell];
             discCell.data = self.model.data.subject.intro;
             cell = discCell;
+            cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         }
     } else if (section == 2) {
         if (row == 0) {
@@ -225,11 +238,13 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
             CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
             titleCell.titleLabel.text = @"购买须知";
             cell = titleCell;
+            cell.selectionStyle = UITableViewCellSeparatorStyleNone;
             
         } else {
             CourseNoticeCell *noticeCell = [CourseNoticeCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseNoticeCell];
             noticeCell.data = self.model.data.subject;
             cell = noticeCell;
+            cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         }
     }
     
