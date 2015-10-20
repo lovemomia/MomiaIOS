@@ -31,7 +31,7 @@ static const int kItemHeight = 80;
     if (self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier]) {
         self.data = model;
         CGFloat padding = 10.0;
-        CGFloat iconSize = 40.0;
+        CGFloat iconSize = 50.0;
         CGFloat itemWidth = SCREEN_WIDTH / 2;
         for (int i = 0; i < self.data.count; i++) {
             IndexEvent *event = self.data[i];
@@ -42,7 +42,7 @@ static const int kItemHeight = 80;
             UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onItemClicked:)];
             [container addGestureRecognizer:singleTap];
             
-            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(itemWidth - padding - iconSize, 2 * padding, iconSize, iconSize)];
+            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(itemWidth - padding - iconSize, 15, iconSize, iconSize)];
             [container addSubview:imageView];
             
             UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding, padding * 1.5, itemWidth - iconSize - 2 * padding, 30)];

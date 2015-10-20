@@ -6,25 +6,25 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "ProductCalendarTitleCell.h"
+#import "BookSkuDateTitleCell.h"
 #import "StringUtils.h"
 
-@interface ProductCalendarTitleCell ()
+@interface BookSkuDateTitleCell ()
 @property (weak, nonatomic) IBOutlet UILabel *dayLabel;
 @property (weak, nonatomic) IBOutlet UILabel *monthLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end
 
-@implementation ProductCalendarTitleCell
+@implementation BookSkuDateTitleCell
 
--(void)setData:(ProductCalendarMonthDataModel *)model
+-(void)setData:(NSString *)model
 {
-    if(model.date.length > 0) {
+    if(model.length > 0) {
         
         NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
         [inputFormatter setDateFormat:@"yyyy-MM-dd"];
-        NSDate* date = [inputFormatter dateFromString:model.date];
+        NSDate* date = [inputFormatter dateFromString:model];
         
         // 出生日期转换 年月日
         NSDateComponents *components1 = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitWeekday fromDate:date];

@@ -1,5 +1,5 @@
 //
-//  FillOrderChooseCell.h
+//  BookSkuMoreCell.h
 //  MomiaIOS
 //
 //  Created by Owen on 15/6/26.
@@ -8,6 +8,6 @@
 
 #import "MOTableCell.h"
 
-@interface FillOrderChooseCell : MOTableCell
+@interface BookSkuMoreCell : MOTableCell
 
 @end

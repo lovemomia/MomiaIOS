@@ -380,5 +380,32 @@
 		<key>desc</key>
 		<string>课程详情页</string>
 	</dict>
+	<key>bookingsubjectlist</key>
+	<dict>
+		<key>controller</key>
+		<string>BookingSubjectListViewController</string>
+		<key>needlogin</key>
+		<true/>
+		<key>desc</key>
+		<string>待选课程包列表</string>
+	</dict>
+	<key>bookablecourselist</key>
+	<dict>
+		<key>controller</key>
+		<string>BookableCourseListViewController</string>
+		<key>needlogin</key>
+		<true/>
+		<key>desc</key>
+		<string>可选课程列表</string>
+	</dict>
+	<key>book</key>
+	<dict>
+		<key>controller</key>
+		<string>BookViewController</string>
+		<key>needlogin</key>
+		<true/>
+		<key>desc</key>
+		<string>预约课程</string>
+	</dict>
 </dict>
 </plist>

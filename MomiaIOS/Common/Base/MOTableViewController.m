@@ -57,6 +57,7 @@
     // Do any additional setup after loading the view.
     if ([self.tableView superview] == nil) {
 //        [self.tableView setFrame:self.view.bounds];
+        [self.tableView setContentInset:[self tableViewOriginalContentInset]];
         [self.view addSubview:self.tableView];
         [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.view);
@@ -72,8 +73,8 @@
 - (void)didMoveToParentViewController:(UIViewController *)parent {
     [super didMoveToParentViewController:parent];
     
-    [self.tableView setFrame:self.view.bounds];
-    [self.tableView setContentInset:[self tableViewOriginalContentInset]];
+//    [self.tableView setContentInset:[self tableViewOriginalContentInset]];
+//    [self.tableView setFrame:self.view.bounds];
 }
 
 - (void)dealloc {

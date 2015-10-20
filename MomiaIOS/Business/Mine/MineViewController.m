@@ -70,10 +70,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section > 0) {
-        return 2;
+    if (section == 0 || section == 2) {
+        return 1;
     }
-    return 1;
+    return 2;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -99,24 +99,27 @@
             break;
         case 1:
             if(row == 0) {
-                [self openURL:@"duola://myorderlist"];
+                [self openURL:@"duola://bookablecourselist?id=1"];
             } else {
-               [self openURL:@"duola://couponlist?status=1"];
+               [self openURL:@"duola://bookingsubjectlist"];
             }
             break;
         case 2:
             if (row == 0) {
                 [self openURL:@"duola://leaderstatus"];
-            } else {
-                [self openURL:@"duola://web?url=http://m.duolaqinzi.com/recommend"];
             }
             break;
         case 3:
+//            if(row == 0) {
+//                [self openURL:@"duola://myfav"];
+//                
+//            } else {
+//                [self openURL:@"duola://people"];
+//            }
             if(row == 0) {
-                [self openURL:@"duola://myfav"];
-                
+                [self openURL:@"duola://myorderlist"];
             } else {
-                [self openURL:@"duola://people"];
+                [self openURL:@"duola://couponlist?status=1"];
             }
             break;
         case 4:
@@ -191,29 +194,26 @@
         switch (section) {
             case 1:
                 if (row == 0) {
-                    cell.textLabel.text = @"我的订单";
+                    cell.textLabel.text = @"已选课程";
                     cell.imageView.image = [UIImage imageNamed:@"IconOrder"];
                 } else {
-                    cell.textLabel.text = @"我的红包";
+                    cell.textLabel.text = @"待选课程";
                     cell.imageView.image = [UIImage imageNamed:@"IconCoupon"];
                 }
                 break;
             case 2:
                 if (row == 0) {
-                    cell.textLabel.text = @"成为领队";
+                    cell.textLabel.text = @"成长说";
                     cell.imageView.image = [UIImage imageNamed:@"IconLeader"];
-                } else {
-                    cell.textLabel.text = @"我要爆料";
-                    cell.imageView.image = [UIImage imageNamed:@"IconRecommend"];
                 }
                 break;
             case 3:
                 if (row == 0) {
-                    cell.textLabel.text = @"我的收藏";
-                    cell.imageView.image = [UIImage imageNamed:@"IconFav"];
+                    cell.textLabel.text = @"我的订单";
+                    cell.imageView.image = [UIImage imageNamed:@"IconOrder"];
                 } else {
-                    cell.textLabel.text = @"常用出行人";
-                    cell.imageView.image = [UIImage imageNamed:@"IconPeople"];
+                    cell.textLabel.text = @"我的红包";
+                    cell.imageView.image = [UIImage imageNamed:@"IconCoupon"];
                 }
                 break;
             case 4:

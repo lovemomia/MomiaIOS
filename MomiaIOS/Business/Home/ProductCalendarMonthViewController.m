@@ -7,7 +7,7 @@
 //
 
 #import "ProductCalendarMonthViewController.h"
-#import "ProductCalendarTitleCell.h"
+#import "BookSkuDateTitleCell.h"
 #import "ProductCalendarCell.h"
 #import "ProductCalendarModel.h"
 
@@ -69,7 +69,7 @@ static NSString * productCalendarMonthIdentifier = @"CellProductCalendarMonth";
     NSInteger row = indexPath.row;
     UITableViewCell * cell;
     if(row == 0) {
-        ProductCalendarTitleCell * title = [ProductCalendarTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:productCalendarMonthTitleIdentifier];
+        BookSkuDateTitleCell * title = [BookSkuDateTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:productCalendarMonthTitleIdentifier];
         [title setData:self.model.data[section]];
         title.selectionStyle = UITableViewCellSelectionStyleNone;
         cell = title;
@@ -143,7 +143,7 @@ static NSString * productCalendarMonthIdentifier = @"CellProductCalendarMonth";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [ProductCalendarTitleCell registerCellFromNibWithTableView:self.tableView withIdentifier:productCalendarMonthTitleIdentifier];
+    [BookSkuDateTitleCell registerCellFromNibWithTableView:self.tableView withIdentifier:productCalendarMonthTitleIdentifier];
     [ProductCalendarCell registerCellFromNibWithTableView:self.tableView withIdentifier:productCalendarMonthIdentifier];
     
     [self requestData];
