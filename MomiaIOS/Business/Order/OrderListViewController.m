@@ -44,30 +44,6 @@
     [self requestData];
 }
 
--(void)deleteOrder:(NSIndexPath *) indexPath
-{
-    Order * model = self.orderList[indexPath.row];
-    
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
-    NSDictionary *params = @{@"id":model.ids};
-    
-    [[HttpService defaultService]POST:URL_HTTPS_APPEND_PATH(@"/order/delete")
-                           parameters:params
-                       JSONModelClass:[PostPersonModel class]
-                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                  [MBProgressHUD hideHUDForView:self.view animated:NO];
-                                  [self refreshData];
-                                  
-                              }
-                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                  [self showDialogWithTitle:nil message:error.message];
-                              }];
-    
-    
-}
-
 
 - (void)refreshData {
     //    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -75,9 +51,8 @@
         [self.curOperation pause];
     }
     
-    NSString *type = self.status == 2 ? @"le" : @"ge";
     NSDictionary * paramDic = @{@"status":[NSString stringWithFormat:@"%d", (int)self.status],
-                                @"type":type, @"start":@"0", @"count":@"20"};
+                                @"start":@"0", @"count":@"20"};
    self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/user/order")
                           parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[OrderListModel class]
                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -89,7 +64,7 @@
                                      if (self.status == 2) {
                                          [self.view showEmptyView:@"您还没有待付款订单哦，\n快去逛一下吧~"];
                                      } else if (self.status == 3) {
-                                         [self.view showEmptyView:@"您还没有未消费订单哦，\n快去逛一下吧~"];
+                                         [self.view showEmptyView:@"您还没有已付款订单哦，\n快去逛一下吧~"];
                                      } else {
                                          [self.view showEmptyView:@"订单列表为空"];
                                      }
@@ -167,31 +142,10 @@
 
 #pragma mark - tableview delegate & datasource
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(self.status == 2 && indexPath.row < self.orderList.count) {
-        return YES;
-    }
-    return NO;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        //执行删除联系人操作
-        [self deleteOrder:indexPath];
-        
-    }
-}
-
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.row < self.orderList.count) {
-        
         Order * model = self.orderList[indexPath.row];
-        
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://orderdetail?oid=%ld&pid=%ld",(long)[model.ids integerValue],(long)[model.productId integerValue]]];
-        
-        [[UIApplication sharedApplication] openURL:url];
+        [self openURL:[NSString stringWithFormat:@"duola://subjectdetail?id=%@", model.subjectId]];
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

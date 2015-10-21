@@ -10,13 +10,12 @@
 #import "BookingSubjectItemCell.h"
 #import "BookingSubjectListModel.h"
 
-@interface BookingSubjectListViewController ()
-
-@end
-
 static NSString * identifierBookingSubjectItemCell = @"BookingSubjectItemCell";
 
 @interface BookingSubjectListViewController()
+
+@property (nonatomic, strong) NSString *oid;
+
 @property (nonatomic, strong) NSMutableArray *list;
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, assign) NSInteger nextIndex;
@@ -25,6 +24,13 @@ static NSString * identifierBookingSubjectItemCell = @"BookingSubjectItemCell";
 @end
 
 @implementation BookingSubjectListViewController
+
+-(instancetype)initWithParams:(NSDictionary *)params {
+    if (self = [super initWithParams:params]) {
+        self.oid = [params objectForKey:@"oid"];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -50,7 +56,7 @@ static NSString * identifierBookingSubjectItemCell = @"BookingSubjectItemCell";
         self.isLoading = NO;
     }
     
-    NSDictionary * paramDic = @{@"start":[NSString stringWithFormat:@"%ld", (long)self.nextIndex]};
+    NSDictionary * paramDic = @{@"oid":self.oid ? self.oid : @"",@"start":[NSString stringWithFormat:@"%ld", (long)self.nextIndex]};
     self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/user/bookable")
                                               parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[BookingSubjectListModel class]
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -99,7 +105,7 @@ static NSString * identifierBookingSubjectItemCell = @"BookingSubjectItemCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.row < self.list.count) {
         BookingSubject *bs = self.list[indexPath.row];
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://bookablecouselist?id=%@", bs.subjectId]];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://bookablecourselist?id=%@&pid=%@", bs.subjectId, bs.packageId]];
         [[UIApplication sharedApplication] openURL:url];
     }
     

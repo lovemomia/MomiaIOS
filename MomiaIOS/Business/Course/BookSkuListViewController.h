@@ -7,7 +7,18 @@
 //
 
 #import "MOGroupStyleTableViewController.h"
+#import "CourseSkuListModel.h"
+
+@protocol OnSkuSelectDelegate <NSObject>
+
+- (void)onSkuSelect:(CourseSku *)sku inController:(id)controller;
+
+@end
 
 @interface BookSkuListViewController : MOGroupStyleTableViewController
+
+@property (nonatomic, assign) id<OnSkuSelectDelegate> delegate;
+
+- (void)clearChooseStatus;
 
 @end

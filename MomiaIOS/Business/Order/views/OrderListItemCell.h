@@ -14,7 +14,13 @@
 @property (weak, nonatomic) IBOutlet UIImageView *iconTv;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
-@property (weak, nonatomic) IBOutlet UILabel *peopleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *countLabel;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *actionBtn;
+
+- (IBAction)onActionBtnClicked:(id)sender;
+
 
 - (void)setData:(Order *)order;
 

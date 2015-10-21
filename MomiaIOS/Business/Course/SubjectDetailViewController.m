@@ -29,6 +29,8 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
 
 @interface SubjectDetailViewController ()
 
+@property (nonatomic, strong) NSString *ids;
+
 @property (nonatomic, strong) UIView *buyView;
 @property (nonatomic, assign) CGRect rectInTableView;
 @property (nonatomic, strong) SubjectDetailModel *model;
@@ -39,6 +41,7 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
 
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
+        self.ids = [params objectForKey:@"id"];
     }
     return self;
 }
@@ -83,7 +86,7 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
     
     CacheType cacheType = refresh ? CacheTypeDisable : CacheTypeDisable;
     
-    NSDictionary * dic = @{@"id":@"1"};
+    NSDictionary * dic = @{@"id":self.ids};
     [[HttpService defaultService] GET:URL_APPEND_PATH(@"/subject") parameters:dic cacheType:cacheType JSONModelClass:[SubjectDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.model == nil) {
             [self.view removeLoadingBee];
@@ -155,9 +158,13 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
 #pragma mark - tableview delegate & datasource
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 2 && indexPath.row > 0) {
-        Course *course = self.model.data.courses.list[indexPath.row - 1];
-        [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@", course.ids]];
+    if (indexPath.section == 2) {
+        if (indexPath.row == 0) {
+            [self openURL:[NSString stringWithFormat:@"duola://bookablecourselist?id=%@", self.model.data.subject.ids]];
+        } else {
+            Course *course = self.model.data.courses.list[indexPath.row - 1];
+            [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@", course.ids]];
+        }
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

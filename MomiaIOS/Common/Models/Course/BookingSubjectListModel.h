@@ -9,11 +9,12 @@
 #import "BaseModel.h"
 
 @interface BookingSubject : JSONModel
+@property (nonatomic, strong) NSNumber *packageId;
 @property (nonatomic, strong) NSNumber *subjectId;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *cover;
 @property (nonatomic, strong) NSNumber *bookableCourseCount;
-@property (nonatomic, strong) NSString *expireTime;
+@property (nonatomic, strong) NSString<Optional> *expireTime;
 @end
 
 @protocol BookingSubject <NSObject>

@@ -13,15 +13,22 @@
 #import "LJViewPager.h"
 #import "LJTabBar.h"
 
-@interface BookViewController ()<LJViewPagerDataSource, LJViewPagerDelegate>
+@interface BookViewController ()<LJViewPagerDataSource, LJViewPagerDelegate, OnSkuSelectDelegate>
 
 @property (nonatomic, strong) NSString *ids;
+@property (nonatomic, strong) NSString *pid;
 
 @property (strong, nonatomic) LJViewPager *viewPager;
 @property (strong, nonatomic) LJTabBar *tabBar;
 
 @property (assign, nonatomic) int month;
 @property (assign, nonatomic) int nextMonth;
+
+@property (nonatomic, strong) BookSkuListViewController *weekController;
+@property (nonatomic, strong) BookSkuListViewController *firstMonthController;
+@property (nonatomic, strong) BookSkuListViewController *secondMonthController;
+
+@property (nonatomic, strong) CourseSku *selectSku;
 
 @end
 
@@ -30,6 +37,7 @@
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
         self.ids = [params objectForKey:@"id"];
+        self.pid = [params objectForKey:@"pid"];
     }
     return self;
 }
@@ -38,6 +46,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"预约课程";
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(onDoneClick)];
     
     int month = [DateManager shareManager].serverTimeMonth;
     
@@ -69,6 +79,45 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)onDoneClick {
+    if (self.selectSku) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
+        NSDictionary *params = @{@"sid":self.selectSku.ids, @"pid":self.pid};
+        [[HttpService defaultService]POST:URL_APPEND_PATH(@"/course/booking")
+                               parameters:params JSONModelClass:[BaseModel class]
+                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                      [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                      [self showDialogWithTitle:nil message:@"预约成功"];
+                                  }
+         
+                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                      [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                      [self showDialogWithTitle:nil message:error.message];
+                                  }];
+        
+    } else {
+        [self showDialogWithTitle:nil message:@""];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+}
+
+- (void)onSkuSelect:(CourseSku *)sku inController:(id)controller {
+    self.selectSku = sku;
+    if (![self.weekController isEqual:controller]) {
+        [self.weekController clearChooseStatus];
+    }
+    if (![self.firstMonthController isEqual:controller]) {
+        [self.firstMonthController clearChooseStatus];
+    }
+    if (![self.secondMonthController isEqual:controller]) {
+        [self.secondMonthController clearChooseStatus];
+    }
+}
+
 #pragma mark - pager view data source
 - (UIViewController *)viewPagerInViewController {
     return self;
@@ -81,13 +130,21 @@
 - (UIViewController *)viewPager:(LJViewPager *)viewPager controllerAtPage:(NSInteger)page {
     if (page == 0) {
         NSDictionary * dic = @{@"id":self.ids};
-        return [[BookSkuListViewController alloc] initWithParams:dic];
+        self.weekController = [[BookSkuListViewController alloc] initWithParams:dic];
+        self.weekController.delegate = self;
+        return self.weekController;
+        
     } else if (page == 1) {
         NSDictionary * dic = @{@"id":self.ids, @"month":@(self.month)};
-        return [[BookSkuListViewController alloc] initWithParams:dic];
+        self.firstMonthController = [[BookSkuListViewController alloc] initWithParams:dic];
+        self.firstMonthController.delegate = self;
+        return self.firstMonthController;
+        
     } else {
         NSDictionary * dic = @{@"id":self.ids, @"month":@(self.nextMonth)};
-        return [[BookSkuListViewController alloc] initWithParams:dic];
+        self.secondMonthController = [[BookSkuListViewController alloc] initWithParams:dic];
+        self.secondMonthController.delegate = self;
+        return self.secondMonthController;
     }
 }
 

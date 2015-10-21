@@ -12,8 +12,6 @@
 #import "BookSkuMoreCell.h"
 #import "BookSkuDateTitleCell.h"
 
-#import "CourseSkuListModel.h"
-
 static NSString *identifierBookSkuItemCell = @"BookSkuItemCell";
 static NSString *identifierBookSkuMoreCell = @"BookSkuMoreCell";
 static NSString *identifierBookSkuDateTitleCell = @"BookSkuDateTitleCell";
@@ -25,6 +23,8 @@ static NSString *identifierBookSkuDateTitleCell = @"BookSkuDateTitleCell";
 @property (nonatomic, assign) BOOL isRequestMonth;
 
 @property (nonatomic, strong) CourseSkuListModel * model;
+@property (nonatomic, assign) NSInteger selectSection;
+@property (nonatomic, assign) NSInteger selectRow;
 
 @end
 
@@ -40,6 +40,8 @@ static NSString *identifierBookSkuDateTitleCell = @"BookSkuDateTitleCell";
             self.isRequestMonth = YES;
             self.month = [num intValue];
         }
+        self.selectSection = -1;
+        self.selectRow = -1;
     }
     return self;
 }
@@ -57,6 +59,12 @@ static NSString *identifierBookSkuDateTitleCell = @"BookSkuDateTitleCell";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)clearChooseStatus {
+    self.selectSection = -1;
+    self.selectRow = -1;
+    [self.tableView reloadData];
 }
 
 #pragma mark - webData Request
@@ -172,6 +180,13 @@ static NSString *identifierBookSkuDateTitleCell = @"BookSkuDateTitleCell";
         [content setData:skuList.skus[row - 1]];
         cell = content;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        if (self.selectSection == section && self.selectRow == row) {
+            cell.tintColor = MO_APP_ThemeColor;
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
     }
     return cell;
 }
@@ -181,9 +196,22 @@ static NSString *identifierBookSkuDateTitleCell = @"BookSkuDateTitleCell";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
+    if (row == 0) {
+        return;
+    }
+    
     DateSkuList * skuList = self.model.data[section];
     if(row == 3 && !skuList.isShowMore) {
         skuList.isShowMore = [NSNumber numberWithBool:YES];
+        [tableView reloadData];
+        return;
+    }
+    
+    CourseSku *sku = skuList.skus[row - 1];
+    if (self.delegate) {
+        [self.delegate onSkuSelect:sku inController:self];
+        self.selectSection = section;
+        self.selectRow = row;
         [tableView reloadData];
     }
 }

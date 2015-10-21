@@ -99,7 +99,7 @@
             break;
         case 1:
             if(row == 0) {
-                [self openURL:@"duola://bookablecourselist?id=1"];
+                [self openURL:@"duola://bookedcourselist"];
             } else {
                [self openURL:@"duola://bookingsubjectlist"];
             }

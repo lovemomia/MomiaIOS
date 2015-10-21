@@ -11,15 +11,12 @@
 #import "CourseListModel.h"
 #import "JSDropDownMenu.h"
 
-@interface BookableCourseListViewController ()<JSDropDownMenuDataSource,JSDropDownMenuDelegate>
-
-@end
-
 static NSString * identifierCourseListItemCell = @"CourseListItemCell";
 
-@interface BookableCourseListViewController()
+@interface BookableCourseListViewController()<JSDropDownMenuDataSource,JSDropDownMenuDelegate>
 
 @property (nonatomic, strong) NSString *ids;
+@property (nonatomic, strong) NSString *pid;
 
 @property (nonatomic, strong) NSMutableArray *list;
 @property (nonatomic, strong) NSArray *ages;
@@ -41,6 +38,7 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
         self.ids = [params objectForKey:@"id"];
+        self.pid = [params objectForKey:@"pid"];
     }
     return self;
 }
@@ -73,7 +71,21 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
         self.isLoading = NO;
     }
     
-    NSDictionary * paramDic = @{@"id":self.ids, @"start":[NSString stringWithFormat:@"%ld", (long)self.nextIndex]};
+    NSMutableDictionary *paramDic = [[NSMutableDictionary alloc]init];
+    [paramDic setValue:self.ids forKey:@"id"];
+    [paramDic setValue:[NSString stringWithFormat:@"%ld", (long)self.nextIndex] forKey:@"start"];
+    
+
+    if (self.ages) {
+        Filter *filter = self.ages[self.currentAgeIndex];
+        [paramDic setValue:filter.ids forKey:@"age"];
+    }
+
+    if (self.sorts) {
+        Filter *filter = self.sorts[self.currentSortIndex];
+        [paramDic setValue:filter.ids forKey:@"sort"];
+    }
+
     self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/subject/course")
                                               parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[CourseListModel class]
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -115,7 +127,7 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
                                                      if (refresh) {
                                                          [self.list removeAllObjects];
                                                      }
-                                                     if (model.data.courses.totalCount == 0) {
+                                                     if ([model.data.courses.totalCount intValue] == 0) {
                                                          [self.view showEmptyView:@"没有符合条件的课程，尽请期待~"];
                                                          return;
                                                      }
@@ -153,16 +165,27 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
         [self.view addSubview:menu];
     }
     
-    
 }
 
 #pragma mark - JSDropDownMenu delegate & datasourse
 
 - (void)menu:(JSDropDownMenu *)menu didSelectRowAtIndexPath:(JSIndexPath *)indexPath {
     if (indexPath.column == 0) {
+        if (self.currentAgeIndex == indexPath.row) {
+            return;
+        }
         self.currentAgeIndex = indexPath.row;
+        
     } else {
+        if (self.currentSortIndex == indexPath.row) {
+            return;
+        }
         self.currentSortIndex = indexPath.row;
+    }
+    if (self.list) {
+        [self.list removeAllObjects];
+        [self.tableView reloadData];
+        [self requestData:YES];
     }
 }
 
@@ -216,7 +239,7 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.row < self.list.count) {
         Course *course = self.list[indexPath.row];
-        [self openURL:[NSString stringWithFormat:@"duola://book?id=%@", course.ids]];
+        [self openURL:[NSString stringWithFormat:@"duola://book?id=%@&pid=%@", course.ids, self.pid]];
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

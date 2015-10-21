@@ -39,7 +39,7 @@
     [self.view addSubview:self.tabBar];
     self.viewPager.viewPagerDateSource = self;
     self.viewPager.viewPagerDelegate = self;
-    self.tabBar.titles = @[@"未消费", @"待付款", @"全部"];
+    self.tabBar.titles = @[ @"待付款", @"已付款", @"全部"];
     self.viewPager.tabBar = self.tabBar;
     
     self.tabBar.itemsPerPage = 3;
@@ -66,9 +66,9 @@
 
 - (UIViewController *)viewPager:(LJViewPager *)viewPager controllerAtPage:(NSInteger)page {
     if (page == 0) {
-        return [[OrderListViewController alloc]initWithParams:@{@"status":@"3"}];
-    } else if (page == 1) {
         return [[OrderListViewController alloc]initWithParams:@{@"status":@"2"}];
+    } else if (page == 1) {
+        return [[OrderListViewController alloc]initWithParams:@{@"status":@"3"}];
     } else {
         return [[OrderListViewController alloc]initWithParams:@{@"status":@"1"}];
     }

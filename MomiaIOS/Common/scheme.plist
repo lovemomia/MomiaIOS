@@ -389,6 +389,15 @@
 		<key>desc</key>
 		<string>待选课程包列表</string>
 	</dict>
+	<key>bookedcourselist</key>
+	<dict>
+		<key>controller</key>
+		<string>BookedCourseListViewController</string>
+		<key>needlogin</key>
+		<true/>
+		<key>desc</key>
+		<string>已选课程列表</string>
+	</dict>
 	<key>bookablecourselist</key>
 	<dict>
 		<key>controller</key>

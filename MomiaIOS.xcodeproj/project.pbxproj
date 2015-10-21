@@ -248,6 +248,8 @@
 		BC592BE41BD5E33A008AE76A /* BookSkuMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC592BE21BD5E33A008AE76A /* BookSkuMoreCell.xib */; settings = {ASSET_TAGS = (); }; };
 		BC592BF21BD5F015008AE76A /* BookSkuDateTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BF01BD5F015008AE76A /* BookSkuDateTitleCell.m */; settings = {ASSET_TAGS = (); }; };
 		BC592BF31BD5F015008AE76A /* BookSkuDateTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC592BF11BD5F015008AE76A /* BookSkuDateTitleCell.xib */; settings = {ASSET_TAGS = (); }; };
+		BC592BF61BD65392008AE76A /* BookedCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BF51BD65392008AE76A /* BookedCourseListViewController.m */; settings = {ASSET_TAGS = (); }; };
+		BC592BF91BD73F58008AE76A /* BookedCourseListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BF81BD73F58008AE76A /* BookedCourseListModel.m */; settings = {ASSET_TAGS = (); }; };
 		BC5CF2F71BB5275B00EC5227 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BC5CF2F51BB5275B00EC5227 /* AlipaySDK.bundle */; settings = {ASSET_TAGS = (); }; };
 		BC5CF2F81BB5275B00EC5227 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5CF2F61BB5275B00EC5227 /* AlipaySDK.framework */; settings = {ASSET_TAGS = (); }; };
 		BC5CF2FE1BB53E6400EC5227 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5CF2FA1BB53E6400EC5227 /* libWeChatSDK.a */; settings = {ASSET_TAGS = (); }; };
@@ -816,6 +818,10 @@
 		BC592BEF1BD5F015008AE76A /* BookSkuDateTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookSkuDateTitleCell.h; path = Business/Order/views/BookSkuDateTitleCell.h; sourceTree = "<group>"; };
 		BC592BF01BD5F015008AE76A /* BookSkuDateTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookSkuDateTitleCell.m; path = Business/Order/views/BookSkuDateTitleCell.m; sourceTree = "<group>"; };
 		BC592BF11BD5F015008AE76A /* BookSkuDateTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookSkuDateTitleCell.xib; path = Business/Order/views/BookSkuDateTitleCell.xib; sourceTree = "<group>"; };
+		BC592BF41BD65392008AE76A /* BookedCourseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookedCourseListViewController.h; path = Business/Course/BookedCourseListViewController.h; sourceTree = "<group>"; };
+		BC592BF51BD65392008AE76A /* BookedCourseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookedCourseListViewController.m; path = Business/Course/BookedCourseListViewController.m; sourceTree = "<group>"; };
+		BC592BF71BD73F58008AE76A /* BookedCourseListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookedCourseListModel.h; path = Common/Models/Course/BookedCourseListModel.h; sourceTree = "<group>"; };
+		BC592BF81BD73F58008AE76A /* BookedCourseListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookedCourseListModel.m; path = Common/Models/Course/BookedCourseListModel.m; sourceTree = "<group>"; };
 		BC5CF2F51BB5275B00EC5227 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		BC5CF2F61BB5275B00EC5227 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		BC5CF2FA1BB53E6400EC5227 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
@@ -1939,6 +1945,8 @@
 				BC592BD01BD4DCD2008AE76A /* CourseListModel.m */,
 				BC592BD51BD50564008AE76A /* CourseSkuListModel.h */,
 				BC592BD61BD50564008AE76A /* CourseSkuListModel.m */,
+				BC592BF71BD73F58008AE76A /* BookedCourseListModel.h */,
+				BC592BF81BD73F58008AE76A /* BookedCourseListModel.m */,
 			);
 			name = Course;
 			sourceTree = "<group>";
@@ -2324,6 +2332,8 @@
 				BC3599B31BC61DD0002DE863 /* SubjectDetailViewController.m */,
 				BC592BB81BD489DE008AE76A /* BookingSubjectListViewController.h */,
 				BC592BB91BD489DE008AE76A /* BookingSubjectListViewController.m */,
+				BC592BF41BD65392008AE76A /* BookedCourseListViewController.h */,
+				BC592BF51BD65392008AE76A /* BookedCourseListViewController.m */,
 				BC592BBB1BD48FAC008AE76A /* BookableCourseListViewController.h */,
 				BC592BBC1BD48FAC008AE76A /* BookableCourseListViewController.m */,
 				BC592BBE1BD4977A008AE76A /* BookViewController.h */,
@@ -2614,6 +2624,7 @@
 				BC359A4C1BC67B4F002DE863 /* HomeOperateCell.m in Sources */,
 				BCF564D21B46A437003A2227 /* ServerErrorHandler.m in Sources */,
 				5A9E81201B4BE7CA0028AC47 /* OrderDetailViewController.m in Sources */,
+				BC592BF91BD73F58008AE76A /* BookedCourseListModel.m in Sources */,
 				BC359A3A1BC61F89002DE863 /* MBProgressHUD+Add.m in Sources */,
 				BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */,
 				BC2C0C801B14659400E2446E /* MyStatusViewController.m in Sources */,
@@ -2660,6 +2671,7 @@
 				BC3D0BA71B6F77AF004C7B81 /* LeaderProductModel.m in Sources */,
 				BC7737891BCE4A9E00987B22 /* CoursePriceCell.m in Sources */,
 				5ABDA5B31B42CD4B003BAE80 /* PostOrderModel.m in Sources */,
+				BC592BF61BD65392008AE76A /* BookedCourseListViewController.m in Sources */,
 				BC97DEFC1B4B75A8002B1A00 /* OrderPerson.m in Sources */,
 				BC7737741BCE0E8100987B22 /* HomeworkList.m in Sources */,
 				5A83074D1B327FB40057412A /* CommonHeaderView.m in Sources */,
