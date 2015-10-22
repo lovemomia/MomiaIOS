@@ -20,6 +20,7 @@ static NSString *identifierBookSkuDateTitleCell = @"BookSkuDateTitleCell";
 
 @property (nonatomic, strong) NSString *ids;
 @property (nonatomic, assign) int month;
+@property (nonatomic, assign) BOOL onlyShow;
 @property (nonatomic, assign) BOOL isRequestMonth;
 
 @property (nonatomic, strong) CourseSkuListModel * model;
@@ -35,6 +36,7 @@ static NSString *identifierBookSkuDateTitleCell = @"BookSkuDateTitleCell";
     self = [super initWithParams:params];
     if(self) {
         self.ids = [params objectForKey:@"id"];
+        self.onlyShow = [[params objectForKey:@"onlyshow"]boolValue];
         NSNumber * num = [params objectForKey:@"month"];
         if (num) {
             self.isRequestMonth = YES;
@@ -194,6 +196,11 @@ static NSString *identifierBookSkuDateTitleCell = @"BookSkuDateTitleCell";
 -(void)tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (self.onlyShow) {
+        return;
+    }
+    
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     if (row == 0) {

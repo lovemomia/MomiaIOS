@@ -10,6 +10,7 @@
 #import "SkuListModel.h"
 #import "PostOrderModel.h"
 #import "StringUtils.h"
+#import "OrderContactViewController.h"
 
 #import "CommonHeaderView.h"
 #import "SkuItemCell.h"
@@ -169,6 +170,19 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
 
 #pragma mark - uitableview delegate & datasourse
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1) {
+        OrderContactViewController * contactViewController = [[OrderContactViewController alloc] initWithParams:nil];
+        contactViewController.model = self.model.data.contact;
+        contactViewController.onContactFinishClick = ^{
+            [self.tableView reloadData];
+        };
+        [self.navigationController pushViewController:contactViewController animated:YES];
+        
+
+    }
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
@@ -228,6 +242,7 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
         titleCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell = titleCell;
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

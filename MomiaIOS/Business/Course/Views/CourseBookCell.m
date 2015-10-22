@@ -9,8 +9,8 @@
 #import "CourseBookCell.h"
 #import "Course.h"
 
-static const int kImageWidth = 90;
-static const int kImageHeight = 68;
+static const int kImageWidth = 93;
+static const int kImageHeight = 93;
 
 @implementation CourseBookCell
 
@@ -36,6 +36,7 @@ static const int kImageHeight = 68;
         imageView.backgroundColor = UIColorFromRGB(0xcccccc);
         [imageView sd_setImageWithURL:[NSURL URLWithString:data.imgs[i]]];
         [self.contentView addSubview:imageView];
+        imageView.layer.cornerRadius = 3.0f;
     }
 }
 

@@ -35,7 +35,7 @@
                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活动前一天，或者活动发生变更，都会有短信通知您" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="KSP-cq-nbg">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请提前预约上课，如果课程发生变更，会有短信通知您" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="KSP-cq-nbg">
                     <rect key="frame" x="10" y="240" width="300" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="7s9-M5-sBS"/>
@@ -50,7 +50,7 @@
                         <constraint firstAttribute="width" constant="145" id="9xi-Bk-ixT"/>
                         <constraint firstAttribute="height" constant="40" id="J9c-4M-mPK"/>
                     </constraints>
-                    <state key="normal" title="约伴" backgroundImage="BgRedMediumButtonNormal">
+                    <state key="normal" title="预约上课" backgroundImage="BgRedMediumButtonNormal">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>

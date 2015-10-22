@@ -244,8 +244,10 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(section <= 1) {
+    if(section == 0) {
         return 2;
+    } else if(section == 1) {
+        return 1;
     } else {
         return self.payChannels.count;
     }
@@ -331,20 +333,21 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
                 }
             }
         } else if (section == 1) {
+//            if (row == 0) {
+//                cell.textLabel.text = @"红包";
+//                if (self.order) {
+//                    cell.detailTextLabel.textColor = MO_APP_ThemeColor;
+//                    if (self.coupon) {
+//                        cell.detailTextLabel.text = [NSString stringWithFormat:@"减￥%@", self.coupon.discount];
+//                        
+//                    } else {
+//                        cell.detailTextLabel.text = @"使用红包";
+//                    }
+//                }
+//                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//                
+//            } else
             if (row == 0) {
-                cell.textLabel.text = @"红包";
-                if (self.order) {
-                    cell.detailTextLabel.textColor = MO_APP_ThemeColor;
-                    if (self.coupon) {
-                        cell.detailTextLabel.text = [NSString stringWithFormat:@"减￥%@", self.coupon.discount];
-                        
-                    } else {
-                        cell.detailTextLabel.text = @"使用红包";
-                    }
-                }
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-                
-            } else if (row == 1) {
                 cell.textLabel.text = @"还需支付";
                 if (self.couponPrice) {
                     cell.detailTextLabel.text = [NSString stringWithFormat:@"￥%@", [StringUtils stringForPrice:self.couponPrice.data]];

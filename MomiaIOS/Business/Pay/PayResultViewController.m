@@ -62,20 +62,14 @@
                                   self.payCheckResult = (PayCheckModel *)responseObject;
                                   
                                   if (self.payCheckResult.data.payed) {
-                                      self.titleLabel.text = @"您已购买成功";
-                                      self.descLabel.text = @"活动前一天，或者活动发生变更，都会有短信通知您";
+                                      [self paySuccess];
                                   } else {
-                                      self.titleLabel.text = @"购买失败";
-//                                      self.leftButton.titleLabel.text = @"客服热线";
-                                      self.descLabel.text = @"请重新确认订单，如有问题可联系客服微信：dorakids01";
+                                      [self payFailed];
                                   }
                               }
      
                               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                  self.titleLabel.text = @"购买失败";
-//                                  self.leftButton.titleLabel.text = @"客服热线";
-                                  self.descLabel.text = @"请重新确认订单，如有问题可联系客服微信：dorakids01";
+                                  [self payFailed];
                               }];
 }
 
@@ -90,21 +84,28 @@
                                   self.payCheckResult = (PayCheckModel *)responseObject;
                                   
                                   if (self.payCheckResult.data.payed) {
-                                      self.titleLabel.text = @"您已购买成功";
-                                      self.descLabel.text = @"活动前一天，或者活动发生变更，都会有短信通知您";
+                                      [self paySuccess];
                                   } else {
-                                      self.titleLabel.text = @"购买失败";
-//                                      self.leftButton.titleLabel.text = @"客服热线";
-                                      self.descLabel.text = @"请重新确认订单，如有问题可联系客服微信：dorakids01";
+                                      [self payFailed];
                                   }
                               }
      
                               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                  self.titleLabel.text = @"购买失败";
-//                                  self.leftButton.titleLabel.text = @"客服热线";
-                                  self.descLabel.text = @"请重新确认订单，如有问题可联系客服微信：dorakids01";
+                                  [self payFailed];
                               }];
+}
+
+- (void)paySuccess {
+    self.titleLabel.text = @"您已购买成功";
+    self.descLabel.text = @"请提前预约上课，如果课程发生变更，会有短信通知您";
+}
+
+- (void)payFailed {
+    self.titleLabel.text = @"购买失败";
+    self.descLabel.text = @"请重新确认订单，如有问题可联系客服微信：dorakids01";
+    self.leftButton.hidden = YES;
+    self.rightButton.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -124,18 +125,20 @@
 
 - (IBAction)onLeftButtonClicked:(id)sender {
     if (self.payCheckResult.data.payed) {
-        ThirdShareHelper *helper = [ThirdShareHelper new];
-        [SGActionView showGridMenuWithTitle:@"约伴"
-                                 itemTitles:@[ @"微信好友", @"微信朋友圈"]
-                                     images:@[ [UIImage imageNamed:@"IconShareWechat"],
-                                               [UIImage imageNamed:@"IconShareWechatTimeline"]]
-                             selectedHandle:^(NSInteger index) {
-                                 if (index == 1) {
-                                     [helper shareToWechat:self.payCheckResult.data.url thumbUrl:self.payCheckResult.data.thumb title:self.payCheckResult.data.title desc:self.payCheckResult.data.abstracts scene:1];
-                                 } else if (index == 2) {
-                                     [helper shareToWechat:self.payCheckResult.data.url thumbUrl:self.payCheckResult.data.thumb title:self.payCheckResult.data.title desc:self.payCheckResult.data.abstracts scene:2];
-                                 }
-                             }];
+//        ThirdShareHelper *helper = [ThirdShareHelper new];
+//        [SGActionView showGridMenuWithTitle:@"约伴"
+//                                 itemTitles:@[ @"微信好友", @"微信朋友圈"]
+//                                     images:@[ [UIImage imageNamed:@"IconShareWechat"],
+//                                               [UIImage imageNamed:@"IconShareWechatTimeline"]]
+//                             selectedHandle:^(NSInteger index) {
+//                                 if (index == 1) {
+//                                     [helper shareToWechat:self.payCheckResult.data.url thumbUrl:self.payCheckResult.data.thumb title:self.payCheckResult.data.title desc:self.payCheckResult.data.abstracts scene:1];
+//                                 } else if (index == 2) {
+//                                     [helper shareToWechat:self.payCheckResult.data.url thumbUrl:self.payCheckResult.data.thumb title:self.payCheckResult.data.title desc:self.payCheckResult.data.abstracts scene:2];
+//                                 }
+//                             }];
+        
+        [self openURL:@"duola://bookingsubjectlist"];
         
     } else {
 //        [self openURL:@"tel://02162578700"];

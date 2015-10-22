@@ -17,6 +17,7 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
 
 @property (nonatomic, strong) NSString *ids;
 @property (nonatomic, strong) NSString *pid;
+@property (nonatomic, assign) BOOL onlyShow;
 
 @property (nonatomic, strong) NSMutableArray *list;
 @property (nonatomic, strong) NSArray *ages;
@@ -39,6 +40,7 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
     if (self = [super initWithParams:params]) {
         self.ids = [params objectForKey:@"id"];
         self.pid = [params objectForKey:@"pid"];
+        self.onlyShow = [[params objectForKey:@"onlyshow"]boolValue];
     }
     return self;
 }
@@ -237,12 +239,17 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
 #pragma mark - tableview delegate & datasource
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     if(indexPath.row < self.list.count) {
         Course *course = self.list[indexPath.row];
-        [self openURL:[NSString stringWithFormat:@"duola://book?id=%@&pid=%@", course.ids, self.pid]];
+        if (self.onlyShow) {
+            [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@", course.ids]];
+            
+        } else {
+            [self openURL:[NSString stringWithFormat:@"duola://book?id=%@&pid=%@", course.ids, self.pid]];
+        }
     }
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

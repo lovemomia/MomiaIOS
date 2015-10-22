@@ -160,7 +160,7 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 2) {
         if (indexPath.row == 0) {
-            [self openURL:[NSString stringWithFormat:@"duola://bookablecourselist?id=%@", self.model.data.subject.ids]];
+            [self openURL:[NSString stringWithFormat:@"duola://bookablecourselist?id=%@&onlyshow=1", self.model.data.subject.ids]];
         } else {
             Course *course = self.model.data.courses.list[indexPath.row - 1];
             [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@", course.ids]];
@@ -230,8 +230,8 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
     } else if (section == 2) {
         if (row == 0) {
             CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
-            titleCell.titleLabel.text = @"可选课程";
-            titleCell.subTitleLabel.text = @"查看更多";
+            titleCell.titleLabel.text = [NSString stringWithFormat:@"可选课程（%@）", self.model.data.courses.totalCount];
+            titleCell.subTitleLabel.text = @"更多";
             titleCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell = titleCell;
             

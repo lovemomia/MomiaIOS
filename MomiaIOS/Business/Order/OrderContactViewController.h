@@ -8,12 +8,13 @@
 
 #import "MOGroupStyleTableViewController.h"
 #import "FillOrderModel.h"
+#import "SkuListModel.h"
 
 typedef void(^OnContactFinishClick)();
 
 @interface OrderContactViewController : MOGroupStyleTableViewController
 
 @property (nonatomic, strong) OnContactFinishClick onContactFinishClick;
-@property(nonatomic,strong) FillOrderContactsModel * model;
+@property(nonatomic,strong) Contact *model;
 
 @end

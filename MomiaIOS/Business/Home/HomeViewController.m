@@ -251,12 +251,12 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
         line.backgroundColor = UIColorFromRGB(0xdddddd);
         [view addSubview:line];
         
-        UILabel *text = [[UILabel alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - 60)/2, 0, 60, 20)];
+        UILabel *text = [[UILabel alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - 60)/2, 0, 70, 20)];
         text.textAlignment = NSTextAlignmentCenter;
         text.textColor = UIColorFromRGB(0x999999);
         text.backgroundColor = MO_APP_VCBackgroundColor;
         text.font = [UIFont systemFontOfSize:14];
-        text.text = @"体验课";
+        text.text = @"课程试听";
         [view addSubview:text];
     }
     return view;

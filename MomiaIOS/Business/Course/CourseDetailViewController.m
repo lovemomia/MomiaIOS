@@ -71,11 +71,19 @@ typedef enum {
 
 @interface CourseDetailViewController ()
 
+@property (nonatomic, strong) NSString *ids;
 @property (nonatomic, strong) CourseDetailModel *model;
 
 @end
 
 @implementation CourseDetailViewController
+
+- (instancetype)initWithParams:(NSDictionary *)params {
+    if (self = [super initWithParams:params]) {
+        self.ids = [params objectForKey:@"id"];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -117,7 +125,7 @@ typedef enum {
     
     CacheType cacheType = refresh ? CacheTypeDisable : CacheTypeDisable;
     
-    NSDictionary * dic = @{@"id":@"1"};
+    NSDictionary * dic = @{@"id":self.ids};
     [[HttpService defaultService] GET:URL_APPEND_PATH(@"/course") parameters:dic cacheType:cacheType JSONModelClass:[CourseDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.model == nil) {
             [self.view removeLoadingBee];
@@ -149,12 +157,15 @@ typedef enum {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     CellType type = [self cellTypeForRowAtIndexPath:indexPath];
+    if (type == CellTitlePoi) {
+        [self openURL:[NSString stringWithFormat:@"duola://book?id=%@&onlyshow=1", self.ids]];
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (CellType)cellTypeForRowAtIndexPath:(NSIndexPath *)indexPath {
-    int section = indexPath.section;
-    int row = indexPath.row;
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
     if (section == 0) {
         if (row == 0) {
             return CellPhotoHeader;
@@ -299,7 +310,7 @@ typedef enum {
         
     } else if (type == CellTitlePoi) {
         CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
-        titleCell.titleLabel.text = @"上课时间/地点";
+        titleCell.titleLabel.text = @"课程表";
         titleCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell = titleCell;
         cell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;

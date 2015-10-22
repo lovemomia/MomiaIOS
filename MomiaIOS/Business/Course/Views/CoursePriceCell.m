@@ -7,6 +7,8 @@
 //
 
 #import "CoursePriceCell.h"
+#import "StringUtils.h"
+#import "Course.h"
 
 @implementation CoursePriceCell
 
@@ -20,7 +22,8 @@
     // Configure the view for the selected state
 }
 
-- (void)setData:(id)data {
+- (void)setData:(Course *)data {
+    self.priceLabel.text = [StringUtils stringForPrice:data.price];
 }
 
 + (CGFloat)heightWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath data:(id)data {

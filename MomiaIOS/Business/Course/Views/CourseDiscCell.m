@@ -32,7 +32,7 @@
     
     TTTAttributedLabel *label = [TTTAttributedLabel new];
     label.numberOfLines = 0;
-    label.textColor = UIColorFromRGB(0x333333);
+    label.textColor = UIColorFromRGB(0x666666);
     label.font = [UIFont systemFontOfSize:13];
     label.lineSpacing = 6;
     label.text = data;
