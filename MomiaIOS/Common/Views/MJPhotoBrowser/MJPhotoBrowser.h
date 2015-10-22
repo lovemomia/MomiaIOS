@@ -17,6 +17,9 @@
 
 // 显示
 - (void)show;
+
+- (void)showPhotos;
+
 @end
 
 @protocol MJPhotoBrowserDelegate <NSObject>

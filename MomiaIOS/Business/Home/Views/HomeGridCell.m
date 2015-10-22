@@ -54,7 +54,7 @@ static const int kItemHeight = 70;
             
             [self.contentView addSubview:container];
             
-            [imageView sd_setImageWithURL:[NSURL URLWithString:icon.img] placeholderImage:[UIImage imageNamed:@"IconAvatarDefault"]];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:icon.img] placeholderImage:[UIImage imageNamed:@"IconGridDefault"]];
             label.text = icon.title;
         }
     }

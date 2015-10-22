@@ -159,6 +159,12 @@ typedef enum {
     CellType type = [self cellTypeForRowAtIndexPath:indexPath];
     if (type == CellTitlePoi) {
         [self openURL:[NSString stringWithFormat:@"duola://book?id=%@&onlyshow=1", self.ids]];
+        
+    } else if (type == CellTitleTeacher) {
+        [self openURL:[NSString stringWithFormat:@"duola://courseteacherlist?id=%@", self.ids]];
+        
+    } else if (type == CellTitleBook) {
+        [self openURL:[NSString stringWithFormat:@"duola://coursebookbrowser?id=%@", self.ids]];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

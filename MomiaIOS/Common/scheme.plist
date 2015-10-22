@@ -416,5 +416,23 @@
 		<key>desc</key>
 		<string>预约课程</string>
 	</dict>
+	<key>courseteacherlist</key>
+	<dict>
+		<key>controller</key>
+		<string>CourseTeacherListViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>讲师团</string>
+	</dict>
+	<key>coursebookbrowser</key>
+	<dict>
+		<key>controller</key>
+		<string>CourseBookBrowserViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>课前绘本</string>
+	</dict>
 </dict>
 </plist>

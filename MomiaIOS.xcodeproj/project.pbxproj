@@ -368,6 +368,12 @@
 		BCF564E01B491799003A2227 /* OrderListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564DF1B491799003A2227 /* OrderListItemCell.m */; };
 		BCF564E41B4A54D0003A2227 /* PersonChildHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564E21B4A54D0003A2227 /* PersonChildHeaderCell.m */; };
 		BCF564E51B4A54D0003A2227 /* PersonChildHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF564E31B4A54D0003A2227 /* PersonChildHeaderCell.xib */; };
+		BCF9DCF91BD8F0E200D8CDC6 /* CourseTeacherListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DCF81BD8F0E200D8CDC6 /* CourseTeacherListViewController.m */; settings = {ASSET_TAGS = (); }; };
+		BCF9DCFD1BD8F12800D8CDC6 /* CourseTeacherListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DCFB1BD8F12800D8CDC6 /* CourseTeacherListItemCell.m */; settings = {ASSET_TAGS = (); }; };
+		BCF9DCFE1BD8F12800D8CDC6 /* CourseTeacherListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF9DCFC1BD8F12800D8CDC6 /* CourseTeacherListItemCell.xib */; settings = {ASSET_TAGS = (); }; };
+		BCF9DD011BD8F15000D8CDC6 /* CourseTeacherListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DD001BD8F15000D8CDC6 /* CourseTeacherListModel.m */; settings = {ASSET_TAGS = (); }; };
+		BCF9DD041BD8FB7600D8CDC6 /* CourseBookBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DD031BD8FB7600D8CDC6 /* CourseBookBrowserViewController.m */; settings = {ASSET_TAGS = (); }; };
+		BCF9DD071BD8FC2500D8CDC6 /* CourseBookListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DD061BD8FC2500D8CDC6 /* CourseBookListModel.m */; settings = {ASSET_TAGS = (); }; };
 		BCF9ECA01B4161EE00AEBE1E /* CityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9EC9F1B4161EE00AEBE1E /* CityManager.m */; };
 		BCF9ECA41B4162B800AEBE1E /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9ECA31B4162B800AEBE1E /* City.m */; };
 		BCF9ECA71B416C3500AEBE1E /* CityListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9ECA61B416C3500AEBE1E /* CityListModel.m */; };
@@ -1034,6 +1040,17 @@
 		BCF564E11B4A54D0003A2227 /* PersonChildHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonChildHeaderCell.h; path = Business/Mine/Views/PersonChildHeaderCell.h; sourceTree = "<group>"; };
 		BCF564E21B4A54D0003A2227 /* PersonChildHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonChildHeaderCell.m; path = Business/Mine/Views/PersonChildHeaderCell.m; sourceTree = "<group>"; };
 		BCF564E31B4A54D0003A2227 /* PersonChildHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PersonChildHeaderCell.xib; path = Business/Mine/Views/PersonChildHeaderCell.xib; sourceTree = "<group>"; };
+		BCF9DCF71BD8F0E200D8CDC6 /* CourseTeacherListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseTeacherListViewController.h; path = Business/Course/CourseTeacherListViewController.h; sourceTree = "<group>"; };
+		BCF9DCF81BD8F0E200D8CDC6 /* CourseTeacherListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseTeacherListViewController.m; path = Business/Course/CourseTeacherListViewController.m; sourceTree = "<group>"; };
+		BCF9DCFA1BD8F12800D8CDC6 /* CourseTeacherListItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseTeacherListItemCell.h; path = Business/Course/Views/CourseTeacherListItemCell.h; sourceTree = "<group>"; };
+		BCF9DCFB1BD8F12800D8CDC6 /* CourseTeacherListItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseTeacherListItemCell.m; path = Business/Course/Views/CourseTeacherListItemCell.m; sourceTree = "<group>"; };
+		BCF9DCFC1BD8F12800D8CDC6 /* CourseTeacherListItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CourseTeacherListItemCell.xib; path = Business/Course/Views/CourseTeacherListItemCell.xib; sourceTree = "<group>"; };
+		BCF9DCFF1BD8F15000D8CDC6 /* CourseTeacherListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseTeacherListModel.h; path = Common/Models/Course/CourseTeacherListModel.h; sourceTree = "<group>"; };
+		BCF9DD001BD8F15000D8CDC6 /* CourseTeacherListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseTeacherListModel.m; path = Common/Models/Course/CourseTeacherListModel.m; sourceTree = "<group>"; };
+		BCF9DD021BD8FB7600D8CDC6 /* CourseBookBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseBookBrowserViewController.h; path = Business/Course/CourseBookBrowserViewController.h; sourceTree = "<group>"; };
+		BCF9DD031BD8FB7600D8CDC6 /* CourseBookBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseBookBrowserViewController.m; path = Business/Course/CourseBookBrowserViewController.m; sourceTree = "<group>"; };
+		BCF9DD051BD8FC2500D8CDC6 /* CourseBookListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseBookListModel.h; path = Common/Models/Course/CourseBookListModel.h; sourceTree = "<group>"; };
+		BCF9DD061BD8FC2500D8CDC6 /* CourseBookListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseBookListModel.m; path = Common/Models/Course/CourseBookListModel.m; sourceTree = "<group>"; };
 		BCF9EC9E1B4161EE00AEBE1E /* CityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityManager.h; path = Common/Utils/CityManager.h; sourceTree = "<group>"; };
 		BCF9EC9F1B4161EE00AEBE1E /* CityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityManager.m; path = Common/Utils/CityManager.m; sourceTree = "<group>"; };
 		BCF9ECA21B4162B800AEBE1E /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = City.h; path = Common/Models/City/City.h; sourceTree = "<group>"; };
@@ -1581,6 +1598,9 @@
 				BC592BEF1BD5F015008AE76A /* BookSkuDateTitleCell.h */,
 				BC592BF01BD5F015008AE76A /* BookSkuDateTitleCell.m */,
 				BC592BF11BD5F015008AE76A /* BookSkuDateTitleCell.xib */,
+				BCF9DCFA1BD8F12800D8CDC6 /* CourseTeacherListItemCell.h */,
+				BCF9DCFB1BD8F12800D8CDC6 /* CourseTeacherListItemCell.m */,
+				BCF9DCFC1BD8F12800D8CDC6 /* CourseTeacherListItemCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1947,6 +1967,10 @@
 				BC592BD61BD50564008AE76A /* CourseSkuListModel.m */,
 				BC592BF71BD73F58008AE76A /* BookedCourseListModel.h */,
 				BC592BF81BD73F58008AE76A /* BookedCourseListModel.m */,
+				BCF9DCFF1BD8F15000D8CDC6 /* CourseTeacherListModel.h */,
+				BCF9DD001BD8F15000D8CDC6 /* CourseTeacherListModel.m */,
+				BCF9DD051BD8FC2500D8CDC6 /* CourseBookListModel.h */,
+				BCF9DD061BD8FC2500D8CDC6 /* CourseBookListModel.m */,
 			);
 			name = Course;
 			sourceTree = "<group>";
@@ -2340,6 +2364,10 @@
 				BC592BBF1BD4977A008AE76A /* BookViewController.m */,
 				BC592BD21BD50194008AE76A /* BookSkuListViewController.h */,
 				BC592BD31BD50194008AE76A /* BookSkuListViewController.m */,
+				BCF9DCF71BD8F0E200D8CDC6 /* CourseTeacherListViewController.h */,
+				BCF9DCF81BD8F0E200D8CDC6 /* CourseTeacherListViewController.m */,
+				BCF9DD021BD8FB7600D8CDC6 /* CourseBookBrowserViewController.h */,
+				BCF9DD031BD8FB7600D8CDC6 /* CourseBookBrowserViewController.m */,
 			);
 			name = Course;
 			sourceTree = "<group>";
@@ -2592,6 +2620,7 @@
 				5A08C13E1B39117100642648 /* ProductDetailCarouselCell.xib in Resources */,
 				5A8EF0361B31407B003ABAF8 /* HomeCell.xib in Resources */,
 				BC7CBB131B69C6560047211D /* ApplyLeaderIntroHeaderCell.xib in Resources */,
+				BCF9DCFE1BD8F12800D8CDC6 /* CourseTeacherListItemCell.xib in Resources */,
 				5A9E80E21B4BBD2B0028AC47 /* ProductPlayFellowHeaderView.xib in Resources */,
 				BC592BE41BD5E33A008AE76A /* BookSkuMoreCell.xib in Resources */,
 				BC77377C1BCE2C0C00987B22 /* CoursePoiCell.xib in Resources */,
@@ -2641,6 +2670,7 @@
 				BC7737821BCE45A300987B22 /* CourseTeacherCell.m in Sources */,
 				BC2C0C571B1309A800E2446E /* MOButton.m in Sources */,
 				BCF0339F1B4FB1BE005B71D6 /* ThirdShareHelper.m in Sources */,
+				BCF9DCFD1BD8F12800D8CDC6 /* CourseTeacherListItemCell.m in Sources */,
 				BC7CBB041B68D6A50047211D /* ApplyLeaderViewController.m in Sources */,
 				BC41ABA91B0C715400A419DA /* Environment.m in Sources */,
 				5A456F9A1B2E687700E95756 /* MOTableCell.m in Sources */,
@@ -2670,6 +2700,7 @@
 				BC7737711BCDEFE200987B22 /* CourseNoticeCell.m in Sources */,
 				BC3D0BA71B6F77AF004C7B81 /* LeaderProductModel.m in Sources */,
 				BC7737891BCE4A9E00987B22 /* CoursePriceCell.m in Sources */,
+				BCF9DD071BD8FC2500D8CDC6 /* CourseBookListModel.m in Sources */,
 				5ABDA5B31B42CD4B003BAE80 /* PostOrderModel.m in Sources */,
 				BC592BF61BD65392008AE76A /* BookedCourseListViewController.m in Sources */,
 				BC97DEFC1B4B75A8002B1A00 /* OrderPerson.m in Sources */,
@@ -2720,6 +2751,7 @@
 				5A33F1A11B2EA1D5002A8258 /* CashPayTopHeaderView.m in Sources */,
 				BC7CBAFF1B6879100047211D /* PushManager.m in Sources */,
 				BCF033951B4E892F005B71D6 /* PeopleViewController.m in Sources */,
+				BCF9DD041BD8FB7600D8CDC6 /* CourseBookBrowserViewController.m in Sources */,
 				BC66D3BE1B60F24C00A5BFC6 /* MyFavViewController.m in Sources */,
 				BC359A401BC648BF002DE863 /* PhotoTitleHeaderCell.m in Sources */,
 				BC359A491BC679EF002DE863 /* HomeGridCell.m in Sources */,
@@ -2822,6 +2854,7 @@
 				BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */,
 				BC3504921BD0F865009A24B0 /* Subject.m in Sources */,
 				BC3599EA1BC61F0C002DE863 /* UIImage+MLTint.m in Sources */,
+				BCF9DCF91BD8F0E200D8CDC6 /* CourseTeacherListViewController.m in Sources */,
 				5A18DC4B1B295C03001458A4 /* HomeViewController.m in Sources */,
 				BC753ED91BAC07D300D2663C /* FeedUgcCell.m in Sources */,
 				BC753ECC1BAC07D300D2663C /* FeedDetailViewController.m in Sources */,
@@ -2881,6 +2914,7 @@
 				BC753ECE1BAC07D300D2663C /* FeedCommentCell.m in Sources */,
 				5A4044321B27D18C0010782C /* OrderPersonViewController.m in Sources */,
 				5AC9FFCD1B17298C00C769EF /* FeedbackViewController.m in Sources */,
+				BCF9DD011BD8F15000D8CDC6 /* CourseTeacherListModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

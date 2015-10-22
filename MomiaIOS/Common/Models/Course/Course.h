@@ -9,6 +9,7 @@
 #import "JSONModel.h"
 #import "HomeworkList.h"
 #import "CourseCommentList.h"
+#import "CourseTeacherListModel.h"
 
 @interface CoursePlace : JSONModel
 @property (nonatomic, strong) NSNumber *ids;
@@ -22,13 +23,6 @@
 @interface CourseBook : JSONModel
 @property (nonatomic, strong) NSArray *imgs;
 @property (nonatomic, strong) NSArray *largeImgs;
-@end
-
-@interface CourseTeacher : JSONModel
-@property (nonatomic, strong) NSString *avatar;
-@end
-
-@protocol CourseTeacher
 @end
 
 @interface Course : JSONModel

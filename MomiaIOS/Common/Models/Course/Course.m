@@ -20,11 +20,6 @@
 
 @end
 
-@implementation CourseTeacher
-
-@end
-
-
 @implementation Course
 
 + (JSONKeyMapper *)keyMapper {

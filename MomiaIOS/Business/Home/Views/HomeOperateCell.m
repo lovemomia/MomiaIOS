@@ -61,13 +61,13 @@ static const int kItemHeight = 70;
             
             [self.contentView addSubview:container];
             
-            [imageView sd_setImageWithURL:[NSURL URLWithString:event.img] placeholderImage:[UIImage imageNamed:@"IconAvatarDefault"]];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:event.img]];
             titleLabel.text = event.title;
             subTitleLabel.text = event.desc;
         }
         
-        int i = self.data.count;
-        int row = i / 2;
+        NSInteger i = self.data.count;
+        NSInteger row = i / 2;
         if (fmod(i, 2) != 0) {
             row += 1;
         }
@@ -95,8 +95,8 @@ static const int kItemHeight = 70;
 
 + (CGFloat)heightWithTableView:(UITableView *) tableView forModel:(id)model {
     NSArray *items = model;
-    int i = items.count;
-    int row = i / 2;
+    NSInteger i = items.count;
+    NSInteger row = i / 2;
     if (fmod(i, 2) != 0) {
         row += 1;
     }
