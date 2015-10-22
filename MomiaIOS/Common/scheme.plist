@@ -412,7 +412,7 @@
 		<key>controller</key>
 		<string>BookViewController</string>
 		<key>needlogin</key>
-		<true/>
+		<false/>
 		<key>desc</key>
 		<string>预约课程</string>
 	</dict>
