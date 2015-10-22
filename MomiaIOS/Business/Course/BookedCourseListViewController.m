@@ -117,7 +117,7 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.row < self.list.count) {
         Course *course = self.list[indexPath.row];
-        [self openURL:[NSString stringWithFormat:@"duola://book?id=%@", course.ids]];
+        [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@", course.ids]];
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

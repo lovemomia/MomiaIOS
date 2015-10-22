@@ -36,7 +36,11 @@
     [self.iconIv sd_setImageWithURL:[NSURL URLWithString:model.cover]];
     self.titleLabel.text = model.title;
     self.dateLabel.text = [NSString stringWithFormat:@"%@ | %@", model.age, model.scheduler];
-    self.placeLabel.text = model.place.name;
+    if (model.place && model.place.name.length > 0) {
+        self.placeLabel.text = model.place.name;
+    } else {
+        self.placeLabel.text = model.region;
+    }
     self.priceLabel.text = [StringUtils stringForPrice:model.price];
 }
 

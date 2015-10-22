@@ -237,7 +237,6 @@
 		BC592BC31BD4C55F008AE76A /* BookingSubjectListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BC21BD4C55F008AE76A /* BookingSubjectListModel.m */; settings = {ASSET_TAGS = (); }; };
 		BC592BC71BD4CC81008AE76A /* BookingSubjectItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BC51BD4CC81008AE76A /* BookingSubjectItemCell.m */; settings = {ASSET_TAGS = (); }; };
 		BC592BC81BD4CC81008AE76A /* BookingSubjectItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC592BC61BD4CC81008AE76A /* BookingSubjectItemCell.xib */; settings = {ASSET_TAGS = (); }; };
-		BC592BCD1BD4DAB9008AE76A /* ico_make.png in Resources */ = {isa = PBXBuildFile; fileRef = BC592BCA1BD4DAB9008AE76A /* ico_make.png */; settings = {ASSET_TAGS = (); }; };
 		BC592BCE1BD4DAB9008AE76A /* JSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BCC1BD4DAB9008AE76A /* JSDropDownMenu.m */; settings = {ASSET_TAGS = (); }; };
 		BC592BD11BD4DCD2008AE76A /* CourseListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BD01BD4DCD2008AE76A /* CourseListModel.m */; settings = {ASSET_TAGS = (); }; };
 		BC592BD41BD50194008AE76A /* BookSkuListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BD31BD50194008AE76A /* BookSkuListViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -375,6 +374,7 @@
 		BCF9ECAA1B4171EC00AEBE1E /* CityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9ECA91B4171EC00AEBE1E /* CityListViewController.m */; };
 		BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFC2C321AF9C09400164BC2 /* MOWebViewController.m */; };
 		BCFC2C371AF9C6B800164BC2 /* ActivityWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFC2C361AF9C6B800164BC2 /* ActivityWebViewController.m */; };
+		BCFC9E971BD890FC003D9EA3 /* ico_make.png in Resources */ = {isa = PBXBuildFile; fileRef = BCFC9E961BD890FC003D9EA3 /* ico_make.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -800,7 +800,6 @@
 		BC592BC41BD4CC81008AE76A /* BookingSubjectItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookingSubjectItemCell.h; path = Business/Course/Views/BookingSubjectItemCell.h; sourceTree = "<group>"; };
 		BC592BC51BD4CC81008AE76A /* BookingSubjectItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookingSubjectItemCell.m; path = Business/Course/Views/BookingSubjectItemCell.m; sourceTree = "<group>"; };
 		BC592BC61BD4CC81008AE76A /* BookingSubjectItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookingSubjectItemCell.xib; path = Business/Course/Views/BookingSubjectItemCell.xib; sourceTree = "<group>"; };
-		BC592BCA1BD4DAB9008AE76A /* ico_make.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_make.png; sourceTree = "<group>"; };
 		BC592BCB1BD4DAB9008AE76A /* JSDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSDropDownMenu.h; sourceTree = "<group>"; };
 		BC592BCC1BD4DAB9008AE76A /* JSDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSDropDownMenu.m; sourceTree = "<group>"; };
 		BC592BCF1BD4DCD2008AE76A /* CourseListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseListModel.h; path = Common/Models/Course/CourseListModel.h; sourceTree = "<group>"; };
@@ -1047,6 +1046,7 @@
 		BCFC2C321AF9C09400164BC2 /* MOWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOWebViewController.m; path = Common/Base/MOWebViewController.m; sourceTree = "<group>"; };
 		BCFC2C351AF9C6B800164BC2 /* ActivityWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityWebViewController.h; path = Business/Web/ActivityWebViewController.h; sourceTree = "<group>"; };
 		BCFC2C361AF9C6B800164BC2 /* ActivityWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityWebViewController.m; path = Business/Web/ActivityWebViewController.m; sourceTree = "<group>"; };
+		BCFC9E961BD890FC003D9EA3 /* ico_make.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_make.png; sourceTree = "<group>"; };
 		CD4DAFFDE6B36FEA8B30C4C2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1801,7 +1801,7 @@
 		BC592BC91BD4DAB9008AE76A /* JSDropDownMenu */ = {
 			isa = PBXGroup;
 			children = (
-				BC592BCA1BD4DAB9008AE76A /* ico_make.png */,
+				BCFC9E961BD890FC003D9EA3 /* ico_make.png */,
 				BC592BCB1BD4DAB9008AE76A /* JSDropDownMenu.h */,
 				BC592BCC1BD4DAB9008AE76A /* JSDropDownMenu.m */,
 			);
@@ -2526,7 +2526,7 @@
 				BC3D0BA41B6F7546004C7B81 /* LeaderJoinedCell.xib in Resources */,
 				5A6806F01B01A9BD00D02A60 /* SettingMsgCell.xib in Resources */,
 				BC753ED41BAC07D300D2663C /* FeedSuggestHeadCell.xib in Resources */,
-				BC592BCD1BD4DAB9008AE76A /* ico_make.png in Resources */,
+				BCFC9E971BD890FC003D9EA3 /* ico_make.png in Resources */,
 				BC5CF2F71BB5275B00EC5227 /* AlipaySDK.bundle in Resources */,
 				BC3599FD1BC61F0C002DE863 /* MLSelectPhoto.bundle in Resources */,
 				BC0BD7031B55173800B95B3A /* CouponListItemCell.xib in Resources */,

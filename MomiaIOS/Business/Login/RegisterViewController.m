@@ -184,7 +184,7 @@
         
         UIButton *agreement = (UIButton *)[footer viewWithTag:1003];
         [agreement addAction:^(UIButton *btn) {
-            ActivityWebViewController *web = [[ActivityWebViewController alloc]initWithParams:@{@"url":[@"http://www.duolaqinzi.com/agreement.html" URLEncodedString]}];
+            ActivityWebViewController *web = [[ActivityWebViewController alloc]initWithParams:@{@"url":[@"http://www.sogokids.com/agreement.html" URLEncodedString]}];
             [self.navigationController pushViewController:web animated:YES];
             
         }];

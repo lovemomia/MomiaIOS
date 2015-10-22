@@ -78,7 +78,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 5;
+    return 4;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -106,21 +106,21 @@
             break;
         case 2:
             if (row == 0) {
-                [self openURL:@"duola://leaderstatus"];
+                [self openURL:@"duola://myorderlist"];
             }
             break;
         case 3:
-//            if(row == 0) {
-//                [self openURL:@"duola://myfav"];
-//                
-//            } else {
-//                [self openURL:@"duola://people"];
-//            }
             if(row == 0) {
-                [self openURL:@"duola://myorderlist"];
+                [self openURL:@"duola://feedback"];
+                
             } else {
-                [self openURL:@"duola://couponlist?status=1"];
+                [self openURL:@"duola://setting"];
             }
+//            if(row == 0) {
+//                [self openURL:@"duola://myorderlist"];
+//            } else {
+//                [self openURL:@"duola://couponlist?status=1"];
+//            }
             break;
         case 4:
             if(row == 0) {
@@ -195,25 +195,33 @@
             case 1:
                 if (row == 0) {
                     cell.textLabel.text = @"已选课程";
-                    cell.imageView.image = [UIImage imageNamed:@"IconOrder"];
+                    cell.imageView.image = [UIImage imageNamed:@"IconBooked"];
                 } else {
                     cell.textLabel.text = @"待选课程";
-                    cell.imageView.image = [UIImage imageNamed:@"IconCoupon"];
+                    cell.imageView.image = [UIImage imageNamed:@"IconBooking"];
                 }
                 break;
             case 2:
                 if (row == 0) {
-                    cell.textLabel.text = @"成长说";
-                    cell.imageView.image = [UIImage imageNamed:@"IconLeader"];
+                    cell.textLabel.text = @"我的订单";
+                    cell.imageView.image = [UIImage imageNamed:@"IconOrder"];
                 }
                 break;
             case 3:
+//                if (row == 0) {
+//                    cell.textLabel.text = @"我的订单";
+//                    cell.imageView.image = [UIImage imageNamed:@"IconOrder"];
+//                } else {
+//                    cell.textLabel.text = @"我的红包";
+//                    cell.imageView.image = [UIImage imageNamed:@"IconCoupon"];
+//                }
                 if (row == 0) {
-                    cell.textLabel.text = @"我的订单";
-                    cell.imageView.image = [UIImage imageNamed:@"IconOrder"];
+                    cell.textLabel.text = @"意见反馈";
+                    cell.imageView.image = [UIImage imageNamed:@"IconFeedback"];
+                    
                 } else {
-                    cell.textLabel.text = @"我的红包";
-                    cell.imageView.image = [UIImage imageNamed:@"IconCoupon"];
+                    cell.textLabel.text = @"设置";
+                    cell.imageView.image = [UIImage imageNamed:@"IconSetting"];
                 }
                 break;
             case 4:

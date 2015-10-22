@@ -46,7 +46,7 @@
 +(CGFloat)heightWithTableView:(UITableView *)tableView
 {
 //    return CGRectGetWidth(tableView.bounds) * cellScale;
-    return 117;
+    return 92;
 }
 
 -(void)setData:(NSArray *) banners
@@ -66,6 +66,9 @@
     
     self.pageControl.numberOfPages = banners.count;
     self.pageControl.currentPage = 0;
+    self.pageControl.currentPageIndicatorTintColor = MO_APP_ThemeColor;
+    self.pageControl.pageIndicatorTintColor = [UIColor whiteColor];
+    self.pageControl.alpha = 0.8;
     
     self.scrollView.delegate = self;
     

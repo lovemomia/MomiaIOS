@@ -30,6 +30,8 @@ static const int kItemHeight = 70;
 - (instancetype)initWithTableView:(UITableView *) tableView forModel:(id)model reuseIdentifier:(NSString *)identifier {
     if (self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier]) {
         self.data = model;
+        NSArray *colorArray = @[UIColorFromRGB(0xff961b), UIColorFromRGB(0x8cd034), UIColorFromRGB(0x58bfef), UIColorFromRGB(0xfd719a)];
+        
         CGFloat padding = 10.0;
         CGFloat iconSize = 45.0;
         CGFloat itemWidth = SCREEN_WIDTH / 2;
@@ -47,13 +49,13 @@ static const int kItemHeight = 70;
             
             UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding, padding, itemWidth - iconSize - 2 * padding, 30)];
             titleLabel.textAlignment = NSTextAlignmentLeft;
-            titleLabel.font = [UIFont systemFontOfSize:14];
-            titleLabel.textColor = UIColorFromRGB(0x333333);
+            titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:15];
+            titleLabel.textColor = colorArray[i];
             [container addSubview:titleLabel];
             
             UILabel *subTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding, padding + 30, itemWidth - iconSize - 2 * padding, 20)];
             subTitleLabel.textAlignment = NSTextAlignmentLeft;
-            subTitleLabel.font = [UIFont systemFontOfSize:12];
+            subTitleLabel.font = [UIFont systemFontOfSize:11];
             subTitleLabel.textColor = UIColorFromRGB(0x999999);
             [container addSubview:subTitleLabel];
             

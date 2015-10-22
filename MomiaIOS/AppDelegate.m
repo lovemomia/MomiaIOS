@@ -70,6 +70,12 @@ BMKMapManager* _mapManager;
     // 百度地图
     _mapManager = [[BMKMapManager alloc]init];
     [_mapManager start:@"dnSVNUqriaNXYqhD6ATZQ2zF" generalDelegate:self];
+    
+    // config
+    [[ConfigService defaultService] refresh];
+    
+    // 定位sdk
+    [[LocationService defaultService] start];
 
     return YES;
 }
@@ -145,6 +151,11 @@ BMKMapManager* _mapManager;
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    // config
+    [[ConfigService defaultService] refresh];
+    
+    // 定位sdk
+    [[LocationService defaultService] start];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -154,12 +165,6 @@ BMKMapManager* _mapManager;
         // [EXT] 重新上线
         [[PushManager shareManager]openPush:self];
     }
-    
-    // config
-    [[ConfigService defaultService] refresh];
-    
-    // 定位sdk
-    [[LocationService defaultService] start];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

@@ -32,18 +32,23 @@
     }
     
     UIView * lastView;
-    
-    for (int i = 0 ; i < 2 ; i++) {
+    int tagCount;
+    if (!isSubject && ((Course *)model).insurance && [((Course *)model).insurance boolValue]) {
+        tagCount = 2;
+    } else {
+        tagCount = 1;
+    }
+    for (int i = 0; i < tagCount; i++) {
         UIImageView * imgView = [[UIImageView alloc] init];
         [self.contentView addSubview:imgView];
         [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.contentView);
             if(i == 0) make.leading.equalTo(self.contentView).with.offset(10);
-            else make.leading.equalTo(lastView.mas_trailing).with.offset(40);
+            else make.leading.equalTo(lastView.mas_trailing).with.offset(20);
             make.width.equalTo(@17);
             make.height.equalTo(@17);
         }];
-        [imgView setImage:[UIImage imageNamed:@"IconChild"]];
+        [imgView setImage:[UIImage imageNamed:@"IconProductTag"]];
         
         UILabel * label = [[UILabel alloc] init];
         [self.contentView addSubview:label];
@@ -55,14 +60,35 @@
         if (i == 0) {
             label.text = [NSString stringWithFormat:@"适合%@", isSubject ? ((Subject *)model).age : ((Course *)model).age];
         } else if (i == 1) {
-            label.text = [NSString stringWithFormat:@"%@人参加", isSubject ? ((Subject *)model).joined : ((Course *)model).joined];
+            label.text = @"送保险";
         }
         
-        label.textColor = UIColorFromRGB(0x999999);
+        label.textColor = MO_APP_ThemeColor;
         label.font = [UIFont systemFontOfSize:13.0f];
         
         lastView = label;
     }
+    
+    // joined
+    UILabel * label = [[UILabel alloc] init];
+    [self.contentView addSubview:label];
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.contentView);
+        make.right.equalTo(self.contentView).with.offset(-10);
+    }];
+    label.text = [NSString stringWithFormat:@"%@人已参加", isSubject ? ((Subject *)model).joined : ((Course *)model).joined];
+    label.textColor = UIColorFromRGB(0x999999);
+    label.font = [UIFont systemFontOfSize:13.0f];
+    
+    UIImageView * imgView = [[UIImageView alloc] init];
+    [self.contentView addSubview:imgView];
+    [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.contentView);
+        make.width.equalTo(@14);
+        make.height.equalTo(@14);
+        make.right.equalTo(label.mas_left).with.offset(-5);
+    }];
+    [imgView setImage:[UIImage imageNamed:@"IconTagGray"]];
 }
 
 + (CGFloat)heightWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath data:(id)data {

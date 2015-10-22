@@ -9,7 +9,7 @@
 #import "HomeGridCell.h"
 #import "IndexModel.h"
 
-static const int kItemHeight = 80;
+static const int kItemHeight = 70;
 
 @interface HomeGridCell()
 @property (nonatomic, strong) NSArray *data;
@@ -46,9 +46,9 @@ static const int kItemHeight = 80;
             UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(itemWidth/2 - iconSize/2, 0, iconSize, iconSize)];
             [container addSubview:imageView];
             
-            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, iconSize + 5, itemWidth, 30)];
+            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, iconSize + 5, itemWidth, 20)];
             label.textAlignment = NSTextAlignmentCenter;
-            label.font = [UIFont systemFontOfSize:14];
+            label.font = [UIFont systemFontOfSize:12];
             label.textColor = UIColorFromRGB(0x333333);
             [container addSubview:label];
             

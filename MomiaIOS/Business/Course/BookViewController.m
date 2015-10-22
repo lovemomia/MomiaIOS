@@ -17,6 +17,7 @@
 
 @property (nonatomic, strong) NSString *ids;
 @property (nonatomic, strong) NSString *pid;
+@property (nonatomic, assign) BOOL onlyShow;
 
 @property (strong, nonatomic) LJViewPager *viewPager;
 @property (strong, nonatomic) LJTabBar *tabBar;
@@ -38,6 +39,7 @@
     if (self = [super initWithParams:params]) {
         self.ids = [params objectForKey:@"id"];
         self.pid = [params objectForKey:@"pid"];
+        self.onlyShow = [[params objectForKey:@"onlyshow"]boolValue];
     }
     return self;
 }
@@ -45,9 +47,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"预约课程";
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(onDoneClick)];
+    if (!self.onlyShow) {
+        self.navigationItem.title = @"预约课程";
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(onDoneClick)];
+    } else {
+        self.navigationItem.title = @"课程表";
+    }
     
     int month = [DateManager shareManager].serverTimeMonth;
     
@@ -88,7 +94,7 @@
                                parameters:params JSONModelClass:[BaseModel class]
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                       [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                      [self showDialogWithTitle:nil message:@"预约成功"];
+                                      [self showDialogWithTitle:nil message:@"预约成功" tag:1];
                                   }
          
                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -97,12 +103,14 @@
                                   }];
         
     } else {
-        [self showDialogWithTitle:nil message:@""];
+        [self showDialogWithTitle:nil message:@"您还没有选择课程！"];
     }
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
+    if (alertView.tag == 1) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 
 - (void)onSkuSelect:(CourseSku *)sku inController:(id)controller {
@@ -129,19 +137,19 @@
 
 - (UIViewController *)viewPager:(LJViewPager *)viewPager controllerAtPage:(NSInteger)page {
     if (page == 0) {
-        NSDictionary * dic = @{@"id":self.ids};
+        NSDictionary * dic = @{@"id":self.ids, @"onlyshow":(self.onlyShow ? @"1" : @"0")};
         self.weekController = [[BookSkuListViewController alloc] initWithParams:dic];
         self.weekController.delegate = self;
         return self.weekController;
         
     } else if (page == 1) {
-        NSDictionary * dic = @{@"id":self.ids, @"month":@(self.month)};
+        NSDictionary * dic = @{@"id":self.ids, @"month":@(self.month), @"onlyshow":(self.onlyShow ? @"1" : @"0")};
         self.firstMonthController = [[BookSkuListViewController alloc] initWithParams:dic];
         self.firstMonthController.delegate = self;
         return self.firstMonthController;
         
     } else {
-        NSDictionary * dic = @{@"id":self.ids, @"month":@(self.nextMonth)};
+        NSDictionary * dic = @{@"id":self.ids, @"month":@(self.nextMonth), @"onlyshow":(self.onlyShow ? @"1" : @"0")};
         self.secondMonthController = [[BookSkuListViewController alloc] initWithParams:dic];
         self.secondMonthController.delegate = self;
         return self.secondMonthController;

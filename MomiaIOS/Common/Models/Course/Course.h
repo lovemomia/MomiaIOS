@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSString *address;
 @property (nonatomic, assign) CGFloat lng;
 @property (nonatomic, assign) CGFloat lat;
-@property (nonatomic, strong) NSString *scheduler;
+@property (nonatomic, strong) NSString<Optional> *scheduler;
 @end
 
 @interface CourseBook : JSONModel
@@ -39,8 +39,9 @@
 @property (nonatomic, assign) CGFloat price; //价格
 @property (nonatomic, strong) NSString *age; //年龄
 @property (nonatomic, strong) NSNumber *joined; //参加人数
-@property (nonatomic, strong) NSString *scheduler; //场次日期
+@property (nonatomic, strong) NSString<Optional> *scheduler; //场次日期
 @property (nonatomic, strong) NSString *region; //地区
+@property (nonatomic, strong) NSNumber<Optional> *insurance; //红包
 
 @property (nonatomic, strong) NSArray<Optional> *imgs; //头图
 @property (nonatomic, strong) NSString<Optional> *goal;  //课程目标
