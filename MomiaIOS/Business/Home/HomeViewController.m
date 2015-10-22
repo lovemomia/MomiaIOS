@@ -354,18 +354,12 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
             };
             cell = carousel;
         } else {
-            HomeGridCell *gridCell = [tableView dequeueReusableCellWithIdentifier:homeGridIdentifier];
-            if (gridCell == nil) {
-                gridCell = [[HomeGridCell alloc]initWithTableView:tableView forModel:self.icons reuseIdentifier:homeGridIdentifier];
-            }
+            HomeGridCell *gridCell = [[HomeGridCell alloc]initWithTableView:tableView forModel:self.icons reuseIdentifier:homeGridIdentifier];
             cell = gridCell;
         }
         
     } else if ((hasBannerSec && hasEventSec && section == 1) || (!hasBannerSec && hasEventSec && section == 0)) {
-        HomeOperateCell *operateCell = [tableView dequeueReusableCellWithIdentifier:homeOperateIdentifier];
-        if (operateCell == nil) {
-            operateCell = [[HomeOperateCell alloc]initWithTableView:tableView forModel:self.events reuseIdentifier:homeOperateIdentifier];
-        }
+        HomeOperateCell *operateCell = [[HomeOperateCell alloc]initWithTableView:tableView forModel:self.events reuseIdentifier:homeOperateIdentifier];
         cell = operateCell;
         
     } else if(section < self.array.count + number) {

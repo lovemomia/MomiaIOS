@@ -69,8 +69,8 @@ static const int kItemHeight = 70;
 
 + (CGFloat)heightWithTableView:(UITableView *) tableView forModel:(id)model {
     NSArray *items = model;
-    int i = items.count;
-    int row = i / 4;
+    NSInteger i = items.count;
+    NSInteger row = i / 4;
     if (fmod(i, 4) != 0) {
         row += 1;
     }
