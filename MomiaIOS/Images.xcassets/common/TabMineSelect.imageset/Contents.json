@@ -2,18 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "TabMineSelect.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "TabMineSelect@2x.png"
+      "filename" : "TabMineSelect@2x.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "TabMineSelect@3x.png"
+      "filename" : "TabMineSelect@3x.png",
+      "scale" : "3x"
     }
   ],
   "info" : {
