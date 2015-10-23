@@ -374,6 +374,7 @@
 		BCF9DD011BD8F15000D8CDC6 /* CourseTeacherListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DD001BD8F15000D8CDC6 /* CourseTeacherListModel.m */; settings = {ASSET_TAGS = (); }; };
 		BCF9DD041BD8FB7600D8CDC6 /* CourseBookBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DD031BD8FB7600D8CDC6 /* CourseBookBrowserViewController.m */; settings = {ASSET_TAGS = (); }; };
 		BCF9DD071BD8FC2500D8CDC6 /* CourseBookListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DD061BD8FC2500D8CDC6 /* CourseBookListModel.m */; settings = {ASSET_TAGS = (); }; };
+		BCF9DD0A1BD9D41E00D8CDC6 /* BookCourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DD091BD9D41E00D8CDC6 /* BookCourseDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		BCF9ECA01B4161EE00AEBE1E /* CityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9EC9F1B4161EE00AEBE1E /* CityManager.m */; };
 		BCF9ECA41B4162B800AEBE1E /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9ECA31B4162B800AEBE1E /* City.m */; };
 		BCF9ECA71B416C3500AEBE1E /* CityListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9ECA61B416C3500AEBE1E /* CityListModel.m */; };
@@ -1051,6 +1052,8 @@
 		BCF9DD031BD8FB7600D8CDC6 /* CourseBookBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseBookBrowserViewController.m; path = Business/Course/CourseBookBrowserViewController.m; sourceTree = "<group>"; };
 		BCF9DD051BD8FC2500D8CDC6 /* CourseBookListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseBookListModel.h; path = Common/Models/Course/CourseBookListModel.h; sourceTree = "<group>"; };
 		BCF9DD061BD8FC2500D8CDC6 /* CourseBookListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseBookListModel.m; path = Common/Models/Course/CourseBookListModel.m; sourceTree = "<group>"; };
+		BCF9DD081BD9D41E00D8CDC6 /* BookCourseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookCourseDetailViewController.h; path = Business/Course/BookCourseDetailViewController.h; sourceTree = "<group>"; };
+		BCF9DD091BD9D41E00D8CDC6 /* BookCourseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookCourseDetailViewController.m; path = Business/Course/BookCourseDetailViewController.m; sourceTree = "<group>"; };
 		BCF9EC9E1B4161EE00AEBE1E /* CityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityManager.h; path = Common/Utils/CityManager.h; sourceTree = "<group>"; };
 		BCF9EC9F1B4161EE00AEBE1E /* CityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityManager.m; path = Common/Utils/CityManager.m; sourceTree = "<group>"; };
 		BCF9ECA21B4162B800AEBE1E /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = City.h; path = Common/Models/City/City.h; sourceTree = "<group>"; };
@@ -2368,6 +2371,8 @@
 				BCF9DCF81BD8F0E200D8CDC6 /* CourseTeacherListViewController.m */,
 				BCF9DD021BD8FB7600D8CDC6 /* CourseBookBrowserViewController.h */,
 				BCF9DD031BD8FB7600D8CDC6 /* CourseBookBrowserViewController.m */,
+				BCF9DD081BD9D41E00D8CDC6 /* BookCourseDetailViewController.h */,
+				BCF9DD091BD9D41E00D8CDC6 /* BookCourseDetailViewController.m */,
 			);
 			name = Course;
 			sourceTree = "<group>";
@@ -2735,6 +2740,7 @@
 				5A6806EE1B01A48300D02A60 /* SettingViewController.m in Sources */,
 				5AABF6FA1B28120C000A9D3F /* OrderUpdatePersonViewController.m in Sources */,
 				BC3599F11BC61F0C002DE863 /* MLSelectPhotoNavigationViewController.m in Sources */,
+				BCF9DD0A1BD9D41E00D8CDC6 /* BookCourseDetailViewController.m in Sources */,
 				BC359A121BC61F1B002DE863 /* MJPhotoView.m in Sources */,
 				BC1CC9F71BA90A9A001841E7 /* Feed.m in Sources */,
 				BC1052991BB24E4A00D81C15 /* AddFeedContentCell.m in Sources */,

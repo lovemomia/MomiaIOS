@@ -407,6 +407,15 @@
 		<key>desc</key>
 		<string>可选课程列表</string>
 	</dict>
+	<key>bookcoursedetail</key>
+	<dict>
+		<key>controller</key>
+		<string>BookCourseDetailViewController</string>
+		<key>needlogin</key>
+		<true/>
+		<key>desc</key>
+		<string>含预约操作的课程详情页</string>
+	</dict>
 	<key>book</key>
 	<dict>
 		<key>controller</key>

@@ -92,7 +92,7 @@
 	_photoScrollView.delegate = self;
 	_photoScrollView.showsHorizontalScrollIndicator = NO;
 	_photoScrollView.showsVerticalScrollIndicator = NO;
-	_photoScrollView.backgroundColor = [UIColor clearColor];
+	_photoScrollView.backgroundColor = MO_APP_VCBackgroundColor;
     _photoScrollView.contentSize = CGSizeMake(frame.size.width * _photos.count, 0);
 	[self.view addSubview:_photoScrollView];
     _photoScrollView.contentOffset = CGPointMake(_currentPhotoIndex * frame.size.width, 0);

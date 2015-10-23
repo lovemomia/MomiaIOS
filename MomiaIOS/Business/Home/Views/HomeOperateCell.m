@@ -73,14 +73,14 @@ static const int kItemHeight = 70;
         }
         CGFloat height = row * kItemHeight;
         
-        UIView *verLine = [[UIView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH / 2, padding, 0.5, height - 2 * padding)];
+        UIView *verLine = [[UIView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH / 2, 0, 0.5, height)];
         [self.contentView addSubview:verLine];
-        verLine.backgroundColor = UIColorFromRGB(0xdddddd);
+        verLine.backgroundColor = UIColorFromRGB(0xeeeeee);
         
         for (int i = 1; i < row; i ++) {
-            UIView *line = [[UIView alloc]initWithFrame:CGRectMake(padding, i * kItemHeight, SCREEN_WIDTH - 2 * padding, 0.5)];
+            UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, i * kItemHeight, SCREEN_WIDTH, 0.5)];
             [self.contentView addSubview:line];
-            line.backgroundColor = UIColorFromRGB(0xdddddd);
+            line.backgroundColor = UIColorFromRGB(0xeeeeee);
         }
         
     }

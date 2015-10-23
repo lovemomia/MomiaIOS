@@ -20,7 +20,7 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
 @interface IfFinishedCourseListViewController()
 
 @property (nonatomic, strong) NSString *ids;
-@property (nonatomic, strong) NSNumber *finish;
+@property (nonatomic, assign) BOOL finish;
 
 @property (nonatomic, strong) NSMutableArray *list;
 @property (nonatomic, assign) BOOL isLoading;
@@ -34,7 +34,7 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
         self.ids = [params objectForKey:@"id"];
-        self.finish = [params objectForKey:@"finish"];
+        self.finish = [[params objectForKey:@"finish"] boolValue];
     }
     return self;
 }
@@ -66,7 +66,7 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
         self.isLoading = NO;
     }
     
-    NSString *path = [self.finish intValue] == 0 ? @"/user/course/notfinished" : @"/user/course/finished";
+    NSString *path = self.finish ? @"/user/course/finished" : @"/user/course/notfinished";
     
     NSDictionary * paramDic = @{@"start":[NSString stringWithFormat:@"%ld", (long)self.nextIndex]};
     self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(path)
@@ -112,12 +112,24 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
     return UITableViewCellSeparatorStyleSingleLine;
 }
 
+- (void)onBookedChanged:(NSNotification*)notify {
+    if (self.list) {
+        [self.list removeAllObjects];
+    }
+    [self requestData:YES];
+}
+
 #pragma mark - tableview delegate & datasource
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.row < self.list.count) {
         Course *course = self.list[indexPath.row];
-        [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@", course.ids]];
+        if (self.finish) {
+            [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@", course.ids]];
+        } else {
+            [self openURL:[NSString stringWithFormat:@"duola://bookcoursedetail?id=%@&bid=%@", course.ids, course.bookingId]];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onBookedChanged:) name:@"onBookedChanged" object:nil];
+        }
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

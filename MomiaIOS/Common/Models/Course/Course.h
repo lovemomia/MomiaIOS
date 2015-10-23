@@ -36,6 +36,7 @@
 @property (nonatomic, strong) NSString<Optional> *scheduler; //场次日期
 @property (nonatomic, strong) NSString *region; //地区
 @property (nonatomic, strong) NSNumber<Optional> *insurance; //红包
+@property (nonatomic, strong) NSNumber<Optional> *bookingId; //预约id
 
 @property (nonatomic, strong) NSArray<Optional> *imgs; //头图
 @property (nonatomic, strong) NSString<Optional> *goal;  //课程目标
