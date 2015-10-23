@@ -134,6 +134,7 @@ static NSString * identifierCourseTeacherListItemCell = @"CourseTeacherListItemC
         itemCell.data = self.list[indexPath.row];
         cell = itemCell;
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

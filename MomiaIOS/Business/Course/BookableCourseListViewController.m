@@ -56,7 +56,7 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
     self.navigationItem.title = @"可选课程";
     
     [BookCourseListItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierBookCourseListItemCell];
-    [CourseListItemCell registerCellFromClassWithTableView:self.tableView withIdentifier:identifierCourseListItemCell];
+    [CourseListItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierCourseListItemCell];
     
     self.list = [NSMutableArray new];
     [self requestData:YES];

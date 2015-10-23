@@ -19,7 +19,7 @@
     self.timeLabel.text = model.scheduler;
     self.descLabel.text = model.region;
     
-    if (model.joined == 0) {
+    if ([model.joined intValue] == 0) {
         self.enrollmentLabel.hidden = YES;
         self.enrollmentBg.hidden = YES;
         
