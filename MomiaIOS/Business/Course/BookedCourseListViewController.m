@@ -87,7 +87,7 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
                                                          [self.list removeAllObjects];
                                                      }
                                                      if ([model.data.totalCount intValue] == 0) {
-                                                         [self.view showEmptyView:@"还没有已选择的课程，赶紧去看看吧~"];
+                                                         [self.view showEmptyView:@"还没有课程，赶紧去看看吧~"];
                                                          return;
                                                      }
                                                      

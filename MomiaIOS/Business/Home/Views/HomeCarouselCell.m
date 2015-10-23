@@ -46,7 +46,7 @@
 +(CGFloat)heightWithTableView:(UITableView *)tableView
 {
 //    return CGRectGetWidth(tableView.bounds) * cellScale;
-    return 92;
+    return SCREEN_WIDTH * 0.3;
 }
 
 -(void)setData:(NSArray *) banners
@@ -136,9 +136,6 @@
     
    
     self.pageControl.currentPage = currentPage;
-    
-
-    
 }
 
 

@@ -146,15 +146,6 @@
 		<key>needlogin</key>
 		<true/>
 	</dict>
-	<key>orderperson</key>
-	<dict>
-		<key>controller</key>
-		<string>OrderPersonViewController</string>
-		<key>needlogin</key>
-		<true/>
-		<key>desc</key>
-		<string>选择出行人</string>
-	</dict>
 	<key>people</key>
 	<dict>
 		<key>controller</key>
@@ -163,15 +154,6 @@
 		<true/>
 		<key>desc</key>
 		<string>常用出行人</string>
-	</dict>
-	<key>orderupdateperson</key>
-	<dict>
-		<key>controller</key>
-		<string>OrderUpdatePersonViewController</string>
-		<key>needlogin</key>
-		<true/>
-		<key>desc</key>
-		<string>更新出行人信息（或新增或编辑）</string>
 	</dict>
 	<key>cashpay</key>
 	<dict>
@@ -271,51 +253,6 @@
 		<false/>
 		<key>desc</key>
 		<string>活动日历页面</string>
-	</dict>
-	<key>leaderstatus</key>
-	<dict>
-		<key>controller</key>
-		<string>LeaderStatusViewController</string>
-		<key>needlogin</key>
-		<true/>
-		<key>desc</key>
-		<string>成为领队</string>
-	</dict>
-	<key>applyleader</key>
-	<dict>
-		<key>controller</key>
-		<string>ApplyLeaderViewController</string>
-		<key>needlogin</key>
-		<true/>
-		<key>desc</key>
-		<string>成为领队</string>
-	</dict>
-	<key>submitleader</key>
-	<dict>
-		<key>controller</key>
-		<string>SubmitLeaderViewController</string>
-		<key>needlogin</key>
-		<true/>
-		<key>desc</key>
-		<string>提交领队申请</string>
-	</dict>
-	<key>selectproduct</key>
-	<dict>
-		<key>controller</key>
-		<string>SelectProductViewController</string>
-		<key>needlogin</key>
-		<true/>
-		<key>desc</key>
-		<string>选择活动</string>
-	</dict>
-	<key>selectsku</key>
-	<dict>
-		<key>controller</key>
-		<string>SelectSkuViewController</string>
-		<key>needlogin</key>
-		<true/>
-		<key>desc</key>
-		<string>选择场次</string>
 	</dict>
 	<key>feeddetail</key>
 	<dict>

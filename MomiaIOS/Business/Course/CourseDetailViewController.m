@@ -23,6 +23,8 @@
 #import "FeedUserHeadCell.h"
 #import "FeedContentCell.h"
 
+#import "NSString+MOURLEncode.h"
+
 static NSString *identifierPhotoTitleHeaderCell = @"PhotoTitleHeaderCell";
 static NSString *identifierCoursePriceCell = @"CoursePriceCell";
 static NSString *identifierCourseTagsCell = @"CourseTagsCell";
@@ -125,7 +127,15 @@ typedef enum {
     
     CacheType cacheType = refresh ? CacheTypeDisable : CacheTypeDisable;
     
-    NSDictionary * dic = @{@"id":self.ids};
+    NSDictionary * dic;
+    if ([[LocationService defaultService] hasLocation]) {
+        CLLocation *location = [LocationService defaultService].location;
+        dic = @{@"id":self.ids, @"pos":[NSString stringWithFormat:@"%f,%f", location.coordinate.longitude, location.coordinate.latitude]};
+        
+    } else {
+        dic = @{@"id":self.ids};
+    }
+    
     [[HttpService defaultService] GET:URL_APPEND_PATH(@"/course") parameters:dic cacheType:cacheType JSONModelClass:[CourseDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.model == nil) {
             [self.view removeLoadingBee];
@@ -165,6 +175,14 @@ typedef enum {
         
     } else if (type == CellTitleBook) {
         [self openURL:[NSString stringWithFormat:@"duola://coursebookbrowser?id=%@", self.ids]];
+        
+    } else if (type == CellTitleFlow) {
+        NSString *url = [NSString stringWithFormat:@"http://m.momia.cn/course/detail/app?id=%@", self.ids];
+        [self openURL:[NSString stringWithFormat:@"duola://web?url=%@", [url URLEncodedString]]];
+        
+    } else if (type == CellTitleOrg) {
+        NSString *url = [NSString stringWithFormat:@"http://m.momia.cn/institution/detail/app?id=%@", self.ids];
+        [self openURL:[NSString stringWithFormat:@"duola://web?url=%@", [url URLEncodedString]]];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
