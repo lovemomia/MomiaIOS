@@ -142,8 +142,8 @@
         if ([account.children count] == 0) {
             return 0;
         }
-        return 4;
-    } else return 4;
+        return 3;
+    } else return 3;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -247,16 +247,12 @@
         
     } else {
         if (indexPath.row == 0) {
-            self.uploadBabyAvatarIndex = section - 2;
-            [self takePictureClick];
-            return;
-        } else if (indexPath.row == 1) {
             title = @"姓名";
             tag = section;
-        } else if (indexPath.row == 2) {
+        } else if (indexPath.row == 1) {
             [self showSexPicker:(section)];
             return;
-        } else if (indexPath.row == 3) {
+        } else if (indexPath.row == 2) {
             [self showDatePicker:(section)];
             return;
         }
@@ -275,7 +271,7 @@
     static NSString *CellDefault = @"DefaultCell";
     static NSString *CellLogo = @"LogoCell";
     UITableViewCell *cell;
-    if ((section == 0 || section >= 2) && row == 0) {
+    if ((section == 0) && row == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:CellLogo];
         if (cell == nil) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"PersonLogoCell" owner:self options:nil];
@@ -331,14 +327,14 @@
             
         } else {
             Child *child = [self childAtIndex:(section - 2)];
-            if (row == 1) {
+            if (row == 0) {
                 cell.textLabel.text = @"孩子昵称";
                 cell.detailTextLabel.text = child.name;
                 
-            } else if (row == 2) {
+            } else if (row == 1) {
                 cell.textLabel.text = @"性别";
                 cell.detailTextLabel.text = child.sex;
-            } else if (row == 3) {
+            } else if (row == 2) {
                 cell.textLabel.text = @"生日";
                 cell.detailTextLabel.text = child.birthday;
             }
@@ -405,6 +401,10 @@
                 break;
         }
     } else if (actionSheet.tag == 1) {
+        if(buttonIndex > 1) {
+            return;
+        }
+        
         NSString * sex = buttonIndex == 0 ? @"男" : @"女";
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         NSDictionary *params = @{@"sex" : sex};
@@ -420,6 +420,9 @@
         }];
         
     } else {
+        if(buttonIndex > 1) {
+            return;
+        }
         Child *child = [self childAtIndex:(actionSheet.tag - 2)];
         NSString * sex = buttonIndex == 0 ? @"男" : @"女";
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -577,7 +580,7 @@
 #pragma mark - sex picker
 
 -(void)showSexPicker:(NSInteger)tag {
-    UIActionSheet *sexSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"男",@"女",nil];
+    UIActionSheet *sexSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"男",@"女",nil];
     sexSheet.tag = tag;
     [sexSheet showInView:[[UIApplication sharedApplication].delegate window]];
 }

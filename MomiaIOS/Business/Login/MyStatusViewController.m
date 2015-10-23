@@ -158,11 +158,11 @@
         cell.detailTextLabel.text = baby.name;
         
     } else if (row == 1) {
-        cell.textLabel.text = @"性别";
+        cell.textLabel.text = @"孩子性别";
         cell.detailTextLabel.text = baby.sex;
         
     } else {
-        cell.textLabel.text = @"生日";
+        cell.textLabel.text = @"孩子生日";
         cell.detailTextLabel.text = baby.birthday;
     }
     

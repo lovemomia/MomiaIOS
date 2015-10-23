@@ -70,7 +70,7 @@
     }else {
         NSString *title = @"\n\n\n\n\n\n\n\n\n\n\n";
         self.curAlertController = [UIAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-        
+
         [self.curAlertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
             [self clickedOkActionButton];
         }]];

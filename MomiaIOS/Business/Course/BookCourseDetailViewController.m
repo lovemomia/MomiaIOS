@@ -22,6 +22,8 @@
 #import "FeedUserHeadCell.h"
 #import "FeedContentCell.h"
 
+#import "NSString+MOURLEncode.h"
+
 static NSString *identifierCourseListItemCell = @"CourseListItemCell";
 static NSString *identifierCourseTagsCell = @"CourseTagsCell";
 static NSString *identifierCourseDiscCell = @"CourseDiscCell";
@@ -68,6 +70,7 @@ typedef enum {
 @interface BookCourseDetailViewController ()
 
 @property (nonatomic, strong) NSString *ids;
+@property (nonatomic, strong) NSString *pid;
 @property (nonatomic, strong) NSString *bid; // booking id for cancel booking
 @property (nonatomic, assign) BOOL isBook;
 @property (nonatomic, strong) CourseDetailModel *model;
@@ -79,6 +82,7 @@ typedef enum {
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
         self.ids = [params objectForKey:@"id"];
+        self.pid = [params objectForKey:@"pid"];
         self.bid = [params objectForKey:@"bid"];
         self.isBook = [[params objectForKey:@"book"] boolValue];
     }
@@ -163,6 +167,14 @@ typedef enum {
         
     } else if (type == CellTitleBook) {
         [self openURL:[NSString stringWithFormat:@"duola://coursebookbrowser?id=%@", self.ids]];
+        
+    } else if (type == CellTitleFlow) {
+        NSString *url = [NSString stringWithFormat:@"http://m.momia.cn/course/detail/app?id=%@", self.ids];
+        [self openURL:[NSString stringWithFormat:@"duola://web?url=%@", [url URLEncodedString]]];
+        
+    } else if (type == CellTitleOrg) {
+        NSString *url = [NSString stringWithFormat:@"http://m.momia.cn/institution/detail/app?id=%@", self.ids];
+        [self openURL:[NSString stringWithFormat:@"duola://web?url=%@", [url URLEncodedString]]];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -467,7 +479,12 @@ typedef enum {
         [button setTitle:self.isBook ? @"我要预约" : @"取消预约" forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(onActionBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-        [button setBackgroundImage:[UIImage imageNamed:@"BgLargeButtonNormal"] forState:UIControlStateNormal];
+        if (self.isBook) {
+            [button setBackgroundImage:[UIImage imageNamed:@"BgRedLargeButtonNormal"] forState:UIControlStateNormal];
+        } else {
+            [button setBackgroundImage:[UIImage imageNamed:@"BgLargeButtonNormal"] forState:UIControlStateNormal];
+        }
+        
         [button setBackgroundImage:[UIImage imageNamed:@"BgLargeButtonDisable"] forState:UIControlStateDisabled];
         
         [view addSubview:button];
@@ -477,7 +494,7 @@ typedef enum {
 
 - (void)onActionBtnClicked {
     if (self.isBook) {
-        [self openURL:@"duola://book?"];
+        [self openURL:[NSString stringWithFormat:@"duola://book?id=%@&pid=%@", self.ids, self.pid]];
         
     } else {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];

@@ -76,10 +76,10 @@
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
-                        <exclude reference="5Id-f4-JOA"/>
                         <exclude reference="0dP-SQ-5Na"/>
-                        <exclude reference="wRa-FW-eoE"/>
+                        <exclude reference="5Id-f4-JOA"/>
                         <exclude reference="28i-a5-cGk"/>
+                        <exclude reference="wRa-FW-eoE"/>
                         <exclude reference="xd6-V2-pC0"/>
                     </mask>
                 </variation>
