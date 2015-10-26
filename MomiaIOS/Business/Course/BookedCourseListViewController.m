@@ -115,6 +115,7 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
 - (void)onBookedChanged:(NSNotification*)notify {
     if (self.list) {
         [self.list removeAllObjects];
+        [self.tableView reloadData];
     }
     [self requestData:YES];
 }
