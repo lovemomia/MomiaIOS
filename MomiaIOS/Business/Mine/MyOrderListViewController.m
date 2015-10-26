@@ -48,6 +48,13 @@
     self.tabBar.textFont = [UIFont systemFontOfSize:15];
     self.tabBar.selectedTextColor = MO_APP_ThemeColor;
     self.tabBar.indicatorColor = MO_APP_ThemeColor;
+    
+    if (self.status == 3) {
+        [self.viewPager scrollToPage:1];
+    } else if (self.status == 1) {
+        [self.viewPager scrollToPage:2];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
