@@ -9,7 +9,7 @@
 #import "HomeOperateCell.h"
 #import "IndexModel.h"
 
-static const int kItemHeight = 70;
+static const int kItemHeight = 76;
 
 @interface HomeOperateCell()
 @property (nonatomic, strong) NSArray *data;
@@ -44,10 +44,10 @@ static const int kItemHeight = 70;
             UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onItemClicked:)];
             [container addGestureRecognizer:singleTap];
             
-            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(itemWidth - padding - iconSize, 13, iconSize, iconSize)];
+            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(itemWidth - padding - iconSize, 16, iconSize, iconSize)];
             [container addSubview:imageView];
             
-            UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding, padding, itemWidth - iconSize - 2 * padding, 30)];
+            UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding, padding + 3, itemWidth - iconSize - 2 * padding, 30)];
             titleLabel.textAlignment = NSTextAlignmentLeft;
             titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:15];
             titleLabel.textColor = colorArray[i];

@@ -172,7 +172,7 @@
     
     // y值
     if (imageFrame.size.height < boundsHeight) {
-        imageFrame.origin.y = floorf((boundsHeight - imageFrame.size.height) / 2.0);
+        imageFrame.origin.y = floorf((boundsHeight - imageFrame.size.height - 64) / 2.0);
 	} else {
         imageFrame.origin.y = 0;
 	}
@@ -200,8 +200,10 @@
 
 #pragma mark - 手势处理
 - (void)handleSingleTap:(UITapGestureRecognizer *)tap {
-    _doubleTap = NO;
-    [self performSelector:@selector(hide) withObject:nil afterDelay:0.2];
+    if (self.hideable) {
+        _doubleTap = NO;
+        [self performSelector:@selector(hide) withObject:nil afterDelay:0.2];
+    }
 }
 - (void)hide
 {

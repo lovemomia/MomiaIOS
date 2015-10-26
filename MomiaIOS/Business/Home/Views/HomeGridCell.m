@@ -9,7 +9,7 @@
 #import "HomeGridCell.h"
 #import "IndexModel.h"
 
-static const int kItemHeight = 70;
+static const int kItemHeight = 76;
 
 @interface HomeGridCell()
 @property (nonatomic, strong) NSArray *data;
@@ -43,10 +43,10 @@ static const int kItemHeight = 70;
             UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onItemClicked:)];
             [container addGestureRecognizer:singleTap];
             
-            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(itemWidth/2 - iconSize/2, 0, iconSize, iconSize)];
+            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(itemWidth/2 - iconSize/2, 6, iconSize, iconSize)];
             [container addSubview:imageView];
             
-            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, iconSize + 5, itemWidth, 20)];
+            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, iconSize + 8, itemWidth, 20)];
             label.textAlignment = NSTextAlignmentCenter;
             label.font = [UIFont systemFontOfSize:12];
             label.textColor = UIColorFromRGB(0x333333);
@@ -74,7 +74,7 @@ static const int kItemHeight = 70;
     if (fmod(i, 4) != 0) {
         row += 1;
     }
-    return (row + 1) * 10 + (row) * kItemHeight;
+    return (row + 1) * 13 + (row) * kItemHeight;
 }
 
 
