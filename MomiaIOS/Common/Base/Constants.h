@@ -10,14 +10,14 @@
 
 // API Domain
 // 线上环境
-#define MO_API_DOMAIN_OL  @"http://i.duolaqinzi.com"
-#define MO_HTTPS_API_DOMAIN_OL  @"https://i.duolaqinzi.com"
-#define MO_IMAGE_API_DOMAIN_OL  @"http://s.duolaqinzi.com"
+#define MO_API_DOMAIN_OL  @"http://i.sogokids.com"
+#define MO_HTTPS_API_DOMAIN_OL  @"https://i.sogokids.com"
+#define MO_IMAGE_API_DOMAIN_OL  @"http://s.sogokids.com"
 
 // 开发环境
 #define MO_API_DOMAIN_DEV @"http://i.momia.cn"
 #define MO_HTTPS_API_DOMAIN_DEV  @"https://i.momia.cn"
-#define MO_IMAGE_API_DOMAIN_DEV  @"http://upload.momia.cn"
+#define MO_IMAGE_API_DOMAIN_DEV  @"http://s.momia.cn"
 
 #if     MO_DEBUG == 0
 #define MO_API_DOMAIN               MO_API_DOMAIN_OL
