@@ -98,7 +98,7 @@
 
 - (void)paySuccess {
     self.titleLabel.text = @"您已购买成功";
-    self.descLabel.text = @"请提前预约上课，如果课程发生变更，会有短信通知您";
+    self.descLabel.text = @"请至少提前3天预约上课，部分课程太过火爆，晚了就约不到喽～";
 }
 
 - (void)payFailed {

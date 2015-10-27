@@ -497,6 +497,13 @@ typedef enum {
         [self openURL:[NSString stringWithFormat:@"duola://book?id=%@&pid=%@", self.ids, self.pid]];
         
     } else {
+        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:@"确认取消预约吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alter show];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         NSDictionary *params = @{@"bid" : self.bid};
         [[HttpService defaultService]POST:URL_APPEND_PATH(@"/course/cancel") parameters:params JSONModelClass:[BaseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {

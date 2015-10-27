@@ -134,6 +134,7 @@
         UISwitch *pushSwitch = (UISwitch *)[cell viewWithTag:1001];
         [pushSwitch setOn:![[PushManager shareManager] isPushClose]];
         [pushSwitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:CellDefault];
