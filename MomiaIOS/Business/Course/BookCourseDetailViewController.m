@@ -169,11 +169,11 @@ typedef enum {
         [self openURL:[NSString stringWithFormat:@"duola://coursebookbrowser?id=%@", self.ids]];
         
     } else if (type == CellTitleFlow) {
-        NSString *url = [NSString stringWithFormat:@"http://m.momia.cn/course/detail/app?id=%@", self.ids];
+        NSString *url = [NSString stringWithFormat:@"http://%@/course/detail/app?id=%@", MO_DEBUG ? @"m.momia.cn" : @"m.sogokids.com", self.ids];
         [self openURL:[NSString stringWithFormat:@"duola://web?url=%@", [url URLEncodedString]]];
         
     } else if (type == CellTitleOrg) {
-        NSString *url = [NSString stringWithFormat:@"http://m.momia.cn/institution/detail/app?id=%@", self.ids];
+        NSString *url = [NSString stringWithFormat:@"http://%@/institution/detail/app?id=%@", MO_DEBUG ? @"m.momia.cn" : @"m.sogokids.com", self.ids];
         [self openURL:[NSString stringWithFormat:@"duola://web?url=%@", [url URLEncodedString]]];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

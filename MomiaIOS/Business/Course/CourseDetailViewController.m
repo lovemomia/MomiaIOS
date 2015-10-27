@@ -177,11 +177,11 @@ typedef enum {
         [self openURL:[NSString stringWithFormat:@"duola://coursebookbrowser?id=%@", self.ids]];
         
     } else if (type == CellTitleFlow) {
-        NSString *url = [NSString stringWithFormat:@"http://m.momia.cn/course/detail/app?id=%@", self.ids];
+        NSString *url = [NSString stringWithFormat:@"http://%@/course/detail/app?id=%@", MO_DEBUG ? @"m.momia.cn" : @"m.sogokids.com", self.ids];
         [self openURL:[NSString stringWithFormat:@"duola://web?url=%@", [url URLEncodedString]]];
         
     } else if (type == CellTitleOrg) {
-        NSString *url = [NSString stringWithFormat:@"http://m.momia.cn/institution/detail/app?id=%@", self.ids];
+        NSString *url = [NSString stringWithFormat:@"http://%@/institution/detail/app?id=%@", MO_DEBUG ? @"m.momia.cn" : @"m.sogokids.com", self.ids];
         [self openURL:[NSString stringWithFormat:@"duola://web?url=%@", [url URLEncodedString]]];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -323,6 +323,7 @@ typedef enum {
         CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
         titleCell.accessoryType = UITableViewCellAccessoryNone;
         titleCell.titleLabel.text = @"课程目标";
+        titleCell.subTitleLabel.text = @"";
         cell = titleCell;
         cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         
@@ -335,6 +336,7 @@ typedef enum {
     } else if (type == CellTitlePoi) {
         CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
         titleCell.titleLabel.text = @"课程表";
+        titleCell.subTitleLabel.text = @"";
         titleCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell = titleCell;
         cell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;
@@ -348,6 +350,7 @@ typedef enum {
     } else if (type == CellTitleBook) {
         CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
         titleCell.titleLabel.text = @"课前绘本";
+        titleCell.subTitleLabel.text = @"";
         titleCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell = titleCell;
         cell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;
@@ -375,6 +378,7 @@ typedef enum {
     } else if (type == CellTitleTeacher) {
         CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
         titleCell.titleLabel.text = @"讲师团";
+        titleCell.subTitleLabel.text = @"";
         titleCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell = titleCell;
         cell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;
@@ -388,6 +392,7 @@ typedef enum {
     } else if (type == CellTitleTips) {
         CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
         titleCell.titleLabel.text = @"特别提示";
+        titleCell.subTitleLabel.text = @"";
         titleCell.accessoryType = UITableViewCellAccessoryNone;
         cell = titleCell;
         cell.selectionStyle = UITableViewCellSeparatorStyleNone;
@@ -401,6 +406,7 @@ typedef enum {
     } else if (type == CellTitleOrg) {
         CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
         titleCell.titleLabel.text = @"合作机构介绍";
+        titleCell.subTitleLabel.text = @"";
         titleCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell = titleCell;
         cell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;

@@ -342,7 +342,7 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
     }
     
     if (hasBannerSec && section == 0) {
-        if (hasBannerSec && indexPath.row == 0) {
+        if (self.banners.count > 0 && indexPath.row == 0) {
             HomeCarouselCell * carousel = [HomeCarouselCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeCarouselIdentifier];
             carousel.data = self.banners;
             carousel.scrollClick = ^void(NSInteger index) {
