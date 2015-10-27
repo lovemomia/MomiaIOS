@@ -6,8 +6,8 @@
 //  Copyright © 2015年 Deng Jun. All rights reserved.
 //
 
-#import "MOViewController.h"
+#import "MOGroupStyleTableViewController.h"
 
-@interface CourseBookBrowserViewController : MOViewController
+@interface CourseBookBrowserViewController : MOGroupStyleTableViewController
 
 @end

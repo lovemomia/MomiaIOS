@@ -21,5 +21,4 @@
 // 代理
 @property (nonatomic, weak) id<MJPhotoViewDelegate> photoViewDelegate;
 
-@property (nonatomic, assign) BOOL hideable;
 @end
