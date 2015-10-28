@@ -130,7 +130,7 @@ static NSString *_cellIdentifier = @"collectionViewCell";
 - (UIButton *)deleleBtn{
     if (!_deleleBtn) {
         UIButton *deleleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        deleleBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+        deleleBtn.titleLabel.font = [UIFont systemFontOfSize:16];
         [deleleBtn setImage:[UIImage imageNamed:MLSelectPhotoSrcName(@"AssetsPickerChecked")] forState:UIControlStateNormal];
         deleleBtn.frame = CGRectMake(0, 0, 30, 30);
         [deleleBtn addTarget:self action:@selector(deleteAsset) forControlEvents:UIControlEventTouchUpInside];

@@ -49,13 +49,13 @@ static const int kItemHeight = 76;
             
             UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding, padding + 3, itemWidth - iconSize - 2 * padding, 30)];
             titleLabel.textAlignment = NSTextAlignmentLeft;
-            titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:15];
+            titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
             titleLabel.textColor = colorArray[i];
             [container addSubview:titleLabel];
             
             UILabel *subTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding, padding + 30, itemWidth - iconSize - 2 * padding, 20)];
             subTitleLabel.textAlignment = NSTextAlignmentLeft;
-            subTitleLabel.font = [UIFont systemFontOfSize:11];
+            subTitleLabel.font = [UIFont systemFontOfSize:12];
             subTitleLabel.textColor = UIColorFromRGB(0x666666);
             [container addSubview:subTitleLabel];
             

@@ -189,7 +189,7 @@
         }
         
         cell.textLabel.textColor = UIColorFromRGB(0x333333);
-        cell.textLabel.font = [UIFont systemFontOfSize: 15.0];
+        cell.textLabel.font = [UIFont systemFontOfSize: 16.0];
         
         switch (section) {
             case 1:

@@ -10,6 +10,7 @@
 #import "CourseBookListModel.h"
 #import "MJPhoto.h"
 #import "MJPhotoBrowser.h"
+#import "MONetworkPhotoView.h"
 
 @interface CourseBookBrowserViewController ()
 @property (nonatomic, strong) NSString *ids;
@@ -97,15 +98,16 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TAG];
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TAG];
-        UIImageView *photoView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 3 / 4)];
+        MONetworkPhotoView *photoView = [[MONetworkPhotoView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 3 / 4)];
         photoView.contentMode = UIViewContentModeScaleAspectFill;
         photoView.clipsToBounds = YES;
         photoView.tag = 1001;
+        photoView.backgroundColor = UIColorFromRGB(0xcccccc);
         [cell.contentView addSubview:photoView];
     }
     MJPhoto *photo = self.photos[indexPath.section];
     UIImageView *photoView = [cell.contentView viewWithTag:1001];
-    [photoView sd_setImageWithURL:photo.url];
+    [photoView sd_setImageWithURL:photo.url placeholderImage:nil];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

@@ -45,7 +45,7 @@
     self.tabBar.itemsPerPage = 3;
     self.tabBar.showShadow = NO;
     self.tabBar.textColor = UIColorFromRGB(0x333333);
-    self.tabBar.textFont = [UIFont systemFontOfSize:15];
+    self.tabBar.textFont = [UIFont systemFontOfSize:16];
     self.tabBar.selectedTextColor = MO_APP_ThemeColor;
     self.tabBar.indicatorColor = MO_APP_ThemeColor;
     
