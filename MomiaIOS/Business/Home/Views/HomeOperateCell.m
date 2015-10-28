@@ -56,7 +56,7 @@ static const int kItemHeight = 76;
             UILabel *subTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding, padding + 30, itemWidth - iconSize - 2 * padding, 20)];
             subTitleLabel.textAlignment = NSTextAlignmentLeft;
             subTitleLabel.font = [UIFont systemFontOfSize:11];
-            subTitleLabel.textColor = UIColorFromRGB(0x999999);
+            subTitleLabel.textColor = UIColorFromRGB(0x666666);
             [container addSubview:subTitleLabel];
             
             [self.contentView addSubview:container];

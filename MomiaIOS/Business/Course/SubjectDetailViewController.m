@@ -131,7 +131,8 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
         //复制一份用于显示在悬停View
         NSData * tempArchive = [NSKeyedArchiver archivedDataWithRootObject:cell];
         UITableViewCell *cellCopy = [NSKeyedUnarchiver unarchiveObjectWithData:tempArchive];
-        UIView *buyBtn = [cellCopy viewWithTag:1001];
+        UIButton *buyBtn = [cellCopy viewWithTag:1001];
+        [buyBtn setBackgroundImage:[UIImage imageNamed:@"BgRedMediumButtonNormal"] forState:UIControlStateNormal];
         UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onBuyClicked:)];
         [buyBtn addGestureRecognizer:singleTap];
         cellCopy.frame = CGRectMake(0, 0, SCREEN_WIDTH, 64);

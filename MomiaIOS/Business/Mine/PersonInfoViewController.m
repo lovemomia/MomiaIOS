@@ -353,7 +353,9 @@
 
 
 - (void)onLogoutClicked:(id)sender {
-    [[AccountService defaultService] logout:self];
+    UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:@"确认要退出登录吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    alter.tag = 1001;
+    [alter show];
 }
 
 //弹出actionsheet。选择获取头像的方式
@@ -508,6 +510,11 @@
 
 - (void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    if (alertView.tag == 1001 && buttonIndex == 1) {
+        // logout
+        [[AccountService defaultService] logout:self];
+        return;
+    }
     if (alertView.tag == 0) {
         if (buttonIndex == 1) { //修改昵称
             //得到输入框
