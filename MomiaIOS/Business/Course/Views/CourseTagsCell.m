@@ -69,6 +69,11 @@
         lastView = label;
     }
     
+    NSNumber *joined = isSubject ? ((Subject *)model).joined : ((Course *)model).joined;
+    if (joined == nil || [joined intValue] == 0) {
+        return;
+    }
+    
     // joined
     UILabel * label = [[UILabel alloc] init];
     [self.contentView addSubview:label];
@@ -76,7 +81,7 @@
         make.centerY.equalTo(self.contentView);
         make.right.equalTo(self.contentView).with.offset(-10);
     }];
-    label.text = [NSString stringWithFormat:@"%@人已参加", isSubject ? ((Subject *)model).joined : ((Course *)model).joined];
+    label.text = [NSString stringWithFormat:@"%@人已参加", joined];
     label.textColor = UIColorFromRGB(0x999999);
     label.font = [UIFont systemFontOfSize:13.0f];
     
