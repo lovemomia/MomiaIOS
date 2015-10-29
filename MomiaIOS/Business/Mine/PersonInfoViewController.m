@@ -353,7 +353,7 @@
 
 
 - (void)onLogoutClicked:(id)sender {
-    UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:@"确认要退出登录吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:@"确定退出吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     alter.tag = 1001;
     [alter show];
 }

@@ -7,6 +7,7 @@
 //
 
 #import "BookSkuItemCell.h"
+#import "CourseSkuListModel.h"
 
 @implementation BookSkuItemCell
 
@@ -20,8 +21,10 @@
     // Configure the view for the selected state
 }
 
-- (void)setData:(id)data {
-    
+- (void)setData:(CourseSku *)data {
+    self.titleLabel.text = data.place.name;
+    self.addressLabel.text = data.place.address;
+    self.countLabel.text = [NSString stringWithFormat:@"仅剩%@个名额", data.stock];
 }
 
 @end
