@@ -34,6 +34,7 @@
         self.tableView.dataSource = self;
         
         self.tableView.separatorStyle = [self tableViewCellSeparatorStyle];
+        self.tableView.separatorColor = MO_APP_SeparatorColor;
         self.tableView.backgroundColor = MO_APP_VCBackgroundColor;
         self.tableView.backgroundView = nil;
     }
