@@ -158,7 +158,7 @@ static NSString *identifierBookSkuDateTitleCell = @"BookSkuDateTitleCell";
     if(row == 0) {
         return 46;
     }
-    return 87;
+    return 82;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
