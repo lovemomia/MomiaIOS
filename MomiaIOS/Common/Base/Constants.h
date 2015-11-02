@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#define MO_DEBUG       1  // 调试开关 (0线上，1调试)
+#define MO_DEBUG       0  // 调试开关 (0线上，1调试)
 
 // API Domain
 // 线上环境
@@ -74,6 +74,12 @@
  *  页面背景颜色
  */
 #define MO_APP_VCBackgroundColor            (UIColorFromRGB(0xf1f1f1))
+
+/**
+ *  分割线颜色
+ */
+#define MO_APP_SeparatorColor            (UIColorFromRGB(0xdddddd))
+
 
 /**
  *  字体颜色（灰色）
