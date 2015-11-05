@@ -1,22 +1,25 @@
 //
-//  AddFeedContentCell.m
+//  AddReviewContentCell.m
 //  MomiaIOS
 //
-//  Created by Deng Jun on 15/9/23.
+//  Created by Deng Jun on 15/11/4.
 //  Copyright © 2015年 Deng Jun. All rights reserved.
 //
 
-#import "AddFeedContentCell.h"
-
+#import "AddReviewContentCell.h"
+#import "SelectImage.h"
 
 #define CONTENT_INPUT_HEIGHT         115
 #define IMAGE_LIMITE                 9
 
-@interface AddFeedContentCell()
+@implementation AddReview
+@end
+
+@interface AddReviewContentCell()
 @property (nonatomic, strong) NSArray *images;
 @end
 
-@implementation AddFeedContentCell
+@implementation AddReviewContentCell
 @synthesize contentTv;
 @synthesize container;
 
@@ -41,7 +44,7 @@
         
         contentTv = [[UITextView alloc]init];
         contentTv.returnKeyType = UIReturnKeyDone;
-        [contentTv addPlaceHolder:@"说说参加活动的感受吧..."];
+        [contentTv addPlaceHolder:@"说说参加活动的感受吧，老师怎么样，宝宝玩的开心吗？"];
         contentTv.height = CONTENT_INPUT_HEIGHT - 15;
         contentTv.width = SCREEN_WIDTH - 20;
         contentTv.top = 5;
@@ -63,7 +66,7 @@
     if (self.contentTv == nil) {
         contentTv = [[UITextView alloc]init];
         contentTv.returnKeyType = UIReturnKeyDone;
-        [contentTv addPlaceHolder:@"说说参加活动的感受吧..."];
+        [contentTv addPlaceHolder:@"说说参加活动的感受吧，老师怎么样，宝宝玩的开心吗？"];
         contentTv.height = CONTENT_INPUT_HEIGHT - 15;
         contentTv.width = SCREEN_WIDTH - 20;
         contentTv.top = 5;
@@ -99,7 +102,7 @@
         self.photoCount ++;
     }
     [self addNextPhotoView];
-    container.height = [AddFeedContentCell heightWithImageCount:(self.photoCount)];
+    container.height = [AddReviewContentCell heightWithImageCount:(self.photoCount)];
 }
 
 - (UIImageView *)addNextPhotoView {
@@ -127,7 +130,7 @@
     imageView.image = [UIImage imageNamed:@"IconUploadImage"];
     
     [container addSubview:imageView];
-
+    
     return imageView;
 }
 
@@ -140,9 +143,9 @@
 
 + (instancetype)cellWithTableView:(UITableView *)tableView {
     static NSString *identifier = @"CellContent";
-    AddFeedContentCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    AddReviewContentCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
-        cell = [[AddFeedContentCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[AddReviewContentCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return cell;
@@ -154,4 +157,5 @@
     CGFloat height = CONTENT_INPUT_HEIGHT + (photoHeight + 10) * (row + 1);
     return height;
 }
+
 @end

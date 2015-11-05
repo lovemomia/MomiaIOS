@@ -380,5 +380,14 @@
 		<key>desc</key>
 		<string>课前绘本</string>
 	</dict>
+	<key>addreview</key>
+	<dict>
+		<key>controller</key>
+		<string>AddReviewViewController</string>
+		<key>needlogin</key>
+		<true/>
+		<key>desc</key>
+		<string>添加评价</string>
+	</dict>
 </dict>
 </plist>

@@ -15,7 +15,7 @@
 static NSString * identifierBookCourseListItemCell = @"BookCourseListItemCell";
 static NSString * identifierCourseListItemCell = @"CourseListItemCell";
 
-@interface BookableCourseListViewController()<JSDropDownMenuDataSource,JSDropDownMenuDelegate>
+@interface BookableCourseListViewController()<JSDropDownMenuDataSource,JSDropDownMenuDelegate,BookCourseListItemCellDelegate>
 
 @property (nonatomic, strong) NSString *ids;
 @property (nonatomic, strong) NSString *pid;
@@ -239,6 +239,10 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
     }
 }
 
+- (void)onBookBtnClick:(Course *)course {
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://book?id=%@&pid=%@", course.ids, self.pid]]];
+}
+
 #pragma mark - tableview delegate & datasource
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -290,7 +294,7 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
         } else {
             BookCourseListItemCell * itemCell = [BookCourseListItemCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierBookCourseListItemCell];
             itemCell.data = self.list[indexPath.row];
-            itemCell.pid = self.pid;
+            itemCell.delegate = self;
             cell = itemCell;
         }
     }

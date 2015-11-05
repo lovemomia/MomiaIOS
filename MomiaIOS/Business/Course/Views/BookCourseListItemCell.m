@@ -7,15 +7,9 @@
 //
 
 #import "BookCourseListItemCell.h"
-#import "Course.h"
 #import "StringUtils.h"
 
 @interface BookCourseListItemCell()
-
-@property (weak, nonatomic) IBOutlet UIImageView *iconIv;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *placeLabel;
 
 @property (nonatomic, strong) Course *course;
 
@@ -50,8 +44,8 @@
 }
 
 - (IBAction)onBookBtnClicked:(id)sender {
-    if (self.course) {
-        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://book?id=%@&pid=%@", self.course.ids, self.pid]]];
+    if (self.delegate) {
+        [self.delegate onBookBtnClick:self.course];
     }
 }
 

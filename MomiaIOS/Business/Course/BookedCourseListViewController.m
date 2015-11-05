@@ -12,12 +12,12 @@
 #import "LJViewPager.h"
 #import "LJTabBar.h"
 
-#import "CourseListItemCell.h"
+#import "BookCourseListItemCell.h"
 #import "BookedCourseListModel.h"
 
-static NSString * identifierCourseListItemCell = @"CourseListItemCell";
+static NSString * identifierCourseListItemCell = @"BookCourseListItemCell";
 
-@interface IfFinishedCourseListViewController()
+@interface IfFinishedCourseListViewController()<BookCourseListItemCellDelegate>
 
 @property (nonatomic, strong) NSString *ids;
 @property (nonatomic, assign) BOOL finish;
@@ -46,7 +46,7 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [CourseListItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierCourseListItemCell];
+    [BookCourseListItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierCourseListItemCell];
     
     self.list = [NSMutableArray new];
     [self requestData:YES];
@@ -120,6 +120,10 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
     [self requestData:YES];
 }
 
+- (void)onBookBtnClick:(Course *)course {
+    [self openURL:[NSString stringWithFormat:@"duola://addreview?id=%@", course.ids]];
+}
+
 #pragma mark - tableview delegate & datasource
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -164,15 +168,22 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
         }
         
     } else {
-        CourseListItemCell * itemCell = [CourseListItemCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseListItemCell];
+        BookCourseListItemCell * itemCell = [BookCourseListItemCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseListItemCell];
         itemCell.data = self.list[indexPath.row];
+        itemCell.delegate = self;
+        if (!self.finish) {
+            itemCell.bookBtn.hidden = YES;
+        } else {
+            [itemCell.bookBtn setTitle:@"评价" forState:UIControlStateNormal];
+        }
+        
         cell = itemCell;
     }
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [CourseListItemCell heightWithTableView:tableView withIdentifier:identifierCourseListItemCell forIndexPath:indexPath data:nil];
+    return [BookCourseListItemCell heightWithTableView:tableView withIdentifier:identifierCourseListItemCell forIndexPath:indexPath data:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {

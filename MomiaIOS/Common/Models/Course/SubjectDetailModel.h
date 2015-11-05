@@ -9,10 +9,12 @@
 #import "BaseModel.h"
 #import "Subject.h"
 #import "CourseList.h"
+#import "ReviewList.h"
 
 @interface SubjectDetailData : JSONModel
 @property (nonatomic, strong) Subject *subject;
 @property (nonatomic, strong) CourseList *courses;
+@property (nonatomic, strong) ReviewList *comments;
 @end
 
 @interface SubjectDetailModel : BaseModel

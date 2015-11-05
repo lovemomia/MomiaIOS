@@ -11,4 +11,5 @@ pod 'ISDiskCache'
 pod 'TTTAttributedLabel'
 pod 'UMengAnalytics-NO-IDFA'
 pod 'THProgressView', '~> 1.0'
+pod 'EDStarRating'
 
