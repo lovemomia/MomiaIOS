@@ -8,7 +8,7 @@
 
 #import "JSONModel.h"
 #import "HomeworkList.h"
-#import "CourseCommentList.h"
+#import "ReviewList.h"
 #import "CourseTeacherListModel.h"
 
 @interface CoursePlace : JSONModel
@@ -45,7 +45,7 @@
 @property (nonatomic, strong) NSString<Optional> *flow;  //课程内容
 
 @property (nonatomic, strong) HomeworkList<Optional> *homework;
-@property (nonatomic, strong) CourseCommentList<Optional> *comments;
+@property (nonatomic, strong) ReviewList<Optional> *comments;
 @property (nonatomic, strong) NSArray<CourseTeacher, Optional> *teachers;
 @property (nonatomic, strong) NSString<Optional> *tips; //提示
 @property (nonatomic, strong) NSString<Optional> *institution; //合作机构

@@ -54,7 +54,7 @@
                         </variation>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pnW-fK-n2b">
-                        <rect key="frame" x="65" y="70" width="245" height="57.5"/>
+                        <rect key="frame" x="65" y="64.5" width="245" height="63"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </subviews>
@@ -80,7 +80,7 @@
                     <constraint firstItem="7zd-F8-wgs" firstAttribute="leading" secondItem="q8z-xG-5jy" secondAttribute="trailing" constant="10" id="iyS-1t-0XJ"/>
                     <constraint firstItem="VB7-ea-rBE" firstAttribute="leading" secondItem="7zd-F8-wgs" secondAttribute="leading" id="mzX-xN-Oep"/>
                     <constraint firstAttribute="bottom" secondItem="q8z-xG-5jy" secondAttribute="bottom" id="orf-Wq-aXZ"/>
-                    <constraint firstItem="pnW-fK-n2b" firstAttribute="top" secondItem="d1x-RH-Jz9" secondAttribute="bottom" constant="15.5" id="peB-Si-Ej7"/>
+                    <constraint firstItem="pnW-fK-n2b" firstAttribute="top" secondItem="d1x-RH-Jz9" secondAttribute="bottom" constant="10" id="peB-Si-Ej7"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">

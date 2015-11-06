@@ -389,5 +389,14 @@
 		<key>desc</key>
 		<string>添加评价</string>
 	</dict>
+	<key>reviewlist</key>
+	<dict>
+		<key>controller</key>
+		<string>ReviewListViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>评价列表</string>
+	</dict>
 </dict>
 </plist>

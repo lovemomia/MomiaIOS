@@ -36,6 +36,7 @@ static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
 @property (nonatomic, strong) UIView *buyView;
 @property (nonatomic, assign) CGRect rectInTableView;
 @property (nonatomic, strong) SubjectDetailModel *model;
+@property (nonatomic, assign) BOOL hasReview;
 
 @end
 
@@ -96,6 +97,7 @@ static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
         }
         
         self.model = responseObject;
+        self.hasReview = self.model.data.comments && self.model.data.comments.list.count > 0;
         self.navigationItem.title = self.model.data.subject.title;
         
         [self.tableView reloadData];
@@ -169,6 +171,8 @@ static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
             Course *course = self.model.data.courses.list[indexPath.row - 1];
             [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@", course.ids]];
         }
+    } else if (indexPath.section == 3 && self.hasReview) {
+        [self openURL:[NSString stringWithFormat:@"duola://reviewlist?subjectId=%@", self.ids]];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -184,14 +188,13 @@ static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    BOOL hasReview = self.model.data.comments && self.model.data.comments.list.count > 0;
     if (section == 0) {
         return 3;
     } else if (section == 1) {
         return 2;
     } else if (section == 2) {
         return 1 + self.model.data.courses.list.count;
-    } else if (section == 3 && hasReview) {
+    } else if (section == 3 && self.hasReview) {
         return 1 + self.model.data.comments.list.count;
     }
     return 2;
@@ -201,7 +204,6 @@ static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     UITableViewCell *cell;
-    BOOL hasReview = self.model.data.comments && self.model.data.comments.list.count > 0;
     if (section == 0) {
         if (row == 0) {
             PhotoTitleHeaderCell *headerCell = [PhotoTitleHeaderCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierPhotoTitleHeaderCell];
@@ -249,19 +251,20 @@ static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
             itemCell.data = self.model.data.courses.list[row - 1];
             cell = itemCell;
         }
-    } else if (section == 3 && hasReview) {
+    } else if (section == 3 && self.hasReview) {
         if (row == 0) {
             CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
             titleCell.titleLabel.text = [NSString stringWithFormat:@"用户点评（%@）", self.model.data.comments.totalCount];
             cell = titleCell;
             titleCell.subTitleLabel.text = @"更多";
             titleCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.selectionStyle = UITableViewCellSeparatorStyleNone;
+            cell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;
             
         } else {
             ReviewListItemCell *reviewCell = [ReviewListItemCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:identifierReviewListItemCell];
             [reviewCell setData:self.model.data.comments.list[row - 1]];
             cell = reviewCell;
+            cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         }
         
     } else {
@@ -285,7 +288,6 @@ static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
-    BOOL hasReview = self.model.data.comments && self.model.data.comments.list.count > 0;
     if (section == 0) {
         if (row == 0) {
             return [PhotoTitleHeaderCell heightWithTableView:tableView withIdentifier:identifierPhotoTitleHeaderCell forIndexPath:indexPath data:self.model.data.subject];
@@ -309,7 +311,7 @@ static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
         } else {
             return [CourseListItemCell heightWithTableView:tableView withIdentifier:identifierCourseListItemCell forIndexPath:indexPath data:self.model.data.courses.list[row - 1]];
         }
-    } else if (section == 3 && hasReview) {
+    } else if (section == 3 && self.hasReview) {
         if (row == 0) {
             return 44;
             

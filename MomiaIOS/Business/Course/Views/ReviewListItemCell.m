@@ -15,6 +15,7 @@
 
 #define LineSpacing 4
 #define contentFontSize 13.0f
+#define bottomPadding 0
 
 @interface ReviewListItemCell()
 @property (nonatomic, strong) Review *review;
@@ -57,7 +58,7 @@
         make.top.equalTo(self.containerView).with.offset(0);
         make.left.equalTo(self.containerView).with.offset(0);
         make.right.equalTo(self.containerView).with.offset(0);
-        make.bottom.lessThanOrEqualTo(self.containerView).with.offset(-12);
+        make.bottom.lessThanOrEqualTo(self.containerView).with.offset(bottomPadding);
     }];
     label.numberOfLines = 0;
     label.textColor = UIColorFromRGB(0x333333);
@@ -66,9 +67,9 @@
     label.text = data.content;
     
     // images
+    UIImageView *lastImage;
     if (data.imgs && data.imgs.count > 0) {
         NSNumber *imageSize = [[NSNumber alloc]initWithInt:(SCREEN_WIDTH - 65 - 40) / 3];
-        UIImageView *lastImage;
         for (int i = 0; i < data.imgs.count; i++) {
             UIImageView *imageView = [[UIImageView alloc]init];
             [self.containerView addSubview:imageView];
@@ -77,7 +78,7 @@
                 make.height.equalTo(imageSize);
                 
                 //                make.right.lessThanOrEqualTo(self.contentView).with.offset(-5);
-                make.bottom.lessThanOrEqualTo(self.containerView).with.offset(-12);
+                make.bottom.lessThanOrEqualTo(self.containerView).with.offset(bottomPadding);
                 
                 
                 if (fmod(i, 3) == 0) {
@@ -115,6 +116,44 @@
             
             lastImage = imageView;
         }
+    }
+    
+    if (data.courseTitle.length > 0) {
+        // img tag
+        UIImageView *icon = [[UIImageView alloc]initWithFrame:CGRectZero];
+        [self.containerView addSubview:icon];
+        [icon mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@12);
+            make.height.equalTo(@12);
+            if (lastImage) {
+                make.top.equalTo(lastImage.mas_bottom).with.offset(10);
+            } else {
+                make.top.equalTo(label.mas_bottom).with.offset(10);
+            }
+            
+            make.left.equalTo(self.containerView).with.offset(0);
+            make.bottom.lessThanOrEqualTo(self.containerView).with.offset(bottomPadding);
+        }];
+        icon.image = [UIImage imageNamed:@"IconReviewTag"];
+        
+        // text tag
+        TTTAttributedLabel *label = [[TTTAttributedLabel alloc]initWithFrame:CGRectZero];
+        [self.containerView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            if (lastImage) {
+                make.top.equalTo(lastImage.mas_bottom).with.offset(9);
+            } else {
+                make.top.equalTo(label.mas_bottom).with.offset(10);
+            }
+            
+            make.left.equalTo(icon.mas_right).with.offset(5);
+            make.right.equalTo(self.containerView).with.offset(0);
+            make.bottom.lessThanOrEqualTo(self.containerView).with.offset(bottomPadding);
+        }];
+        label.numberOfLines = 0;
+        label.textColor = MO_APP_ThemeColor;
+        label.font = [UIFont systemFontOfSize:12.0f];
+        label.text = data.courseTitle;
     }
 }
 

@@ -21,6 +21,9 @@
 @property (nonatomic, strong) NSArray<Optional> *imgs;
 @property (nonatomic, strong) NSArray<Optional> *largeImgs;
 
+@property (nonatomic, strong) NSNumber<Optional> *courseId;
+@property (nonatomic, strong) NSString<Optional> *courseTitle;
+
 @end
 
 @protocol Review <NSObject>

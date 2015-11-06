@@ -254,7 +254,6 @@
 		BC77376E1BCD12CB00987B22 /* SubjectDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77376D1BCD12CB00987B22 /* SubjectDetailModel.m */; };
 		BC7737711BCDEFE200987B22 /* CourseNoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737701BCDEFE200987B22 /* CourseNoticeCell.m */; };
 		BC7737741BCE0E8100987B22 /* HomeworkList.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737731BCE0E8100987B22 /* HomeworkList.m */; };
-		BC7737771BCE11AA00987B22 /* CourseCommentList.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737761BCE11AA00987B22 /* CourseCommentList.m */; };
 		BC77377B1BCE2C0C00987B22 /* CoursePoiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737791BCE2C0C00987B22 /* CoursePoiCell.m */; };
 		BC77377C1BCE2C0C00987B22 /* CoursePoiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC77377A1BCE2C0C00987B22 /* CoursePoiCell.xib */; };
 		BC77377F1BCE436A00987B22 /* CourseBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77377E1BCE436A00987B22 /* CourseBookCell.m */; };
@@ -333,6 +332,7 @@
 		BCF74AC41BEB5C8C00138C2C /* ReviewListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF74AC31BEB5C8C00138C2C /* ReviewListModel.m */; };
 		BCF74AC81BEB643400138C2C /* ReviewListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF74AC61BEB643400138C2C /* ReviewListItemCell.m */; };
 		BCF74AC91BEB643400138C2C /* ReviewListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF74AC71BEB643400138C2C /* ReviewListItemCell.xib */; };
+		BCF74ACC1BEC98ED00138C2C /* ReviewListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF74ACB1BEC98ED00138C2C /* ReviewListViewController.m */; };
 		BCF9DCF91BD8F0E200D8CDC6 /* CourseTeacherListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DCF81BD8F0E200D8CDC6 /* CourseTeacherListViewController.m */; };
 		BCF9DCFD1BD8F12800D8CDC6 /* CourseTeacherListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DCFB1BD8F12800D8CDC6 /* CourseTeacherListItemCell.m */; };
 		BCF9DCFE1BD8F12800D8CDC6 /* CourseTeacherListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF9DCFC1BD8F12800D8CDC6 /* CourseTeacherListItemCell.xib */; };
@@ -807,8 +807,6 @@
 		BC7737701BCDEFE200987B22 /* CourseNoticeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseNoticeCell.m; path = Business/Course/Views/CourseNoticeCell.m; sourceTree = "<group>"; };
 		BC7737721BCE0E8100987B22 /* HomeworkList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeworkList.h; path = Common/Models/Course/HomeworkList.h; sourceTree = "<group>"; };
 		BC7737731BCE0E8100987B22 /* HomeworkList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeworkList.m; path = Common/Models/Course/HomeworkList.m; sourceTree = "<group>"; };
-		BC7737751BCE11AA00987B22 /* CourseCommentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseCommentList.h; path = Common/Models/Course/CourseCommentList.h; sourceTree = "<group>"; };
-		BC7737761BCE11AA00987B22 /* CourseCommentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseCommentList.m; path = Common/Models/Course/CourseCommentList.m; sourceTree = "<group>"; };
 		BC7737781BCE2C0C00987B22 /* CoursePoiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoursePoiCell.h; path = Business/Course/Views/CoursePoiCell.h; sourceTree = "<group>"; };
 		BC7737791BCE2C0C00987B22 /* CoursePoiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoursePoiCell.m; path = Business/Course/Views/CoursePoiCell.m; sourceTree = "<group>"; };
 		BC77377A1BCE2C0C00987B22 /* CoursePoiCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CoursePoiCell.xib; path = Business/Course/Views/CoursePoiCell.xib; sourceTree = "<group>"; };
@@ -954,6 +952,8 @@
 		BCF74AC51BEB643400138C2C /* ReviewListItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewListItemCell.h; path = Business/Course/Views/ReviewListItemCell.h; sourceTree = "<group>"; };
 		BCF74AC61BEB643400138C2C /* ReviewListItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewListItemCell.m; path = Business/Course/Views/ReviewListItemCell.m; sourceTree = "<group>"; };
 		BCF74AC71BEB643400138C2C /* ReviewListItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReviewListItemCell.xib; path = Business/Course/Views/ReviewListItemCell.xib; sourceTree = "<group>"; };
+		BCF74ACA1BEC98ED00138C2C /* ReviewListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewListViewController.h; path = Business/Course/ReviewListViewController.h; sourceTree = "<group>"; };
+		BCF74ACB1BEC98ED00138C2C /* ReviewListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewListViewController.m; path = Business/Course/ReviewListViewController.m; sourceTree = "<group>"; };
 		BCF9DCF71BD8F0E200D8CDC6 /* CourseTeacherListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseTeacherListViewController.h; path = Business/Course/CourseTeacherListViewController.h; sourceTree = "<group>"; };
 		BCF9DCF81BD8F0E200D8CDC6 /* CourseTeacherListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseTeacherListViewController.m; path = Business/Course/CourseTeacherListViewController.m; sourceTree = "<group>"; };
 		BCF9DCFA1BD8F12800D8CDC6 /* CourseTeacherListItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseTeacherListItemCell.h; path = Business/Course/Views/CourseTeacherListItemCell.h; sourceTree = "<group>"; };
@@ -1847,8 +1847,6 @@
 				BC77376D1BCD12CB00987B22 /* SubjectDetailModel.m */,
 				BC7737721BCE0E8100987B22 /* HomeworkList.h */,
 				BC7737731BCE0E8100987B22 /* HomeworkList.m */,
-				BC7737751BCE11AA00987B22 /* CourseCommentList.h */,
-				BC7737761BCE11AA00987B22 /* CourseCommentList.m */,
 				BC7737831BCE49B900987B22 /* CourseDetailModel.h */,
 				BC7737841BCE49B900987B22 /* CourseDetailModel.m */,
 				BC77378B1BCE6AD200987B22 /* SubjectList.h */,
@@ -2217,6 +2215,8 @@
 				BCF9DD031BD8FB7600D8CDC6 /* CourseBookBrowserViewController.m */,
 				BCF74AB41BE895AD00138C2C /* AddReviewViewController.h */,
 				BCF74AB51BE895AD00138C2C /* AddReviewViewController.m */,
+				BCF74ACA1BEC98ED00138C2C /* ReviewListViewController.h */,
+				BCF74ACB1BEC98ED00138C2C /* ReviewListViewController.m */,
 			);
 			name = Course;
 			sourceTree = "<group>";
@@ -2606,7 +2606,6 @@
 				BC3599F81BC61F0C002DE863 /* MLSelectPhotoPickerBrowserPhotoView.m in Sources */,
 				BC7CBADE1B662E590047211D /* MOTagLabel.m in Sources */,
 				BCCDC6EA1BBA9661007C2F57 /* CourseDetailViewController.m in Sources */,
-				BC7737771BCE11AA00987B22 /* CourseCommentList.m in Sources */,
 				5AC9FFC91B17020300C769EF /* SubmitPostModel.m in Sources */,
 				BCF74AB61BE895AD00138C2C /* AddReviewViewController.m in Sources */,
 				BC77376E1BCD12CB00987B22 /* SubjectDetailModel.m in Sources */,
@@ -2643,6 +2642,7 @@
 				BC97DF271B4E4AA4002B1A00 /* PayTool.m in Sources */,
 				BC97DF1B1B4E1DF0002B1A00 /* PayResultViewController.m in Sources */,
 				BC77376B1BCD0B1200987B22 /* CourseList.m in Sources */,
+				BCF74ACC1BEC98ED00138C2C /* ReviewListViewController.m in Sources */,
 				BC2E68311BA0129200175E2D /* ConfigModel.m in Sources */,
 				5A9E80D81B4BB2450028AC47 /* PlayFellowModel.m in Sources */,
 				BC2C0C681B131ED500E2446E /* AccountService.m in Sources */,

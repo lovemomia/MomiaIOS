@@ -14,7 +14,7 @@
 @interface SubjectDetailData : JSONModel
 @property (nonatomic, strong) Subject *subject;
 @property (nonatomic, strong) CourseList *courses;
-@property (nonatomic, strong) ReviewList *comments;
+@property (nonatomic, strong) ReviewList<Optional> *comments;
 @end
 
 @interface SubjectDetailModel : BaseModel

@@ -33,8 +33,14 @@
     // Configure the view for the selected state
 }
 
-- (void)setData:(id)data {
-    
+- (void)setData:(NSString *)data {
+    if ([data isEqualToString:@"star"]) {
+        ratingView.starImage = [UIImage imageNamed:@"IconGrayStar"];
+        ratingView.starHighlightedImage = [UIImage imageNamed:@"IconRedStar"];
+    } else {
+        ratingView.starImage = [UIImage imageNamed:@"IconFace"];
+        ratingView.starHighlightedImage = [UIImage imageNamed:@"IconRedFace"];
+    }
 }
 
 

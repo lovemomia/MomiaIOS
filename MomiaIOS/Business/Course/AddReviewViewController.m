@@ -187,12 +187,21 @@
             ratingCell.ratingView.delegate = self;
             ratingCell.titleLabel.text = titles[indexPath.row];
             
-            if(indexPath.row == 0 && self.ratingTotal) {
-                ratingCell.ratingView.rating = [self.ratingTotal floatValue];
-            } else if (indexPath.row == 1 && self.ratingTeacher) {
-                ratingCell.ratingView.rating = [self.ratingTeacher floatValue];
+            if(indexPath.row == 0) {
+                if (self.ratingTotal) {
+                    ratingCell.ratingView.rating = [self.ratingTotal floatValue];
+                }
+                [ratingCell setData:@"star"];
+            } else if (indexPath.row == 1) {
+                if (self.ratingTeacher) {
+                    ratingCell.ratingView.rating = [self.ratingTeacher floatValue];
+                }
+                [ratingCell setData:@"face"];
             } else {
-                ratingCell.ratingView.rating = [self.ratingEnv floatValue];
+                if (self.ratingEnv) {
+                    ratingCell.ratingView.rating = [self.ratingEnv floatValue];
+                }
+                [ratingCell setData:@"face"];
             }
             
             cell = ratingCell;
