@@ -25,8 +25,6 @@
     ratingView.editable=YES;
     ratingView.displayMode=EDStarRatingDisplayFull;
     
-    
-    ratingView.rating= 2.5;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

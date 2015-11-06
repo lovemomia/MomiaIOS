@@ -7,16 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="84" id="KGk-i7-Jjw" customClass="ReviewListItemCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="83.5"/>
-                <autoresizingMask key="autoresizingMask"/>
-            </tableViewCellContentView>
-            <point key="canvasLocation" x="444" y="400"/>
-        </tableViewCell>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlaymateUserHeadCell" rowHeight="138" id="Vm1-71-u6T" customClass="FeedUserHeadCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewListItemCell" rowHeight="138" id="Vm1-71-u6T" customClass="ReviewListItemCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vm1-71-u6T" id="Mxu-G6-MbB">
@@ -37,7 +28,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="宝宝4岁" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VB7-ea-rBE">
-                        <rect key="frame" x="65" y="38" width="48" height="14.5"/>
+                        <rect key="frame" x="65" y="38" width="133" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -49,10 +40,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d1x-RH-Jz9" customClass="EDStarRating">
-                        <rect key="frame" x="130" y="38" width="180" height="16.5"/>
+                        <rect key="frame" x="215" y="38" width="95" height="16.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="180" id="3gL-JC-dZg"/>
+                            <constraint firstAttribute="width" constant="95" id="3gL-JC-dZg"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="116" id="cXN-dA-WVQ"/>
                             <constraint firstAttribute="height" constant="16.5" id="d7X-Xb-jPp"/>
                         </constraints>
@@ -65,14 +56,6 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pnW-fK-n2b">
                         <rect key="frame" x="65" y="70" width="245" height="57.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zxC-IV-xtt">
-                        <rect key="frame" x="56" y="209" width="264" height="1"/>
-                        <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVX-gx-P3B">
-                        <rect key="frame" x="188" y="216" width="1" height="30"/>
-                        <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </subviews>
                 <constraints>
@@ -100,10 +83,6 @@
                     <constraint firstItem="pnW-fK-n2b" firstAttribute="top" secondItem="d1x-RH-Jz9" secondAttribute="bottom" constant="15.5" id="peB-Si-Ej7"/>
                 </constraints>
                 <variation key="default">
-                    <mask key="subviews">
-                        <exclude reference="zxC-IV-xtt"/>
-                        <exclude reference="FVX-gx-P3B"/>
-                    </mask>
                     <mask key="constraints">
                         <exclude reference="orf-Wq-aXZ"/>
                         <exclude reference="22H-FI-wvd"/>
@@ -115,12 +94,14 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="avatarIv" destination="q8z-xG-5jy" id="r7v-Mf-5Rb"/>
-                <outlet property="dateLabel" destination="LeE-o3-Bze" id="Pf3-2Z-8K9"/>
-                <outlet property="descLabel" destination="VB7-ea-rBE" id="aoz-Ca-1GK"/>
-                <outlet property="nameLabel" destination="7zd-F8-wgs" id="4YS-j1-n0e"/>
+                <outlet property="ageLabel" destination="VB7-ea-rBE" id="F8P-Tj-m8n"/>
+                <outlet property="avatarIv" destination="q8z-xG-5jy" id="lIi-OX-AVd"/>
+                <outlet property="containerView" destination="pnW-fK-n2b" id="vj4-pH-loK"/>
+                <outlet property="dateLabel" destination="LeE-o3-Bze" id="59v-rQ-DPi"/>
+                <outlet property="nameLabel" destination="7zd-F8-wgs" id="cHn-cX-pH0"/>
+                <outlet property="starView" destination="d1x-RH-Jz9" id="ipF-HO-zEd"/>
             </connections>
-            <point key="canvasLocation" x="396" y="149"/>
+            <point key="canvasLocation" x="402" y="186"/>
         </tableViewCell>
     </objects>
 </document>

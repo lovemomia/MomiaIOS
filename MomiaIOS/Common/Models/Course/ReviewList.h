@@ -13,13 +13,13 @@
 @property (nonatomic, strong) NSNumber *userId;
 @property (nonatomic, strong) NSString *nickName;
 @property (nonatomic, strong) NSString *avatar;
-@property (nonatomic, strong) NSArray *children;
+@property (nonatomic, strong) NSArray<Optional> *children;
 
 @property (nonatomic, strong) NSNumber *star;
 @property (nonatomic, strong) NSString *addTime;
-@property (nonatomic, strong) NSString *content;
-@property (nonatomic, strong) NSArray *imgs;
-@property (nonatomic, strong) NSArray *largeImgs;
+@property (nonatomic, strong) NSString<Optional> *content;
+@property (nonatomic, strong) NSArray<Optional> *imgs;
+@property (nonatomic, strong) NSArray<Optional> *largeImgs;
 
 @end
 

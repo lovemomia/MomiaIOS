@@ -6,8 +6,18 @@
 //  Copyright © 2015年 Deng Jun. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MOTableCell.h"
+#import "AvatarImageView.h"
+#import "EDStarRating.h"
 
-@interface ReviewListItemCell : UITableViewCell
+@interface ReviewListItemCell : MOTableCell<MOTableCellDataProtocol>
+
+@property (weak, nonatomic) IBOutlet AvatarImageView *avatarIv;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ageLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet EDStarRating *starView;
+
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 
 @end
