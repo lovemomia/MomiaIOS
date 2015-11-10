@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,16 +15,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="144" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFE-3t-AfR">
-                        <rect key="frame" x="278" y="36" width="24" height="17"/>
+                        <rect key="frame" x="277" y="36" width="24.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconZan" translatesAutoresizingMaskIntoConstraints="NO" id="FQz-bN-ZbU">
-                        <rect key="frame" x="281.5" y="13" width="17" height="17"/>
+                        <rect key="frame" x="282" y="13" width="16" height="16"/>
                     </imageView>
                     <view tag="1001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMd-qQ-7os">
-                        <rect key="frame" x="65" y="12" width="205" height="38"/>
+                        <rect key="frame" x="65" y="12" width="204.5" height="38"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="38" id="Qsm-QE-lSq"/>
@@ -65,11 +65,12 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="avatarsView" destination="cMd-qQ-7os" id="sz1-Pd-ik7"/>
+                <outlet property="zanIcon" destination="FQz-bN-ZbU" id="YLH-5z-5f5"/>
                 <outlet property="zanLabel" destination="rFE-3t-AfR" id="r2Q-bt-M0s"/>
             </connections>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="IconZan" width="17" height="17"/>
+        <image name="IconZan" width="16" height="16"/>
     </resources>
 </document>

@@ -40,6 +40,11 @@
 -(void)setData:(Feed *)data {
     [self.commentBtn setTitle:[NSString stringWithFormat:@"%@", data.commentCount] forState:UIControlStateNormal];
     [self.zanBtn setTitle:[NSString stringWithFormat:@"%@", data.starCount] forState:UIControlStateNormal];
+    if ([data.stared boolValue]) {
+        [self.zanBtn setImage:[UIImage imageNamed:@"IconZanRed"] forState:UIControlStateNormal];
+    } else {
+        [self.zanBtn setImage:[UIImage imageNamed:@"IconZan"] forState:UIControlStateNormal];
+    }
 }
 
 @end

@@ -232,6 +232,11 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
         } else {
             __weak FeedZanCell *zanCell = [FeedZanCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierFeedZanCell];
             [zanCell setData:self.model.data.staredUsers];
+            if ([self.model.data.feed.stared boolValue]) {
+                zanCell.zanIcon.image = [UIImage imageNamed:@"IconZanRed"];
+            } else {
+                zanCell.zanIcon.image = [UIImage imageNamed:@"IconZan"];
+            }
             zanCell.blockOnZanClicked = ^(){
                 if (![[AccountService defaultService] isLogin]) {
                     [[AccountService defaultService] login:self];
@@ -246,6 +251,10 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
                     self.model.data.staredUsers.list = (NSArray<FeedStar> *)array;
                     self.model.data.staredUsers.totalCount = [NSNumber numberWithInt:self.model.data.staredUsers.totalCount.intValue + 1];
                     [zanCell setData:self.model.data.staredUsers];
+                    
+                    self.model.data.feed.stared = [NSNumber numberWithBool:YES];
+                    self.model.data.feed.starCount = [NSNumber numberWithInt:([self.model.data.feed.starCount intValue] + 1)];
+                    [self.tableView reloadData];
                     
                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                     
@@ -322,6 +331,8 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
         [array insertObject:me atIndex:0];
         self.model.data.staredUsers.list = (NSArray<FeedStar> *)array;
         self.model.data.staredUsers.totalCount = [NSNumber numberWithInt:self.model.data.staredUsers.totalCount.intValue + 1];
+        self.model.data.feed.stared = [NSNumber numberWithBool:YES];
+        self.model.data.feed.starCount = [NSNumber numberWithInt:([self.model.data.feed.starCount intValue] + 1)];
         [self.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

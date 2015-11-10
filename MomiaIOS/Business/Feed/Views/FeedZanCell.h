@@ -13,6 +13,7 @@ typedef void (^BlockOnZanClicked)();
 
 @interface FeedZanCell : MOTableCell<MOTableCellDataProtocol>
 
+@property (weak, nonatomic) IBOutlet UIImageView *zanIcon;
 @property (weak, nonatomic) IBOutlet UILabel *zanLabel;
 @property (weak, nonatomic) IBOutlet UIView *avatarsView;
 

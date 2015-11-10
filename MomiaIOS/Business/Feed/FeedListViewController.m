@@ -260,7 +260,9 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
     }
     NSDictionary * dic = @{@"id":feed.ids};
     [[HttpService defaultService] POST:URL_APPEND_PATH(@"/feed/star") parameters:dic JSONModelClass:[BaseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [ugcCell.zanBtn setTitle:[NSString stringWithFormat:@"%d", ([feed.starCount intValue] + 1)] forState:UIControlStateNormal];
+        feed.stared = [NSNumber numberWithBool:YES];
+        feed.starCount = [NSNumber numberWithInt:([feed.starCount intValue] + 1)];
+        [self.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
