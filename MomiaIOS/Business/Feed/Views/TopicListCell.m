@@ -7,7 +7,7 @@
 //
 
 #import "TopicListCell.h"
-#import "TopicListModel.h"
+#import "Course.h"
 
 @implementation TopicListCell
 
@@ -21,7 +21,7 @@
     // Configure the view for the selected state
 }
 
--(void)setData:(Topic *)data {
+-(void)setData:(Course *)data {
     self.titleLabel.text = data.title;
     self.dateLabel.text = data.scheduler;
     self.regionLabel.text = data.region;

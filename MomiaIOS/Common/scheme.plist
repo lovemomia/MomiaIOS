@@ -398,5 +398,14 @@
 		<key>desc</key>
 		<string>评价列表</string>
 	</dict>
+	<key>taglist</key>
+	<dict>
+		<key>controller</key>
+		<string>TagListViewController</string>
+		<key>needlogin</key>
+		<true/>
+		<key>desc</key>
+		<string>Feed选择tag列表</string>
+	</dict>
 </dict>
 </plist>

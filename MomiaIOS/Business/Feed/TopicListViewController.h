@@ -7,11 +7,11 @@
 //
 
 #import "MOTableViewController.h"
-#import "TopicListModel.h"
+#import "Course.h"
 
 @protocol TopicChooseDelegate <NSObject>
 
--(void)onChooseFinish:(Topic *)topic;
+-(void)onChooseFinish:(Course *)topic;
 -(void)onCancel;
 
 @end

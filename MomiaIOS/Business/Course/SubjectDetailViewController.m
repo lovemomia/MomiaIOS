@@ -7,7 +7,7 @@
 //
 
 #import "SubjectDetailViewController.h"
-
+#import "MJRefreshHelper.h"
 #import "SubjectDetailModel.h"
 #import "CourseList.h"
 
@@ -66,6 +66,8 @@ static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
     self.buyView.hidden = YES;
     [self.view addSubview:self.buyView];
     
+    self.tableView.header = [MJRefreshHelper createGifHeaderWithRefreshingTarget:self refreshingAction:@selector(requestData)];
+    
     [self requestData:YES];
 }
 
@@ -82,6 +84,10 @@ static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
 }
 
 #pragma mark - webData Request
+
+- (void)requestData {
+    [self requestData:YES];
+}
 
 - (void)requestData:(BOOL)refresh {
     if (self.model == nil) {

@@ -18,6 +18,7 @@
 #import "MJRefresh.h"
 #import "AddCommentViewController.h"
 #import "MONavigationController.h"
+#import "MJRefreshHelper.h"
 
 static NSString *identifierPlaymateUserHeadCell = @"PlaymateUserHeadCell";
 static NSString *identifierFeedZanCell = @"FeedZanCell";
@@ -74,9 +75,7 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
     
     // 设置下拉刷新
-    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
-    header.lastUpdatedTimeLabel.hidden = YES;
-    self.tableView.header = header;
+    self.tableView.header = [MJRefreshHelper createGifHeaderWithRefreshingTarget:self refreshingAction:@selector(requestData)];
     
     [self.commentBtn setImageEdgeInsets:UIEdgeInsetsMake(0.0, -10, 0.0, 0.0)];
     [self.zanBtn setImageEdgeInsets:UIEdgeInsetsMake(0.0, -10, 0.0, 0.0)];
@@ -148,7 +147,7 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1 && indexPath.row == 1) {
         //活动详情
-        [self openURL:[NSString stringWithFormat:@"duola://productdetail?id=%ld", (long)self.model.data.product.pID]];
+        [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@", self.model.data.course.ids]];
     } else if (indexPath.section == 2 && indexPath.row == 4) {
         //查看更多评论
         [self openURL:[NSString stringWithFormat:@"duola://commentlist?id=%@", self.ids]];
@@ -263,7 +262,7 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
             
         } else {
             MyFavCell *productCell = [MyFavCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierMyFavCell];
-            [productCell setData:self.model.data.product];
+            [productCell setData:self.model.data.course];
             cell = productCell;
         }
         

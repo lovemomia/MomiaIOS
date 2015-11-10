@@ -67,8 +67,9 @@
     label.text = data.content;
     
     // images
-    UIImageView *lastImage;
+    UIView *lastView = label;
     if (data.imgs && data.imgs.count > 0) {
+        UIImageView *lastImage;
         NSNumber *imageSize = [[NSNumber alloc]initWithInt:(SCREEN_WIDTH - 65 - 40) / 3];
         for (int i = 0; i < data.imgs.count; i++) {
             UIImageView *imageView = [[UIImageView alloc]init];
@@ -116,6 +117,7 @@
             
             lastImage = imageView;
         }
+        lastView = lastImage;
     }
     
     if (data.courseTitle.length > 0) {
@@ -125,8 +127,8 @@
         [icon mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(@12);
             make.height.equalTo(@12);
-            if (lastImage) {
-                make.top.equalTo(lastImage.mas_bottom).with.offset(10);
+            if (lastView) {
+                make.top.equalTo(lastView.mas_bottom).with.offset(10);
             } else {
                 make.top.equalTo(label.mas_bottom).with.offset(10);
             }
@@ -140,8 +142,8 @@
         TTTAttributedLabel *label = [[TTTAttributedLabel alloc]initWithFrame:CGRectZero];
         [self.containerView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            if (lastImage) {
-                make.top.equalTo(lastImage.mas_bottom).with.offset(9);
+            if (lastView) {
+                make.top.equalTo(lastView.mas_bottom).with.offset(9);
             } else {
                 make.top.equalTo(label.mas_bottom).with.offset(10);
             }

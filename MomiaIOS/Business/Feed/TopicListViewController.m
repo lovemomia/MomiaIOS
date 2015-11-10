@@ -8,6 +8,7 @@
 
 #import "TopicListViewController.h"
 #import "TopicListCell.h"
+#import "BookedCourseListModel.h"
 
 static NSString *identifierTopicListCell = @"TopicListCell";
 
@@ -23,7 +24,7 @@ static NSString *identifierTopicListCell = @"TopicListCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"选择一个主题";
+    self.navigationItem.title = @"选择一个课程";
     UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc]initWithTitle:nil style:UIBarButtonItemStyleDone target:self action:@selector(onCancelClicked)];
     self.navigationItem.leftBarButtonItem = leftBtn;
     [leftBtn setImage:[UIImage imageNamed:@"TitleCancel"]];
@@ -53,14 +54,14 @@ static NSString *identifierTopicListCell = @"TopicListCell";
     }
     
     NSDictionary * paramDic = @{@"start":[NSString stringWithFormat:@"%ld", (long)self.nextIndex]};
-    self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/feed/topic/list")
-                                              parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[TopicListModel class]
+    self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/user/course/finished")
+                                              parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[BookedCourseListModel class]
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                      if ([self.list count] == 0) {
                                                          [self.view removeLoadingBee];
                                                      }
                                                      
-                                                     TopicListModel *model = (TopicListModel *)responseObject;
+                                                     BookedCourseListModel *model = (BookedCourseListModel *)responseObject;
                                                      if (model.data.nextIndex) {
                                                          self.nextIndex = [model.data.nextIndex integerValue];
                                                      } else {
@@ -75,7 +76,7 @@ static NSString *identifierTopicListCell = @"TopicListCell";
                                                      if (refresh) {
                                                          [self.list removeAllObjects];
                                                      }
-                                                     for (Topic *topic in model.data.list) {
+                                                     for (Course *topic in model.data.list) {
                                                          [self.list addObject:topic];
                                                      }
                                                      [self.tableView reloadData];
@@ -101,7 +102,7 @@ static NSString *identifierTopicListCell = @"TopicListCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row < self.list.count) {
-        Topic *topic = self.list[indexPath.row];
+        Course *topic = self.list[indexPath.row];
         [self.delegate onChooseFinish:topic];
     }
 }
@@ -143,7 +144,7 @@ static NSString *identifierTopicListCell = @"TopicListCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row < self.list.count) {
-        Topic *topic = [self.list objectAtIndex:(indexPath.row)];
+        Course *topic = [self.list objectAtIndex:(indexPath.row)];
         return [TopicListCell heightWithTableView:tableView withIdentifier:identifierTopicListCell forIndexPath:indexPath data:topic];
     }
     return 87;

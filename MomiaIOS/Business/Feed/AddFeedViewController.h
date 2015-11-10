@@ -9,7 +9,8 @@
 #import "MOGroupStyleTableViewController.h"
 #import "AddFeedContentCell.h"
 #import "TopicListViewController.h"
+#import "TagListViewController.h"
 
-@interface AddFeedViewController : MOGroupStyleTableViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, FeedPhotoPickDelegate, UIActionSheetDelegate, TopicChooseDelegate>
+@interface AddFeedViewController : MOGroupStyleTableViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate, FeedPhotoPickDelegate, UIActionSheetDelegate, TopicChooseDelegate, TagChooseDelegate>
 
 @end

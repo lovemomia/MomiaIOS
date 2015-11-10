@@ -136,12 +136,10 @@ typedef enum {
         self.model = responseObject;
         
         [self.tableView reloadData];
-        [self.tableView.header endRefreshing];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self.view removeLoadingBee];
         [self showDialogWithTitle:nil message:error.message];
-        [self.tableView.header endRefreshing];
     }];
 }
 

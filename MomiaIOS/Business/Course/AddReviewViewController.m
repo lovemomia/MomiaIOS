@@ -62,7 +62,7 @@
 - (void)onSubmitClicked {
     // 参数判断
     self.content = self.contentCell.contentTv.text;
-    if (self.content == nil) {
+    if (self.content.length == 0) {
         [self showDialogWithTitle:nil message:@"请输入参加活动的感受"];
         return;
     }

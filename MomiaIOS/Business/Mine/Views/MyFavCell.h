@@ -7,10 +7,10 @@
 //
 
 #import "MOTableCell.h"
-#import "ProductModel.h"
+#import "Course.h"
 
 @interface MyFavCell : MOTableCell<MOTableCellDataProtocol>
 
--(void)setData:(ProductModel *) model;
+-(void)setData:(Course *) model;
 
 @end

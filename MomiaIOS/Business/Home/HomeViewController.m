@@ -14,6 +14,7 @@
 #import "LoadingErrorCell.h"
 #import "HomeGridCell.h"
 #import "HomeOperateCell.h"
+#import "MJRefreshHelper.h"
 
 static NSString *homeGridIdentifier = @"CellGrid";
 static NSString *homeOperateIdentifier = @"CellOperate";
@@ -93,10 +94,7 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
     
     // 设置下拉刷新
-    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
-    header.lastUpdatedTimeLabel.hidden = YES;
-    
-    self.tableView.header = header;
+    self.tableView.header = [MJRefreshHelper createGifHeaderWithRefreshingTarget:self refreshingAction:@selector(requestData)];
     self.tableView.width = SCREEN_WIDTH;
     
     [self requestData:YES];

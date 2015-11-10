@@ -14,6 +14,7 @@
 #import "FeedSuggestHeadCell.h"
 #import "FeedSuggestUserCell.h"
 #import "FeedListModel.h"
+#import "MJRefreshHelper.h"
 
 static NSString *identifierPlaymateUserHeadCell = @"PlaymateUserHeadCell";
 static NSString *identifierPlaymateUgcCell = @"PlaymateUgcCell";
@@ -47,9 +48,7 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
     [FeedSuggestUserCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierPlaymateSuggestUserCell];
     
     // 设置下拉刷新
-    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
-    header.lastUpdatedTimeLabel.hidden = YES;
-    self.tableView.header = header;
+    self.tableView.header = [MJRefreshHelper createGifHeaderWithRefreshingTarget:self refreshingAction:@selector(requestData)];
     
     self.list = [NSMutableArray new];
     self.nextIndex = 0;

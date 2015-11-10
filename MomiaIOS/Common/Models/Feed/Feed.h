@@ -28,10 +28,10 @@
 @property (nonatomic, strong) NSNumber *stared;
 
 // topic
-@property (nonatomic, strong) NSString *topic;
-@property (nonatomic, strong) NSNumber *topicId;
-@property (nonatomic, strong) NSNumber *topicType;
-@property (nonatomic, strong) NSNumber *refId;
+@property (nonatomic, strong) NSString *courseTitle;
+@property (nonatomic, strong) NSNumber *courseId;
+@property (nonatomic, strong) NSString *tagName;
+@property (nonatomic, strong) NSNumber *tagId;
 
 
 

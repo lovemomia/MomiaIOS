@@ -7,7 +7,6 @@
 //
 
 #import "MOViewController.h"
-#import "MJRefresh.h"
 
 @interface MOTableViewController : MOViewController<UITableViewDelegate, UITableViewDataSource> {
     

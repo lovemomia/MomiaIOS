@@ -11,6 +11,8 @@
 #import "CommentCell.h"
 #import "SendCommentView.h"
 #import "SubmitPostModel.h"
+#import "MJRefreshHelper.h"
+
 #define pageSize 10
 
 @interface CommentViewController ()
@@ -126,7 +128,8 @@
         }
     }];
     
-    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
+    self.tableView.header = [MJRefreshHelper createGifHeaderWithRefreshingTarget:self refreshingAction:@selector(requestData)];
+    
     
     [self requestData];
 }

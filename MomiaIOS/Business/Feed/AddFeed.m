@@ -8,10 +8,6 @@
 
 #import "AddFeed.h"
 
-@implementation BaseFeed
-
-@end
-
 @implementation AddFeed
 
 @end

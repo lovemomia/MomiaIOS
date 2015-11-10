@@ -65,9 +65,10 @@
         
         // images
         // TODO autolayout warning!
+        UIView *lastView = label;
         if (model.imgs && model.imgs.count > 0) {
-            NSNumber *imageSize = [[NSNumber alloc]initWithInt:(SCREEN_WIDTH - 65 - 40) / 3];
             UIImageView *lastImage;
+            NSNumber *imageSize = [[NSNumber alloc]initWithInt:(SCREEN_WIDTH - 65 - 40) / 3];
             for (int i = 0; i < model.imgs.count; i++) {
                 UIImageView *imageView = [[UIImageView alloc]init];
                 [self.contentView addSubview:imageView];
@@ -114,6 +115,45 @@
                 
                 lastImage = imageView;
             }
+            lastView = lastImage;
+        }
+        
+        if (model.tagName.length > 0) {
+            // img tag
+            UIImageView *icon = [[UIImageView alloc]initWithFrame:CGRectZero];
+            [self.contentView addSubview:icon];
+            [icon mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.width.equalTo(@12);
+                make.height.equalTo(@12);
+                if (lastView) {
+                    make.top.equalTo(lastView.mas_bottom).with.offset(10);
+                } else {
+                    make.top.equalTo(label.mas_bottom).with.offset(10);
+                }
+                
+                make.left.equalTo(self.contentView).with.offset(65);
+                make.bottom.lessThanOrEqualTo(self.contentView).with.offset(-10);
+            }];
+            icon.image = [UIImage imageNamed:@"IconReviewTag"];
+            
+            // text tag
+            TTTAttributedLabel *label = [[TTTAttributedLabel alloc]initWithFrame:CGRectZero];
+            [self.contentView addSubview:label];
+            [label mas_makeConstraints:^(MASConstraintMaker *make) {
+                if (lastView) {
+                    make.top.equalTo(lastView.mas_bottom).with.offset(9);
+                } else {
+                    make.top.equalTo(label.mas_bottom).with.offset(10);
+                }
+                
+                make.left.equalTo(icon.mas_right).with.offset(5);
+                make.right.equalTo(self.contentView).with.offset(0);
+                make.bottom.lessThanOrEqualTo(self.contentView).with.offset(-10);
+            }];
+            label.numberOfLines = 0;
+            label.textColor = MO_APP_ThemeColor;
+            label.font = [UIFont systemFontOfSize:12.0f];
+            label.text = model.tagName;
         }
         
         // location

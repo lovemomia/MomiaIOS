@@ -9,6 +9,7 @@
 #import "CourseDetailViewController.h"
 #import "CourseDetailModel.h"
 #import "CourseList.h"
+#import "MJRefreshHelper.h"
 
 #import "PhotoTitleHeaderCell.h"
 #import "CoursePriceCell.h"
@@ -104,6 +105,8 @@ typedef enum {
     [CourseDiscCell registerCellFromClassWithTableView:self.tableView withIdentifier:identifierCourseDiscCell];
     [ReviewListItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierReviewListItemCell];
     
+    self.tableView.header = [MJRefreshHelper createGifHeaderWithRefreshingTarget:self refreshingAction:@selector(requestData)];
+    
     [self requestData:YES];
 }
 
@@ -120,6 +123,10 @@ typedef enum {
 }
 
 #pragma mark - webData Request
+
+- (void)requestData {
+    [self requestData:YES];
+}
 
 - (void)requestData:(BOOL)refresh {
     if (self.model == nil) {

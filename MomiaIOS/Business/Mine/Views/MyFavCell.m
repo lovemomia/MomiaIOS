@@ -31,11 +31,11 @@
     // Configure the view for the selected state
 }
 
--(void)setData:(ProductModel *) model {
+-(void)setData:(Course *) model {
     [self.iconImgView sd_setImageWithURL:[NSURL URLWithString:model.cover] placeholderImage:nil];
     self.titleLabel.text = model.title;
     self.timeLabel.text = model.scheduler;
-    self.addressLabel.text = model.address;
+    self.addressLabel.text = model.region;
     self.priceLabel.text = [StringUtils stringForPrice:model.price];
 }
 

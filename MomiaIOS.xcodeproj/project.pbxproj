@@ -292,6 +292,7 @@
 		BC97DF1B1B4E1DF0002B1A00 /* PayResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DF191B4E1DF0002B1A00 /* PayResultViewController.m */; };
 		BC97DF1C1B4E1DF0002B1A00 /* PayResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC97DF1A1B4E1DF0002B1A00 /* PayResultViewController.xib */; };
 		BC97DF271B4E4AA4002B1A00 /* PayTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DF261B4E4AA4002B1A00 /* PayTool.m */; };
+		BC99C9E71BF1A3AE00578EFC /* MJRefreshHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BC99C9E61BF1A3AE00578EFC /* MJRefreshHelper.m */; };
 		BCA272FD1AE8A2C7002E7534 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA272FB1AE8A2C7002E7534 /* MineViewController.m */; };
 		BCA273101AE9D79F002E7534 /* scheme.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCA2730F1AE9D79F002E7534 /* scheme.plist */; };
 		BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273151AE9F6F0002E7534 /* URLMappingManager.m */; };
@@ -311,6 +312,8 @@
 		BCCDF6741B0B4F90008BAE12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCDF6731B0B4F90008BAE12 /* Foundation.framework */; };
 		BCCDF6761B0B4F97008BAE12 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCDF6751B0B4F97008BAE12 /* CoreGraphics.framework */; };
 		BCCDF6801B0C331B008BAE12 /* ThirdAccountHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCDF67F1B0C331B008BAE12 /* ThirdAccountHelper.m */; };
+		BCD0BC9D1BF0973600552FFE /* TagListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BC9C1BF0973600552FFE /* TagListViewController.m */; };
+		BCD0BCA01BF097B800552FFE /* FeedTagListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BC9F1BF097B800552FFE /* FeedTagListModel.m */; };
 		BCF033991B4F72B0005B71D6 /* AlipayOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF033981B4F72B0005B71D6 /* AlipayOrder.m */; };
 		BCF0339C1B4F77BE005B71D6 /* AlipayOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF0339B1B4F77BE005B71D6 /* AlipayOrderModel.m */; };
 		BCF0339F1B4FB1BE005B71D6 /* ThirdShareHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF0339E1B4FB1BE005B71D6 /* ThirdShareHelper.m */; };
@@ -877,6 +880,8 @@
 		BC97DF1A1B4E1DF0002B1A00 /* PayResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayResultViewController.xib; sourceTree = "<group>"; };
 		BC97DF251B4E4AA4002B1A00 /* PayTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayTool.h; sourceTree = "<group>"; };
 		BC97DF261B4E4AA4002B1A00 /* PayTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayTool.m; sourceTree = "<group>"; };
+		BC99C9E51BF1A3AE00578EFC /* MJRefreshHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJRefreshHelper.h; path = Common/Utils/MJRefreshHelper.h; sourceTree = "<group>"; };
+		BC99C9E61BF1A3AE00578EFC /* MJRefreshHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJRefreshHelper.m; path = Common/Utils/MJRefreshHelper.m; sourceTree = "<group>"; };
 		BCA272FA1AE8A2C7002E7534 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineViewController.h; path = Business/Mine/MineViewController.h; sourceTree = "<group>"; };
 		BCA272FB1AE8A2C7002E7534 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineViewController.m; path = Business/Mine/MineViewController.m; sourceTree = "<group>"; };
 		BCA2730F1AE9D79F002E7534 /* scheme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = scheme.plist; path = Common/scheme.plist; sourceTree = "<group>"; };
@@ -913,6 +918,10 @@
 		BCCDF6751B0B4F97008BAE12 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		BCCDF67E1B0C331B008BAE12 /* ThirdAccountHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirdAccountHelper.h; path = Common/Utils/ThirdAccountHelper.h; sourceTree = "<group>"; };
 		BCCDF67F1B0C331B008BAE12 /* ThirdAccountHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThirdAccountHelper.m; path = Common/Utils/ThirdAccountHelper.m; sourceTree = "<group>"; };
+		BCD0BC9B1BF0973600552FFE /* TagListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagListViewController.h; sourceTree = "<group>"; };
+		BCD0BC9C1BF0973600552FFE /* TagListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagListViewController.m; sourceTree = "<group>"; };
+		BCD0BC9E1BF097B800552FFE /* FeedTagListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedTagListModel.h; path = Common/Models/Feed/FeedTagListModel.h; sourceTree = "<group>"; };
+		BCD0BC9F1BF097B800552FFE /* FeedTagListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedTagListModel.m; path = Common/Models/Feed/FeedTagListModel.m; sourceTree = "<group>"; };
 		BCE589591B2AF37C00736923 /* WechatPayDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatPayDelegate.h; sourceTree = "<group>"; };
 		BCF033971B4F72B0005B71D6 /* AlipayOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlipayOrder.h; path = Common/Models/Pay/AlipayOrder.h; sourceTree = "<group>"; };
 		BCF033981B4F72B0005B71D6 /* AlipayOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlipayOrder.m; path = Common/Models/Pay/AlipayOrder.m; sourceTree = "<group>"; };
@@ -1337,6 +1346,8 @@
 				BC1052911BB15E4C00D81C15 /* FeedCommentListModel.m */,
 				BC1052A61BB3955800D81C15 /* TopicListModel.h */,
 				BC1052A71BB3955800D81C15 /* TopicListModel.m */,
+				BCD0BC9E1BF097B800552FFE /* FeedTagListModel.h */,
+				BCD0BC9F1BF097B800552FFE /* FeedTagListModel.m */,
 			);
 			name = Feed;
 			sourceTree = "<group>";
@@ -1754,6 +1765,8 @@
 				BC10529F1BB2B33700D81C15 /* TopicListViewController.m */,
 				BC1052EC1BB3F64900D81C15 /* SelectImage.h */,
 				BC1052ED1BB3F64900D81C15 /* SelectImage.m */,
+				BCD0BC9B1BF0973600552FFE /* TagListViewController.h */,
+				BCD0BC9C1BF0973600552FFE /* TagListViewController.m */,
 			);
 			name = Feed;
 			path = Business/Feed;
@@ -2128,6 +2141,8 @@
 				BC0EC2931B58EFD200D9A82F /* DateManager.m */,
 				BC7CBAFD1B6879100047211D /* PushManager.h */,
 				BC7CBAFE1B6879100047211D /* PushManager.m */,
+				BC99C9E51BF1A3AE00578EFC /* MJRefreshHelper.h */,
+				BC99C9E61BF1A3AE00578EFC /* MJRefreshHelper.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -2493,6 +2508,7 @@
 				BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */,
 				BC2C0C801B14659400E2446E /* MyStatusViewController.m in Sources */,
 				BC3599ED1BC61F0C002DE863 /* MLSelectPhotoPickerBrowserPhoto.m in Sources */,
+				BCD0BCA01BF097B800552FFE /* FeedTagListModel.m in Sources */,
 				5A5A2A9F1B43EED4000595A9 /* OrderContactCell.m in Sources */,
 				BC592BC01BD4977A008AE76A /* BookViewController.m in Sources */,
 				5A33F19A1B2EA0A4002A8258 /* CashPayBottomCell.m in Sources */,
@@ -2517,8 +2533,10 @@
 				BC1052951BB1709900D81C15 /* AddFeedViewController.m in Sources */,
 				5AEB188A1B1865F90098FD5F /* MySuggestModel.m in Sources */,
 				5A08C1391B39117100642648 /* ProductDetailViewController.m in Sources */,
+				BC99C9E71BF1A3AE00578EFC /* MJRefreshHelper.m in Sources */,
 				BC040D0F1BC8E62F00988AB2 /* CourseSectionTitleCell.m in Sources */,
 				BC040D131BC8EDB600988AB2 /* CourseListItemCell.m in Sources */,
+				BCD0BC9D1BF0973600552FFE /* TagListViewController.m in Sources */,
 				BC753ED01BAC07D300D2663C /* FeedContentCell.m in Sources */,
 				BC359A2F1BC61F56002DE863 /* DatePickerSheet.m in Sources */,
 				BC3599F21BC61F0C002DE863 /* MLSelectPhotoPickerAssetsViewController.m in Sources */,

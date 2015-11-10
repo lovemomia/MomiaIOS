@@ -20,13 +20,15 @@
 @interface AddFeedViewController ()
 
 @property (strong, nonatomic) AddFeedContentCell *contentCell;
-@property (strong, nonatomic) UITableViewCell *tagsCell;
 
 @property (strong, nonatomic) NSString *content;
 @property (strong, nonatomic) NSMutableArray *uploadImages;
 @property (strong, nonatomic) NSNumber *productId;
-@property (strong, nonatomic) NSNumber *topicId;
-@property (strong, nonatomic) NSString *topic;
+
+@property (strong, nonatomic) NSNumber *courseId;
+@property (strong, nonatomic) NSString *courseTitle;
+@property (strong, nonatomic) NSNumber *tagId;
+@property (strong, nonatomic) NSString *tagName;
 
 @property (strong, nonatomic) UITextView *contentTextView;
 
@@ -55,14 +57,18 @@
 
 - (void)onSubmitClicked {
     // 参数判断
+    BOOL isContentNull = NO;
+    if (self.contentCell.contentTv.text.length == 0) {
+        isContentNull = YES;
+    }
     
-//    if (self.contentCell.contentTv.text.length == 0) {
-//        [self showDialogWithTitle:nil message:@"请输入参加活动的感受"];
-//        return;
-//    }
+    if (self.uploadImages.count == 0 && isContentNull) {
+        [self showDialogWithTitle:nil message:@"对不起，您还没有输入内容"];
+        return;
+    }
     
-    if (self.topicId == nil) {
-        [self showDialogWithTitle:nil message:@"您还未选择主题"];
+    if (self.courseId == nil) {
+        [self showDialogWithTitle:nil message:@"您还未选择课程名称"];
         return;
     }
     
@@ -92,19 +98,21 @@
 // 提交
 - (void)submit {
     AddFeed *addFeed = [[AddFeed alloc]init];
-    BaseFeed *baseFeed = [[BaseFeed alloc]init];
-    baseFeed.content = self.contentCell.contentTv.text;
-    baseFeed.topicId = self.topicId;
-    baseFeed.type = [NSNumber numberWithInt:1];
-    addFeed.baseFeed = baseFeed;
+    
+    addFeed.content = self.contentCell.contentTv.text;
+    addFeed.courseId = self.courseId;
+    addFeed.courseTitle = self.courseTitle;
+    addFeed.tagId = self.tagId;
+    addFeed.tagName = self.tagName;
+    addFeed.type = [NSNumber numberWithInt:1];
     
     NSMutableArray *imageArray = [[NSMutableArray alloc]init];
     for (SelectImage *si in self.uploadImages) {
         if (si.uploadStatus == UploadStatusFinish) {
-            [imageArray addObject:si.respData];
+            [imageArray addObject:si.respData.path];
         }
     }
-    addFeed.imgs = (NSArray<UploadImageData> *)imageArray;
+    addFeed.imgs = imageArray;
     
     [[HttpService defaultService] POST:URL_APPEND_PATH(@"/feed/add") parameters:@{@"feed":[addFeed toJSONString]} JSONModelClass:[BaseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self showDialogWithTitle:nil message:@"发布成功！"];
@@ -113,7 +121,7 @@
         
         [[NSNotificationCenter defaultCenter]postNotificationName:@"onDataChanged" object:nil];
         
-    }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self showDialogWithTitle:nil message:@"发布失败，请稍后再试"];
         
         [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -184,13 +192,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0 && indexPath.row == 1) {
-        TopicListViewController *controller = [[TopicListViewController alloc]init];
-        controller.delegate = self;
-        
-        MONavigationController *navController = [[MONavigationController alloc]initWithRootViewController:controller];
-        [self presentViewController:navController animated:YES completion:nil];
-        
+    if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            TopicListViewController *controller = [[TopicListViewController alloc]init];
+            controller.delegate = self;
+            
+            MONavigationController *navController = [[MONavigationController alloc]initWithRootViewController:controller];
+            [self presentViewController:navController animated:YES completion:nil];
+            
+        } else {
+            TagListViewController *controller = [[TagListViewController alloc]init];
+            controller.delegate = self;
+            
+            MONavigationController *navController = [[MONavigationController alloc]initWithRootViewController:controller];
+            [self presentViewController:navController animated:YES completion:nil];
+        }
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -199,14 +215,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger row = indexPath.row;
     if (indexPath.section == 0) {
-        if (row == 0) {
-            return [AddFeedContentCell heightWithImageCount:(int)self.uploadImages.count];
-            
-        } else {
-            return 44;
-        }
+        return [AddFeedContentCell heightWithImageCount:(int)self.uploadImages.count];
     }
     return 44;
 }
@@ -214,14 +224,14 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 2;
+        return 1;
     }
-    return 1;
+    return 2;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -230,11 +240,23 @@
     NSInteger row = indexPath.row;
     UITableViewCell *cell;
     if (section == 0) {
+        AddFeedContentCell *contentCell = [AddFeedContentCell cellWithTableView:tableView];
+        contentCell.delegate = self;
+        [contentCell setData:self.content andImages:self.uploadImages];
+        cell = self.contentCell = contentCell;
+        
+    } else {
         if (row == 0) {
-            AddFeedContentCell *contentCell = [AddFeedContentCell cellWithTableView:tableView];
-            contentCell.delegate = self;
-            [contentCell setData:self.content andImages:self.uploadImages];
-            cell = self.contentCell = contentCell;
+            cell = [tableView dequeueReusableCellWithIdentifier:CellTags];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellTags];
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                cell.textLabel.textColor = UIColorFromRGB(0x333333);
+                cell.textLabel.font = [UIFont systemFontOfSize: 15.0];
+            }
+            cell.imageView.image = [UIImage imageNamed:@"IconCourse"];
+            cell.textLabel.text = self.courseTitle ? self.courseTitle : @"选择课程名称";
             
         } else {
             cell = [tableView dequeueReusableCellWithIdentifier:CellTags];
@@ -244,12 +266,10 @@
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 cell.textLabel.textColor = UIColorFromRGB(0x333333);
                 cell.textLabel.font = [UIFont systemFontOfSize: 15.0];
-                cell.imageView.image = [UIImage imageNamed:@"IconTag"];
             }
-            cell.textLabel.text = self.topic ? self.topic : @"选择一个主题";
-            self.tagsCell = cell;
+            cell.imageView.image = [UIImage imageNamed:@"IconTag"];
+            cell.textLabel.text = self.tagName ? self.tagName : @"选择标签";
         }
-        
     }
     return cell;
 }
@@ -443,11 +463,18 @@
 
 #pragma mark - topic tags choose delegate
 
--(void)onChooseFinish:(Topic *)topic {
-    self.topicId = topic.ids;
-    self.topic = topic.title;
+- (void)onChooseFinish:(Course *)topic {
+    self.courseId = topic.ids;
+    self.courseTitle = topic.title;
     
-    self.content = self.contentCell.contentTv.text;
+    [self.tableView reloadData];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)onTagChooseFinish:(FeedTag *)tag {
+    self.tagId = tag.ids;
+    self.tagName = tag.name;
+    
     [self.tableView reloadData];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

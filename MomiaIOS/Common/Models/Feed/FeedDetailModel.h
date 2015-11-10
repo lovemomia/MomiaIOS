@@ -7,7 +7,7 @@
 //
 
 #import "BaseModel.h"
-#import "ProductModel.h"
+#import "Course.h"
 #import "Feed.h"
 #import "FeedComment.h"
 
@@ -37,7 +37,7 @@
 @interface FeedDetailData : JSONModel
 @property (nonatomic, strong) FeedCommentList *comments;
 @property (nonatomic, strong) Feed *feed;
-@property (nonatomic, strong) ProductModel<Optional> *product;
+@property (nonatomic, strong) Course<Optional> *course;
 @property (nonatomic, strong) FeedStarList *staredUsers;
 @end
 
