@@ -14,7 +14,6 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "GeTuiSdk.h"
 
-BMKMapManager* _mapManager;
 @interface AppDelegate () {
 @private
     NSString *_deviceToken;
@@ -66,10 +65,6 @@ BMKMapManager* _mapManager;
     
     // 友盟统计
     [MobClick startWithAppkey:kUMengAppKey reportPolicy:BATCH   channelId:MO_APP_CHANNEL];
-    
-    // 百度地图
-    _mapManager = [[BMKMapManager alloc]init];
-    [_mapManager start:@"dnSVNUqriaNXYqhD6ATZQ2zF" generalDelegate:self];
     
     // config
     [[ConfigService defaultService] refresh];
@@ -327,29 +322,6 @@ BMKMapManager* _mapManager;
 
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
     
-}
-
-#pragma mark - baidu map delegate
-
-- (void)onGetNetworkState:(int)iError
-{
-    if (0 == iError) {
-        NSLog(@"联网成功");
-    }
-    else{
-        NSLog(@"onGetNetworkState %d",iError);
-    }
-    
-}
-
-- (void)onGetPermissionState:(int)iError
-{
-    if (0 == iError) {
-        NSLog(@"授权成功");
-    }
-    else {
-        NSLog(@"onGetPermissionState %d",iError);
-    }
 }
 
 @end

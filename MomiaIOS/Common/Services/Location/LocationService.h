@@ -23,7 +23,7 @@ typedef enum {
     STATUS_LOCATED = 2
 } STATUS;
 
-@interface LocationService : NSObject<BMKLocationServiceDelegate> {
+@interface LocationService : NSObject<BMKLocationServiceDelegate, BMKGeneralDelegate> {
     BMKLocationService* _locService;
 }
 
