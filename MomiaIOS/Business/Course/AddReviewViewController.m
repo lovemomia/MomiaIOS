@@ -19,6 +19,7 @@
 @interface AddReviewViewController ()<EDStarRatingProtocol>
 
 @property (strong, nonatomic) NSNumber *ids;
+@property (strong, nonatomic) NSNumber *bookingId;
 @property (strong, nonatomic) NSString *content;
 @property (strong, nonatomic) NSNumber *ratingTotal;
 @property (strong, nonatomic) NSNumber *ratingTeacher;
@@ -35,6 +36,7 @@
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
         self.ids = [params objectForKey:@"id"];
+        self.bookingId = [params objectForKey:@"bookingId"];
     }
     return self;
 }
@@ -104,6 +106,7 @@
 - (void)submit {
     AddReview *ar = [[AddReview alloc]init];
     ar.courseId = self.ids;
+    ar.bookingId = self.bookingId;
     ar.content = self.content;
     ar.star = self.ratingTotal;
     ar.teacher = self.ratingTeacher;
@@ -122,6 +125,7 @@
         self.isSubmitSuccess = YES;
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"onBookedChanged" object:nil];
         
     }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self showDialogWithTitle:nil message:error.message];

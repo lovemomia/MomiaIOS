@@ -11,6 +11,7 @@
 
 @interface AddReview : JSONModel
 @property (nonatomic, strong) NSNumber *courseId;
+@property (nonatomic, strong) NSNumber *bookingId;
 @property (nonatomic, strong) NSNumber *star;
 @property (nonatomic, strong) NSNumber *teacher;
 @property (nonatomic, strong) NSNumber *enviroment;

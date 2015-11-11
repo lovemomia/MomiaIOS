@@ -18,9 +18,7 @@
 #import "CoursePoiCell.h"
 #import "CourseBookCell.h"
 #import "CourseTeacherCell.h"
-
-#import "FeedUserHeadCell.h"
-#import "FeedContentCell.h"
+#import "ReviewListItemCell.h"
 
 #import "NSString+MOURLEncode.h"
 
@@ -31,6 +29,7 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
 static NSString *identifierCoursePoiCell = @"CoursePoiCell";
 static NSString *identifierCourseBookCell = @"CourseBookCell";
 static NSString *identifierCourseTeacherCell = @"CourseTeacherCell";
+static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
 
 typedef enum {
     CellCourseListItem,
@@ -102,6 +101,7 @@ typedef enum {
     [CourseBookCell registerCellFromClassWithTableView:self.tableView withIdentifier:identifierCourseBookCell];
     [CourseTeacherCell registerCellFromClassWithTableView:self.tableView withIdentifier:identifierCourseTeacherCell];
     [CourseDiscCell registerCellFromClassWithTableView:self.tableView withIdentifier:identifierCourseDiscCell];
+    [ReviewListItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierReviewListItemCell];
     
     [self requestData:YES];
 }
@@ -170,6 +170,9 @@ typedef enum {
         NSString *url = [NSString stringWithFormat:@"http://%@/course/detail/app?id=%@", MO_DEBUG ? @"m.momia.cn" : @"m.sogokids.com", self.ids];
         [self openURL:[NSString stringWithFormat:@"duola://web?url=%@", [url URLEncodedString]]];
         
+    } else if (type == CellTitleComment) {
+        [self openURL:[NSString stringWithFormat:@"duola://reviewlist?courseId=%@", self.ids]];
+        
     } else if (type == CellTitleOrg) {
         NSString *url = [NSString stringWithFormat:@"http://%@/institution/detail/app?id=%@", MO_DEBUG ? @"m.momia.cn" : @"m.sogokids.com", self.ids];
         [self openURL:[NSString stringWithFormat:@"duola://web?url=%@", [url URLEncodedString]]];
@@ -204,12 +207,12 @@ typedef enum {
     if (section == num) {
         return row == 0 ? CellTitleFlow : CellFlow;
     }
-    if (self.model.data.homework) {
-        num++;
-        if (section == num) {
-            return row == 0 ? CellTitleHomework : CellHomework;
-        }
-    }
+//    if (self.model.data.homework) {
+//        num++;
+//        if (section == num) {
+//            return row == 0 ? CellTitleHomework : CellHomework;
+//        }
+//    }
     if (self.model.data.comments) {
         num++;
         if (section == num) {
@@ -243,9 +246,9 @@ typedef enum {
         if (self.model.data.book) {
             num++;
         }
-        if (self.model.data.homework) {
-            num++;
-        }
+//        if (self.model.data.homework) {
+//            num++;
+//        }
         if (self.model.data.comments) {
             num++;
         }
@@ -271,16 +274,16 @@ typedef enum {
     if (self.model.data.book) {
         num++;
     }
-    if (self.model.data.homework) {
-        num++;
-        if (section == 4 + num) {
-            return 3;
-        }
-    }
+//    if (self.model.data.homework) {
+//        num++;
+//        if (section == 4 + num) {
+//            return 3;
+//        }
+//    }
     if (self.model.data.comments) {
         num++;
         if (section == 4 + num) {
-            return 3;
+            return 1 + self.model.data.comments.list.count;
         }
     }
     return 2;
@@ -352,6 +355,20 @@ typedef enum {
         CourseDiscCell *discCell = [CourseDiscCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseDiscCell];
         discCell.data = self.model.data.flow;
         cell = discCell;
+        cell.selectionStyle = UITableViewCellSeparatorStyleNone;
+        
+    } else if (type == CellTitleComment) {
+        CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
+        titleCell.titleLabel.text = [NSString stringWithFormat:@"用户点评（%@）", self.model.data.comments.totalCount];
+        cell = titleCell;
+        titleCell.subTitleLabel.text = @"更多";
+        titleCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;
+        
+    } else if (type == CellComment) {
+        ReviewListItemCell *reviewCell = [ReviewListItemCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:identifierReviewListItemCell];
+        [reviewCell setData:self.model.data.comments.list[indexPath.row - 1]];
+        cell = reviewCell;
         cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         
     } else if (type == CellTitleTeacher) {
@@ -429,6 +446,12 @@ typedef enum {
         
     } else if (type == CellFlow) {
         return [CourseDiscCell heightWithTableView:tableView withIdentifier:identifierCourseDiscCell forIndexPath:indexPath data:self.model.data.flow];
+        
+    } else if (type == CellTitleComment) {
+        return [CourseSectionTitleCell heightWithTableView:tableView withIdentifier:identifierCourseSectionTitleCell forIndexPath:indexPath data:nil];
+        
+    } else if (type == CellComment) {
+        return [ReviewListItemCell heightWithTableView:tableView withIdentifier:identifierReviewListItemCell forIndexPath:indexPath data:self.model.data.comments.list[indexPath.row - 1]];
         
     } else if (type == CellTitleTeacher) {
         return [CourseSectionTitleCell heightWithTableView:tableView withIdentifier:identifierCourseSectionTitleCell forIndexPath:indexPath data:nil];

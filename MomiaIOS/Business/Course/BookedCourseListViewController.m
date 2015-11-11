@@ -121,7 +121,8 @@ static NSString * identifierCourseListItemCell = @"BookCourseListItemCell";
 }
 
 - (void)onBookBtnClick:(Course *)course {
-    [self openURL:[NSString stringWithFormat:@"duola://addreview?id=%@", course.ids]];
+    [self openURL:[NSString stringWithFormat:@"duola://addreview?id=%@&bookingId=%@", course.ids, course.bookingId]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onBookedChanged:) name:@"onBookedChanged" object:nil];
 }
 
 #pragma mark - tableview delegate & datasource
@@ -169,12 +170,14 @@ static NSString * identifierCourseListItemCell = @"BookCourseListItemCell";
         
     } else {
         BookCourseListItemCell * itemCell = [BookCourseListItemCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseListItemCell];
-        itemCell.data = self.list[indexPath.row];
+        Course *course = self.list[indexPath.row];
+        itemCell.data = course;
         itemCell.delegate = self;
-        if (!self.finish) {
-            itemCell.bookBtn.hidden = YES;
-        } else {
+        if (self.finish && course.commented && ![course.commented boolValue]) {
+            itemCell.bookBtn.hidden = NO;
             [itemCell.bookBtn setTitle:@"评价" forState:UIControlStateNormal];
+        } else {
+            itemCell.bookBtn.hidden = YES;
         }
         
         cell = itemCell;

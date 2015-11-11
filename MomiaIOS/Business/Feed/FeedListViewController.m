@@ -81,6 +81,7 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
     if (refresh) {
         self.nextIndex = [NSNumber numberWithInt:0];
         self.isLoading = NO;
+        [self.view removeEmptyView];
     }
     
     NSDictionary * paramDic = @{@"start":[NSString stringWithFormat:@"%@", self.nextIndex]};

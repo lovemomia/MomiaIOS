@@ -20,7 +20,6 @@
 #import "CoursePoiCell.h"
 #import "CourseBookCell.h"
 #import "CourseTeacherCell.h"
-
 #import "ReviewListItemCell.h"
 
 #import "NSString+MOURLEncode.h"

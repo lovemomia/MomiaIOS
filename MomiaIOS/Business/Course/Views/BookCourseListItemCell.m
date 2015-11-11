@@ -37,6 +37,12 @@
     } else {
         self.placeLabel.text = model.region;
     }
+    if (model.commented && ![model.commented boolValue]) {
+        self.bookBtn.hidden = NO;
+        [self.bookBtn setTitle:@"评价" forState:UIControlStateNormal];
+    } else {
+        self.bookBtn.hidden = YES;
+    }
 }
 
 + (CGFloat)heightWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath data:(id)data {
