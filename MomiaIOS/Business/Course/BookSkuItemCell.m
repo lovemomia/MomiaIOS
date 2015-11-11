@@ -28,6 +28,8 @@
         self.countLabel.text = @"已报满";
     } else if ([data.stock intValue] <= 3) {
         self.countLabel.text = [NSString stringWithFormat:@"仅剩%@个名额", data.stock];
+    } else {
+        self.countLabel.text = @"";
     }
     self.timeLabel.text = data.time;
 }
