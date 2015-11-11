@@ -24,7 +24,12 @@
 - (void)setData:(CourseSku *)data {
     self.titleLabel.text = data.place.name;
     self.addressLabel.text = data.place.address;
-    self.countLabel.text = [NSString stringWithFormat:@"仅剩%@个名额", data.stock];
+    if ([data.stock intValue] == 0) {
+        self.countLabel.text = @"已报满";
+    } else if ([data.stock intValue] <= 3) {
+        self.countLabel.text = [NSString stringWithFormat:@"仅剩%@个名额", data.stock];
+    }
+    self.timeLabel.text = data.time;
 }
 
 @end

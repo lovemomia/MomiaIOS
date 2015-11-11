@@ -50,4 +50,6 @@
 @property (nonatomic, strong) NSString<Optional> *tips; //提示
 @property (nonatomic, strong) NSString<Optional> *institution; //合作机构
 
+@property (nonatomic, strong) NSNumber<Optional> *commented; //是否已评论过
+
 @end

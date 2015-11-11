@@ -20,6 +20,7 @@
 @property (nonatomic, strong) NSNumber *ids;
 @property (nonatomic, strong) CourseSkuPlace *place;
 @property (nonatomic, strong) NSNumber *stock;
+@property (nonatomic, strong) NSString *time;
 @end
 
 @protocol CourseSku <NSObject>

@@ -70,10 +70,10 @@
     [self.view addSubview:self.tabBar];
     self.viewPager.viewPagerDateSource = self;
     self.viewPager.viewPagerDelegate = self;
-    self.tabBar.titles = @[@"一周内", [[StringUtils stringForMonth:month] stringByAppendingString:@"月"], [[StringUtils stringForMonth:nextMonth] stringByAppendingString:@"月"]];
+    self.tabBar.titles = @[[[StringUtils stringForMonth:month] stringByAppendingString:@"月"], [[StringUtils stringForMonth:nextMonth] stringByAppendingString:@"月"]];
     self.viewPager.tabBar = self.tabBar;
     
-    self.tabBar.itemsPerPage = 3;
+    self.tabBar.itemsPerPage = 2;
     self.tabBar.showShadow = NO;
     self.tabBar.textColor = UIColorFromRGB(0x333333);
     self.tabBar.textFont = [UIFont systemFontOfSize:16];
@@ -132,17 +132,18 @@
 }
 
 - (NSInteger)numbersOfPage {
-    return 3;
+    return 2;
 }
 
 - (UIViewController *)viewPager:(LJViewPager *)viewPager controllerAtPage:(NSInteger)page {
+//    if (page == 0) {
+//        NSDictionary * dic = @{@"id":self.ids, @"onlyshow":(self.onlyShow ? @"1" : @"0")};
+//        self.weekController = [[BookSkuListViewController alloc] initWithParams:dic];
+//        self.weekController.delegate = self;
+//        return self.weekController;
+//        
+//    } else
     if (page == 0) {
-        NSDictionary * dic = @{@"id":self.ids, @"onlyshow":(self.onlyShow ? @"1" : @"0")};
-        self.weekController = [[BookSkuListViewController alloc] initWithParams:dic];
-        self.weekController.delegate = self;
-        return self.weekController;
-        
-    } else if (page == 1) {
         NSDictionary * dic = @{@"id":self.ids, @"month":@(self.month), @"onlyshow":(self.onlyShow ? @"1" : @"0")};
         self.firstMonthController = [[BookSkuListViewController alloc] initWithParams:dic];
         self.firstMonthController.delegate = self;
