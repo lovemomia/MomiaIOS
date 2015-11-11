@@ -155,7 +155,10 @@ static NSString *identifierBookSkuDateTitleCell = @"BookSkuDateTitleCell";
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger row = indexPath.row;
+    DateSkuList * skuList = self.model.data[indexPath.section];
     if(row == 0) {
+        return 46;
+    } else if (row == 3 && !skuList.isShowMore) {
         return 46;
     }
     return 82;
@@ -215,6 +218,9 @@ static NSString *identifierBookSkuDateTitleCell = @"BookSkuDateTitleCell";
     }
     
     CourseSku *sku = skuList.skus[row - 1];
+    if ([sku.stock intValue] <= 0) {
+        return;
+    }
     if (self.delegate) {
         [self.delegate onSkuSelect:sku inController:self];
         self.selectSection = section;

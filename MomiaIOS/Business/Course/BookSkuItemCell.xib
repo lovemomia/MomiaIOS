@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hPE-k9-QpM">
-                        <rect key="frame" x="73" y="95" width="60" height="33"/>
+                        <rect key="frame" x="48" y="-82" width="33" height="89"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bbbb" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TS9-Xr-ds7">
@@ -36,8 +36,8 @@
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHx-JI-8gc">
-                        <rect key="frame" x="310" y="61.5" width="0.0" height="0.0"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHx-JI-8gc">
+                        <rect key="frame" x="44" y="60.5" width="14" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.96470588239999999" green="0.45882352939999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -46,12 +46,13 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="D8m-w3-1UC" secondAttribute="trailing" constant="10" id="6K7-PK-9P2"/>
                     <constraint firstItem="D8m-w3-1UC" firstAttribute="leading" secondItem="aSd-ZE-hD9" secondAttribute="leading" constant="10" id="6KT-2R-OIH"/>
-                    <constraint firstItem="fHx-JI-8gc" firstAttribute="top" secondItem="D8m-w3-1UC" secondAttribute="bottom" constant="10" id="92L-KN-WN6"/>
+                    <constraint firstItem="fHx-JI-8gc" firstAttribute="top" secondItem="D8m-w3-1UC" secondAttribute="bottom" constant="9" id="92L-KN-WN6"/>
                     <constraint firstItem="IGV-2R-gMc" firstAttribute="leading" secondItem="aSd-ZE-hD9" secondAttribute="leading" constant="10" id="9ln-PC-Jph"/>
+                    <constraint firstItem="fHx-JI-8gc" firstAttribute="leading" secondItem="IGV-2R-gMc" secondAttribute="trailing" constant="15" id="JjJ-lR-YUd"/>
                     <constraint firstAttribute="trailing" secondItem="TS9-Xr-ds7" secondAttribute="trailing" constant="10" id="XOP-Mz-4N9"/>
                     <constraint firstItem="TS9-Xr-ds7" firstAttribute="leading" secondItem="aSd-ZE-hD9" secondAttribute="leading" constant="10" id="diA-XU-idz"/>
                     <constraint firstItem="IGV-2R-gMc" firstAttribute="top" secondItem="D8m-w3-1UC" secondAttribute="bottom" constant="9" id="ffV-WH-e13"/>
-                    <constraint firstAttribute="trailing" secondItem="fHx-JI-8gc" secondAttribute="trailing" constant="10" id="jnj-BO-20V"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fHx-JI-8gc" secondAttribute="trailing" constant="10" id="jnj-BO-20V"/>
                     <constraint firstItem="D8m-w3-1UC" firstAttribute="top" secondItem="TS9-Xr-ds7" secondAttribute="bottom" constant="9" id="p56-vE-8Wo"/>
                     <constraint firstItem="TS9-Xr-ds7" firstAttribute="top" secondItem="aSd-ZE-hD9" secondAttribute="top" constant="10" id="q7r-sJ-0DD"/>
                 </constraints>
@@ -62,7 +63,7 @@
                 <outlet property="timeLabel" destination="IGV-2R-gMc" id="Gc5-oI-TlL"/>
                 <outlet property="titleLabel" destination="TS9-Xr-ds7" id="M4F-Jc-xVn"/>
             </connections>
-            <point key="canvasLocation" x="214" y="181.125"/>
+            <point key="canvasLocation" x="214" y="181"/>
         </tableViewCell>
     </objects>
 </document>
