@@ -80,7 +80,7 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
     
     NSDictionary * params = @{@"oid":[NSString stringWithFormat:@"%ld", (long)self.order.data.orderId],
                               @"coupon":[NSString stringWithFormat:@"%@", self.coupon.ids]};
-    [[HttpService defaultService]GET:URL_APPEND_PATH(@"/coupon")
+    [[HttpService defaultService]GET:URL_APPEND_PATH(@"/subject/order/coupon")
                           parameters:params cacheType:CacheTypeDisable JSONModelClass:[CouponPriceModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -101,8 +101,6 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
     if (self.order.data.totalFee == 0.0f || (self.couponPrice && self.couponPrice.data == 0.0f)) {
         NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
         [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.orderId] forKey:@"oid"];
-//        [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.productId] forKey:@"pid"];
-//        [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.skuId] forKey:@"sid"];
         [dic setValue:self.coupon.ids forKey:@"coupon"];
         [dic setValue:@"1" forKey:@"free"];
         PayResultViewController *payResult = [[PayResultViewController alloc]initWithParams:dic];
@@ -247,7 +245,7 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
     if(section == 0) {
         return 2;
     } else if(section == 1) {
-        return 1;
+        return 2;
     } else {
         return self.payChannels.count;
     }
@@ -333,21 +331,20 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
                 }
             }
         } else if (section == 1) {
-//            if (row == 0) {
-//                cell.textLabel.text = @"红包";
-//                if (self.order) {
-//                    cell.detailTextLabel.textColor = MO_APP_ThemeColor;
-//                    if (self.coupon) {
-//                        cell.detailTextLabel.text = [NSString stringWithFormat:@"减￥%@", self.coupon.discount];
-//                        
-//                    } else {
-//                        cell.detailTextLabel.text = @"使用红包";
-//                    }
-//                }
-//                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//                
-//            } else
             if (row == 0) {
+                cell.textLabel.text = @"红包";
+                if (self.order) {
+                    cell.detailTextLabel.textColor = MO_APP_ThemeColor;
+                    if (self.coupon) {
+                        cell.detailTextLabel.text = [NSString stringWithFormat:@"减￥%@", self.coupon.discount];
+                        
+                    } else {
+                        cell.detailTextLabel.text = @"使用红包";
+                    }
+                }
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                
+            } else if (row == 1) {
                 cell.textLabel.text = @"还需支付";
                 if (self.couponPrice) {
                     cell.detailTextLabel.text = [NSString stringWithFormat:@"￥%@", [StringUtils stringForPrice:self.couponPrice.data]];

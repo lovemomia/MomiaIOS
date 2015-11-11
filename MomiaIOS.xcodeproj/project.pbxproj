@@ -300,6 +300,8 @@
 		BCA273211AE9FB78002E7534 /* NSURL+MOURL.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273201AE9FB78002E7534 /* NSURL+MOURL.m */; };
 		BCA273241AEB166E002E7534 /* MONavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273231AEB166E002E7534 /* MONavigationController.m */; };
 		BCA273271AEB1EBA002E7534 /* MineInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */; };
+		BCBB16BD1BF3374900E273AF /* CommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBB16BB1BF3374900E273AF /* CommonTableViewCell.m */; };
+		BCBB16BE1BF3374A00E273AF /* CommonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCBB16BC1BF3374900E273AF /* CommonTableViewCell.xib */; };
 		BCCDC6EA1BBA9661007C2F57 /* CourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCDC6E81BBA9661007C2F57 /* CourseDetailViewController.m */; };
 		BCCDF6571B0B1EC0008BAE12 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCDF6561B0B1EC0008BAE12 /* QuartzCore.framework */; };
 		BCCDF6591B0B1ECC008BAE12 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCDF6581B0B1ECB008BAE12 /* CoreTelephony.framework */; };
@@ -894,6 +896,9 @@
 		BCA273221AEB166E002E7534 /* MONavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MONavigationController.h; path = Common/Base/MONavigationController.h; sourceTree = "<group>"; };
 		BCA273231AEB166E002E7534 /* MONavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MONavigationController.m; path = Common/Base/MONavigationController.m; sourceTree = "<group>"; };
 		BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MineInfoCell.xib; path = Business/Mine/Views/MineInfoCell.xib; sourceTree = "<group>"; };
+		BCBB16BA1BF3374900E273AF /* CommonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonTableViewCell.h; path = Common/Views/CommonTableViewCell.h; sourceTree = "<group>"; };
+		BCBB16BB1BF3374900E273AF /* CommonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonTableViewCell.m; path = Common/Views/CommonTableViewCell.m; sourceTree = "<group>"; };
+		BCBB16BC1BF3374900E273AF /* CommonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommonTableViewCell.xib; path = Common/Views/CommonTableViewCell.xib; sourceTree = "<group>"; };
 		BCCDC6E71BBA9661007C2F57 /* CourseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseDetailViewController.h; path = Business/Course/CourseDetailViewController.h; sourceTree = "<group>"; };
 		BCCDC6E81BBA9661007C2F57 /* CourseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseDetailViewController.m; path = Business/Course/CourseDetailViewController.m; sourceTree = "<group>"; };
 		BCCDF6561B0B1EC0008BAE12 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1400,6 +1405,9 @@
 				BC7CBADD1B662E590047211D /* MOTagLabel.m */,
 				BC1052871BB1530200D81C15 /* Toast.h */,
 				BC1052881BB1530200D81C15 /* Toast.m */,
+				BCBB16BA1BF3374900E273AF /* CommonTableViewCell.h */,
+				BCBB16BB1BF3374900E273AF /* CommonTableViewCell.m */,
+				BCBB16BC1BF3374900E273AF /* CommonTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2421,6 +2429,7 @@
 				BC3599FD1BC61F0C002DE863 /* MLSelectPhoto.bundle in Resources */,
 				BC0BD7031B55173800B95B3A /* CouponListItemCell.xib in Resources */,
 				5A6806F51B01CEF700D02A60 /* PersonLogoCell.xib in Resources */,
+				BCBB16BE1BF3374A00E273AF /* CommonTableViewCell.xib in Resources */,
 				BC8254381B3AB01E00430A6F /* RegisterCell.xib in Resources */,
 				BC7737921BCF91CA00987B22 /* SubjectOrderFillViewController.xib in Resources */,
 				BCF564D71B48E1E7003A2227 /* OrderListItemCell.xib in Resources */,
@@ -2566,6 +2575,7 @@
 				5A1B35E81B12BBAC00E1D31B /* CommentModel.m in Sources */,
 				BC0EC2981B5E1F5300D9A82F /* CacheService.m in Sources */,
 				BC5063971B5385FD00AA233C /* MONetworkPhotoView.m in Sources */,
+				BCBB16BD1BF3374900E273AF /* CommonTableViewCell.m in Sources */,
 				BC359A2A1BC61F3B002DE863 /* SGBaseMenu.m in Sources */,
 				BC77377F1BCE436A00987B22 /* CourseBookCell.m in Sources */,
 				BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */,

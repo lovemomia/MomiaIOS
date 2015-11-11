@@ -16,6 +16,7 @@
 @property (nonatomic, assign) CGFloat price;
 @property (nonatomic, strong) NSString *desc;
 @property (nonatomic, strong) NSNumber<Optional> *count;
+@property (nonatomic, strong) NSNumber<Optional> *limit;
 @end
 
 @interface Contact : JSONModel

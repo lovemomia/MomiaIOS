@@ -233,6 +233,11 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
             sku.count = [NSNumber numberWithInteger:currentValue];
             [self refreshTotalPrice];
         };
+        if ([sku.limit intValue] > 0) {
+            skuItemCell.stepperView.maxValue = [sku.limit intValue];
+        } else {
+            skuItemCell.stepperView.maxValue = NSIntegerMax;
+        }
         cell = skuItemCell;
         
     } else {

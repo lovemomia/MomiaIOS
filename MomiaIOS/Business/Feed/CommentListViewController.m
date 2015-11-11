@@ -11,6 +11,7 @@
 #import "FeedCommentListModel.h"
 #import "AddCommentViewController.h"
 #import "MONavigationController.h"
+#import "MJRefreshHelper.h"
 
 static NSString *identifierFeedCommentCell = @"FeedCommentCell";
 
@@ -40,6 +41,10 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
     [FeedCommentCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierFeedCommentCell];
     
     self.list = [NSMutableArray new];
+    
+    // 设置下拉刷新
+    self.tableView.header = [MJRefreshHelper createGifHeaderWithRefreshingTarget:self refreshingAction:@selector(requestData)];
+    
     [self requestData:YES];
 }
 
@@ -57,6 +62,10 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
     
     MONavigationController *navController = [[MONavigationController alloc]initWithRootViewController:controller];
     [self presentViewController:navController animated:YES completion:nil];
+}
+
+- (void)requestData {
+    [self requestData:YES];
 }
 
 - (void)requestData:(BOOL)refresh {
@@ -101,6 +110,7 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
                                                      }
                                                      [self.tableView reloadData];
                                                      self.isLoading = NO;
+                                                     [self.tableView.header endRefreshing];
                                                      
                                                  }
                          
@@ -110,6 +120,7 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
                                                      }
                                                      [self showDialogWithTitle:nil message:error.message];
                                                      self.isLoading = NO;
+                                                     [self.tableView.header endRefreshing];
                                                  }];
 }
 

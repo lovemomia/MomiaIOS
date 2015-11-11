@@ -9,6 +9,7 @@
 #import "MineViewController.h"
 #import "FeedbackViewController.h"
 #import "Child.h"
+#import "CommonTableViewCell.h"
 
 @interface MineViewController ()
 
@@ -78,7 +79,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 4;
+    return 5;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -106,21 +107,15 @@
             break;
         case 2:
             if (row == 0) {
-                [self openURL:@"duola://myorderlist"];
+                [self openURL:@"duola://myfeedlist"];
             }
             break;
         case 3:
             if(row == 0) {
-                [self openURL:@"duola://feedback"];
-                
+                [self openURL:@"duola://myorderlist"];
             } else {
-                [self openURL:@"duola://setting"];
+                [self openURL:@"duola://couponlist?status=1"];
             }
-//            if(row == 0) {
-//                [self openURL:@"duola://myorderlist"];
-//            } else {
-//                [self openURL:@"duola://couponlist?status=1"];
-//            }
             break;
         case 4:
             if(row == 0) {
@@ -142,7 +137,7 @@
     NSInteger row = indexPath.row;
     static NSString *CellUser = @"CellUser";
     static NSString *CellLogin = @"CellLogin";
-    static NSString *CellInfo = @"InfoCell";
+    static NSString *CellCommon = @"CommonTableViewCell";
     UITableViewCell *cell;
     if (section == 0) {
         if ([[AccountService defaultService] isLogin]) {
@@ -182,56 +177,48 @@
         
         
     } else {
-        cell = [tableView dequeueReusableCellWithIdentifier:CellInfo];
+        cell = [tableView dequeueReusableCellWithIdentifier:CellCommon];
         if (cell == nil) {
-            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellInfo];
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"CommonTableViewCell" owner:self options:nil];
+            cell = [arr objectAtIndex:0];
         }
-        
-        cell.textLabel.textColor = UIColorFromRGB(0x333333);
-        cell.textLabel.font = [UIFont systemFontOfSize: 16.0];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        CommonTableViewCell *commonCell = (CommonTableViewCell *)cell;
+//        cell.textLabel.textColor = UIColorFromRGB(0x333333);
+//        cell.textLabel.font = [UIFont systemFontOfSize: 16.0];
         
         switch (section) {
             case 1:
                 if (row == 0) {
-                    cell.textLabel.text = @"已选课程";
-                    cell.imageView.image = [UIImage imageNamed:@"IconBooked"];
+                    commonCell.titleLabel.text = @"已选课程";
+                    commonCell.iconIv.image = [UIImage imageNamed:@"IconBooked"];
                 } else {
-                    cell.textLabel.text = @"待选课程";
-                    cell.imageView.image = [UIImage imageNamed:@"IconBooking"];
+                    commonCell.titleLabel.text = @"待选课程";
+                    commonCell.iconIv.image = [UIImage imageNamed:@"IconBooking"];
                 }
                 break;
             case 2:
                 if (row == 0) {
-                    cell.textLabel.text = @"我的订单";
-                    cell.imageView.image = [UIImage imageNamed:@"IconOrder"];
+                    commonCell.titleLabel.text = @"成长说";
+                    commonCell.iconIv.image = [UIImage imageNamed:@"IconFeed"];
                 }
                 break;
             case 3:
-//                if (row == 0) {
-//                    cell.textLabel.text = @"我的订单";
-//                    cell.imageView.image = [UIImage imageNamed:@"IconOrder"];
-//                } else {
-//                    cell.textLabel.text = @"我的红包";
-//                    cell.imageView.image = [UIImage imageNamed:@"IconCoupon"];
-//                }
                 if (row == 0) {
-                    cell.textLabel.text = @"意见反馈";
-                    cell.imageView.image = [UIImage imageNamed:@"IconFeedback"];
-                    
+                    commonCell.titleLabel.text = @"我的订单";
+                    commonCell.iconIv.image = [UIImage imageNamed:@"IconOrder"];
                 } else {
-                    cell.textLabel.text = @"设置";
-                    cell.imageView.image = [UIImage imageNamed:@"IconSetting"];
-                }
-                break;
+                    commonCell.titleLabel.text = @"我的红包";
+                    commonCell.iconIv.image = [UIImage imageNamed:@"IconCoupon"];
+                }                break;
             case 4:
                 if (row == 0) {
-                    cell.textLabel.text = @"意见反馈";
-                    cell.imageView.image = [UIImage imageNamed:@"IconFeedback"];
+                    commonCell.titleLabel.text = @"意见反馈";
+                    commonCell.iconIv.image = [UIImage imageNamed:@"IconFeedback"];
                     
                 } else {
-                    cell.textLabel.text = @"设置";
-                    cell.imageView.image = [UIImage imageNamed:@"IconSetting"];
+                    commonCell.titleLabel.text = @"设置";
+                    commonCell.iconIv.image = [UIImage imageNamed:@"IconSetting"];
                 }
                 break;
             default:

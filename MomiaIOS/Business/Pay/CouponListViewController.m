@@ -153,6 +153,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (self.select) {
+        return 0.1;
+    }
     if ([self.status isEqualToString:@"1"] && self.totalCount > 0) {
         return 60;
     }
@@ -160,6 +163,9 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    if (self.select) {
+        return nil;
+    }
     if ([self.status isEqualToString:@"1"] && self.totalCount > 0) {
         UITableViewHeaderFooterView *view = [UITableViewHeaderFooterView new];
         view.backgroundView = [UIView new];
