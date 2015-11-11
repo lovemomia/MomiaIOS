@@ -68,7 +68,11 @@
 
 - (void)loadUrl {
     if (self.webView != nil && self.url != nil) {
-        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@&_src=iosapp", self.url]]]];
+        BOOL notFound = [self.url rangeOfString:@"?"].location == NSNotFound;
+        NSString *newUrl = [NSString stringWithFormat:(notFound ? @"%@?&_src=iosapp" : @"%@&_src=iosapp"), self.url];
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:newUrl]]];
+        
+        NSLog((notFound ? @"%@?&_src=iosapp" : @"%@&_src=iosapp"), self.url);
     }
 }
 
