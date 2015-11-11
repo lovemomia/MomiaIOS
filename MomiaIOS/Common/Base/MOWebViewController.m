@@ -68,7 +68,7 @@
 
 - (void)loadUrl {
     if (self.webView != nil && self.url != nil) {
-        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]]];
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@&_src=iosapp", self.url]]]];
     }
 }
 
