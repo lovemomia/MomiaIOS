@@ -41,7 +41,7 @@
         
         contentTv = [[UITextView alloc]init];
         contentTv.returnKeyType = UIReturnKeyDone;
-        [contentTv addPlaceHolder:@"说说参加活动的感受吧..."];
+        [contentTv addPlaceHolder:@"说说参加课程的感受吧"];
         contentTv.height = CONTENT_INPUT_HEIGHT - 15;
         contentTv.width = SCREEN_WIDTH - 20;
         contentTv.top = 5;
@@ -63,7 +63,7 @@
     if (self.contentTv == nil) {
         contentTv = [[UITextView alloc]init];
         contentTv.returnKeyType = UIReturnKeyDone;
-        [contentTv addPlaceHolder:@"说说参加活动的感受吧..."];
+        [contentTv addPlaceHolder:@"说说参加课程的感受吧"];
         contentTv.height = CONTENT_INPUT_HEIGHT - 15;
         contentTv.width = SCREEN_WIDTH - 20;
         contentTv.top = 5;

@@ -97,6 +97,8 @@
 
 // 提交
 - (void)submit {
+    [self.contentCell endEditing:YES];
+    
     AddFeed *addFeed = [[AddFeed alloc]init];
     
     addFeed.content = self.contentCell.contentTv.text;
@@ -256,7 +258,7 @@
                 cell.textLabel.font = [UIFont systemFontOfSize: 15.0];
             }
             cell.imageView.image = [UIImage imageNamed:@"IconCourse"];
-            cell.textLabel.text = self.courseTitle ? self.courseTitle : @"选择课程名称";
+            cell.textLabel.text = self.courseTitle ? self.courseTitle : @"课程名称";
             
         } else {
             cell = [tableView dequeueReusableCellWithIdentifier:CellTags];
