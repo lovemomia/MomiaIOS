@@ -107,7 +107,10 @@
             break;
         case 2:
             if (row == 0) {
-                [self openURL:@"duola://myfeedlist"];
+                if ([[AccountService defaultService]isLogin]) {
+                    [self openURL:[NSString stringWithFormat:@"duola://userinfo?uid=%@&me=1", [AccountService defaultService].account.uid]];
+                }
+                
             }
             break;
         case 3:

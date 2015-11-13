@@ -18,4 +18,6 @@
 
 - (NSMutableDictionary *)toNSDictionary;
 
+- (NSString *)ageWithDateOfBirth;
+
 @end

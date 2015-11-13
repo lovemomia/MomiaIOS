@@ -11,6 +11,12 @@
 
 @implementation Account
 
++ (JSONKeyMapper *)keyMapper {
+    return [[JSONKeyMapper alloc] initWithDictionary:@{
+                                                       @"id":@"uid"
+                                                       }];
+}
+
 - (void)setToken:(NSString *)token {
     if (token.length > 0) {
         _token = token;
@@ -92,6 +98,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)encoder//编码
 {
+    [encoder encodeObject:self.uid forKey:@"uid"];
     [encoder encodeObject:self.token forKey:@"token"];
     [encoder encodeObject:self.address forKey:@"address"];
     [encoder encodeObject:self.avatar forKey:@"avatar"];
@@ -110,6 +117,7 @@
     self = [super init];
     if (self)
     {
+        self.uid = [decoder decodeObjectForKey:@"uid"];
         self.token = [decoder decodeObjectForKey:@"token"];
         self.address = [decoder decodeObjectForKey:@"address"];
         self.avatar = [decoder decodeObjectForKey:@"avatar"];
@@ -143,40 +151,7 @@
     
     Child *child = [self getBigChild];
     
-    NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
-    [inputFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate* date = [inputFormatter dateFromString:child.birthday];
-    
-    // 出生日期转换 年月日
-    NSDateComponents *components1 = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:date];
-    NSInteger brithDateYear  = [components1 year];
-    NSInteger brithDateDay   = [components1 day];
-    NSInteger brithDateMonth = [components1 month];
-    
-    // 获取系统当前 年月日
-    NSDateComponents *components2 = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:[NSDate date]];
-    NSInteger currentDateYear  = [components2 year];
-    NSInteger currentDateDay   = [components2 day];
-    NSInteger currentDateMonth = [components2 month];
-    
-    // 几岁
-    NSInteger iAge = currentDateYear - brithDateYear - 1;
-    if ((currentDateMonth > brithDateMonth) || (currentDateMonth == brithDateMonth && currentDateDay >= brithDateDay)) {
-        iAge++;
-    }
-    
-    if (iAge > 0) {
-        if (iAge == 1 && currentDateMonth < brithDateMonth) {
-            NSInteger month = 12 + currentDateMonth - brithDateMonth;
-            return [NSString stringWithFormat:@"%d个月", (int)month];
-        } else {
-            return [NSString stringWithFormat:@"%d岁", (int)iAge];
-        }
-    }
-    
-    // 几个月
-    NSInteger month = currentDateMonth - brithDateMonth;
-    return [NSString stringWithFormat:@"%d个月", (int)month];
+    return [child ageWithDateOfBirth];
 }
 
 @end

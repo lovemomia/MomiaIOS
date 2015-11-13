@@ -151,7 +151,7 @@
                 make.bottom.lessThanOrEqualTo(self.contentView).with.offset(-10);
             }];
             label.numberOfLines = 0;
-            label.textColor = MO_APP_ThemeColor;
+            label.textColor = UIColorFromRGB(0x666666);
             label.font = [UIFont systemFontOfSize:12.0f];
             label.text = model.tagName;
         }

@@ -153,7 +153,7 @@
             make.bottom.lessThanOrEqualTo(self.containerView).with.offset(bottomPadding);
         }];
         label.numberOfLines = 0;
-        label.textColor = MO_APP_ThemeColor;
+        label.textColor = UIColorFromRGB(0x666666);
         label.font = [UIFont systemFontOfSize:12.0f];
         label.text = data.courseTitle;
     }

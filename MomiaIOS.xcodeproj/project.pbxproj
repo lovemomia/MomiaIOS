@@ -302,6 +302,11 @@
 		BCA273271AEB1EBA002E7534 /* MineInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */; };
 		BCBB16BD1BF3374900E273AF /* CommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBB16BB1BF3374900E273AF /* CommonTableViewCell.m */; };
 		BCBB16BE1BF3374A00E273AF /* CommonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCBB16BC1BF3374900E273AF /* CommonTableViewCell.xib */; };
+		BCBB16C11BF34B7200E273AF /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBB16C01BF34B7200E273AF /* UserInfoViewController.m */; };
+		BCBB16C51BF5898A00E273AF /* UserInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBB16C31BF5898A00E273AF /* UserInfoHeaderView.m */; };
+		BCBB16C61BF5898A00E273AF /* UserInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCBB16C41BF5898A00E273AF /* UserInfoHeaderView.xib */; };
+		BCBB16C91BF5B8B100E273AF /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBB16C81BF5B8B100E273AF /* UserInfoModel.m */; };
+		BCBB16CC1BF5CC6200E273AF /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBB16CB1BF5CC6200E273AF /* User.m */; };
 		BCCDC6EA1BBA9661007C2F57 /* CourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCDC6E81BBA9661007C2F57 /* CourseDetailViewController.m */; };
 		BCCDF6571B0B1EC0008BAE12 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCDF6561B0B1EC0008BAE12 /* QuartzCore.framework */; };
 		BCCDF6591B0B1ECC008BAE12 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCDF6581B0B1ECB008BAE12 /* CoreTelephony.framework */; };
@@ -899,6 +904,15 @@
 		BCBB16BA1BF3374900E273AF /* CommonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonTableViewCell.h; path = Common/Views/CommonTableViewCell.h; sourceTree = "<group>"; };
 		BCBB16BB1BF3374900E273AF /* CommonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonTableViewCell.m; path = Common/Views/CommonTableViewCell.m; sourceTree = "<group>"; };
 		BCBB16BC1BF3374900E273AF /* CommonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommonTableViewCell.xib; path = Common/Views/CommonTableViewCell.xib; sourceTree = "<group>"; };
+		BCBB16BF1BF34B7200E273AF /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoViewController.h; path = Business/Mine/UserInfoViewController.h; sourceTree = "<group>"; };
+		BCBB16C01BF34B7200E273AF /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoViewController.m; path = Business/Mine/UserInfoViewController.m; sourceTree = "<group>"; };
+		BCBB16C21BF5898A00E273AF /* UserInfoHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoHeaderView.h; path = Business/Mine/Views/UserInfoHeaderView.h; sourceTree = "<group>"; };
+		BCBB16C31BF5898A00E273AF /* UserInfoHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoHeaderView.m; path = Business/Mine/Views/UserInfoHeaderView.m; sourceTree = "<group>"; };
+		BCBB16C41BF5898A00E273AF /* UserInfoHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserInfoHeaderView.xib; path = Business/Mine/Views/UserInfoHeaderView.xib; sourceTree = "<group>"; };
+		BCBB16C71BF5B8B100E273AF /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoModel.h; path = Common/Models/Mine/UserInfoModel.h; sourceTree = "<group>"; };
+		BCBB16C81BF5B8B100E273AF /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoModel.m; path = Common/Models/Mine/UserInfoModel.m; sourceTree = "<group>"; };
+		BCBB16CA1BF5CC6200E273AF /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Common/Models/User/User.h; sourceTree = "<group>"; };
+		BCBB16CB1BF5CC6200E273AF /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Common/Models/User/User.m; sourceTree = "<group>"; };
 		BCCDC6E71BBA9661007C2F57 /* CourseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseDetailViewController.h; path = Business/Course/CourseDetailViewController.h; sourceTree = "<group>"; };
 		BCCDC6E81BBA9661007C2F57 /* CourseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseDetailViewController.m; path = Business/Course/CourseDetailViewController.m; sourceTree = "<group>"; };
 		BCCDF6561B0B1EC0008BAE12 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1421,6 +1435,8 @@
 				BC2C0C791B141A3D00E2446E /* AccountModel.m */,
 				BCF564CD1B4632A1003A2227 /* Child.h */,
 				BCF564CE1B4632A1003A2227 /* Child.m */,
+				BCBB16CA1BF5CC6200E273AF /* User.h */,
+				BCBB16CB1BF5CC6200E273AF /* User.m */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -1717,6 +1733,8 @@
 			children = (
 				BC41ABAB1B0C7ABF00A419DA /* UploadImageModel.h */,
 				BC41ABAC1B0C7ABF00A419DA /* UploadImageModel.m */,
+				BCBB16C71BF5B8B100E273AF /* UserInfoModel.h */,
+				BCBB16C81BF5B8B100E273AF /* UserInfoModel.m */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -2128,6 +2146,8 @@
 				BCF9DD0C1BDA218B00D8CDC6 /* OrderListViewController.m */,
 				BC66D3BC1B60F24C00A5BFC6 /* MyFavViewController.h */,
 				BC66D3BD1B60F24C00A5BFC6 /* MyFavViewController.m */,
+				BCBB16BF1BF34B7200E273AF /* UserInfoViewController.h */,
+				BCBB16C01BF34B7200E273AF /* UserInfoViewController.m */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -2208,6 +2228,9 @@
 				BC66D3C21B60FBBE00A5BFC6 /* MyFavCell.h */,
 				BC66D3C31B60FBBE00A5BFC6 /* MyFavCell.m */,
 				BC66D3C41B60FBBE00A5BFC6 /* MyFavCell.xib */,
+				BCBB16C21BF5898A00E273AF /* UserInfoHeaderView.h */,
+				BCBB16C31BF5898A00E273AF /* UserInfoHeaderView.m */,
+				BCBB16C41BF5898A00E273AF /* UserInfoHeaderView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2425,6 +2448,7 @@
 				5A6806F01B01A9BD00D02A60 /* SettingMsgCell.xib in Resources */,
 				BC753ED41BAC07D300D2663C /* FeedSuggestHeadCell.xib in Resources */,
 				BCFC9E971BD890FC003D9EA3 /* ico_make.png in Resources */,
+				BCBB16C61BF5898A00E273AF /* UserInfoHeaderView.xib in Resources */,
 				BC5CF2F71BB5275B00EC5227 /* AlipaySDK.bundle in Resources */,
 				BC3599FD1BC61F0C002DE863 /* MLSelectPhoto.bundle in Resources */,
 				BC0BD7031B55173800B95B3A /* CouponListItemCell.xib in Resources */,
@@ -2581,6 +2605,7 @@
 				BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */,
 				BC592BF21BD5F015008AE76A /* BookSkuDateTitleCell.m in Sources */,
 				BC8254331B3A76F500430A6F /* CustomDarkButton.m in Sources */,
+				BCBB16C11BF34B7200E273AF /* UserInfoViewController.m in Sources */,
 				BC040D091BC8ABA900988AB2 /* CourseTagsCell.m in Sources */,
 				BCF9ECA01B4161EE00AEBE1E /* CityManager.m in Sources */,
 				BCF033991B4F72B0005B71D6 /* AlipayOrder.m in Sources */,
@@ -2625,6 +2650,7 @@
 				BC3599F51BC61F0C002DE863 /* MLPhotoPickerImageView.m in Sources */,
 				BC8540911ADF74E9005A7C54 /* main.m in Sources */,
 				BC97DF111B4D463C002B1A00 /* PayCheckModel.m in Sources */,
+				BCBB16C51BF5898A00E273AF /* UserInfoHeaderView.m in Sources */,
 				5A794F941B4E68C900BB3B7C /* OrderDetailModel.m in Sources */,
 				5A8EF03D1B31619E003ABAF8 /* ProductModel.m in Sources */,
 				BC359A1B1BC61F2A002DE863 /* LJViewPager.m in Sources */,
@@ -2664,6 +2690,7 @@
 				BC359A331BC61F68002DE863 /* MCAvatarView.m in Sources */,
 				BC77377B1BCE2C0C00987B22 /* CoursePoiCell.m in Sources */,
 				BC1CC9FA1BA910AF001841E7 /* FeedListModel.m in Sources */,
+				BCBB16C91BF5B8B100E273AF /* UserInfoModel.m in Sources */,
 				BCF564E01B491799003A2227 /* OrderListItemCell.m in Sources */,
 				BCA2731E1AE9FB1D002E7534 /* NSString+MOURLEncode.m in Sources */,
 				BC359A2C1BC61F3B002DE863 /* SGSheetMenu.m in Sources */,
@@ -2691,6 +2718,7 @@
 				BC66D3C51B60FBBE00A5BFC6 /* MyFavCell.m in Sources */,
 				BC1052A01BB2B33700D81C15 /* TopicListViewController.m in Sources */,
 				BCF564C91B43EAB2003A2227 /* UIButton+Block.m in Sources */,
+				BCBB16CC1BF5CC6200E273AF /* User.m in Sources */,
 				BC50639A1B539F0300AA233C /* StringUtils.m in Sources */,
 				BC3599EE1BC61F0C002DE863 /* MLSelectPhotoPickerDatas.m in Sources */,
 				BCF9ECAA1B4171EC00AEBE1E /* CityListViewController.m in Sources */,

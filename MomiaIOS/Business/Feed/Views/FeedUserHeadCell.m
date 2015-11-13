@@ -9,6 +9,10 @@
 #import "FeedUserHeadCell.h"
 #import "Feed.h"
 
+@interface FeedUserHeadCell()
+@property (nonatomic, strong) Feed *feed;
+@end
+
 @implementation FeedUserHeadCell
 
 - (void)awakeFromNib {
@@ -24,6 +28,7 @@
 }
 
 -(void)setData:(Feed *)data {
+    self.feed = data;
     [self.avatarIv sd_setImageWithURL:[NSURL URLWithString:data.avatar] placeholderImage:[UIImage imageNamed:@"IconAvatarDefault"]];
     self.nameLabel.text = data.nickName;
     self.dateLabel.text = data.addTime;
@@ -35,6 +40,7 @@
         }
         self.descLabel.text = ms;
     }
+    
 }
 
 @end

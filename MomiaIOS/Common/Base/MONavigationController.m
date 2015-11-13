@@ -88,6 +88,7 @@
     [self.navigationBar setBackgroundImage:[UIImage imageWithColor:MO_APP_ThemeColor size:CGSizeMake(SCREEN_WIDTH, 64)] forBarMetrics:UIBarMetricsDefault];
     self.navigationBar.shadowImage = [UIImage imageWithColor:[UIColor clearColor] size:CGSizeMake(1, 1)];
     self.navigationBar.translucent = NO;
+    self.view.backgroundColor = [UIColor whiteColor];
     
     // shadow
 //    [((AppDelegate *)[UIApplication sharedApplication].delegate) setTitleShadow:[UIImage imageNamed:@"BgTitleShadow"] aboveSubview:self.navigationBar];
@@ -103,6 +104,7 @@
     [self.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(SCREEN_WIDTH, 64)] forBarMetrics:UIBarMetricsDefault];
     self.navigationBar.shadowImage = [UIImage imageWithColor:[UIColor clearColor] size:CGSizeMake(1, 1)];
     self.navigationBar.translucent = NO;
+    self.view.backgroundColor = [UIColor whiteColor];
     
     // shadow
 //    [((AppDelegate *)[UIApplication sharedApplication].delegate) setTitleShadow:[UIImage imageNamed:@"BgTitleShadow"] aboveSubview:self.navigationBar];

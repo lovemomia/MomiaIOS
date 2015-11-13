@@ -1,29 +1,29 @@
 //
-//  PlaymateViewController.m
+//  ThirdPersonViewController.m
 //  MomiaIOS
 //
-//  Created by Deng Jun on 15/6/23.
-//  Copyright (c) 2015年 Deng Jun. All rights reserved.
+//  Created by Deng Jun on 15/11/11.
+//  Copyright © 2015年 Deng Jun. All rights reserved.
 //
 
-#import "FeedListViewController.h"
+#import "UserInfoViewController.h"
+#import "UserInfoHeaderView.h"
+#import "UserInfoModel.h"
 
 #import "FeedUserHeadCell.h"
 #import "FeedUgcCell.h"
 #import "FeedContentCell.h"
-#import "FeedSuggestHeadCell.h"
-#import "FeedSuggestUserCell.h"
-#import "FeedListModel.h"
-#import "MJRefreshHelper.h"
 
 static NSString *identifierPlaymateUserHeadCell = @"PlaymateUserHeadCell";
 static NSString *identifierPlaymateUgcCell = @"PlaymateUgcCell";
-static NSString *identifierPlaymateSuggestHeadCell = @"PlaymateSuggestHeadCell";
-static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
 
-@interface FeedListViewController()<FeedUgcCellDelegate>
+@interface UserInfoViewController ()<FeedUgcCellDelegate>
+
+@property (nonatomic, strong) NSNumber *uid;
+@property (nonatomic, assign) BOOL isMe;
 
 @property(nonatomic,strong) NSMutableDictionary * contentCellHeightCacheDic;
+@property (nonatomic, strong) User *user;
 @property (nonatomic, strong) NSMutableArray *list;
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, assign) BOOL isEmpty;
@@ -33,40 +33,31 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
 
 @end
 
-@implementation FeedListViewController
+@implementation UserInfoViewController
+
+- (instancetype)initWithParams:(NSDictionary *)params {
+    if (self = [super initWithParams:params]) {
+        self.uid = [params objectForKey:@"uid"];
+        self.isMe = [[params objectForKey:@"me"]boolValue];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    // Do any additional setup after loading the view.
     
-    self.navigationItem.title = @"成长说";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleAdd"] style:UIBarButtonItemStylePlain target:self action:@selector(onAddFeedClick)];
+    self.navigationItem.title = self.isMe ? @"成长说" : @"Ta的";
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18],NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     
     [FeedUserHeadCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierPlaymateUserHeadCell];
     [FeedUgcCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierPlaymateUgcCell];
-    [FeedSuggestHeadCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierPlaymateSuggestHeadCell];
-    [FeedSuggestUserCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierPlaymateSuggestUserCell];
-    
-    // 设置下拉刷新
-    self.tableView.header = [MJRefreshHelper createGifHeaderWithRefreshingTarget:self refreshingAction:@selector(requestData)];
     
     self.list = [NSMutableArray new];
     self.nextIndex = 0;
     [self requestData:true];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDataChanged:) name:@"onDataChanged" object:nil];
-}
-
-- (void)onDataChanged:(NSNotification*)notify {
-    [self.tableView.header beginRefreshing];
-}
-
-- (void)onAddFeedClick {
-    [self openURL:@"duola://addfeed"];
-}
-
-- (void)requestData {
-    [self requestData:YES];
 }
 
 - (void)requestData:(BOOL)refresh {
@@ -84,36 +75,38 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
         [self.view removeEmptyView];
     }
     
-    NSDictionary * paramDic = @{@"start":[NSString stringWithFormat:@"%@", self.nextIndex]};
-    self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/feed")
-                                              parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[FeedListModel class]
+    NSDictionary * paramDic = @{@"uid":self.uid, @"start":[NSString stringWithFormat:@"%@", self.nextIndex]};
+    self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/user/info")
+                                              parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[UserInfoModel class]
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                      if ([self.list count] == 0) {
                                                          [self.view removeLoadingBee];
                                                      }
                                                      
-                                                     FeedListModel *model = (FeedListModel *)responseObject;
-                                                     if (model.data.nextIndex) {
-                                                         self.nextIndex = model.data.nextIndex;
+                                                     UserInfoModel *model = (UserInfoModel *)responseObject;
+                                                     if (model.data.feeds.nextIndex) {
+                                                         self.nextIndex = model.data.feeds.nextIndex;
                                                      } else {
                                                          self.nextIndex = [NSNumber numberWithInt:-1];
                                                      }
                                                      
-                                                     if ([model.data.totalCount isEqualToNumber:[NSNumber numberWithInt:0]]) {
-                                                         [self.view showEmptyView:@"关注玩伴可以看到更多内容~"];
+                                                     if (model.data.user) {
+                                                         self.user = model.data.user;
+                                                     }
+                                                     
+                                                     if ([model.data.feeds.totalCount isEqualToNumber:[NSNumber numberWithInt:0]]) {
+                                                         [self.view showEmptyView:@"Ta还没有成长说哦~"];
                                                          return;
                                                      }
                                                      
                                                      if (refresh) {
                                                          [self.list removeAllObjects];
                                                      }
-                                                     for (Feed *feed in model.data.list) {
+                                                     for (Feed *feed in model.data.feeds.list) {
                                                          [self.list addObject:feed];
                                                      }
                                                      [self.tableView reloadData];
                                                      self.isLoading = NO;
-                                                     
-                                                     [self.tableView.header endRefreshing];
                                                  }
                          
                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -122,9 +115,31 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
                                                      }
                                                      [self showDialogWithTitle:nil message:error.message];
                                                      self.isLoading = NO;
-                                                     [self.tableView.header endRefreshing];
                                                  }];
 }
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)isNavTransparent {
+    return NO;
+}
+
+- (BOOL)isNavDarkStyle {
+    return NO;
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 - (UITableViewStyle)tableViewStyle {
     return UITableViewStyleGrouped;
@@ -171,27 +186,32 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section < self.list.count) {
         Feed *feed = [self.list objectAtIndex:indexPath.section];
-        if ([feed.type intValue] == 1) {
-            if (indexPath.row == 0) {
-                return [FeedUserHeadCell heightWithTableView:tableView withIdentifier:identifierPlaymateUserHeadCell forIndexPath:indexPath data:feed];
-            } else if (indexPath.row == 2) {
-                return [FeedUgcCell heightWithTableView:tableView withIdentifier:identifierPlaymateUgcCell forIndexPath:indexPath data:feed];
-            } else {
-                return [FeedContentCell heightWithTableView:tableView contentModel:feed];
-            }
+        if (indexPath.row == 0) {
+            return [FeedUserHeadCell heightWithTableView:tableView withIdentifier:identifierPlaymateUserHeadCell forIndexPath:indexPath data:feed];
+        } else if (indexPath.row == 2) {
+            return [FeedUgcCell heightWithTableView:tableView withIdentifier:identifierPlaymateUgcCell forIndexPath:indexPath data:feed];
         } else {
-            if (indexPath.row == 0) {
-                return [FeedSuggestHeadCell heightWithTableView:tableView withIdentifier:identifierPlaymateSuggestHeadCell forIndexPath:indexPath data:nil];
-            } else {
-                return [FeedSuggestUserCell heightWithTableView:tableView withIdentifier:identifierPlaymateSuggestUserCell forIndexPath:indexPath data:nil];
-            }
+            return [FeedContentCell heightWithTableView:tableView contentModel:feed];
         }
     }
     return 155;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 0.1;
+    if (section == 0) {
+        return SCREEN_WIDTH * 2 / 3;
+    }
+    return 0.1f;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"UserInfoHeaderView" owner:self options:nil];
+        UserInfoHeaderView *headerView = [arr objectAtIndex:0];
+        [headerView setData:self.user];
+        return headerView;
+    }
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -217,38 +237,24 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
     Feed *feed = [self.list objectAtIndex:indexPath.section];
-    if ([feed.type intValue] == 1) {
-        if (indexPath.row == 0) {
-            FeedUserHeadCell *userHeadCell = [FeedUserHeadCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierPlaymateUserHeadCell];
-            [userHeadCell setData:feed];
-            cell = userHeadCell;
-            
-        } else if (indexPath.row == 1) {
-            FeedContentCell *contentCell = [[FeedContentCell alloc]initWithTableView:tableView contentModel:feed];
-            cell = contentCell;
-            
-        } else {
-            FeedUgcCell *ugcCell = [FeedUgcCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierPlaymateUgcCell];
-            [ugcCell setData:feed];
-            ugcCell.delegate = self;
-            ugcCell.tag = indexPath.section;
-            cell = ugcCell;
-        }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return cell;
+    if (indexPath.row == 0) {
+        FeedUserHeadCell *userHeadCell = [FeedUserHeadCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierPlaymateUserHeadCell];
+        [userHeadCell setData:feed];
+        cell = userHeadCell;
+        
+    } else if (indexPath.row == 1) {
+        FeedContentCell *contentCell = [[FeedContentCell alloc]initWithTableView:tableView contentModel:feed];
+        cell = contentCell;
         
     } else {
-        if (indexPath.row == 0) {
-            FeedSuggestHeadCell *headCell = [FeedSuggestHeadCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierPlaymateSuggestHeadCell];
-            [headCell setData:@""];
-            cell = headCell;
-        } else {
-            FeedSuggestUserCell *userCell = [FeedSuggestUserCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierPlaymateSuggestUserCell];
-            [userCell setData:@""];
-            cell = userCell;
-        }
-        return cell;
+        FeedUgcCell *ugcCell = [FeedUgcCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierPlaymateUgcCell];
+        [ugcCell setData:feed];
+        ugcCell.delegate = self;
+        ugcCell.tag = indexPath.section;
+        cell = ugcCell;
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
 }
 
 #pragma mark - FeedUgcCell delegate
@@ -275,5 +281,7 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
         
     }];
 }
+
+
 
 @end

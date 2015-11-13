@@ -35,7 +35,7 @@
     for (int i = 0; i < data.notice.count; i++) {
         TTTAttributedLabel *title = [TTTAttributedLabel new];
         title.numberOfLines = 0;
-        title.textColor = UIColorFromRGB(0x999999);
+        title.textColor = MO_APP_ThemeColor;
         title.font = [UIFont systemFontOfSize:13];
         title.lineSpacing = 6;
         title.text = ((Notice *)data.notice[i]).title;
@@ -46,7 +46,7 @@
             if (i == 0) {
                 make.top.equalTo(self.contentView).with.offset(10);
             } else {
-                make.top.equalTo(lastView.mas_bottom).with.offset(12);
+                make.top.equalTo(lastView.mas_bottom).with.offset(15);
             }
             make.bottom.lessThanOrEqualTo(self.contentView).with.offset(-10);
         }];

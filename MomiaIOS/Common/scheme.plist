@@ -407,5 +407,14 @@
 		<key>desc</key>
 		<string>Feed选择tag列表</string>
 	</dict>
+	<key>userinfo</key>
+	<dict>
+		<key>controller</key>
+		<string>UserInfoViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>第三人主页</string>
+	</dict>
 </dict>
 </plist>

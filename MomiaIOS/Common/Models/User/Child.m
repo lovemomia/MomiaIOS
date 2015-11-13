@@ -72,4 +72,41 @@
     return dictionary;
 }
 
+- (NSString *)ageWithDateOfBirth {
+    NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
+    [inputFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate* date = [inputFormatter dateFromString:self.birthday];
+    
+    // 出生日期转换 年月日
+    NSDateComponents *components1 = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:date];
+    NSInteger brithDateYear  = [components1 year];
+    NSInteger brithDateDay   = [components1 day];
+    NSInteger brithDateMonth = [components1 month];
+    
+    // 获取系统当前 年月日
+    NSDateComponents *components2 = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:[NSDate date]];
+    NSInteger currentDateYear  = [components2 year];
+    NSInteger currentDateDay   = [components2 day];
+    NSInteger currentDateMonth = [components2 month];
+    
+    // 几岁
+    NSInteger iAge = currentDateYear - brithDateYear - 1;
+    if ((currentDateMonth > brithDateMonth) || (currentDateMonth == brithDateMonth && currentDateDay >= brithDateDay)) {
+        iAge++;
+    }
+    
+    if (iAge > 0) {
+        if (iAge == 1 && currentDateMonth < brithDateMonth) {
+            NSInteger month = 12 + currentDateMonth - brithDateMonth;
+            return [NSString stringWithFormat:@"%d个月", (int)month];
+        } else {
+            return [NSString stringWithFormat:@"%d岁", (int)iAge];
+        }
+    }
+    
+    // 几个月
+    NSInteger month = currentDateMonth - brithDateMonth;
+    return [NSString stringWithFormat:@"%d个月", (int)month];
+}
+
 @end
