@@ -20,4 +20,6 @@
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 
+- (IBAction)onUserInfoClicked:(id)sender;
+
 @end

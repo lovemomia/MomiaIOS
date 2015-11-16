@@ -18,4 +18,6 @@
 
 -(void)setData:(id)data;
 
+- (IBAction)onUserInfoClicked:(id)sender;
+
 @end

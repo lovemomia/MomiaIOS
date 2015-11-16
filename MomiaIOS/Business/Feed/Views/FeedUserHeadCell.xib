@@ -39,14 +39,15 @@
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n96-gm-eEq">
-                        <rect key="frame" x="56" y="209" width="264" height="1"/>
-                        <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVQ-8u-NcT">
-                        <rect key="frame" x="188" y="216" width="1" height="30"/>
-                        <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lEH-pv-BJV">
+                        <rect key="frame" x="0.0" y="0.0" width="143" height="60.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="143" id="75W-T1-dBv"/>
+                        </constraints>
+                        <connections>
+                            <action selector="onUserInfoClicked:" destination="4Zh-Vf-Uz8" eventType="touchUpInside" id="0vE-Iu-7ix"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="bD1-vm-qcS" firstAttribute="leading" secondItem="QD8-5D-cNp" secondAttribute="leading" constant="10" id="0tc-Mn-Reb"/>
@@ -57,19 +58,18 @@
                     <constraint firstAttribute="trailing" secondItem="bUn-7o-e7q" secondAttribute="trailing" constant="8" id="HzW-oG-fHd"/>
                     <constraint firstItem="BJB-Rf-fIi" firstAttribute="top" secondItem="QD8-5D-cNp" secondAttribute="top" constant="16" id="Pvh-8K-sjg"/>
                     <constraint firstItem="aAD-tb-k16" firstAttribute="top" secondItem="QD8-5D-cNp" secondAttribute="top" constant="16" id="R0G-cf-Atc"/>
+                    <constraint firstItem="lEH-pv-BJV" firstAttribute="leading" secondItem="QD8-5D-cNp" secondAttribute="leading" id="VMT-YI-GIk"/>
                     <constraint firstItem="aAD-tb-k16" firstAttribute="leading" secondItem="BJB-Rf-fIi" secondAttribute="trailing" constant="10" id="YTc-Ze-CHd"/>
                     <constraint firstItem="bUn-7o-e7q" firstAttribute="leading" secondItem="bD1-vm-qcS" secondAttribute="trailing" constant="8" id="aJc-u7-BlI"/>
                     <constraint firstItem="aAD-tb-k16" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BJB-Rf-fIi" secondAttribute="trailing" constant="10" id="cmb-Ls-fj2"/>
+                    <constraint firstItem="lEH-pv-BJV" firstAttribute="top" secondItem="QD8-5D-cNp" secondAttribute="top" id="dg4-C3-SNc"/>
                     <constraint firstAttribute="bottom" secondItem="bUn-7o-e7q" secondAttribute="bottom" constant="5" id="drt-DJ-wWS"/>
+                    <constraint firstAttribute="bottom" secondItem="lEH-pv-BJV" secondAttribute="bottom" id="phX-ZR-fbY"/>
                     <constraint firstAttribute="trailing" secondItem="aAD-tb-k16" secondAttribute="trailing" constant="8" id="uVV-LN-uUg"/>
                     <constraint firstItem="bD1-vm-qcS" firstAttribute="top" secondItem="QD8-5D-cNp" secondAttribute="top" constant="15" id="viC-xx-qbC"/>
                     <constraint firstItem="bUn-7o-e7q" firstAttribute="leading" secondItem="bD1-vm-qcS" secondAttribute="trailing" constant="10" id="wJG-xQ-SWL"/>
                 </constraints>
                 <variation key="default">
-                    <mask key="subviews">
-                        <exclude reference="n96-gm-eEq"/>
-                        <exclude reference="WVQ-8u-NcT"/>
-                    </mask>
                     <mask key="constraints">
                         <exclude reference="aJc-u7-BlI"/>
                         <exclude reference="drt-DJ-wWS"/>

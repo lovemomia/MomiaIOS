@@ -43,4 +43,10 @@
     
 }
 
+- (IBAction)onUserInfoClicked:(id)sender {
+    if (self.feed) {
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://userinfo?uid=%@", self.feed.userId]]];
+    }
+}
+
 @end

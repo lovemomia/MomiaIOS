@@ -57,6 +57,16 @@
                         <rect key="frame" x="65" y="64.5" width="245" height="63"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5m-xX-Ccc">
+                        <rect key="frame" x="0.0" y="0.0" width="110" height="65"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="110" id="Jij-54-je6"/>
+                            <constraint firstAttribute="height" constant="65" id="sF1-Ha-zh2"/>
+                        </constraints>
+                        <connections>
+                            <action selector="onUserInfoClicked:" destination="Vm1-71-u6T" eventType="touchUpInside" id="6LO-9j-LnP"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="VB7-ea-rBE" firstAttribute="leading" secondItem="q8z-xG-5jy" secondAttribute="trailing" constant="10" id="22H-FI-wvd"/>
@@ -65,8 +75,10 @@
                     <constraint firstItem="LeE-o3-Bze" firstAttribute="leading" secondItem="7zd-F8-wgs" secondAttribute="trailing" constant="10" id="3F2-YG-OtF"/>
                     <constraint firstItem="VB7-ea-rBE" firstAttribute="leading" secondItem="q8z-xG-5jy" secondAttribute="trailing" constant="8" id="4kZ-FR-lyP"/>
                     <constraint firstAttribute="trailing" secondItem="pnW-fK-n2b" secondAttribute="trailing" constant="10" id="8qq-l6-Jtu"/>
+                    <constraint firstItem="c5m-xX-Ccc" firstAttribute="top" secondItem="Mxu-G6-MbB" secondAttribute="top" id="9Cz-HU-WUn"/>
                     <constraint firstItem="LeE-o3-Bze" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7zd-F8-wgs" secondAttribute="trailing" constant="10" id="ElS-L4-Mex"/>
                     <constraint firstAttribute="trailing" secondItem="LeE-o3-Bze" secondAttribute="trailing" constant="10" id="HYA-ed-Hgo"/>
+                    <constraint firstItem="c5m-xX-Ccc" firstAttribute="leading" secondItem="Mxu-G6-MbB" secondAttribute="leading" id="I1v-rd-AOF"/>
                     <constraint firstAttribute="bottom" secondItem="pnW-fK-n2b" secondAttribute="bottom" constant="10" id="Nij-DV-GY6"/>
                     <constraint firstItem="d1x-RH-Jz9" firstAttribute="leading" secondItem="VB7-ea-rBE" secondAttribute="trailing" constant="17" id="QlV-iL-IGt"/>
                     <constraint firstItem="7zd-F8-wgs" firstAttribute="top" secondItem="Mxu-G6-MbB" secondAttribute="top" constant="16" id="SZf-1X-MuL"/>

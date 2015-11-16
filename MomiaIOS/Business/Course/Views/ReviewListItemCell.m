@@ -176,4 +176,10 @@
     [browser show];
 }
 
+- (IBAction)onUserInfoClicked:(id)sender {
+    if (self.review) {
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://userinfo?uid=%@", self.review.userId]]];
+    }
+}
+
 @end
