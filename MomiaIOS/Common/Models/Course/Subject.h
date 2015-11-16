@@ -29,4 +29,6 @@
 @property (nonatomic, strong) NSString<Optional> *intro;
 @property (nonatomic, strong) NSArray<Notice, Optional> *notice;
 
+@property (nonatomic, strong) NSNumber<Optional> *status;
+
 @end

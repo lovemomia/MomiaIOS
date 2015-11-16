@@ -13,7 +13,6 @@
 @interface CourseBuyCell()
 
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *oldPriceLabel;
 @property (weak, nonatomic) IBOutlet UIButton *buyButton;
 
 @property (nonatomic, strong) Subject *data;
@@ -37,13 +36,13 @@
     _data = data;
     self.priceLabel.text = [StringUtils stringForPrice:data.price];
     
-//    NSString *oldPrice = [StringUtils stringForPrice:data.originalPrice];
-//    NSUInteger length = [oldPrice length] + 1;
-    
-//    NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%@", oldPrice]];
-//    [attri addAttribute:NSStrikethroughStyleAttributeName value:@(NSUnderlinePatternSolid | NSUnderlineStyleSingle) range:NSMakeRange(0, length)];
-//    [attri addAttribute:NSStrikethroughColorAttributeName value:UIColorFromRGB(0x999999) range:NSMakeRange(0, length)];
-//    [self.oldPriceLabel setAttributedText:attri];
+    if ([data.status intValue] == 1) {
+        self.buyButton.enabled = YES;
+        [self.buyButton setTitle:@"立即抢购" forState:UIControlStateNormal];
+    } else {
+        self.buyButton.enabled = NO;
+        [self.buyButton setTitle:@"名额已满" forState:UIControlStateDisabled];
+    }
 }
 
 + (CGFloat)heightWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath data:(id)data {
