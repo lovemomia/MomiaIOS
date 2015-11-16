@@ -10,6 +10,7 @@
 
 static const long kTimeExpire = 300; // 5min
 
+BMKMapManager* _mapManager;
 @interface LocationService()
 @property (nonatomic, strong) NSMutableArray *listeners;
 @property (nonatomic, assign) long cachedTime;
@@ -27,12 +28,38 @@ static const long kTimeExpire = 300; // 5min
     return __service;
 }
 
+#pragma mark - baidu map delegate
+
+- (void)onGetNetworkState:(int)iError
+{
+    if (0 == iError) {
+        NSLog(@"联网成功");
+    }
+    else{
+        NSLog(@"onGetNetworkState %d",iError);
+    }
+    
+}
+
+- (void)onGetPermissionState:(int)iError
+{
+    if (0 == iError) {
+        NSLog(@"授权成功");
+    }
+    else {
+        NSLog(@"onGetPermissionState %d",iError);
+    }
+}
+
 - (BOOL)hasLocation {
     return self.location == nil ? NO : YES;
 }
 
 - (instancetype)init {
     if (self = [super init]) {
+        // 百度地图
+        _mapManager = [[BMKMapManager alloc]init];
+        [_mapManager start:@"dnSVNUqriaNXYqhD6ATZQ2zF" generalDelegate:self];
         _locService = [[BMKLocationService alloc]init];
     }
     return self;
