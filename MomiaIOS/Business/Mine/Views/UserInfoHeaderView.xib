@@ -11,9 +11,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="214"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a8C-xm-aXB">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BgUserInfo" translatesAutoresizingMaskIntoConstraints="NO" id="a8C-xm-aXB">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="214"/>
-                    <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" tag="1001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kh0-qb-Y2d" customClass="AvatarImageView">
                     <rect key="frame" x="130" y="77" width="60" height="60"/>
@@ -56,4 +55,7 @@
             <point key="canvasLocation" x="322" y="315"/>
         </view>
     </objects>
+    <resources>
+        <image name="BgUserInfo" width="160" height="100"/>
+    </resources>
 </document>

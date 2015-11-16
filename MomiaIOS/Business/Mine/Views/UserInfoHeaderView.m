@@ -17,6 +17,7 @@
 }
 
 - (void)setData:(User *)user {
+    self.backIv.image = [UIImage imageNamed:@"BgUserInfo"];
     [self.avatarIv sd_setImageWithURL:[NSURL URLWithString:user.avatar] placeholderImage:[UIImage imageNamed:@"IconAvatarDefault"]];
     self.nameLabel.text = user.nickName;
     
