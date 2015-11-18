@@ -12,11 +12,6 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    [self.statusBtn setBackgroundImage:[UIImage imageNamed:@"IconCouponTagGreen"] forState:UIControlStateNormal];
-    [self.statusBtn setBackgroundImage:[UIImage imageNamed:@"IconCouponTagGray"] forState:UIControlStateDisabled];
-    [self.statusBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.statusBtn setTitleColor:UIColorFromRGB(0x999999) forState:UIControlStateDisabled];
-    self.statusBtn.titleLabel.transform = CGAffineTransformMakeRotation(M_PI * 1.0/4);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -26,14 +21,30 @@
 }
 
 - (void)setData:(Coupon *)coupon {
-    self.discountLabel.text = [NSString stringWithFormat:@"￥%@", coupon.discount];
-    self.titleLabel.text = coupon.title;
-    self.descLabel.text = coupon.desc;
-    self.timeLabel.text = [NSString stringWithFormat:@"%@至%@有效", coupon.startTime, coupon.endTime];
+    self.discountLabel.text = [NSString stringWithFormat:@"%@", coupon.discount];
+    self.descLabel.text = [NSString stringWithFormat:@"使用说明：%@", coupon.desc];
+    self.timeLabel.text = [NSString stringWithFormat:@"有效期：%@", coupon.endTime];
     if (coupon.status == 1) {
-        self.statusBtn.enabled = YES;
-    } else {
-        self.statusBtn.enabled = NO;
+        self.statusIv.hidden = YES;
+        self.backIv.image = [UIImage imageNamed:@"BgCouponGreen"];
+        self.discountLabel.textColor = UIColorFromRGB(0x50D1B7);
+        self.yuanLabel.textColor = UIColorFromRGB(0x50D1B7);
+        
+    } else if (coupon.status == 2) { // 已使用
+        self.statusIv.hidden = NO;
+        self.backIv.image = [UIImage imageNamed:@"BgCouponGray"];
+        self.statusIv.image = [UIImage imageNamed:@"IconCouponUsed"];
+        self.discountLabel.textColor = UIColorFromRGB(0x999999);
+        self.yuanLabel.textColor = UIColorFromRGB(0x999999);
+        
+    } else { // 已过期
+        self.statusIv.hidden = NO;
+        self.backIv.image = [UIImage imageNamed:@"BgCouponGray"];
+        self.statusIv.image = [UIImage imageNamed:@"IconCouponExpired"];
+        self.discountLabel.textColor = UIColorFromRGB(0x999999);
+        self.yuanLabel.textColor = UIColorFromRGB(0x999999);
+        
+        
     }
 }
 

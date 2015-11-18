@@ -54,7 +54,7 @@ static NSString *identifierTopicListCell = @"TopicListCell";
     }
     
     NSDictionary * paramDic = @{@"start":[NSString stringWithFormat:@"%ld", (long)self.nextIndex]};
-    self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/user/course/finished")
+    self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/feed/course/list")
                                               parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[BookedCourseListModel class]
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                      if ([self.list count] == 0) {

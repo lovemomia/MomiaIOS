@@ -12,6 +12,8 @@
 #import "Coupon.h"
 #import "CouponListModel.h"
 
+static NSString *identifierCouponListItemCell = @"CouponListItemCell";
+
 @interface CouponListViewController()
 @property (nonatomic, assign) BOOL select;
 @property (nonatomic, strong) NSString *oid;
@@ -43,12 +45,21 @@
         self.navigationItem.title = @"我的红包";
     }
     
+    if (!self.select) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleGift"] style:UIBarButtonItemStylePlain target:self action:@selector(onGiftClick)];
+    }
+    
+    [CouponListItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierCouponListItemCell];
+    
     self.couponList = [NSMutableArray new];
     [self requestData];
 }
 
+- (void)onGiftClick {
+    [self openURL:@"duola://share"];
+}
+
 - (void)requestData {
-//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     if ([self.couponList count] == 0) {
         [self.view showLoadingBee];
     }
@@ -65,9 +76,9 @@
                                                      self.totalCount = couponListModel.data.totalCount;
                                                      if (self.totalCount == 0) {
                                                          if ([self.status isEqualToString:@"1"]) {
-                                                             [self.view showEmptyView:@"您还没有可用红包，\n邀请伙伴加入可以获得更多红包~"];
+                                                             [self.view showEmptyView:@"您还没有可用红包，\n邀请伙伴加入可以获得更多红包~" tipLogo:[UIImage imageNamed:@"IconEmptyLogo"]];
                                                          } else {
-                                                             [self.view showEmptyView:@"还没有红包哟~"];
+                                                             [self.view showEmptyView:@"还没有红包哟~" tipLogo:[UIImage imageNamed:@"IconEmptyLogo"]];
                                                          }
                                                          return;
                                                      }
@@ -91,7 +102,7 @@
 }
 
 - (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle {
-    return UITableViewCellSeparatorStyleSingleLine;
+    return UITableViewCellSeparatorStyleNone;
 }
 
 #pragma mark - tableview delegate & datasource
@@ -145,10 +156,14 @@
         }
         [(CouponListItemCell *)cell setData:[self.couponList objectAtIndex:indexPath.row]];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row < self.couponList.count) {
+        return [CouponListItemCell heightWithTableView:tableView withIdentifier:identifierCouponListItemCell forIndexPath:indexPath data:nil];
+    }
     return 70;
 }
 
@@ -156,9 +171,9 @@
     if (self.select) {
         return 0.1;
     }
-    if ([self.status isEqualToString:@"1"] && self.totalCount > 0) {
-        return 60;
-    }
+//    if ([self.status isEqualToString:@"1"] && self.totalCount > 0) {
+//        return 60;
+//    }
     return 0.1;
 }
 
@@ -166,25 +181,23 @@
     if (self.select) {
         return nil;
     }
-    if ([self.status isEqualToString:@"1"] && self.totalCount > 0) {
-        UITableViewHeaderFooterView *view = [UITableViewHeaderFooterView new];
-        view.backgroundView = [UIView new];
-        view.backgroundView.backgroundColor = [UIColor clearColor];
-        
-        UIButton *forgetPwBtn = [[UIButton alloc]init];
-        forgetPwBtn.height = 20;
-        forgetPwBtn.width = 80;
-        [forgetPwBtn setTitle:@"过期红包" forState:UIControlStateNormal];
-        forgetPwBtn.titleLabel.font = [UIFont systemFontOfSize: 12.0];
-        forgetPwBtn.left = SCREEN_WIDTH / 2 - 40;
-        forgetPwBtn.top = 15;
-        forgetPwBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-        [forgetPwBtn setTitleColor:UIColorFromRGB(0x0070C0) forState:UIControlStateNormal];
-        [forgetPwBtn addTarget:self action:@selector(onExpireClicked) forControlEvents:UIControlEventTouchUpInside];
-        [view addSubview:forgetPwBtn];
-        
-        return view;
-    }
+//    if ([self.status isEqualToString:@"1"] && self.totalCount > 0) {
+//        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 60)];
+//        
+//        UIButton *forgetPwBtn = [[UIButton alloc]init];
+//        forgetPwBtn.height = 20;
+//        forgetPwBtn.width = 80;
+//        [forgetPwBtn setTitle:@"过期红包" forState:UIControlStateNormal];
+//        forgetPwBtn.titleLabel.font = [UIFont systemFontOfSize: 12.0];
+//        forgetPwBtn.left = SCREEN_WIDTH / 2 - 40;
+//        forgetPwBtn.top = 15;
+//        forgetPwBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+//        [forgetPwBtn setTitleColor:UIColorFromRGB(0x0070C0) forState:UIControlStateNormal];
+//        [forgetPwBtn addTarget:self action:@selector(onExpireClicked) forControlEvents:UIControlEventTouchUpInside];
+//        [view addSubview:forgetPwBtn];
+//        
+//        return view;
+//    }
     return nil;
 }
 

@@ -132,6 +132,8 @@
 		BC2FAA0F1AFCA92D00E2071E /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA0E1AFCA92D00E2071E /* UIView+Frame.m */; };
 		BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA151AFCB2EE00E2071E /* BaseModel.m */; };
 		BC3504921BD0F865009A24B0 /* Subject.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3504911BD0F865009A24B0 /* Subject.m */; };
+		BC3508FB1BFB3A740043D37C /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3508F91BFB3A740043D37C /* ShareViewController.m */; };
+		BC3508FC1BFB3A740043D37C /* ShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3508FA1BFB3A740043D37C /* ShareViewController.xib */; };
 		BC3599B51BC61DD0002DE863 /* SubjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599B31BC61DD0002DE863 /* SubjectDetailViewController.m */; };
 		BC3599BA1BC61ED7002DE863 /* ProductCalendarMonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599B91BC61ED7002DE863 /* ProductCalendarMonthViewController.m */; };
 		BC3599EA1BC61F0C002DE863 /* UIImage+MLTint.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599BF1BC61F0C002DE863 /* UIImage+MLTint.m */; };
@@ -597,6 +599,9 @@
 		BC2FAA151AFCB2EE00E2071E /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseModel.m; path = Common/Models/BaseModel.m; sourceTree = "<group>"; };
 		BC3504901BD0F865009A24B0 /* Subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Subject.h; path = Common/Models/Course/Subject.h; sourceTree = "<group>"; };
 		BC3504911BD0F865009A24B0 /* Subject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Subject.m; path = Common/Models/Course/Subject.m; sourceTree = "<group>"; };
+		BC3508F81BFB3A740043D37C /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShareViewController.h; path = Business/Mine/ShareViewController.h; sourceTree = "<group>"; };
+		BC3508F91BFB3A740043D37C /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShareViewController.m; path = Business/Mine/ShareViewController.m; sourceTree = "<group>"; };
+		BC3508FA1BFB3A740043D37C /* ShareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShareViewController.xib; path = Business/Mine/ShareViewController.xib; sourceTree = "<group>"; };
 		BC3599B21BC61DD0002DE863 /* SubjectDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectDetailViewController.h; path = Business/Course/SubjectDetailViewController.h; sourceTree = "<group>"; };
 		BC3599B31BC61DD0002DE863 /* SubjectDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectDetailViewController.m; path = Business/Course/SubjectDetailViewController.m; sourceTree = "<group>"; };
 		BC3599B81BC61ED7002DE863 /* ProductCalendarMonthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductCalendarMonthViewController.h; path = Business/Home/ProductCalendarMonthViewController.h; sourceTree = "<group>"; };
@@ -2148,6 +2153,9 @@
 				BC66D3BD1B60F24C00A5BFC6 /* MyFavViewController.m */,
 				BCBB16BF1BF34B7200E273AF /* UserInfoViewController.h */,
 				BCBB16C01BF34B7200E273AF /* UserInfoViewController.m */,
+				BC3508F81BFB3A740043D37C /* ShareViewController.h */,
+				BC3508F91BFB3A740043D37C /* ShareViewController.m */,
+				BC3508FA1BFB3A740043D37C /* ShareViewController.xib */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -2500,6 +2508,7 @@
 				BC97DF1C1B4E1DF0002B1A00 /* PayResultViewController.xib in Resources */,
 				5A3C6C731B579F1C006583FB /* ProductCalendarCell.xib in Resources */,
 				BC77379B1BCFAA1500987B22 /* SkuItemCell.xib in Resources */,
+				BC3508FC1BFB3A740043D37C /* ShareViewController.xib in Resources */,
 				5A83074F1B3291430057412A /* CommonHeaderView.xib in Resources */,
 				BCF9DD121BDA3BC000D8CDC6 /* BookCourseListItemCell.xib in Resources */,
 				5A08C13E1B39117100642648 /* ProductDetailCarouselCell.xib in Resources */,
@@ -2704,6 +2713,7 @@
 				BC3599EC1BC61F0C002DE863 /* MLSelectPhotoAssets.m in Sources */,
 				BC3599F41BC61F0C002DE863 /* MLSelectPhotoPickerViewController.m in Sources */,
 				BCF74ABA1BE8982400138C2C /* AddReviewRatingCell.m in Sources */,
+				BC3508FB1BFB3A740043D37C /* ShareViewController.m in Sources */,
 				BC3599F31BC61F0C002DE863 /* MLSelectPhotoPickerGroupViewController.m in Sources */,
 				BC3599B51BC61DD0002DE863 /* SubjectDetailViewController.m in Sources */,
 				5A3DBE5A1B18577900E708AC /* FavouriteModel.m in Sources */,

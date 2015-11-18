@@ -40,7 +40,7 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
     // Do any additional setup after loading the view from its nib.
     
     self.navigationItem.title = @"成长说";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleAdd"] style:UIBarButtonItemStylePlain target:self action:@selector(onAddFeedClick)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleCamera"] style:UIBarButtonItemStylePlain target:self action:@selector(onAddFeedClick)];
     
     [FeedUserHeadCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierPlaymateUserHeadCell];
     [FeedUgcCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierPlaymateUgcCell];
@@ -88,6 +88,7 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
     self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/feed")
                                               parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[FeedListModel class]
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                     [self.tableView.header endRefreshing];
                                                      if ([self.list count] == 0) {
                                                          [self.view removeLoadingBee];
                                                      }
@@ -112,8 +113,6 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
                                                      }
                                                      [self.tableView reloadData];
                                                      self.isLoading = NO;
-                                                     
-                                                     [self.tableView.header endRefreshing];
                                                  }
                          
                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -260,9 +259,11 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
         [[AccountService defaultService] login:self];
     }
     NSDictionary * dic = @{@"id":feed.ids};
-    [[HttpService defaultService] POST:URL_APPEND_PATH(@"/feed/star") parameters:dic JSONModelClass:[BaseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        feed.stared = [NSNumber numberWithBool:YES];
-        feed.starCount = [NSNumber numberWithInt:([feed.starCount intValue] + 1)];
+    BOOL isStared = [feed.stared boolValue];
+    NSString *path = isStared ? @"/feed/unstar" : @"/feed/star";
+    [[HttpService defaultService] POST:URL_APPEND_PATH(path) parameters:dic JSONModelClass:[BaseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        feed.stared = [NSNumber numberWithBool:!isStared];
+        feed.starCount = [NSNumber numberWithInt:(isStared ? ([feed.starCount intValue] - 1) : ([feed.starCount intValue] + 1))];
         [self.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

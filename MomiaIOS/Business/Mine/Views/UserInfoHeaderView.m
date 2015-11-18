@@ -12,12 +12,10 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    self.avatarIv.layer.masksToBounds = YES;
-    self.avatarIv.layer.cornerRadius = self.avatarIv.width / 2;
 }
 
 - (void)setData:(User *)user {
-    self.backIv.image = [UIImage imageNamed:@"BgUserInfo"];
+    [self.backIv sd_setImageWithURL:[NSURL URLWithString:user.cover] placeholderImage:[UIImage imageNamed:@"BgUserInfo"]];
     [self.avatarIv sd_setImageWithURL:[NSURL URLWithString:user.avatar] placeholderImage:[UIImage imageNamed:@"IconAvatarDefault"]];
     self.nameLabel.text = user.nickName;
     
@@ -62,6 +60,8 @@
         lastView = age;
         
         age.textColor = [UIColor whiteColor];
+        age.shadowColor = [UIColor darkGrayColor];
+        age.shadowOffset = CGSizeMake(0, 1);
         age.font = [UIFont systemFontOfSize:12];
         age.text = [child ageWithDateOfBirth];
         CGSize size = [age.text sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:age.font,NSFontAttributeName, nil]];

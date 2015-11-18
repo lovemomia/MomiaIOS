@@ -231,7 +231,7 @@
     }
 }
 
-- (void)showEmptyView:(NSString *)msg {
+- (void)showEmptyView:(NSString *)msg tipLogo:(UIImage *)logo {
     UIView *view = [[UIView alloc] init];
     view.tag = -101;
     
@@ -242,23 +242,23 @@
     label.textAlignment = NSTextAlignmentLeft;
     label.numberOfLines = 0;
     
-    UIImageView *logo = [[UIImageView alloc]init];
-    logo.image = [UIImage imageNamed:@"IconCircleLogo"];
+    UIImageView *logoIv = [[UIImageView alloc]init];
+    logoIv.image = logo;
     
-    [view addSubview:logo];
+    [view addSubview:logoIv];
     [view addSubview:label];
     [self addSubview:view];
     
-    [logo mas_makeConstraints:^(MASConstraintMaker *make) {
+    [logoIv mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@60);
         make.height.equalTo(@60);
         make.left.equalTo(view.mas_left);
         make.centerY.equalTo(view.mas_centerY);
     }];
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(logo.mas_right).offset(10);
+        make.left.equalTo(logoIv.mas_right).offset(10);
         make.right.equalTo(view.mas_right);
-        make.centerY.equalTo(logo.mas_centerY);
+        make.centerY.equalTo(logoIv.mas_centerY);
     }];
     
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -267,6 +267,10 @@
         make.centerX.equalTo(self.mas_centerX);
         make.top.equalTo(self.mas_top).with.offset(100);
     }];
+}
+
+- (void)showEmptyView:(NSString *)msg {
+    [self showEmptyView:msg tipLogo:[UIImage imageNamed:@"IconCircleLogo"]];
 }
 
 - (void)removeEmptyView {

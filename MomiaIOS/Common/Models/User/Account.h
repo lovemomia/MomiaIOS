@@ -25,6 +25,8 @@
 @property (nonatomic, strong) Child<Optional> *bigChild;
 @property (nonatomic, strong) NSArray<Optional> *children;
 
+@property (nonatomic, strong) NSString<Optional> *cover;
+
 - (void)save;
 
 - (void)clear;

@@ -15,7 +15,7 @@
 #import "Child.h"
 #import "PersonChildHeaderCell.h"
 
-@interface PersonInfoViewController ()<UIAlertViewDelegate, DatePickerSheetDelegate, UIActionSheetDelegate>
+@interface PersonInfoViewController ()<UIAlertViewDelegate, DatePickerSheetDelegate>
 
 @property (nonatomic, strong) UITableViewCell *nickCell;
 @property (nonatomic, strong) UITableViewCell *babyAgeCell;

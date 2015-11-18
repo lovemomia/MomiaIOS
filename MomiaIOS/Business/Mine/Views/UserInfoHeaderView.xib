@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="214"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BgUserInfo" translatesAutoresizingMaskIntoConstraints="NO" id="a8C-xm-aXB">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BgUserInfo" translatesAutoresizingMaskIntoConstraints="NO" id="a8C-xm-aXB">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="214"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" tag="1001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kh0-qb-Y2d" customClass="AvatarImageView">
@@ -29,6 +29,8 @@
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
+                    <color key="shadowColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                    <size key="shadowOffset" width="0.0" height="1"/>
                 </label>
             </subviews>
             <constraints>

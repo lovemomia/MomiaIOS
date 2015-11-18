@@ -136,6 +136,8 @@
     if (self.delegate && imageView.tag == -1) {
         [self.delegate onPhotoViewClick:(UIImageView *)(tap.view)];
     }
+
+    [self.contentTv resignFirstResponder];
 }
 
 + (instancetype)cellWithTableView:(UITableView *)tableView {
