@@ -133,7 +133,9 @@
 		BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA151AFCB2EE00E2071E /* BaseModel.m */; };
 		BC3504921BD0F865009A24B0 /* Subject.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3504911BD0F865009A24B0 /* Subject.m */; };
 		BC3508FB1BFB3A740043D37C /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3508F91BFB3A740043D37C /* ShareViewController.m */; };
-		BC3508FC1BFB3A740043D37C /* ShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3508FA1BFB3A740043D37C /* ShareViewController.xib */; };
+		BC3509001BFC4CD40043D37C /* ShareViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3508FE1BFC4CD40043D37C /* ShareViewCell.m */; };
+		BC3509011BFC4CD40043D37C /* ShareViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3508FF1BFC4CD40043D37C /* ShareViewCell.xib */; };
+		BC3509041BFC4FBE0043D37C /* CouponShareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3509031BFC4FBE0043D37C /* CouponShareModel.m */; };
 		BC3599B51BC61DD0002DE863 /* SubjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599B31BC61DD0002DE863 /* SubjectDetailViewController.m */; };
 		BC3599BA1BC61ED7002DE863 /* ProductCalendarMonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599B91BC61ED7002DE863 /* ProductCalendarMonthViewController.m */; };
 		BC3599EA1BC61F0C002DE863 /* UIImage+MLTint.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599BF1BC61F0C002DE863 /* UIImage+MLTint.m */; };
@@ -601,7 +603,11 @@
 		BC3504911BD0F865009A24B0 /* Subject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Subject.m; path = Common/Models/Course/Subject.m; sourceTree = "<group>"; };
 		BC3508F81BFB3A740043D37C /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShareViewController.h; path = Business/Mine/ShareViewController.h; sourceTree = "<group>"; };
 		BC3508F91BFB3A740043D37C /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShareViewController.m; path = Business/Mine/ShareViewController.m; sourceTree = "<group>"; };
-		BC3508FA1BFB3A740043D37C /* ShareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShareViewController.xib; path = Business/Mine/ShareViewController.xib; sourceTree = "<group>"; };
+		BC3508FD1BFC4CD40043D37C /* ShareViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShareViewCell.h; path = Business/Mine/Views/ShareViewCell.h; sourceTree = "<group>"; };
+		BC3508FE1BFC4CD40043D37C /* ShareViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShareViewCell.m; path = Business/Mine/Views/ShareViewCell.m; sourceTree = "<group>"; };
+		BC3508FF1BFC4CD40043D37C /* ShareViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShareViewCell.xib; path = Business/Mine/Views/ShareViewCell.xib; sourceTree = "<group>"; };
+		BC3509021BFC4FBE0043D37C /* CouponShareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CouponShareModel.h; path = Common/Models/Mine/CouponShareModel.h; sourceTree = "<group>"; };
+		BC3509031BFC4FBE0043D37C /* CouponShareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CouponShareModel.m; path = Common/Models/Mine/CouponShareModel.m; sourceTree = "<group>"; };
 		BC3599B21BC61DD0002DE863 /* SubjectDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectDetailViewController.h; path = Business/Course/SubjectDetailViewController.h; sourceTree = "<group>"; };
 		BC3599B31BC61DD0002DE863 /* SubjectDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectDetailViewController.m; path = Business/Course/SubjectDetailViewController.m; sourceTree = "<group>"; };
 		BC3599B81BC61ED7002DE863 /* ProductCalendarMonthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductCalendarMonthViewController.h; path = Business/Home/ProductCalendarMonthViewController.h; sourceTree = "<group>"; };
@@ -1740,6 +1746,8 @@
 				BC41ABAC1B0C7ABF00A419DA /* UploadImageModel.m */,
 				BCBB16C71BF5B8B100E273AF /* UserInfoModel.h */,
 				BCBB16C81BF5B8B100E273AF /* UserInfoModel.m */,
+				BC3509021BFC4FBE0043D37C /* CouponShareModel.h */,
+				BC3509031BFC4FBE0043D37C /* CouponShareModel.m */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -2155,7 +2163,6 @@
 				BCBB16C01BF34B7200E273AF /* UserInfoViewController.m */,
 				BC3508F81BFB3A740043D37C /* ShareViewController.h */,
 				BC3508F91BFB3A740043D37C /* ShareViewController.m */,
-				BC3508FA1BFB3A740043D37C /* ShareViewController.xib */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -2239,6 +2246,9 @@
 				BCBB16C21BF5898A00E273AF /* UserInfoHeaderView.h */,
 				BCBB16C31BF5898A00E273AF /* UserInfoHeaderView.m */,
 				BCBB16C41BF5898A00E273AF /* UserInfoHeaderView.xib */,
+				BC3508FD1BFC4CD40043D37C /* ShareViewCell.h */,
+				BC3508FE1BFC4CD40043D37C /* ShareViewCell.m */,
+				BC3508FF1BFC4CD40043D37C /* ShareViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2508,7 +2518,7 @@
 				BC97DF1C1B4E1DF0002B1A00 /* PayResultViewController.xib in Resources */,
 				5A3C6C731B579F1C006583FB /* ProductCalendarCell.xib in Resources */,
 				BC77379B1BCFAA1500987B22 /* SkuItemCell.xib in Resources */,
-				BC3508FC1BFB3A740043D37C /* ShareViewController.xib in Resources */,
+				BC3509011BFC4CD40043D37C /* ShareViewCell.xib in Resources */,
 				5A83074F1B3291430057412A /* CommonHeaderView.xib in Resources */,
 				BCF9DD121BDA3BC000D8CDC6 /* BookCourseListItemCell.xib in Resources */,
 				5A08C13E1B39117100642648 /* ProductDetailCarouselCell.xib in Resources */,
@@ -2647,6 +2657,7 @@
 				BCF9DD041BD8FB7600D8CDC6 /* CourseBookBrowserViewController.m in Sources */,
 				BC66D3BE1B60F24C00A5BFC6 /* MyFavViewController.m in Sources */,
 				BC359A401BC648BF002DE863 /* PhotoTitleHeaderCell.m in Sources */,
+				BC3509001BFC4CD40043D37C /* ShareViewCell.m in Sources */,
 				BC359A491BC679EF002DE863 /* HomeGridCell.m in Sources */,
 				BC9089821B58983300A8D85B /* MyOrderListViewController.m in Sources */,
 				BC592BDE1BD5D8FB008AE76A /* BookSkuItemCell.m in Sources */,
@@ -2707,6 +2718,7 @@
 				BC97DF1B1B4E1DF0002B1A00 /* PayResultViewController.m in Sources */,
 				BC77376B1BCD0B1200987B22 /* CourseList.m in Sources */,
 				BCF74ACC1BEC98ED00138C2C /* ReviewListViewController.m in Sources */,
+				BC3509041BFC4FBE0043D37C /* CouponShareModel.m in Sources */,
 				BC2E68311BA0129200175E2D /* ConfigModel.m in Sources */,
 				5A9E80D81B4BB2450028AC47 /* PlayFellowModel.m in Sources */,
 				BC2C0C681B131ED500E2446E /* AccountService.m in Sources */,

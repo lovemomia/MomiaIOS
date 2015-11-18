@@ -6,8 +6,8 @@
 //  Copyright © 2015年 Deng Jun. All rights reserved.
 //
 
-#import "MOViewController.h"
+#import "MOTableViewController.h"
 
-@interface ShareViewController : MOViewController
+@interface ShareViewController : MOTableViewController
 
 @end

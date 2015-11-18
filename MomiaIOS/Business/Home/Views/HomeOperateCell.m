@@ -41,6 +41,7 @@ static const int kItemHeight = 76;
             int col = fmod(i, 2);
             CGRect frame = CGRectMake(col * itemWidth, row * kItemHeight, itemWidth, kItemHeight);
             UIView *container = [[UIView alloc]initWithFrame:frame];
+            container.tag = i;
             UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onItemClicked:)];
             [container addGestureRecognizer:singleTap];
             
