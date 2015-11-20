@@ -43,7 +43,7 @@
 
 - (void)setData:(Review *)data {
     self.review = data;
-    [self.avatarIv sd_setImageWithURL:[NSURL URLWithString:data.avatar]];
+    [self.avatarIv sd_setImageWithURL:[NSURL URLWithString:data.avatar] placeholderImage:[UIImage imageNamed:@"IconAvatarDefault"]];
     self.nameLabel.text = data.nickName;
     self.ageLabel.text = @"男孩 4岁";
     self.dateLabel.text = data.addTime;

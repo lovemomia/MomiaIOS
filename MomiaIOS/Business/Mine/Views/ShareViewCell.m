@@ -29,7 +29,8 @@
 
 - (void)setData:(CouponShareData *)data {
     self.model = data;
-    [self.photoIv sd_setImageWithURL:[NSURL URLWithString:data.img] placeholderImage:[UIImage imageNamed:@"BgCouponShare"]];
+    [self.photoIv sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"BgCouponShare"]];
+
     self.discLabel.text = data.desc;
 }
 

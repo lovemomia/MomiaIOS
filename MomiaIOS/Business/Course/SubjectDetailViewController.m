@@ -19,6 +19,7 @@
 #import "CourseListItemCell.h"
 #import "CourseNoticeCell.h"
 #import "ReviewListItemCell.h"
+#import "SubjectTabCell.h"
 
 static NSString *identifierPhotoTitleHeaderCell = @"PhotoTitleHeaderCell";
 static NSString *identifierCourseBuyCell = @"CourseBuyCell";
@@ -28,19 +29,26 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
 static NSString *identifierCourseListItemCell = @"CourseListItemCell";
 static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
 static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
+static NSString *identifierSubjectTabCell = @"SubjectTabCell";
 
-@interface SubjectDetailViewController ()
+@interface SubjectDetailViewController ()<SubjectTabCellDelegate>
 
 @property (nonatomic, strong) NSString *ids;
 
-@property (nonatomic, strong) UIView *buyView;
+@property (nonatomic, strong) SubjectTabCell *topTabView;
 @property (nonatomic, assign) CGRect rectInTableView;
 @property (nonatomic, strong) SubjectDetailModel *model;
 @property (nonatomic, assign) BOOL hasReview;
 
+@property (nonatomic, assign) NSInteger tabIndex;
+
 @end
 
 @implementation SubjectDetailViewController
+
+- (UIEdgeInsets)tableViewOriginalContentInset {
+    return UIEdgeInsetsMake(-1, 0, 64, 0);
+}
 
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
@@ -61,14 +69,35 @@ static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
     [CourseNoticeCell registerCellFromClassWithTableView:self.tableView withIdentifier:identifierCourseNoticeCell];
     [CourseDiscCell registerCellFromClassWithTableView:self.tableView withIdentifier:identifierCourseDiscCell];
     [ReviewListItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierReviewListItemCell];
+    [SubjectTabCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierSubjectTabCell];
     
-    self.buyView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
-    self.buyView.hidden = YES;
-    [self.view addSubview:self.buyView];
+    [self setTopTabView];
     
+    self.tabIndex = 0;
     self.tableView.header = [MJRefreshHelper createGifHeaderWithRefreshingTarget:self refreshingAction:@selector(requestData)];
     
     [self requestData:YES];
+}
+
+- (void)setTopTabView {
+    NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"SubjectTabCell" owner:self options:nil];
+    self.topTabView = [arr objectAtIndex:0];
+    self.topTabView.delegate = self;
+    self.topTabView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 50);
+    [self.view addSubview:self.topTabView];
+    self.topTabView.hidden = YES;
+}
+
+- (void)setBuyView {
+    NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"CourseBuyCell" owner:self options:nil];
+    CourseBuyCell *buyCell = [arr objectAtIndex:0];
+    buyCell.data = self.model.data.subject;
+    UIButton *buyBtn = [buyCell viewWithTag:1001];
+    [buyBtn setBackgroundImage:[UIImage imageNamed:@"BgRedMediumButtonNormal"] forState:UIControlStateNormal];
+    UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onBuyClicked:)];
+    [buyBtn addGestureRecognizer:singleTap];
+    buyCell.frame = CGRectMake(0, SCREEN_HEIGHT - 128, SCREEN_WIDTH, 64);
+    [self.view addSubview:buyCell];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,7 +106,7 @@ static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
 }
 
 - (UIEdgeInsets)separatorInsetForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
+    if (indexPath.section == 0 || indexPath.row == 0) {
         return UIEdgeInsetsMake(0,0,0,0);
     }
     return UIEdgeInsetsMake(0,10,0,0);
@@ -106,6 +135,7 @@ static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
         self.hasReview = self.model.data.comments && self.model.data.comments.list.count > 0;
         self.navigationItem.title = self.model.data.subject.title;
         
+        [self setBuyView];
         [self.tableView reloadData];
         [self.tableView.header endRefreshing];
         
@@ -129,42 +159,63 @@ static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
 #pragma mark -- UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     //获取悬停cell在TableView中的高度
-    CGRect rectInTableView = [self.tableView rectForRowAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]];
-    if ((scrollView.contentOffset.y - rectInTableView.origin.y) > 0 && self.buyView.hidden == NO) {
+    CGRect rectInTableView = [self.tableView rectForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:1]];
+    if ((scrollView.contentOffset.y - rectInTableView.origin.y) > 0 && self.topTabView.hidden == NO) {
         return;
     }
-    if ((scrollView.contentOffset.y - rectInTableView.origin.y) < 0 && self.buyView.hidden == YES) {
+    if ((scrollView.contentOffset.y - rectInTableView.origin.y) < 0 && self.topTabView.hidden == YES) {
         return;
     }
     
-    if (self.buyView.subviews.count == 0) {
-        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]];
-        //复制一份用于显示在悬停View
-        NSData * tempArchive = [NSKeyedArchiver archivedDataWithRootObject:cell];
-        UITableViewCell *cellCopy = [NSKeyedUnarchiver unarchiveObjectWithData:tempArchive];
-        UIButton *buyBtn = [cellCopy viewWithTag:1001];
-        [buyBtn setBackgroundImage:[UIImage imageNamed:@"BgRedMediumButtonNormal"] forState:UIControlStateNormal];
-        UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onBuyClicked:)];
-        [buyBtn addGestureRecognizer:singleTap];
-        cellCopy.frame = CGRectMake(0, 0, SCREEN_WIDTH, 64);
-        [self.buyView addSubview:cellCopy];
-    }
+//    if (self.topTabView.subviews.count == 0) {
+//        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:1]];
+//        //复制一份用于显示在悬停View
+//        NSData * tempArchive = [NSKeyedArchiver archivedDataWithRootObject:cell];
+//        SubjectTabCell *cellCopy = [NSKeyedUnarchiver unarchiveObjectWithData:tempArchive];
+//        
+////        UIButton *tab1 = [cellCopy viewWithTag:0];
+////        UIButton *tab2 = [cellCopy viewWithTag:1];
+////        UIButton *tab3 = [cellCopy viewWithTag:2];
+////        UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTabClicked:)];
+////        [tab1 addGestureRecognizer:singleTap];
+////        [tab2 addGestureRecognizer:singleTap];
+////        [tab3 addGestureRecognizer:singleTap];
+//        
+//        cellCopy.delegate = self;
+//        cellCopy.frame = CGRectMake(0, 0, SCREEN_WIDTH, 50);
+//        [self.buyView addSubview:cellCopy];
+//    }
     
     //悬停的控制
     if ((scrollView.contentOffset.y - rectInTableView.origin.y) > 0){
-        if (self.buyView.hidden == YES) {
-            self.buyView.hidden = NO;
+        if (self.topTabView.hidden == YES) {
+            self.topTabView.hidden = NO;
         }
     }
     if ((scrollView.contentOffset.y - rectInTableView.origin.y) < 0){
-        if (self.buyView.hidden == NO) {
-            self.buyView.hidden = YES;
+        if (self.topTabView.hidden == NO) {
+            self.topTabView.hidden = YES;
         }
     }
 }
 
+- (void)onTabClicked:(UITapGestureRecognizer *)tap {
+    NSInteger index = tap.view.tag;
+    self.tabIndex = index;
+    [self.tableView reloadData];
+}
+
 - (void)onBuyClicked:(UITapGestureRecognizer *)tap {
     [self openURL:[NSString stringWithFormat:@"duola://fillorder?id=%@", self.model.data.subject.ids]];
+}
+
+- (void)onTabChanged:(NSInteger)index {
+    self.tabIndex = index;
+    [self.tableView reloadData];
+    self.topTabView.data = [NSNumber numberWithInteger:index];
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:1];
+    [self.tableView scrollToRowAtIndexPath:indexPath
+                          atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 #pragma mark - tableview delegate & datasource
@@ -185,10 +236,7 @@ static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (self.model) {
-        if (self.model.data.comments && self.model.data.comments.list.count > 0) {
-            return 5;
-        }
-        return 4;
+        return 2;
     }
     return 0;
 }
@@ -197,13 +245,15 @@ static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
     if (section == 0) {
         return 3;
     } else if (section == 1) {
-        return 2;
-    } else if (section == 2) {
-        return 1 + self.model.data.courses.list.count;
-    } else if (section == 3 && self.hasReview) {
-        return 1 + self.model.data.comments.list.count;
+        if (self.tabIndex == 0) {
+            return 1 + self.model.data.courses.list.count;
+        } else if (self.tabIndex == 2) {
+            return 1 + self.model.data.comments.list.count;
+        } else {
+            return 2;
+        }
     }
-    return 2;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -217,25 +267,9 @@ static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
             cell = headerCell;
             
         } else if (row == 1) {
-            CourseBuyCell *buyCell = [CourseBuyCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseBuyCell];
-            buyCell.data = self.model.data.subject;
-            UIView *buyBtn = [buyCell viewWithTag:1001];
-            UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onBuyClicked:)];
-            [buyBtn addGestureRecognizer:singleTap];
-            cell = buyCell;
-            cell.selectionStyle = UITableViewCellSeparatorStyleNone;
-            
-        } else {
             CourseTagsCell *tagsCell = [CourseTagsCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseTagsCell];
             tagsCell.data = self.model.data.subject;
             cell = tagsCell;
-            cell.selectionStyle = UITableViewCellSeparatorStyleNone;
-        }
-    } else if (section == 1) {
-        if (row == 0) {
-            CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
-            titleCell.titleLabel.text = @"课程目标";
-            cell = titleCell;
             cell.selectionStyle = UITableViewCellSeparatorStyleNone;
             
         } else {
@@ -244,49 +278,78 @@ static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
             cell = discCell;
             cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         }
-    } else if (section == 2) {
-        if (row == 0) {
-            CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
-            titleCell.titleLabel.text = [NSString stringWithFormat:@"可选课程（%@）", self.model.data.courses.totalCount];
-            titleCell.subTitleLabel.text = @"更多";
-            titleCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell = titleCell;
-            
-        } else {
-            CourseListItemCell *itemCell = [CourseListItemCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseListItemCell];
-            itemCell.data = self.model.data.courses.list[row - 1];
-            cell = itemCell;
-        }
-    } else if (section == 3 && self.hasReview) {
-        if (row == 0) {
-            CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
-            titleCell.titleLabel.text = [NSString stringWithFormat:@"用户点评（%@）", self.model.data.comments.totalCount];
-            cell = titleCell;
-            titleCell.subTitleLabel.text = @"更多";
-            titleCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;
-            
-        } else {
-            ReviewListItemCell *reviewCell = [ReviewListItemCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:identifierReviewListItemCell];
-            [reviewCell setData:self.model.data.comments.list[row - 1]];
-            cell = reviewCell;
-            cell.selectionStyle = UITableViewCellSeparatorStyleNone;
-        }
         
-    } else {
+    } else if (section == 1) {
         if (row == 0) {
-            CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
-            titleCell.titleLabel.text = @"购买须知";
-            cell = titleCell;
+            SubjectTabCell *tabCell = [SubjectTabCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierSubjectTabCell];
+            tabCell.delegate = self;
+            [tabCell setData:[NSNumber numberWithInteger:self.tabIndex]];
+            cell = tabCell;
             cell.selectionStyle = UITableViewCellSeparatorStyleNone;
             
         } else {
-            CourseNoticeCell *noticeCell = [CourseNoticeCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseNoticeCell];
-            noticeCell.data = self.model.data.subject;
-            cell = noticeCell;
-            cell.selectionStyle = UITableViewCellSeparatorStyleNone;
+            if (self.tabIndex == 0) {
+                CourseListItemCell *itemCell = [CourseListItemCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseListItemCell];
+                itemCell.data = self.model.data.courses.list[row - 1];
+                cell = itemCell;
+                
+            } else if (self.tabIndex == 1) {
+                CourseNoticeCell *noticeCell = [CourseNoticeCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseNoticeCell];
+                noticeCell.data = self.model.data.subject;
+                cell = noticeCell;
+                cell.selectionStyle = UITableViewCellSeparatorStyleNone;
+                
+            } else {
+                ReviewListItemCell *reviewCell = [ReviewListItemCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:identifierReviewListItemCell];
+                [reviewCell setData:self.model.data.comments.list[row - 1]];
+                cell = reviewCell;
+                cell.selectionStyle = UITableViewCellSeparatorStyleNone;
+            }
         }
     }
+//    else if (section == 2) {
+//        if (row == 0) {
+//            CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
+//            titleCell.titleLabel.text = [NSString stringWithFormat:@"可选课程（%@）", self.model.data.courses.totalCount];
+//            titleCell.subTitleLabel.text = @"更多";
+//            titleCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//            cell = titleCell;
+//            
+//        } else {
+//            CourseListItemCell *itemCell = [CourseListItemCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseListItemCell];
+//            itemCell.data = self.model.data.courses.list[row - 1];
+//            cell = itemCell;
+//        }
+//    } else if (section == 3 && self.hasReview) {
+//        if (row == 0) {
+//            CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
+//            titleCell.titleLabel.text = [NSString stringWithFormat:@"用户点评（%@）", self.model.data.comments.totalCount];
+//            cell = titleCell;
+//            titleCell.subTitleLabel.text = @"更多";
+//            titleCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//            cell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;
+//            
+//        } else {
+//            ReviewListItemCell *reviewCell = [ReviewListItemCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:identifierReviewListItemCell];
+//            [reviewCell setData:self.model.data.comments.list[row - 1]];
+//            cell = reviewCell;
+//            cell.selectionStyle = UITableViewCellSeparatorStyleNone;
+//        }
+//        
+//    } else {
+//        if (row == 0) {
+//            CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
+//            titleCell.titleLabel.text = @"购买须知";
+//            cell = titleCell;
+//            cell.selectionStyle = UITableViewCellSeparatorStyleNone;
+//            
+//        } else {
+//            CourseNoticeCell *noticeCell = [CourseNoticeCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseNoticeCell];
+//            noticeCell.data = self.model.data.subject;
+//            cell = noticeCell;
+//            cell.selectionStyle = UITableViewCellSeparatorStyleNone;
+//        }
+//    }
     
     return cell;
 }
@@ -299,51 +362,57 @@ static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
             return [PhotoTitleHeaderCell heightWithTableView:tableView withIdentifier:identifierPhotoTitleHeaderCell forIndexPath:indexPath data:self.model.data.subject];
             
         } else if (row == 1) {
-            return [CourseBuyCell heightWithTableView:tableView withIdentifier:identifierCourseBuyCell forIndexPath:indexPath data:self.model.data.subject];
-        } else {
             return [CourseTagsCell heightWithTableView:tableView withIdentifier:identifierCourseTagsCell forIndexPath:indexPath data:self.model.data.subject];
+        } else {
+            
+            return [CourseDiscCell heightWithTableView:tableView withIdentifier:identifierCourseDiscCell forIndexPath:indexPath data:self.model.data.subject.intro];
         }
     } else if (section == 1) {
         if (row == 0) {
-            return 44;
+            return 50;
             
         } else {
-            return [CourseDiscCell heightWithTableView:tableView withIdentifier:identifierCourseDiscCell forIndexPath:indexPath data:self.model.data.subject.intro];
-        }
-    } else if (section == 2) {
-        if (row == 0) {
-            return 44;
-            
-        } else {
-            return [CourseListItemCell heightWithTableView:tableView withIdentifier:identifierCourseListItemCell forIndexPath:indexPath data:self.model.data.courses.list[row - 1]];
-        }
-    } else if (section == 3 && self.hasReview) {
-        if (row == 0) {
-            return 44;
-            
-        } else {
-            return [ReviewListItemCell heightWithTableView:self.tableView withIdentifier:identifierReviewListItemCell forIndexPath:indexPath data:self.model.data.comments.list[row - 1]];
-        }
-    } else {
-        if (row == 0) {
-            return 44;
-            
-        } else {
-            return [CourseNoticeCell heightWithTableView:tableView withIdentifier:identifierCourseNoticeCell forIndexPath:indexPath data:self.model.data.subject];
+            if (self.tabIndex == 0) {
+                return [CourseListItemCell heightWithTableView:tableView withIdentifier:identifierCourseListItemCell forIndexPath:indexPath data:self.model.data.courses.list[row - 1]];
+            } else if (self.tabIndex == 1) {
+                return [CourseNoticeCell heightWithTableView:tableView withIdentifier:identifierCourseNoticeCell forIndexPath:indexPath data:self.model.data.subject];
+                
+            } else {
+                return [ReviewListItemCell heightWithTableView:self.tableView withIdentifier:identifierReviewListItemCell forIndexPath:indexPath data:self.model.data.comments.list[row - 1]];
+            }
         }
     }
+//    else if (section == 2) {
+//        if (row == 0) {
+//            return 44;
+//            
+//        } else {
+//            return [CourseListItemCell heightWithTableView:tableView withIdentifier:identifierCourseListItemCell forIndexPath:indexPath data:self.model.data.courses.list[row - 1]];
+//        }
+//    } else if (section == 3 && self.hasReview) {
+//        if (row == 0) {
+//            return 44;
+//            
+//        } else {
+//            return [ReviewListItemCell heightWithTableView:self.tableView withIdentifier:identifierReviewListItemCell forIndexPath:indexPath data:self.model.data.comments.list[row - 1]];
+//        }
+//    } else {
+//        if (row == 0) {
+//            return 44;
+//            
+//        } else {
+//            return [CourseNoticeCell heightWithTableView:tableView withIdentifier:identifierCourseNoticeCell forIndexPath:indexPath data:self.model.data.subject];
+//        }
+//    }
     return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section == 0) {
-        return 0.1;
-    }
-    return 10.0;
+    return 0.1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 0.1;
+    return 10.0;
 }
 
 @end

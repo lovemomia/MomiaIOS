@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell tag="-1" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SubjectTabCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYa-GY-9Ik">
+                        <rect key="frame" x="0.0" y="0.0" width="106.5" height="49.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <state key="normal" title="课程体系">
+                            <color key="titleColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="onTab1Clicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3Ig-po-G2p"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4r-hq-Fdb">
+                        <rect key="frame" x="106.5" y="0.0" width="107" height="49.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <state key="normal" title="购买须知">
+                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="onTab2Clicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WPC-qR-I1Y"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OeF-Sy-OVu">
+                        <rect key="frame" x="213.5" y="0.0" width="106.5" height="49.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <state key="normal" title="成长说">
+                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="onTab3Clicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ziB-aw-1k9"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="t4r-hq-Fdb" secondAttribute="bottom" id="190-HW-5UH"/>
+                    <constraint firstAttribute="bottom" secondItem="OeF-Sy-OVu" secondAttribute="bottom" id="5uK-wr-efB"/>
+                    <constraint firstItem="OeF-Sy-OVu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="6Vw-uk-Gk3"/>
+                    <constraint firstAttribute="trailing" secondItem="OeF-Sy-OVu" secondAttribute="trailing" id="AdM-rs-Fqc"/>
+                    <constraint firstItem="t4r-hq-Fdb" firstAttribute="width" secondItem="vYa-GY-9Ik" secondAttribute="width" id="NYT-Fd-Beh"/>
+                    <constraint firstItem="t4r-hq-Fdb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Oik-Or-lYt"/>
+                    <constraint firstItem="t4r-hq-Fdb" firstAttribute="leading" secondItem="vYa-GY-9Ik" secondAttribute="trailing" id="at5-6e-uSG"/>
+                    <constraint firstItem="OeF-Sy-OVu" firstAttribute="leading" secondItem="t4r-hq-Fdb" secondAttribute="trailing" id="fQi-7X-m79"/>
+                    <constraint firstItem="vYa-GY-9Ik" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="hWe-Sa-Sly"/>
+                    <constraint firstItem="vYa-GY-9Ik" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="mU4-Uy-cHd"/>
+                    <constraint firstItem="OeF-Sy-OVu" firstAttribute="width" secondItem="vYa-GY-9Ik" secondAttribute="width" id="qfU-e2-0ML"/>
+                    <constraint firstAttribute="bottom" secondItem="vYa-GY-9Ik" secondAttribute="bottom" id="ywd-lF-GR2"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="tab1Btn" destination="vYa-GY-9Ik" id="LyD-vq-hEr"/>
+                <outlet property="tab2Btn" destination="t4r-hq-Fdb" id="smG-zh-URY"/>
+                <outlet property="tab3Btn" destination="OeF-Sy-OVu" id="l7g-dX-Fbo"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

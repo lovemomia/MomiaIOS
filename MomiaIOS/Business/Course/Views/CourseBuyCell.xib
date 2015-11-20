@@ -53,6 +53,21 @@
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6m-du-CnS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="0.5"/>
+                        <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="1cS-4H-XAY"/>
+                            <constraint firstAttribute="height" constant="1" id="CGu-n6-Ouy"/>
+                            <constraint firstAttribute="height" id="Tmp-Da-T9P"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="CGu-n6-Ouy"/>
+                                <exclude reference="Tmp-Da-T9P"/>
+                            </mask>
+                        </variation>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="6gL-Ac-TLh" secondAttribute="bottom" constant="10" id="06O-NJ-deu"/>
@@ -64,8 +79,11 @@
                     <constraint firstItem="Ocm-Q3-1C4" firstAttribute="leading" secondItem="JVO-XJ-ugt" secondAttribute="trailing" constant="1" id="Kjl-6j-gSd"/>
                     <constraint firstItem="utu-I6-iov" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="OtM-4W-fQK"/>
                     <constraint firstAttribute="bottom" secondItem="Ocm-Q3-1C4" secondAttribute="bottom" constant="15" id="Qk5-sY-7mg"/>
+                    <constraint firstItem="p6m-du-CnS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="SnU-jX-5IK"/>
                     <constraint firstItem="Ocm-Q3-1C4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="VVT-pF-gax"/>
+                    <constraint firstAttribute="trailing" secondItem="p6m-du-CnS" secondAttribute="trailing" id="XP8-Rp-PCn"/>
                     <constraint firstAttribute="trailing" secondItem="6gL-Ac-TLh" secondAttribute="trailing" constant="10" id="aWg-SP-ObR"/>
+                    <constraint firstItem="p6m-du-CnS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="eSb-2K-p24"/>
                     <constraint firstAttribute="trailing" secondItem="6gL-Ac-TLh" secondAttribute="trailing" constant="10" id="hcc-tj-Y0y"/>
                     <constraint firstItem="utu-I6-iov" firstAttribute="leading" secondItem="Ocm-Q3-1C4" secondAttribute="trailing" constant="2" id="l1F-Ns-RoR"/>
                     <constraint firstItem="JVO-XJ-ugt" firstAttribute="leading" secondItem="pdv-zI-qUU" secondAttribute="trailing" constant="5" id="oGB-4i-Ykx"/>

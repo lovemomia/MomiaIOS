@@ -30,6 +30,7 @@
     
     if(self.imgsNum == 1) {
         index = 0;
+        
     } else {
         if(page == 0) {
             index = self.imgsNum - 3;
@@ -73,6 +74,7 @@
     self.scrollView.delegate = self;
     
     if(banners.count == 1) {//只有一张图
+        self.pageControl.hidden = YES;
         self.scrollView.contentSize = CGSizeMake(width,0);
         IndexBanner * item = banners[0];
         UIImageView * imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
@@ -84,6 +86,7 @@
         if(self.timer)
             [self.timer invalidate];
     } else {
+        self.pageControl.hidden = NO;
         self.scrollView.contentSize = CGSizeMake((banners.count + 2) * width,0);
         
         UIImageView * firstImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];

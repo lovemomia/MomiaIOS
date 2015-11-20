@@ -136,6 +136,8 @@
 		BC3509001BFC4CD40043D37C /* ShareViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3508FE1BFC4CD40043D37C /* ShareViewCell.m */; };
 		BC3509011BFC4CD40043D37C /* ShareViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3508FF1BFC4CD40043D37C /* ShareViewCell.xib */; };
 		BC3509041BFC4FBE0043D37C /* CouponShareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3509031BFC4FBE0043D37C /* CouponShareModel.m */; };
+		BC3509081BFDD1830043D37C /* SubjectTabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3509061BFDD1830043D37C /* SubjectTabCell.m */; };
+		BC3509091BFDD1830043D37C /* SubjectTabCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3509071BFDD1830043D37C /* SubjectTabCell.xib */; };
 		BC3599B51BC61DD0002DE863 /* SubjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599B31BC61DD0002DE863 /* SubjectDetailViewController.m */; };
 		BC3599BA1BC61ED7002DE863 /* ProductCalendarMonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599B91BC61ED7002DE863 /* ProductCalendarMonthViewController.m */; };
 		BC3599EA1BC61F0C002DE863 /* UIImage+MLTint.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599BF1BC61F0C002DE863 /* UIImage+MLTint.m */; };
@@ -608,6 +610,9 @@
 		BC3508FF1BFC4CD40043D37C /* ShareViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShareViewCell.xib; path = Business/Mine/Views/ShareViewCell.xib; sourceTree = "<group>"; };
 		BC3509021BFC4FBE0043D37C /* CouponShareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CouponShareModel.h; path = Common/Models/Mine/CouponShareModel.h; sourceTree = "<group>"; };
 		BC3509031BFC4FBE0043D37C /* CouponShareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CouponShareModel.m; path = Common/Models/Mine/CouponShareModel.m; sourceTree = "<group>"; };
+		BC3509051BFDD1830043D37C /* SubjectTabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectTabCell.h; path = Business/Course/Views/SubjectTabCell.h; sourceTree = "<group>"; };
+		BC3509061BFDD1830043D37C /* SubjectTabCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectTabCell.m; path = Business/Course/Views/SubjectTabCell.m; sourceTree = "<group>"; };
+		BC3509071BFDD1830043D37C /* SubjectTabCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SubjectTabCell.xib; path = Business/Course/Views/SubjectTabCell.xib; sourceTree = "<group>"; };
 		BC3599B21BC61DD0002DE863 /* SubjectDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectDetailViewController.h; path = Business/Course/SubjectDetailViewController.h; sourceTree = "<group>"; };
 		BC3599B31BC61DD0002DE863 /* SubjectDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectDetailViewController.m; path = Business/Course/SubjectDetailViewController.m; sourceTree = "<group>"; };
 		BC3599B81BC61ED7002DE863 /* ProductCalendarMonthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductCalendarMonthViewController.h; path = Business/Home/ProductCalendarMonthViewController.h; sourceTree = "<group>"; };
@@ -1541,6 +1546,9 @@
 				BCF74AC51BEB643400138C2C /* ReviewListItemCell.h */,
 				BCF74AC61BEB643400138C2C /* ReviewListItemCell.m */,
 				BCF74AC71BEB643400138C2C /* ReviewListItemCell.xib */,
+				BC3509051BFDD1830043D37C /* SubjectTabCell.h */,
+				BC3509061BFDD1830043D37C /* SubjectTabCell.m */,
+				BC3509071BFDD1830043D37C /* SubjectTabCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2511,6 +2519,7 @@
 				BC753ED21BAC07D300D2663C /* FeedMoreCell.xib in Resources */,
 				5AB1BDEB1B4FB7ED004A4511 /* LoadingErrorCell.xib in Resources */,
 				5A33F1A81B2EBC2F002A8258 /* TitleView.xib in Resources */,
+				BC3509091BFDD1830043D37C /* SubjectTabCell.xib in Resources */,
 				BC1601DE1BB00459005F11FD /* FeedDetailViewController.xib in Resources */,
 				BC592BF31BD5F015008AE76A /* BookSkuDateTitleCell.xib in Resources */,
 				BC592BDF1BD5D8FB008AE76A /* BookSkuItemCell.xib in Resources */,
@@ -2674,6 +2683,7 @@
 				5A794F941B4E68C900BB3B7C /* OrderDetailModel.m in Sources */,
 				5A8EF03D1B31619E003ABAF8 /* ProductModel.m in Sources */,
 				BC359A1B1BC61F2A002DE863 /* LJViewPager.m in Sources */,
+				BC3509081BFDD1830043D37C /* SubjectTabCell.m in Sources */,
 				BC3599FA1BC61F0C002DE863 /* MLSelectPhotoPickerCollectionViewCell.m in Sources */,
 				BC3599BA1BC61ED7002DE863 /* ProductCalendarMonthViewController.m in Sources */,
 				BC359A291BC61F3B002DE863 /* SGAlertMenu.m in Sources */,
