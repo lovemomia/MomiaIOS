@@ -25,6 +25,22 @@
 @property (nonatomic, strong) NSArray *largeImgs;
 @end
 
+@interface CourseDetailContent : JSONModel
+@property (nonatomic, strong) NSString<Optional> *img;
+@property (nonatomic, strong) NSString<Optional> *text;
+@end
+
+@protocol CourseDetailContent <NSObject>
+@end
+
+@interface CourseDetail : JSONModel
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSArray<CourseDetailContent> *content;
+@end
+
+@protocol CourseDetail <NSObject>
+@end
+
 @interface Course : JSONModel
 
 @property (nonatomic, strong) NSNumber *ids;
@@ -37,12 +53,14 @@
 @property (nonatomic, strong) NSString *region; //地区
 @property (nonatomic, strong) NSNumber<Optional> *insurance; //红包
 @property (nonatomic, strong) NSNumber<Optional> *bookingId; //预约id
+@property (nonatomic, strong) NSString *subject;
 
 @property (nonatomic, strong) NSArray<Optional> *imgs; //头图
 @property (nonatomic, strong) NSString<Optional> *goal;  //课程目标
 @property (nonatomic, strong) CoursePlace<Optional> *place;  //上课地点
 @property (nonatomic, strong) CourseBook<Optional> *book;  //课前绘本
 @property (nonatomic, strong) NSString<Optional> *flow;  //课程内容
+@property (nonatomic, strong) NSArray<CourseDetail, Optional> *detail; //课程详情
 
 @property (nonatomic, strong) HomeworkList<Optional> *homework;
 @property (nonatomic, strong) ReviewList<Optional> *comments;

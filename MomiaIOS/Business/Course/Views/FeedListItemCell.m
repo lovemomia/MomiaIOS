@@ -1,13 +1,13 @@
 //
-//  ReviewListItemCell.m
+//  FeedListItemCell.m
 //  MomiaIOS
 //
-//  Created by Deng Jun on 15/11/5.
+//  Created by Deng Jun on 15/11/23.
 //  Copyright © 2015年 Deng Jun. All rights reserved.
 //
 
-#import "ReviewListItemCell.h"
-#import "ReviewList.h"
+#import "FeedListItemCell.h"
+#import "Feed.h"
 #import "Child.h"
 #import "TTTAttributedLabel.h"
 #import "MJPhotoBrowser.h"
@@ -17,32 +17,24 @@
 #define contentFontSize 13.0f
 #define bottomPadding 0
 
-@interface ReviewListItemCell()
-@property (nonatomic, strong) Review *review;
+@interface FeedListItemCell()
+@property (nonatomic, strong) Feed *feed;
 @end
 
-@implementation ReviewListItemCell
-@synthesize starView;
+@implementation FeedListItemCell
 
 - (void)awakeFromNib {
     // Initialization code
-    
-    starView.starImage = [UIImage imageNamed:@"IconSmallGrayStar"];
-    starView.starHighlightedImage = [UIImage imageNamed:@"IconSmallRedStar"];
-    starView.maxRating = 5.0;
-    starView.horizontalMargin = 12;
-    starView.editable = YES;
-    starView.displayMode = EDStarRatingDisplayFull;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 
-- (void)setData:(Review *)data {
-    self.review = data;
+- (void)setData:(Feed *)data {
+    self.feed = data;
     [self.avatarIv sd_setImageWithURL:[NSURL URLWithString:data.avatar] placeholderImage:[UIImage imageNamed:@"IconAvatarDefault"]];
     self.nameLabel.text = data.nickName;
     if (data.children.count > 0) {
@@ -53,7 +45,6 @@
         self.ageLabel.text = childrenStr;
     }
     self.dateLabel.text = data.addTime;
-    self.starView.rating = [data.star floatValue];
     
     [self.containerView removeAllSubviews];
     
@@ -166,9 +157,9 @@
 }
 
 - (void)onImageClick:(UIGestureRecognizer *)recognizer {
-    NSMutableArray *photos = [NSMutableArray arrayWithCapacity:self.review.largeImgs.count];
-    for (int i = 0; i < self.review.largeImgs.count; i++) {
-        NSString *url = self.review.largeImgs[i];
+    NSMutableArray *photos = [NSMutableArray arrayWithCapacity:self.feed.largeImgs.count];
+    for (int i = 0; i < self.feed.largeImgs.count; i++) {
+        NSString *url = self.feed.largeImgs[i];
         MJPhoto *photo = [[MJPhoto alloc] init];
         photo.url = [NSURL URLWithString:url];
         photo.srcImageView = (UIImageView *)recognizer.view;
@@ -183,8 +174,8 @@
 }
 
 - (IBAction)onUserInfoClicked:(id)sender {
-    if (self.review) {
-        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://userinfo?uid=%@", self.review.userId]]];
+    if (self.feed) {
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://userinfo?uid=%@", self.feed.userId]]];
     }
 }
 

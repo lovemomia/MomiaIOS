@@ -24,10 +24,81 @@
 
 - (void)setData:(Course *)data {
     self.priceLabel.text = [StringUtils stringForPrice:data.price];
+    
+    for (UIView * view in self.tagsContainer.subviews) {
+        if([view isKindOfClass:[UIImageView class]] || [view isKindOfClass:[UILabel class]]) {
+            [view removeFromSuperview];
+        }
+    }
+    
+    UIView * lastView;
+    int tagCount;
+    if (data.insurance && [data.insurance boolValue]) {
+        tagCount = 2;
+    } else {
+        tagCount = 1;
+    }
+    for (int i = 0; i < tagCount; i++) {
+        UIImageView * imgView = [[UIImageView alloc] init];
+        [self.tagsContainer addSubview:imgView];
+        [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.tagsContainer).with.offset(2);
+            if(i == 0) make.leading.equalTo(self.tagsContainer).with.offset(10);
+            else make.leading.equalTo(lastView.mas_trailing).with.offset(5);
+            make.width.equalTo(@17);
+            make.height.equalTo(@17);
+        }];
+        [imgView setImage:[UIImage imageNamed:@"IconProductTag"]];
+        
+        UILabel * label = [[UILabel alloc] init];
+        [self.tagsContainer addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.tagsContainer).with.offset(2);
+            make.leading.equalTo(imgView.mas_trailing).with.offset(2);
+        }];
+        
+        if (i == 0) {
+            label.text = [NSString stringWithFormat:@"适合%@", data.age];
+        } else if (i == 1) {
+            label.text = @"送保险";
+        }
+        
+        label.textColor = MO_APP_ThemeColor;
+        label.font = [UIFont systemFontOfSize:13.0f];
+        
+        lastView = label;
+    }
+    
+    NSNumber *joined = data.joined;
+    if (joined == nil || [joined intValue] == 0) {
+        return;
+    }
+    
+    // joined
+    UIImageView * imgView = [[UIImageView alloc] init];
+    [self.tagsContainer addSubview:imgView];
+    [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.tagsContainer).with.offset(2);
+        make.width.equalTo(@14);
+        make.height.equalTo(@14);
+        make.left.equalTo(lastView.mas_right).with.offset(5);
+    }];
+    [imgView setImage:[UIImage imageNamed:@"IconProductTag"]];
+    
+    UILabel * label = [[UILabel alloc] init];
+    [self.tagsContainer addSubview:label];
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.tagsContainer).with.offset(2);
+        make.left.equalTo(imgView.mas_right).with.offset(2);
+    }];
+    label.text = [NSString stringWithFormat:@"%@人已参加", joined];
+    label.textColor = MO_APP_ThemeColor;
+    label.font = [UIFont systemFontOfSize:13.0f];
+
 }
 
 + (CGFloat)heightWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath data:(id)data {
-    return 64;
+    return 50;
 }
 
 @end

@@ -164,7 +164,7 @@
             UILabel *subTitleLabel = (UILabel *)[cell viewWithTag:3];
             
             if ([account getBigChild]) {
-                subTitleLabel.text = [NSString stringWithFormat:@"%@孩%@", [account getBigChild].sex, [account ageWithDateOfBirth]];
+                subTitleLabel.text = [NSString stringWithFormat:@"%@", [account ageWithDateOfBirth]];
             }
             
         } else {

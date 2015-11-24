@@ -270,7 +270,7 @@
                 cell.textLabel.font = [UIFont systemFontOfSize: 15.0];
             }
             cell.imageView.image = [UIImage imageNamed:@"IconTag"];
-            cell.textLabel.text = self.tagName ? self.tagName : @"选择标签（可选）";
+            cell.textLabel.text = self.tagName ? self.tagName : @"标签";
         }
     }
     return cell;

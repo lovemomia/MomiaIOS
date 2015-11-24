@@ -136,7 +136,7 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
     }
     
     NSDictionary * dic = @{@"start":@(self.nextIndex)};
-    self.curOperation = [[HttpService defaultService] GET:URL_APPEND_PATH(@"/index") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[IndexModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    self.curOperation = [[HttpService defaultService] GET:URL_APPEND_PATH(@"/v2/index") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[IndexModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         [self.view removeLoadingBee];
         
@@ -152,12 +152,12 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
             self.events = self.model.data.events;
         }
         
-        if (self.model.data.subjects.list.count > 0) {
-            [self.array addObjectsFromArray:self.model.data.subjects.list];
+        if (self.model.data.courses.list.count > 0) {
+            [self.array addObjectsFromArray:self.model.data.courses.list];
         }
         
-        if (self.model.data.subjects.nextIndex && [self.model.data.subjects.nextIndex intValue] > 0) {
-            self.nextIndex = [self.model.data.subjects.nextIndex integerValue];
+        if (self.model.data.courses.nextIndex && [self.model.data.courses.nextIndex intValue] > 0) {
+            self.nextIndex = [self.model.data.courses.nextIndex integerValue];
             
         } else {
             self.nextIndex = 0;
@@ -403,8 +403,8 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
     if (section < number) {
         
     } else if(section < self.array.count + number) {
-        Subject *subject = self.array[indexPath.section - number];
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://subjectdetail?id=%@", subject.ids]];
+        Course *course = self.array[indexPath.section - number];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://coursedetail?id=%@", course.ids]];
         [[UIApplication sharedApplication] openURL:url];
         
     } else {

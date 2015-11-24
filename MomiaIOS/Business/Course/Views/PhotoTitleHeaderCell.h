@@ -10,7 +10,4 @@
 
 @interface PhotoTitleHeaderCell : MOTableCell<MOTableCellDataProtocol>
 
-@property (weak, nonatomic) IBOutlet UIImageView *bgShadowView;
-
-
 @end

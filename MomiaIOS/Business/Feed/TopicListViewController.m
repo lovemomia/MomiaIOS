@@ -68,8 +68,8 @@ static NSString *identifierTopicListCell = @"TopicListCell";
                                                          self.nextIndex = -1;
                                                      }
                                                      
-                                                     if (model.data.totalCount == 0) {
-                                                         [self.view showEmptyView:@"暂时还没有可以选择的"];
+                                                     if ([model.data.totalCount integerValue] == 0) {
+                                                         [self.view showEmptyView:@"您还没有参加过课程哦～"];
                                                          return;
                                                      }
                                                      

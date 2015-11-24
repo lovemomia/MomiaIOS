@@ -12,12 +12,12 @@
 
 @implementation HomeCell
 
--(void)setData:(Subject *) model;
+-(void)setData:(Course *) model;
 {
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:model.cover] placeholderImage:nil];
     self.titleLabel.text = model.title;
     self.timeLabel.text = [NSString stringWithFormat:@"%@ | %@ | %@", model.age, model.scheduler, model.region];
-    self.descLabel.text = model.tags;
+    self.descLabel.text = model.subject;
     
     if ([model.joined intValue] == 0) {
         self.enrollmentLabel.hidden = YES;

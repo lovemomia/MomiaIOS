@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
+@property (weak, nonatomic) IBOutlet UIView *tagsContainer;
 
 @end

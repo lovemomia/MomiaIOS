@@ -16,7 +16,6 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *pageLabel;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property (assign, nonatomic) int imgsNum;
 
@@ -114,12 +113,6 @@
         [self.scrollView setContentOffset:CGPointMake(width, 0)];
     }
     
-    if (isPackage) {
-        self.bgShadowView.hidden = YES;
-        self.titleLabel.hidden = YES;
-    } else {
-        self.titleLabel.text = ((Course *)model).title;
-    }
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView

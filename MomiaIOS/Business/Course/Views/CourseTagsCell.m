@@ -75,25 +75,25 @@
     }
     
     // joined
-    UILabel * label = [[UILabel alloc] init];
-    [self.contentView addSubview:label];
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.contentView);
-        make.right.equalTo(self.contentView).with.offset(-10);
-    }];
-    label.text = [NSString stringWithFormat:@"%@人已参加", joined];
-    label.textColor = UIColorFromRGB(0x999999);
-    label.font = [UIFont systemFontOfSize:13.0f];
-    
     UIImageView * imgView = [[UIImageView alloc] init];
     [self.contentView addSubview:imgView];
     [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.contentView);
         make.width.equalTo(@14);
         make.height.equalTo(@14);
-        make.right.equalTo(label.mas_left).with.offset(-5);
+        make.left.equalTo(lastView.mas_right).with.offset(10);
     }];
-    [imgView setImage:[UIImage imageNamed:@"IconTagGray"]];
+    [imgView setImage:[UIImage imageNamed:@"IconProductTag"]];
+    
+    UILabel * label = [[UILabel alloc] init];
+    [self.contentView addSubview:label];
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.contentView);
+        make.left.equalTo(imgView.mas_right).with.offset(5);
+    }];
+    label.text = [NSString stringWithFormat:@"%@人已参加", joined];
+    label.textColor = MO_APP_ThemeColor;
+    label.font = [UIFont systemFontOfSize:13.0f];
 }
 
 + (CGFloat)heightWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath data:(id)data {

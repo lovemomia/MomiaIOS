@@ -95,6 +95,11 @@
 		BC0BD7021B55173800B95B3A /* CouponListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD7001B55173800B95B3A /* CouponListItemCell.m */; };
 		BC0BD7031B55173800B95B3A /* CouponListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC0BD7011B55173800B95B3A /* CouponListItemCell.xib */; };
 		BC0BD7061B5518F000B95B3A /* CouponPriceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD7051B5518F000B95B3A /* CouponPriceModel.m */; };
+		BC0D44411C02C2850007E9ED /* CourseTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0D443F1C02C2850007E9ED /* CourseTitleCell.m */; };
+		BC0D44421C02C2850007E9ED /* CourseTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC0D44401C02C2850007E9ED /* CourseTitleCell.xib */; };
+		BC0D44461C02FBD50007E9ED /* FeedListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0D44441C02FBD50007E9ED /* FeedListItemCell.m */; };
+		BC0D44471C02FBD50007E9ED /* FeedListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC0D44451C02FBD50007E9ED /* FeedListItemCell.xib */; };
+		BC0D444A1C031ACE0007E9ED /* CourseDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0D44491C031ACE0007E9ED /* CourseDetailCell.m */; };
 		BC0EC2941B58EFD200D9A82F /* DateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC2931B58EFD200D9A82F /* DateManager.m */; };
 		BC0EC2981B5E1F5300D9A82F /* CacheService.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC2971B5E1F5300D9A82F /* CacheService.m */; };
 		BC1052891BB1530200D81C15 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052881BB1530200D81C15 /* Toast.m */; };
@@ -531,6 +536,14 @@
 		BC0BD7011B55173800B95B3A /* CouponListItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponListItemCell.xib; sourceTree = "<group>"; };
 		BC0BD7041B5518F000B95B3A /* CouponPriceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CouponPriceModel.h; path = Common/Models/Pay/CouponPriceModel.h; sourceTree = "<group>"; };
 		BC0BD7051B5518F000B95B3A /* CouponPriceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CouponPriceModel.m; path = Common/Models/Pay/CouponPriceModel.m; sourceTree = "<group>"; };
+		BC0D443E1C02C2850007E9ED /* CourseTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseTitleCell.h; path = Business/Course/Views/CourseTitleCell.h; sourceTree = "<group>"; };
+		BC0D443F1C02C2850007E9ED /* CourseTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseTitleCell.m; path = Business/Course/Views/CourseTitleCell.m; sourceTree = "<group>"; };
+		BC0D44401C02C2850007E9ED /* CourseTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CourseTitleCell.xib; path = Business/Course/Views/CourseTitleCell.xib; sourceTree = "<group>"; };
+		BC0D44431C02FBD50007E9ED /* FeedListItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedListItemCell.h; path = Business/Course/Views/FeedListItemCell.h; sourceTree = "<group>"; };
+		BC0D44441C02FBD50007E9ED /* FeedListItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedListItemCell.m; path = Business/Course/Views/FeedListItemCell.m; sourceTree = "<group>"; };
+		BC0D44451C02FBD50007E9ED /* FeedListItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FeedListItemCell.xib; path = Business/Course/Views/FeedListItemCell.xib; sourceTree = "<group>"; };
+		BC0D44481C031ACE0007E9ED /* CourseDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseDetailCell.h; path = Business/Course/Views/CourseDetailCell.h; sourceTree = "<group>"; };
+		BC0D44491C031ACE0007E9ED /* CourseDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseDetailCell.m; path = Business/Course/Views/CourseDetailCell.m; sourceTree = "<group>"; };
 		BC0EC2921B58EFD200D9A82F /* DateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateManager.h; path = Common/Utils/DateManager.h; sourceTree = "<group>"; };
 		BC0EC2931B58EFD200D9A82F /* DateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateManager.m; path = Common/Utils/DateManager.m; sourceTree = "<group>"; };
 		BC0EC2961B5E1F5300D9A82F /* CacheService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CacheService.h; path = Common/Services/Cache/CacheService.h; sourceTree = "<group>"; };
@@ -1549,6 +1562,14 @@
 				BC3509051BFDD1830043D37C /* SubjectTabCell.h */,
 				BC3509061BFDD1830043D37C /* SubjectTabCell.m */,
 				BC3509071BFDD1830043D37C /* SubjectTabCell.xib */,
+				BC0D443E1C02C2850007E9ED /* CourseTitleCell.h */,
+				BC0D443F1C02C2850007E9ED /* CourseTitleCell.m */,
+				BC0D44401C02C2850007E9ED /* CourseTitleCell.xib */,
+				BC0D44431C02FBD50007E9ED /* FeedListItemCell.h */,
+				BC0D44441C02FBD50007E9ED /* FeedListItemCell.m */,
+				BC0D44451C02FBD50007E9ED /* FeedListItemCell.xib */,
+				BC0D44481C031ACE0007E9ED /* CourseDetailCell.h */,
+				BC0D44491C031ACE0007E9ED /* CourseDetailCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2495,6 +2516,7 @@
 				BCF74AC91BEB643400138C2C /* ReviewListItemCell.xib in Resources */,
 				5AD5275F1B53C7A300D01E1F /* FeedbackCell.xib in Resources */,
 				5AB1BDE61B4FB6C8004A4511 /* LoadingCell.xib in Resources */,
+				BC0D44421C02C2850007E9ED /* CourseTitleCell.xib in Resources */,
 				BC753ECF1BAC07D300D2663C /* FeedCommentCell.xib in Resources */,
 				5A5A2AA11B43EEF4000595A9 /* OrderContactCell.xib in Resources */,
 				BC753ED81BAC07D300D2663C /* FeedTitleCell.xib in Resources */,
@@ -2536,6 +2558,7 @@
 				5A9E80E21B4BBD2B0028AC47 /* ProductPlayFellowHeaderView.xib in Resources */,
 				BC592BE41BD5E33A008AE76A /* BookSkuMoreCell.xib in Resources */,
 				BC77377C1BCE2C0C00987B22 /* CoursePoiCell.xib in Resources */,
+				BC0D44471C02FBD50007E9ED /* FeedListItemCell.xib in Resources */,
 				BCCDF66E1B0B4E4C008BAE12 /* WeiboSDK.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2727,6 +2750,7 @@
 				BC97DF271B4E4AA4002B1A00 /* PayTool.m in Sources */,
 				BC97DF1B1B4E1DF0002B1A00 /* PayResultViewController.m in Sources */,
 				BC77376B1BCD0B1200987B22 /* CourseList.m in Sources */,
+				BC0D444A1C031ACE0007E9ED /* CourseDetailCell.m in Sources */,
 				BCF74ACC1BEC98ED00138C2C /* ReviewListViewController.m in Sources */,
 				BC3509041BFC4FBE0043D37C /* CouponShareModel.m in Sources */,
 				BC2E68311BA0129200175E2D /* ConfigModel.m in Sources */,
@@ -2748,7 +2772,9 @@
 				BCF9DD0D1BDA218B00D8CDC6 /* OrderListViewController.m in Sources */,
 				BC753ED31BAC07D300D2663C /* FeedSuggestHeadCell.m in Sources */,
 				BC66D3C51B60FBBE00A5BFC6 /* MyFavCell.m in Sources */,
+				BC0D44461C02FBD50007E9ED /* FeedListItemCell.m in Sources */,
 				BC1052A01BB2B33700D81C15 /* TopicListViewController.m in Sources */,
+				BC0D44411C02C2850007E9ED /* CourseTitleCell.m in Sources */,
 				BCF564C91B43EAB2003A2227 /* UIButton+Block.m in Sources */,
 				BCBB16CC1BF5CC6200E273AF /* User.m in Sources */,
 				BC50639A1B539F0300AA233C /* StringUtils.m in Sources */,

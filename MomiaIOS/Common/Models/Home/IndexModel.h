@@ -7,7 +7,7 @@
 //
 
 #import "BaseModel.h"
-#import "SubjectList.h"
+#import "CourseList.h"
 
 @interface IndexBanner : JSONModel
 @property (nonatomic, strong) NSString *cover;
@@ -40,7 +40,7 @@
 @property (nonatomic, strong) NSArray<IndexBanner> *banners;
 @property (nonatomic, strong) NSArray<IndexIcon> *icons;
 @property (nonatomic, strong) NSArray<IndexEvent> *events;
-@property (nonatomic, strong) SubjectList *subjects;
+@property (nonatomic, strong) CourseList *courses;
 @end
 
 @interface IndexModel : BaseModel
