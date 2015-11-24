@@ -44,14 +44,24 @@
                             <action selector="onTab3Clicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ziB-aw-1k9"/>
                         </connections>
                     </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UC2-UI-2KR">
+                        <rect key="frame" x="0.0" y="49" width="320" height="0.5"/>
+                        <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="lhN-HN-zNA"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="t4r-hq-Fdb" secondAttribute="bottom" id="190-HW-5UH"/>
+                    <constraint firstAttribute="trailing" secondItem="UC2-UI-2KR" secondAttribute="trailing" id="34p-Ht-Mb7"/>
                     <constraint firstAttribute="bottom" secondItem="OeF-Sy-OVu" secondAttribute="bottom" id="5uK-wr-efB"/>
                     <constraint firstItem="OeF-Sy-OVu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="6Vw-uk-Gk3"/>
                     <constraint firstAttribute="trailing" secondItem="OeF-Sy-OVu" secondAttribute="trailing" id="AdM-rs-Fqc"/>
+                    <constraint firstAttribute="bottom" secondItem="UC2-UI-2KR" secondAttribute="bottom" id="H6K-j7-J3y"/>
                     <constraint firstItem="t4r-hq-Fdb" firstAttribute="width" secondItem="vYa-GY-9Ik" secondAttribute="width" id="NYT-Fd-Beh"/>
                     <constraint firstItem="t4r-hq-Fdb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Oik-Or-lYt"/>
+                    <constraint firstItem="UC2-UI-2KR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="W7l-h5-bY3"/>
                     <constraint firstItem="t4r-hq-Fdb" firstAttribute="leading" secondItem="vYa-GY-9Ik" secondAttribute="trailing" id="at5-6e-uSG"/>
                     <constraint firstItem="OeF-Sy-OVu" firstAttribute="leading" secondItem="t4r-hq-Fdb" secondAttribute="trailing" id="fQi-7X-m79"/>
                     <constraint firstItem="vYa-GY-9Ik" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="hWe-Sa-Sly"/>

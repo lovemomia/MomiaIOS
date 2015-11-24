@@ -15,12 +15,16 @@
 #import "CommonHeaderView.h"
 #import "SkuItemCell.h"
 #import "CourseSectionTitleCell.h"
+#import "PackageHeaderCell.h"
 
 static NSString *identifierSkuItemCell = @"SkuItemCell";
 static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
+static NSString *identifierPackageHeaderCell = @"PackageHeaderCell";
 
 @interface SubjectOrderFillViewController ()
 @property (nonatomic, strong) NSString *ids;
+@property (nonatomic, strong) NSString *coid;
+@property (nonatomic, strong) NSString *coName;
 @property (nonatomic, strong) SkuListModel *model;
 @end
 
@@ -31,6 +35,8 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
     self = [super initWithParams:params];
     if(self) {
         self.ids = [params objectForKey:@"id"];
+        self.coid = [params objectForKey:@"coid"];
+        self.coName = [params objectForKey:@"coname"];
     }
     return self;
 }
@@ -46,6 +52,7 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
     [CommonHeaderView registerCellFromNibWithTableView:self.tableView];
     [SkuItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierSkuItemCell];
     [CourseSectionTitleCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierCourseSectionTitleCell];
+    [PackageHeaderCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierPackageHeaderCell];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     self.tableView.backgroundView = [[UIView alloc] init];
@@ -99,8 +106,14 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
         [self.view showLoadingBee];
     }
     
-    NSDictionary * dic = @{@"id":self.ids};
-    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/subject/sku") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[SkuListModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSDictionary * dic;
+    if (self.coid) {
+        dic = @{@"id":self.ids, @"coid":self.coid};
+    } else {
+        dic = @{@"id":self.ids};
+    }
+    
+    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/v2/subject/sku") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[SkuListModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.model == nil) {
             [self.view removeLoadingBee];
         }
@@ -171,26 +184,37 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
 #pragma mark - uitableview delegate & datasourse
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 1) {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 1 && indexPath.row == 0 && self.model.data.packages.count > 0) {
+        [self openURL:[NSString stringWithFormat:@"duola://subjectdetail?id=%@", self.ids]];
+        
+    } else if (indexPath.section == ([self numberOfSectionsInTableView:tableView] - 1)) {
         OrderContactViewController * contactViewController = [[OrderContactViewController alloc] initWithParams:nil];
         contactViewController.model = self.model.data.contact;
         contactViewController.onContactFinishClick = ^{
             [self.tableView reloadData];
         };
         [self.navigationController pushViewController:contactViewController animated:YES];
-        
-
     }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    if (self.model) {
+        if (self.model.data.packages.count > 0) {
+            return 3;
+        }
+        return 2;
+    }
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.model) {
         if (section == 0) {
             return self.model.data.skus.count;
+        } else if (section == 1 && self.model.data.packages.count > 0) {
+            return 1 + self.model.data.packages.count;
+            
         } else {
             return 1;
         }
@@ -211,7 +235,11 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
     UITableViewHeaderFooterView * view;
     if (section == 0) {
         CommonHeaderView * header = [CommonHeaderView cellWithTableView:self.tableView];
-        header.data = @"选择课程包";
+        if (self.coid) {
+            header.data = @"购买单次课程";
+        } else {
+            header.data = @"选择课程包";
+        }
         view = header;
     }
     
@@ -233,27 +261,54 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
             sku.count = [NSNumber numberWithInteger:currentValue];
             [self refreshTotalPrice];
         };
+        skuItemCell.stepperView.hidden = NO;
         if ([sku.limit intValue] > 0) {
             skuItemCell.stepperView.maxValue = [sku.limit intValue];
         } else {
             skuItemCell.stepperView.maxValue = NSIntegerMax;
         }
         cell = skuItemCell;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+    } else if (indexPath.section == 1 && self.model.data.packages.count > 0) {
+        if (indexPath.row == 0) {
+            PackageHeaderCell *headerCell = [PackageHeaderCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierPackageHeaderCell];
+            headerCell.data = self.coName;
+            headerCell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;
+            headerCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell = headerCell;
+            
+        } else {
+            SkuItemCell *skuItemCell = [SkuItemCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierSkuItemCell];
+            Sku *sku = self.model.data.packages[indexPath.row - 1];
+            skuItemCell.data = sku;
+            skuItemCell.stepperView.hidden = YES;
+            cell = skuItemCell;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
         
     } else {
         CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
         titleCell.titleLabel.text = @"联系人信息";
         titleCell.subTitleLabel.text = self.model.data.contact.mobile;
         titleCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        titleCell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;
         cell = titleCell;
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         return [SkuItemCell heightWithTableView:tableView withIdentifier:identifierSkuItemCell forIndexPath:indexPath data:nil];
+        
+    } else if (indexPath.section == 1 && self.model.data.packages.count > 0) {
+        if (indexPath.row == 0) {
+            return 44;
+            
+        } else {
+            return [SkuItemCell heightWithTableView:tableView withIdentifier:identifierSkuItemCell forIndexPath:indexPath data:nil];
+        }
         
     } else {
         return [CourseSectionTitleCell heightWithTableView:tableView withIdentifier:identifierCourseSectionTitleCell forIndexPath:indexPath data:nil];

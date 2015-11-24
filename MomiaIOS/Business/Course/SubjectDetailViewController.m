@@ -12,7 +12,7 @@
 #import "CourseList.h"
 
 #import "PhotoTitleHeaderCell.h"
-#import "CourseBuyCell.h"
+#import "SubjectBuyCell.h"
 #import "CourseTagsCell.h"
 #import "CourseDiscCell.h"
 #import "CourseSectionTitleCell.h"
@@ -22,7 +22,7 @@
 #import "SubjectTabCell.h"
 
 static NSString *identifierPhotoTitleHeaderCell = @"PhotoTitleHeaderCell";
-static NSString *identifierCourseBuyCell = @"CourseBuyCell";
+static NSString *identifierSubjctBuyCell = @"SubjctBuyCell";
 static NSString *identifierCourseTagsCell = @"CourseTagsCell";
 static NSString *identifierCourseDiscCell = @"CourseDiscCell";
 static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
@@ -62,7 +62,7 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
     // Do any additional setup after loading the view from its nib.
     
     [PhotoTitleHeaderCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierPhotoTitleHeaderCell];
-    [CourseBuyCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierCourseBuyCell];
+    [SubjectBuyCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierSubjctBuyCell];
     [CourseTagsCell registerCellFromClassWithTableView:self.tableView withIdentifier:identifierCourseTagsCell];
     [CourseSectionTitleCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierCourseSectionTitleCell];
     [CourseListItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierCourseListItemCell];
@@ -89,11 +89,10 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
 }
 
 - (void)setBuyView {
-    NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"CourseBuyCell" owner:self options:nil];
-    CourseBuyCell *buyCell = [arr objectAtIndex:0];
+    NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"SubjectBuyCell" owner:self options:nil];
+    SubjectBuyCell *buyCell = [arr objectAtIndex:0];
     buyCell.data = self.model.data.subject;
     UIButton *buyBtn = [buyCell viewWithTag:1001];
-    [buyBtn setBackgroundImage:[UIImage imageNamed:@"BgRedMediumButtonNormal"] forState:UIControlStateNormal];
     UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onBuyClicked:)];
     [buyBtn addGestureRecognizer:singleTap];
     buyCell.frame = CGRectMake(0, SCREEN_HEIGHT - 128, SCREEN_WIDTH, 64);
@@ -106,8 +105,11 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
 }
 
 - (UIEdgeInsets)separatorInsetForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0 || indexPath.row == 0) {
+    if (indexPath.section == 0) {
         return UIEdgeInsetsMake(0,0,0,0);
+    }
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        return UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0);
     }
     return UIEdgeInsetsMake(0,10,0,0);
 }

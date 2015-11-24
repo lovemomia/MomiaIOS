@@ -29,6 +29,7 @@
 
 @interface SkuListData : JSONModel
 @property (nonatomic, strong) NSArray<Sku> *skus;
+@property (nonatomic, strong) NSArray<Sku, Optional> *packages;
 @property (nonatomic, strong) Contact *contact;
 @end
 

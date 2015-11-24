@@ -54,6 +54,7 @@
 @property (nonatomic, strong) NSNumber<Optional> *insurance; //红包
 @property (nonatomic, strong) NSNumber<Optional> *bookingId; //预约id
 @property (nonatomic, strong) NSString *subject;
+@property (nonatomic, strong) NSNumber *subjectId;
 
 @property (nonatomic, strong) NSArray<Optional> *imgs; //头图
 @property (nonatomic, strong) NSString<Optional> *goal;  //课程目标
@@ -69,5 +70,7 @@
 @property (nonatomic, strong) NSString<Optional> *institution; //合作机构
 
 @property (nonatomic, strong) NSNumber<Optional> *commented; //是否已评论过
+
+@property (nonatomic, strong) NSNumber<Optional> *buyable;  //1 可购买  2 不可购买
 
 @end

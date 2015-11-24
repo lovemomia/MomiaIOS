@@ -10,6 +10,7 @@
 #import "CourseDetailModel.h"
 #import "CourseList.h"
 #import "MJRefreshHelper.h"
+#import "NSString+MOURLEncode.h"
 
 #import "PhotoTitleHeaderCell.h"
 #import "CourseTitleCell.h"
@@ -22,6 +23,7 @@
 #import "CourseTeacherCell.h"
 #import "ReviewListItemCell.h"
 #import "CourseDetailCell.h"
+#import "CourseBuyCell.h"
 
 #import "NSString+MOURLEncode.h"
 
@@ -152,6 +154,9 @@ typedef enum {
         }
         
         self.model = responseObject;
+        if ([self.model.data.buyable intValue] == 1) {
+            [self setBuyView];
+        }
         
         [self.tableView reloadData];
         [self.tableView.header endRefreshing];
@@ -161,6 +166,21 @@ typedef enum {
         [self showDialogWithTitle:nil message:error.message];
         [self.tableView.header endRefreshing];
     }];
+}
+
+- (void)setBuyView {
+    NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"CourseBuyCell" owner:self options:nil];
+    CourseBuyCell *buyCell = [arr objectAtIndex:0];
+    buyCell.data = self.model.data;
+    UIButton *buyBtn = [buyCell viewWithTag:1001];
+    UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onBuyClicked:)];
+    [buyBtn addGestureRecognizer:singleTap];
+    buyCell.frame = CGRectMake(0, SCREEN_HEIGHT - 128, SCREEN_WIDTH, 64);
+    [self.view addSubview:buyCell];
+}
+
+- (void)onBuyClicked:(UITapGestureRecognizer *)tap {
+    [self openURL:[NSString stringWithFormat:@"duola://fillorder?id=%@&coid=%@&coname=%@", self.model.data.subjectId, self.model.data.ids, [self.model.data.subject URLEncodedString]]];
 }
 
 /*
@@ -361,7 +381,7 @@ typedef enum {
         titleCell.subTitleLabel.text = @"";
         titleCell.accessoryType = UITableViewCellAccessoryNone;
         cell = titleCell;
-        cell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;
+        cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         
     } else if (type == CellDetail) {
         CourseDetailCell *discCell = [CourseDetailCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseDetailCell];
@@ -494,13 +514,13 @@ typedef enum {
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section == 0) {
-        return 0.1;
-    }
-    return 10.0;
+    return 0.1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 0.1;
+    if ([self.model.data.buyable intValue] == 1 && section == ([self numberOfSectionsInTableView:tableView] - 1)) {
+        return 74;
+    }
+    return 10;
 }
 @end
