@@ -147,7 +147,10 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
     if (self.model == nil) {
         return 0;
     }
-    return 3;
+    if (self.model.data.course) {
+        return 3;
+    }
+    return 2;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -167,7 +170,7 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
             return 3;
         }
         return 2;
-    } else if (section == 1) {
+    } else if (section == 1 && self.model.data.course) {
         return 2;
     }
     FeedCommentList *comments = self.model.data.comments;
@@ -190,7 +193,7 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
             return [FeedZanCell heightWithTableView:tableView withIdentifier:identifierFeedZanCell forIndexPath:indexPath data:nil];
         }
         
-    } else if (indexPath.section == 1) {
+    } else if (indexPath.section == 1 && self.model.data.course) {
         if (indexPath.row == 0) {
             return [FeedTitleCell heightWithTableView:tableView withIdentifier:identifierFeedTitleCell forIndexPath:indexPath data:@"相关活动"];
         } else {
@@ -280,7 +283,7 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
             cell = zanCell;
         }
         
-    } else if (indexPath.section == 1) {
+    } else if (indexPath.section == 1 && self.model.data.course) {
         if (indexPath.row == 0) {
             FeedTitleCell *titleCell = [FeedTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierFeedTitleCell];
             titleCell.data = @"相关活动";

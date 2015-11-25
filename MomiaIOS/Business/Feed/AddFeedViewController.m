@@ -68,10 +68,11 @@
         return;
     }
     
-    if (self.courseId == nil) {
-        [self showDialogWithTitle:nil message:@"您还未选择课程名称"];
-        return;
-    }
+    // v1.2 课程改为可选
+//    if (self.courseId == nil) {
+//        [self showDialogWithTitle:nil message:@"您还未选择课程名称"];
+//        return;
+//    }
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     BOOL imagesUploaded = YES;

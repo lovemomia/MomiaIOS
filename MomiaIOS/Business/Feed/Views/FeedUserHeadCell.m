@@ -40,7 +40,6 @@
         }
         self.descLabel.text = ms;
     }
-    
 }
 
 - (IBAction)onUserInfoClicked:(id)sender {
