@@ -23,7 +23,15 @@
 }
 
 - (void)setData:(Course *)data {
-    self.priceLabel.text = [StringUtils stringForPrice:data.price];
+    if ([data.buyable intValue] == 1) {
+        self.priceLabel.hidden = YES;
+        self.price1Label.hidden = YES;
+        self.price2Label.hidden = YES;
+        self.price3Label.hidden = YES;
+        
+    } else {
+        self.priceLabel.text = [StringUtils stringForPrice:data.price];
+    }
     
     for (UIView * view in self.tagsContainer.subviews) {
         if([view isKindOfClass:[UIImageView class]] || [view isKindOfClass:[UILabel class]]) {
@@ -44,7 +52,7 @@
         [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.tagsContainer).with.offset(2);
             if(i == 0) make.leading.equalTo(self.tagsContainer).with.offset(10);
-            else make.leading.equalTo(lastView.mas_trailing).with.offset(5);
+            else make.leading.equalTo(lastView.mas_trailing).with.offset(8);
             make.width.equalTo(@17);
             make.height.equalTo(@17);
         }];
@@ -58,7 +66,7 @@
         }];
         
         if (i == 0) {
-            label.text = [NSString stringWithFormat:@"适合%@", data.age];
+            label.text = [NSString stringWithFormat:@"%@", data.age];
         } else if (i == 1) {
             label.text = @"送保险";
         }
@@ -81,7 +89,7 @@
         make.centerY.equalTo(self.tagsContainer).with.offset(2);
         make.width.equalTo(@14);
         make.height.equalTo(@14);
-        make.left.equalTo(lastView.mas_right).with.offset(5);
+        make.left.equalTo(lastView.mas_right).with.offset(8);
     }];
     [imgView setImage:[UIImage imageNamed:@"IconProductTag"]];
     

@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *pageLabelBg;
 
 @property (nonatomic, strong) NSArray *imgs;
+@property (nonatomic, strong) NSMutableArray *imgsIvArray;
 
 
 @property (assign, nonatomic) int imgsNum;
@@ -56,6 +57,11 @@
         if([view isKindOfClass:[UIImageView class]]) {
             [view removeFromSuperview];
         }
+    }
+    if (self.imgsIvArray) {
+        [self.imgsIvArray removeAllObjects];
+    } else {
+        self.imgsIvArray = [[NSMutableArray alloc]init];
     }
     
     self.imgsNum = 0;
@@ -110,6 +116,7 @@
             imgView.clipsToBounds = YES;
             imgView.contentMode = UIViewContentModeScaleAspectFill;
             [self.scrollView addSubview:imgView];
+            [self.imgsIvArray addObject:imgView];
             self.imgsNum ++;
         }
         
@@ -134,6 +141,7 @@
         NSString *url = [self.imgs objectAtIndex:i];
         MJPhoto *photo = [[MJPhoto alloc] init];
         photo.url = [NSURL URLWithString:url];
+        photo.srcImageView = [self.imgsIvArray objectAtIndex:i];
         [photos addObject:photo];
     }
     

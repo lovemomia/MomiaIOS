@@ -60,7 +60,7 @@
         index.layer.cornerRadius = 7.5;
         [self.contentView addSubview:index];
         [index mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(lastView.mas_bottom).with.offset(12);
+            make.top.equalTo(lastView.mas_bottom).with.offset(15);
             make.left.equalTo(self.contentView).with.offset(10);
             make.width.equalTo(@15);
             make.bottom.lessThanOrEqualTo(self.contentView).with.offset(-12);
@@ -75,7 +75,7 @@
         TTTAttributedLabel *title = [[TTTAttributedLabel alloc]initWithFrame:CGRectZero];
         [self.contentView addSubview:title];
         [title mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(lastView.mas_bottom).with.offset(12);
+            make.top.equalTo(lastView.mas_bottom).with.offset(15);
             make.left.equalTo(index.mas_right).with.offset(5);
             make.right.equalTo(self.contentView).with.offset(-10);
             make.bottom.lessThanOrEqualTo(self.contentView).with.offset(-12);

@@ -59,6 +59,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="price1Label" destination="KnH-nh-gEN" id="qo3-ka-liD"/>
+                <outlet property="price2Label" destination="rSR-kc-vaa" id="0Ri-XT-nke"/>
+                <outlet property="price3Label" destination="wdS-cD-ya3" id="oqH-zt-4wp"/>
                 <outlet property="priceLabel" destination="e4w-C0-p1n" id="JNT-a4-QDE"/>
                 <outlet property="tagsContainer" destination="DXo-pj-AJj" id="KgW-d9-ccD"/>
             </connections>
