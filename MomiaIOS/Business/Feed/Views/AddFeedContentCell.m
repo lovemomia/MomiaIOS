@@ -41,7 +41,7 @@
         
         contentTv = [[UITextView alloc]init];
         contentTv.returnKeyType = UIReturnKeyDone;
-        [contentTv addPlaceHolder:@"说说参加课程的感受吧"];
+        [contentTv addPlaceHolder:@"记录下和宝宝一起度过的时光吧~"];
         contentTv.height = CONTENT_INPUT_HEIGHT - 15;
         contentTv.width = SCREEN_WIDTH - 20;
         contentTv.top = 5;
@@ -63,7 +63,7 @@
     if (self.contentTv == nil) {
         contentTv = [[UITextView alloc]init];
         contentTv.returnKeyType = UIReturnKeyDone;
-        [contentTv addPlaceHolder:@"说说参加课程的感受吧"];
+        [contentTv addPlaceHolder:@"记录下和宝宝一起度过的时光吧~"];
         contentTv.height = CONTENT_INPUT_HEIGHT - 15;
         contentTv.width = SCREEN_WIDTH - 20;
         contentTv.top = 5;
@@ -79,7 +79,7 @@
     [container addSubview:contentTv];
     
     // images
-    CGFloat photoHeight = (SCREEN_WIDTH - 60)/4;
+    CGFloat photoHeight = (SCREEN_WIDTH - 54)/4;
     for (int i = 0; i < images.count; i++) {
         SelectImage *image = images[i];
         UIImageView *imageView = [[UIImageView alloc]init];
@@ -88,7 +88,7 @@
         // image frame
         int cloumn = fmod(i, 4);
         int row = i / 4;
-        imageView.frame = CGRectMake(15 + cloumn * (photoHeight + 10), CONTENT_INPUT_HEIGHT + (photoHeight + 10) * row, photoHeight, photoHeight);
+        imageView.frame = CGRectMake(12 + cloumn * (photoHeight + 10), CONTENT_INPUT_HEIGHT + (photoHeight + 10) * row, photoHeight, photoHeight);
         
         // click
         imageView.userInteractionEnabled=YES;
@@ -110,14 +110,14 @@
 }
 
 - (UIImageView *)addSelectPhotoViewAtIndex:(int)index {
-    CGFloat photoHeight = (SCREEN_WIDTH - 60)/4;
+    CGFloat photoHeight = (SCREEN_WIDTH - 54)/4;
     UIImageView *imageView = [[UIImageView alloc]init];
     [imageView setContentMode:UIViewContentModeScaleAspectFill];
     
     // image frame
     int cloumn = fmod(index, 4);
     int row = index / 4;
-    imageView.frame = CGRectMake(15 + cloumn * (photoHeight + 10), CONTENT_INPUT_HEIGHT + (photoHeight + 10) * row, photoHeight, photoHeight);
+    imageView.frame = CGRectMake(12 + cloumn * (photoHeight + 10), CONTENT_INPUT_HEIGHT + (photoHeight + 10) * row, photoHeight, photoHeight);
     
     // click
     imageView.userInteractionEnabled=YES;
@@ -152,7 +152,7 @@
 
 + (CGFloat)heightWithImageCount:(int)count {
     int row = count / 4;
-    CGFloat photoHeight = (SCREEN_WIDTH - 60)/4;
+    CGFloat photoHeight = (SCREEN_WIDTH - 54)/4;
     CGFloat height = CONTENT_INPUT_HEIGHT + (photoHeight + 10) * (row + 1);
     return height;
 }

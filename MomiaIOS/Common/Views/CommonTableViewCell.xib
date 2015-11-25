@@ -15,14 +15,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="agu-s5-2U1">
-                        <rect key="frame" x="12" y="12" width="20" height="20"/>
+                        <rect key="frame" x="12" y="13" width="18" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="ghy-6U-cZg"/>
-                            <constraint firstAttribute="width" constant="20" id="sHM-dP-fWg"/>
+                            <constraint firstAttribute="height" constant="18" id="ghy-6U-cZg"/>
+                            <constraint firstAttribute="width" constant="18" id="sHM-dP-fWg"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fH-EU-Wji">
-                        <rect key="frame" x="44" y="12" width="266" height="19.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fH-EU-Wji">
+                        <rect key="frame" x="40" y="13" width="270" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="mHd-jz-Ler"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -31,7 +34,7 @@
                 <constraints>
                     <constraint firstItem="agu-s5-2U1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2kO-Mg-0Tg"/>
                     <constraint firstAttribute="trailing" secondItem="9fH-EU-Wji" secondAttribute="trailing" constant="10" id="Dcc-Uq-WCA"/>
-                    <constraint firstItem="9fH-EU-Wji" firstAttribute="leading" secondItem="agu-s5-2U1" secondAttribute="trailing" constant="12" id="Dwn-vm-2G1"/>
+                    <constraint firstItem="9fH-EU-Wji" firstAttribute="leading" secondItem="agu-s5-2U1" secondAttribute="trailing" constant="10" id="Dwn-vm-2G1"/>
                     <constraint firstItem="agu-s5-2U1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="Fqd-2Q-Gjg"/>
                     <constraint firstItem="9fH-EU-Wji" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cqg-kX-dMt"/>
                 </constraints>

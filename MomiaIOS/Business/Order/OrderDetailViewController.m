@@ -177,7 +177,7 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
             Order *order = self.model.data;
             NSString *title;
             if ([order.status intValue] == 2) {
-                title = @"前往付款";
+                title = @"继续支付";
                 
             } else if ([order.bookingStatus intValue] == 1) {
                 title = @"我要预约";

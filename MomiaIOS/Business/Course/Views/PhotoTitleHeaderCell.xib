@@ -66,6 +66,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="pageLabel" destination="SJk-dn-Ivt" id="Njp-IW-8cq"/>
+                <outlet property="pageLabelBg" destination="YYo-rE-Dqx" id="Vkh-qS-Q5Z"/>
                 <outlet property="scrollView" destination="NDp-DU-ouL" id="bkr-0v-EKX"/>
             </connections>
             <point key="canvasLocation" x="289" y="412.5"/>

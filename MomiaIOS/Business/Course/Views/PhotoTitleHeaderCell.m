@@ -16,6 +16,8 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *pageLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *pageLabelBg;
+
 
 @property (assign, nonatomic) int imgsNum;
 
@@ -67,19 +69,9 @@
     
     self.scrollView.delegate = self;
     
-    if(array.count == 0) {
+    if(array.count <= 1) {
         self.pageLabel.hidden = YES;
-    } else if(array.count == 1) {
-        self.pageLabel.hidden = NO;
-        self.scrollView.contentSize = CGSizeMake(width,0);
-        NSString * item = array[0];
-        MONetworkPhotoView * imgView = [[MONetworkPhotoView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
-        [imgView sd_setImageWithURL:[NSURL URLWithString:item] placeholderImage:nil];
-        imgView.clipsToBounds = YES;
-        imgView.contentMode = UIViewContentModeScaleAspectFill;
-        
-        [self.scrollView addSubview:imgView];
-        self.imgsNum ++;
+        self.pageLabelBg.hidden = YES;
     } else {
         self.pageLabel.hidden = NO;
         self.scrollView.contentSize = CGSizeMake((array.count + 2) * width,0);

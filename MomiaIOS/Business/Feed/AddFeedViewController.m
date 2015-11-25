@@ -15,6 +15,7 @@
 #import "MLSelectPhotoAssets.h"
 #import "MLSelectPhotoPickerAssetsViewController.h"
 #import "MLSelectPhotoBrowserViewController.h"
+#import "CommonTableViewCell.h"
 
 
 @interface AddFeedViewController ()
@@ -237,7 +238,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellTags = @"CellTags";
+    static NSString *CellCommon = @"CellCommon";
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     UITableViewCell *cell;
@@ -248,29 +249,21 @@
         cell = self.contentCell = contentCell;
         
     } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:CellCommon];
+        if (cell == nil) {
+            NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"CommonTableViewCell" owner:self options:nil];
+            cell = [arr objectAtIndex:0];
+        }
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        CommonTableViewCell *commonCell = (CommonTableViewCell *)cell;
+        
         if (row == 0) {
-            cell = [tableView dequeueReusableCellWithIdentifier:CellTags];
-            if (cell == nil) {
-                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellTags];
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-                cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                cell.textLabel.textColor = UIColorFromRGB(0x333333);
-                cell.textLabel.font = [UIFont systemFontOfSize: 15.0];
-            }
-            cell.imageView.image = [UIImage imageNamed:@"IconCourse"];
-            cell.textLabel.text = self.courseTitle ? self.courseTitle : @"课程名称";
+            commonCell.iconIv.image = [UIImage imageNamed:@"IconCourse"];
+            commonCell.titleLabel.text = self.courseTitle ? self.courseTitle : @"课程名称";
             
         } else {
-            cell = [tableView dequeueReusableCellWithIdentifier:CellTags];
-            if (cell == nil) {
-                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellTags];
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-                cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                cell.textLabel.textColor = UIColorFromRGB(0x333333);
-                cell.textLabel.font = [UIFont systemFontOfSize: 15.0];
-            }
-            cell.imageView.image = [UIImage imageNamed:@"IconTag"];
-            cell.textLabel.text = self.tagName ? self.tagName : @"标签";
+            commonCell.iconIv.image = [UIImage imageNamed:@"IconTag"];
+            commonCell.titleLabel.text = self.tagName ? self.tagName : @"标签";
         }
     }
     return cell;
