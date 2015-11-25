@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSNumber *ids;
 @property (nonatomic, strong) NSNumber *subjectId;
+@property (nonatomic, strong) NSNumber<Optional> *courseId;
 
 @property (nonatomic, strong) NSNumber *count;
 @property (nonatomic, strong) NSNumber *totalFee;
@@ -21,5 +22,7 @@
 @property (nonatomic, strong) NSString<Optional> *title;
 @property (nonatomic, strong) NSString<Optional> *addTime;
 @property (nonatomic, strong) NSString<Optional> *cover;
+@property (nonatomic, strong) NSString<Optional>* couponDesc;
+
 
 @end

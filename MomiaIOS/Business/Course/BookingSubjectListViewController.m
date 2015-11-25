@@ -105,8 +105,11 @@ static NSString * identifierBookingSubjectItemCell = @"BookingSubjectItemCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.row < self.list.count) {
         BookingSubject *bs = self.list[indexPath.row];
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://bookablecourselist?id=%@&pid=%@", bs.subjectId, bs.packageId]];
-        [[UIApplication sharedApplication] openURL:url];
+        if ([bs.courseId intValue] > 0) {
+            [self openURL:[NSString stringWithFormat:@"duola://book?id=%@&pid=%@", bs.courseId, bs.packageId]];
+        } else {
+            [self openURL:[NSString stringWithFormat:@"duola://bookablecourselist?id=%@&pid=%@", bs.subjectId, bs.packageId]];
+        }
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

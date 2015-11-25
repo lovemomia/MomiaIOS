@@ -254,7 +254,7 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
         text.textColor = UIColorFromRGB(0x999999);
         text.backgroundColor = MO_APP_VCBackgroundColor;
         text.font = [UIFont systemFontOfSize:14];
-        text.text = @"课程试听";
+        text.text = @"热门推荐";
         [view addSubview:text];
     }
     return view;

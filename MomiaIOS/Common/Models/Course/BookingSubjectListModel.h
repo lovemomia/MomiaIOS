@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString *cover;
 @property (nonatomic, strong) NSNumber *bookableCourseCount;
 @property (nonatomic, strong) NSString<Optional> *expireTime;
+@property (nonatomic, strong) NSNumber *courseId;
 @end
 
 @protocol BookingSubject <NSObject>

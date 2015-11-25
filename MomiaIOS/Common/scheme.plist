@@ -234,7 +234,7 @@
 		<key>needlogin</key>
 		<true/>
 		<key>desc</key>
-		<string>订单详情页(oid, pid)</string>
+		<string>订单详情页(oid)</string>
 	</dict>
 	<key>couponlist</key>
 	<dict>

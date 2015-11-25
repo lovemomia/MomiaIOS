@@ -104,6 +104,7 @@
 		BC0D444F1C0465210007E9ED /* SubjectBuyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC0D444D1C0465210007E9ED /* SubjectBuyCell.xib */; };
 		BC0D44531C046F120007E9ED /* PackageHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0D44511C046F120007E9ED /* PackageHeaderCell.m */; };
 		BC0D44541C046F120007E9ED /* PackageHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC0D44521C046F120007E9ED /* PackageHeaderCell.xib */; };
+		BC0D44571C0551160007E9ED /* OrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0D44561C0551160007E9ED /* OrderDetailViewController.m */; };
 		BC0EC2941B58EFD200D9A82F /* DateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC2931B58EFD200D9A82F /* DateManager.m */; };
 		BC0EC2981B5E1F5300D9A82F /* CacheService.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC2971B5E1F5300D9A82F /* CacheService.m */; };
 		BC1052891BB1530200D81C15 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052881BB1530200D81C15 /* Toast.m */; };
@@ -554,6 +555,8 @@
 		BC0D44501C046F120007E9ED /* PackageHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PackageHeaderCell.h; path = Business/Order/views/PackageHeaderCell.h; sourceTree = "<group>"; };
 		BC0D44511C046F120007E9ED /* PackageHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PackageHeaderCell.m; path = Business/Order/views/PackageHeaderCell.m; sourceTree = "<group>"; };
 		BC0D44521C046F120007E9ED /* PackageHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PackageHeaderCell.xib; path = Business/Order/views/PackageHeaderCell.xib; sourceTree = "<group>"; };
+		BC0D44551C0551160007E9ED /* OrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDetailViewController.h; path = Business/Order/OrderDetailViewController.h; sourceTree = "<group>"; };
+		BC0D44561C0551160007E9ED /* OrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDetailViewController.m; path = Business/Order/OrderDetailViewController.m; sourceTree = "<group>"; };
 		BC0EC2921B58EFD200D9A82F /* DateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateManager.h; path = Common/Utils/DateManager.h; sourceTree = "<group>"; };
 		BC0EC2931B58EFD200D9A82F /* DateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateManager.m; path = Common/Utils/DateManager.m; sourceTree = "<group>"; };
 		BC0EC2961B5E1F5300D9A82F /* CacheService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CacheService.h; path = Common/Services/Cache/CacheService.h; sourceTree = "<group>"; };
@@ -1251,6 +1254,8 @@
 				BC77378E1BCF91CA00987B22 /* SubjectOrderFillViewController.h */,
 				BC77378F1BCF91CA00987B22 /* SubjectOrderFillViewController.m */,
 				BC7737901BCF91CA00987B22 /* SubjectOrderFillViewController.xib */,
+				BC0D44551C0551160007E9ED /* OrderDetailViewController.h */,
+				BC0D44561C0551160007E9ED /* OrderDetailViewController.m */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -2663,6 +2668,7 @@
 				BC3599FB1BC61F0C002DE863 /* MLSelectPhotoPickerFooterCollectionReusableView.m in Sources */,
 				5A5A2A691B43E531000595A9 /* OrderContactViewController.m in Sources */,
 				BC592BD41BD50194008AE76A /* BookSkuListViewController.m in Sources */,
+				BC0D44571C0551160007E9ED /* OrderDetailViewController.m in Sources */,
 				BC10528C1BB15BAE00D81C15 /* CommentListViewController.m in Sources */,
 				BC7737911BCF91CA00987B22 /* SubjectOrderFillViewController.m in Sources */,
 				5A1B35E81B12BBAC00E1D31B /* CommentModel.m in Sources */,

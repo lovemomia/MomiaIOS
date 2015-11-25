@@ -8,15 +8,7 @@
 
 #import "OrderDetailModel.h"
 
-@implementation OrderDetailDataModel
-
-+ (JSONKeyMapper *)keyMapper {
-    return [[JSONKeyMapper alloc] initWithDictionary:@{@"id":@"orderNo"}];
-}
-
-@end
 
 @implementation OrderDetailModel
-
 
 @end
