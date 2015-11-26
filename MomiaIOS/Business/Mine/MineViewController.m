@@ -100,9 +100,10 @@
             break;
         case 1:
             if(row == 0) {
-                [self openURL:@"duola://bookedcourselist"];
+                [self openURL:@"duola://bookingsubjectlist"];
+                
             } else {
-               [self openURL:@"duola://bookingsubjectlist"];
+               [self openURL:@"duola://bookedcourselist"];
             }
             break;
         case 2:
@@ -193,11 +194,11 @@
         switch (section) {
             case 1:
                 if (row == 0) {
-                    commonCell.titleLabel.text = @"已选课程";
-                    commonCell.iconIv.image = [UIImage imageNamed:@"IconBooked"];
-                } else {
                     commonCell.titleLabel.text = @"待选课程";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconBooking"];
+                } else {
+                    commonCell.titleLabel.text = @"已选课程";
+                    commonCell.iconIv.image = [UIImage imageNamed:@"IconBooked"];
                 }
                 break;
             case 2:

@@ -322,7 +322,7 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
     if (indexPath.section == 1 && indexPath.row > 0) {
         if (self.tabIndex == 0) {
             Course *course = self.model.data.courses.list[indexPath.row - 1];
-            [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@", course.ids]];
+            [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@&buyable=0", course.ids]];
             
 //            [self openURL:[NSString stringWithFormat:@"duola://bookablecourselist?id=%@&onlyshow=1", self.model.data.subject.ids]];
         }

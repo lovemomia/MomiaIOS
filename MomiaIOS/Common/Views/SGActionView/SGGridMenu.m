@@ -44,7 +44,7 @@
     self.imageView.frame = imageRect;
     
     float labelHeight = height - (imageRect.origin.y + imageRect.size.height);
-    CGRect labelRect = CGRectMake(width * 0.05, imageRect.origin.y + imageRect.size.height, width * 0.9, labelHeight);
+    CGRect labelRect = CGRectMake(width * 0.05, imageRect.origin.y + imageRect.size.height + 10, width * 0.9, labelHeight);
     self.titleLabel.frame = labelRect;
 }
 
@@ -129,7 +129,7 @@
     _items = [NSArray arrayWithArray:items];
 }
 
-- (void)setStyle:(SGActionViewStyle)style{
+- (void)setStyle:(SGActionViewStyle)style {
     _style = style;
     
     self.backgroundColor = BaseMenuBackgroundColor(style);
@@ -149,7 +149,7 @@
     [self layoutContentScrollView];
     self.contentScrollView.frame = (CGRect){CGPointMake(0, self.titleLabel.frame.size.height), self.contentScrollView.bounds.size};
     
-    self.cancelButton.frame = CGRectMake(self.bounds.size.width*0.05, self.titleLabel.bounds.size.height + self.contentScrollView.bounds.size.height, self.bounds.size.width*0.9, 44);
+    self.cancelButton.frame = CGRectMake(self.bounds.size.width*0.05, self.titleLabel.bounds.size.height + self.contentScrollView.bounds.size.height, self.bounds.size.width * 0.9, 44);
     
     self.bounds = (CGRect){CGPointZero, CGSizeMake(self.bounds.size.width, self.titleLabel.bounds.size.height + self.contentScrollView.bounds.size.height + self.cancelButton.bounds.size.height)};
 }

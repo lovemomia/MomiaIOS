@@ -74,7 +74,7 @@ static NSString * identifierBookingSubjectItemCell = @"BookingSubjectItemCell";
                                                      if (refresh) {
                                                          [self.list removeAllObjects];
                                                      }
-                                                     if (model.data.totalCount == 0) {
+                                                     if ([model.data.totalCount intValue] == 0) {
                                                          [self.view showEmptyView:@"您还没有待约课程包哦，赶快去浏览一下吧~"];
                                                          return;
                                                      }

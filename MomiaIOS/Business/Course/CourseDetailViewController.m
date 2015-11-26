@@ -78,6 +78,7 @@ typedef enum {
 @interface CourseDetailViewController ()
 
 @property (nonatomic, strong) NSString *ids;
+@property (nonatomic, assign) BOOL buyAble;
 @property (nonatomic, strong) CourseDetailModel *model;
 
 @end
@@ -87,6 +88,11 @@ typedef enum {
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
         self.ids = [params objectForKey:@"id"];
+        if ([params objectForKey:@"buyable"]) {
+            self.buyAble = [[params objectForKey:@"buyable"] intValue] == 1;
+        } else {
+            self.buyAble = YES;
+        }
     }
     return self;
 }
@@ -154,8 +160,11 @@ typedef enum {
         }
         
         self.model = responseObject;
-        if ([self.model.data.buyable intValue] == 1) {
+        if ([self.model.data.buyable intValue] == 1 && self.buyAble) {
             [self setBuyView];
+            
+        } else {
+            self.model.data.buyable = [NSNumber numberWithInt:0];
         }
         
         [self.tableView reloadData];
