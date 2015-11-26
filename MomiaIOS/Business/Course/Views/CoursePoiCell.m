@@ -44,25 +44,15 @@
         NSString *distanceStr;
         if (distance < 100) {
             distanceStr = @"<100m";
+        } else if (distance > 100000) {
+            distanceStr = @">100km";
         } else if (distance > 1000) {
-            distanceStr = [NSString stringWithFormat:@"%.1f", distance];
+            distanceStr = [NSString stringWithFormat:@"%.1fkm", distance / 1000];
         } else {
-            distanceStr = [NSString stringWithFormat:@"%d", (int)distance];
+            distanceStr = [NSString stringWithFormat:@"%dm", (int)distance];
         }
         self.distanceLabel.text = distanceStr;
     }
-    BMKMapPoint point1 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake(39.913607,116.428415));
-    BMKMapPoint point2 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake(39.914935,116.552022));
-    CLLocationDistance distance = BMKMetersBetweenMapPoints(point1,point2);
-    NSString *distanceStr;
-    if (distance < 100) {
-        distanceStr = @"<100m";
-    } else if (distance > 1000) {
-        distanceStr = [NSString stringWithFormat:@"%.1fkm", distance / 1000];
-    } else {
-        distanceStr = [NSString stringWithFormat:@"%dm", (int)distance];
-    }
-    self.distanceLabel.text = distanceStr;
 }
 
 + (CGFloat)heightWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath data:(id)data {

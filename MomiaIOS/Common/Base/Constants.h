@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#define MO_DEBUG       0  // 调试开关 (0线上，1调试)
+#define MO_DEBUG       0 // 调试开关 (0线上，1调试)
 
 // API Domain
 // 线上环境
