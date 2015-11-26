@@ -16,6 +16,7 @@
     BOOL _doubleTap;
     UIImageView *_imageView;
     MJPhotoLoadingView *_photoLoadingView;
+    BOOL hide;
 }
 @end
 
@@ -111,7 +112,15 @@
         
         [_imageView sd_setImageWithURL:_photo.url placeholderImage:_photo.srcImageView.image options:SDWebImageRetryFailed|SDWebImageLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
             if (receivedSize > kMinProgress) {
-                loading.progress = (float)receivedSize/expectedSize;
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    if (loading) {
+//                        loading.progress = (float)receivedSize/expectedSize;
+//                    }
+//                });
+                if (!hide) {
+                    loading.progress = (float)receivedSize/expectedSize;
+                }
+                
             }
         } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             [photoView photoDidFinishLoadWithImage:image];
@@ -172,7 +181,7 @@
     
     // y值
     if (imageFrame.size.height < boundsHeight) {
-        imageFrame.origin.y = floorf((boundsHeight - imageFrame.size.height - 64) / 2.0);
+        imageFrame.origin.y = floorf((boundsHeight - imageFrame.size.height) / 2.0);
 	} else {
         imageFrame.origin.y = 0;
 	}
@@ -205,6 +214,7 @@
 }
 - (void)hide
 {
+    hide = YES;
     if (_doubleTap) return;
     
     // 移除进度条
@@ -257,6 +267,15 @@
 	} else {
 		[self zoomToRect:CGRectMake(touchPoint.x, touchPoint.y, 1, 1) animated:YES];
 	}
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
+    CGRect imageViewFrame = _imageView.frame;
+    CGRect screenBounds = [UIScreen mainScreen].bounds;
+    if (imageViewFrame.size.height > screenBounds.size.height)
+    { imageViewFrame.origin.y = 0.0f; }
+    else { imageViewFrame.origin.y = (screenBounds.size.height - imageViewFrame.size.height) / 2.0; }
+    _imageView.frame = imageViewFrame;
 }
 
 - (void)dealloc
