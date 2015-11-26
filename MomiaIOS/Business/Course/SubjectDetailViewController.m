@@ -9,7 +9,7 @@
 #import "SubjectDetailViewController.h"
 #import "MJRefreshHelper.h"
 #import "SubjectDetailModel.h"
-#import "CourseList.h"
+#import "CourseListModel.h"
 
 #import "PhotoTitleHeaderCell.h"
 #import "SubjectBuyCell.h"
@@ -38,9 +38,22 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
 @property (nonatomic, strong) SubjectTabCell *topTabView;
 @property (nonatomic, assign) CGRect rectInTableView;
 @property (nonatomic, strong) SubjectDetailModel *model;
-@property (nonatomic, assign) BOOL hasReview;
+@property (nonatomic, assign) BOOL hasFeed;
+@property (nonatomic, assign) BOOL hasCourse;
 
 @property (nonatomic, assign) NSInteger tabIndex;
+
+//课程列表
+@property (nonatomic, strong) NSMutableArray *courseList;
+@property (nonatomic, assign) BOOL clLoading;
+@property (nonatomic, assign) NSInteger clNextIndex;
+
+//成长说列表
+@property (nonatomic, strong) NSMutableArray *feedList;
+@property (nonatomic, assign) BOOL flLoading;
+@property (nonatomic, assign) NSInteger flNextIndex;
+
+@property (nonatomic, strong) AFHTTPRequestOperation * curOperation;
 
 @end
 
@@ -125,6 +138,21 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
         [self.view showLoadingBee];
     }
     
+    if (self.courseList == nil) {
+        self.courseList = [[NSMutableArray alloc]init];
+        self.feedList = [[NSMutableArray alloc]init];
+    }
+    
+    if (refresh) {
+        self.clNextIndex = 0;
+        self.clLoading = NO;
+        [self.courseList removeAllObjects];
+        
+        self.flNextIndex = 0;
+        self.flLoading = NO;
+        [self.feedList removeAllObjects];
+    }
+    
     CacheType cacheType = refresh ? CacheTypeDisable : CacheTypeDisable;
     
     NSDictionary * dic = @{@"id":self.ids};
@@ -134,8 +162,18 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
         }
         
         self.model = responseObject;
-        self.hasReview = self.model.data.feeds && self.model.data.feeds.list.count > 0;
+        self.hasFeed = self.model.data.feeds && self.model.data.feeds.list.count > 0;
+        self.hasCourse = self.model.data.courses &&  self.model.data.courses.list.count > 0;
         self.navigationItem.title = self.model.data.subject.title;
+        
+        if (self.model.data.courses) {
+            [self.courseList addObjectsFromArray:self.model.data.courses.list];
+            self.clNextIndex = [self.model.data.courses.nextIndex integerValue];
+        }
+        if (self.model.data.feeds) {
+            [self.feedList addObjectsFromArray:self.model.data.feeds.list];
+            self.flNextIndex = [self.model.data.feeds.nextIndex integerValue];
+        }
         
         [self setBuyView];
         [self.tableView reloadData];
@@ -146,6 +184,77 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
         [self showDialogWithTitle:nil message:error.message];
         [self.tableView.header endRefreshing];
     }];
+}
+
+- (void)requestCourse {
+    if(self.curOperation) {
+        [self.curOperation pause];
+    }
+    
+    NSMutableDictionary *paramDic = [[NSMutableDictionary alloc]init];
+    [paramDic setValue:self.ids forKey:@"id"];
+    [paramDic setValue:[NSString stringWithFormat:@"%ld", (long)self.clNextIndex] forKey:@"start"];
+    
+    self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/subject/course")
+                                              parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[CourseListModel class]
+                                                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                     if ([self.courseList count] == 0) {
+                                                         [self.view removeLoadingBee];
+                                                     }
+                                                     
+                                                     CourseListModel *model = (CourseListModel *)responseObject;
+                                                     
+                                                     if (model.data.courses.nextIndex) {
+                                                         self.clNextIndex = [model.data.courses.nextIndex integerValue];
+                                                     } else {
+                                                         self.clNextIndex = -1;
+                                                     }
+                                                     
+                                                     for (Course *course in model.data.courses.list) {
+                                                         [self.courseList addObject:course];
+                                                     }
+                                                     [self.tableView reloadData];
+                                                     self.clLoading = NO;
+                                                     
+                                                 }
+                         
+                                                 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                     [self showDialogWithTitle:nil message:error.message];
+                                                     self.clLoading = NO;
+                                                 }];
+}
+
+- (void)requestFeed {
+    if(self.curOperation) {
+        [self.curOperation pause];
+    }
+    
+    NSMutableDictionary *paramDic = [[NSMutableDictionary alloc]init];
+    [paramDic setValue:self.ids forKey:@"suid"];
+    [paramDic setValue:[NSString stringWithFormat:@"%ld", (long)self.flNextIndex] forKey:@"start"];
+    
+    self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/feed/subject")
+                                              parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[FeedListModel class]
+                                                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                     FeedListModel *model = (FeedListModel *)responseObject;
+                                                     
+                                                     if (model.data.nextIndex) {
+                                                         self.flNextIndex = [model.data.nextIndex integerValue];
+                                                     } else {
+                                                         self.flNextIndex = -1;
+                                                     }
+                                                     
+                                                     for (Feed *feed in model.data.list) {
+                                                         [self.feedList addObject:feed];
+                                                     }
+                                                     [self.tableView reloadData];
+                                                     self.flLoading = NO;
+                                                 }
+                         
+                                                 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                     [self showDialogWithTitle:nil message:error.message];
+                                                     self.flLoading = NO;
+                                                 }];
 }
 
 /*
@@ -193,6 +302,12 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
 }
 
 - (void)onTabChanged:(NSInteger)index {
+    if (self.tabIndex == index) {
+        return;
+    }
+    if(self.curOperation) {
+        [self.curOperation pause];
+    }
     self.tabIndex = index;
     [self.tableView reloadData];
     self.topTabView.data = [NSNumber numberWithInteger:index];
@@ -214,7 +329,7 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
 //        else if (self.tabIndex == 2) {
 //            [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@", course.ids]];
 //        }
-    } else if (indexPath.section == 3 && self.hasReview) {
+    } else if (indexPath.section == 3 && self.hasFeed) {
         [self openURL:[NSString stringWithFormat:@"duola://reviewlist?subjectId=%@", self.ids]];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -232,9 +347,17 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
         return 3;
     } else if (section == 1) {
         if (self.tabIndex == 0) {
-            return 1 + self.model.data.courses.list.count;
+            if (self.clNextIndex > 0) {
+                return self.courseList.count + 2;
+            }
+            return 1 + self.courseList.count;
+            
         } else if (self.tabIndex == 2) {
-            return 1 + self.model.data.feeds.list.count;
+            if (self.flNextIndex > 0) {
+                return self.feedList.count + 2;
+            }
+            return 1 + self.feedList.count;
+            
         } else {
             return 2;
         }
@@ -275,9 +398,24 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
             
         } else {
             if (self.tabIndex == 0) {
-                CourseListItemCell *itemCell = [CourseListItemCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseListItemCell];
-                itemCell.data = self.model.data.courses.list[row - 1];
-                cell = itemCell;
+                if((row - 1) == self.courseList.count) {
+                    static NSString * loadIdentifier = @"CellLoading";
+                    UITableViewCell * load = [tableView dequeueReusableCellWithIdentifier:loadIdentifier];
+                    if(load == nil) {
+                        load = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:loadIdentifier];
+                    }
+                    [load showLoadingBee];
+                    cell = load;
+                    if(!self.clLoading) {
+                        [self requestCourse];
+                        self.clLoading = YES;
+                    }
+                    
+                } else {
+                    CourseListItemCell *itemCell = [CourseListItemCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseListItemCell];
+                    itemCell.data = self.courseList[row - 1];
+                    cell = itemCell;
+                }
                 
             } else if (self.tabIndex == 1) {
                 CourseNoticeCell *noticeCell = [CourseNoticeCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseNoticeCell];
@@ -286,10 +424,25 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
                 cell.selectionStyle = UITableViewCellSeparatorStyleNone;
                 
             } else {
-                FeedListItemCell *reviewCell = [FeedListItemCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:identifierFeedListItemCell];
-                [reviewCell setData:self.model.data.feeds.list[row - 1]];
-                cell = reviewCell;
-                cell.selectionStyle = UITableViewCellSeparatorStyleNone;
+                if((row - 1) == self.feedList.count) {
+                    static NSString * loadIdentifier = @"CellLoading";
+                    UITableViewCell * load = [tableView dequeueReusableCellWithIdentifier:loadIdentifier];
+                    if(load == nil) {
+                        load = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:loadIdentifier];
+                    }
+                    [load showLoadingBee];
+                    cell = load;
+                    if(!self.flLoading) {
+                        [self requestFeed];
+                        self.flLoading = YES;
+                    }
+                    
+                } else {
+                    FeedListItemCell *reviewCell = [FeedListItemCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:identifierFeedListItemCell];
+                    [reviewCell setData:self.feedList[row - 1]];
+                    cell = reviewCell;
+                    cell.selectionStyle = UITableViewCellSeparatorStyleNone;
+                }
             }
         }
     }
@@ -316,12 +469,19 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
             
         } else {
             if (self.tabIndex == 0) {
-                return [CourseListItemCell heightWithTableView:tableView withIdentifier:identifierCourseListItemCell forIndexPath:indexPath data:self.model.data.courses.list[row - 1]];
+                if((row - 1) == self.courseList.count) {
+                    return 44;
+                }
+                return [CourseListItemCell heightWithTableView:tableView withIdentifier:identifierCourseListItemCell forIndexPath:indexPath data:self.courseList[row - 1]];
+                
             } else if (self.tabIndex == 1) {
                 return [CourseNoticeCell heightWithTableView:tableView withIdentifier:identifierCourseNoticeCell forIndexPath:indexPath data:self.model.data.subject];
                 
             } else {
-                return [FeedListItemCell heightWithTableView:self.tableView withIdentifier:identifierFeedListItemCell forIndexPath:indexPath data:self.model.data.feeds.list[row - 1]];
+                if((row - 1) == self.feedList.count) {
+                    return 44;
+                }
+                return [FeedListItemCell heightWithTableView:self.tableView withIdentifier:identifierFeedListItemCell forIndexPath:indexPath data:self.feedList[row - 1]];
             }
         }
     }
