@@ -281,9 +281,11 @@ static NSString *identifierPlaymateUgcCell = @"PlaymateUgcCell";
         [[AccountService defaultService] login:self];
     }
     NSDictionary * dic = @{@"id":feed.ids};
-    [[HttpService defaultService] POST:URL_APPEND_PATH(@"/feed/star") parameters:dic JSONModelClass:[BaseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        feed.stared = [NSNumber numberWithBool:YES];
-        feed.starCount = [NSNumber numberWithInt:([feed.starCount intValue] + 1)];
+    BOOL isStared = [feed.stared boolValue];
+    NSString *path = isStared ? @"/feed/unstar" : @"/feed/star";
+    [[HttpService defaultService] POST:URL_APPEND_PATH(path) parameters:dic JSONModelClass:[BaseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        feed.stared = [NSNumber numberWithBool:!isStared];
+        feed.starCount = [NSNumber numberWithInt:(isStared ? ([feed.starCount intValue] - 1) : ([feed.starCount intValue] + 1))];
         [self.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

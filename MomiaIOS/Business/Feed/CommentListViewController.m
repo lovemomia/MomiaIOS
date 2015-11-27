@@ -80,6 +80,7 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
     if (refresh) {
         self.nextIndex = 0;
         self.isLoading = NO;
+        [self.view removeEmptyView];
     }
     
     NSDictionary * paramDic = @{@"id":self.ids, @"start":[NSString stringWithFormat:@"%ld", (long)self.nextIndex]};
