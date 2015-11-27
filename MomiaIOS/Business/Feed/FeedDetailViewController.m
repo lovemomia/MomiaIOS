@@ -154,7 +154,7 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 1 && indexPath.row == 1) {
+    if (self.model.data.course && indexPath.section == 1 && indexPath.row == 1) {
         //活动详情
         [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@", self.model.data.course.ids]];
     } else if (indexPath.section == 2 && indexPath.row == 4) {
