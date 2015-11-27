@@ -97,6 +97,8 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="buyButton" destination="6gL-Ac-TLh" id="2GE-cc-1IX"/>
+                <outlet property="priceEndLabel" destination="utu-I6-iov" id="bdT-bM-Kch"/>
+                <outlet property="priceHeadLabel" destination="JVO-XJ-ugt" id="IVr-Z6-ZST"/>
                 <outlet property="priceLabel" destination="Ocm-Q3-1C4" id="AVp-i7-KMs"/>
             </connections>
             <point key="canvasLocation" x="289" y="387"/>

@@ -13,6 +13,10 @@
 @interface CourseBuyCell()
 
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceHeadLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceEndLabel;
+
+
 @property (weak, nonatomic) IBOutlet UIButton *buyButton;
 
 @end

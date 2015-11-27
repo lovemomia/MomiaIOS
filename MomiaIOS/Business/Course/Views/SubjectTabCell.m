@@ -30,7 +30,7 @@
     
     self.tab1Btn.selected = YES;
     if (!self.bottomView) {
-        self.bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, 50 - 2, SCREEN_WIDTH / 3, 2)];
+        self.bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, 50 - 2.5, SCREEN_WIDTH / 3, 2)];
         self.bottomView.backgroundColor = MO_APP_ThemeColor;
         [self.contentView addSubview:self.bottomView];
     }
