@@ -40,11 +40,11 @@
     float width = self.bounds.size.width;
     float height = self.bounds.size.height;
     
-    CGRect imageRect = CGRectMake(width * 0.2, width * 0.2, width * 0.6, width * 0.6);
+    CGRect imageRect = CGRectMake(width * 0.2, width * 0.2 - 15, width * 0.6, width * 0.6);
     self.imageView.frame = imageRect;
     
     float labelHeight = height - (imageRect.origin.y + imageRect.size.height);
-    CGRect labelRect = CGRectMake(width * 0.05, imageRect.origin.y + imageRect.size.height + 10, width * 0.9, labelHeight);
+    CGRect labelRect = CGRectMake(width * 0.05, imageRect.origin.y + imageRect.size.height + 5, width * 0.9, labelHeight);
     self.titleLabel.frame = labelRect;
 }
 

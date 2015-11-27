@@ -91,6 +91,8 @@
             CourseDetailContent *content = detail.content[i];
             if (content.img) {
                 UIImageView *image = [[UIImageView alloc]init];
+                image.contentMode = UIViewContentModeScaleAspectFill;
+                image.clipsToBounds = YES;
                 [self.contentView addSubview:image];
                 [image mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.top.equalTo(lastView.mas_bottom).with.offset(12);
