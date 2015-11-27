@@ -55,6 +55,8 @@
 @property (nonatomic, strong) NSNumber<Optional> *bookingId; //预约id
 @property (nonatomic, strong) NSString *subject;
 @property (nonatomic, strong) NSNumber *subjectId;
+@property (nonatomic, strong) NSNumber<Optional> *type; // 0:一般课程，1:公益课， 2:推荐课程
+@property (nonatomic, strong) NSString<Optional> *notice;
 
 @property (nonatomic, strong) NSArray<Optional> *imgs; //头图
 @property (nonatomic, strong) NSString<Optional> *goal;  //课程目标

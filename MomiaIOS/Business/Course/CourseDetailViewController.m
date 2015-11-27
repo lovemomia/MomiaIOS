@@ -65,6 +65,9 @@ typedef enum {
     CellTitleTeacher,
     CellTeacher,
     
+    CellTitleNotice,
+    CellNotice,
+    
     CellTitleTips,
     CellTips,
     
@@ -269,10 +272,17 @@ typedef enum {
         }
     }
     
-    if (self.model.data.tips) {
+    if (self.model.data.tips.length > 0) {
         num++;
         if (section == num) {
             return row == 0 ? CellTitleTips : CellTips;
+        }
+    }
+    
+    if (self.model.data.notice.length > 0) {
+        num++;
+        if (section == num) {
+            return row == 0 ? CellTitleNotice : CellNotice;
         }
     }
     
@@ -300,7 +310,10 @@ typedef enum {
         if (self.model.data.teachers) {
             num++;
         }
-        if (self.model.data.tips) {
+        if (self.model.data.tips.length > 0) {
+            num++;
+        }
+        if (self.model.data.notice.length > 0) {
             num++;
         }
         if (self.model.data.institution) {
@@ -440,6 +453,20 @@ typedef enum {
         cell = discCell;
         cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         
+    } else if (type == CellTitleNotice) {
+        CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
+        titleCell.titleLabel.text = @"购买须知";
+        titleCell.subTitleLabel.text = @"";
+        titleCell.accessoryType = UITableViewCellAccessoryNone;
+        cell = titleCell;
+        cell.selectionStyle = UITableViewCellSeparatorStyleNone;
+        
+    } else if (type == CellNotice) {
+        CourseDiscCell *discCell = [CourseDiscCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseDiscCell];
+        discCell.data = self.model.data.notice;
+        cell = discCell;
+        cell.selectionStyle = UITableViewCellSeparatorStyleNone;
+        
     } else if (type == CellTitleOrg) {
         CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
         titleCell.titleLabel.text = @"合作机构介绍";
@@ -511,6 +538,12 @@ typedef enum {
         
     } else if (type == CellTips) {
         return [CourseDiscCell heightWithTableView:tableView withIdentifier:identifierCourseDiscCell forIndexPath:indexPath data:self.model.data.tips];
+        
+    } else if (type == CellTitleNotice) {
+        return [CourseSectionTitleCell heightWithTableView:tableView withIdentifier:identifierCourseSectionTitleCell forIndexPath:indexPath data:nil];
+        
+    } else if (type == CellNotice) {
+        return [CourseDiscCell heightWithTableView:tableView withIdentifier:identifierCourseDiscCell forIndexPath:indexPath data:self.model.data.notice];
         
     } else if (type == CellTitleOrg) {
         return [CourseSectionTitleCell heightWithTableView:tableView withIdentifier:identifierCourseSectionTitleCell forIndexPath:indexPath data:nil];
