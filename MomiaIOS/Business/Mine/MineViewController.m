@@ -194,7 +194,7 @@
         switch (section) {
             case 1:
                 if (row == 0) {
-                    commonCell.titleLabel.text = @"待选课程";
+                    commonCell.titleLabel.text = @"预约课程";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconBooking"];
                 } else {
                     commonCell.titleLabel.text = @"已选课程";

@@ -45,6 +45,8 @@ static NSString *identifierCouponListItemCell = @"CouponListItemCell";
         self.navigationItem.title = @"我的红包";
     }
     
+    self.tableView.backgroundColor = [UIColor whiteColor];
+    
     if (!self.select) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleGift"] style:UIBarButtonItemStylePlain target:self action:@selector(onGiftClick)];
     }
@@ -162,7 +164,11 @@ static NSString *identifierCouponListItemCell = @"CouponListItemCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row < self.couponList.count) {
-        return [CouponListItemCell heightWithTableView:tableView withIdentifier:identifierCouponListItemCell forIndexPath:indexPath data:nil];
+        CGFloat height = [CouponListItemCell heightWithTableView:tableView withIdentifier:identifierCouponListItemCell forIndexPath:indexPath data:nil];
+        if (indexPath.row == 0) {
+            height += 9;
+        }
+        return height;
     }
     return 70;
 }

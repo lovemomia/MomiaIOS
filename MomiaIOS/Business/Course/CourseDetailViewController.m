@@ -25,8 +25,6 @@
 #import "CourseDetailCell.h"
 #import "CourseBuyCell.h"
 
-#import "NSString+MOURLEncode.h"
-
 static NSString *identifierPhotoTitleHeaderCell = @"PhotoTitleHeaderCell";
 static NSString *identifierCoursePriceCell = @"CoursePriceCell";
 static NSString *identifierCourseTitleCell = @"CourseTitleCell";
