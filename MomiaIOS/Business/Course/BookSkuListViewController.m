@@ -200,10 +200,6 @@ static NSString *identifierBookSkuDateTitleCell = @"BookSkuDateTitleCell";
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (self.onlyShow) {
-        return;
-    }
-    
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     if (row == 0) {
@@ -214,6 +210,10 @@ static NSString *identifierBookSkuDateTitleCell = @"BookSkuDateTitleCell";
     if(row == 3 && !skuList.isShowMore) {
         skuList.isShowMore = [NSNumber numberWithBool:YES];
         [tableView reloadData];
+        return;
+    }
+    
+    if (self.onlyShow) {
         return;
     }
     
