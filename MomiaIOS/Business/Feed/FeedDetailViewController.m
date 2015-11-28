@@ -256,29 +256,11 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
                 NSString *path = isStared ? @"/feed/unstar" : @"/feed/star";
                 [[HttpService defaultService] POST:URL_APPEND_PATH(path) parameters:dic JSONModelClass:[BaseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
                     [self requestData:YES];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"onZanChanged" object:nil userInfo:@{@"isStared":[NSNumber numberWithBool:!isStared]}];
                     
                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                     
                 }];
-                
-//                NSDictionary * dic = @{@"id":self.model.data.feed.ids};
-//                [[HttpService defaultService] POST:URL_APPEND_PATH(@"/feed/star") parameters:dic JSONModelClass:[BaseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//                    NSMutableArray *array = [[NSMutableArray alloc]initWithArray:self.model.data.staredUsers.list];
-//                    FeedStar *me = [[FeedStar alloc]init];
-//                    me.nickName = [[AccountService defaultService] account].nickName;
-//                    me.avatar = [[AccountService defaultService] account].avatar;
-//                    [array insertObject:me atIndex:0];
-//                    self.model.data.staredUsers.list = (NSArray<FeedStar> *)array;
-//                    self.model.data.staredUsers.totalCount = [NSNumber numberWithInt:self.model.data.staredUsers.totalCount.intValue + 1];
-//                    [zanCell setData:self.model.data.staredUsers];
-//                    
-//                    self.model.data.feed.stared = [NSNumber numberWithBool:YES];
-//                    self.model.data.feed.starCount = [NSNumber numberWithInt:([self.model.data.feed.starCount intValue] + 1)];
-//                    [self.tableView reloadData];
-//                    
-//                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//                    
-//                }];
             };
             cell = zanCell;
         }
@@ -343,29 +325,13 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
         [[AccountService defaultService] login:self];
     }
     
-//    NSDictionary * dic = @{@"id":self.model.data.feed.ids};
-//    [[HttpService defaultService] POST:URL_APPEND_PATH(@"/feed/star") parameters:dic JSONModelClass:[BaseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSMutableArray *array = [[NSMutableArray alloc]initWithArray:self.model.data.staredUsers.list];
-//        FeedStar *me = [[FeedStar alloc]init];
-//        me.nickName = [[AccountService defaultService] account].nickName;
-//        me.avatar = [[AccountService defaultService] account].avatar;
-//        [array insertObject:me atIndex:0];
-//        self.model.data.staredUsers.list = (NSArray<FeedStar> *)array;
-//        self.model.data.staredUsers.totalCount = [NSNumber numberWithInt:self.model.data.staredUsers.totalCount.intValue + 1];
-//        self.model.data.feed.stared = [NSNumber numberWithBool:YES];
-//        self.model.data.feed.starCount = [NSNumber numberWithInt:([self.model.data.feed.starCount intValue] + 1)];
-//        [self.tableView reloadData];
-//        
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        
-//    }];
-    
     Feed *feed = self.model.data.feed;
     NSDictionary * dic = @{@"id":feed.ids};
     BOOL isStared = [feed.stared boolValue];
     NSString *path = isStared ? @"/feed/unstar" : @"/feed/star";
     [[HttpService defaultService] POST:URL_APPEND_PATH(path) parameters:dic JSONModelClass:[BaseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self requestData:YES];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"onZanChanged" object:nil userInfo:@{@"isStared":[NSNumber numberWithBool:!isStared]}];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         

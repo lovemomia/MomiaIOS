@@ -31,6 +31,8 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
 @property (nonatomic, strong) NSNumber *nextIndex;
 @property (nonatomic, strong) AFHTTPRequestOperation * curOperation;
 
+@property (nonatomic, assign) NSInteger openIndex;
+
 @end
 
 @implementation FeedListViewController
@@ -55,10 +57,34 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
     [self requestData:true];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDataChanged:) name:@"onDataChanged" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onZanChanged:) name:@"onZanChanged" object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"onZanChanged" object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"onDataChanged" object:nil];
 }
 
 - (void)onDataChanged:(NSNotification*)notify {
     [self.tableView.header beginRefreshing];
+}
+
+-(void)onZanChanged:(NSNotification *)note {
+    Feed *feed = [self.list objectAtIndex:self.openIndex];
+    BOOL curStared = [feed.stared boolValue];
+    BOOL isStared = [[note.userInfo objectForKey:@"isStared"] boolValue];
+    if (curStared == isStared) {
+        return;
+    }
+    feed.stared = [note.userInfo objectForKey:@"isStared"];
+    if (isStared) {
+        feed.starCount = [NSNumber numberWithInt:([feed.starCount intValue] + 1)];
+    } else {
+        feed.starCount = [NSNumber numberWithInt:([feed.starCount intValue] - 1)];
+    }
+    [self.tableView reloadData];
 }
 
 - (void)onAddFeedClick {
@@ -141,6 +167,7 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
     if (indexPath.section < self.list.count) {
         Feed *feed = [self.list objectAtIndex:indexPath.section];
         [self openURL:[NSString stringWithFormat:@"duola://feeddetail?id=%@", feed.ids]];
+        self.openIndex = indexPath.section;
     }
 }
 
