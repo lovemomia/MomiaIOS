@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *placeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceHeadLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceEndLabel;
 
 @end
 
@@ -41,7 +43,16 @@
     } else {
         self.placeLabel.text = model.region;
     }
-    self.priceLabel.text = [StringUtils stringForPrice:model.price];
+    
+    if ((model.type && [model.type intValue] == 1) || (model.type == nil && model.price == 0)) {
+        self.priceLabel.text = @"公益课";
+        self.priceLabel.font = [UIFont systemFontOfSize:12];
+        self.priceHeadLabel.text = @"";
+        self.priceEndLabel.text = @"";
+        
+    } else {
+        self.priceLabel.text = [StringUtils stringForPrice:model.price];
+    }
 }
 
 + (CGFloat)heightWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath data:(id)data {

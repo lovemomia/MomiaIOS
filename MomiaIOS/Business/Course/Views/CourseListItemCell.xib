@@ -122,6 +122,8 @@
                 <outlet property="dateLabel" destination="H1b-kM-u0w" id="lfL-GF-z0s"/>
                 <outlet property="iconIv" destination="zib-Vd-k6v" id="0ff-8B-3vb"/>
                 <outlet property="placeLabel" destination="x2L-fa-ZOo" id="XTV-8l-vLg"/>
+                <outlet property="priceEndLabel" destination="mqP-e7-HMW" id="06V-2C-3rr"/>
+                <outlet property="priceHeadLabel" destination="27E-X0-ufm" id="cht-9b-mix"/>
                 <outlet property="priceLabel" destination="MdF-eU-Unt" id="OLc-d1-hL7"/>
                 <outlet property="titleLabel" destination="LRa-ua-otw" id="u5L-UW-dR5"/>
             </connections>

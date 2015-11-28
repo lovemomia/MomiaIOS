@@ -26,9 +26,9 @@
     if ((data.type && [data.type intValue] == 1) || (data.type == nil && data.price == 0)) {
         self.priceLabel.text = @"公益课";
         self.priceLabel.font = [UIFont systemFontOfSize:16];
-        self.price1Label.hidden = YES;
-        self.price2Label.hidden = YES;
-        self.price3Label.hidden = YES;
+        self.price1Label.text = @"";
+        self.price2Label.text = @"";
+        self.price3Label.text = @"";
         
     } else if ([data.buyable intValue] == 1) {
         self.priceLabel.hidden = YES;
