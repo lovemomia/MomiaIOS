@@ -52,6 +52,9 @@
         
     } else {
         self.priceLabel.text = [StringUtils stringForPrice:model.price];
+        self.priceLabel.font = [UIFont systemFontOfSize:14];
+        self.priceHeadLabel.text = @"原价";
+        self.priceEndLabel.text = @"／次";
     }
 }
 
