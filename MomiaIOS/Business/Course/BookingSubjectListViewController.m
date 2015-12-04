@@ -34,7 +34,7 @@ static NSString * identifierBookingSubjectItemCell = @"BookingSubjectItemCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"待约课程包";
+    self.navigationItem.title = @"预约课程";
     
     [BookingSubjectItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierBookingSubjectItemCell];
     

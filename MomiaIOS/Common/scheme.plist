@@ -425,5 +425,41 @@
 		<key>desc</key>
 		<string>邀请好友（分享）</string>
 	</dict>
+	<key>chatlist</key>
+	<dict>
+		<key>controller</key>
+		<string>ChatListViewController</string>
+		<key>needlogin</key>
+		<true/>
+		<key>desc</key>
+		<string>聊天列表</string>
+	</dict>
+	<key>chat</key>
+	<dict>
+		<key>controller</key>
+		<string>ChatViewController</string>
+		<key>needlogin</key>
+		<true/>
+		<key>desc</key>
+		<string>聊天页面</string>
+	</dict>
+	<key>chatpublic</key>
+	<dict>
+		<key>controller</key>
+		<string>ChatPublicViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>系统消息页面</string>
+	</dict>
+	<key>locationpick</key>
+	<dict>
+		<key>controller</key>
+		<string>ChatLocationPickerViewController</string>
+		<key>needlogin</key>
+		<false/>
+		<key>desc</key>
+		<string>位置选取</string>
+	</dict>
 </dict>
 </plist>

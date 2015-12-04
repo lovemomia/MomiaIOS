@@ -24,6 +24,13 @@
     }
 }
 
+- (void)setImToken:(NSString *)imToken {
+    if (imToken.length > 0) {
+        _imToken = imToken;
+        [self save];
+    }
+}
+
 - (void)setAddress:(NSString *)address {
     _address = address;
     [self save];
@@ -100,6 +107,7 @@
 {
     [encoder encodeObject:self.uid forKey:@"uid"];
     [encoder encodeObject:self.token forKey:@"token"];
+    [encoder encodeObject:self.imToken forKey:@"imToken"];
     [encoder encodeObject:self.address forKey:@"address"];
     [encoder encodeObject:self.avatar forKey:@"avatar"];
     [encoder encodeObject:self.birthday forKey:@"birthday"];
@@ -120,6 +128,7 @@
     {
         self.uid = [decoder decodeObjectForKey:@"uid"];
         self.token = [decoder decodeObjectForKey:@"token"];
+        self.imToken = [decoder decodeObjectForKey:@"imToken"];
         self.address = [decoder decodeObjectForKey:@"address"];
         self.avatar = [decoder decodeObjectForKey:@"avatar"];
         self.birthday = [decoder decodeObjectForKey:@"birthday"];

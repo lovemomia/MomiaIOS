@@ -10,20 +10,29 @@
 #import "HomeViewController.h"
 #import "URLMappingManager.h"
 #import "MONavigationController.h"
-//APP端签名相关头文件
 #import <AlipaySDK/AlipaySDK.h>
 #import "GeTuiSdk.h"
+#import <RongIMKit/RongIMKit.h>
 
-@interface AppDelegate () {
+#import "IMTokenModel.h"
+#import "IMUserModel.h"
+#import "IMGroupModel.h"
+
+@interface AppDelegate ()<RCIMUserInfoDataSource, RCIMGroupInfoDataSource> {
 @private
     NSString *_deviceToken;
 }
 
 @property (nonatomic, retain) UIImageView *titleShadowIv;
 
+@property (nonatomic, strong) NSMutableDictionary *imUserDic;
+@property (nonatomic, strong) NSMutableDictionary *imGroupDic;
+
 @end
 
 @implementation AppDelegate
+@synthesize imUserDic;
+@synthesize imGroupDic;
 
 - (void)setTitleShadow:(UIImage *)image aboveSubview:(UIView *)view {
     if (_titleShadowIv == nil) {
@@ -71,6 +80,55 @@
     
     // 定位sdk
     [[LocationService defaultService] start];
+    
+    //初始化融云SDK。
+    [[RCIM sharedRCIM] initWithAppKey:kRCIMAppKey];
+    [RCIM sharedRCIM].globalNavigationBarTintColor = MO_APP_ThemeColor;
+    [RCIM sharedRCIM].globalConversationAvatarStyle = RC_USER_AVATAR_CYCLE;
+    [RCIM sharedRCIM].globalMessageAvatarStyle = RC_USER_AVATAR_CYCLE;
+    // 设置用户信息提供者。
+    [[RCIM sharedRCIM] setUserInfoDataSource:self];
+    // 设置群组信息提供者。
+    [[RCIM sharedRCIM] setGroupInfoDataSource:self];
+    
+    // 快速集成第二步，连接融云服务器
+    if ([[AccountService defaultService]isLogin]) {
+        
+        // 如果是老用户，刷新一下imToken
+        NSString *imToken = [AccountService defaultService].account.imToken;
+        if (imToken.length > 0) {
+            [self doRCIMConnect:imToken];
+            
+        } else {
+            [[HttpService defaultService] GET:URL_APPEND_PATH(@"/im/token") parameters:nil cacheType:CacheTypeDisable JSONModelClass:[IMTokenModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                IMTokenModel *model = responseObject;
+                [AccountService defaultService].account.imToken = model.data;
+                [self doRCIMConnect:imToken];
+                
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                NSLog(@"refresh imtoken failed");
+            }];
+        }
+    }
+    
+    /**
+     * 推送处理1
+     */
+    if ([application
+         respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        //注册推送, iOS 8
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings
+                                                settingsForTypes:(UIUserNotificationTypeBadge |
+                                                                  UIUserNotificationTypeSound |
+                                                                  UIUserNotificationTypeAlert)
+                                                categories:nil];
+        [application registerUserNotificationSettings:settings];
+    } else {
+        UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge |
+        UIRemoteNotificationTypeAlert |
+        UIRemoteNotificationTypeSound;
+        [application registerForRemoteNotificationTypes:myTypes];
+    }
 
     return YES;
 }
@@ -167,6 +225,14 @@
 }
 
 #pragma mark - system notification
+/**
+ * 推送处理2
+ */
+//注册用户通知设置
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+    // register to receive notifications
+    [application registerForRemoteNotifications];
+}
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
@@ -177,6 +243,11 @@
         // [3]:向个推服务器注册 deviceToken
         [GeTuiSdk registerDeviceToken:_deviceToken];
     }
+    
+    NSString *token = [[[[deviceToken description] stringByReplacingOccurrencesOfString:@"<" withString:@""] stringByReplacingOccurrencesOfString:@">" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSLog(@"deviceToken2:%@", token);
+    
+    [[RCIMClient sharedRCIMClient] setDeviceToken:token];
 }
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
@@ -322,6 +393,85 @@
 
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
     
+}
+
+#pragma mark - Rong Cloud delegate
+
+- (void)doRCIMConnect:(NSString *)imToken {
+    // 快速集成第二步，连接融云服务器
+    [[RCIM sharedRCIM] connectWithToken:imToken success:^(NSString *userId) {
+        // Connect 成功
+        NSLog(@"RCIM connect success, uid:%@", userId);
+        
+    } error:^(RCConnectErrorCode status) {
+        // Connect 失败
+        NSLog(@"RCIM connect failed, status:%ld", status);
+        
+    } tokenIncorrect:^{
+        // Token 失效的状态处理
+        NSLog(@"RCIM connect failed, token incorrect");
+    }];
+}
+
+// 获取用户信息的方法。
+-(void)getUserInfoWithUserId:(NSString *)userId completion:(void(^)(RCUserInfo* userInfo))completion
+{
+    if (!imUserDic) {
+        imUserDic = [NSMutableDictionary new];
+    }
+    
+    RCUserInfo *user = [imUserDic objectForKey:userId];
+    if (user) {
+        return completion(user);
+        
+    } else {
+        [[HttpService defaultService] GET:URL_APPEND_PATH(@"/im/user") parameters:@{@"uid":userId} cacheType:CacheTypeDisable JSONModelClass:[IMUserModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            IMUserModel *model = responseObject;
+            
+            RCUserInfo *user = [[RCUserInfo alloc]init];
+            user.userId = [model.data.uid stringValue];
+            user.name = model.data.nickName;
+            user.portraitUri = model.data.avatar;
+            
+            [imUserDic setObject:user forKey:userId];
+            
+            return completion(user);
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        }];
+    }
+    
+    return completion(nil);
+}
+
+// 获取群组信息的方法。
+-(void)getGroupInfoWithGroupId:(NSString*)groupId completion:(void (^)(RCGroup *group))completion
+{
+    if (!imGroupDic) {
+        imGroupDic = [NSMutableDictionary new];
+    }
+    
+    RCGroup *group = [imUserDic objectForKey:groupId];
+    if (group) {
+        return completion(group);
+        
+    } else {
+        [[HttpService defaultService] GET:URL_APPEND_PATH(@"/im/group") parameters:@{@"id":groupId} cacheType:CacheTypeDisable JSONModelClass:[IMGroupModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            IMGroupModel *model = responseObject;
+            
+            RCGroup *group = [[RCGroup alloc]init];
+            group.groupId = [model.data.groupId stringValue];
+            group.groupName = model.data.groupName;
+            
+            [imGroupDic setObject:group forKey:groupId];
+            
+            return completion(group);
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        }];
+    }
+    
+    return completion(nil);
 }
 
 @end

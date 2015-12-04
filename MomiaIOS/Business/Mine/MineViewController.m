@@ -10,6 +10,8 @@
 #import "FeedbackViewController.h"
 #import "Child.h"
 #import "CommonTableViewCell.h"
+#import "ChatListViewController.h"
+#import <RongIMKit/RongIMKit.h>
 
 @interface MineViewController ()
 
@@ -108,9 +110,18 @@
             break;
         case 2:
             if (row == 0) {
-                if ([[AccountService defaultService]isLogin]) {
-                    [self openURL:[NSString stringWithFormat:@"duola://userinfo?uid=%@&me=1", [AccountService defaultService].account.uid]];
-                }
+//                if ([[AccountService defaultService]isLogin]) {
+//                    [self openURL:[NSString stringWithFormat:@"duola://userinfo?uid=%@&me=1", [AccountService defaultService].account.uid]];
+//                }
+                
+                //快速集成第三步，在您需要的时机初始化会话列表，并跳转会话列表
+                //initWithDisplayConversationTypes 例如：@[@(ConversationType_PRIVATE),@(ConversationType_DISCUSSION), @(ConversationType_APPSERVICE), @(ConversationType_PUBLICSERVICE),@(ConversationType_GROUP),@(ConversationType_SYSTEM)]]
+                //collectionConversationType 例如：@[@(ConversationType_GROUP),@(ConversationType_DISCUSSION)]]
+//                ChatListViewController * chatListViewController=[[ChatListViewController alloc]init];
+//                
+//                [self.navigationController pushViewController:chatListViewController animated:YES];
+                
+                [self openURL:@"duola://chatlist"];
                 
             }
             break;

@@ -18,15 +18,16 @@
 @property (nonatomic, strong) NSNumber *uid;
 @property (nonatomic, strong) NSString *avatar;
 @property (nonatomic, strong) NSString<Optional> *birthday;
-@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString<Optional> *name;
 @property (nonatomic, strong) NSString *nickName;
-@property (nonatomic, strong) NSString *sex;
-@property (nonatomic, strong) NSString *mobile;
-@property (nonatomic, strong) NSString *address;
+@property (nonatomic, strong) NSString<Optional> *sex;
+@property (nonatomic, strong) NSString<Optional> *mobile;
+@property (nonatomic, strong) NSString<Optional> *address;
 @property (nonatomic, strong) NSNumber<Optional> *city;
 @property (nonatomic, strong) Child<Optional> *bigChild;
 @property (nonatomic, strong) NSArray<Child, Optional> *children;
 
 @property (nonatomic, strong) NSString<Optional> *cover;
+@property (nonatomic, strong) NSNumber *teacher;
 
 @end
