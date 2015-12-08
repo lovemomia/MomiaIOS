@@ -15,7 +15,8 @@
     header.lastUpdatedTimeLabel.hidden = YES;
     header.stateLabel.hidden = YES;
     // 设置普通状态的动画图片
-    NSArray *refreshingImages = @[[UIImage imageNamed:@"IconLoading_1"], [UIImage imageNamed:@"IconLoading_2"], [UIImage imageNamed:@"IconLoading_3"], [UIImage imageNamed:@"IconLoading_4"], [UIImage imageNamed:@"IconLoading_5"], [UIImage imageNamed:@"IconLoading_6"], [UIImage imageNamed:@"IconLoading_7"]];
+//    NSArray *refreshingImages = @[[UIImage imageNamed:@"IconLoading_1"], [UIImage imageNamed:@"IconLoading_2"], [UIImage imageNamed:@"IconLoading_3"], [UIImage imageNamed:@"IconLoading_4"], [UIImage imageNamed:@"IconLoading_5"], [UIImage imageNamed:@"IconLoading_6"], [UIImage imageNamed:@"IconLoading_7"]];
+    NSArray *refreshingImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"IconLoading_1"], [UIImage imageNamed:@"IconLoading_2"], [UIImage imageNamed:@"IconLoading_3"], [UIImage imageNamed:@"IconLoading_4"], [UIImage imageNamed:@"IconLoading_5"], [UIImage imageNamed:@"IconLoading_6"], [UIImage imageNamed:@"IconLoading_7"], nil];
     [header setImages:refreshingImages forState:MJRefreshStateIdle];
     // 设置即将刷新状态的动画图片（一松开就会刷新的状态）
     [header setImages:refreshingImages forState:MJRefreshStatePulling];
