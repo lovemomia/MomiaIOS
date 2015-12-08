@@ -309,6 +309,10 @@
 		BC79DF7A1C1184A20064C02F /* IMUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF791C1184A20064C02F /* IMUserModel.m */; };
 		BC79DF7D1C1186180064C02F /* IMGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF7C1C1186180064C02F /* IMGroupModel.m */; };
 		BC79DF801C118FBA0064C02F /* IMUserGroupListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF7F1C118FBA0064C02F /* IMUserGroupListModel.m */; };
+		BC79DF831C158F8A0064C02F /* IMGroupMemberModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF821C158F8A0064C02F /* IMGroupMemberModel.m */; };
+		BC79DF861C15910C0064C02F /* ChatGroupMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF851C15910C0064C02F /* ChatGroupMemberViewController.m */; };
+		BC79DF8A1C15931C0064C02F /* GroupMemberItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF881C15931C0064C02F /* GroupMemberItemCell.m */; };
+		BC79DF8B1C15931C0064C02F /* GroupMemberItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC79DF891C15931C0064C02F /* GroupMemberItemCell.xib */; };
 		BC7CBADE1B662E590047211D /* MOTagLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBADD1B662E590047211D /* MOTagLabel.m */; };
 		BC7CBAF91B6868930047211D /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBAF71B6868930047211D /* AboutViewController.m */; };
 		BC7CBAFC1B68698A0047211D /* AboutHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7CBAFB1B68698A0047211D /* AboutHeaderView.xib */; };
@@ -326,6 +330,7 @@
 		BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540BC1ADF8A09005A7C54 /* MOViewController.m */; };
 		BC90897F1B5797D800A8D85B /* MOTabHost.m in Sources */ = {isa = PBXBuildFile; fileRef = BC90897E1B5797D800A8D85B /* MOTabHost.m */; };
 		BC9089821B58983300A8D85B /* MyOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9089811B58983300A8D85B /* MyOrderListViewController.m */; };
+		BC93ACA41C15A38E009E3BDD /* ChatUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC93ACA31C15A38E009E3BDD /* ChatUserViewController.m */; };
 		BC97DEFC1B4B75A8002B1A00 /* OrderPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DEFB1B4B75A8002B1A00 /* OrderPerson.m */; };
 		BC97DEFF1B4BCFF1002B1A00 /* PayChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DEFE1B4BCFF1002B1A00 /* PayChannel.m */; };
 		BC97DF031B4BE1EF002B1A00 /* WechatPayData.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DF021B4BE1EF002B1A00 /* WechatPayData.m */; };
@@ -943,6 +948,13 @@
 		BC79DF7C1C1186180064C02F /* IMGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMGroupModel.m; path = Common/Models/Chat/IMGroupModel.m; sourceTree = "<group>"; };
 		BC79DF7E1C118FBA0064C02F /* IMUserGroupListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUserGroupListModel.h; path = Common/Models/Chat/IMUserGroupListModel.h; sourceTree = "<group>"; };
 		BC79DF7F1C118FBA0064C02F /* IMUserGroupListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMUserGroupListModel.m; path = Common/Models/Chat/IMUserGroupListModel.m; sourceTree = "<group>"; };
+		BC79DF811C158F8A0064C02F /* IMGroupMemberModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMGroupMemberModel.h; path = Common/Models/Chat/IMGroupMemberModel.h; sourceTree = "<group>"; };
+		BC79DF821C158F8A0064C02F /* IMGroupMemberModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMGroupMemberModel.m; path = Common/Models/Chat/IMGroupMemberModel.m; sourceTree = "<group>"; };
+		BC79DF841C15910C0064C02F /* ChatGroupMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatGroupMemberViewController.h; path = Business/Chat/ChatGroupMemberViewController.h; sourceTree = "<group>"; };
+		BC79DF851C15910C0064C02F /* ChatGroupMemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatGroupMemberViewController.m; path = Business/Chat/ChatGroupMemberViewController.m; sourceTree = "<group>"; };
+		BC79DF871C15931C0064C02F /* GroupMemberItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupMemberItemCell.h; path = Business/Chat/Views/GroupMemberItemCell.h; sourceTree = "<group>"; };
+		BC79DF881C15931C0064C02F /* GroupMemberItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupMemberItemCell.m; path = Business/Chat/Views/GroupMemberItemCell.m; sourceTree = "<group>"; };
+		BC79DF891C15931C0064C02F /* GroupMemberItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GroupMemberItemCell.xib; path = Business/Chat/Views/GroupMemberItemCell.xib; sourceTree = "<group>"; };
 		BC7CBADC1B662E590047211D /* MOTagLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOTagLabel.h; path = Common/Views/MOTagLabel.h; sourceTree = "<group>"; };
 		BC7CBADD1B662E590047211D /* MOTagLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOTagLabel.m; path = Common/Views/MOTagLabel.m; sourceTree = "<group>"; };
 		BC7CBAF61B6868930047211D /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Business/Setting/AboutViewController.h; sourceTree = "<group>"; };
@@ -976,6 +988,8 @@
 		BC90897E1B5797D800A8D85B /* MOTabHost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOTabHost.m; path = Common/Views/MOTabHost.m; sourceTree = "<group>"; };
 		BC9089801B58983300A8D85B /* MyOrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyOrderListViewController.h; path = Business/Mine/MyOrderListViewController.h; sourceTree = "<group>"; };
 		BC9089811B58983300A8D85B /* MyOrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyOrderListViewController.m; path = Business/Mine/MyOrderListViewController.m; sourceTree = "<group>"; };
+		BC93ACA21C15A38E009E3BDD /* ChatUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatUserViewController.h; path = Business/Chat/ChatUserViewController.h; sourceTree = "<group>"; };
+		BC93ACA31C15A38E009E3BDD /* ChatUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatUserViewController.m; path = Business/Chat/ChatUserViewController.m; sourceTree = "<group>"; };
 		BC97DEFA1B4B75A8002B1A00 /* OrderPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderPerson.h; path = Common/Models/Order/OrderPerson.h; sourceTree = "<group>"; };
 		BC97DEFB1B4B75A8002B1A00 /* OrderPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderPerson.m; path = Common/Models/Order/OrderPerson.m; sourceTree = "<group>"; };
 		BC97DEFD1B4BCFF1002B1A00 /* PayChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayChannel.h; sourceTree = "<group>"; };
@@ -2074,6 +2088,10 @@
 				BC79DF6C1C0EF45E0064C02F /* ChatLocationPickerViewController.m */,
 				BC79DF711C0F052D0064C02F /* ChatPublicViewController.h */,
 				BC79DF721C0F052D0064C02F /* ChatPublicViewController.m */,
+				BC79DF841C15910C0064C02F /* ChatGroupMemberViewController.h */,
+				BC79DF851C15910C0064C02F /* ChatGroupMemberViewController.m */,
+				BC93ACA21C15A38E009E3BDD /* ChatUserViewController.h */,
+				BC93ACA31C15A38E009E3BDD /* ChatUserViewController.m */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -2081,6 +2099,9 @@
 		BC79DF381C0E90BE0064C02F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BC79DF871C15931C0064C02F /* GroupMemberItemCell.h */,
+				BC79DF881C15931C0064C02F /* GroupMemberItemCell.m */,
+				BC79DF891C15931C0064C02F /* GroupMemberItemCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2110,6 +2131,8 @@
 				BC79DF7C1C1186180064C02F /* IMGroupModel.m */,
 				BC79DF7E1C118FBA0064C02F /* IMUserGroupListModel.h */,
 				BC79DF7F1C118FBA0064C02F /* IMUserGroupListModel.m */,
+				BC79DF811C158F8A0064C02F /* IMGroupMemberModel.h */,
+				BC79DF821C158F8A0064C02F /* IMGroupMemberModel.m */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -2663,6 +2686,7 @@
 				BC5CF2F71BB5275B00EC5227 /* AlipaySDK.bundle in Resources */,
 				BC3599FD1BC61F0C002DE863 /* MLSelectPhoto.bundle in Resources */,
 				BC0BD7031B55173800B95B3A /* CouponListItemCell.xib in Resources */,
+				BC79DF8B1C15931C0064C02F /* GroupMemberItemCell.xib in Resources */,
 				5A6806F51B01CEF700D02A60 /* PersonLogoCell.xib in Resources */,
 				BCBB16BE1BF3374A00E273AF /* CommonTableViewCell.xib in Resources */,
 				BC8254381B3AB01E00430A6F /* RegisterCell.xib in Resources */,
@@ -2758,6 +2782,7 @@
 				BCF564D21B46A437003A2227 /* ServerErrorHandler.m in Sources */,
 				BC592BF91BD73F58008AE76A /* BookedCourseListModel.m in Sources */,
 				BC359A3A1BC61F89002DE863 /* MBProgressHUD+Add.m in Sources */,
+				BC93ACA41C15A38E009E3BDD /* ChatUserViewController.m in Sources */,
 				BCF74ABE1BE99B8600138C2C /* AddReviewContentCell.m in Sources */,
 				BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */,
 				BC2C0C801B14659400E2446E /* MyStatusViewController.m in Sources */,
@@ -2812,6 +2837,7 @@
 				BC97DEFC1B4B75A8002B1A00 /* OrderPerson.m in Sources */,
 				BC7737741BCE0E8100987B22 /* HomeworkList.m in Sources */,
 				5A83074D1B327FB40057412A /* CommonHeaderView.m in Sources */,
+				BC79DF831C158F8A0064C02F /* IMGroupMemberModel.m in Sources */,
 				BC1052EE1BB3F64900D81C15 /* SelectImage.m in Sources */,
 				BC3599FB1BC61F0C002DE863 /* MLSelectPhotoPickerFooterCollectionReusableView.m in Sources */,
 				5A5A2A691B43E531000595A9 /* OrderContactViewController.m in Sources */,
@@ -3008,6 +3034,7 @@
 				BC592BE31BD5E33A008AE76A /* BookSkuMoreCell.m in Sources */,
 				BC753ED71BAC07D300D2663C /* FeedTitleCell.m in Sources */,
 				BC753EDB1BAC07D300D2663C /* FeedUserHeadCell.m in Sources */,
+				BC79DF861C15910C0064C02F /* ChatGroupMemberViewController.m in Sources */,
 				BC0BD7061B5518F000B95B3A /* CouponPriceModel.m in Sources */,
 				BC359A2B1BC61F3B002DE863 /* SGGridMenu.m in Sources */,
 				BC592BC71BD4CC81008AE76A /* BookingSubjectItemCell.m in Sources */,
@@ -3025,6 +3052,7 @@
 				BCF9DD111BDA3BC000D8CDC6 /* BookCourseListItemCell.m in Sources */,
 				BC90897F1B5797D800A8D85B /* MOTabHost.m in Sources */,
 				BC2C0C8C1B15AF6E00E2446E /* MOGroupStyleTableViewController.m in Sources */,
+				BC79DF8A1C15931C0064C02F /* GroupMemberItemCell.m in Sources */,
 				BC753ECE1BAC07D300D2663C /* FeedCommentCell.m in Sources */,
 				5AC9FFCD1B17298C00C769EF /* FeedbackViewController.m in Sources */,
 				BCF9DD011BD8F15000D8CDC6 /* CourseTeacherListModel.m in Sources */,

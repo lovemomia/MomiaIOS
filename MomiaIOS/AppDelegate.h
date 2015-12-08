@@ -30,5 +30,8 @@
 @property (retain, nonatomic) NSString *clientId;
 @property (assign, nonatomic) SdkStatus sdkStatus;
 
+@property (nonatomic, strong) NSMutableDictionary *imUserDic;
+@property (nonatomic, strong) NSMutableDictionary *imGroupDic;
+
 @end
 

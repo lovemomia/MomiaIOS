@@ -35,13 +35,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationController.navigationBar.shadowImage = [UIImage imageWithColor:MO_APP_SeparatorColor size:CGSizeMake(SCREEN_WIDTH, 1)];
     self.conversationListTableView.separatorColor = MO_APP_SeparatorColor;
     self.conversationListTableView.tableFooterView = [UIView new];
     
     self.navigationItem.title = @"消息列表";
+//    NSArray *segmentedArray = @[@"消息",@"群组"];
+//    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedArray];
+//    segmentedControl.frame = CGRectMake(0.0, 0.0, 150, 30.0);
+//    segmentedControl.selectedSegmentIndex = 0;
+//    segmentedControl.tintColor = MO_APP_ThemeColor;
+//    segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+//    [segmentedControl addTarget:self  action:@selector(indexDidChangeForSegmentedControl:)
+//               forControlEvents:UIControlEventValueChanged];
+//    [self.navigationItem setTitleView:segmentedControl];
     
     [self syncGroupList];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBar.shadowImage = [UIImage imageWithColor:MO_APP_SeparatorColor size:CGSizeMake(SCREEN_WIDTH, 1)];
+}
+
+- (void)indexDidChangeForSegmentedControl:(UISegmentedControl *)paramSender {
+    //获得索引位置
+    NSInteger selectedSegmentIndex = [paramSender selectedSegmentIndex];
 }
 
 - (void)syncGroupList {
@@ -80,8 +97,8 @@
                 NSInteger interval = [zone secondsFromGMTForDate: date];
                 NSDate *localeDate = [date  dateByAddingTimeInterval: interval];
                 
-                con.sentTime = [localeDate timeIntervalSince1970];
-                con.receivedTime = [localeDate timeIntervalSince1970];
+                con.sentTime = [localeDate timeIntervalSince1970] * 1000;
+                con.receivedTime = [localeDate timeIntervalSince1970] * 1000;
                 
                 con.conversationType = ConversationType_GROUP;
                 RCConversationModel *model = [[RCConversationModel alloc] init:RC_CONVERSATION_MODEL_TYPE_NORMAL conversation:con extend:@""];
@@ -136,6 +153,7 @@
         _conversationVC.enableUnreadMessageIcon=YES;
         [self.navigationController pushViewController:_conversationVC animated:YES];
     }
+    [self.conversationListTableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (NSNumber *)convertType:(RCConversationType)type {

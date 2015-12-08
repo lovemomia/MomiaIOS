@@ -25,9 +25,6 @@
 
 @property (nonatomic, retain) UIImageView *titleShadowIv;
 
-@property (nonatomic, strong) NSMutableDictionary *imUserDic;
-@property (nonatomic, strong) NSMutableDictionary *imGroupDic;
-
 @end
 
 @implementation AppDelegate
@@ -123,6 +120,7 @@
                                                                   UIUserNotificationTypeAlert)
                                                 categories:nil];
         [application registerUserNotificationSettings:settings];
+        
     } else {
         UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge |
         UIRemoteNotificationTypeAlert |

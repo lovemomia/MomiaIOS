@@ -34,6 +34,9 @@
 }
 
 - (void)onTitleButtonClicked {
+    if (self.conversationType == ConversationType_GROUP) {
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://groupmember?id=%@", self.targetId]]];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
