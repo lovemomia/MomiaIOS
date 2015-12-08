@@ -270,21 +270,24 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
 #pragma mark -- UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     //获取悬停cell在TableView中的高度
-    CGRect rectInTableView = [self.tableView rectForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:1]];
-    if ((scrollView.contentOffset.y - rectInTableView.origin.y) > 0 && self.topTabView.hidden == NO) {
+    if (self.rectInTableView.origin.y == 0) {
         return;
     }
-    if ((scrollView.contentOffset.y - rectInTableView.origin.y) < 0 && self.topTabView.hidden == YES) {
+    
+    if ((scrollView.contentOffset.y - self.rectInTableView.origin.y) > 0 && self.topTabView.hidden == NO) {
+        return;
+    }
+    if ((scrollView.contentOffset.y - self.rectInTableView.origin.y) < 0 && self.topTabView.hidden == YES) {
         return;
     }
     
     //悬停的控制
-    if ((scrollView.contentOffset.y - rectInTableView.origin.y) > 0){
+    if ((scrollView.contentOffset.y - self.rectInTableView.origin.y) > 0){
         if (self.topTabView.hidden == YES) {
             self.topTabView.hidden = NO;
         }
     }
-    if ((scrollView.contentOffset.y - rectInTableView.origin.y) < 0){
+    if ((scrollView.contentOffset.y - self.rectInTableView.origin.y) < 0){
         if (self.topTabView.hidden == NO) {
             self.topTabView.hidden = YES;
         }
@@ -395,6 +398,10 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
             [tabCell setData:[NSNumber numberWithInteger:self.tabIndex]];
             cell = tabCell;
             cell.selectionStyle = UITableViewCellSeparatorStyleNone;
+            
+            if (self.rectInTableView.origin.y == 0) {
+                self.rectInTableView = [self.tableView rectForRowAtIndexPath:indexPath];
+            }
             
         } else {
             if (self.tabIndex == 0) {
