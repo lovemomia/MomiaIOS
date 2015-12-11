@@ -26,7 +26,7 @@
     self.addressLabel.text = data.place.address;
     if ([data.stock intValue] == 0) {
         self.countLabel.text = @"已报满";
-    } else if ([data.stock intValue] <= 5) {
+    } else if ([data.stock intValue] <= 20) {
         self.countLabel.text = [NSString stringWithFormat:@"仅剩%@个名额", data.stock];
     } else {
         self.countLabel.text = @"";

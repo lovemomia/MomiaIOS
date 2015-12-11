@@ -470,5 +470,14 @@
 		<key>desc</key>
 		<string>群成员列表</string>
 	</dict>
+	<key>chatuser</key>
+	<dict>
+		<key>controller</key>
+		<string>ChatUserViewController</string>
+		<key>needlogin</key>
+		<true/>
+		<key>desc</key>
+		<string>聊天用户</string>
+	</dict>
 </dict>
 </plist>

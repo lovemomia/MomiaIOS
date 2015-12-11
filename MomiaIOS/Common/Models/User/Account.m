@@ -119,6 +119,7 @@
     [encoder encodeObject:self.bigChild forKey:@"bigChild"];
     [encoder encodeObject:self.children forKey:@"children"];
     [encoder encodeObject:self.cover forKey:@"cover"];
+    [encoder encodeObject:self.role forKey:@"role"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder//解码
@@ -140,6 +141,7 @@
         self.bigChild = [decoder decodeObjectForKey:@"bigChild"];
         self.children = [decoder decodeObjectForKey:@"children"];
         self.cover = [decoder decodeObjectForKey:@"cover"];
+        self.role = [decoder decodeObjectForKey:@"role"];
     }
     return self;
 }

@@ -22,7 +22,7 @@
 }
 
 - (void)setData:(User *)data {
-    [self.avatarIv sd_setImageWithURL:[NSURL URLWithString:data.avatar]];
+    [self.avatarIv sd_setImageWithURL:[NSURL URLWithString:data.avatar] placeholderImage:[UIImage imageNamed:@"IconAvatarDefault"]];
     self.nameLabel.text = data.nickName;
 }
 

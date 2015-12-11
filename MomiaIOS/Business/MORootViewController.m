@@ -12,6 +12,7 @@
 #import "FeedListViewController.h"
 #import "MineViewController.h"
 #import "UIImage+Color.h"
+#import <RongIMKit/RongIMKit.h>
 
 @interface MORootViewController ()<UITabBarControllerDelegate> {
     
@@ -19,6 +20,8 @@
 @property (nonatomic, strong) HomeViewController *home;
 @property (nonatomic, strong) FeedListViewController *playmate;
 @property (nonatomic, strong) MineViewController *mine;
+
+@property (nonatomic, strong) UIImageView *dotImage;
 
 @end
 
@@ -67,6 +70,45 @@
         self.delegate = self;
     }
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMineDotChanged:) name:@"onMineDotChanged" object:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self makeMineDotHidden];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"onMineDotChanged" object:nil];
+}
+
+- (void)onMineDotChanged:(NSNotification*)notify {
+    [self makeMineDotHidden];
+}
+
+- (void)makeMineDotHidden {
+    if ([[RCIMClient sharedRCIMClient] getUnreadCount:@[@(ConversationType_PRIVATE), @(ConversationType_GROUP)]] > 0) {
+        [self.dotImage removeFromSuperview];
+        self.dotImage = [[UIImageView alloc] init];
+        self.dotImage.backgroundColor = MO_APP_TextColor_red;
+        CGRect tabFrame = self.tabBar.frame;
+        CGFloat x = ceilf(0.86 * tabFrame.size.width);
+        CGFloat y = ceilf(0.2 * tabFrame.size.height);
+        self.dotImage.frame = CGRectMake(x, y, 6, 6);
+        self.dotImage.layer.cornerRadius = 3;
+        [self.tabBar addSubview:self.dotImage];
+        [self.tabBar setNeedsDisplay];
+        
+    } else {
+        [self.dotImage removeFromSuperview];
+    }
 }
 
 - (void)makeTabBarHidden:(BOOL)hide {

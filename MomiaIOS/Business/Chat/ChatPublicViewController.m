@@ -20,6 +20,8 @@
         self.targetId = [params objectForKey:@"targetid"];
         self.userName = [params objectForKey:@"username"];
         self.title = [params objectForKey:@"title"];
+        
+        self.hidesBottomBarWhenPushed = YES;
     }
     return self;
 }
@@ -27,15 +29,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleCamera"] style:UIBarButtonItemStylePlain target:self action:@selector(onTitleButtonClicked)];
     
     self.chatSessionInputBarControl.hidden = YES;
     self.customFlowLayout.collectionView.size = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT - 64);
     [self scrollToBottomAnimated:NO];
-}
-
-
-- (void)onTitleButtonClicked {
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,7 +44,7 @@
     if (type) {
         int typeInt = [type intValue];
         if (typeInt == 6) {
-            return ConversationType_PRIVATE;
+            return ConversationType_SYSTEM;
         }
         if (typeInt == 8) {
             return ConversationType_PUBLICSERVICE;
@@ -56,7 +53,7 @@
             return ConversationType_PUSHSERVICE;
         }
     }
-    return ConversationType_PUSHSERVICE;
+    return ConversationType_SYSTEM;
 }
 
 @end

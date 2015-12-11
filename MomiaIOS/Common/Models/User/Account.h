@@ -27,6 +27,7 @@
 @property (nonatomic, strong) NSArray<Optional> *children;
 
 @property (nonatomic, strong) NSString<Optional> *cover;
+@property (nonatomic, strong) NSNumber<Optional> *role;
 
 - (void)save;
 

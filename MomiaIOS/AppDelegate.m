@@ -18,12 +18,13 @@
 #import "IMUserModel.h"
 #import "IMGroupModel.h"
 
-@interface AppDelegate ()<RCIMUserInfoDataSource, RCIMGroupInfoDataSource> {
+@interface AppDelegate ()<RCIMUserInfoDataSource, RCIMGroupInfoDataSource, RCIMReceiveMessageDelegate> {
 @private
     NSString *_deviceToken;
 }
 
 @property (nonatomic, retain) UIImageView *titleShadowIv;
+@property (nonatomic) BOOL isLaunchedByNotification;
 
 @end
 
@@ -83,6 +84,7 @@
     [RCIM sharedRCIM].globalNavigationBarTintColor = MO_APP_ThemeColor;
     [RCIM sharedRCIM].globalConversationAvatarStyle = RC_USER_AVATAR_CYCLE;
     [RCIM sharedRCIM].globalMessageAvatarStyle = RC_USER_AVATAR_CYCLE;
+    [RCIM sharedRCIM].receiveMessageDelegate = self;
     // 设置用户信息提供者。
     [[RCIM sharedRCIM] setUserInfoDataSource:self];
     // 设置群组信息提供者。
@@ -106,6 +108,22 @@
                 NSLog(@"refresh imtoken failed");
             }];
         }
+    }
+    
+    /**
+     * 统计推送打开率1
+     */
+    [[RCIMClient sharedRCIMClient] recordLaunchOptionsEvent:launchOptions];
+    
+    /**
+     * 获取融云推送服务扩展字段1
+     */
+    NSDictionary *pushServiceData = [[RCIMClient sharedRCIMClient] getPushExtraFromLaunchOptions:launchOptions];
+    if (pushServiceData) {
+        self.isLaunchedByNotification = YES;
+        
+    } else {
+        self.isLaunchedByNotification = NO;
     }
     
     /**
@@ -198,6 +216,12 @@
         [[PushManager shareManager] stopSdk];
     }
     [[LocationService defaultService] stop];
+    
+    int unreadMsgCount = [[RCIMClient sharedRCIMClient] getUnreadCount:@[
+                                                                         @(ConversationType_PRIVATE),
+                                                                         @(ConversationType_GROUP)
+                                                                         ]];
+    application.applicationIconBadgeNumber = unreadMsgCount;
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -263,16 +287,33 @@
     }
 }
 
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userinfo
+- (void)didReceiveMessageNotification:(NSNotification *)notification {
+    [UIApplication sharedApplication].applicationIconBadgeNumber =
+    [UIApplication sharedApplication].applicationIconBadgeNumber + 1;
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    /**
+     * 统计推送打开率3
+     */
+    [[RCIMClient sharedRCIMClient] recordLocalNotificationEvent:notification];
+    
+    NSDictionary *userInfo = notification.userInfo;
+    [self handlerUserInfo:userInfo];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     
     if (![[PushManager shareManager]isPushClose]) {
         // [4-EXT]:处理APN
-        NSString *payloadMsg = [userinfo objectForKey:@"payload"];
+        NSString *payloadMsg = [userInfo objectForKey:@"payload"];
         NSLog(@"[APN]%@, %@", [NSDate date], payloadMsg);
     }
+    
+    [self handlerUserInfo:userInfo];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
@@ -290,6 +331,47 @@
         
         completionHandler(UIBackgroundFetchResultNewData);
     }
+    
+    [self handlerUserInfo:userInfo];
+}
+
+- (void)handlerUserInfo:(NSDictionary *)userInfo {
+    /**
+     * 统计推送打开率2
+     */
+    [[RCIMClient sharedRCIMClient] recordRemoteNotificationEvent:userInfo];
+    /**
+     * 获取融云推送服务扩展字段2
+     */
+//    NSDictionary *pushServiceData = [[RCIMClient sharedRCIMClient] getPushExtraFromRemoteNotification:userInfo];
+//    if (pushServiceData) {
+//        NSString *action = [pushServiceData objectForKey:@"action"];
+//        [[UIApplication sharedApplication ] openURL:[NSURL URLWithString:action]];
+//    }
+    
+//    NSString *pushData = [userInfo objectForKey:@"pushData"];
+//    if (pushData.length > 0 && [pushData containsString:@"duola://"]) {
+//        [[UIApplication sharedApplication ] openURL:[NSURL URLWithString:pushData]];
+//    }
+    
+    if (userInfo) {
+        NSDictionary *rc = [userInfo objectForKey:@"rc"];
+        if (rc ) {
+            NSString *cType = [rc objectForKey:@"cType"];
+            if ([cType isEqualToString:@"SYS"]) {
+                NSString *fId = [rc objectForKey:@"fId"];
+                NSArray *messageArray = [[RCIMClient sharedRCIMClient] getLatestMessages:ConversationType_SYSTEM targetId:fId count:1];
+                if (messageArray.count > 0) {
+                    RCMessage *message = messageArray[0];
+                    NSString *pushData = ((RCTextMessage *)message.content).extra;
+                    if (pushData.length > 0 && [pushData containsString:@"duola://"]) {
+                        [self handleOpenURL:[NSURL URLWithString:pushData]];
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
 #pragma mark - GexinSdkDelegate
@@ -336,11 +418,11 @@
 
 #pragma mark - wechat delegate
 
--(void) onReq:(BaseReq*)req {
+-(void)onReq:(BaseReq*)req {
     
 }
 
--(void) onResp:(BaseResp*)resp {
+-(void)onResp:(BaseResp*)resp {
     if([resp isKindOfClass:[SendMessageToWXResp class]]) {
         
     } else if ([resp isKindOfClass:[PayResp class]]) {
@@ -403,7 +485,7 @@
         
     } error:^(RCConnectErrorCode status) {
         // Connect 失败
-        NSLog(@"RCIM connect failed, status:%ld", status);
+        NSLog(@"RCIM connect failed, status:%d", status);
         
     } tokenIncorrect:^{
         // Token 失效的状态处理
@@ -418,9 +500,13 @@
         imUserDic = [NSMutableDictionary new];
     }
     
-    RCUserInfo *user = [imUserDic objectForKey:userId];
+    User *user = [imUserDic objectForKey:userId];
     if (user) {
-        return completion(user);
+        RCUserInfo *ui = [[RCUserInfo alloc]init];
+        ui.userId = [user.uid stringValue];
+        ui.name = user.nickName;
+        ui.portraitUri = user.avatar;
+        return completion(ui);
         
     } else {
         [[HttpService defaultService] GET:URL_APPEND_PATH(@"/im/user") parameters:@{@"uid":userId} cacheType:CacheTypeDisable JSONModelClass:[IMUserModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -431,7 +517,7 @@
             user.name = model.data.nickName;
             user.portraitUri = model.data.avatar;
             
-            [imUserDic setObject:user forKey:userId];
+            [imUserDic setObject:user forKey:model.data];
             
             return completion(user);
             
@@ -449,9 +535,12 @@
         imGroupDic = [NSMutableDictionary new];
     }
     
-    RCGroup *group = [imUserDic objectForKey:groupId];
+    IMGroup *group = [imGroupDic objectForKey:groupId];
     if (group) {
-        return completion(group);
+        RCGroup *rcg = [[RCGroup alloc]init];
+        rcg.groupId = [group.groupId stringValue];
+        rcg.groupName = group.groupName;
+        return completion(rcg);
         
     } else {
         [[HttpService defaultService] GET:URL_APPEND_PATH(@"/im/group") parameters:@{@"id":groupId} cacheType:CacheTypeDisable JSONModelClass:[IMGroupModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -461,7 +550,7 @@
             group.groupId = [model.data.groupId stringValue];
             group.groupName = model.data.groupName;
             
-            [imGroupDic setObject:group forKey:groupId];
+            [imGroupDic setObject:model.data forKey:groupId];
             
             return completion(group);
             
@@ -470,6 +559,19 @@
     }
     
     return completion(nil);
+}
+
+-(void)onRCIMReceiveMessage:(RCMessage *)message left:(int)left
+{
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"onMineDotChanged" object:nil];
+    
+    if (message.conversationType == ConversationType_SYSTEM || message.conversationType == ConversationType_PUSHSERVICE) {
+        
+    }
+    if ([message.content isMemberOfClass:[RCInformationNotificationMessage class]]) {
+        RCInformationNotificationMessage *msg=(RCInformationNotificationMessage *)message.content;
+        
+    }
 }
 
 @end

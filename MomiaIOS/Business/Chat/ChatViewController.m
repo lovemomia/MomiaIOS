@@ -23,6 +23,15 @@
         if (self.conversationType == ConversationType_PRIVATE) {
             self.displayUserNameInCell = NO;
         }
+        
+        int unread = [[params objectForKey:@"unread"] intValue];
+        if (unread > 10) {
+            self.unReadMessage = unread;
+            self.enableUnreadMessageIcon = YES;
+            self.enableNewComingMessageIcon = YES;
+            self.unReadMessageLabel.textColor = MO_APP_ThemeColor;
+            self.unReadButton.titleLabel.textColor = MO_APP_ThemeColor;
+        }
     }
     return self;
 }
@@ -30,13 +39,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleCamera"] style:UIBarButtonItemStylePlain target:self action:@selector(onTitleButtonClicked)];
+    BOOL isGroup = self.conversationType == ConversationType_GROUP;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:isGroup ? @"TitleGroup" : @"TitleUser"] style:UIBarButtonItemStylePlain target:self action:@selector(onTitleButtonClicked)];
 }
 
 - (void)onTitleButtonClicked {
     if (self.conversationType == ConversationType_GROUP) {
         [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://groupmember?id=%@", self.targetId]]];
+    } else {
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://chatuser?id=%@", self.targetId]]];
     }
+}
+
+- (void)didTapCellPortrait:(NSString *)userId {
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://chatuser?id=%@", userId]]];
 }
 
 - (void)didReceiveMemoryWarning {

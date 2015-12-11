@@ -12,6 +12,7 @@
 #import "CommonTableViewCell.h"
 #import "ChatListViewController.h"
 #import <RongIMKit/RongIMKit.h>
+#import "NSString+MOURLEncode.h"
 
 @interface MineViewController ()
 
@@ -24,8 +25,33 @@
     // Do any additional setup after loading the view from its nib.
     
     self.navigationItem.title = @"我的";
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(onSettingClicked)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleMsg"] style:UIBarButtonItemStylePlain target:self action:@selector(onTitleBtnClick)];
+    
     [[AccountService defaultService] addListener:self];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMineDotChanged:) name:@"onMineDotChanged" object:nil];
+    [self.tableView reloadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"onMineDotChanged" object:nil];
+}
+
+- (void)onMineDotChanged:(NSNotification*)notify {
+    
+//    NSIndexPath *te=[NSIndexPath indexPathForRow:0 inSection:2];
+//    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:te,nil] withRowAnimation:UITableViewRowAnimationMiddle];
+}
+
+- (void)onTitleBtnClick {
+    NSString *title = @"系统消息";
+    [self openURL:[NSString stringWithFormat:@"duola://chatpublic?type=6&targetid=1&username=%@&title=%@", [title URLEncodedString], [title URLEncodedString]]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,6 +61,7 @@
 
 - (void)dealloc {
     [[AccountService defaultService]removeListener:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"onMineDotChanged" object:nil];
 }
 
 - (void)onAccountChange {
@@ -73,7 +100,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0 || section == 2) {
+    if (section == 0) {
         return 1;
     }
     return 2;
@@ -110,19 +137,19 @@
             break;
         case 2:
             if (row == 0) {
-//                if ([[AccountService defaultService]isLogin]) {
-//                    [self openURL:[NSString stringWithFormat:@"duola://userinfo?uid=%@&me=1", [AccountService defaultService].account.uid]];
-//                }
-                
-                //快速集成第三步，在您需要的时机初始化会话列表，并跳转会话列表
-                //initWithDisplayConversationTypes 例如：@[@(ConversationType_PRIVATE),@(ConversationType_DISCUSSION), @(ConversationType_APPSERVICE), @(ConversationType_PUBLICSERVICE),@(ConversationType_GROUP),@(ConversationType_SYSTEM)]]
-                //collectionConversationType 例如：@[@(ConversationType_GROUP),@(ConversationType_DISCUSSION)]]
-//                ChatListViewController * chatListViewController=[[ChatListViewController alloc]init];
-//                
-//                [self.navigationController pushViewController:chatListViewController animated:YES];
-                
                 [self openURL:@"duola://chatlist"];
                 
+//                RCConversationListViewController *temp = [[RCConversationListViewController alloc] init];
+//                NSArray *array = [NSArray arrayWithObject:@[@(ConversationType_PRIVATE), @(ConversationType_DISCUSSION), @(ConversationType_PUBLICSERVICE),@(ConversationType_GROUP), @(ConversationType_SYSTEM)]];
+//                [temp setDisplayConversationTypes:array];
+//                [temp setCollectionConversationType:nil];
+//                temp.isEnteredToCollectionViewController = YES;
+//                [self.navigationController pushViewController:temp animated:YES];
+                
+            } else {
+                if ([[AccountService defaultService]isLogin]) {
+                    [self openURL:[NSString stringWithFormat:@"duola://userinfo?uid=%@&me=1", [AccountService defaultService].account.uid]];
+                }
             }
             break;
         case 3:
@@ -199,8 +226,7 @@
         }
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         CommonTableViewCell *commonCell = (CommonTableViewCell *)cell;
-//        cell.textLabel.textColor = UIColorFromRGB(0x333333);
-//        cell.textLabel.font = [UIFont systemFontOfSize: 16.0];
+        commonCell.dotIv.hidden = YES;
         
         switch (section) {
             case 1:
@@ -214,6 +240,16 @@
                 break;
             case 2:
                 if (row == 0) {
+                    commonCell.titleLabel.text = @"我的群组";
+                    commonCell.iconIv.image = [UIImage imageNamed:@"IconGroup"];
+                    
+                    if ([[RCIMClient sharedRCIMClient] getUnreadCount:@[@(ConversationType_PRIVATE), @(ConversationType_GROUP)]] > 0) {
+                        commonCell.dotIv.hidden = NO;
+                    } else {
+                        commonCell.dotIv.hidden = YES;
+                    }
+                    
+                } else {
                     commonCell.titleLabel.text = @"成长说";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconFeed"];
                 }

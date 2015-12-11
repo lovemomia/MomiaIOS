@@ -8,7 +8,6 @@
 
 #import "ChatUserViewController.h"
 #import "IMUserModel.h"
-#import "AppDelegate.h"
 #import "GroupMemberItemCell.h"
 
 static NSString *identifierGroupMemberItemCell = @"GroupMemberItemCell";
@@ -33,19 +32,11 @@ static NSString *identifierGroupMemberItemCell = @"GroupMemberItemCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.navigationItem.title = @"用户信息";
+    
     [GroupMemberItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierGroupMemberItemCell];
     
-    NSDictionary *dic = ((AppDelegate *)[UIApplication sharedApplication].delegate).imUserDic;
-    User *user;
-    if (dic) {
-        user = [dic objectForKey:self.ids];
-    }
-    if (user) {
-        self.user = user;
-        [self.tableView reloadData];
-    } else {
-        [self requestData];
-    }
+    [self requestData];
 }
 
 - (void)requestData {
@@ -72,6 +63,10 @@ static NSString *identifierGroupMemberItemCell = @"GroupMemberItemCell";
     // Dispose of any resources that can be recreated.
 }
 
+- (void)onSendMsgClicked:(id)sender {
+    [self openURL:[NSString stringWithFormat:@"duola://chat?type=1&targetid=%@&username=%@&title=%@", self.user.uid, self.user.nickName, self.user.nickName]];
+}
+
 /*
 #pragma mark - Navigation
 
@@ -84,7 +79,7 @@ static NSString *identifierGroupMemberItemCell = @"GroupMemberItemCell";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (self.user) {
-        
+        return 1;
     }
     return 0;
 }
@@ -97,7 +92,44 @@ static NSString *identifierGroupMemberItemCell = @"GroupMemberItemCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 0;
+    return 65;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    GroupMemberItemCell *cell = [GroupMemberItemCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierGroupMemberItemCell];
+    cell.data = self.user;
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 10;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *view = [UIView new];
+    BOOL hasRole = (self.user && [self.user.role intValue] > 1) || ([[AccountService defaultService].account.role intValue] > 1);
+    if (hasRole && section == [self numberOfSectionsInTableView:tableView] - 1) {
+        UIButton *button = [[UIButton alloc]init];
+        button.height = 40;
+        button.width = 280;
+        button.left = (SCREEN_WIDTH - button.width) / 2;
+        button.top = 30;
+        [button setTitle:@"发起会话" forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(onSendMsgClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [button setBackgroundImage:[UIImage imageNamed:@"BgLargeButtonNormal"] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:@"BgLargeButtonDisable"] forState:UIControlStateDisabled];
+        
+        [view addSubview:button];
+    }
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (section == [self numberOfSectionsInTableView:tableView] - 1) {
+        return 80;
+    }
+    return 0.1;
 }
 
 @end

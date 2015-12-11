@@ -22,7 +22,7 @@
         self.hidesBottomBarWhenPushed = YES;
         
         //设置要显示的会话类型
-        [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE),@(ConversationType_DISCUSSION), @(ConversationType_APPSERVICE), @(ConversationType_PUBLICSERVICE),@(ConversationType_GROUP),@(ConversationType_SYSTEM)]];
+        [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE), @(ConversationType_GROUP)]];
         
         //聚合会话类型
 //        [self setCollectionConversationType:@[@(ConversationType_GROUP),@(ConversationType_DISCUSSION)]];
@@ -38,7 +38,9 @@
     self.conversationListTableView.separatorColor = MO_APP_SeparatorColor;
     self.conversationListTableView.tableFooterView = [UIView new];
     
-    self.navigationItem.title = @"消息列表";
+    self.emptyConversationView = [self createEmptyView];
+    
+    self.navigationItem.title = @"我的群组";
 //    NSArray *segmentedArray = @[@"消息",@"群组"];
 //    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedArray];
 //    segmentedControl.frame = CGRectMake(0.0, 0.0, 150, 30.0);
@@ -52,13 +54,48 @@
     [self syncGroupList];
 }
 
+- (UIView *)createEmptyView {
+    UIView *emptyView = [[UIView alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - 200)/2, 150, 200, 80)];
+    
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 140, 80)];
+    label.text = @"还没有开通群组哦，快去选课吧~";
+    label.textColor =  UIColorFromRGB(0x999999);
+    label.font = [UIFont systemFontOfSize:14];
+    label.textAlignment = NSTextAlignmentLeft;
+    label.numberOfLines = 0;
+    
+    UIImageView *logoIv = [[UIImageView alloc]initWithFrame:CGRectMake(0, 10, 60, 60)];
+    logoIv.image = [UIImage imageNamed:@"IconCircleLogo"];
+    
+    [emptyView addSubview:logoIv];
+    [emptyView addSubview:label];
+    
+    [logoIv mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@60);
+        make.height.equalTo(@60);
+        make.left.equalTo(emptyView.mas_left);
+        make.centerY.equalTo(emptyView.mas_centerY);
+    }];
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(logoIv.mas_right).offset(10);
+        make.right.equalTo(emptyView.mas_right);
+        make.centerY.equalTo(logoIv.mas_centerY);
+    }];
+    
+    return emptyView;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBar.shadowImage = [UIImage imageWithColor:MO_APP_SeparatorColor size:CGSizeMake(SCREEN_WIDTH, 1)];
 }
 
+- (void)didReceiveMessageNotification:(NSNotification *)notification {
+    [self refreshConversationTableViewIfNeeded];
+}
+
 - (void)indexDidChangeForSegmentedControl:(UISegmentedControl *)paramSender {
     //获得索引位置
-    NSInteger selectedSegmentIndex = [paramSender selectedSegmentIndex];
+//    NSInteger selectedSegmentIndex = [paramSender selectedSegmentIndex];
 }
 
 - (void)syncGroupList {
@@ -139,7 +176,7 @@
         NSString *uName = [model.senderUserName URLEncodedString];
         NSString *title = [model.conversationTitle URLEncodedString];
         
-        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://chat?type=%@&targetid=%@&username=%@&title=%@", [self convertType:model.conversationType], model.targetId, uName, title]]];
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://chat?type=%@&targetid=%@&username=%@&title=%@&unread=%ld", [self convertType:model.conversationType], model.targetId, uName, title, (long)model.unreadMessageCount]]];
         
     } else {
         RCConversationViewController *_conversationVC = [[RCConversationViewController alloc]init];
@@ -154,6 +191,11 @@
         [self.navigationController pushViewController:_conversationVC animated:YES];
     }
     [self.conversationListTableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    // 清掉未读
+    [[RCIMClient sharedRCIMClient] clearMessagesUnreadStatus:model.conversationType targetId:model.targetId];
+    [self refreshConversationTableViewIfNeeded];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"onMineDotChanged" object:nil];
 }
 
 - (NSNumber *)convertType:(RCConversationType)type {

@@ -28,6 +28,6 @@
 @property (nonatomic, strong) NSArray<Child, Optional> *children;
 
 @property (nonatomic, strong) NSString<Optional> *cover;
-@property (nonatomic, strong) NSNumber *teacher;
+@property (nonatomic, strong) NSNumber *role;
 
 @end

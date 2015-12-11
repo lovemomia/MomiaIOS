@@ -22,7 +22,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fH-EU-Wji">
-                        <rect key="frame" x="40" y="13" width="270" height="18"/>
+                        <rect key="frame" x="40" y="13" width="266" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="mHd-jz-Ler"/>
                         </constraints>
@@ -30,16 +30,38 @@
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bdF-fu-jnN">
+                        <rect key="frame" x="314" y="19" width="6" height="6"/>
+                        <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="6" id="9OU-MI-Ubx"/>
+                            <constraint firstAttribute="height" constant="6" id="oYc-cL-zln"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="agu-s5-2U1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2kO-Mg-0Tg"/>
+                    <constraint firstItem="bdF-fu-jnN" firstAttribute="leading" secondItem="9fH-EU-Wji" secondAttribute="trailing" constant="8" id="3Mf-nF-sk9"/>
                     <constraint firstAttribute="trailing" secondItem="9fH-EU-Wji" secondAttribute="trailing" constant="10" id="Dcc-Uq-WCA"/>
                     <constraint firstItem="9fH-EU-Wji" firstAttribute="leading" secondItem="agu-s5-2U1" secondAttribute="trailing" constant="10" id="Dwn-vm-2G1"/>
                     <constraint firstItem="agu-s5-2U1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="Fqd-2Q-Gjg"/>
                     <constraint firstItem="9fH-EU-Wji" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cqg-kX-dMt"/>
+                    <constraint firstAttribute="trailing" secondItem="bdF-fu-jnN" secondAttribute="trailing" id="hCU-kF-0d1"/>
+                    <constraint firstItem="bdF-fu-jnN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rQP-qt-TIp"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Dcc-Uq-WCA"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="dotIv" destination="bdF-fu-jnN" id="mmy-oX-u6N"/>
                 <outlet property="iconIv" destination="agu-s5-2U1" id="CRg-g3-U7n"/>
                 <outlet property="titleLabel" destination="9fH-EU-Wji" id="4Qc-bO-iTP"/>
             </connections>
