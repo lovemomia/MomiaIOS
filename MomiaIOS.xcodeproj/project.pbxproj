@@ -295,13 +295,6 @@
 		BC79DF511C0EC59D0064C02F /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BC79DF501C0EC59D0064C02F /* libxml2.tbd */; };
 		BC79DF531C0EC5B10064C02F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BC79DF521C0EC5B10064C02F /* libz.tbd */; };
 		BC79DF551C0EC5B90064C02F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC79DF541C0EC5B90064C02F /* MapKit.framework */; };
-		BC79DF611C0ED3720064C02F /* Emoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC79DF581C0ED3720064C02F /* Emoji.plist */; };
-		BC79DF621C0ED3720064C02F /* RongCloudKit.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC79DF591C0ED3720064C02F /* RongCloudKit.strings */; };
-		BC79DF631C0ED3720064C02F /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC79DF5B1C0ED3720064C02F /* libopencore-amrnb.a */; };
-		BC79DF641C0ED3720064C02F /* release_notes_ios.txt in Resources */ = {isa = PBXBuildFile; fileRef = BC79DF5C1C0ED3720064C02F /* release_notes_ios.txt */; };
-		BC79DF651C0ED3720064C02F /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BC79DF5D1C0ED3720064C02F /* RongCloud.bundle */; };
-		BC79DF661C0ED3720064C02F /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC79DF5E1C0ED3720064C02F /* RongIMKit.framework */; };
-		BC79DF671C0ED3720064C02F /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC79DF5F1C0ED3720064C02F /* RongIMLib.framework */; };
 		BC79DF6A1C0EDEF30064C02F /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF691C0EDEF30064C02F /* ChatViewController.m */; };
 		BC79DF6D1C0EF45E0064C02F /* ChatLocationPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF6C1C0EF45E0064C02F /* ChatLocationPickerViewController.m */; };
 		BC79DF731C0F052D0064C02F /* ChatPublicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF721C0F052D0064C02F /* ChatPublicViewController.m */; };
@@ -328,6 +321,14 @@
 		BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC85409B1ADF74E9005A7C54 /* Images.xcassets */; };
 		BC8540AB1ADF74E9005A7C54 /* MomiaIOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540AA1ADF74E9005A7C54 /* MomiaIOSTests.m */; };
 		BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540BC1ADF8A09005A7C54 /* MOViewController.m */; };
+		BC8B9A011C1AB61300EE39A2 /* ChatUserFeedPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8B9A001C1AB61300EE39A2 /* ChatUserFeedPhotoCell.m */; };
+		BC8B9A0C1C1AD53100EE39A2 /* Emoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC8B9A031C1AD53100EE39A2 /* Emoji.plist */; };
+		BC8B9A0D1C1AD53100EE39A2 /* RongCloudKit.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC8B9A041C1AD53100EE39A2 /* RongCloudKit.strings */; };
+		BC8B9A0E1C1AD53100EE39A2 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8B9A061C1AD53100EE39A2 /* libopencore-amrnb.a */; };
+		BC8B9A0F1C1AD53100EE39A2 /* release_notes_ios.txt in Resources */ = {isa = PBXBuildFile; fileRef = BC8B9A071C1AD53100EE39A2 /* release_notes_ios.txt */; };
+		BC8B9A101C1AD53100EE39A2 /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BC8B9A081C1AD53100EE39A2 /* RongCloud.bundle */; };
+		BC8B9A111C1AD53100EE39A2 /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8B9A091C1AD53100EE39A2 /* RongIMKit.framework */; };
+		BC8B9A121C1AD53100EE39A2 /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8B9A0A1C1AD53100EE39A2 /* RongIMLib.framework */; };
 		BC90897F1B5797D800A8D85B /* MOTabHost.m in Sources */ = {isa = PBXBuildFile; fileRef = BC90897E1B5797D800A8D85B /* MOTabHost.m */; };
 		BC9089821B58983300A8D85B /* MyOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9089811B58983300A8D85B /* MyOrderListViewController.m */; };
 		BC93ACA41C15A38E009E3BDD /* ChatUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC93ACA31C15A38E009E3BDD /* ChatUserViewController.m */; };
@@ -926,14 +927,6 @@
 		BC79DF501C0EC59D0064C02F /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		BC79DF521C0EC5B10064C02F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		BC79DF541C0EC5B90064C02F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		BC79DF581C0ED3720064C02F /* Emoji.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Emoji.plist; sourceTree = "<group>"; };
-		BC79DF5A1C0ED3720064C02F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RongCloudKit.strings; sourceTree = "<group>"; };
-		BC79DF5B1C0ED3720064C02F /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
-		BC79DF5C1C0ED3720064C02F /* release_notes_ios.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes_ios.txt; sourceTree = "<group>"; };
-		BC79DF5D1C0ED3720064C02F /* RongCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RongCloud.bundle; sourceTree = "<group>"; };
-		BC79DF5E1C0ED3720064C02F /* RongIMKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RongIMKit.framework; sourceTree = "<group>"; };
-		BC79DF5F1C0ED3720064C02F /* RongIMLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RongIMLib.framework; sourceTree = "<group>"; };
-		BC79DF601C0ED3720064C02F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RongCloudKit.strings"; sourceTree = "<group>"; };
 		BC79DF681C0EDEF30064C02F /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatViewController.h; path = Business/Chat/ChatViewController.h; sourceTree = "<group>"; };
 		BC79DF691C0EDEF30064C02F /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatViewController.m; path = Business/Chat/ChatViewController.m; sourceTree = "<group>"; };
 		BC79DF6B1C0EF45E0064C02F /* ChatLocationPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatLocationPickerViewController.h; path = Business/Chat/ChatLocationPickerViewController.h; sourceTree = "<group>"; };
@@ -984,6 +977,16 @@
 		BC8540BB1ADF8A09005A7C54 /* MOViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOViewController.h; path = Common/Base/MOViewController.h; sourceTree = "<group>"; };
 		BC8540BC1ADF8A09005A7C54 /* MOViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOViewController.m; path = Common/Base/MOViewController.m; sourceTree = "<group>"; };
 		BC8540C41AE2121E005A7C54 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Common/Base/Constants.h; sourceTree = "<group>"; };
+		BC8B99FF1C1AB61300EE39A2 /* ChatUserFeedPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatUserFeedPhotoCell.h; path = Business/Chat/Views/ChatUserFeedPhotoCell.h; sourceTree = "<group>"; };
+		BC8B9A001C1AB61300EE39A2 /* ChatUserFeedPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatUserFeedPhotoCell.m; path = Business/Chat/Views/ChatUserFeedPhotoCell.m; sourceTree = "<group>"; };
+		BC8B9A031C1AD53100EE39A2 /* Emoji.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Emoji.plist; sourceTree = "<group>"; };
+		BC8B9A051C1AD53100EE39A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RongCloudKit.strings; sourceTree = "<group>"; };
+		BC8B9A061C1AD53100EE39A2 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
+		BC8B9A071C1AD53100EE39A2 /* release_notes_ios.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes_ios.txt; sourceTree = "<group>"; };
+		BC8B9A081C1AD53100EE39A2 /* RongCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RongCloud.bundle; sourceTree = "<group>"; };
+		BC8B9A091C1AD53100EE39A2 /* RongIMKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RongIMKit.framework; sourceTree = "<group>"; };
+		BC8B9A0A1C1AD53100EE39A2 /* RongIMLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RongIMLib.framework; sourceTree = "<group>"; };
+		BC8B9A0B1C1AD53100EE39A2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RongCloudKit.strings"; sourceTree = "<group>"; };
 		BC90897D1B5797D800A8D85B /* MOTabHost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOTabHost.h; path = Common/Views/MOTabHost.h; sourceTree = "<group>"; };
 		BC90897E1B5797D800A8D85B /* MOTabHost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOTabHost.m; path = Common/Views/MOTabHost.m; sourceTree = "<group>"; };
 		BC9089801B58983300A8D85B /* MyOrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyOrderListViewController.h; path = Business/Mine/MyOrderListViewController.h; sourceTree = "<group>"; };
@@ -1139,6 +1142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC8B9A121C1AD53100EE39A2 /* RongIMLib.framework in Frameworks */,
 				BC77375B1BCB94BB00987B22 /* OpenGLES.framework in Frameworks */,
 				BC79DF551C0EC5B90064C02F /* MapKit.framework in Frameworks */,
 				BC79DF531C0EC5B10064C02F /* libz.tbd in Frameworks */,
@@ -1152,6 +1156,7 @@
 				BC79DF431C0EC3A20064C02F /* CoreMedia.framework in Frameworks */,
 				BC79DF411C0EC38E0064C02F /* CoreAudio.framework in Frameworks */,
 				BC1CC9F01BA7E4AD001841E7 /* AVFoundation.framework in Frameworks */,
+				BC8B9A0E1C1AD53100EE39A2 /* libopencore-amrnb.a in Frameworks */,
 				BC79DF3F1C0EC36B0064C02F /* AudioToolbox.framework in Frameworks */,
 				BC79DF3D1C0EC3610064C02F /* AssetsLibrary.framework in Frameworks */,
 				BC5CF2F81BB5275B00EC5227 /* AlipaySDK.framework in Frameworks */,
@@ -1161,7 +1166,6 @@
 				BCCDF6741B0B4F90008BAE12 /* Foundation.framework in Frameworks */,
 				BCCDF6721B0B4F82008BAE12 /* UIKit.framework in Frameworks */,
 				BCCDF6701B0B4F7A008BAE12 /* CoreText.framework in Frameworks */,
-				BC79DF631C0ED3720064C02F /* libopencore-amrnb.a in Frameworks */,
 				BC38D2911B09B8B30051C7E9 /* Security.framework in Frameworks */,
 				BCCDF65B1B0B1ED5008BAE12 /* libicucore.dylib in Frameworks */,
 				BCCDF6591B0B1ECC008BAE12 /* CoreTelephony.framework in Frameworks */,
@@ -1170,8 +1174,7 @@
 				BC38D2951B09B8E50051C7E9 /* CFNetwork.framework in Frameworks */,
 				BCCDF66D1B0B4E4C008BAE12 /* libWeiboSDK.a in Frameworks */,
 				BC7737591BCB92A400987B22 /* BaiduMapAPI.framework in Frameworks */,
-				BC79DF671C0ED3720064C02F /* RongIMLib.framework in Frameworks */,
-				BC79DF661C0ED3720064C02F /* RongIMKit.framework in Frameworks */,
+				BC8B9A111C1AD53100EE39A2 /* RongIMKit.framework in Frameworks */,
 				BC1CC9EC1BA7E228001841E7 /* libGeTuiSdk-1.2.1.a in Frameworks */,
 				087C98AEC54638860E9ACAB0 /* libPods.a in Frameworks */,
 			);
@@ -2102,22 +2105,10 @@
 				BC79DF871C15931C0064C02F /* GroupMemberItemCell.h */,
 				BC79DF881C15931C0064C02F /* GroupMemberItemCell.m */,
 				BC79DF891C15931C0064C02F /* GroupMemberItemCell.xib */,
+				BC8B99FF1C1AB61300EE39A2 /* ChatUserFeedPhotoCell.h */,
+				BC8B9A001C1AB61300EE39A2 /* ChatUserFeedPhotoCell.m */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		BC79DF571C0ED3720064C02F /* RongCloud */ = {
-			isa = PBXGroup;
-			children = (
-				BC79DF581C0ED3720064C02F /* Emoji.plist */,
-				BC79DF591C0ED3720064C02F /* RongCloudKit.strings */,
-				BC79DF5B1C0ED3720064C02F /* libopencore-amrnb.a */,
-				BC79DF5C1C0ED3720064C02F /* release_notes_ios.txt */,
-				BC79DF5D1C0ED3720064C02F /* RongCloud.bundle */,
-				BC79DF5E1C0ED3720064C02F /* RongIMKit.framework */,
-				BC79DF5F1C0ED3720064C02F /* RongIMLib.framework */,
-			);
-			path = RongCloud;
 			sourceTree = "<group>";
 		};
 		BC79DF771C1184530064C02F /* Chat */ = {
@@ -2303,6 +2294,20 @@
 				5A456F991B2E687700E95756 /* MOTableCell.m */,
 			);
 			name = Base;
+			sourceTree = "<group>";
+		};
+		BC8B9A021C1AD53100EE39A2 /* Rong_Cloud_iOS_SDK_v2_4_0_stable */ = {
+			isa = PBXGroup;
+			children = (
+				BC8B9A031C1AD53100EE39A2 /* Emoji.plist */,
+				BC8B9A041C1AD53100EE39A2 /* RongCloudKit.strings */,
+				BC8B9A061C1AD53100EE39A2 /* libopencore-amrnb.a */,
+				BC8B9A071C1AD53100EE39A2 /* release_notes_ios.txt */,
+				BC8B9A081C1AD53100EE39A2 /* RongCloud.bundle */,
+				BC8B9A091C1AD53100EE39A2 /* RongIMKit.framework */,
+				BC8B9A0A1C1AD53100EE39A2 /* RongIMLib.framework */,
+			);
+			path = Rong_Cloud_iOS_SDK_v2_4_0_stable;
 			sourceTree = "<group>";
 		};
 		BC8D3CEB1AE21CF500A2F319 /* Views */ = {
@@ -2503,7 +2508,7 @@
 		BCCDF6601B0B4E3F008BAE12 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
-				BC79DF571C0ED3720064C02F /* RongCloud */,
+				BC8B9A021C1AD53100EE39A2 /* Rong_Cloud_iOS_SDK_v2_4_0_stable */,
 				BC7737571BCB927800987B22 /* BaiduMap */,
 				BC5CF2F91BB53E6400EC5227 /* WeChatSDK_1.6 */,
 				BC1CC9E81BA7E21B001841E7 /* GeTui */,
@@ -2695,7 +2700,6 @@
 				BC753EDC1BAC07D300D2663C /* FeedUserHeadCell.xib in Resources */,
 				BCA273271AEB1EBA002E7534 /* MineInfoCell.xib in Resources */,
 				5A33F19B1B2EA0A4002A8258 /* CashPayBottomCell.xib in Resources */,
-				BC79DF621C0ED3720064C02F /* RongCloudKit.strings in Resources */,
 				BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */,
 				BC592BC81BD4CC81008AE76A /* BookingSubjectItemCell.xib in Resources */,
 				BCF564E51B4A54D0003A2227 /* PersonChildHeaderCell.xib in Resources */,
@@ -2703,19 +2707,18 @@
 				BC753EDE1BAC07D300D2663C /* FeedZanCell.xib in Resources */,
 				5AB1BDE01B4F9B49004A4511 /* ProductDetailTagsCell.xib in Resources */,
 				BCF74AC91BEB643400138C2C /* ReviewListItemCell.xib in Resources */,
-				BC79DF641C0ED3720064C02F /* release_notes_ios.txt in Resources */,
 				5AD5275F1B53C7A300D01E1F /* FeedbackCell.xib in Resources */,
-				BC79DF651C0ED3720064C02F /* RongCloud.bundle in Resources */,
+				BC8B9A0F1C1AD53100EE39A2 /* release_notes_ios.txt in Resources */,
 				5AB1BDE61B4FB6C8004A4511 /* LoadingCell.xib in Resources */,
 				BC0D44421C02C2850007E9ED /* CourseTitleCell.xib in Resources */,
 				BC753ECF1BAC07D300D2663C /* FeedCommentCell.xib in Resources */,
+				BC8B9A0D1C1AD53100EE39A2 /* RongCloudKit.strings in Resources */,
 				5A5A2AA11B43EEF4000595A9 /* OrderContactCell.xib in Resources */,
 				BC753ED81BAC07D300D2663C /* FeedTitleCell.xib in Resources */,
 				5A08C13A1B39117100642648 /* ProductDetailViewController.xib in Resources */,
 				5A18DC5A1B29828F001458A4 /* HomeCarouselCell.xib in Resources */,
 				BC359A0D1BC61F1B002DE863 /* MJPhotoBrowser.bundle in Resources */,
 				BC7CBAFC1B68698A0047211D /* AboutHeaderView.xib in Resources */,
-				BC79DF611C0ED3720064C02F /* Emoji.plist in Resources */,
 				BC359A461BC66447002DE863 /* CourseBuyCell.xib in Resources */,
 				5A08C13C1B39117100642648 /* ProductDetailBasicInfoCell.xib in Resources */,
 				BC66D3C61B60FBBE00A5BFC6 /* MyFavCell.xib in Resources */,
@@ -2723,9 +2726,11 @@
 				BC359A411BC648BF002DE863 /* PhotoTitleHeaderCell.xib in Resources */,
 				BC5CF2FF1BB53E6400EC5227 /* read_me.txt in Resources */,
 				BC040D161BC9176000988AB2 /* CourseSectionTitleCell.xib in Resources */,
+				BC8B9A0C1C1AD53100EE39A2 /* Emoji.plist in Resources */,
 				BCA273101AE9D79F002E7534 /* scheme.plist in Resources */,
 				BC50639F1B53A3A000AA233C /* ForgetPasswordCell.xib in Resources */,
 				BCF74ABB1BE8982400138C2C /* AddReviewRatingCell.xib in Resources */,
+				BC8B9A101C1AD53100EE39A2 /* RongCloud.bundle in Resources */,
 				BC77378A1BCE4A9E00987B22 /* CoursePriceCell.xib in Resources */,
 				BC0D44541C046F120007E9ED /* PackageHeaderCell.xib in Resources */,
 				5A33F1A21B2EA1D5002A8258 /* CashPayTopHeaderView.xib in Resources */,
@@ -3056,6 +3061,7 @@
 				BC753ECE1BAC07D300D2663C /* FeedCommentCell.m in Sources */,
 				5AC9FFCD1B17298C00C769EF /* FeedbackViewController.m in Sources */,
 				BCF9DD011BD8F15000D8CDC6 /* CourseTeacherListModel.m in Sources */,
+				BC8B9A011C1AB61300EE39A2 /* ChatUserFeedPhotoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3078,11 +3084,11 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BC79DF591C0ED3720064C02F /* RongCloudKit.strings */ = {
+		BC8B9A041C1AD53100EE39A2 /* RongCloudKit.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BC79DF5A1C0ED3720064C02F /* en */,
-				BC79DF601C0ED3720064C02F /* zh-Hans */,
+				BC8B9A051C1AD53100EE39A2 /* en */,
+				BC8B9A0B1C1AD53100EE39A2 /* zh-Hans */,
 			);
 			name = RongCloudKit.strings;
 			sourceTree = "<group>";
@@ -3190,6 +3196,7 @@
 					"$(PROJECT_DIR)/ThirdParty/BaiduMap",
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdParty/RongCloud",
+					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
 				);
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
@@ -3212,6 +3219,7 @@
 					"$(PROJECT_DIR)/Pods/",
 					"$(PROJECT_DIR)/ThirdParty/WeChatSDK_1.6",
 					"$(PROJECT_DIR)/ThirdParty/RongCloud",
+					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -3269,6 +3277,7 @@
 					"$(PROJECT_DIR)/ThirdParty/BaiduMap",
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdParty/RongCloud",
+					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
 				);
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = (
@@ -3291,6 +3300,7 @@
 					"$(PROJECT_DIR)/Pods/",
 					"$(PROJECT_DIR)/ThirdParty/WeChatSDK_1.6",
 					"$(PROJECT_DIR)/ThirdParty/RongCloud",
+					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (

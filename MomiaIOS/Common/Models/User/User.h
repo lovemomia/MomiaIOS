@@ -29,5 +29,6 @@
 
 @property (nonatomic, strong) NSString<Optional> *cover;
 @property (nonatomic, strong) NSNumber *role;
+@property (nonatomic, strong) NSArray<Optional> *imgs;
 
 @end

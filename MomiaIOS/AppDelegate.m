@@ -356,16 +356,18 @@
     
     if (userInfo) {
         NSDictionary *rc = [userInfo objectForKey:@"rc"];
-        if (rc ) {
+        if (rc) {
             NSString *cType = [rc objectForKey:@"cType"];
             if ([cType isEqualToString:@"SYS"]) {
                 NSString *fId = [rc objectForKey:@"fId"];
                 NSArray *messageArray = [[RCIMClient sharedRCIMClient] getLatestMessages:ConversationType_SYSTEM targetId:fId count:1];
                 if (messageArray.count > 0) {
                     RCMessage *message = messageArray[0];
-                    NSString *pushData = ((RCTextMessage *)message.content).extra;
-                    if (pushData.length > 0 && [pushData containsString:@"duola://"]) {
-                        [self handleOpenURL:[NSURL URLWithString:pushData]];
+                    if ([message.content isKindOfClass:[RCTextMessage class]]) {
+                        NSString *pushData = ((RCTextMessage *)message.content).extra;
+                        if (pushData.length > 0 && [pushData containsString:@"duola://"]) {
+                            [self handleOpenURL:[NSURL URLWithString:pushData]];
+                        }
                     }
                 }
             }
@@ -564,14 +566,6 @@
 -(void)onRCIMReceiveMessage:(RCMessage *)message left:(int)left
 {
     [[NSNotificationCenter defaultCenter]postNotificationName:@"onMineDotChanged" object:nil];
-    
-    if (message.conversationType == ConversationType_SYSTEM || message.conversationType == ConversationType_PUSHSERVICE) {
-        
-    }
-    if ([message.content isMemberOfClass:[RCInformationNotificationMessage class]]) {
-        RCInformationNotificationMessage *msg=(RCInformationNotificationMessage *)message.content;
-        
-    }
 }
 
 @end

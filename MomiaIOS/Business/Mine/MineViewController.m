@@ -50,8 +50,8 @@
 }
 
 - (void)onTitleBtnClick {
-    NSString *title = @"系统消息";
-    [self openURL:[NSString stringWithFormat:@"duola://chatpublic?type=6&targetid=1&username=%@&title=%@", [title URLEncodedString], [title URLEncodedString]]];
+    NSString *title = @"系统通知";
+    [self openURL:[NSString stringWithFormat:@"duola://chatpublic?type=6&targetid=10000&username=%@&title=%@", [title URLEncodedString], [title URLEncodedString]]];
 }
 
 - (void)didReceiveMemoryWarning {

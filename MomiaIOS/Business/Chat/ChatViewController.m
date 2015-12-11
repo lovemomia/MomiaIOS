@@ -29,8 +29,6 @@
             self.unReadMessage = unread;
             self.enableUnreadMessageIcon = YES;
             self.enableNewComingMessageIcon = YES;
-            self.unReadMessageLabel.textColor = MO_APP_ThemeColor;
-            self.unReadButton.titleLabel.textColor = MO_APP_ThemeColor;
         }
     }
     return self;
@@ -39,6 +37,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.unReadMessageLabel.textColor = MO_APP_ThemeColor;
+    self.unReadButton.titleLabel.textColor = MO_APP_ThemeColor;
     BOOL isGroup = self.conversationType == ConversationType_GROUP;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:isGroup ? @"TitleGroup" : @"TitleUser"] style:UIBarButtonItemStylePlain target:self action:@selector(onTitleButtonClicked)];
 }
@@ -122,6 +122,16 @@
         default:
             [super pluginBoardView:pluginBoardView clickedItemWithTag:tag];
             break;
+    }
+}
+
+- (void)didTapMessageCell:(RCMessageModel *)model {
+    [super didTapMessageCell:model];
+    if ([model.content isKindOfClass:[RCTextMessage class]]) {
+        NSString *pushData = ((RCTextMessage *)model.content).extra;
+        if (pushData.length > 0 && [pushData containsString:@"duola://"]) {
+            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:pushData]];
+        }
     }
 }
 

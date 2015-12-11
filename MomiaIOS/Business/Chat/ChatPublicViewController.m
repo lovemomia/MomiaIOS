@@ -22,6 +22,7 @@
         self.title = [params objectForKey:@"title"];
         
         self.hidesBottomBarWhenPushed = YES;
+        self.displayUserNameInCell = NO;
     }
     return self;
 }
@@ -29,10 +30,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     self.chatSessionInputBarControl.hidden = YES;
     self.customFlowLayout.collectionView.size = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT - 64);
     [self scrollToBottomAnimated:NO];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.chatSessionInputBarControl.hidden = YES;
+    self.customFlowLayout.collectionView.size = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT - 64);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,6 +60,16 @@
         }
     }
     return ConversationType_SYSTEM;
+}
+
+- (void)didTapMessageCell:(RCMessageModel *)model {
+    [super didTapMessageCell:model];
+    if ([model.content isKindOfClass:[RCTextMessage class]]) {
+        NSString *pushData = ((RCTextMessage *)model.content).extra;
+        if (pushData.length > 0 && [pushData containsString:@"duola://"]) {
+            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:pushData]];
+        }
+    }
 }
 
 @end

@@ -9,8 +9,10 @@
 #import "ChatUserViewController.h"
 #import "IMUserModel.h"
 #import "GroupMemberItemCell.h"
+#import "ChatUserFeedPhotoCell.h"
 
 static NSString *identifierGroupMemberItemCell = @"GroupMemberItemCell";
+static NSString *identifierChatUserFeedPhotoCell = @"ChatUserFeedPhotoCell";
 
 @interface ChatUserViewController ()
 
@@ -35,6 +37,7 @@ static NSString *identifierGroupMemberItemCell = @"GroupMemberItemCell";
     self.navigationItem.title = @"用户信息";
     
     [GroupMemberItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierGroupMemberItemCell];
+    [ChatUserFeedPhotoCell registerCellFromClassWithTableView:self.tableView withIdentifier:identifierChatUserFeedPhotoCell];
     
     [self requestData];
 }
@@ -77,27 +80,47 @@ static NSString *identifierGroupMemberItemCell = @"GroupMemberItemCell";
 }
 */
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 1) {
+        [self openURL:[NSString stringWithFormat:@"duola://userinfo?uid=%@", self.user.uid]];
+    }
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (self.user) {
-        return 1;
+        return 2;
     }
     return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 1;
-    }
-    return 0;
+    return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 65;
+    if (indexPath.section == 0) {
+        return 65;
+    } else {
+        return [ChatUserFeedPhotoCell heightWithTableView:tableView withIdentifier:identifierChatUserFeedPhotoCell forIndexPath:indexPath data:nil];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    GroupMemberItemCell *cell = [GroupMemberItemCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierGroupMemberItemCell];
-    cell.data = self.user;
+    UITableViewCell *cell;
+    if (indexPath.section == 0) {
+        GroupMemberItemCell *userCell = [GroupMemberItemCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierGroupMemberItemCell];
+        userCell.data = self.user;
+        cell = userCell;
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+    } else {
+        ChatUserFeedPhotoCell *feedCell = [ChatUserFeedPhotoCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierChatUserFeedPhotoCell];
+        feedCell.data = self.user.imgs;
+        cell = feedCell;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
     return cell;
 }
 
@@ -108,7 +131,9 @@ static NSString *identifierGroupMemberItemCell = @"GroupMemberItemCell";
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UIView *view = [UIView new];
     BOOL hasRole = (self.user && [self.user.role intValue] > 1) || ([[AccountService defaultService].account.role intValue] > 1);
-    if (hasRole && section == [self numberOfSectionsInTableView:tableView] - 1) {
+    BOOL isMe = [self.user.uid intValue] == [[AccountService defaultService].account.uid intValue];
+    
+    if (!isMe && hasRole && section == [self numberOfSectionsInTableView:tableView] - 1) {
         UIButton *button = [[UIButton alloc]init];
         button.height = 40;
         button.width = 280;
