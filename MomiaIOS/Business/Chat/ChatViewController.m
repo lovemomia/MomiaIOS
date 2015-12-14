@@ -7,9 +7,14 @@
 //
 
 #import "ChatViewController.h"
+#import "AppDelegate.h"
+#import "IMGroupModel.h"
+#import "UILabel+ContentSize.h"
+#import "GroupNoticeView.h"
 
 @interface ChatViewController ()
-
+@property (nonatomic, assign) BOOL isNoticeShow;
+@property (nonatomic, strong) UIView *noticeView;
 @end
 
 @implementation ChatViewController
@@ -40,15 +45,85 @@
     self.unReadMessageLabel.textColor = MO_APP_ThemeColor;
     self.unReadButton.titleLabel.textColor = MO_APP_ThemeColor;
     BOOL isGroup = self.conversationType == ConversationType_GROUP;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:isGroup ? @"TitleGroup" : @"TitleUser"] style:UIBarButtonItemStylePlain target:self action:@selector(onTitleButtonClicked)];
+    if (isGroup) {
+        UIBarButtonItem *groupMemItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleGroup"] style:UIBarButtonItemStylePlain target:self action:@selector(onGroupMemberClicked)];
+        UIBarButtonItem *groupNoticeItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleNotice"] style:UIBarButtonItemStylePlain target:self action:@selector(onGroupNoticeClicked)];
+        self.navigationItem.rightBarButtonItems = @[groupMemItem, groupNoticeItem];
+        UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTableClicked)];
+        [self.conversationMessageCollectionView addGestureRecognizer:singleTap];
+        
+    } else {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleUser"] style:UIBarButtonItemStylePlain target:self action:@selector(onUserClicked)];
+    }
 }
 
-- (void)onTitleButtonClicked {
-    if (self.conversationType == ConversationType_GROUP) {
-        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://groupmember?id=%@", self.targetId]]];
-    } else {
-        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://chatuser?id=%@", self.targetId]]];
+- (void)onTableClicked {
+    if (self.isNoticeShow) {
+        [self hideGroupNotice];
     }
+}
+
+- (void)onGroupNoticeClicked {
+    if (self.isNoticeShow) {
+        [self hideGroupNotice];
+    } else {
+        [self showGroupNotice];
+    }
+}
+
+- (void)showGroupNotice {
+    if (self.noticeView == nil) {
+        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"GroupNoticeView" owner:self options:nil];
+        GroupNoticeView *noticeView = [arr objectAtIndex:0];
+        NSDictionary *dic = MO_SharedAppDelegate.imGroupDic;
+        IMGroup *group = [dic objectForKey:self.targetId];
+        noticeView.data = group;
+        [self.view addSubview:noticeView];
+        
+        CGRect textFrame = [UILabel heightForMutableString:group.tips withWidth:(SCREEN_WIDTH - 20)  lineSpace:0 andFontSize:13.0];
+        noticeView.width = SCREEN_WIDTH;
+        noticeView.height = 34 * 4 + textFrame.size.height + 10;
+        self.noticeView = noticeView;
+    }
+    
+    self.noticeView.top = - self.noticeView.height;
+    self.noticeView.alpha = 0.0;
+    [UIView beginAnimations:@"" context:nil];
+    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(showNoticeAnimEnd)];
+    self.noticeView.top = 62;
+    self.noticeView.alpha = 1.0;
+    [UIView commitAnimations];
+}
+
+- (void)showNoticeAnimEnd {
+    self.isNoticeShow = YES;
+}
+
+- (void)hideGroupNotice {
+    if (self.noticeView == nil) {
+        return;
+    }
+    [UIView beginAnimations:@"" context:nil];
+    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(hideNoticeAnimEnd)];
+    self.noticeView.top = - self.noticeView.height;
+    self.noticeView.alpha = 0.0;
+    [UIView commitAnimations];
+}
+
+- (void)hideNoticeAnimEnd {
+    self.isNoticeShow = NO;
+}
+
+- (void)onGroupMemberClicked {
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://groupmember?id=%@", self.targetId]]];
+}
+
+- (void)onUserClicked {
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://chatuser?id=%@", self.targetId]]];
 }
 
 - (void)didTapCellPortrait:(NSString *)userId {
