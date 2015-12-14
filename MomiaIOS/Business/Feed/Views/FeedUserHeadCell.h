@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descLabel;
 
+@property (nonatomic, assign) BOOL disableUserInfoClick;
 
 -(void)setData:(id)data;
 

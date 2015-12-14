@@ -43,7 +43,7 @@
 }
 
 - (IBAction)onUserInfoClicked:(id)sender {
-    if (self.feed) {
+    if (self.feed && !self.disableUserInfoClick) {
         [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://userinfo?uid=%@", self.feed.userId]]];
     }
 }

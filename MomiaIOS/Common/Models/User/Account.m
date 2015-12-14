@@ -164,7 +164,7 @@
     
     Child *child = [self getBigChild];
     
-    return [child ageWithDateOfBirth];
+    return [NSString stringWithFormat:@"%@孩%@", child.sex, [child ageWithDateOfBirth]];
 }
 
 @end

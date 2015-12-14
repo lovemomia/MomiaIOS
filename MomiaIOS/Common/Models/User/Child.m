@@ -98,15 +98,15 @@
     if (iAge > 0) {
         if (iAge == 1 && currentDateMonth < brithDateMonth) {
             NSInteger month = 12 + currentDateMonth - brithDateMonth;
-            return [NSString stringWithFormat:@"%@孩%d个月", self.sex, (int)month];
+            return [NSString stringWithFormat:@"%d个月", (int)month];
         } else {
-            return [NSString stringWithFormat:@"%@孩%d岁", self.sex, (int)iAge];
+            return [NSString stringWithFormat:@"%d岁", (int)iAge];
         }
     }
     
     // 几个月
     NSInteger month = currentDateMonth - brithDateMonth;
-    return [NSString stringWithFormat:@"%@孩%d个月", self.sex, (int)month];
+    return [NSString stringWithFormat:@"%d个月", (int)month];
 }
 
 @end

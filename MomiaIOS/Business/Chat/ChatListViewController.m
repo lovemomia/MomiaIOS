@@ -107,6 +107,10 @@
     }];
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
+}
+
 //插入自定义会话model
 -(NSMutableArray *)willReloadTableData:(NSMutableArray *)dataSource
 {

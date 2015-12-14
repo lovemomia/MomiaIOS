@@ -256,6 +256,7 @@ static NSString *identifierPackageHeaderCell = @"PackageHeaderCell";
     if (indexPath.section == 0) {
         SkuItemCell *skuItemCell = [SkuItemCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierSkuItemCell];
         Sku *sku = self.model.data.skus[indexPath.row];
+        skuItemCell.isPackage = self.coid ? NO : YES;
         skuItemCell.data = sku;
         skuItemCell.stepperView.onclickStepper = ^(NSUInteger currentValue){
             sku.count = [NSNumber numberWithInteger:currentValue];
@@ -281,6 +282,7 @@ static NSString *identifierPackageHeaderCell = @"PackageHeaderCell";
         } else {
             SkuItemCell *skuItemCell = [SkuItemCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierSkuItemCell];
             Sku *sku = self.model.data.packages[indexPath.row - 1];
+            skuItemCell.isPackage = YES;
             skuItemCell.data = sku;
             skuItemCell.stepperView.hidden = YES;
             cell = skuItemCell;

@@ -249,6 +249,7 @@ static NSString *identifierPlaymateUgcCell = @"PlaymateUgcCell";
     if (indexPath.row == 0) {
         FeedUserHeadCell *userHeadCell = [FeedUserHeadCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierPlaymateUserHeadCell];
         [userHeadCell setData:feed];
+        userHeadCell.disableUserInfoClick = YES;
         cell = userHeadCell;
         
     } else if (indexPath.row == 1) {
