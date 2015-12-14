@@ -27,12 +27,6 @@
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="宝宝4岁" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUn-7o-e7q">
-                        <rect key="frame" x="65" y="38" width="247" height="14.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3分钟前 | 1.2km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAD-tb-k16">
                         <rect key="frame" x="224" y="16" width="87.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -48,40 +42,39 @@
                             <action selector="onUserInfoClicked:" destination="4Zh-Vf-Uz8" eventType="touchUpInside" id="0vE-Iu-7ix"/>
                         </connections>
                     </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58M-dA-egq">
+                        <rect key="frame" x="65" y="38" width="247" height="17.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="bD1-vm-qcS" firstAttribute="leading" secondItem="QD8-5D-cNp" secondAttribute="leading" constant="10" id="0tc-Mn-Reb"/>
-                    <constraint firstItem="bUn-7o-e7q" firstAttribute="leading" secondItem="BJB-Rf-fIi" secondAttribute="leading" id="4KQ-tR-FRo"/>
-                    <constraint firstItem="bUn-7o-e7q" firstAttribute="top" secondItem="BJB-Rf-fIi" secondAttribute="bottom" constant="5.5" id="83d-z9-Nvd"/>
                     <constraint firstItem="BJB-Rf-fIi" firstAttribute="leading" secondItem="bD1-vm-qcS" secondAttribute="trailing" constant="10" id="8Sl-F2-LfH"/>
+                    <constraint firstItem="58M-dA-egq" firstAttribute="top" secondItem="BJB-Rf-fIi" secondAttribute="bottom" constant="5" id="Cko-vM-GVw"/>
                     <constraint firstAttribute="bottom" secondItem="bD1-vm-qcS" secondAttribute="bottom" id="CmP-tu-VbZ"/>
-                    <constraint firstAttribute="trailing" secondItem="bUn-7o-e7q" secondAttribute="trailing" constant="8" id="HzW-oG-fHd"/>
+                    <constraint firstAttribute="trailing" secondItem="58M-dA-egq" secondAttribute="trailing" constant="8" id="Km4-X4-dhM"/>
                     <constraint firstItem="BJB-Rf-fIi" firstAttribute="top" secondItem="QD8-5D-cNp" secondAttribute="top" constant="16" id="Pvh-8K-sjg"/>
                     <constraint firstItem="aAD-tb-k16" firstAttribute="top" secondItem="QD8-5D-cNp" secondAttribute="top" constant="16" id="R0G-cf-Atc"/>
                     <constraint firstItem="lEH-pv-BJV" firstAttribute="leading" secondItem="QD8-5D-cNp" secondAttribute="leading" id="VMT-YI-GIk"/>
                     <constraint firstItem="aAD-tb-k16" firstAttribute="leading" secondItem="BJB-Rf-fIi" secondAttribute="trailing" constant="10" id="YTc-Ze-CHd"/>
-                    <constraint firstItem="bUn-7o-e7q" firstAttribute="leading" secondItem="bD1-vm-qcS" secondAttribute="trailing" constant="8" id="aJc-u7-BlI"/>
+                    <constraint firstAttribute="bottom" secondItem="58M-dA-egq" secondAttribute="bottom" constant="5" id="b8J-Qh-jQ3"/>
                     <constraint firstItem="aAD-tb-k16" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BJB-Rf-fIi" secondAttribute="trailing" constant="10" id="cmb-Ls-fj2"/>
                     <constraint firstItem="lEH-pv-BJV" firstAttribute="top" secondItem="QD8-5D-cNp" secondAttribute="top" id="dg4-C3-SNc"/>
-                    <constraint firstAttribute="bottom" secondItem="bUn-7o-e7q" secondAttribute="bottom" constant="5" id="drt-DJ-wWS"/>
                     <constraint firstAttribute="bottom" secondItem="lEH-pv-BJV" secondAttribute="bottom" id="phX-ZR-fbY"/>
+                    <constraint firstItem="58M-dA-egq" firstAttribute="leading" secondItem="bD1-vm-qcS" secondAttribute="trailing" constant="10" id="rMb-YX-Spo"/>
                     <constraint firstAttribute="trailing" secondItem="aAD-tb-k16" secondAttribute="trailing" constant="8" id="uVV-LN-uUg"/>
                     <constraint firstItem="bD1-vm-qcS" firstAttribute="top" secondItem="QD8-5D-cNp" secondAttribute="top" constant="15" id="viC-xx-qbC"/>
-                    <constraint firstItem="bUn-7o-e7q" firstAttribute="leading" secondItem="bD1-vm-qcS" secondAttribute="trailing" constant="10" id="wJG-xQ-SWL"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
-                        <exclude reference="aJc-u7-BlI"/>
-                        <exclude reference="drt-DJ-wWS"/>
-                        <exclude reference="wJG-xQ-SWL"/>
                         <exclude reference="YTc-Ze-CHd"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="avatarIv" destination="bD1-vm-qcS" id="r46-ag-IuG"/>
+                <outlet property="childContainer" destination="58M-dA-egq" id="3vr-9G-HPF"/>
                 <outlet property="dateLabel" destination="aAD-tb-k16" id="9w1-rL-il9"/>
-                <outlet property="descLabel" destination="bUn-7o-e7q" id="idA-4L-H5L"/>
                 <outlet property="nameLabel" destination="BJB-Rf-fIi" id="ES7-Wk-TYG"/>
             </connections>
             <point key="canvasLocation" x="396" y="110.5"/>

@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *avatarIv;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *descLabel;
+@property (weak, nonatomic) IBOutlet UIView *childContainer;
 
 @property (nonatomic, assign) BOOL disableUserInfoClick;
 
