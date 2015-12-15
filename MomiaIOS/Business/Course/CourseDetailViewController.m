@@ -191,6 +191,9 @@ typedef enum {
 
 - (void)onBuyClicked:(UITapGestureRecognizer *)tap {
     [self openURL:[NSString stringWithFormat:@"duola://fillorder?id=%@&coid=%@&coname=%@", self.model.data.subjectId, self.model.data.ids, [self.model.data.subject URLEncodedString]]];
+    
+    NSDictionary *attributes = @{@"name":self.model.data.title};
+    [MobClick event:@"Course_Buy" attributes:attributes];
 }
 
 /*
@@ -210,8 +213,12 @@ typedef enum {
     if (type == CellTitlePoi) {
         [self openURL:[NSString stringWithFormat:@"duola://book?id=%@&onlyshow=1", self.ids]];
         
+        [MobClick event:@"Course_SkuList"];
+        
     } else if (type == CellTitleTeacher) {
         [self openURL:[NSString stringWithFormat:@"duola://courseteacherlist?id=%@", self.ids]];
+        
+        [MobClick event:@"Course_TeacherList"];
         
     } else if (type == CellTitleBook) {
         [self openURL:[NSString stringWithFormat:@"duola://coursebookbrowser?id=%@", self.ids]];
@@ -223,9 +230,14 @@ typedef enum {
     } else if (type == CellTitleComment) {
         [self openURL:[NSString stringWithFormat:@"duola://reviewlist?courseId=%@", self.ids]];
         
+        NSDictionary *attributes = @{@"name":self.model.data.title};
+        [MobClick event:@"Course_ReviewList" attributes:attributes];
+        
     } else if (type == CellTitleOrg) {
         NSString *url = [NSString stringWithFormat:@"http://%@/institution/detail/app?id=%@", MO_DEBUG ? @"m.momia.cn" : @"m.sogokids.com", self.ids];
         [self openURL:[NSString stringWithFormat:@"duola://web?url=%@", [url URLEncodedString]]];
+        
+        [MobClick event:@"Course_Org"];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

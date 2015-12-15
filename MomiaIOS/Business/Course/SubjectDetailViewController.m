@@ -298,10 +298,20 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
     NSInteger index = tap.view.tag;
     self.tabIndex = index;
     [self.tableView reloadData];
+    
+    if (index == 0) {
+        [MobClick event:@"Subject_Tab_Courses"];
+    } else if (index == 1) {
+        [MobClick event:@"Subject_Tab_Notice"];
+    } else {
+        [MobClick event:@"Subject_Tab_Feed"];
+    }
 }
 
 - (void)onBuyClicked:(UITapGestureRecognizer *)tap {
     [self openURL:[NSString stringWithFormat:@"duola://fillorder?id=%@", self.model.data.subject.ids]];
+    
+    [MobClick event:@"Subject_Buy"];
 }
 
 - (void)onTabChanged:(NSInteger)index {
@@ -327,11 +337,9 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
             Course *course = self.model.data.courses.list[indexPath.row - 1];
             [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@&buyable=0", course.ids]];
             
-//            [self openURL:[NSString stringWithFormat:@"duola://bookablecourselist?id=%@&onlyshow=1", self.model.data.subject.ids]];
+            NSDictionary *attributes = @{@"name":course.title, @"index":[NSString stringWithFormat:@"%d", (indexPath.row - 1)]};
+            [MobClick event:@"Subject_List" attributes:attributes];
         }
-//        else if (self.tabIndex == 2) {
-//            [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@", course.ids]];
-//        }
     } else if (indexPath.section == 3 && self.hasFeed) {
         [self openURL:[NSString stringWithFormat:@"duola://reviewlist?subjectId=%@", self.ids]];
     }

@@ -99,10 +99,10 @@
         self.dotImage = [[UIImageView alloc] init];
         self.dotImage.backgroundColor = MO_APP_TextColor_red;
         CGRect tabFrame = self.tabBar.frame;
-        CGFloat x = ceilf(0.86 * tabFrame.size.width);
-        CGFloat y = ceilf(0.2 * tabFrame.size.height);
-        self.dotImage.frame = CGRectMake(x, y, 6, 6);
-        self.dotImage.layer.cornerRadius = 3;
+        CGFloat x = ceilf(0.85 * tabFrame.size.width);
+        CGFloat y = ceilf(0.12 * tabFrame.size.height);
+        self.dotImage.frame = CGRectMake(x, y, 8, 8);
+        self.dotImage.layer.cornerRadius = 4;
         [self.tabBar addSubview:self.dotImage];
         [self.tabBar setNeedsDisplay];
         

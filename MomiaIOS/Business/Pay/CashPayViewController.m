@@ -162,6 +162,10 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
                                                   [dic setValue:[NSString stringWithFormat:@"%ld", (long)self.order.data.orderId] forKey:@"oid"];
                                                   PayResultViewController *payResult = [[PayResultViewController alloc]initWithParams:dic];
                                                   [self.navigationController pushViewController:payResult animated:YES];
+                                                  
+                                                  NSDictionary *attributes = @{@"channel":@"alipay"};
+                                                  [MobClick event:@"Pay_Submit" attributes:attributes];
+                                                  
                                               } else {
                                                   [self showDialogWithTitle:nil message:@"支付失败，请重新尝试或选择其他方式支付"];
                                               }
@@ -194,6 +198,9 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
             PayResultViewController *payResult = [[PayResultViewController alloc]initWithParams:dic];
             [self.navigationController pushViewController:payResult animated:YES];
             
+            NSDictionary *attributes = @{@"channel":@"wechatpay"};
+            [MobClick event:@"Pay_Submit" attributes:attributes];
+            
         } else {
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
             // Configure for text only and offset down
@@ -218,6 +225,8 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
                 [self requestCouponPrice];
             };
             [self.navigationController pushViewController:couponListViewController animated:YES];
+            
+            [MobClick event:@"Pay_Coupon"];
         }
         
     } else if (indexPath.section == 2) {

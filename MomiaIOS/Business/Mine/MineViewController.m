@@ -124,6 +124,8 @@
             if ([[AccountService defaultService] isLogin]) {
                 NSURL *url = [NSURL URLWithString:@"duola://personinfo"];
                 [[UIApplication sharedApplication ] openURL:url];
+                
+                [MobClick event:@"Mine_PersonInfo"];
             }
         }
             break;
@@ -131,40 +133,50 @@
             if(row == 0) {
                 [self openURL:@"duola://bookingsubjectlist"];
                 
+                [MobClick event:@"Mine_Book"];
+                
             } else {
                [self openURL:@"duola://bookedcourselist"];
+                
+                [MobClick event:@"Mine_Booked"];
             }
             break;
         case 2:
             if (row == 0) {
                 [self openURL:@"duola://chatlist"];
                 
-//                RCConversationListViewController *temp = [[RCConversationListViewController alloc] init];
-//                NSArray *array = [NSArray arrayWithObject:@[@(ConversationType_PRIVATE), @(ConversationType_DISCUSSION), @(ConversationType_PUBLICSERVICE),@(ConversationType_GROUP), @(ConversationType_SYSTEM)]];
-//                [temp setDisplayConversationTypes:array];
-//                [temp setCollectionConversationType:nil];
-//                temp.isEnteredToCollectionViewController = YES;
-//                [self.navigationController pushViewController:temp animated:YES];
+                [MobClick event:@"Mine_Group"];
                 
             } else {
                 if ([[AccountService defaultService]isLogin]) {
                     [self openURL:[NSString stringWithFormat:@"duola://userinfo?uid=%@&me=1", [AccountService defaultService].account.uid]];
                 }
+                
+                [MobClick event:@"Mine_Feed"];
             }
             break;
         case 3:
             if(row == 0) {
                 [self openURL:@"duola://myorderlist"];
+                
+                [MobClick event:@"Mine_Order"];
+                
             } else {
                 [self openURL:@"duola://couponlist?status=0"];
+                
+                [MobClick event:@"Mine_Coupon"];
             }
             break;
         case 4:
             if(row == 0) {
                 [self openURL:@"duola://feedback"];
                 
+                [MobClick event:@"Mine_Feedback"];
+                
             } else {
                 [self openURL:@"duola://setting"];
+                
+                [MobClick event:@"Mine_Setting"];
             }
             break;
             

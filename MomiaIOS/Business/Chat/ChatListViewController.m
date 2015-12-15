@@ -129,7 +129,7 @@
                 RCConversation *con = [[RCConversation alloc] init];
                 con.targetId = [group.groupId stringValue];
                 con.conversationTitle = group.groupName;
-                con.lastestMessage = [RCTextMessage messageWithContent:group.tips];
+//                con.lastestMessage = [RCTextMessage messageWithContent:group.tips];
                 
                 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
                 [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];

@@ -160,6 +160,9 @@ static NSString *identifierPackageHeaderCell = @"PackageHeaderCell";
                                   NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://cashpay?pom=%@",
                                                                       [[order toJSONString] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
                                   [[UIApplication sharedApplication] openURL:url];
+                                  
+                                  NSDictionary *dic = @{@"totalPrice":self.priceLabel.text};
+                                  [MobClick event:@"OrderFill_Submit" attributes:dic];
                               }
      
                               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -195,6 +198,8 @@ static NSString *identifierPackageHeaderCell = @"PackageHeaderCell";
     if (indexPath.section == 1 && indexPath.row == 0 && self.model.data.packages.count > 0) {
         [self openURL:[NSString stringWithFormat:@"duola://subjectdetail?id=%@", self.ids]];
         
+        [MobClick event:@"OrderFill_Subject"];
+        
     } else if (indexPath.section == ([self numberOfSectionsInTableView:tableView] - 1)) {
         OrderContactViewController * contactViewController = [[OrderContactViewController alloc] initWithParams:nil];
         contactViewController.model = self.model.data.contact;
@@ -202,6 +207,8 @@ static NSString *identifierPackageHeaderCell = @"PackageHeaderCell";
             [self.tableView reloadData];
         };
         [self.navigationController pushViewController:contactViewController animated:YES];
+        
+        [MobClick event:@"OrderFill_Contact"];
     }
 }
 

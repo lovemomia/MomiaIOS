@@ -89,6 +89,8 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
 
 - (void)onAddFeedClick {
     [self openURL:@"duola://addfeed"];
+    
+    [MobClick event:@"Feed_Title_Add"];
 }
 
 - (void)requestData {
@@ -168,6 +170,9 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
         Feed *feed = [self.list objectAtIndex:indexPath.section];
         [self openURL:[NSString stringWithFormat:@"duola://feeddetail?id=%@", feed.ids]];
         self.openIndex = indexPath.section;
+        
+        NSDictionary *attributes = @{@"index":[NSString stringWithFormat:@"%d", indexPath.section]};
+        [MobClick event:@"Feed_List" attributes:attributes];
     }
 }
 

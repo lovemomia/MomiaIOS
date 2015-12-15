@@ -348,6 +348,9 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
                 if(index < self.model.data.banners.count) {
                     IndexBanner * banner = self.model.data.banners[index];
                     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:banner.action]];
+                    
+                    NSDictionary *attributes = @{@"index":[NSString stringWithFormat:@"%d", index]};
+                    [MobClick event:@"Home_Banner" attributes:attributes];
                 }
             };
             cell = carousel;
@@ -406,6 +409,9 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
         Course *course = self.array[indexPath.section - number];
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://coursedetail?id=%@", course.ids]];
         [[UIApplication sharedApplication] openURL:url];
+        
+        NSDictionary *attributes = @{@"name":course.title, @"index":[NSString stringWithFormat:@"%d", (indexPath.section - number)]};
+        [MobClick event:@"Home_List" attributes:attributes];
         
     } else {
         if(self.isError) {
