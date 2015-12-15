@@ -94,7 +94,7 @@
                                parameters:params JSONModelClass:[BaseModel class]
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                       [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                      [self showDialogWithTitle:nil message:@"预约成功" tag:1];
+                                      [self showDialogWithTitle:nil message:@"预约成功，您已被拉入该课群组，猛戳 “我的—我的群组” 就可以随意调戏我们的老师啦~" tag:1];
                                   }
          
                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
