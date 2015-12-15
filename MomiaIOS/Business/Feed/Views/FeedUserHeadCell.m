@@ -79,7 +79,7 @@
         
         age.textColor = UIColorFromRGB(0x666666);
         age.font = [UIFont systemFontOfSize:12];
-        age.text = [child age];
+        age.text = [NSString stringWithFormat:@"%@ %@",[child name], [child age]];
         CGSize size = [age.text sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:age.font,NSFontAttributeName, nil]];
         totalWidth += 6;
         totalWidth += size.width;

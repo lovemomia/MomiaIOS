@@ -120,6 +120,13 @@ static NSString *identifierPackageHeaderCell = @"PackageHeaderCell";
         
         self.model = responseObject;
         
+        //如果是单次课程，默认数量为1
+        if (self.coid && self.model.data.skus.count > 0) {
+            Sku *sku = self.model.data.skus[0];
+            sku.count = [NSNumber numberWithInt:1];
+            [self refreshTotalPrice];
+        }
+        
         [self.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
