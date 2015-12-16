@@ -31,7 +31,7 @@
     starView.starHighlightedImage = [UIImage imageNamed:@"IconSmallRedStar"];
     starView.maxRating = 5.0;
     starView.horizontalMargin = 12;
-    starView.editable = YES;
+    starView.editable = NO;
     starView.displayMode = EDStarRatingDisplayFull;
 }
 
