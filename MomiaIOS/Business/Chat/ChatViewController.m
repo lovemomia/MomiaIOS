@@ -46,15 +46,32 @@
     self.unReadButton.titleLabel.textColor = MO_APP_ThemeColor;
     BOOL isGroup = self.conversationType == ConversationType_GROUP;
     if (isGroup) {
-        UIBarButtonItem *groupMemItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleGroup"] style:UIBarButtonItemStylePlain target:self action:@selector(onGroupMemberClicked)];
-        UIBarButtonItem *groupNoticeItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleNotice"] style:UIBarButtonItemStylePlain target:self action:@selector(onGroupNoticeClicked)];
-        self.navigationItem.rightBarButtonItems = @[groupMemItem, groupNoticeItem];
+        [self initTitleBtn];
+        
         UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTableClicked)];
         [self.conversationMessageCollectionView addGestureRecognizer:singleTap];
         
     } else {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleUser"] style:UIBarButtonItemStylePlain target:self action:@selector(onUserClicked)];
     }
+}
+
+- (void)initTitleBtn {
+    UIView *filterBtnView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
+    UIButton *filterBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
+    [filterBtn addTarget:self action:@selector(onGroupMemberClicked) forControlEvents:UIControlEventTouchUpInside];
+    [filterBtn setBackgroundImage:[UIImage imageNamed:@"TitleGroup"] forState:UIControlStateNormal];
+    [filterBtnView addSubview:filterBtn];
+    UIBarButtonItem *btnFilter = [[UIBarButtonItem alloc] initWithCustomView:filterBtnView];
+    
+    UIView *selectBtnView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 25, 22)];
+    UIButton *selectBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
+    [selectBtn setBackgroundImage:[UIImage imageNamed:@"TitleNotice"] forState:UIControlStateNormal];
+    [selectBtn addTarget:self action:@selector(onGroupNoticeClicked) forControlEvents:UIControlEventTouchUpInside];
+    [selectBtnView addSubview:selectBtn];
+    UIBarButtonItem *btnSelect = [[UIBarButtonItem alloc] initWithCustomView:selectBtnView];
+    
+    [self.navigationItem setRightBarButtonItems:@[btnFilter, btnSelect] animated:YES];
 }
 
 - (void)onTableClicked {

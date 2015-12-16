@@ -33,6 +33,10 @@
     self.chatSessionInputBarControl.hidden = YES;
     self.customFlowLayout.collectionView.size = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT - 64);
     [self scrollToBottomAnimated:NO];
+    
+    if (self.conversationDataRepository.count == 0) {
+        [self.view showEmptyView:@"暂时没有未读通知哦～"];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
