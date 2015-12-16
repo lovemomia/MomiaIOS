@@ -39,6 +39,7 @@
     self.conversationListTableView.tableFooterView = [UIView new];
     
     self.emptyConversationView = [self createEmptyView];
+    self.emptyConversationView.hidden = YES;
     
     self.navigationItem.title = @"我的群组";
 //    NSArray *segmentedArray = @[@"消息",@"群组"];
@@ -52,6 +53,7 @@
 //    [self.navigationItem setTitleView:segmentedControl];
     
     [self syncGroupList];
+    [self.view showLoadingBee];
 }
 
 - (UIView *)createEmptyView {
@@ -101,6 +103,10 @@
 - (void)syncGroupList {
     [[HttpService defaultService] GET:URL_APPEND_PATH(@"/im/user/group") parameters:nil cacheType:CacheTypeDisable JSONModelClass:[IMUserGroupListModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.groupList = responseObject;
+        [self.view removeLoadingBee];
+        if (self.groupList.data.count == 0) {
+            self.emptyConversationView.hidden = NO;
+        }
         [self refreshConversationTableViewIfNeeded];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
