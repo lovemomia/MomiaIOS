@@ -21,6 +21,7 @@
 @property (nonatomic, strong) CourseSkuPlace *place;
 @property (nonatomic, strong) NSNumber *stock;
 @property (nonatomic, strong) NSString *time;
+@property (nonatomic, strong) NSNumber *closed;
 @end
 
 @protocol CourseSku <NSObject>

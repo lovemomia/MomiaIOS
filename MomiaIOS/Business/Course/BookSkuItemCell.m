@@ -24,10 +24,18 @@
 - (void)setData:(CourseSku *)data {
     self.titleLabel.text = data.place.name;
     self.addressLabel.text = data.place.address;
-    if ([data.stock intValue] == 0) {
+    if ([data.closed boolValue]) {
+        self.countLabel.text = @"已截止";
+        self.countLabel.textColor = UIColorFromRGB(0x999999);
+        
+    } else if ([data.stock intValue] == 0) {
         self.countLabel.text = @"已报满";
+        self.countLabel.textColor = UIColorFromRGB(0x999999);
+        
     } else if ([data.stock intValue] <= 20) {
         self.countLabel.text = [NSString stringWithFormat:@"仅剩%@个名额", data.stock];
+        self.countLabel.textColor = UIColorFromRGB(0xF67531);
+        
     } else {
         self.countLabel.text = @"";
     }

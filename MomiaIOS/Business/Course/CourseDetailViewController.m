@@ -289,7 +289,7 @@ typedef enum {
         }
     }
     
-    if (self.model.data.notice.length > 0) {
+    if (self.model.data.notice.length > 0 && self.buyAble) {
         num++;
         if (section == num) {
             return row == 0 ? CellTitleNotice : CellNotice;
@@ -323,7 +323,7 @@ typedef enum {
         if (self.model.data.tips.length > 0) {
             num++;
         }
-        if (self.model.data.notice.length > 0) {
+        if (self.model.data.notice.length > 0 && self.buyAble) {
             num++;
         }
         if (self.model.data.institution) {
