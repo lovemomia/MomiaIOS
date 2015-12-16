@@ -512,6 +512,16 @@
     } tokenIncorrect:^{
         // Token 失效的状态处理
         NSLog(@"RCIM connect failed, token incorrect");
+        
+        // 刷新token
+        [[HttpService defaultService] POST:URL_APPEND_PATH(@"/im/token") parameters:nil JSONModelClass:[IMTokenModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            IMTokenModel *model = responseObject;
+            [AccountService defaultService].account.imToken = model.data;
+            [self doRCIMConnect:model.data];
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"refresh imtoken failed");
+        }];
     }];
 }
 
