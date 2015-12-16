@@ -587,6 +587,7 @@
             return completion(group);
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
         }];
     }
     

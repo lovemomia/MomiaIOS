@@ -226,12 +226,12 @@ typedef enum {
         }
     }
     
-    if (self.model.data.notice.length > 0) {
-        num++;
-        if (section == num) {
-            return row == 0 ? CellTitleNotice : CellNotice;
-        }
-    }
+//    if (self.model.data.notice.length > 0) {
+//        num++;
+//        if (section == num) {
+//            return row == 0 ? CellTitleNotice : CellNotice;
+//        }
+//    }
     
     if (self.model.data.institution) {
         num++;
@@ -261,9 +261,9 @@ typedef enum {
         if (self.model.data.tips.length > 0) {
             num++;
         }
-        if (self.model.data.notice.length > 0) {
-            num++;
-        }
+//        if (self.model.data.notice.length > 0) {
+//            num++;
+//        }
         if (self.model.data.institution) {
             num++;
         }

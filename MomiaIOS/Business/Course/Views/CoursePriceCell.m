@@ -60,8 +60,8 @@
             make.centerY.equalTo(self.tagsContainer).with.offset(2);
             if(i == 0) make.leading.equalTo(self.tagsContainer).with.offset(10);
             else make.leading.equalTo(lastView.mas_trailing).with.offset(8);
-            make.width.equalTo(@17);
-            make.height.equalTo(@17);
+            make.width.equalTo(@14);
+            make.height.equalTo(@14);
         }];
         [imgView setImage:[UIImage imageNamed:@"IconProductTag"]];
         
