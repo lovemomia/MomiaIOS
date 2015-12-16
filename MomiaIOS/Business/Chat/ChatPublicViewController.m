@@ -41,6 +41,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBar.shadowImage = [UIImage imageNamed:@"BgTitleShadow"];
     self.chatSessionInputBarControl.hidden = YES;
     self.customFlowLayout.collectionView.size = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT - 64);
 }

@@ -86,7 +86,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.navigationController.navigationBar.shadowImage = [UIImage imageWithColor:MO_APP_SeparatorColor size:CGSizeMake(SCREEN_WIDTH, 1)];
+    self.navigationController.navigationBar.shadowImage = [UIImage imageNamed:@"BgTitleShadow"];
 }
 
 - (void)didReceiveMessageNotification:(NSNotification *)notification {

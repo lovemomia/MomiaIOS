@@ -56,19 +56,37 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBar.shadowImage = [UIImage imageNamed:@"BgTitleShadow"];
+}
+
 - (void)initTitleBtn {
-    UIView *filterBtnView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
-    UIButton *filterBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
-    [filterBtn addTarget:self action:@selector(onGroupMemberClicked) forControlEvents:UIControlEventTouchUpInside];
-    [filterBtn setBackgroundImage:[UIImage imageNamed:@"TitleGroup"] forState:UIControlStateNormal];
+    UIView *filterBtnView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 22, 35)];
+    UIImageView *filterBtn = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
+
+    UITapGestureRecognizer *groupTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onGroupMemberClicked)];
+    [filterBtnView addGestureRecognizer:groupTap];
+    
+    [filterBtn setImage:[UIImage imageNamed:@"TitleGroup"]];
     [filterBtnView addSubview:filterBtn];
+    [filterBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(filterBtnView);
+        make.right.equalTo(filterBtnView.mas_right);
+    }];
     UIBarButtonItem *btnFilter = [[UIBarButtonItem alloc] initWithCustomView:filterBtnView];
     
-    UIView *selectBtnView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 25, 22)];
-    UIButton *selectBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
-    [selectBtn setBackgroundImage:[UIImage imageNamed:@"TitleNotice"] forState:UIControlStateNormal];
-    [selectBtn addTarget:self action:@selector(onGroupNoticeClicked) forControlEvents:UIControlEventTouchUpInside];
+    UIView *selectBtnView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 35, 35)];
+    UIImageView *selectBtn = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 22, 22)];
+    [selectBtn setImage:[UIImage imageNamed:@"TitleNotice"]];
+    
+    UITapGestureRecognizer *noticeTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onGroupNoticeClicked)];
+    [selectBtnView addGestureRecognizer:noticeTap];
+    
     [selectBtnView addSubview:selectBtn];
+    [selectBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(selectBtnView);
+        make.centerX.equalTo(selectBtnView);
+    }];
     UIBarButtonItem *btnSelect = [[UIBarButtonItem alloc] initWithCustomView:selectBtnView];
     
     [self.navigationItem setRightBarButtonItems:@[btnFilter, btnSelect] animated:YES];
