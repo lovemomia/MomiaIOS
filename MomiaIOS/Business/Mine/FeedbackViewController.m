@@ -50,7 +50,7 @@ static NSString * identifier = @"CellFeedbackIdentifier";
 -(void)postFeedback
 {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    NSDictionary *params = @{@"content":self.content,@"email":self.email};
+    NSDictionary *params = @{@"content":self.content,@"contact":self.email};
     
     [[HttpService defaultService]POST:URL_APPEND_PATH(@"/feedback")
                            parameters:params
