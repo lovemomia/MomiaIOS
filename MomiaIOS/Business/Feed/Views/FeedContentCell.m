@@ -35,37 +35,43 @@
     if (self = [super init]) {
         self.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
         
-        // text content
-        TTTAttributedLabel *label = [[TTTAttributedLabel alloc]initWithFrame:CGRectZero];
-        [self.contentView addSubview:label];
-        [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.contentView).with.offset(12);
-            make.left.equalTo(self.contentView).with.offset(65);
-            make.right.equalTo(self.contentView).with.offset(-10);
-            make.bottom.lessThanOrEqualTo(self.contentView).with.offset(-12);
-        }];
-        label.numberOfLines = 0;
-        label.textColor = UIColorFromRGB(0x333333);
-        label.font = [UIFont systemFontOfSize:contentFontSize];
-        label.lineSpacing = LineSpacing;
+        UIView *lastView;
         
-        NSString *text = model.content;
-        NSArray *tagIndexs = [self indexForTag:@"#" inText:text];
-        if (tagIndexs.count > 1) {
-            [label setText:text afterInheritingLabelAttributesAndConfiguringWithBlock:^ NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
-                NSRange boldRange = NSMakeRange([[tagIndexs objectAtIndex:0] integerValue],[[tagIndexs objectAtIndex:1] integerValue] - 2);
-                [mutableAttributedString addAttribute:(NSString *)kCTForegroundColorAttributeName value:MO_APP_ThemeColor range:boldRange];
-                
-                return mutableAttributedString;
+        // text content
+        if (model.content.length > 0) {
+            TTTAttributedLabel *label = [[TTTAttributedLabel alloc]initWithFrame:CGRectZero];
+            [self.contentView addSubview:label];
+            [label mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.contentView).with.offset(12);
+                make.left.equalTo(self.contentView).with.offset(65);
+                make.right.equalTo(self.contentView).with.offset(-10);
+                make.bottom.lessThanOrEqualTo(self.contentView).with.offset(-12);
             }];
+            label.numberOfLines = 0;
+            label.textColor = UIColorFromRGB(0x333333);
+            label.font = [UIFont systemFontOfSize:contentFontSize];
+            label.lineSpacing = LineSpacing;
             
-        } else {
-            label.text = text;
+            NSString *text = model.content;
+            NSArray *tagIndexs = [self indexForTag:@"#" inText:text];
+            if (tagIndexs.count > 1) {
+                [label setText:text afterInheritingLabelAttributesAndConfiguringWithBlock:^ NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+                    NSRange boldRange = NSMakeRange([[tagIndexs objectAtIndex:0] integerValue],[[tagIndexs objectAtIndex:1] integerValue] - 2);
+                    [mutableAttributedString addAttribute:(NSString *)kCTForegroundColorAttributeName value:MO_APP_ThemeColor range:boldRange];
+                    
+                    return mutableAttributedString;
+                }];
+                
+            } else {
+                label.text = text;
+            }
+            
+            lastView = label;
         }
         
         // images
         // TODO autolayout warning!
-        UIView *lastView = label;
+        
         if (model.imgs && model.imgs.count > 0) {
             UIImageView *lastImage;
             NSNumber *imageSize = [[NSNumber alloc]initWithInt:(SCREEN_WIDTH - 65 - 40) / 3];
@@ -90,7 +96,7 @@
                             }
                             
                         } else {
-                            make.top.equalTo(label.mas_bottom).with.offset(12);
+                            make.top.equalTo(lastView ? lastView.mas_bottom : self.contentView).with.offset(12);
                         }
                         
                     } else {
@@ -99,7 +105,7 @@
                             make.top.equalTo(lastImage.mas_top).with.offset(0);
                             
                         } else {
-                            make.top.equalTo(label.mas_bottom).with.offset(12);
+                            make.top.equalTo(lastView ? lastView.mas_bottom : self.contentView).with.offset(12);
                         }
                     }
                 }];
@@ -128,7 +134,7 @@
                 if (lastView) {
                     make.top.equalTo(lastView.mas_bottom).with.offset(10);
                 } else {
-                    make.top.equalTo(label.mas_bottom).with.offset(10);
+                    make.top.equalTo(self.contentView).with.offset(10);
                 }
                 
                 make.left.equalTo(self.contentView).with.offset(65);

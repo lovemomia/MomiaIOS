@@ -41,7 +41,6 @@
     }
     
     UIView *lastView;
-    CGFloat totalWidth = 0;
     for (int i = 0; i < data.childrenDetail.count; i++) {
         FeedChild *child = data.childrenDetail[i];
         UIImageView *icon = [[UIImageView alloc]init];
@@ -64,7 +63,6 @@
         } else {
             icon.image = [UIImage imageNamed:@"IconGirl"];
         }
-        totalWidth += 13;
         
         UILabel *age = [[UILabel alloc]init];
         [childContainer addSubview:age];
@@ -80,10 +78,6 @@
         age.textColor = UIColorFromRGB(0x666666);
         age.font = [UIFont systemFontOfSize:12];
         age.text = [NSString stringWithFormat:@"%@ %@",[child name], [child age]];
-        CGSize size = [age.text sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:age.font,NSFontAttributeName, nil]];
-        totalWidth += 6;
-        totalWidth += size.width;
-        
     }
 }
 

@@ -13,8 +13,9 @@
 
 @property (weak, nonatomic) IBOutlet AvatarImageView *avatarIv;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *ageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+
+@property (weak, nonatomic) IBOutlet UIView *childContainer;
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 

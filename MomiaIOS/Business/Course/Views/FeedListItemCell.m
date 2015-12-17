@@ -22,6 +22,7 @@
 @end
 
 @implementation FeedListItemCell
+@synthesize childContainer;
 
 - (void)awakeFromNib {
     // Initialization code
@@ -37,34 +38,75 @@
     self.feed = data;
     [self.avatarIv sd_setImageWithURL:[NSURL URLWithString:data.avatar] placeholderImage:[UIImage imageNamed:@"IconAvatarDefault"]];
     self.nameLabel.text = data.nickName;
-    if (data.children.count > 0) {
-        NSMutableString *childrenStr = [[NSMutableString alloc]init];
-        for (int i = 0; i < data.children.count; i++) {
-            [childrenStr appendString:[NSString stringWithFormat:@"%@ ", data.children[i]]];
-        }
-        self.ageLabel.text = childrenStr;
-    }
     self.dateLabel.text = data.addTime;
     
+    // child info
+    [self.childContainer removeAllSubviews];
+    
+    UIView *lastChildView;
+    for (int i = 0; i < data.childrenDetail.count; i++) {
+        FeedChild *child = data.childrenDetail[i];
+        UIImageView *icon = [[UIImageView alloc]init];
+        [childContainer addSubview:icon];
+        [icon mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@11);
+            make.width.equalTo(@11);
+            
+            if (lastChildView) {
+                make.left.equalTo(lastChildView.mas_right).with.offset(6);
+            } else {
+                make.left.equalTo(childContainer);
+            }
+            make.top.equalTo(childContainer).with.offset(2);
+            make.bottom.equalTo(childContainer).with.offset(-2);
+        }];
+        
+        if ([child.sex isEqualToString:@"男"]) {
+            icon.image = [UIImage imageNamed:@"IconBoy"];
+        } else {
+            icon.image = [UIImage imageNamed:@"IconGirl"];
+        }
+        
+        UILabel *age = [[UILabel alloc]init];
+        [childContainer addSubview:age];
+        [age mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@15);
+            
+            make.left.equalTo(icon.mas_right).with.offset(3);
+            make.top.equalTo(childContainer).with.offset(0);
+            make.bottom.equalTo(childContainer).with.offset(0);
+        }];
+        lastChildView = age;
+        
+        age.textColor = UIColorFromRGB(0x666666);
+        age.font = [UIFont systemFontOfSize:12];
+        age.text = [NSString stringWithFormat:@"%@ %@",[child name], [child age]];
+    }
+    
+    
     [self.containerView removeAllSubviews];
+    UIView *lastView;
     
     // text content
-    TTTAttributedLabel *label = [[TTTAttributedLabel alloc]initWithFrame:CGRectZero];
-    [self.containerView addSubview:label];
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.containerView).with.offset(0);
-        make.left.equalTo(self.containerView).with.offset(0);
-        make.right.equalTo(self.containerView).with.offset(0);
-        make.bottom.lessThanOrEqualTo(self.containerView).with.offset(bottomPadding);
-    }];
-    label.numberOfLines = 0;
-    label.textColor = UIColorFromRGB(0x333333);
-    label.font = [UIFont systemFontOfSize:contentFontSize];
-    label.lineSpacing = LineSpacing;
-    label.text = data.content;
+    if (data.content.length > 0) {
+        TTTAttributedLabel *label = [[TTTAttributedLabel alloc]initWithFrame:CGRectZero];
+        [self.containerView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.containerView).with.offset(2);
+            make.left.equalTo(self.containerView).with.offset(0);
+            make.right.equalTo(self.containerView).with.offset(0);
+            make.bottom.lessThanOrEqualTo(self.containerView).with.offset(bottomPadding);
+        }];
+        label.numberOfLines = 0;
+        label.textColor = UIColorFromRGB(0x333333);
+        label.font = [UIFont systemFontOfSize:contentFontSize];
+        label.lineSpacing = LineSpacing;
+        label.text = data.content;
+        
+        lastView = label;
+    }
     
     // images
-    UIView *lastView = label;
     if (data.imgs && data.imgs.count > 0) {
         UIImageView *lastImage;
         NSNumber *imageSize = [[NSNumber alloc]initWithInt:(SCREEN_WIDTH - 65 - 40) / 3];
@@ -89,7 +131,7 @@
                         }
                         
                     } else {
-                        make.top.equalTo(label.mas_bottom).with.offset(12);
+                        make.top.equalTo(lastView ? lastView.mas_bottom : self.containerView).with.offset(8);
                     }
                     
                 } else {
@@ -98,7 +140,7 @@
                         make.top.equalTo(lastImage.mas_top).with.offset(0);
                         
                     } else {
-                        make.top.equalTo(label.mas_bottom).with.offset(12);
+                        make.top.equalTo(lastView ? lastView.mas_bottom : self.containerView).with.offset(8);
                     }
                 }
             }];
@@ -127,7 +169,7 @@
             if (lastView) {
                 make.top.equalTo(lastView.mas_bottom).with.offset(10);
             } else {
-                make.top.equalTo(label.mas_bottom).with.offset(10);
+                make.top.equalTo(self.containerView).with.offset(10);
             }
             
             make.left.equalTo(self.containerView).with.offset(0);
@@ -140,9 +182,9 @@
         [self.containerView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
             if (lastView) {
-                make.top.equalTo(lastView.mas_bottom).with.offset(9);
+                make.top.equalTo(lastView.mas_bottom).with.offset(10);
             } else {
-                make.top.equalTo(label.mas_bottom).with.offset(10);
+                make.top.equalTo(self.containerView).with.offset(10);
             }
             
             make.left.equalTo(icon.mas_right).with.offset(5);
