@@ -87,7 +87,7 @@
     [[LocationService defaultService] start];
     
     //初始化融云SDK。
-    [[RCIM sharedRCIM] initWithAppKey:kRCIMAppKey];
+    [[RCIM sharedRCIM] initWithAppKey:(MO_DEBUG == 0 ? kRCIMAppKey : kRCIMAppKey_QA)];
     [RCIM sharedRCIM].globalNavigationBarTintColor = MO_APP_ThemeColor;
     [RCIM sharedRCIM].globalConversationAvatarStyle = RC_USER_AVATAR_CYCLE;
     [RCIM sharedRCIM].globalMessageAvatarStyle = RC_USER_AVATAR_CYCLE;
@@ -103,13 +103,13 @@
         // 如果是老用户，刷新一下imToken
         NSString *imToken = [AccountService defaultService].account.imToken;
         if (imToken.length > 0) {
-            [self doRCIMConnect:imToken];
+            [self doRCIMConnect:imToken tryTime:3];
             
         } else {
             [[HttpService defaultService] GET:URL_APPEND_PATH(@"/im/token") parameters:nil cacheType:CacheTypeDisable JSONModelClass:[IMTokenModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 IMTokenModel *model = responseObject;
                 [AccountService defaultService].account.imToken = model.data;
-                [self doRCIMConnect:imToken];
+                [self doRCIMConnect:imToken tryTime:3];
                 
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 NSLog(@"refresh imtoken failed");
@@ -499,7 +499,7 @@
 
 #pragma mark - Rong Cloud delegate
 
-- (void)doRCIMConnect:(NSString *)imToken {
+- (void)doRCIMConnect:(NSString *)imToken tryTime:(NSInteger)time {
     // 快速集成第二步，连接融云服务器
     [[RCIM sharedRCIM] connectWithToken:imToken success:^(NSString *userId) {
         // Connect 成功
@@ -513,15 +513,17 @@
         // Token 失效的状态处理
         NSLog(@"RCIM connect failed, token incorrect");
         
-        // 刷新token
-        [[HttpService defaultService] POST:URL_APPEND_PATH(@"/im/token") parameters:nil JSONModelClass:[IMTokenModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            IMTokenModel *model = responseObject;
-            [AccountService defaultService].account.imToken = model.data;
-            [self doRCIMConnect:model.data];
-            
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"refresh imtoken failed");
-        }];
+        if (time > 0) {
+            // 刷新token
+            [[HttpService defaultService] POST:URL_APPEND_PATH(@"/im/token") parameters:nil JSONModelClass:[IMTokenModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                IMTokenModel *model = responseObject;
+                [AccountService defaultService].account.imToken = model.data;
+                [self doRCIMConnect:model.data tryTime:(time - 1)];
+                
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                NSLog(@"refresh imtoken failed");
+            }];
+        }
     }];
 }
 
