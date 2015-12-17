@@ -285,11 +285,13 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
 }
 
 - (void)onZanClicked:(id)cell {
-    FeedUgcCell *ugcCell = cell;
-    Feed *feed = [self.list objectAtIndex:ugcCell.tag];
     if (![[AccountService defaultService] isLogin]) {
         [[AccountService defaultService] login:self];
+        return;
     }
+    
+    FeedUgcCell *ugcCell = cell;
+    Feed *feed = [self.list objectAtIndex:ugcCell.tag];
     NSDictionary * dic = @{@"id":feed.ids};
     BOOL isStared = [feed.stared boolValue];
     NSString *path = isStared ? @"/feed/unstar" : @"/feed/star";

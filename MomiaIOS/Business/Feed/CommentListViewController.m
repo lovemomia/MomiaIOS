@@ -49,6 +49,11 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
 }
 
 - (void)onCommentClicked {
+    if (![[AccountService defaultService] isLogin]) {
+        [[AccountService defaultService] login:self];
+        return;
+    }
+    
     NSDictionary * dic = @{@"id":self.ids};
     AddCommentViewController *controller = [[AddCommentViewController alloc]initWithParams:dic];
     

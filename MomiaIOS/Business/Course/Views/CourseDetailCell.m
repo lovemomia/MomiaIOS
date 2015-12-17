@@ -11,7 +11,7 @@
 #import "TTTAttributedLabel.h"
 
 #define LineSpacing 6
-#define titleFontSize 13.0f
+#define titleFontSize 14.0f
 #define contentFontSize 13.0f
 #define ImgScale 0.75
 

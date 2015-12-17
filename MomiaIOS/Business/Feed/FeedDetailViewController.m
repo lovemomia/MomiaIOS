@@ -249,7 +249,9 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
             zanCell.blockOnZanClicked = ^(){
                 if (![[AccountService defaultService] isLogin]) {
                     [[AccountService defaultService] login:self];
+                    return;
                 }
+                
                 Feed *feed = self.model.data.feed;
                 NSDictionary * dic = @{@"id":feed.ids};
                 BOOL isStared = [feed.stared boolValue];
@@ -305,6 +307,11 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
 }
 
 - (IBAction)onCommentClicked:(id)sender {
+    if (![[AccountService defaultService] isLogin]) {
+        [[AccountService defaultService] login:self];
+        return;
+    }
+    
     NSDictionary * dic = @{@"id":self.ids};
     AddCommentViewController *controller = [[AddCommentViewController alloc]initWithParams:dic];
     
@@ -323,6 +330,7 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
 - (IBAction)onZanClicked:(id)sender {
     if (![[AccountService defaultService] isLogin]) {
         [[AccountService defaultService] login:self];
+        return;
     }
     
     Feed *feed = self.model.data.feed;
