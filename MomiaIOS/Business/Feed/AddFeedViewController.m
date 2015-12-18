@@ -32,6 +32,7 @@
 @property (strong, nonatomic) NSString *tagName;
 
 @property (strong, nonatomic) UITextView *contentTextView;
+@property (strong, nonatomic) MBProgressHUD *hud;
 
 @property (assign, nonatomic) BOOL isSubmitSuccess;
 
@@ -74,12 +75,16 @@
 //        return;
 //    }
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.hud.mode = MBProgressHUDModeIndeterminate;
+    
     BOOL imagesUploaded = YES;
-    for (SelectImage *si in self.uploadImages) {
+    for (int i = 0; i < self.uploadImages.count; i++) {
+        SelectImage *si = self.uploadImages[i];
         if (si.uploadStatus <= UploadStatusIdle) {
             [self uploadImage:si];
             imagesUploaded = NO;
+            self.hud.labelText = [NSString stringWithFormat:@"正在上传第%d/%d张照片", (i+1), self.uploadImages.count];
             break;
         }
     }
@@ -87,7 +92,6 @@
         [self submit];
     }
 }
-
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {
@@ -173,9 +177,11 @@
 }
 
 - (BOOL)isAllImagesUploadFinish {
-    for (SelectImage *si in self.uploadImages) {
+    for (int i = 0; i < self.uploadImages.count; i++) {
+        SelectImage *si = self.uploadImages[i];
         if (si.uploadStatus != UploadStatusFinish) {
             [self uploadImage:si];
+            self.hud.labelText = [NSString stringWithFormat:@"正在上传第%d/%d张照片", (i+1), self.uploadImages.count];
             return NO;
         }
     }
