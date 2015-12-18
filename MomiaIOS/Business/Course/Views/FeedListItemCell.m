@@ -167,15 +167,15 @@
             make.width.equalTo(@12);
             make.height.equalTo(@12);
             if (lastView) {
-                make.top.equalTo(lastView.mas_bottom).with.offset(10);
+                make.top.equalTo(lastView.mas_bottom).with.offset(11);
             } else {
-                make.top.equalTo(self.containerView).with.offset(10);
+                make.top.equalTo(self.containerView).with.offset(11);
             }
             
             make.left.equalTo(self.containerView).with.offset(0);
             make.bottom.lessThanOrEqualTo(self.containerView).with.offset(bottomPadding);
         }];
-        icon.image = [UIImage imageNamed:@"IconReviewTag"];
+        icon.image = [UIImage imageNamed:@"IconCourse"];
         
         // text tag
         TTTAttributedLabel *label = [[TTTAttributedLabel alloc]initWithFrame:CGRectZero];
