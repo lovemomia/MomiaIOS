@@ -35,6 +35,7 @@
 @property (strong, nonatomic) MBProgressHUD *hud;
 
 @property (assign, nonatomic) BOOL isSubmitSuccess;
+@property (assign, nonatomic) BOOL isSubmiting;
 
 @end
 
@@ -103,6 +104,11 @@
 
 // 提交
 - (void)submit {
+    if (self.isSubmiting) {
+        return;
+    }
+    self.isSubmiting = YES;
+    [self.contentCell.contentTv resignFirstResponder];
     [self.contentCell endEditing:YES];
     
     AddFeed *addFeed = [[AddFeed alloc]init];
@@ -126,6 +132,7 @@
         [self showDialogWithTitle:nil message:@"发布成功！"];
         self.isSubmitSuccess = YES;
         [MBProgressHUD hideHUDForView:self.view animated:YES];
+        self.isSubmiting = NO;
         
         [[NSNotificationCenter defaultCenter]postNotificationName:@"onDataChanged" object:nil];
         
@@ -133,6 +140,7 @@
         [self showDialogWithTitle:nil message:@"发布失败，请稍后再试"];
         
         [MBProgressHUD hideHUDForView:self.view animated:YES];
+        self.isSubmiting = NO;
     }];
 }
 
@@ -203,6 +211,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 1) {
+        self.content = self.contentCell.contentTv.text;
+        
         if (indexPath.row == 0) {
             TopicListViewController *controller = [[TopicListViewController alloc]init];
             controller.delegate = self;
