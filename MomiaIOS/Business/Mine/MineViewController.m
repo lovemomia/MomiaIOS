@@ -33,20 +33,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMineDotChanged:) name:@"onMineDotChanged" object:nil];
     [self.tableView reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"onMineDotChanged" object:nil];
-}
-
-- (void)onMineDotChanged:(NSNotification*)notify {
-    
-//    NSIndexPath *te=[NSIndexPath indexPathForRow:0 inSection:2];
-//    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:te,nil] withRowAnimation:UITableViewRowAnimationMiddle];
 }
 
 - (void)onTitleBtnClick {
@@ -102,13 +94,15 @@
 {
     if (section == 0) {
         return 1;
+    } else if (section == 2) {
+        return 3;
     }
     return 2;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 5;
+    return 4;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -142,24 +136,17 @@
             }
             break;
         case 2:
-            if (row == 0) {
-                [self openURL:@"duola://chatlist"];
+            if(row == 0) {
+                [self openURL:@"duola://myorderlist"];
                 
-                [MobClick event:@"Mine_Group"];
+                [MobClick event:@"Mine_Order"];
                 
-            } else {
+            } else if (row == 1) {
                 if ([[AccountService defaultService]isLogin]) {
                     [self openURL:[NSString stringWithFormat:@"duola://userinfo?uid=%@&me=1", [AccountService defaultService].account.uid]];
                 }
                 
                 [MobClick event:@"Mine_Feed"];
-            }
-            break;
-        case 3:
-            if(row == 0) {
-                [self openURL:@"duola://myorderlist"];
-                
-                [MobClick event:@"Mine_Order"];
                 
             } else {
                 [self openURL:@"duola://couponlist?status=0"];
@@ -167,7 +154,7 @@
                 [MobClick event:@"Mine_Coupon"];
             }
             break;
-        case 4:
+        case 3:
             if(row == 0) {
                 [self openURL:@"duola://feedback"];
                 
@@ -252,29 +239,17 @@
                 break;
             case 2:
                 if (row == 0) {
-                    commonCell.titleLabel.text = @"我的群组";
-                    commonCell.iconIv.image = [UIImage imageNamed:@"IconGroup"];
-                    
-                    if ([[RCIMClient sharedRCIMClient] getUnreadCount:@[@(ConversationType_PRIVATE), @(ConversationType_GROUP)]] > 0) {
-                        commonCell.dotIv.hidden = NO;
-                    } else {
-                        commonCell.dotIv.hidden = YES;
-                    }
-                    
-                } else {
-                    commonCell.titleLabel.text = @"成长说";
-                    commonCell.iconIv.image = [UIImage imageNamed:@"IconFeed"];
-                }
-                break;
-            case 3:
-                if (row == 0) {
                     commonCell.titleLabel.text = @"我的订单";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconOrder"];
+                } else if (row == 1) {
+                    commonCell.titleLabel.text = @"我的评价";
+                    commonCell.iconIv.image = [UIImage imageNamed:@"IconFeed"];
+                    
                 } else {
                     commonCell.titleLabel.text = @"我的红包";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconCoupon"];
                 }                break;
-            case 4:
+            case 3:
                 if (row == 0) {
                     commonCell.titleLabel.text = @"意见反馈";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconFeedback"];

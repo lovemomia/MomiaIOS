@@ -196,6 +196,7 @@
 		BC359A461BC66447002DE863 /* CourseBuyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC359A441BC66447002DE863 /* CourseBuyCell.xib */; };
 		BC359A491BC679EF002DE863 /* HomeGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A481BC679EF002DE863 /* HomeGridCell.m */; };
 		BC359A4C1BC67B4F002DE863 /* HomeOperateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A4B1BC67B4F002DE863 /* HomeOperateCell.m */; };
+		BC36B1951C28005300013E9A /* GroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC36B1941C28005300013E9A /* GroupListViewController.m */; };
 		BC38D23C1AFEE2B50051C7E9 /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38D2371AFEE2B50051C7E9 /* HomeModel.m */; };
 		BC38D2441AFEEA300051C7E9 /* HttpService.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38D2431AFEEA300051C7E9 /* HttpService.m */; };
 		BC38D2911B09B8B30051C7E9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC38D2901B09B8B30051C7E9 /* Security.framework */; };
@@ -766,6 +767,8 @@
 		BC359A481BC679EF002DE863 /* HomeGridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeGridCell.m; path = Business/Home/Views/HomeGridCell.m; sourceTree = "<group>"; };
 		BC359A4A1BC67B4F002DE863 /* HomeOperateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeOperateCell.h; path = Business/Home/Views/HomeOperateCell.h; sourceTree = "<group>"; };
 		BC359A4B1BC67B4F002DE863 /* HomeOperateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeOperateCell.m; path = Business/Home/Views/HomeOperateCell.m; sourceTree = "<group>"; };
+		BC36B1931C28005300013E9A /* GroupListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupListViewController.h; path = Business/Chat/GroupListViewController.h; sourceTree = "<group>"; };
+		BC36B1941C28005300013E9A /* GroupListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupListViewController.m; path = Business/Chat/GroupListViewController.m; sourceTree = "<group>"; };
 		BC38D2361AFEE2B50051C7E9 /* HomeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeModel.h; path = Common/Models/Home/HomeModel.h; sourceTree = "<group>"; };
 		BC38D2371AFEE2B50051C7E9 /* HomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeModel.m; path = Common/Models/Home/HomeModel.m; sourceTree = "<group>"; };
 		BC38D2421AFEEA300051C7E9 /* HttpService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpService.h; path = Common/Services/Http/HttpService.h; sourceTree = "<group>"; };
@@ -2100,6 +2103,8 @@
 				BC79DF851C15910C0064C02F /* ChatGroupMemberViewController.m */,
 				BC93ACA21C15A38E009E3BDD /* ChatUserViewController.h */,
 				BC93ACA31C15A38E009E3BDD /* ChatUserViewController.m */,
+				BC36B1931C28005300013E9A /* GroupListViewController.h */,
+				BC36B1941C28005300013E9A /* GroupListViewController.m */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -2909,6 +2914,7 @@
 				BC9089821B58983300A8D85B /* MyOrderListViewController.m in Sources */,
 				BC592BDE1BD5D8FB008AE76A /* BookSkuItemCell.m in Sources */,
 				BC7737951BCF9C1E00987B22 /* SkuListModel.m in Sources */,
+				BC36B1951C28005300013E9A /* GroupListViewController.m in Sources */,
 				BC97DF061B4BE21F002B1A00 /* WechatPayModel.m in Sources */,
 				BC97DEFF1B4BCFF1002B1A00 /* PayChannel.m in Sources */,
 				BC77378D1BCE6AD200987B22 /* SubjectList.m in Sources */,

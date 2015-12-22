@@ -41,7 +41,7 @@
     self.emptyConversationView = [self createEmptyView];
     self.emptyConversationView.hidden = YES;
     
-    self.navigationItem.title = @"我的群组";
+    self.navigationItem.title = @"群组";
 //    NSArray *segmentedArray = @[@"消息",@"群组"];
 //    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedArray];
 //    segmentedControl.frame = CGRectMake(0.0, 0.0, 150, 30.0);
@@ -54,6 +54,12 @@
     
     [self syncGroupList];
     [self.view showLoadingBee];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self refreshConversationTableViewIfNeeded];
 }
 
 - (UIView *)createEmptyView {
@@ -85,10 +91,6 @@
     }];
     
     return emptyView;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    self.navigationController.navigationBar.shadowImage = [UIImage imageNamed:@"BgTitleShadow"];
 }
 
 - (void)didReceiveMessageNotification:(NSNotification *)notification {

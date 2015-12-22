@@ -9,7 +9,7 @@
 #import "MORootViewController.h"
 #import "MONavigationController.h"
 #import "HomeViewController.h"
-#import "FeedListViewController.h"
+#import "GroupListViewController.h"
 #import "MineViewController.h"
 #import "UIImage+Color.h"
 #import <RongIMKit/RongIMKit.h>
@@ -18,7 +18,7 @@
     
 }
 @property (nonatomic, strong) HomeViewController *home;
-@property (nonatomic, strong) FeedListViewController *playmate;
+@property (nonatomic, strong) GroupListViewController *group;
 @property (nonatomic, strong) MineViewController *mine;
 
 @property (nonatomic, strong) UIImageView *dotImage;
@@ -49,21 +49,21 @@
         _home.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"精品课" image:[UIImage imageNamed:@"TabHomeNormal"] selectedImage:[UIImage imageNamed:@"TabHomeSelect"]];
         _home.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -2);
         
-        _playmate = [[FeedListViewController alloc]initWithParams:nil];
-        _playmate.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"成长说" image:[UIImage imageNamed:@"TabPlaymateNormal"] selectedImage:[UIImage imageNamed:@"TabPlaymateSelect"]];
-        _playmate.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -2);
+        _group = [[GroupListViewController alloc]initWithParams:nil];
+        _group.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"群组" image:[UIImage imageNamed:@"TabPlaymateNormal"] selectedImage:[UIImage imageNamed:@"TabPlaymateSelect"]];
+        _group.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -2);
         
         _mine = [[MineViewController alloc]initWithParams:nil];
         _mine.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"我的" image:[UIImage imageNamed:@"TabMineNormal"] selectedImage:[UIImage imageNamed:@"TabMineSelect"]];
         _mine.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -2);
         
         MONavigationController *navHome = [[MONavigationController alloc] initWithRootViewController:_home];
-        MONavigationController *navPlaymate = [[MONavigationController alloc] initWithRootViewController:_playmate];
+        MONavigationController *navGroup = [[MONavigationController alloc] initWithRootViewController:_group];
         MONavigationController *navMine = [[MONavigationController alloc] initWithRootViewController:_mine];
         
         self.viewControllers = [NSArray arrayWithObjects:
                                 navHome,
-                                navPlaymate,
+                                navGroup,
                                 navMine,
                                 nil];
         

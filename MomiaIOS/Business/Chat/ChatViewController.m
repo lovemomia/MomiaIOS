@@ -21,6 +21,8 @@
 
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super init]) {
+        self.hidesBottomBarWhenPushed = YES;
+        
         self.conversationType = [self convertType:[params objectForKey:@"type"]];
         self.targetId = [params objectForKey:@"targetid"];
         self.userName = [params objectForKey:@"username"];
