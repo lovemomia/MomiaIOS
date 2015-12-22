@@ -355,7 +355,7 @@ typedef enum {
         
     } else if (type == CellTitleComment) {
         CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
-        titleCell.titleLabel.text = [NSString stringWithFormat:@"用户点评（%@）", self.model.data.comments.totalCount];
+        titleCell.titleLabel.text = [NSString stringWithFormat:@"用户评价（%@）", self.model.data.comments.totalCount];
         cell = titleCell;
         titleCell.subTitleLabel.text = @"更多";
         titleCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

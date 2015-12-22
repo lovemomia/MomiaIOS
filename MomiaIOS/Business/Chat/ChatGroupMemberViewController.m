@@ -82,7 +82,7 @@ static NSString *identifierGroupMemberItemCell = @"GroupMemberItemCell";
     } else {
         user = self.model.data.customers[indexPath.row];
     }
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://chatuser?id=%@", user.uid]]];
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://userinfo?uid=%@", user.uid]]];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

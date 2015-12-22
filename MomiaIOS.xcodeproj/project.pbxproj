@@ -197,6 +197,9 @@
 		BC359A491BC679EF002DE863 /* HomeGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A481BC679EF002DE863 /* HomeGridCell.m */; };
 		BC359A4C1BC67B4F002DE863 /* HomeOperateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A4B1BC67B4F002DE863 /* HomeOperateCell.m */; };
 		BC36B1951C28005300013E9A /* GroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC36B1941C28005300013E9A /* GroupListViewController.m */; };
+		BC36B1981C28FB5200013E9A /* UserTimelineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC36B1971C28FB5200013E9A /* UserTimelineModel.m */; };
+		BC36B19C1C293FB700013E9A /* UserTimelineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC36B19A1C293FB700013E9A /* UserTimelineCell.m */; };
+		BC36B19D1C293FB700013E9A /* UserTimelineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC36B19B1C293FB700013E9A /* UserTimelineCell.xib */; };
 		BC38D23C1AFEE2B50051C7E9 /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38D2371AFEE2B50051C7E9 /* HomeModel.m */; };
 		BC38D2441AFEEA300051C7E9 /* HttpService.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38D2431AFEEA300051C7E9 /* HttpService.m */; };
 		BC38D2911B09B8B30051C7E9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC38D2901B09B8B30051C7E9 /* Security.framework */; };
@@ -769,6 +772,11 @@
 		BC359A4B1BC67B4F002DE863 /* HomeOperateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeOperateCell.m; path = Business/Home/Views/HomeOperateCell.m; sourceTree = "<group>"; };
 		BC36B1931C28005300013E9A /* GroupListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupListViewController.h; path = Business/Chat/GroupListViewController.h; sourceTree = "<group>"; };
 		BC36B1941C28005300013E9A /* GroupListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupListViewController.m; path = Business/Chat/GroupListViewController.m; sourceTree = "<group>"; };
+		BC36B1961C28FB5200013E9A /* UserTimelineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserTimelineModel.h; path = Common/Models/User/UserTimelineModel.h; sourceTree = "<group>"; };
+		BC36B1971C28FB5200013E9A /* UserTimelineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserTimelineModel.m; path = Common/Models/User/UserTimelineModel.m; sourceTree = "<group>"; };
+		BC36B1991C293FB700013E9A /* UserTimelineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserTimelineCell.h; path = Business/Mine/Views/UserTimelineCell.h; sourceTree = "<group>"; };
+		BC36B19A1C293FB700013E9A /* UserTimelineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserTimelineCell.m; path = Business/Mine/Views/UserTimelineCell.m; sourceTree = "<group>"; };
+		BC36B19B1C293FB700013E9A /* UserTimelineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserTimelineCell.xib; path = Business/Mine/Views/UserTimelineCell.xib; sourceTree = "<group>"; };
 		BC38D2361AFEE2B50051C7E9 /* HomeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeModel.h; path = Common/Models/Home/HomeModel.h; sourceTree = "<group>"; };
 		BC38D2371AFEE2B50051C7E9 /* HomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeModel.m; path = Common/Models/Home/HomeModel.m; sourceTree = "<group>"; };
 		BC38D2421AFEEA300051C7E9 /* HttpService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpService.h; path = Common/Services/Http/HttpService.h; sourceTree = "<group>"; };
@@ -1597,6 +1605,8 @@
 				BCF564CE1B4632A1003A2227 /* Child.m */,
 				BCBB16CA1BF5CC6200E273AF /* User.h */,
 				BCBB16CB1BF5CC6200E273AF /* User.m */,
+				BC36B1961C28FB5200013E9A /* UserTimelineModel.h */,
+				BC36B1971C28FB5200013E9A /* UserTimelineModel.m */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -2482,6 +2492,9 @@
 				BC3508FD1BFC4CD40043D37C /* ShareViewCell.h */,
 				BC3508FE1BFC4CD40043D37C /* ShareViewCell.m */,
 				BC3508FF1BFC4CD40043D37C /* ShareViewCell.xib */,
+				BC36B1991C293FB700013E9A /* UserTimelineCell.h */,
+				BC36B19A1C293FB700013E9A /* UserTimelineCell.m */,
+				BC36B19B1C293FB700013E9A /* UserTimelineCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2753,6 +2766,7 @@
 				5AB1BDEB1B4FB7ED004A4511 /* LoadingErrorCell.xib in Resources */,
 				5A33F1A81B2EBC2F002A8258 /* TitleView.xib in Resources */,
 				BC3509091BFDD1830043D37C /* SubjectTabCell.xib in Resources */,
+				BC36B19D1C293FB700013E9A /* UserTimelineCell.xib in Resources */,
 				BC0D444F1C0465210007E9ED /* SubjectBuyCell.xib in Resources */,
 				BC1601DE1BB00459005F11FD /* FeedDetailViewController.xib in Resources */,
 				BC592BF31BD5F015008AE76A /* BookSkuDateTitleCell.xib in Resources */,
@@ -2842,6 +2856,7 @@
 				BCF9ECA71B416C3500AEBE1E /* CityListModel.m in Sources */,
 				5A11C7301B58B49B00B0CDFE /* ProductCalendarModel.m in Sources */,
 				5A9E80E61B4BBF590028AC47 /* ProductPlayFellowCell.m in Sources */,
+				BC36B1981C28FB5200013E9A /* UserTimelineModel.m in Sources */,
 				BC7737621BCCA9F900987B22 /* IndexModel.m in Sources */,
 				BC41ABB91B0F25AB00A419DA /* SugTagsModel.m in Sources */,
 				BC8540941ADF74E9005A7C54 /* AppDelegate.m in Sources */,
@@ -3008,6 +3023,7 @@
 				BC3599EE1BC61F0C002DE863 /* MLSelectPhotoPickerDatas.m in Sources */,
 				BCF9ECAA1B4171EC00AEBE1E /* CityListViewController.m in Sources */,
 				BC829A861B53CE850056BE61 /* NSString+MOEncrypt.m in Sources */,
+				BC36B19C1C293FB700013E9A /* UserTimelineCell.m in Sources */,
 				BC1052A41BB394CE00D81C15 /* TopicListCell.m in Sources */,
 				BC79DF7A1C1184A20064C02F /* IMUserModel.m in Sources */,
 				BC3599EB1BC61F0C002DE863 /* UIView+MLExtension.m in Sources */,
