@@ -125,7 +125,6 @@
             lastView = lastImage;
         }
     }
-    
 }
 
 - (void)onImageClick:(UIGestureRecognizer *)recognizer {
@@ -160,7 +159,8 @@
 
 - (IBAction)onCourseClicked:(id)sender {
     if (self.timelineItem) {
-        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://coursedetail?id=%@", self.timelineItem.courseId]]];
+        NSString *url = [NSString stringWithFormat:@"coursedetail?id=%@", self.timelineItem.courseId];
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:MOURL_STRING(url)]];
     }
 }
 @end

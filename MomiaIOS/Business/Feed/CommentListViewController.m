@@ -50,7 +50,7 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
 
 - (void)onCommentClicked {
     if (![[AccountService defaultService] isLogin]) {
-        [[AccountService defaultService] login:self];
+        [[AccountService defaultService] login:self success:nil];
         return;
     }
     

@@ -102,7 +102,7 @@ typedef enum
 
 - (void)onFavClick {
     if (![[AccountService defaultService]isLogin]) {
-        [[AccountService defaultService] login:self];
+        [[AccountService defaultService] login:self success:nil];
         return;
     }
     
@@ -344,15 +344,14 @@ typedef enum
 {
     NSInteger section = indexPath.section;
     if(section == 2) {
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://productplayfellow?id=%@", self.productId]];
-        [[UIApplication sharedApplication] openURL:url];
+        NSString *url = [NSString stringWithFormat:@"productplayfellow?id=%@", self.productId];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:MOURL_STRING(url)]];
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (IBAction)dateFriend:(id)sender {
-//    [self openURL:@"duola://applyleader"];
     [self onShareClick];
 }
 
@@ -360,8 +359,7 @@ typedef enum
     
     if(self.model) {
         if(!self.model.data.soldOut) {
-            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://fillorder?id=%@", self.productId]];
-            [[UIApplication sharedApplication] openURL:url];
+            [self openURL:[NSString stringWithFormat:@"fillorder?id=%@", self.productId]];
         }
     }
 

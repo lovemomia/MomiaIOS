@@ -121,7 +121,7 @@ static NSString * identifierCourseListItemCell = @"BookCourseListItemCell";
 }
 
 - (void)onBookBtnClick:(Course *)course {
-    [self openURL:[NSString stringWithFormat:@"duola://addreview?id=%@&bookingId=%@", course.ids, course.bookingId]];
+    [self openURL:[NSString stringWithFormat:@"addreview?id=%@&bookingId=%@", course.ids, course.bookingId]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onBookedChanged:) name:@"onBookedChanged" object:nil];
 }
 
@@ -131,9 +131,9 @@ static NSString * identifierCourseListItemCell = @"BookCourseListItemCell";
     if(indexPath.row < self.list.count) {
         Course *course = self.list[indexPath.row];
         if (self.finish) {
-            [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@", course.ids]];
+            [self openURL:[NSString stringWithFormat:@"coursedetail?id=%@", course.ids]];
         } else {
-            [self openURL:[NSString stringWithFormat:@"duola://bookcoursedetail?id=%@&bid=%@", course.ids, course.bookingId]];
+            [self openURL:[NSString stringWithFormat:@"bookcoursedetail?id=%@&bid=%@", course.ids, course.bookingId]];
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onBookedChanged:) name:@"onBookedChanged" object:nil];
         }
     }

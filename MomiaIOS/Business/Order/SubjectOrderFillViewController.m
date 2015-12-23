@@ -157,9 +157,9 @@ static NSString *identifierPackageHeaderCell = @"PackageHeaderCell";
                                   
                                   PostOrderModel *order = (PostOrderModel *)responseObject;
                                   
-                                  NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://cashpay?pom=%@",
-                                                                      [[order toJSONString] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
-                                  [[UIApplication sharedApplication] openURL:url];
+                                  NSString *url = [NSString stringWithFormat:@"cashpay?pom=%@",
+                                                                      [[order toJSONString] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+                                  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:MOURL_STRING(url)]];
                                   
                                   NSDictionary *dic = @{@"totalPrice":self.priceLabel.text};
                                   [MobClick event:@"OrderFill_Submit" attributes:dic];
@@ -196,7 +196,7 @@ static NSString *identifierPackageHeaderCell = @"PackageHeaderCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 1 && indexPath.row == 0 && self.model.data.packages.count > 0) {
-        [self openURL:[NSString stringWithFormat:@"duola://subjectdetail?id=%@", self.ids]];
+        [self openURL:[NSString stringWithFormat:@"subjectdetail?id=%@", self.ids]];
         
         [MobClick event:@"OrderFill_Subject"];
         

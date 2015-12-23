@@ -348,7 +348,7 @@
 		BC9C02B51C1E7A860019A693 /* GroupNoticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC9C02B41C1E7A860019A693 /* GroupNoticeView.xib */; };
 		BC9C02B81C1EBC3C0019A693 /* GroupNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9C02B71C1EBC3C0019A693 /* GroupNoticeView.m */; };
 		BCA272FD1AE8A2C7002E7534 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA272FB1AE8A2C7002E7534 /* MineViewController.m */; };
-		BCA273101AE9D79F002E7534 /* scheme.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCA2730F1AE9D79F002E7534 /* scheme.plist */; };
+		BCA273101AE9D79F002E7534 /* mapping.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCA2730F1AE9D79F002E7534 /* mapping.plist */; };
 		BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273151AE9F6F0002E7534 /* URLMappingManager.m */; };
 		BCA2731E1AE9FB1D002E7534 /* NSString+MOURLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA2731D1AE9FB1D002E7534 /* NSString+MOURLEncode.m */; };
 		BCA273211AE9FB78002E7534 /* NSURL+MOURL.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273201AE9FB78002E7534 /* NSURL+MOURL.m */; };
@@ -374,6 +374,411 @@
 		BCCDF6801B0C331B008BAE12 /* ThirdAccountHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCDF67F1B0C331B008BAE12 /* ThirdAccountHelper.m */; };
 		BCD0BC9D1BF0973600552FFE /* TagListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BC9C1BF0973600552FFE /* TagListViewController.m */; };
 		BCD0BCA01BF097B800552FFE /* FeedTagListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BC9F1BF097B800552FFE /* FeedTagListModel.m */; };
+		BCEAFBFC1C2A394300CB082D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
+		BCEAFBFD1C2A394300CB082D /* OrderListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564DC1B490052003A2227 /* OrderListModel.m */; };
+		BCEAFBFE1C2A394300CB082D /* NSTimer+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564CB1B43EC53003A2227 /* NSTimer+Block.m */; };
+		BCEAFBFF1C2A394300CB082D /* CourseDiscCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC040D0B1BC8BB5500988AB2 /* CourseDiscCell.m */; };
+		BCEAFC001C2A394300CB082D /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77375E1BCCA31B00987B22 /* Course.m */; };
+		BCEAFC011C2A394300CB082D /* NSError+MOError.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C881B15698B00E2446E /* NSError+MOError.m */; };
+		BCEAFC021C2A394300CB082D /* MLSelectPhotoPickerBrowserPhotoScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599DE1BC61F0C002DE863 /* MLSelectPhotoPickerBrowserPhotoScrollView.m */; };
+		BCEAFC031C2A394300CB082D /* HomeOperateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A4B1BC67B4F002DE863 /* HomeOperateCell.m */; };
+		BCEAFC041C2A394300CB082D /* ServerErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564D11B46A437003A2227 /* ServerErrorHandler.m */; };
+		BCEAFC051C2A394300CB082D /* BookedCourseListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BF81BD73F58008AE76A /* BookedCourseListModel.m */; };
+		BCEAFC061C2A394300CB082D /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A351BC61F89002DE863 /* MBProgressHUD+Add.m */; };
+		BCEAFC071C2A394300CB082D /* ChatUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC93ACA31C15A38E009E3BDD /* ChatUserViewController.m */; };
+		BCEAFC081C2A394300CB082D /* AddReviewContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF74ABD1BE99B8600138C2C /* AddReviewContentCell.m */; };
+		BCEAFC091C2A394300CB082D /* URLMappingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273151AE9F6F0002E7534 /* URLMappingManager.m */; };
+		BCEAFC0A1C2A394300CB082D /* MyStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C7F1B14659400E2446E /* MyStatusViewController.m */; };
+		BCEAFC0B1C2A394300CB082D /* MLSelectPhotoPickerBrowserPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599C81BC61F0C002DE863 /* MLSelectPhotoPickerBrowserPhoto.m */; };
+		BCEAFC0C1C2A394300CB082D /* FeedTagListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BC9F1BF097B800552FFE /* FeedTagListModel.m */; };
+		BCEAFC0D1C2A394300CB082D /* OrderContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5A2A9E1B43EED4000595A9 /* OrderContactCell.m */; };
+		BCEAFC0E1C2A394300CB082D /* BookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BBF1BD4977A008AE76A /* BookViewController.m */; };
+		BCEAFC0F1C2A394300CB082D /* CashPayBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A33F1951B2EA0A4002A8258 /* CashPayBottomCell.m */; };
+		BCEAFC101C2A394300CB082D /* ReviewListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF74AC61BEB643400138C2C /* ReviewListItemCell.m */; };
+		BCEAFC111C2A394300CB082D /* ProductCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3C6C7A1B57AEC1006583FB /* ProductCalendarViewController.m */; };
+		BCEAFC121C2A394300CB082D /* ProductDetailEnrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C1311B39117100642648 /* ProductDetailEnrollCell.m */; };
+		BCEAFC131C2A394300CB082D /* UILabel+ContentSize.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77085E1AFC5685000068A8 /* UILabel+ContentSize.m */; };
+		BCEAFC141C2A394300CB082D /* ProductCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3C6C701B579F1C006583FB /* ProductCalendarCell.m */; };
+		BCEAFC151C2A394300CB082D /* CourseTeacherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737811BCE45A300987B22 /* CourseTeacherCell.m */; };
+		BCEAFC161C2A394300CB082D /* MOButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C561B1309A800E2446E /* MOButton.m */; };
+		BCEAFC171C2A394300CB082D /* ThirdShareHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF0339E1B4FB1BE005B71D6 /* ThirdShareHelper.m */; };
+		BCEAFC181C2A394300CB082D /* CourseTeacherListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DCFB1BD8F12800D8CDC6 /* CourseTeacherListItemCell.m */; };
+		BCEAFC191C2A394300CB082D /* Environment.m in Sources */ = {isa = PBXBuildFile; fileRef = BC41ABA81B0C715400A419DA /* Environment.m */; };
+		BCEAFC1A1C2A394300CB082D /* MOTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A456F991B2E687700E95756 /* MOTableCell.m */; };
+		BCEAFC1B1C2A394300CB082D /* AvatarImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C951B184EA500E2446E /* AvatarImageView.m */; };
+		BCEAFC1C1C2A394300CB082D /* JSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BCC1BD4DAB9008AE76A /* JSDropDownMenu.m */; };
+		BCEAFC1D1C2A394300CB082D /* FeedSuggestUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC753EBE1BAC07D300D2663C /* FeedSuggestUserCell.m */; };
+		BCEAFC1E1C2A394300CB082D /* IMTokenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF751C117A510064C02F /* IMTokenModel.m */; };
+		BCEAFC1F1C2A394300CB082D /* MLSelectPhotoPickerCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599E21BC61F0C002DE863 /* MLSelectPhotoPickerCollectionView.m */; };
+		BCEAFC201C2A394300CB082D /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C631B130CDB00E2446E /* Account.m */; };
+		BCEAFC211C2A394300CB082D /* LJTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A151BC61F2A002DE863 /* LJTabBar.m */; };
+		BCEAFC221C2A394300CB082D /* FeedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC753EB01BAC07D300D2663C /* FeedListViewController.m */; };
+		BCEAFC231C2A394300CB082D /* AddFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052941BB1709900D81C15 /* AddFeedViewController.m */; };
+		BCEAFC241C2A394300CB082D /* MySuggestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB18891B1865F90098FD5F /* MySuggestModel.m */; };
+		BCEAFC251C2A394300CB082D /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C1241B39117100642648 /* ProductDetailViewController.m */; };
+		BCEAFC261C2A394300CB082D /* MJRefreshHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BC99C9E61BF1A3AE00578EFC /* MJRefreshHelper.m */; };
+		BCEAFC271C2A394300CB082D /* CourseSectionTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC040D0E1BC8E62F00988AB2 /* CourseSectionTitleCell.m */; };
+		BCEAFC281C2A394300CB082D /* CourseListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC040D111BC8EDB600988AB2 /* CourseListItemCell.m */; };
+		BCEAFC291C2A394300CB082D /* TagListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD0BC9C1BF0973600552FFE /* TagListViewController.m */; };
+		BCEAFC2A1C2A394300CB082D /* FeedContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC753EB61BAC07D300D2663C /* FeedContentCell.m */; };
+		BCEAFC2B1C2A394300CB082D /* DatePickerSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A2E1BC61F56002DE863 /* DatePickerSheet.m */; };
+		BCEAFC2C1C2A394300CB082D /* MLSelectPhotoPickerAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599D31BC61F0C002DE863 /* MLSelectPhotoPickerAssetsViewController.m */; };
+		BCEAFC2D1C2A394300CB082D /* CityListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9ECA61B416C3500AEBE1E /* CityListModel.m */; };
+		BCEAFC2E1C2A394300CB082D /* ProductCalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A11C72F1B58B49B00B0CDFE /* ProductCalendarModel.m */; };
+		BCEAFC2F1C2A394300CB082D /* ProductPlayFellowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E80E41B4BBF590028AC47 /* ProductPlayFellowCell.m */; };
+		BCEAFC301C2A394300CB082D /* UserTimelineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC36B1971C28FB5200013E9A /* UserTimelineModel.m */; };
+		BCEAFC311C2A394300CB082D /* IndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737611BCCA9F900987B22 /* IndexModel.m */; };
+		BCEAFC321C2A394300CB082D /* SugTagsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC41ABB81B0F25AB00A419DA /* SugTagsModel.m */; };
+		BCEAFC331C2A394300CB082D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540931ADF74E9005A7C54 /* AppDelegate.m */; };
+		BCEAFC341C2A394300CB082D /* MLSelectPhotoPickerGroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599E81BC61F0C002DE863 /* MLSelectPhotoPickerGroupTableViewCell.m */; };
+		BCEAFC351C2A394300CB082D /* SDWebImageManager+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A371BC61F89002DE863 /* SDWebImageManager+MJ.m */; };
+		BCEAFC361C2A394300CB082D /* CourseNoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737701BCDEFE200987B22 /* CourseNoticeCell.m */; };
+		BCEAFC371C2A394300CB082D /* LeaderProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0BA61B6F77AF004C7B81 /* LeaderProductModel.m */; };
+		BCEAFC381C2A394300CB082D /* GroupNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9C02B71C1EBC3C0019A693 /* GroupNoticeView.m */; };
+		BCEAFC391C2A394300CB082D /* CoursePriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737871BCE4A9E00987B22 /* CoursePriceCell.m */; };
+		BCEAFC3A1C2A394300CB082D /* CourseBookListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DD061BD8FC2500D8CDC6 /* CourseBookListModel.m */; };
+		BCEAFC3B1C2A394300CB082D /* PostOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABDA5B21B42CD4B003BAE80 /* PostOrderModel.m */; };
+		BCEAFC3C1C2A394300CB082D /* BookedCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BF51BD65392008AE76A /* BookedCourseListViewController.m */; };
+		BCEAFC3D1C2A394300CB082D /* OrderPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DEFB1B4B75A8002B1A00 /* OrderPerson.m */; };
+		BCEAFC3E1C2A394300CB082D /* HomeworkList.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737731BCE0E8100987B22 /* HomeworkList.m */; };
+		BCEAFC3F1C2A394300CB082D /* CommonHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A83074C1B327FB40057412A /* CommonHeaderView.m */; };
+		BCEAFC401C2A394300CB082D /* IMGroupMemberModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF821C158F8A0064C02F /* IMGroupMemberModel.m */; };
+		BCEAFC411C2A394300CB082D /* SelectImage.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052ED1BB3F64900D81C15 /* SelectImage.m */; };
+		BCEAFC421C2A394300CB082D /* MLSelectPhotoPickerFooterCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599E61BC61F0C002DE863 /* MLSelectPhotoPickerFooterCollectionReusableView.m */; };
+		BCEAFC431C2A394300CB082D /* OrderContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5A2A671B43E531000595A9 /* OrderContactViewController.m */; };
+		BCEAFC441C2A394300CB082D /* BookSkuListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BD31BD50194008AE76A /* BookSkuListViewController.m */; };
+		BCEAFC451C2A394300CB082D /* OrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0D44561C0551160007E9ED /* OrderDetailViewController.m */; };
+		BCEAFC461C2A394300CB082D /* CommentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC10528B1BB15BAE00D81C15 /* CommentListViewController.m */; };
+		BCEAFC471C2A394300CB082D /* SubjectOrderFillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77378F1BCF91CA00987B22 /* SubjectOrderFillViewController.m */; };
+		BCEAFC481C2A394300CB082D /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1B35E71B12BBAC00E1D31B /* CommentModel.m */; };
+		BCEAFC491C2A394300CB082D /* CacheService.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC2971B5E1F5300D9A82F /* CacheService.m */; };
+		BCEAFC4A1C2A394300CB082D /* MONetworkPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5063961B5385FD00AA233C /* MONetworkPhotoView.m */; };
+		BCEAFC4B1C2A394300CB082D /* CommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBB16BB1BF3374900E273AF /* CommonTableViewCell.m */; };
+		BCEAFC4C1C2A394300CB082D /* SGBaseMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A231BC61F3B002DE863 /* SGBaseMenu.m */; };
+		BCEAFC4D1C2A394300CB082D /* CourseBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77377E1BCE436A00987B22 /* CourseBookCell.m */; };
+		BCEAFC4E1C2A394300CB082D /* MOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540BC1ADF8A09005A7C54 /* MOViewController.m */; };
+		BCEAFC4F1C2A394300CB082D /* BookSkuDateTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BF01BD5F015008AE76A /* BookSkuDateTitleCell.m */; };
+		BCEAFC501C2A394300CB082D /* CustomDarkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8254321B3A76F500430A6F /* CustomDarkButton.m */; };
+		BCEAFC511C2A394300CB082D /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBB16C01BF34B7200E273AF /* UserInfoViewController.m */; };
+		BCEAFC521C2A394300CB082D /* CourseTagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC040D081BC8ABA900988AB2 /* CourseTagsCell.m */; };
+		BCEAFC531C2A394300CB082D /* CityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9EC9F1B4161EE00AEBE1E /* CityManager.m */; };
+		BCEAFC541C2A394300CB082D /* AlipayOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF033981B4F72B0005B71D6 /* AlipayOrder.m */; };
+		BCEAFC551C2A394300CB082D /* MLSelectPhotoPickerBrowserPhotoImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599DC1BC61F0C002DE863 /* MLSelectPhotoPickerBrowserPhotoImageView.m */; };
+		BCEAFC561C2A394300CB082D /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806F21B01C9C700D02A60 /* PersonInfoViewController.m */; };
+		BCEAFC571C2A394300CB082D /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9ECA31B4162B800AEBE1E /* City.m */; };
+		BCEAFC581C2A394300CB082D /* MJPhotoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A051BC61F1B002DE863 /* MJPhotoLoadingView.m */; };
+		BCEAFC591C2A394300CB082D /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC50639C1B53A37200AA233C /* ForgetPasswordViewController.m */; };
+		BCEAFC5A1C2A394300CB082D /* CouponListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD7001B55173800B95B3A /* CouponListItemCell.m */; };
+		BCEAFC5B1C2A394300CB082D /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A191BC61F2A002DE863 /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m */; };
+		BCEAFC5C1C2A394300CB082D /* CourseDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737841BCE49B900987B22 /* CourseDetailModel.m */; };
+		BCEAFC5D1C2A394300CB082D /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806ED1B01A48300D02A60 /* SettingViewController.m */; };
+		BCEAFC5E1C2A394300CB082D /* MLSelectPhotoNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599D11BC61F0C002DE863 /* MLSelectPhotoNavigationViewController.m */; };
+		BCEAFC5F1C2A394300CB082D /* BookCourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DD091BD9D41E00D8CDC6 /* BookCourseDetailViewController.m */; };
+		BCEAFC601C2A394300CB082D /* MJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A0B1BC61F1B002DE863 /* MJPhotoView.m */; };
+		BCEAFC611C2A394300CB082D /* Feed.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1CC9F61BA90A9A001841E7 /* Feed.m */; };
+		BCEAFC621C2A394300CB082D /* AddFeedContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052971BB24E4A00D81C15 /* AddFeedContentCell.m */; };
+		BCEAFC631C2A394300CB082D /* MOStepperGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE4F86A1B3D645E005879B7 /* MOStepperGroup.m */; };
+		BCEAFC641C2A394300CB082D /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA272FB1AE8A2C7002E7534 /* MineViewController.m */; };
+		BCEAFC651C2A394300CB082D /* ProductPlayFellowHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E80DF1B4BBCCD0028AC47 /* ProductPlayFellowHeaderView.m */; };
+		BCEAFC661C2A394300CB082D /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1B35EE1B12BD0500E1D31B /* CommentViewController.m */; };
+		BCEAFC671C2A394300CB082D /* NSURL+MOURL.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273201AE9FB78002E7534 /* NSURL+MOURL.m */; };
+		BCEAFC681C2A394300CB082D /* ChatLocationPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF6C1C0EF45E0064C02F /* ChatLocationPickerViewController.m */; };
+		BCEAFC691C2A394300CB082D /* MJPhotoProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A071BC61F1B002DE863 /* MJPhotoProgressView.m */; };
+		BCEAFC6A1C2A394300CB082D /* CourseBuyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A431BC66447002DE863 /* CourseBuyCell.m */; };
+		BCEAFC6B1C2A394300CB082D /* ChatPublicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF721C0F052D0064C02F /* ChatPublicViewController.m */; };
+		BCEAFC6C1C2A394300CB082D /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A391BC61F89002DE863 /* UITextView+Placeholder.m */; };
+		BCEAFC6D1C2A394300CB082D /* MOLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C981B1858E800E2446E /* MOLabel.m */; };
+		BCEAFC6E1C2A394300CB082D /* LoadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BDE31B4FB6C8004A4511 /* LoadingCell.m */; };
+		BCEAFC6F1C2A394300CB082D /* CashPayTopHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A33F19F1B2EA1D5002A8258 /* CashPayTopHeaderView.m */; };
+		BCEAFC701C2A394300CB082D /* PushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBAFE1B6879100047211D /* PushManager.m */; };
+		BCEAFC711C2A394300CB082D /* CourseBookBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DD031BD8FB7600D8CDC6 /* CourseBookBrowserViewController.m */; };
+		BCEAFC721C2A394300CB082D /* MyFavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC66D3BD1B60F24C00A5BFC6 /* MyFavViewController.m */; };
+		BCEAFC731C2A394300CB082D /* PhotoTitleHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A3E1BC648BF002DE863 /* PhotoTitleHeaderCell.m */; };
+		BCEAFC741C2A394300CB082D /* ShareViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3508FE1BFC4CD40043D37C /* ShareViewCell.m */; };
+		BCEAFC751C2A394300CB082D /* HomeGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A481BC679EF002DE863 /* HomeGridCell.m */; };
+		BCEAFC761C2A394300CB082D /* MyOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9089811B58983300A8D85B /* MyOrderListViewController.m */; };
+		BCEAFC771C2A394300CB082D /* BookSkuItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BDC1BD5D8FB008AE76A /* BookSkuItemCell.m */; };
+		BCEAFC781C2A394300CB082D /* SkuListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737941BCF9C1E00987B22 /* SkuListModel.m */; };
+		BCEAFC791C2A394300CB082D /* GroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC36B1941C28005300013E9A /* GroupListViewController.m */; };
+		BCEAFC7A1C2A394300CB082D /* WechatPayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DF051B4BE21F002B1A00 /* WechatPayModel.m */; };
+		BCEAFC7B1C2A394300CB082D /* PayChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DEFE1B4BCFF1002B1A00 /* PayChannel.m */; };
+		BCEAFC7C1C2A394300CB082D /* SubjectList.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77378C1BCE6AD200987B22 /* SubjectList.m */; };
+		BCEAFC7D1C2A394300CB082D /* AddCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1601E01BB0EC55005F11FD /* AddCommentViewController.m */; };
+		BCEAFC7E1C2A394300CB082D /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1B35F51B12C0D200E1D31B /* CommentCell.m */; };
+		BCEAFC7F1C2A394300CB082D /* MLPhotoPickerImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599DA1BC61F0C002DE863 /* MLPhotoPickerImageView.m */; };
+		BCEAFC801C2A394300CB082D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8540901ADF74E9005A7C54 /* main.m */; };
+		BCEAFC811C2A394300CB082D /* PayCheckModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DF101B4D463C002B1A00 /* PayCheckModel.m */; };
+		BCEAFC821C2A394300CB082D /* UserInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBB16C31BF5898A00E273AF /* UserInfoHeaderView.m */; };
+		BCEAFC831C2A394300CB082D /* OrderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A794F931B4E68C900BB3B7C /* OrderDetailModel.m */; };
+		BCEAFC841C2A394300CB082D /* ProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8EF03C1B31619E003ABAF8 /* ProductModel.m */; };
+		BCEAFC851C2A394300CB082D /* LJViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A171BC61F2A002DE863 /* LJViewPager.m */; };
+		BCEAFC861C2A394300CB082D /* IMGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF7C1C1186180064C02F /* IMGroupModel.m */; };
+		BCEAFC871C2A394300CB082D /* SubjectTabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3509061BFDD1830043D37C /* SubjectTabCell.m */; };
+		BCEAFC881C2A394300CB082D /* MLSelectPhotoPickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599E41BC61F0C002DE863 /* MLSelectPhotoPickerCollectionViewCell.m */; };
+		BCEAFC891C2A394300CB082D /* ProductCalendarMonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599B91BC61ED7002DE863 /* ProductCalendarMonthViewController.m */; };
+		BCEAFC8A1C2A394300CB082D /* SGAlertMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A211BC61F3B002DE863 /* SGAlertMenu.m */; };
+		BCEAFC8B1C2A394300CB082D /* MLSelectPhotoPickerBrowserPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599E01BC61F0C002DE863 /* MLSelectPhotoPickerBrowserPhotoView.m */; };
+		BCEAFC8C1C2A394300CB082D /* MOTagLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBADD1B662E590047211D /* MOTagLabel.m */; };
+		BCEAFC8D1C2A394300CB082D /* CourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCDC6E81BBA9661007C2F57 /* CourseDetailViewController.m */; };
+		BCEAFC8E1C2A394300CB082D /* SubmitPostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9FFC81B17020300C769EF /* SubmitPostModel.m */; };
+		BCEAFC8F1C2A394300CB082D /* AddReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF74AB51BE895AD00138C2C /* AddReviewViewController.m */; };
+		BCEAFC901C2A394300CB082D /* SubjectDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77376D1BCD12CB00987B22 /* SubjectDetailModel.m */; };
+		BCEAFC911C2A394300CB082D /* LeaderSkuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0BAF1B70B361004C7B81 /* LeaderSkuModel.m */; };
+		BCEAFC921C2A394300CB082D /* MORootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82542A1B3917AC00430A6F /* MORootViewController.m */; };
+		BCEAFC931C2A394300CB082D /* PostPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABDA57A1B423FD8003BAE80 /* PostPersonModel.m */; };
+		BCEAFC941C2A394300CB082D /* IMUserGroupListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF7F1C118FBA0064C02F /* IMUserGroupListModel.m */; };
+		BCEAFC951C2A394300CB082D /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82543E1B3C26E400430A6F /* LocationService.m */; };
+		BCEAFC961C2A394300CB082D /* ConvertFromXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AABF70E1B281BEF000A9D3F /* ConvertFromXib.m */; };
+		BCEAFC971C2A394300CB082D /* PersonChildHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564E21B4A54D0003A2227 /* PersonChildHeaderCell.m */; };
+		BCEAFC981C2A394300CB082D /* CashPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A33F1901B2E9FC5002A8258 /* CashPayViewController.m */; };
+		BCEAFC991C2A394300CB082D /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF691C0EDEF30064C02F /* ChatViewController.m */; };
+		BCEAFC9A1C2A394300CB082D /* DateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC2931B58EFD200D9A82F /* DateManager.m */; };
+		BCEAFC9B1C2A394300CB082D /* AddOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABDA57D1B42625B003BAE80 /* AddOrderModel.m */; };
+		BCEAFC9C1C2A394300CB082D /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA0E1AFCA92D00E2071E /* UIView+Frame.m */; };
+		BCEAFC9D1C2A394300CB082D /* NSDate+Age.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E811B1B4BDF560028AC47 /* NSDate+Age.m */; };
+		BCEAFC9E1C2A394300CB082D /* FeedbackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5275C1B53C7A300D01E1F /* FeedbackCell.m */; };
+		BCEAFC9F1C2A394300CB082D /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A001BC61F1B002DE863 /* MJPhoto.m */; };
+		BCEAFCA01C2A394300CB082D /* LeaderStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0B981B6F3F2C004C7B81 /* LeaderStatusModel.m */; };
+		BCEAFCA11C2A394300CB082D /* MJPhotoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A091BC61F1B002DE863 /* MJPhotoToolbar.m */; };
+		BCEAFCA21C2A394300CB082D /* BookableCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BBC1BD48FAC008AE76A /* BookableCourseListViewController.m */; };
+		BCEAFCA31C2A394300CB082D /* MJPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A031BC61F1B002DE863 /* MJPhotoBrowser.m */; };
+		BCEAFCA41C2A394300CB082D /* MOTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7708501AFAFD54000068A8 /* MOTableViewController.m */; };
+		BCEAFCA51C2A394300CB082D /* SubjectBuyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0D444C1C0465210007E9ED /* SubjectBuyCell.m */; };
+		BCEAFCA61C2A394300CB082D /* LoadingErrorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BDE81B4FB7ED004A4511 /* LoadingErrorCell.m */; };
+		BCEAFCA71C2A394300CB082D /* AddFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = BC10529C1BB2580A00D81C15 /* AddFeed.m */; };
+		BCEAFCA81C2A394300CB082D /* NSString+Predicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5A2AA31B4412FC000595A9 /* NSString+Predicate.m */; };
+		BCEAFCA91C2A394300CB082D /* ProductDetailCarouselCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C12B1B39117100642648 /* ProductDetailCarouselCell.m */; };
+		BCEAFCAA1C2A394300CB082D /* AlipayOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF0339B1B4F77BE005B71D6 /* AlipayOrderModel.m */; };
+		BCEAFCAB1C2A394300CB082D /* PackageHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0D44511C046F120007E9ED /* PackageHeaderCell.m */; };
+		BCEAFCAC1C2A394300CB082D /* ProductDetailTagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1BDDD1B4F9B49004A4511 /* ProductDetailTagsCell.m */; };
+		BCEAFCAD1C2A394300CB082D /* MCAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A321BC61F68002DE863 /* MCAvatarView.m */; };
+		BCEAFCAE1C2A394300CB082D /* CoursePoiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737791BCE2C0C00987B22 /* CoursePoiCell.m */; };
+		BCEAFCAF1C2A394300CB082D /* FeedListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1CC9F91BA910AF001841E7 /* FeedListModel.m */; };
+		BCEAFCB01C2A394300CB082D /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBB16C81BF5B8B100E273AF /* UserInfoModel.m */; };
+		BCEAFCB11C2A394300CB082D /* OrderListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564DF1B491799003A2227 /* OrderListItemCell.m */; };
+		BCEAFCB21C2A394300CB082D /* NSString+MOURLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA2731D1AE9FB1D002E7534 /* NSString+MOURLEncode.m */; };
+		BCEAFCB31C2A394300CB082D /* SGSheetMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A271BC61F3B002DE863 /* SGSheetMenu.m */; };
+		BCEAFCB41C2A394300CB082D /* PayTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DF261B4E4AA4002B1A00 /* PayTool.m */; };
+		BCEAFCB51C2A394300CB082D /* PayResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DF191B4E1DF0002B1A00 /* PayResultViewController.m */; };
+		BCEAFCB61C2A394300CB082D /* CourseList.m in Sources */ = {isa = PBXBuildFile; fileRef = BC77376A1BCD0B1200987B22 /* CourseList.m */; };
+		BCEAFCB71C2A394300CB082D /* ChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF3A1C0E90F70064C02F /* ChatListViewController.m */; };
+		BCEAFCB81C2A394300CB082D /* CourseDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0D44491C031ACE0007E9ED /* CourseDetailCell.m */; };
+		BCEAFCB91C2A394300CB082D /* ReviewListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF74ACB1BEC98ED00138C2C /* ReviewListViewController.m */; };
+		BCEAFCBA1C2A394300CB082D /* CouponShareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3509031BFC4FBE0043D37C /* CouponShareModel.m */; };
+		BCEAFCBB1C2A394300CB082D /* ConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2E68301BA0129200175E2D /* ConfigModel.m */; };
+		BCEAFCBC1C2A394300CB082D /* PlayFellowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E80D71B4BB2450028AC47 /* PlayFellowModel.m */; };
+		BCEAFCBD1C2A394300CB082D /* AccountService.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C671B131ED500E2446E /* AccountService.m */; };
+		BCEAFCBE1C2A394300CB082D /* MLSelectPhotoAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599C61BC61F0C002DE863 /* MLSelectPhotoAssets.m */; };
+		BCEAFCBF1C2A394300CB082D /* MLSelectPhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599D71BC61F0C002DE863 /* MLSelectPhotoPickerViewController.m */; };
+		BCEAFCC01C2A394300CB082D /* AddReviewRatingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF74AB81BE8982400138C2C /* AddReviewRatingCell.m */; };
+		BCEAFCC11C2A394300CB082D /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3508F91BFB3A740043D37C /* ShareViewController.m */; };
+		BCEAFCC21C2A394300CB082D /* MLSelectPhotoPickerGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599D51BC61F0C002DE863 /* MLSelectPhotoPickerGroupViewController.m */; };
+		BCEAFCC31C2A394300CB082D /* SubjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599B31BC61DD0002DE863 /* SubjectDetailViewController.m */; };
+		BCEAFCC41C2A394300CB082D /* FavouriteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DBE591B18577900E708AC /* FavouriteModel.m */; };
+		BCEAFCC51C2A394300CB082D /* CouponListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD6FD1B55170A00B95B3A /* CouponListViewController.m */; };
+		BCEAFCC61C2A394300CB082D /* SGActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A1F1BC61F3B002DE863 /* SGActionView.m */; };
+		BCEAFCC71C2A394300CB082D /* ProductPlayFellowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E80DA1B4BBB1F0028AC47 /* ProductPlayFellowViewController.m */; };
+		BCEAFCC81C2A394300CB082D /* HttpService.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38D2431AFEEA300051C7E9 /* HttpService.m */; };
+		BCEAFCC91C2A394300CB082D /* AccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C791B141A3D00E2446E /* AccountModel.m */; };
+		BCEAFCCA1C2A394300CB082D /* SkuItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737981BCFAA1500987B22 /* SkuItemCell.m */; };
+		BCEAFCCB1C2A394300CB082D /* OrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DD0C1BDA218B00D8CDC6 /* OrderListViewController.m */; };
+		BCEAFCCC1C2A394300CB082D /* FeedSuggestHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC753EBB1BAC07D300D2663C /* FeedSuggestHeadCell.m */; };
+		BCEAFCCD1C2A394300CB082D /* MyFavCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC66D3C31B60FBBE00A5BFC6 /* MyFavCell.m */; };
+		BCEAFCCE1C2A394300CB082D /* FeedListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0D44441C02FBD50007E9ED /* FeedListItemCell.m */; };
+		BCEAFCCF1C2A394300CB082D /* TopicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC10529F1BB2B33700D81C15 /* TopicListViewController.m */; };
+		BCEAFCD01C2A394300CB082D /* CourseTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0D443F1C02C2850007E9ED /* CourseTitleCell.m */; };
+		BCEAFCD11C2A394300CB082D /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564C81B43EAB2003A2227 /* UIButton+Block.m */; };
+		BCEAFCD21C2A394300CB082D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBB16CB1BF5CC6200E273AF /* User.m */; };
+		BCEAFCD31C2A394300CB082D /* StringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5063991B539F0300AA233C /* StringUtils.m */; };
+		BCEAFCD41C2A394300CB082D /* MLSelectPhotoPickerDatas.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599CA1BC61F0C002DE863 /* MLSelectPhotoPickerDatas.m */; };
+		BCEAFCD51C2A394300CB082D /* CityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9ECA91B4171EC00AEBE1E /* CityListViewController.m */; };
+		BCEAFCD61C2A394300CB082D /* NSString+MOEncrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = BC829A851B53CE850056BE61 /* NSString+MOEncrypt.m */; };
+		BCEAFCD71C2A394300CB082D /* UserTimelineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC36B19A1C293FB700013E9A /* UserTimelineCell.m */; };
+		BCEAFCD81C2A394300CB082D /* TopicListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052A21BB394CE00D81C15 /* TopicListCell.m */; };
+		BCEAFCD91C2A394300CB082D /* IMUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF791C1184A20064C02F /* IMUserModel.m */; };
+		BCEAFCDA1C2A394300CB082D /* UIView+MLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599C11BC61F0C002DE863 /* UIView+MLExtension.m */; };
+		BCEAFCDB1C2A394300CB082D /* FillOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE4F82C1B3CF21B005879B7 /* FillOrderModel.m */; };
+		BCEAFCDC1C2A394300CB082D /* ProductDetailContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8FF96F1B450FA5007A8CA4 /* ProductDetailContentCell.m */; };
+		BCEAFCDD1C2A394300CB082D /* ProductCalendarWeekendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A11C7281B589BB600B0CDFE /* ProductCalendarWeekendViewController.m */; };
+		BCEAFCDE1C2A394300CB082D /* ProductDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C1491B3911CA00642648 /* ProductDetailModel.m */; };
+		BCEAFCDF1C2A394300CB082D /* Notice.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737671BCD096E00987B22 /* Notice.m */; };
+		BCEAFCE01C2A394300CB082D /* FeedZanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC753ECA1BAC07D300D2663C /* FeedZanCell.m */; };
+		BCEAFCE11C2A394300CB082D /* MOWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFC2C321AF9C09400164BC2 /* MOWebViewController.m */; };
+		BCEAFCE21C2A394300CB082D /* Subject.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3504911BD0F865009A24B0 /* Subject.m */; };
+		BCEAFCE31C2A394300CB082D /* UIImage+MLTint.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599BF1BC61F0C002DE863 /* UIImage+MLTint.m */; };
+		BCEAFCE41C2A394300CB082D /* CourseTeacherListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DCF81BD8F0E200D8CDC6 /* CourseTeacherListViewController.m */; };
+		BCEAFCE51C2A394300CB082D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A18DC491B295C03001458A4 /* HomeViewController.m */; };
+		BCEAFCE61C2A394300CB082D /* FeedUgcCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC753EC41BAC07D300D2663C /* FeedUgcCell.m */; };
+		BCEAFCE71C2A394300CB082D /* FeedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC753EAE1BAC07D300D2663C /* FeedDetailViewController.m */; };
+		BCEAFCE81C2A394300CB082D /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C8E1B18075D00E2446E /* UIImage+Color.m */; };
+		BCEAFCE91C2A394300CB082D /* BookingSubjectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BB91BD489DE008AE76A /* BookingSubjectListViewController.m */; };
+		BCEAFCEA1C2A394300CB082D /* Coupon.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD6F71B5516DB00B95B3A /* Coupon.m */; };
+		BCEAFCEB1C2A394300CB082D /* Child.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564CE1B4632A1003A2227 /* Child.m */; };
+		BCEAFCEC1C2A394300CB082D /* ConfigService.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0B941B6F0190004C7B81 /* ConfigService.m */; };
+		BCEAFCED1C2A394300CB082D /* OrderPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB444811B41479800FBADD4 /* OrderPersonModel.m */; };
+		BCEAFCEE1C2A394300CB082D /* MOStepperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE4F8651B3D642B005879B7 /* MOStepperView.m */; };
+		BCEAFCEF1C2A394300CB082D /* CourseSkuListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BD61BD50564008AE76A /* CourseSkuListModel.m */; };
+		BCEAFCF01C2A394300CB082D /* MLSelectPhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599CF1BC61F0C002DE863 /* MLSelectPhotoBrowserViewController.m */; };
+		BCEAFCF11C2A394300CB082D /* AlertNotice.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2144571B0C6A8A0072682F /* AlertNotice.m */; };
+		BCEAFCF21C2A394300CB082D /* BookingSubjectListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BC21BD4C55F008AE76A /* BookingSubjectListModel.m */; };
+		BCEAFCF31C2A394300CB082D /* UpdatePersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9B8241B416CDB00265C67 /* UpdatePersonModel.m */; };
+		BCEAFCF41C2A394300CB082D /* ReviewListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF74AC31BEB5C8C00138C2C /* ReviewListModel.m */; };
+		BCEAFCF51C2A394300CB082D /* SendCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1B35F21B12BE2400E1D31B /* SendCommentView.m */; };
+		BCEAFCF61C2A394300CB082D /* NSString+MOAttribuedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8EF03F1B31A4A2003ABAF8 /* NSString+MOAttribuedString.m */; };
+		BCEAFCF71C2A394300CB082D /* UploadImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC41ABAC1B0C7ABF00A419DA /* UploadImageModel.m */; };
+		BCEAFCF81C2A394300CB082D /* TopicListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052A71BB3955800D81C15 /* TopicListModel.m */; };
+		BCEAFCF91C2A394300CB082D /* UITableView+FDTemplateLayoutHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A18DC461B292BDF001458A4 /* UITableView+FDTemplateLayoutHeader.m */; };
+		BCEAFCFA1C2A394300CB082D /* ProductDetailBasicInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C1281B39117100642648 /* ProductDetailBasicInfoCell.m */; };
+		BCEAFCFB1C2A394300CB082D /* MLSelectPhotoPickerGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599CC1BC61F0C002DE863 /* MLSelectPhotoPickerGroup.m */; };
+		BCEAFCFC1C2A394300CB082D /* ThirdAccountHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCDF67F1B0C331B008BAE12 /* ThirdAccountHelper.m */; };
+		BCEAFCFD1C2A394300CB082D /* MONavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273231AEB166E002E7534 /* MONavigationController.m */; };
+		BCEAFCFE1C2A394300CB082D /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBAF71B6868930047211D /* AboutViewController.m */; };
+		BCEAFCFF1C2A394300CB082D /* CourseListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BD01BD4DCD2008AE76A /* CourseListModel.m */; };
+		BCEAFD001C2A394300CB082D /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C741B140BF100E2446E /* RegisterViewController.m */; };
+		BCEAFD011C2A394300CB082D /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564D91B48FE90003A2227 /* Order.m */; };
+		BCEAFD021C2A394300CB082D /* FeedDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC753EAA1BAAD15900D2663C /* FeedDetailModel.m */; };
+		BCEAFD031C2A394300CB082D /* CouponListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD6F91B5516DB00B95B3A /* CouponListModel.m */; };
+		BCEAFD041C2A394300CB082D /* BookSkuMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BE11BD5E33A008AE76A /* BookSkuMoreCell.m */; };
+		BCEAFD051C2A394300CB082D /* FeedTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC753EC11BAC07D300D2663C /* FeedTitleCell.m */; };
+		BCEAFD061C2A394300CB082D /* FeedUserHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC753EC71BAC07D300D2663C /* FeedUserHeadCell.m */; };
+		BCEAFD071C2A394300CB082D /* ChatGroupMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF851C15910C0064C02F /* ChatGroupMemberViewController.m */; };
+		BCEAFD081C2A394300CB082D /* CouponPriceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0BD7051B5518F000B95B3A /* CouponPriceModel.m */; };
+		BCEAFD091C2A394300CB082D /* SGGridMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A251BC61F3B002DE863 /* SGGridMenu.m */; };
+		BCEAFD0A1C2A394300CB082D /* BookingSubjectItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BC51BD4CC81008AE76A /* BookingSubjectItemCell.m */; };
+		BCEAFD0B1C2A394300CB082D /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2FAA151AFCB2EE00E2071E /* BaseModel.m */; };
+		BCEAFD0C1C2A394300CB082D /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052881BB1530200D81C15 /* Toast.m */; };
+		BCEAFD0D1C2A394300CB082D /* FeedCommentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052911BB15E4C00D81C15 /* FeedCommentListModel.m */; };
+		BCEAFD0E1C2A394300CB082D /* FeedComment.m in Sources */ = {isa = PBXBuildFile; fileRef = BC10528E1BB15DA400D81C15 /* FeedComment.m */; };
+		BCEAFD0F1C2A394300CB082D /* HomeCarouselCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A18DC571B297431001458A4 /* HomeCarouselCell.m */; };
+		BCEAFD101C2A394300CB082D /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A18DC5C1B2996B9001458A4 /* HomeCell.m */; };
+		BCEAFD111C2A394300CB082D /* WechatPayData.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DF021B4BE1EF002B1A00 /* WechatPayData.m */; };
+		BCEAFD121C2A394300CB082D /* ActivityWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFC2C361AF9C6B800164BC2 /* ActivityWebViewController.m */; };
+		BCEAFD131C2A394300CB082D /* ReviewList.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF74AC01BEB5AFA00138C2C /* ReviewList.m */; };
+		BCEAFD141C2A394300CB082D /* FeedMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC753EB81BAC07D300D2663C /* FeedMoreCell.m */; };
+		BCEAFD151C2A394300CB082D /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC38D2371AFEE2B50051C7E9 /* HomeModel.m */; };
+		BCEAFD161C2A394300CB082D /* BookCourseListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DD0F1BDA3BC000D8CDC6 /* BookCourseListItemCell.m */; };
+		BCEAFD171C2A394300CB082D /* MOTabHost.m in Sources */ = {isa = PBXBuildFile; fileRef = BC90897E1B5797D800A8D85B /* MOTabHost.m */; };
+		BCEAFD181C2A394300CB082D /* MOGroupStyleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C8B1B15AF6E00E2446E /* MOGroupStyleTableViewController.m */; };
+		BCEAFD191C2A394300CB082D /* GroupMemberItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF881C15931C0064C02F /* GroupMemberItemCell.m */; };
+		BCEAFD1A1C2A394300CB082D /* FeedCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC753EB31BAC07D300D2663C /* FeedCommentCell.m */; };
+		BCEAFD1B1C2A394300CB082D /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9FFCB1B17298C00C769EF /* FeedbackViewController.m */; };
+		BCEAFD1C1C2A394300CB082D /* CourseTeacherListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DD001BD8F15000D8CDC6 /* CourseTeacherListModel.m */; };
+		BCEAFD1D1C2A394300CB082D /* ChatUserFeedPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8B9A001C1AB61300EE39A2 /* ChatUserFeedPhotoCell.m */; };
+		BCEAFD1F1C2A394300CB082D /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8B9A0A1C1AD53100EE39A2 /* RongIMLib.framework */; };
+		BCEAFD201C2A394300CB082D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC77375A1BCB94BB00987B22 /* OpenGLES.framework */; };
+		BCEAFD211C2A394300CB082D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC79DF541C0EC5B90064C02F /* MapKit.framework */; };
+		BCEAFD221C2A394300CB082D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BC79DF521C0EC5B10064C02F /* libz.tbd */; };
+		BCEAFD231C2A394300CB082D /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BC79DF501C0EC59D0064C02F /* libxml2.tbd */; };
+		BCEAFD241C2A394300CB082D /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BC79DF4E1C0EC5920064C02F /* libstdc++.tbd */; };
+		BCEAFD251C2A394300CB082D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BC79DF4C1C0EC5860064C02F /* libsqlite3.tbd */; };
+		BCEAFD261C2A394300CB082D /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BC79DF4A1C0EC5770064C02F /* libc++abi.tbd */; };
+		BCEAFD271C2A394300CB082D /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BC79DF481C0EC5650064C02F /* libc++.tbd */; };
+		BCEAFD281C2A394300CB082D /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC79DF461C0EC4700064C02F /* ImageIO.framework */; };
+		BCEAFD291C2A394300CB082D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC79DF441C0EC3B90064C02F /* CoreVideo.framework */; };
+		BCEAFD2A1C2A394300CB082D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC79DF421C0EC3A20064C02F /* CoreMedia.framework */; };
+		BCEAFD2B1C2A394300CB082D /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC79DF401C0EC38E0064C02F /* CoreAudio.framework */; };
+		BCEAFD2C1C2A394300CB082D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1CC9EF1BA7E4AD001841E7 /* AVFoundation.framework */; };
+		BCEAFD2D1C2A394300CB082D /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8B9A061C1AD53100EE39A2 /* libopencore-amrnb.a */; };
+		BCEAFD2E1C2A394300CB082D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC79DF3E1C0EC36B0064C02F /* AudioToolbox.framework */; };
+		BCEAFD2F1C2A394300CB082D /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC79DF3C1C0EC3610064C02F /* AssetsLibrary.framework */; };
+		BCEAFD301C2A394300CB082D /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5CF2F61BB5275B00EC5227 /* AlipaySDK.framework */; };
+		BCEAFD311C2A394300CB082D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1CC9ED1BA7E49F001841E7 /* CoreLocation.framework */; };
+		BCEAFD321C2A394300CB082D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC38D2921B09B8DC0051C7E9 /* SystemConfiguration.framework */; };
+		BCEAFD331C2A394300CB082D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCDF6751B0B4F97008BAE12 /* CoreGraphics.framework */; };
+		BCEAFD341C2A394300CB082D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCDF6731B0B4F90008BAE12 /* Foundation.framework */; };
+		BCEAFD351C2A394300CB082D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCDF6711B0B4F82008BAE12 /* UIKit.framework */; };
+		BCEAFD361C2A394300CB082D /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCDF66F1B0B4F7A008BAE12 /* CoreText.framework */; };
+		BCEAFD371C2A394300CB082D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC38D2901B09B8B30051C7E9 /* Security.framework */; };
+		BCEAFD381C2A394300CB082D /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCDF65A1B0B1ED5008BAE12 /* libicucore.dylib */; };
+		BCEAFD391C2A394300CB082D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCDF6581B0B1ECB008BAE12 /* CoreTelephony.framework */; };
+		BCEAFD3A1C2A394300CB082D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCDF6561B0B1EC0008BAE12 /* QuartzCore.framework */; };
+		BCEAFD3B1C2A394300CB082D /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5CF2FA1BB53E6400EC5227 /* libWeChatSDK.a */; };
+		BCEAFD3C1C2A394300CB082D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC38D2941B09B8E50051C7E9 /* CFNetwork.framework */; };
+		BCEAFD3D1C2A394300CB082D /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCDF6621B0B4E4C008BAE12 /* libWeiboSDK.a */; };
+		BCEAFD3E1C2A394300CB082D /* BaiduMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC7737581BCB92A400987B22 /* BaiduMapAPI.framework */; };
+		BCEAFD3F1C2A394300CB082D /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8B9A091C1AD53100EE39A2 /* RongIMKit.framework */; };
+		BCEAFD401C2A394300CB082D /* libGeTuiSdk-1.2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1CC9EB1BA7E228001841E7 /* libGeTuiSdk-1.2.1.a */; };
+		BCEAFD411C2A394300CB082D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9DF4BE98C18CC18BDADCD8 /* libPods.a */; };
+		BCEAFD431C2A394300CB082D /* CourseListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC040D121BC8EDB600988AB2 /* CourseListItemCell.xib */; };
+		BCEAFD441C2A394300CB082D /* ProductDetailEnrollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A08C1321B39117100642648 /* ProductDetailEnrollCell.xib */; };
+		BCEAFD451C2A394300CB082D /* FeedUgcCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC753EC51BAC07D300D2663C /* FeedUgcCell.xib */; };
+		BCEAFD461C2A394300CB082D /* SettingMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A6806EF1B01A9BD00D02A60 /* SettingMsgCell.xib */; };
+		BCEAFD471C2A394300CB082D /* FeedSuggestHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC753EBC1BAC07D300D2663C /* FeedSuggestHeadCell.xib */; };
+		BCEAFD481C2A394300CB082D /* ico_make.png in Resources */ = {isa = PBXBuildFile; fileRef = BCFC9E961BD890FC003D9EA3 /* ico_make.png */; };
+		BCEAFD491C2A394300CB082D /* UserInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCBB16C41BF5898A00E273AF /* UserInfoHeaderView.xib */; };
+		BCEAFD4A1C2A394300CB082D /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BC5CF2F51BB5275B00EC5227 /* AlipaySDK.bundle */; };
+		BCEAFD4B1C2A394300CB082D /* MLSelectPhoto.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BC3599E91BC61F0C002DE863 /* MLSelectPhoto.bundle */; };
+		BCEAFD4C1C2A394300CB082D /* CouponListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC0BD7011B55173800B95B3A /* CouponListItemCell.xib */; };
+		BCEAFD4D1C2A394300CB082D /* GroupMemberItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC79DF891C15931C0064C02F /* GroupMemberItemCell.xib */; };
+		BCEAFD4E1C2A394300CB082D /* PersonLogoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A6806F41B01CEF700D02A60 /* PersonLogoCell.xib */; };
+		BCEAFD4F1C2A394300CB082D /* CommonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCBB16BC1BF3374900E273AF /* CommonTableViewCell.xib */; };
+		BCEAFD501C2A394300CB082D /* RegisterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC8254371B3AB01E00430A6F /* RegisterCell.xib */; };
+		BCEAFD511C2A394300CB082D /* SubjectOrderFillViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7737901BCF91CA00987B22 /* SubjectOrderFillViewController.xib */; };
+		BCEAFD521C2A394300CB082D /* OrderListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF564D61B48E1E7003A2227 /* OrderListItemCell.xib */; };
+		BCEAFD531C2A394300CB082D /* FeedUserHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC753EC81BAC07D300D2663C /* FeedUserHeadCell.xib */; };
+		BCEAFD541C2A394300CB082D /* MineInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */; };
+		BCEAFD551C2A394300CB082D /* CashPayBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A33F1961B2EA0A4002A8258 /* CashPayBottomCell.xib */; };
+		BCEAFD561C2A394300CB082D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC85409B1ADF74E9005A7C54 /* Images.xcassets */; };
+		BCEAFD571C2A394300CB082D /* BookingSubjectItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC592BC61BD4CC81008AE76A /* BookingSubjectItemCell.xib */; };
+		BCEAFD581C2A394300CB082D /* PersonChildHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF564E31B4A54D0003A2227 /* PersonChildHeaderCell.xib */; };
+		BCEAFD591C2A394300CB082D /* TopicListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1052A31BB394CE00D81C15 /* TopicListCell.xib */; };
+		BCEAFD5A1C2A394300CB082D /* FeedZanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC753ECB1BAC07D300D2663C /* FeedZanCell.xib */; };
+		BCEAFD5B1C2A394300CB082D /* ProductDetailTagsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB1BDDE1B4F9B49004A4511 /* ProductDetailTagsCell.xib */; };
+		BCEAFD5C1C2A394300CB082D /* ReviewListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF74AC71BEB643400138C2C /* ReviewListItemCell.xib */; };
+		BCEAFD5D1C2A394300CB082D /* FeedbackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AD5275D1B53C7A300D01E1F /* FeedbackCell.xib */; };
+		BCEAFD5E1C2A394300CB082D /* release_notes_ios.txt in Resources */ = {isa = PBXBuildFile; fileRef = BC8B9A071C1AD53100EE39A2 /* release_notes_ios.txt */; };
+		BCEAFD5F1C2A394300CB082D /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB1BDE41B4FB6C8004A4511 /* LoadingCell.xib */; };
+		BCEAFD601C2A394300CB082D /* CourseTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC0D44401C02C2850007E9ED /* CourseTitleCell.xib */; };
+		BCEAFD611C2A394300CB082D /* FeedCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC753EB41BAC07D300D2663C /* FeedCommentCell.xib */; };
+		BCEAFD621C2A394300CB082D /* RongCloudKit.strings in Resources */ = {isa = PBXBuildFile; fileRef = BC8B9A041C1AD53100EE39A2 /* RongCloudKit.strings */; };
+		BCEAFD631C2A394300CB082D /* OrderContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A5A2AA01B43EEF3000595A9 /* OrderContactCell.xib */; };
+		BCEAFD641C2A394300CB082D /* FeedTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC753EC21BAC07D300D2663C /* FeedTitleCell.xib */; };
+		BCEAFD651C2A394300CB082D /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A08C1251B39117100642648 /* ProductDetailViewController.xib */; };
+		BCEAFD661C2A394300CB082D /* HomeCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A18DC591B29828F001458A4 /* HomeCarouselCell.xib */; };
+		BCEAFD671C2A394300CB082D /* MJPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BC359A011BC61F1B002DE863 /* MJPhotoBrowser.bundle */; };
+		BCEAFD681C2A394300CB082D /* AboutHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7CBAFB1B68698A0047211D /* AboutHeaderView.xib */; };
+		BCEAFD691C2A394300CB082D /* CourseBuyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC359A441BC66447002DE863 /* CourseBuyCell.xib */; };
+		BCEAFD6A1C2A394300CB082D /* ProductDetailBasicInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A08C1291B39117100642648 /* ProductDetailBasicInfoCell.xib */; };
+		BCEAFD6B1C2A394300CB082D /* MyFavCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC66D3C41B60FBBE00A5BFC6 /* MyFavCell.xib */; };
+		BCEAFD6C1C2A394300CB082D /* ProductPlayFellowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A9E80E51B4BBF590028AC47 /* ProductPlayFellowCell.xib */; };
+		BCEAFD6D1C2A394300CB082D /* PhotoTitleHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC359A3F1BC648BF002DE863 /* PhotoTitleHeaderCell.xib */; };
+		BCEAFD6E1C2A394300CB082D /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = BC5CF2FB1BB53E6400EC5227 /* read_me.txt */; };
+		BCEAFD6F1C2A394300CB082D /* CourseSectionTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC040D151BC9176000988AB2 /* CourseSectionTitleCell.xib */; };
+		BCEAFD701C2A394300CB082D /* Emoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC8B9A031C1AD53100EE39A2 /* Emoji.plist */; };
+		BCEAFD711C2A394300CB082D /* mapping.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCA2730F1AE9D79F002E7534 /* mapping.plist */; };
+		BCEAFD721C2A394300CB082D /* ForgetPasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC50639E1B53A3A000AA233C /* ForgetPasswordCell.xib */; };
+		BCEAFD731C2A394300CB082D /* AddReviewRatingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF74AB91BE8982400138C2C /* AddReviewRatingCell.xib */; };
+		BCEAFD741C2A394300CB082D /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BC8B9A081C1AD53100EE39A2 /* RongCloud.bundle */; };
+		BCEAFD751C2A394300CB082D /* CoursePriceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7737881BCE4A9E00987B22 /* CoursePriceCell.xib */; };
+		BCEAFD761C2A394300CB082D /* PackageHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC0D44521C046F120007E9ED /* PackageHeaderCell.xib */; };
+		BCEAFD771C2A394300CB082D /* CashPayTopHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A33F1A01B2EA1D5002A8258 /* CashPayTopHeaderView.xib */; };
+		BCEAFD781C2A394300CB082D /* MOStepperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE4F8661B3D642B005879B7 /* MOStepperView.xib */; };
+		BCEAFD791C2A394300CB082D /* LoginCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC8254351B3AA0A500430A6F /* LoginCell.xib */; };
+		BCEAFD7A1C2A394300CB082D /* FeedMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC753EB91BAC07D300D2663C /* FeedMoreCell.xib */; };
+		BCEAFD7B1C2A394300CB082D /* LoadingErrorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AB1BDE91B4FB7ED004A4511 /* LoadingErrorCell.xib */; };
+		BCEAFD7C1C2A394300CB082D /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A33F1A71B2EBC2F002A8258 /* TitleView.xib */; };
+		BCEAFD7D1C2A394300CB082D /* SubjectTabCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3509071BFDD1830043D37C /* SubjectTabCell.xib */; };
+		BCEAFD7E1C2A394300CB082D /* UserTimelineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC36B19B1C293FB700013E9A /* UserTimelineCell.xib */; };
+		BCEAFD7F1C2A394300CB082D /* SubjectBuyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC0D444D1C0465210007E9ED /* SubjectBuyCell.xib */; };
+		BCEAFD801C2A394300CB082D /* FeedDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1601DD1BB00459005F11FD /* FeedDetailViewController.xib */; };
+		BCEAFD811C2A394300CB082D /* BookSkuDateTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC592BF11BD5F015008AE76A /* BookSkuDateTitleCell.xib */; };
+		BCEAFD821C2A394300CB082D /* BookSkuItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC592BDD1BD5D8FB008AE76A /* BookSkuItemCell.xib */; };
+		BCEAFD831C2A394300CB082D /* FeedSuggestUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC753EBF1BAC07D300D2663C /* FeedSuggestUserCell.xib */; };
+		BCEAFD841C2A394300CB082D /* PayResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC97DF1A1B4E1DF0002B1A00 /* PayResultViewController.xib */; };
+		BCEAFD851C2A394300CB082D /* ProductCalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A3C6C711B579F1C006583FB /* ProductCalendarCell.xib */; };
+		BCEAFD861C2A394300CB082D /* SkuItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7737991BCFAA1500987B22 /* SkuItemCell.xib */; };
+		BCEAFD871C2A394300CB082D /* ShareViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3508FF1BFC4CD40043D37C /* ShareViewCell.xib */; };
+		BCEAFD881C2A394300CB082D /* CommonHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A83074E1B3291430057412A /* CommonHeaderView.xib */; };
+		BCEAFD891C2A394300CB082D /* BookCourseListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF9DD101BDA3BC000D8CDC6 /* BookCourseListItemCell.xib */; };
+		BCEAFD8A1C2A394300CB082D /* ProductDetailCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A08C12C1B39117100642648 /* ProductDetailCarouselCell.xib */; };
+		BCEAFD8B1C2A394300CB082D /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A8EF0351B31407B003ABAF8 /* HomeCell.xib */; };
+		BCEAFD8C1C2A394300CB082D /* CourseTeacherListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF9DCFC1BD8F12800D8CDC6 /* CourseTeacherListItemCell.xib */; };
+		BCEAFD8D1C2A394300CB082D /* ProductPlayFellowHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A9E80E11B4BBD2B0028AC47 /* ProductPlayFellowHeaderView.xib */; };
+		BCEAFD8E1C2A394300CB082D /* BookSkuMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC592BE21BD5E33A008AE76A /* BookSkuMoreCell.xib */; };
+		BCEAFD8F1C2A394300CB082D /* CoursePoiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC77377A1BCE2C0C00987B22 /* CoursePoiCell.xib */; };
+		BCEAFD901C2A394300CB082D /* FeedListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC0D44451C02FBD50007E9ED /* FeedListItemCell.xib */; };
+		BCEAFD911C2A394300CB082D /* GroupNoticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC9C02B41C1E7A860019A693 /* GroupNoticeView.xib */; };
+		BCEAFD921C2A394300CB082D /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BCCDF66A1B0B4E4C008BAE12 /* WeiboSDK.bundle */; };
 		BCF033991B4F72B0005B71D6 /* AlipayOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF033981B4F72B0005B71D6 /* AlipayOrder.m */; };
 		BCF0339C1B4F77BE005B71D6 /* AlipayOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF0339B1B4F77BE005B71D6 /* AlipayOrderModel.m */; };
 		BCF0339F1B4FB1BE005B71D6 /* ThirdShareHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF0339E1B4FB1BE005B71D6 /* ThirdShareHelper.m */; };
@@ -1028,7 +1433,7 @@
 		BC9C02B71C1EBC3C0019A693 /* GroupNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupNoticeView.m; path = Business/Chat/Views/GroupNoticeView.m; sourceTree = "<group>"; };
 		BCA272FA1AE8A2C7002E7534 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineViewController.h; path = Business/Mine/MineViewController.h; sourceTree = "<group>"; };
 		BCA272FB1AE8A2C7002E7534 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineViewController.m; path = Business/Mine/MineViewController.m; sourceTree = "<group>"; };
-		BCA2730F1AE9D79F002E7534 /* scheme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = scheme.plist; path = Common/scheme.plist; sourceTree = "<group>"; };
+		BCA2730F1AE9D79F002E7534 /* mapping.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = mapping.plist; path = Common/mapping.plist; sourceTree = "<group>"; };
 		BCA273141AE9F6F0002E7534 /* URLMappingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = URLMappingManager.h; path = Common/URLMappingManager.h; sourceTree = "<group>"; };
 		BCA273151AE9F6F0002E7534 /* URLMappingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = URLMappingManager.m; path = Common/URLMappingManager.m; sourceTree = "<group>"; };
 		BCA2731C1AE9FB1D002E7534 /* NSString+MOURLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MOURLEncode.h"; path = "Common/Categorys/NSString+MOURLEncode.h"; sourceTree = "<group>"; };
@@ -1079,6 +1484,8 @@
 		BCD0BC9E1BF097B800552FFE /* FeedTagListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedTagListModel.h; path = Common/Models/Feed/FeedTagListModel.h; sourceTree = "<group>"; };
 		BCD0BC9F1BF097B800552FFE /* FeedTagListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedTagListModel.m; path = Common/Models/Feed/FeedTagListModel.m; sourceTree = "<group>"; };
 		BCE589591B2AF37C00736923 /* WechatPayDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatPayDelegate.h; sourceTree = "<group>"; };
+		BCEAFD961C2A394300CB082D /* MomiaIOS DEBUG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MomiaIOS DEBUG.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCEAFD971C2A394300CB082D /* Debug-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Debug-Info.plist"; path = "/Users/dengjun86/develop/workspace_ios/momia/MomiaIOS/Debug-Info.plist"; sourceTree = "<absolute>"; };
 		BCF033971B4F72B0005B71D6 /* AlipayOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlipayOrder.h; path = Common/Models/Pay/AlipayOrder.h; sourceTree = "<group>"; };
 		BCF033981B4F72B0005B71D6 /* AlipayOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlipayOrder.m; path = Common/Models/Pay/AlipayOrder.m; sourceTree = "<group>"; };
 		BCF0339A1B4F77BE005B71D6 /* AlipayOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlipayOrderModel.h; path = Common/Models/Pay/AlipayOrderModel.h; sourceTree = "<group>"; };
@@ -1200,6 +1607,48 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCEAFD1E1C2A394300CB082D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCEAFD1F1C2A394300CB082D /* RongIMLib.framework in Frameworks */,
+				BCEAFD201C2A394300CB082D /* OpenGLES.framework in Frameworks */,
+				BCEAFD211C2A394300CB082D /* MapKit.framework in Frameworks */,
+				BCEAFD221C2A394300CB082D /* libz.tbd in Frameworks */,
+				BCEAFD231C2A394300CB082D /* libxml2.tbd in Frameworks */,
+				BCEAFD241C2A394300CB082D /* libstdc++.tbd in Frameworks */,
+				BCEAFD251C2A394300CB082D /* libsqlite3.tbd in Frameworks */,
+				BCEAFD261C2A394300CB082D /* libc++abi.tbd in Frameworks */,
+				BCEAFD271C2A394300CB082D /* libc++.tbd in Frameworks */,
+				BCEAFD281C2A394300CB082D /* ImageIO.framework in Frameworks */,
+				BCEAFD291C2A394300CB082D /* CoreVideo.framework in Frameworks */,
+				BCEAFD2A1C2A394300CB082D /* CoreMedia.framework in Frameworks */,
+				BCEAFD2B1C2A394300CB082D /* CoreAudio.framework in Frameworks */,
+				BCEAFD2C1C2A394300CB082D /* AVFoundation.framework in Frameworks */,
+				BCEAFD2D1C2A394300CB082D /* libopencore-amrnb.a in Frameworks */,
+				BCEAFD2E1C2A394300CB082D /* AudioToolbox.framework in Frameworks */,
+				BCEAFD2F1C2A394300CB082D /* AssetsLibrary.framework in Frameworks */,
+				BCEAFD301C2A394300CB082D /* AlipaySDK.framework in Frameworks */,
+				BCEAFD311C2A394300CB082D /* CoreLocation.framework in Frameworks */,
+				BCEAFD321C2A394300CB082D /* SystemConfiguration.framework in Frameworks */,
+				BCEAFD331C2A394300CB082D /* CoreGraphics.framework in Frameworks */,
+				BCEAFD341C2A394300CB082D /* Foundation.framework in Frameworks */,
+				BCEAFD351C2A394300CB082D /* UIKit.framework in Frameworks */,
+				BCEAFD361C2A394300CB082D /* CoreText.framework in Frameworks */,
+				BCEAFD371C2A394300CB082D /* Security.framework in Frameworks */,
+				BCEAFD381C2A394300CB082D /* libicucore.dylib in Frameworks */,
+				BCEAFD391C2A394300CB082D /* CoreTelephony.framework in Frameworks */,
+				BCEAFD3A1C2A394300CB082D /* QuartzCore.framework in Frameworks */,
+				BCEAFD3B1C2A394300CB082D /* libWeChatSDK.a in Frameworks */,
+				BCEAFD3C1C2A394300CB082D /* CFNetwork.framework in Frameworks */,
+				BCEAFD3D1C2A394300CB082D /* libWeiboSDK.a in Frameworks */,
+				BCEAFD3E1C2A394300CB082D /* BaiduMapAPI.framework in Frameworks */,
+				BCEAFD3F1C2A394300CB082D /* RongIMKit.framework in Frameworks */,
+				BCEAFD401C2A394300CB082D /* libGeTuiSdk-1.2.1.a in Frameworks */,
+				BCEAFD411C2A394300CB082D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2187,6 +2636,7 @@
 			children = (
 				BC85408B1ADF74E9005A7C54 /* MomiaIOS.app */,
 				BC8540A41ADF74E9005A7C54 /* MomiaIOSTests.xctest */,
+				BCEAFD961C2A394300CB082D /* MomiaIOS DEBUG.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2209,6 +2659,7 @@
 			isa = PBXGroup;
 			children = (
 				BC85408F1ADF74E9005A7C54 /* Info.plist */,
+				BCEAFD971C2A394300CB082D /* Debug-Info.plist */,
 				BC8540901ADF74E9005A7C54 /* main.m */,
 				BC2FAA0C1AFC8E9600E2071E /* PrefixHeader.pch */,
 			);
@@ -2243,7 +2694,7 @@
 				BCA273171AE9F90C002E7534 /* Utils */,
 				BC2C0C541B13095A00E2446E /* Views */,
 				BC8540BA1ADF8976005A7C54 /* Base */,
-				BCA2730F1AE9D79F002E7534 /* scheme.plist */,
+				BCA2730F1AE9D79F002E7534 /* mapping.plist */,
 				BCA273141AE9F6F0002E7534 /* URLMappingManager.h */,
 				BCA273151AE9F6F0002E7534 /* URLMappingManager.m */,
 			);
@@ -2657,6 +3108,23 @@
 			productReference = BC8540A41ADF74E9005A7C54 /* MomiaIOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		BCEAFBFA1C2A394300CB082D /* MomiaIOS DEBUG */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCEAFD931C2A394300CB082D /* Build configuration list for PBXNativeTarget "MomiaIOS DEBUG" */;
+			buildPhases = (
+				BCEAFBFB1C2A394300CB082D /* Sources */,
+				BCEAFD1E1C2A394300CB082D /* Frameworks */,
+				BCEAFD421C2A394300CB082D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MomiaIOS DEBUG";
+			productName = MomiaIOS;
+			productReference = BCEAFD961C2A394300CB082D /* MomiaIOS DEBUG.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -2697,6 +3165,7 @@
 			projectRoot = "";
 			targets = (
 				BC85408A1ADF74E9005A7C54 /* MomiaIOS */,
+				BCEAFBFA1C2A394300CB082D /* MomiaIOS DEBUG */,
 				BC8540A31ADF74E9005A7C54 /* MomiaIOSTests */,
 			);
 		};
@@ -2753,7 +3222,7 @@
 				BC5CF2FF1BB53E6400EC5227 /* read_me.txt in Resources */,
 				BC040D161BC9176000988AB2 /* CourseSectionTitleCell.xib in Resources */,
 				BC8B9A0C1C1AD53100EE39A2 /* Emoji.plist in Resources */,
-				BCA273101AE9D79F002E7534 /* scheme.plist in Resources */,
+				BCA273101AE9D79F002E7534 /* mapping.plist in Resources */,
 				BC50639F1B53A3A000AA233C /* ForgetPasswordCell.xib in Resources */,
 				BCF74ABB1BE8982400138C2C /* AddReviewRatingCell.xib in Resources */,
 				BC8B9A101C1AD53100EE39A2 /* RongCloud.bundle in Resources */,
@@ -2794,6 +3263,93 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCEAFD421C2A394300CB082D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCEAFD431C2A394300CB082D /* CourseListItemCell.xib in Resources */,
+				BCEAFD441C2A394300CB082D /* ProductDetailEnrollCell.xib in Resources */,
+				BCEAFD451C2A394300CB082D /* FeedUgcCell.xib in Resources */,
+				BCEAFD461C2A394300CB082D /* SettingMsgCell.xib in Resources */,
+				BCEAFD471C2A394300CB082D /* FeedSuggestHeadCell.xib in Resources */,
+				BCEAFD481C2A394300CB082D /* ico_make.png in Resources */,
+				BCEAFD491C2A394300CB082D /* UserInfoHeaderView.xib in Resources */,
+				BCEAFD4A1C2A394300CB082D /* AlipaySDK.bundle in Resources */,
+				BCEAFD4B1C2A394300CB082D /* MLSelectPhoto.bundle in Resources */,
+				BCEAFD4C1C2A394300CB082D /* CouponListItemCell.xib in Resources */,
+				BCEAFD4D1C2A394300CB082D /* GroupMemberItemCell.xib in Resources */,
+				BCEAFD4E1C2A394300CB082D /* PersonLogoCell.xib in Resources */,
+				BCEAFD4F1C2A394300CB082D /* CommonTableViewCell.xib in Resources */,
+				BCEAFD501C2A394300CB082D /* RegisterCell.xib in Resources */,
+				BCEAFD511C2A394300CB082D /* SubjectOrderFillViewController.xib in Resources */,
+				BCEAFD521C2A394300CB082D /* OrderListItemCell.xib in Resources */,
+				BCEAFD531C2A394300CB082D /* FeedUserHeadCell.xib in Resources */,
+				BCEAFD541C2A394300CB082D /* MineInfoCell.xib in Resources */,
+				BCEAFD551C2A394300CB082D /* CashPayBottomCell.xib in Resources */,
+				BCEAFD561C2A394300CB082D /* Images.xcassets in Resources */,
+				BCEAFD571C2A394300CB082D /* BookingSubjectItemCell.xib in Resources */,
+				BCEAFD581C2A394300CB082D /* PersonChildHeaderCell.xib in Resources */,
+				BCEAFD591C2A394300CB082D /* TopicListCell.xib in Resources */,
+				BCEAFD5A1C2A394300CB082D /* FeedZanCell.xib in Resources */,
+				BCEAFD5B1C2A394300CB082D /* ProductDetailTagsCell.xib in Resources */,
+				BCEAFD5C1C2A394300CB082D /* ReviewListItemCell.xib in Resources */,
+				BCEAFD5D1C2A394300CB082D /* FeedbackCell.xib in Resources */,
+				BCEAFD5E1C2A394300CB082D /* release_notes_ios.txt in Resources */,
+				BCEAFD5F1C2A394300CB082D /* LoadingCell.xib in Resources */,
+				BCEAFD601C2A394300CB082D /* CourseTitleCell.xib in Resources */,
+				BCEAFD611C2A394300CB082D /* FeedCommentCell.xib in Resources */,
+				BCEAFD621C2A394300CB082D /* RongCloudKit.strings in Resources */,
+				BCEAFD631C2A394300CB082D /* OrderContactCell.xib in Resources */,
+				BCEAFD641C2A394300CB082D /* FeedTitleCell.xib in Resources */,
+				BCEAFD651C2A394300CB082D /* ProductDetailViewController.xib in Resources */,
+				BCEAFD661C2A394300CB082D /* HomeCarouselCell.xib in Resources */,
+				BCEAFD671C2A394300CB082D /* MJPhotoBrowser.bundle in Resources */,
+				BCEAFD681C2A394300CB082D /* AboutHeaderView.xib in Resources */,
+				BCEAFD691C2A394300CB082D /* CourseBuyCell.xib in Resources */,
+				BCEAFD6A1C2A394300CB082D /* ProductDetailBasicInfoCell.xib in Resources */,
+				BCEAFD6B1C2A394300CB082D /* MyFavCell.xib in Resources */,
+				BCEAFD6C1C2A394300CB082D /* ProductPlayFellowCell.xib in Resources */,
+				BCEAFD6D1C2A394300CB082D /* PhotoTitleHeaderCell.xib in Resources */,
+				BCEAFD6E1C2A394300CB082D /* read_me.txt in Resources */,
+				BCEAFD6F1C2A394300CB082D /* CourseSectionTitleCell.xib in Resources */,
+				BCEAFD701C2A394300CB082D /* Emoji.plist in Resources */,
+				BCEAFD711C2A394300CB082D /* mapping.plist in Resources */,
+				BCEAFD721C2A394300CB082D /* ForgetPasswordCell.xib in Resources */,
+				BCEAFD731C2A394300CB082D /* AddReviewRatingCell.xib in Resources */,
+				BCEAFD741C2A394300CB082D /* RongCloud.bundle in Resources */,
+				BCEAFD751C2A394300CB082D /* CoursePriceCell.xib in Resources */,
+				BCEAFD761C2A394300CB082D /* PackageHeaderCell.xib in Resources */,
+				BCEAFD771C2A394300CB082D /* CashPayTopHeaderView.xib in Resources */,
+				BCEAFD781C2A394300CB082D /* MOStepperView.xib in Resources */,
+				BCEAFD791C2A394300CB082D /* LoginCell.xib in Resources */,
+				BCEAFD7A1C2A394300CB082D /* FeedMoreCell.xib in Resources */,
+				BCEAFD7B1C2A394300CB082D /* LoadingErrorCell.xib in Resources */,
+				BCEAFD7C1C2A394300CB082D /* TitleView.xib in Resources */,
+				BCEAFD7D1C2A394300CB082D /* SubjectTabCell.xib in Resources */,
+				BCEAFD7E1C2A394300CB082D /* UserTimelineCell.xib in Resources */,
+				BCEAFD7F1C2A394300CB082D /* SubjectBuyCell.xib in Resources */,
+				BCEAFD801C2A394300CB082D /* FeedDetailViewController.xib in Resources */,
+				BCEAFD811C2A394300CB082D /* BookSkuDateTitleCell.xib in Resources */,
+				BCEAFD821C2A394300CB082D /* BookSkuItemCell.xib in Resources */,
+				BCEAFD831C2A394300CB082D /* FeedSuggestUserCell.xib in Resources */,
+				BCEAFD841C2A394300CB082D /* PayResultViewController.xib in Resources */,
+				BCEAFD851C2A394300CB082D /* ProductCalendarCell.xib in Resources */,
+				BCEAFD861C2A394300CB082D /* SkuItemCell.xib in Resources */,
+				BCEAFD871C2A394300CB082D /* ShareViewCell.xib in Resources */,
+				BCEAFD881C2A394300CB082D /* CommonHeaderView.xib in Resources */,
+				BCEAFD891C2A394300CB082D /* BookCourseListItemCell.xib in Resources */,
+				BCEAFD8A1C2A394300CB082D /* ProductDetailCarouselCell.xib in Resources */,
+				BCEAFD8B1C2A394300CB082D /* HomeCell.xib in Resources */,
+				BCEAFD8C1C2A394300CB082D /* CourseTeacherListItemCell.xib in Resources */,
+				BCEAFD8D1C2A394300CB082D /* ProductPlayFellowHeaderView.xib in Resources */,
+				BCEAFD8E1C2A394300CB082D /* BookSkuMoreCell.xib in Resources */,
+				BCEAFD8F1C2A394300CB082D /* CoursePoiCell.xib in Resources */,
+				BCEAFD901C2A394300CB082D /* FeedListItemCell.xib in Resources */,
+				BCEAFD911C2A394300CB082D /* GroupNoticeView.xib in Resources */,
+				BCEAFD921C2A394300CB082D /* WeiboSDK.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3105,6 +3661,303 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BCEAFBFB1C2A394300CB082D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCEAFBFC1C2A394300CB082D /* LoginViewController.m in Sources */,
+				BCEAFBFD1C2A394300CB082D /* OrderListModel.m in Sources */,
+				BCEAFBFE1C2A394300CB082D /* NSTimer+Block.m in Sources */,
+				BCEAFBFF1C2A394300CB082D /* CourseDiscCell.m in Sources */,
+				BCEAFC001C2A394300CB082D /* Course.m in Sources */,
+				BCEAFC011C2A394300CB082D /* NSError+MOError.m in Sources */,
+				BCEAFC021C2A394300CB082D /* MLSelectPhotoPickerBrowserPhotoScrollView.m in Sources */,
+				BCEAFC031C2A394300CB082D /* HomeOperateCell.m in Sources */,
+				BCEAFC041C2A394300CB082D /* ServerErrorHandler.m in Sources */,
+				BCEAFC051C2A394300CB082D /* BookedCourseListModel.m in Sources */,
+				BCEAFC061C2A394300CB082D /* MBProgressHUD+Add.m in Sources */,
+				BCEAFC071C2A394300CB082D /* ChatUserViewController.m in Sources */,
+				BCEAFC081C2A394300CB082D /* AddReviewContentCell.m in Sources */,
+				BCEAFC091C2A394300CB082D /* URLMappingManager.m in Sources */,
+				BCEAFC0A1C2A394300CB082D /* MyStatusViewController.m in Sources */,
+				BCEAFC0B1C2A394300CB082D /* MLSelectPhotoPickerBrowserPhoto.m in Sources */,
+				BCEAFC0C1C2A394300CB082D /* FeedTagListModel.m in Sources */,
+				BCEAFC0D1C2A394300CB082D /* OrderContactCell.m in Sources */,
+				BCEAFC0E1C2A394300CB082D /* BookViewController.m in Sources */,
+				BCEAFC0F1C2A394300CB082D /* CashPayBottomCell.m in Sources */,
+				BCEAFC101C2A394300CB082D /* ReviewListItemCell.m in Sources */,
+				BCEAFC111C2A394300CB082D /* ProductCalendarViewController.m in Sources */,
+				BCEAFC121C2A394300CB082D /* ProductDetailEnrollCell.m in Sources */,
+				BCEAFC131C2A394300CB082D /* UILabel+ContentSize.m in Sources */,
+				BCEAFC141C2A394300CB082D /* ProductCalendarCell.m in Sources */,
+				BCEAFC151C2A394300CB082D /* CourseTeacherCell.m in Sources */,
+				BCEAFC161C2A394300CB082D /* MOButton.m in Sources */,
+				BCEAFC171C2A394300CB082D /* ThirdShareHelper.m in Sources */,
+				BCEAFC181C2A394300CB082D /* CourseTeacherListItemCell.m in Sources */,
+				BCEAFC191C2A394300CB082D /* Environment.m in Sources */,
+				BCEAFC1A1C2A394300CB082D /* MOTableCell.m in Sources */,
+				BCEAFC1B1C2A394300CB082D /* AvatarImageView.m in Sources */,
+				BCEAFC1C1C2A394300CB082D /* JSDropDownMenu.m in Sources */,
+				BCEAFC1D1C2A394300CB082D /* FeedSuggestUserCell.m in Sources */,
+				BCEAFC1E1C2A394300CB082D /* IMTokenModel.m in Sources */,
+				BCEAFC1F1C2A394300CB082D /* MLSelectPhotoPickerCollectionView.m in Sources */,
+				BCEAFC201C2A394300CB082D /* Account.m in Sources */,
+				BCEAFC211C2A394300CB082D /* LJTabBar.m in Sources */,
+				BCEAFC221C2A394300CB082D /* FeedListViewController.m in Sources */,
+				BCEAFC231C2A394300CB082D /* AddFeedViewController.m in Sources */,
+				BCEAFC241C2A394300CB082D /* MySuggestModel.m in Sources */,
+				BCEAFC251C2A394300CB082D /* ProductDetailViewController.m in Sources */,
+				BCEAFC261C2A394300CB082D /* MJRefreshHelper.m in Sources */,
+				BCEAFC271C2A394300CB082D /* CourseSectionTitleCell.m in Sources */,
+				BCEAFC281C2A394300CB082D /* CourseListItemCell.m in Sources */,
+				BCEAFC291C2A394300CB082D /* TagListViewController.m in Sources */,
+				BCEAFC2A1C2A394300CB082D /* FeedContentCell.m in Sources */,
+				BCEAFC2B1C2A394300CB082D /* DatePickerSheet.m in Sources */,
+				BCEAFC2C1C2A394300CB082D /* MLSelectPhotoPickerAssetsViewController.m in Sources */,
+				BCEAFC2D1C2A394300CB082D /* CityListModel.m in Sources */,
+				BCEAFC2E1C2A394300CB082D /* ProductCalendarModel.m in Sources */,
+				BCEAFC2F1C2A394300CB082D /* ProductPlayFellowCell.m in Sources */,
+				BCEAFC301C2A394300CB082D /* UserTimelineModel.m in Sources */,
+				BCEAFC311C2A394300CB082D /* IndexModel.m in Sources */,
+				BCEAFC321C2A394300CB082D /* SugTagsModel.m in Sources */,
+				BCEAFC331C2A394300CB082D /* AppDelegate.m in Sources */,
+				BCEAFC341C2A394300CB082D /* MLSelectPhotoPickerGroupTableViewCell.m in Sources */,
+				BCEAFC351C2A394300CB082D /* SDWebImageManager+MJ.m in Sources */,
+				BCEAFC361C2A394300CB082D /* CourseNoticeCell.m in Sources */,
+				BCEAFC371C2A394300CB082D /* LeaderProductModel.m in Sources */,
+				BCEAFC381C2A394300CB082D /* GroupNoticeView.m in Sources */,
+				BCEAFC391C2A394300CB082D /* CoursePriceCell.m in Sources */,
+				BCEAFC3A1C2A394300CB082D /* CourseBookListModel.m in Sources */,
+				BCEAFC3B1C2A394300CB082D /* PostOrderModel.m in Sources */,
+				BCEAFC3C1C2A394300CB082D /* BookedCourseListViewController.m in Sources */,
+				BCEAFC3D1C2A394300CB082D /* OrderPerson.m in Sources */,
+				BCEAFC3E1C2A394300CB082D /* HomeworkList.m in Sources */,
+				BCEAFC3F1C2A394300CB082D /* CommonHeaderView.m in Sources */,
+				BCEAFC401C2A394300CB082D /* IMGroupMemberModel.m in Sources */,
+				BCEAFC411C2A394300CB082D /* SelectImage.m in Sources */,
+				BCEAFC421C2A394300CB082D /* MLSelectPhotoPickerFooterCollectionReusableView.m in Sources */,
+				BCEAFC431C2A394300CB082D /* OrderContactViewController.m in Sources */,
+				BCEAFC441C2A394300CB082D /* BookSkuListViewController.m in Sources */,
+				BCEAFC451C2A394300CB082D /* OrderDetailViewController.m in Sources */,
+				BCEAFC461C2A394300CB082D /* CommentListViewController.m in Sources */,
+				BCEAFC471C2A394300CB082D /* SubjectOrderFillViewController.m in Sources */,
+				BCEAFC481C2A394300CB082D /* CommentModel.m in Sources */,
+				BCEAFC491C2A394300CB082D /* CacheService.m in Sources */,
+				BCEAFC4A1C2A394300CB082D /* MONetworkPhotoView.m in Sources */,
+				BCEAFC4B1C2A394300CB082D /* CommonTableViewCell.m in Sources */,
+				BCEAFC4C1C2A394300CB082D /* SGBaseMenu.m in Sources */,
+				BCEAFC4D1C2A394300CB082D /* CourseBookCell.m in Sources */,
+				BCEAFC4E1C2A394300CB082D /* MOViewController.m in Sources */,
+				BCEAFC4F1C2A394300CB082D /* BookSkuDateTitleCell.m in Sources */,
+				BCEAFC501C2A394300CB082D /* CustomDarkButton.m in Sources */,
+				BCEAFC511C2A394300CB082D /* UserInfoViewController.m in Sources */,
+				BCEAFC521C2A394300CB082D /* CourseTagsCell.m in Sources */,
+				BCEAFC531C2A394300CB082D /* CityManager.m in Sources */,
+				BCEAFC541C2A394300CB082D /* AlipayOrder.m in Sources */,
+				BCEAFC551C2A394300CB082D /* MLSelectPhotoPickerBrowserPhotoImageView.m in Sources */,
+				BCEAFC561C2A394300CB082D /* PersonInfoViewController.m in Sources */,
+				BCEAFC571C2A394300CB082D /* City.m in Sources */,
+				BCEAFC581C2A394300CB082D /* MJPhotoLoadingView.m in Sources */,
+				BCEAFC591C2A394300CB082D /* ForgetPasswordViewController.m in Sources */,
+				BCEAFC5A1C2A394300CB082D /* CouponListItemCell.m in Sources */,
+				BCEAFC5B1C2A394300CB082D /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m in Sources */,
+				BCEAFC5C1C2A394300CB082D /* CourseDetailModel.m in Sources */,
+				BCEAFC5D1C2A394300CB082D /* SettingViewController.m in Sources */,
+				BCEAFC5E1C2A394300CB082D /* MLSelectPhotoNavigationViewController.m in Sources */,
+				BCEAFC5F1C2A394300CB082D /* BookCourseDetailViewController.m in Sources */,
+				BCEAFC601C2A394300CB082D /* MJPhotoView.m in Sources */,
+				BCEAFC611C2A394300CB082D /* Feed.m in Sources */,
+				BCEAFC621C2A394300CB082D /* AddFeedContentCell.m in Sources */,
+				BCEAFC631C2A394300CB082D /* MOStepperGroup.m in Sources */,
+				BCEAFC641C2A394300CB082D /* MineViewController.m in Sources */,
+				BCEAFC651C2A394300CB082D /* ProductPlayFellowHeaderView.m in Sources */,
+				BCEAFC661C2A394300CB082D /* CommentViewController.m in Sources */,
+				BCEAFC671C2A394300CB082D /* NSURL+MOURL.m in Sources */,
+				BCEAFC681C2A394300CB082D /* ChatLocationPickerViewController.m in Sources */,
+				BCEAFC691C2A394300CB082D /* MJPhotoProgressView.m in Sources */,
+				BCEAFC6A1C2A394300CB082D /* CourseBuyCell.m in Sources */,
+				BCEAFC6B1C2A394300CB082D /* ChatPublicViewController.m in Sources */,
+				BCEAFC6C1C2A394300CB082D /* UITextView+Placeholder.m in Sources */,
+				BCEAFC6D1C2A394300CB082D /* MOLabel.m in Sources */,
+				BCEAFC6E1C2A394300CB082D /* LoadingCell.m in Sources */,
+				BCEAFC6F1C2A394300CB082D /* CashPayTopHeaderView.m in Sources */,
+				BCEAFC701C2A394300CB082D /* PushManager.m in Sources */,
+				BCEAFC711C2A394300CB082D /* CourseBookBrowserViewController.m in Sources */,
+				BCEAFC721C2A394300CB082D /* MyFavViewController.m in Sources */,
+				BCEAFC731C2A394300CB082D /* PhotoTitleHeaderCell.m in Sources */,
+				BCEAFC741C2A394300CB082D /* ShareViewCell.m in Sources */,
+				BCEAFC751C2A394300CB082D /* HomeGridCell.m in Sources */,
+				BCEAFC761C2A394300CB082D /* MyOrderListViewController.m in Sources */,
+				BCEAFC771C2A394300CB082D /* BookSkuItemCell.m in Sources */,
+				BCEAFC781C2A394300CB082D /* SkuListModel.m in Sources */,
+				BCEAFC791C2A394300CB082D /* GroupListViewController.m in Sources */,
+				BCEAFC7A1C2A394300CB082D /* WechatPayModel.m in Sources */,
+				BCEAFC7B1C2A394300CB082D /* PayChannel.m in Sources */,
+				BCEAFC7C1C2A394300CB082D /* SubjectList.m in Sources */,
+				BCEAFC7D1C2A394300CB082D /* AddCommentViewController.m in Sources */,
+				BCEAFC7E1C2A394300CB082D /* CommentCell.m in Sources */,
+				BCEAFC7F1C2A394300CB082D /* MLPhotoPickerImageView.m in Sources */,
+				BCEAFC801C2A394300CB082D /* main.m in Sources */,
+				BCEAFC811C2A394300CB082D /* PayCheckModel.m in Sources */,
+				BCEAFC821C2A394300CB082D /* UserInfoHeaderView.m in Sources */,
+				BCEAFC831C2A394300CB082D /* OrderDetailModel.m in Sources */,
+				BCEAFC841C2A394300CB082D /* ProductModel.m in Sources */,
+				BCEAFC851C2A394300CB082D /* LJViewPager.m in Sources */,
+				BCEAFC861C2A394300CB082D /* IMGroupModel.m in Sources */,
+				BCEAFC871C2A394300CB082D /* SubjectTabCell.m in Sources */,
+				BCEAFC881C2A394300CB082D /* MLSelectPhotoPickerCollectionViewCell.m in Sources */,
+				BCEAFC891C2A394300CB082D /* ProductCalendarMonthViewController.m in Sources */,
+				BCEAFC8A1C2A394300CB082D /* SGAlertMenu.m in Sources */,
+				BCEAFC8B1C2A394300CB082D /* MLSelectPhotoPickerBrowserPhotoView.m in Sources */,
+				BCEAFC8C1C2A394300CB082D /* MOTagLabel.m in Sources */,
+				BCEAFC8D1C2A394300CB082D /* CourseDetailViewController.m in Sources */,
+				BCEAFC8E1C2A394300CB082D /* SubmitPostModel.m in Sources */,
+				BCEAFC8F1C2A394300CB082D /* AddReviewViewController.m in Sources */,
+				BCEAFC901C2A394300CB082D /* SubjectDetailModel.m in Sources */,
+				BCEAFC911C2A394300CB082D /* LeaderSkuModel.m in Sources */,
+				BCEAFC921C2A394300CB082D /* MORootViewController.m in Sources */,
+				BCEAFC931C2A394300CB082D /* PostPersonModel.m in Sources */,
+				BCEAFC941C2A394300CB082D /* IMUserGroupListModel.m in Sources */,
+				BCEAFC951C2A394300CB082D /* LocationService.m in Sources */,
+				BCEAFC961C2A394300CB082D /* ConvertFromXib.m in Sources */,
+				BCEAFC971C2A394300CB082D /* PersonChildHeaderCell.m in Sources */,
+				BCEAFC981C2A394300CB082D /* CashPayViewController.m in Sources */,
+				BCEAFC991C2A394300CB082D /* ChatViewController.m in Sources */,
+				BCEAFC9A1C2A394300CB082D /* DateManager.m in Sources */,
+				BCEAFC9B1C2A394300CB082D /* AddOrderModel.m in Sources */,
+				BCEAFC9C1C2A394300CB082D /* UIView+Frame.m in Sources */,
+				BCEAFC9D1C2A394300CB082D /* NSDate+Age.m in Sources */,
+				BCEAFC9E1C2A394300CB082D /* FeedbackCell.m in Sources */,
+				BCEAFC9F1C2A394300CB082D /* MJPhoto.m in Sources */,
+				BCEAFCA01C2A394300CB082D /* LeaderStatusModel.m in Sources */,
+				BCEAFCA11C2A394300CB082D /* MJPhotoToolbar.m in Sources */,
+				BCEAFCA21C2A394300CB082D /* BookableCourseListViewController.m in Sources */,
+				BCEAFCA31C2A394300CB082D /* MJPhotoBrowser.m in Sources */,
+				BCEAFCA41C2A394300CB082D /* MOTableViewController.m in Sources */,
+				BCEAFCA51C2A394300CB082D /* SubjectBuyCell.m in Sources */,
+				BCEAFCA61C2A394300CB082D /* LoadingErrorCell.m in Sources */,
+				BCEAFCA71C2A394300CB082D /* AddFeed.m in Sources */,
+				BCEAFCA81C2A394300CB082D /* NSString+Predicate.m in Sources */,
+				BCEAFCA91C2A394300CB082D /* ProductDetailCarouselCell.m in Sources */,
+				BCEAFCAA1C2A394300CB082D /* AlipayOrderModel.m in Sources */,
+				BCEAFCAB1C2A394300CB082D /* PackageHeaderCell.m in Sources */,
+				BCEAFCAC1C2A394300CB082D /* ProductDetailTagsCell.m in Sources */,
+				BCEAFCAD1C2A394300CB082D /* MCAvatarView.m in Sources */,
+				BCEAFCAE1C2A394300CB082D /* CoursePoiCell.m in Sources */,
+				BCEAFCAF1C2A394300CB082D /* FeedListModel.m in Sources */,
+				BCEAFCB01C2A394300CB082D /* UserInfoModel.m in Sources */,
+				BCEAFCB11C2A394300CB082D /* OrderListItemCell.m in Sources */,
+				BCEAFCB21C2A394300CB082D /* NSString+MOURLEncode.m in Sources */,
+				BCEAFCB31C2A394300CB082D /* SGSheetMenu.m in Sources */,
+				BCEAFCB41C2A394300CB082D /* PayTool.m in Sources */,
+				BCEAFCB51C2A394300CB082D /* PayResultViewController.m in Sources */,
+				BCEAFCB61C2A394300CB082D /* CourseList.m in Sources */,
+				BCEAFCB71C2A394300CB082D /* ChatListViewController.m in Sources */,
+				BCEAFCB81C2A394300CB082D /* CourseDetailCell.m in Sources */,
+				BCEAFCB91C2A394300CB082D /* ReviewListViewController.m in Sources */,
+				BCEAFCBA1C2A394300CB082D /* CouponShareModel.m in Sources */,
+				BCEAFCBB1C2A394300CB082D /* ConfigModel.m in Sources */,
+				BCEAFCBC1C2A394300CB082D /* PlayFellowModel.m in Sources */,
+				BCEAFCBD1C2A394300CB082D /* AccountService.m in Sources */,
+				BCEAFCBE1C2A394300CB082D /* MLSelectPhotoAssets.m in Sources */,
+				BCEAFCBF1C2A394300CB082D /* MLSelectPhotoPickerViewController.m in Sources */,
+				BCEAFCC01C2A394300CB082D /* AddReviewRatingCell.m in Sources */,
+				BCEAFCC11C2A394300CB082D /* ShareViewController.m in Sources */,
+				BCEAFCC21C2A394300CB082D /* MLSelectPhotoPickerGroupViewController.m in Sources */,
+				BCEAFCC31C2A394300CB082D /* SubjectDetailViewController.m in Sources */,
+				BCEAFCC41C2A394300CB082D /* FavouriteModel.m in Sources */,
+				BCEAFCC51C2A394300CB082D /* CouponListViewController.m in Sources */,
+				BCEAFCC61C2A394300CB082D /* SGActionView.m in Sources */,
+				BCEAFCC71C2A394300CB082D /* ProductPlayFellowViewController.m in Sources */,
+				BCEAFCC81C2A394300CB082D /* HttpService.m in Sources */,
+				BCEAFCC91C2A394300CB082D /* AccountModel.m in Sources */,
+				BCEAFCCA1C2A394300CB082D /* SkuItemCell.m in Sources */,
+				BCEAFCCB1C2A394300CB082D /* OrderListViewController.m in Sources */,
+				BCEAFCCC1C2A394300CB082D /* FeedSuggestHeadCell.m in Sources */,
+				BCEAFCCD1C2A394300CB082D /* MyFavCell.m in Sources */,
+				BCEAFCCE1C2A394300CB082D /* FeedListItemCell.m in Sources */,
+				BCEAFCCF1C2A394300CB082D /* TopicListViewController.m in Sources */,
+				BCEAFCD01C2A394300CB082D /* CourseTitleCell.m in Sources */,
+				BCEAFCD11C2A394300CB082D /* UIButton+Block.m in Sources */,
+				BCEAFCD21C2A394300CB082D /* User.m in Sources */,
+				BCEAFCD31C2A394300CB082D /* StringUtils.m in Sources */,
+				BCEAFCD41C2A394300CB082D /* MLSelectPhotoPickerDatas.m in Sources */,
+				BCEAFCD51C2A394300CB082D /* CityListViewController.m in Sources */,
+				BCEAFCD61C2A394300CB082D /* NSString+MOEncrypt.m in Sources */,
+				BCEAFCD71C2A394300CB082D /* UserTimelineCell.m in Sources */,
+				BCEAFCD81C2A394300CB082D /* TopicListCell.m in Sources */,
+				BCEAFCD91C2A394300CB082D /* IMUserModel.m in Sources */,
+				BCEAFCDA1C2A394300CB082D /* UIView+MLExtension.m in Sources */,
+				BCEAFCDB1C2A394300CB082D /* FillOrderModel.m in Sources */,
+				BCEAFCDC1C2A394300CB082D /* ProductDetailContentCell.m in Sources */,
+				BCEAFCDD1C2A394300CB082D /* ProductCalendarWeekendViewController.m in Sources */,
+				BCEAFCDE1C2A394300CB082D /* ProductDetailModel.m in Sources */,
+				BCEAFCDF1C2A394300CB082D /* Notice.m in Sources */,
+				BCEAFCE01C2A394300CB082D /* FeedZanCell.m in Sources */,
+				BCEAFCE11C2A394300CB082D /* MOWebViewController.m in Sources */,
+				BCEAFCE21C2A394300CB082D /* Subject.m in Sources */,
+				BCEAFCE31C2A394300CB082D /* UIImage+MLTint.m in Sources */,
+				BCEAFCE41C2A394300CB082D /* CourseTeacherListViewController.m in Sources */,
+				BCEAFCE51C2A394300CB082D /* HomeViewController.m in Sources */,
+				BCEAFCE61C2A394300CB082D /* FeedUgcCell.m in Sources */,
+				BCEAFCE71C2A394300CB082D /* FeedDetailViewController.m in Sources */,
+				BCEAFCE81C2A394300CB082D /* UIImage+Color.m in Sources */,
+				BCEAFCE91C2A394300CB082D /* BookingSubjectListViewController.m in Sources */,
+				BCEAFCEA1C2A394300CB082D /* Coupon.m in Sources */,
+				BCEAFCEB1C2A394300CB082D /* Child.m in Sources */,
+				BCEAFCEC1C2A394300CB082D /* ConfigService.m in Sources */,
+				BCEAFCED1C2A394300CB082D /* OrderPersonModel.m in Sources */,
+				BCEAFCEE1C2A394300CB082D /* MOStepperView.m in Sources */,
+				BCEAFCEF1C2A394300CB082D /* CourseSkuListModel.m in Sources */,
+				BCEAFCF01C2A394300CB082D /* MLSelectPhotoBrowserViewController.m in Sources */,
+				BCEAFCF11C2A394300CB082D /* AlertNotice.m in Sources */,
+				BCEAFCF21C2A394300CB082D /* BookingSubjectListModel.m in Sources */,
+				BCEAFCF31C2A394300CB082D /* UpdatePersonModel.m in Sources */,
+				BCEAFCF41C2A394300CB082D /* ReviewListModel.m in Sources */,
+				BCEAFCF51C2A394300CB082D /* SendCommentView.m in Sources */,
+				BCEAFCF61C2A394300CB082D /* NSString+MOAttribuedString.m in Sources */,
+				BCEAFCF71C2A394300CB082D /* UploadImageModel.m in Sources */,
+				BCEAFCF81C2A394300CB082D /* TopicListModel.m in Sources */,
+				BCEAFCF91C2A394300CB082D /* UITableView+FDTemplateLayoutHeader.m in Sources */,
+				BCEAFCFA1C2A394300CB082D /* ProductDetailBasicInfoCell.m in Sources */,
+				BCEAFCFB1C2A394300CB082D /* MLSelectPhotoPickerGroup.m in Sources */,
+				BCEAFCFC1C2A394300CB082D /* ThirdAccountHelper.m in Sources */,
+				BCEAFCFD1C2A394300CB082D /* MONavigationController.m in Sources */,
+				BCEAFCFE1C2A394300CB082D /* AboutViewController.m in Sources */,
+				BCEAFCFF1C2A394300CB082D /* CourseListModel.m in Sources */,
+				BCEAFD001C2A394300CB082D /* RegisterViewController.m in Sources */,
+				BCEAFD011C2A394300CB082D /* Order.m in Sources */,
+				BCEAFD021C2A394300CB082D /* FeedDetailModel.m in Sources */,
+				BCEAFD031C2A394300CB082D /* CouponListModel.m in Sources */,
+				BCEAFD041C2A394300CB082D /* BookSkuMoreCell.m in Sources */,
+				BCEAFD051C2A394300CB082D /* FeedTitleCell.m in Sources */,
+				BCEAFD061C2A394300CB082D /* FeedUserHeadCell.m in Sources */,
+				BCEAFD071C2A394300CB082D /* ChatGroupMemberViewController.m in Sources */,
+				BCEAFD081C2A394300CB082D /* CouponPriceModel.m in Sources */,
+				BCEAFD091C2A394300CB082D /* SGGridMenu.m in Sources */,
+				BCEAFD0A1C2A394300CB082D /* BookingSubjectItemCell.m in Sources */,
+				BCEAFD0B1C2A394300CB082D /* BaseModel.m in Sources */,
+				BCEAFD0C1C2A394300CB082D /* Toast.m in Sources */,
+				BCEAFD0D1C2A394300CB082D /* FeedCommentListModel.m in Sources */,
+				BCEAFD0E1C2A394300CB082D /* FeedComment.m in Sources */,
+				BCEAFD0F1C2A394300CB082D /* HomeCarouselCell.m in Sources */,
+				BCEAFD101C2A394300CB082D /* HomeCell.m in Sources */,
+				BCEAFD111C2A394300CB082D /* WechatPayData.m in Sources */,
+				BCEAFD121C2A394300CB082D /* ActivityWebViewController.m in Sources */,
+				BCEAFD131C2A394300CB082D /* ReviewList.m in Sources */,
+				BCEAFD141C2A394300CB082D /* FeedMoreCell.m in Sources */,
+				BCEAFD151C2A394300CB082D /* HomeModel.m in Sources */,
+				BCEAFD161C2A394300CB082D /* BookCourseListItemCell.m in Sources */,
+				BCEAFD171C2A394300CB082D /* MOTabHost.m in Sources */,
+				BCEAFD181C2A394300CB082D /* MOGroupStyleTableViewController.m in Sources */,
+				BCEAFD191C2A394300CB082D /* GroupMemberItemCell.m in Sources */,
+				BCEAFD1A1C2A394300CB082D /* FeedCommentCell.m in Sources */,
+				BCEAFD1B1C2A394300CB082D /* FeedbackViewController.m in Sources */,
+				BCEAFD1C1C2A394300CB082D /* CourseTeacherListModel.m in Sources */,
+				BCEAFD1D1C2A394300CB082D /* ChatUserFeedPhotoCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -3231,6 +4084,11 @@
 					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
 				);
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"MO_DEBUG=0",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -3417,6 +4275,173 @@
 			};
 			name = Release;
 		};
+		BCEAFD941C2A394300CB082D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD4DAFFDE6B36FEA8B30C4C2 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/ThirdParty",
+					"$(PROJECT_DIR)/ThirdParty/BaiduMap",
+					"$(inherited)",
+					"$(PROJECT_DIR)/ThirdParty/RongCloud",
+					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
+				);
+				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"MO_DEBUG=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Debug-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ThirdParty/libWeiboSDK",
+					"$(PROJECT_DIR)/MomiaIOS/SDKExport",
+					"$(PROJECT_DIR)/ThirdParty/GeTui",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Pods/",
+					"$(PROJECT_DIR)/ThirdParty/WeChatSDK_1.6",
+					"$(PROJECT_DIR)/ThirdParty/RongCloud",
+					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"MobClickLibrary\"",
+					"-l\"Pods-AFNetworking\"",
+					"-l\"Pods-ISDiskCache\"",
+					"-l\"Pods-JSONModel\"",
+					"-l\"Pods-MBProgressHUD\"",
+					"-l\"Pods-MJRefresh\"",
+					"-l\"Pods-Masonry\"",
+					"-l\"Pods-SDWebImage\"",
+					"-l\"Pods-TTTAttributedLabel\"",
+					"-l\"Pods-UITableView+FDTemplateLayoutCell\"",
+					"-l\"z\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.youxing.DuoLa.Debug;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "armv7 armv7s arm64";
+			};
+			name = Debug;
+		};
+		BCEAFD951C2A394300CB082D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 569FE54592CF71500372F186 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/ThirdParty",
+					"$(PROJECT_DIR)/ThirdParty/BaiduMap",
+					"$(inherited)",
+					"$(PROJECT_DIR)/ThirdParty/RongCloud",
+					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
+				);
+				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Debug-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ThirdParty/libWeiboSDK",
+					"$(PROJECT_DIR)/MomiaIOS/SDKExport",
+					"$(PROJECT_DIR)/ThirdParty/GeTui",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Pods/",
+					"$(PROJECT_DIR)/ThirdParty/WeChatSDK_1.6",
+					"$(PROJECT_DIR)/ThirdParty/RongCloud",
+					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"MobClickLibrary\"",
+					"-l\"Pods-AFNetworking\"",
+					"-l\"Pods-ISDiskCache\"",
+					"-l\"Pods-JSONModel\"",
+					"-l\"Pods-MBProgressHUD\"",
+					"-l\"Pods-MJRefresh\"",
+					"-l\"Pods-Masonry\"",
+					"-l\"Pods-SDWebImage\"",
+					"-l\"Pods-TTTAttributedLabel\"",
+					"-l\"Pods-UITableView+FDTemplateLayoutCell\"",
+					"-l\"z\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.youxing.DuoLa.Debug;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "armv7 armv7s arm64";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -3443,6 +4468,15 @@
 			buildConfigurations = (
 				BC8540B21ADF74E9005A7C54 /* Debug */,
 				BC8540B31ADF74E9005A7C54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCEAFD931C2A394300CB082D /* Build configuration list for PBXNativeTarget "MomiaIOS DEBUG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCEAFD941C2A394300CB082D /* Debug */,
+				BCEAFD951C2A394300CB082D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

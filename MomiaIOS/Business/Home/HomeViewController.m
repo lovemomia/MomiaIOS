@@ -109,7 +109,7 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
 
 -(void)onProductCalendarClick
 {
-    NSURL * url = [NSURL URLWithString:@"duola://productcalendar"];
+    NSURL * url = [NSURL URLWithString:@"productcalendar"];
     [[UIApplication sharedApplication] openURL:url];
 }
 
@@ -407,8 +407,7 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
         
     } else if(section < self.array.count + number) {
         Course *course = self.array[indexPath.section - number];
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://coursedetail?id=%@", course.ids]];
-        [[UIApplication sharedApplication] openURL:url];
+        [self openURL:[NSString stringWithFormat:@"coursedetail?id=%@", course.ids]];
         
         NSDictionary *attributes = @{@"name":course.title, @"index":[NSString stringWithFormat:@"%d", (indexPath.section - number)]};
         [MobClick event:@"Home_List" attributes:attributes];

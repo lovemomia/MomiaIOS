@@ -182,13 +182,15 @@
         NSString *uName = [model.senderUserName URLEncodedString];
         NSString *title = [model.conversationTitle URLEncodedString];
         
-        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://chatpublic?type=%@&targetid=%@&username=%@&title=%@", [self convertType:model.conversationType], model.targetId, uName, title]]];
+        NSString *url = [NSString stringWithFormat:@"chatpublic?type=%@&targetid=%@&username=%@&title=%@", [self convertType:model.conversationType], model.targetId, uName, title];
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:MOURL_STRING(url)]];
         
     } else if (type && ([type intValue] == 1 || [type intValue] == 3)) {
         NSString *uName = [model.senderUserName URLEncodedString];
         NSString *title = [model.conversationTitle URLEncodedString];
         
-        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://chat?type=%@&targetid=%@&username=%@&title=%@&unread=%ld", [self convertType:model.conversationType], model.targetId, uName, title, (long)model.unreadMessageCount]]];
+        NSString *url = [NSString stringWithFormat:@"chat?type=%@&targetid=%@&username=%@&title=%@&unread=%ld", [self convertType:model.conversationType], model.targetId, uName, title, (long)model.unreadMessageCount];
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:MOURL_STRING(url)]];
         
     } else {
         RCConversationViewController *_conversationVC = [[RCConversationViewController alloc]init];

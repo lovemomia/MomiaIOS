@@ -156,15 +156,18 @@
 }
 
 - (void)onGroupMemberClicked {
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://groupmember?id=%@", self.targetId]]];
+    NSString *url = [NSString stringWithFormat:@"groupmember?id=%@", self.targetId];
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:MOURL_STRING(url)]];
 }
 
 - (void)onUserClicked {
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://chatuser?id=%@", self.targetId]]];
+    NSString *url = [NSString stringWithFormat:@"chatuser?id=%@", self.targetId];
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:MOURL_STRING(url)]];
 }
 
 - (void)didTapCellPortrait:(NSString *)userId {
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://chatuser?id=%@", userId]]];
+    NSString *url = [NSString stringWithFormat:@"chatuser?id=%@", userId];
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:MOURL_STRING(url)]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -241,7 +244,7 @@
     [super didTapMessageCell:model];
     if ([model.content isKindOfClass:[RCTextMessage class]]) {
         NSString *pushData = ((RCTextMessage *)model.content).extra;
-        if (pushData.length > 0 && [pushData containsString:@"duola://"]) {
+        if (pushData.length > 0 && [pushData containsString:MO_SCHEME]) {
             [[UIApplication sharedApplication]openURL:[NSURL URLWithString:pushData]];
         }
     }

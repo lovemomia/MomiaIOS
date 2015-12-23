@@ -185,7 +185,7 @@
 
 /* For iOS 4.1 and earlier */
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    if ([url.scheme isEqualToString:@"duola"]) {
+    if ([url.scheme containsString:@"duola"]) {
         [self handleOpenURL:url];
     }
     
@@ -194,7 +194,7 @@
 
 /* For iOS 4.2 and later */
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    if ([url.scheme isEqualToString:@"duola"]) {
+    if ([url.scheme containsString:@"duola"]) {
         [self handleOpenURL:url];
     }
     
@@ -360,19 +360,6 @@
      * 统计推送打开率2
      */
     [[RCIMClient sharedRCIMClient] recordRemoteNotificationEvent:userInfo];
-    /**
-     * 获取融云推送服务扩展字段2
-     */
-//    NSDictionary *pushServiceData = [[RCIMClient sharedRCIMClient] getPushExtraFromRemoteNotification:userInfo];
-//    if (pushServiceData) {
-//        NSString *action = [pushServiceData objectForKey:@"action"];
-//        [[UIApplication sharedApplication ] openURL:[NSURL URLWithString:action]];
-//    }
-    
-//    NSString *pushData = [userInfo objectForKey:@"pushData"];
-//    if (pushData.length > 0 && [pushData containsString:@"duola://"]) {
-//        [[UIApplication sharedApplication ] openURL:[NSURL URLWithString:pushData]];
-//    }
     
     if (userInfo) {
         NSDictionary *rc = [userInfo objectForKey:@"rc"];
@@ -385,7 +372,7 @@
                     RCMessage *message = messageArray[0];
                     if ([message.content isKindOfClass:[RCTextMessage class]]) {
                         NSString *pushData = ((RCTextMessage *)message.content).extra;
-                        if (pushData.length > 0 && [pushData containsString:@"duola://"]) {
+                        if (pushData.length > 0 && [pushData containsString:@"duola"]) {
                             [self handleOpenURL:[NSURL URLWithString:pushData]];
                         }
                     }

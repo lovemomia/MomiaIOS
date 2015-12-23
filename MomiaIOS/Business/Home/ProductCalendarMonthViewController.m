@@ -92,8 +92,8 @@ static NSString * productCalendarMonthIdentifier = @"CellProductCalendarMonth";
     } else {
         ProductCalendarMonthDataModel * dataModel = self.model.data[section];
         ProductModel * model = dataModel.products[row - 1];
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://productdetail?id=%ld", (long)model.pID]];
-        [[UIApplication sharedApplication] openURL:url];
+        NSString *url = [NSString stringWithFormat:@"productdetail?id=%ld", (long)model.pID];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:MOURL_STRING(url)]];
     }
 }
 

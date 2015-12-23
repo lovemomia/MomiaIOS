@@ -98,8 +98,9 @@ static NSString * myFavCellIdentifier = @"MyFavCell";
     if(indexPath.row < self.list.count) {
         ProductModel *product;
         product = self.list[indexPath.row];
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://productdetail?id=%ld", (long)product.pID]];
-        [[UIApplication sharedApplication] openURL:url];
+        
+        NSString *url = [NSString stringWithFormat:@"productdetail?id=%ld", (long)product.pID];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:MOURL_STRING(url)]];
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

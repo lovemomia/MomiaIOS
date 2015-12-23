@@ -40,7 +40,7 @@ NSString * const pageKeyDesc          = @"desc";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        NSString *file = [[NSBundle mainBundle] pathForResource:@"scheme" ofType:@"plist"];
+        NSString *file = [[NSBundle mainBundle] pathForResource:@"mapping" ofType:@"plist"];
         NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:file];
         _urlMapping = dict;
     }

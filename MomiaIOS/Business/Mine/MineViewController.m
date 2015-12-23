@@ -43,7 +43,7 @@
 
 - (void)onTitleBtnClick {
     NSString *title = @"系统通知";
-    [self openURL:[NSString stringWithFormat:@"duola://chatpublic?type=6&targetid=10000&username=%@&title=%@", [title URLEncodedString], [title URLEncodedString]]];
+    [self openURL:[NSString stringWithFormat:@"chatpublic?type=6&targetid=10000&username=%@&title=%@", [title URLEncodedString], [title URLEncodedString]]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,12 +72,12 @@
 
 // 单击设置
 - (void)onSettingClicked {
-    NSURL *url = [NSURL URLWithString:@"duola://setting"];
+    NSURL *url = [NSURL URLWithString:@"setting"];
     [[UIApplication sharedApplication ] openURL:url];
 }
 
 - (void)onLoginClicked {
-    [[AccountService defaultService] login:self];
+    [[AccountService defaultService] login:self success:nil];
 }
 
 #pragma mark - tableview delegate & datasource
@@ -116,8 +116,7 @@
         case 0:
         {
             if ([[AccountService defaultService] isLogin]) {
-                NSURL *url = [NSURL URLWithString:@"duola://personinfo"];
-                [[UIApplication sharedApplication ] openURL:url];
+                [[UIApplication sharedApplication ] openURL:MOURL(@"personinfo")];
                 
                 [MobClick event:@"Mine_PersonInfo"];
             }
@@ -125,43 +124,44 @@
             break;
         case 1:
             if(row == 0) {
-                [self openURL:@"duola://bookingsubjectlist"];
+                [self openURL:@"bookingsubjectlist"];
                 
                 [MobClick event:@"Mine_Book"];
                 
             } else {
-               [self openURL:@"duola://bookedcourselist"];
+               [self openURL:@"bookedcourselist"];
                 
                 [MobClick event:@"Mine_Booked"];
             }
             break;
         case 2:
             if(row == 0) {
-                [self openURL:@"duola://myorderlist"];
+                [self openURL:@"myorderlist"];
                 
                 [MobClick event:@"Mine_Order"];
                 
             } else if (row == 1) {
                 if ([[AccountService defaultService]isLogin]) {
-                    [self openURL:[NSString stringWithFormat:@"duola://userinfo?uid=%@&me=1", [AccountService defaultService].account.uid]];
+                    NSString *url = [NSString stringWithFormat:@"userinfo?uid=%@&me=1", [AccountService defaultService].account.uid];
+                    [self openURL:MOURL_STRING(url)];
                 }
                 
                 [MobClick event:@"Mine_Feed"];
                 
             } else {
-                [self openURL:@"duola://couponlist?status=0"];
+                [self openURL:@"couponlist?status=0"];
                 
                 [MobClick event:@"Mine_Coupon"];
             }
             break;
         case 3:
             if(row == 0) {
-                [self openURL:@"duola://feedback"];
+                [self openURL:@"feedback"];
                 
                 [MobClick event:@"Mine_Feedback"];
                 
             } else {
-                [self openURL:@"duola://setting"];
+                [self openURL:@"setting"];
                 
                 [MobClick event:@"Mine_Setting"];
             }

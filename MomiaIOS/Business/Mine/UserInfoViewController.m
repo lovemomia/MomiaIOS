@@ -130,7 +130,7 @@ static NSString *identifierUserTimelineCell = @"UserTimelineCell";
 }
 
 - (void)onChatClicked {
-    [self openURL:[NSString stringWithFormat:@"duola://chat?type=1&targetid=%@&username=%@&title=%@", self.user.uid, self.user.nickName, self.user.nickName]];
+    [self openURL:[NSString stringWithFormat:@"chat?type=1&targetid=%@&username=%@&title=%@", self.user.uid, self.user.nickName, self.user.nickName]];
 }
 
 - (void)didReceiveMemoryWarning {

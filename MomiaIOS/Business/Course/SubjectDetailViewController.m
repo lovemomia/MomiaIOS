@@ -310,7 +310,7 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
 }
 
 - (void)onBuyClicked:(UITapGestureRecognizer *)tap {
-    [self openURL:[NSString stringWithFormat:@"duola://fillorder?id=%@", self.model.data.subject.ids]];
+    [self openURL:[NSString stringWithFormat:@"fillorder?id=%@", self.model.data.subject.ids]];
     
     [MobClick event:@"Subject_Buy"];
 }
@@ -336,13 +336,13 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
     if (indexPath.section == 1 && indexPath.row > 0) {
         if (self.tabIndex == 0) {
             Course *course = self.model.data.courses.list[indexPath.row - 1];
-            [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@&buyable=0", course.ids]];
+            [self openURL:[NSString stringWithFormat:@"coursedetail?id=%@&buyable=0", course.ids]];
             
             NSDictionary *attributes = @{@"name":course.title, @"index":[NSString stringWithFormat:@"%d", (indexPath.row - 1)]};
             [MobClick event:@"Subject_List" attributes:attributes];
         }
     } else if (indexPath.section == 3 && self.hasFeed) {
-        [self openURL:[NSString stringWithFormat:@"duola://reviewlist?subjectId=%@", self.ids]];
+        [self openURL:[NSString stringWithFormat:@"reviewlist?subjectId=%@", self.ids]];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

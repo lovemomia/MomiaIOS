@@ -51,8 +51,6 @@
         self.loginSuccessBlock();
     };
     [self.navigationController pushViewController:viewController animated:YES];
-    
-//    [self openURL:@"duola://register" byNav:self.navigationController];
 }
 
 - (void)onForgetPasswordClicked {

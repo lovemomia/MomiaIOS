@@ -145,8 +145,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.row < self.orderList.count) {
         Order * model = self.orderList[indexPath.row];
-        [self openURL:[NSString stringWithFormat:@"duola://orderdetail?oid=%@", model.ids]];
-//        [self openURL:[NSString stringWithFormat:@"duola://subjectdetail?id=%@", model.subjectId]];
+        [self openURL:[NSString stringWithFormat:@"orderdetail?oid=%@", model.ids]];
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

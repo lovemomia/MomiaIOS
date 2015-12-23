@@ -240,7 +240,8 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
 }
 
 - (void)onBookBtnClick:(Course *)course {
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://book?id=%@&pid=%@", course.ids, self.pid]]];
+    NSString *url = [NSString stringWithFormat:@"book?id=%@&pid=%@", course.ids, self.pid];
+    [[UIApplication sharedApplication]openURL:MOURL(url)];
 }
 
 #pragma mark - tableview delegate & datasource
@@ -251,10 +252,12 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
     if(indexPath.row < self.list.count) {
         Course *course = self.list[indexPath.row];
         if (self.onlyShow) {
-            [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@", course.ids]];
+            NSString *url = [NSString stringWithFormat:@"coursedetail?id=%@", course.ids];
+            [self openURL:MOURL_STRING(url)];
             
         } else {
-            [self openURL:[NSString stringWithFormat:@"duola://bookcoursedetail?id=%@&pid=%@&book=1", course.ids, self.pid]];
+            NSString *url = [NSString stringWithFormat:@"bookcoursedetail?id=%@&pid=%@&book=1", course.ids, self.pid];
+            [self openURL:MOURL_STRING(url)];
         }
     }
 }

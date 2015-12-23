@@ -81,8 +81,8 @@ static NSString * productCalendarWeekendIdentifier = @"CellProductCalendarWeeken
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if(row < self.array.count) {
         ProductModel * model = self.array[row];
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://productdetail?id=%ld", (long)model.pID]];
-        [[UIApplication sharedApplication] openURL:url];
+        NSString *url = [NSString stringWithFormat:@"productdetail?id=%ld", (long)model.pID];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:MOURL_STRING(url)]];
     }
 }
 

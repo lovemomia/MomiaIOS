@@ -72,6 +72,27 @@
     return self;
 }
 
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+    if ([viewController.tabBarItem.title isEqualToString:@"群组"]) {
+        if ([[AccountService defaultService]isLogin]) {
+            return YES;
+        } else {
+            [[AccountService defaultService] login:self success:^{
+                self.tabBarController.selectedIndex = 1;
+            }];
+            return NO;
+        }
+    }
+    else
+        return YES;
+}
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    if (viewController == self.group) {
+        
+    }
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
@@ -80,7 +101,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self makeMineDotHidden];
+    [self makeGroupDotHidden];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -90,16 +111,16 @@
 }
 
 - (void)onMineDotChanged:(NSNotification*)notify {
-    [self makeMineDotHidden];
+    [self makeGroupDotHidden];
 }
 
-- (void)makeMineDotHidden {
+- (void)makeGroupDotHidden {
     if ([[RCIMClient sharedRCIMClient] getUnreadCount:@[@(ConversationType_PRIVATE), @(ConversationType_GROUP)]] > 0) {
         [self.dotImage removeFromSuperview];
         self.dotImage = [[UIImageView alloc] init];
         self.dotImage.backgroundColor = MO_APP_TextColor_red;
         CGRect tabFrame = self.tabBar.frame;
-        CGFloat x = ceilf(0.85 * tabFrame.size.width);
+        CGFloat x = ceilf(0.60 * tabFrame.size.width);
         CGFloat y = ceilf(0.12 * tabFrame.size.height);
         self.dotImage.frame = CGRectMake(x, y, 8, 8);
         self.dotImage.layer.cornerRadius = 4;

@@ -67,7 +67,7 @@ static NSString *identifierChatUserFeedPhotoCell = @"ChatUserFeedPhotoCell";
 }
 
 - (void)onSendMsgClicked:(id)sender {
-    [self openURL:[NSString stringWithFormat:@"duola://chat?type=1&targetid=%@&username=%@&title=%@", self.user.uid, self.user.nickName, self.user.nickName]];
+    [self openURL:[NSString stringWithFormat:@"chat?type=1&targetid=%@&username=%@&title=%@", self.user.uid, self.user.nickName, self.user.nickName]];
 }
 
 /*
@@ -83,7 +83,7 @@ static NSString *identifierChatUserFeedPhotoCell = @"ChatUserFeedPhotoCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 1) {
-        [self openURL:[NSString stringWithFormat:@"duola://userinfo?uid=%@", self.user.uid]];
+        [self openURL:[NSString stringWithFormat:@"userinfo?uid=%@", self.user.uid]];
     }
 }
 

@@ -58,7 +58,7 @@ static NSString *identifierCouponListItemCell = @"CouponListItemCell";
 }
 
 - (void)onGiftClick {
-    [self openURL:@"duola://share"];
+    [self openURL:@"share"];
 }
 
 - (void)requestData {
@@ -100,7 +100,7 @@ static NSString *identifierCouponListItemCell = @"CouponListItemCell";
 }
 
 - (void)onExpireClicked {
-    [self openURL:@"duola://couponlist?status=3"];
+    [self openURL:@"couponlist?status=3"];
 }
 
 - (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle {

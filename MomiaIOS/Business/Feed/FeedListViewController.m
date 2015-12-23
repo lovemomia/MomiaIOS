@@ -88,7 +88,7 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
 }
 
 - (void)onAddFeedClick {
-    [self openURL:@"duola://addfeed"];
+    [self openURL:@"addfeed"];
     
     [MobClick event:@"Feed_Title_Add"];
 }
@@ -168,7 +168,7 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section < self.list.count) {
         Feed *feed = [self.list objectAtIndex:indexPath.section];
-        [self openURL:[NSString stringWithFormat:@"duola://feeddetail?id=%@", feed.ids]];
+        [self openURL:[NSString stringWithFormat:@"feeddetail?id=%@", feed.ids]];
         self.openIndex = indexPath.section;
         
         NSDictionary *attributes = @{@"index":[NSString stringWithFormat:@"%d", indexPath.section]};
@@ -281,12 +281,12 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
 - (void)onCommentClicked:(id)cell {
     FeedUgcCell *ugcCell = cell;
     Feed *feed = [self.list objectAtIndex:ugcCell.tag];
-    [self openURL:[NSString stringWithFormat:@"duola://commentlist?id=%@", feed.ids]];
+    [self openURL:[NSString stringWithFormat:@"commentlist?id=%@", feed.ids]];
 }
 
 - (void)onZanClicked:(id)cell {
     if (![[AccountService defaultService] isLogin]) {
-        [[AccountService defaultService] login:self];
+        [[AccountService defaultService] login:self success:nil];
         return;
     }
     

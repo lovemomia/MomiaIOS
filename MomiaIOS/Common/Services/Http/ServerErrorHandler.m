@@ -42,7 +42,7 @@
     if (alertView.tag == 100001) {
         AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
         [[AccountService defaultService] logout:app.root];
-        [[AccountService defaultService] login:app.root];
+        [[AccountService defaultService] login:app.root success:nil];
     }
 }
 

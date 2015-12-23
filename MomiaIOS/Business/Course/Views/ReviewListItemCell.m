@@ -220,7 +220,8 @@
 
 - (IBAction)onUserInfoClicked:(id)sender {
     if (self.review) {
-        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://userinfo?uid=%@", self.review.userId]]];
+        NSString *url = [NSString stringWithFormat:@"userinfo?uid=%@", self.review.userId];
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:MOURL_STRING(url)]];
     }
 }
 

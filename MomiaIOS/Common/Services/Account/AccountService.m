@@ -63,11 +63,14 @@
     }
 }
 
-- (void)login:(UIViewController *)currentController {
+- (void)login:(UIViewController *)currentController success:(BlockLoginSuccess)success {
     LoginViewController *controller = [[LoginViewController alloc]initWithParams:nil];
     
     controller.loginSuccessBlock = ^(){
         [currentController dismissViewControllerAnimated:YES completion:nil];
+        if (success) {
+            success();
+        }
         
         // 快速集成第二步，连接融云服务器
         [[RCIM sharedRCIM] connectWithToken:self.account.imToken success:^(NSString *userId) {
