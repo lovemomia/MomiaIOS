@@ -11,7 +11,7 @@
 #import "UIImage+Color.h"
 #import "IMUserGroupListModel.h"
 
-@interface ChatListViewController ()
+@interface ChatListViewController ()<AccountChangeListener>
 @property (nonatomic, strong) IMUserGroupListModel *groupList;
 @end
 
@@ -42,15 +42,8 @@
     self.emptyConversationView.hidden = YES;
     
     self.navigationItem.title = @"群组";
-//    NSArray *segmentedArray = @[@"消息",@"群组"];
-//    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedArray];
-//    segmentedControl.frame = CGRectMake(0.0, 0.0, 150, 30.0);
-//    segmentedControl.selectedSegmentIndex = 0;
-//    segmentedControl.tintColor = MO_APP_ThemeColor;
-//    segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
-//    [segmentedControl addTarget:self  action:@selector(indexDidChangeForSegmentedControl:)
-//               forControlEvents:UIControlEventValueChanged];
-//    [self.navigationItem setTitleView:segmentedControl];
+    
+    [[AccountService defaultService]addListener:self];
     
     [self syncGroupList];
     [self.view showLoadingBee];
@@ -60,6 +53,20 @@
     [super viewWillAppear:animated];
     
     [self refreshConversationTableViewIfNeeded];
+}
+
+- (void)didReceiveMemoryWarning {
+    [[AccountService defaultService] removeListener:self];
+    [super didReceiveMemoryWarning];
+}
+
+- (void)onAccountChange {
+    if ([[AccountService defaultService] isLogin]) {
+        [self syncGroupList];
+        [self.view showLoadingBee];
+    } else {
+        [self.view removeLoadingBee];
+    }
 }
 
 - (UIView *)createEmptyView {
@@ -157,11 +164,6 @@
     }
     
     return dataSource;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*
