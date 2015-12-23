@@ -142,8 +142,11 @@
                 
             } else if (row == 1) {
                 if ([[AccountService defaultService]isLogin]) {
-                    NSString *url = [NSString stringWithFormat:@"userinfo?uid=%@&me=1", [AccountService defaultService].account.uid];
-                    [self openURL:MOURL_STRING(url)];
+                    [self openURL:[NSString stringWithFormat:@"userinfo?uid=%@&me=1", [AccountService defaultService].account.uid]];
+                } else {
+                    [[AccountService defaultService] login:self success:^{
+                       [self openURL:[NSString stringWithFormat:@"userinfo?uid=%@&me=1", [AccountService defaultService].account.uid]];
+                    }];
                 }
                 
                 [MobClick event:@"Mine_Feed"];
