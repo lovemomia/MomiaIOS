@@ -23,7 +23,7 @@
     
     ChatListViewController *chatListVC = [[ChatListViewController alloc]initWithParams:nil];
     [self addChildViewController:chatListVC];
-    chatListVC.view.frame = self.view.bounds;
+    chatListVC.view.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 113);
     [self.view addSubview:chatListVC.view];
 }
 

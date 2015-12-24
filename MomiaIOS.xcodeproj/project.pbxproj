@@ -3148,6 +3148,9 @@
 						DevelopmentTeam = P2YX7NM9FK;
 						TestTargetID = BC85408A1ADF74E9005A7C54;
 					};
+					BCEAFBFA1C2A394300CB082D = {
+						DevelopmentTeam = P2YX7NM9FK;
+					};
 				};
 			};
 			buildConfigurationList = BC8540861ADF74E9005A7C54 /* Build configuration list for PBXProject "MomiaIOS" */;

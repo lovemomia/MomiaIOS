@@ -253,11 +253,11 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
         Course *course = self.list[indexPath.row];
         if (self.onlyShow) {
             NSString *url = [NSString stringWithFormat:@"coursedetail?id=%@", course.ids];
-            [self openURL:MOURL_STRING(url)];
+            [self openURL:url];
             
         } else {
             NSString *url = [NSString stringWithFormat:@"bookcoursedetail?id=%@&pid=%@&book=1", course.ids, self.pid];
-            [self openURL:MOURL_STRING(url)];
+            [self openURL:url];
         }
     }
 }
