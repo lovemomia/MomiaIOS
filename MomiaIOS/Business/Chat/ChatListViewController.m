@@ -37,6 +37,7 @@
     
     self.conversationListTableView.separatorColor = MO_APP_SeparatorColor;
     self.conversationListTableView.tableFooterView = [UIView new];
+    self.conversationListTableView.backgroundColor = MO_APP_VCBackgroundColor;
     
     self.emptyConversationView = [self createEmptyView];
     self.emptyConversationView.hidden = YES;
@@ -44,14 +45,13 @@
     self.navigationItem.title = @"群组";
     
     [[AccountService defaultService]addListener:self];
-    
-    [self syncGroupList];
     [self.view showLoadingBee];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    [self syncGroupList];
     [self refreshConversationTableViewIfNeeded];
 }
 
@@ -67,6 +67,15 @@
     } else {
         [self.view removeLoadingBee];
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+}
+
+- (void)onMineDotChanged:(NSNotification*)notify {
+    [self syncGroupList];
+    [self.view showLoadingBee];
 }
 
 - (UIView *)createEmptyView {
@@ -130,12 +139,14 @@
 -(NSMutableArray *)willReloadTableData:(NSMutableArray *)dataSource
 {
     if(self.groupList) {
+        NSMutableArray *newDataSourse = [NSMutableArray new];
         for (IMUserGroup *group in self.groupList.data) {
             BOOL hasGroup = NO;
             for (int i = 0; i < dataSource.count; i++) {
                 RCConversationModel *model = dataSource[i];
                 if (model.conversationType == ConversationType_GROUP && [model.targetId isEqualToString:[group.groupId stringValue]]) {
                     hasGroup = YES;
+                    [newDataSourse addObject:model];
                     continue;
                 }
             }
@@ -158,9 +169,10 @@
                 
                 con.conversationType = ConversationType_GROUP;
                 RCConversationModel *model = [[RCConversationModel alloc] init:RC_CONVERSATION_MODEL_TYPE_NORMAL conversation:con extend:@""];
-                [dataSource addObject:model];
+                [newDataSourse addObject:model];
             }
         }
+        return newDataSourse;
     }
     
     return dataSource;
