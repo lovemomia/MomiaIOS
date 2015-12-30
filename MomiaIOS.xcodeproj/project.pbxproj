@@ -4173,6 +4173,11 @@
 					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
 				);
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"MO_DEBUG=0",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -4382,6 +4387,11 @@
 					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
 				);
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"MO_DEBUG=1",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
