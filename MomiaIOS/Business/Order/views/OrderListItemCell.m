@@ -43,12 +43,13 @@
         order.errMsg = @"";
         order.timestamp = 0;
         
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"duola://cashpay?pom=%@",
-                                           [[order toJSONString] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
-        [[UIApplication sharedApplication] openURL:url];
+        NSString *url = [NSString stringWithFormat:@"cashpay?pom=%@",
+                                           [[order toJSONString] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:MOURL_STRING(url)]];
         
     } else if ([self.order.bookingStatus intValue] == 1) {
-        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://bookingsubjectlist?oid=%@", self.order.ids]]];
+        NSString *url = [NSString stringWithFormat:@"bookingsubjectlist?oid=%@", self.order.ids];
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:MOURL_STRING(url)]];
     }
 }
 

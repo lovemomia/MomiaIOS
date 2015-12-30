@@ -36,7 +36,7 @@ static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"用户点评";
+    self.navigationItem.title = @"用户评价";
     
     [ReviewListItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierReviewListItemCell];
     

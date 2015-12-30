@@ -20,6 +20,6 @@
 
 - (BOOL)presentURL:(NSURL *)url byParent:(UIViewController *)parent animated:(BOOL)animated;
 
-- (MOViewController *)createControllerFromURL:(NSURL *)url;
+- (UIViewController *)createControllerFromURL:(NSURL *)url;
 
 @end

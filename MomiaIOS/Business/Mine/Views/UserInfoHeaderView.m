@@ -63,7 +63,7 @@
         age.shadowColor = [UIColor darkGrayColor];
         age.shadowOffset = CGSizeMake(0, 1);
         age.font = [UIFont systemFontOfSize:12];
-        age.text = [child ageWithDateOfBirth];
+        age.text = [NSString stringWithFormat:@"%@%@",[child name], [child ageWithDateOfBirth]];
         CGSize size = [age.text sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:age.font,NSFontAttributeName, nil]];
         totalWidth += 6;
         totalWidth += size.width;

@@ -16,4 +16,6 @@
 
 @property (weak, nonatomic) IBOutlet MOStepperView *stepperView;
 
+@property (nonatomic, assign) BOOL isPackage;
+
 @end

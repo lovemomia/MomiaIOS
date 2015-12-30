@@ -156,10 +156,10 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.model.data.course && indexPath.section == 1 && indexPath.row == 1) {
         //活动详情
-        [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@", self.model.data.course.ids]];
+        [self openURL:[NSString stringWithFormat:@"coursedetail?id=%@", self.model.data.course.ids]];
     } else if (indexPath.section == 2 && indexPath.row == 4) {
         //查看更多评论
-        [self openURL:[NSString stringWithFormat:@"duola://commentlist?id=%@", self.ids]];
+        [self openURL:[NSString stringWithFormat:@"commentlist?id=%@", self.ids]];
     }
 }
 
@@ -248,8 +248,10 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
             }
             zanCell.blockOnZanClicked = ^(){
                 if (![[AccountService defaultService] isLogin]) {
-                    [[AccountService defaultService] login:self];
+                    [[AccountService defaultService] login:self success:nil];
+                    return;
                 }
+                
                 Feed *feed = self.model.data.feed;
                 NSDictionary * dic = @{@"id":feed.ids};
                 BOOL isStared = [feed.stared boolValue];
@@ -305,6 +307,11 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
 }
 
 - (IBAction)onCommentClicked:(id)sender {
+    if (![[AccountService defaultService] isLogin]) {
+        [[AccountService defaultService] login:self success:nil];
+        return;
+    }
+    
     NSDictionary * dic = @{@"id":self.ids};
     AddCommentViewController *controller = [[AddCommentViewController alloc]initWithParams:dic];
     
@@ -322,7 +329,8 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
 
 - (IBAction)onZanClicked:(id)sender {
     if (![[AccountService defaultService] isLogin]) {
-        [[AccountService defaultService] login:self];
+        [[AccountService defaultService] login:self success:nil];
+        return;
     }
     
     Feed *feed = self.model.data.feed;

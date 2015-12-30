@@ -147,13 +147,10 @@
     if(self.timer) [self.timer invalidate];
 }
 
-
-
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     
     CGFloat width = scrollView.frame.size.width;
-    
     
     //当手指滑动scrollview，而scrollview减速停止的时候 开始计算当前的图片的位置
     int currentPage = scrollView.contentOffset.x/width;

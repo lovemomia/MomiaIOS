@@ -8,12 +8,22 @@
 
 #import "JSONModel.h"
 
+@interface ReviewChild : JSONModel
+@property (nonatomic, strong) NSString *age;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *sex;
+@end
+
+@protocol ReviewChild <NSObject>
+@end
+
 @interface Review : JSONModel
 
 @property (nonatomic, strong) NSNumber *userId;
 @property (nonatomic, strong) NSString *nickName;
 @property (nonatomic, strong) NSString *avatar;
 @property (nonatomic, strong) NSArray<Optional> *children;
+@property (nonatomic, strong) NSArray<Optional, ReviewChild> *childrenDetail;
 
 @property (nonatomic, strong) NSNumber *star;
 @property (nonatomic, strong) NSString *addTime;

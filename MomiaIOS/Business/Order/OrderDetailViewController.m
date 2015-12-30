@@ -77,10 +77,10 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if ([self.model.data.courseId intValue] > 0) {
-            [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@", self.model.data.courseId]];
+            [self openURL:[NSString stringWithFormat:@"coursedetail?id=%@", self.model.data.courseId]];
             
         } else {
-            [self openURL:[NSString stringWithFormat:@"duola://subjectdetail?id=%@", self.model.data.subjectId]];
+            [self openURL:[NSString stringWithFormat:@"subjectdetail?id=%@", self.model.data.subjectId]];
         }
     }
 }
@@ -215,11 +215,11 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
         po.errMsg = @"";
         po.timestamp = 0;
         
-        [self openURL:[NSString stringWithFormat:@"duola://cashpay?pom=%@",
+        [self openURL:[NSString stringWithFormat:@"cashpay?pom=%@",
                        [[po toJSONString] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
         
     } else if ([order.bookingStatus intValue] == 1) {
-        [self openURL:[NSString stringWithFormat:@"duola://bookingsubjectlist?oid=%@", self.oid]];
+        [self openURL:[NSString stringWithFormat:@"bookingsubjectlist?oid=%@", self.oid]];
     }
 }
 

@@ -82,10 +82,10 @@ static NSString *identifierBookSkuDateTitleCell = @"BookSkuDateTitleCell";
     NSDictionary * dic;
     NSString *path;
     if (self.isRequestMonth) {
-        path = @"/course/sku/month";
+        path = self.onlyShow ? @"/course/sku/month/notend" : @"/course/sku/month/bookable";
         dic = @{@"id":self.ids, @"month":@(self.month)};
     } else {
-        path = @"/course/sku/week";
+        path = self.onlyShow ? @"/course/sku/week/notend" : @"/course/sku/week/bookable";
         dic = @{@"id":self.ids};
     }
     [[HttpService defaultService] GET:URL_APPEND_PATH(path) parameters:dic cacheType:CacheTypeDisable JSONModelClass:[CourseSkuListModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {

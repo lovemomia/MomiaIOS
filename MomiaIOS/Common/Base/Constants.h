@@ -6,28 +6,40 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#define MO_DEBUG       0 // 调试开关 (0线上，1调试)
+//#define MO_DEBUG       1 // 调试开关 (0线上，1调试) (现在分target编译，定义到debug target的plist中了)
 
 // API Domain
 // 线上环境
-#define MO_API_DOMAIN_OL  @"http://i.sogokids.com"
-#define MO_HTTPS_API_DOMAIN_OL  @"https://i.sogokids.com"
-#define MO_IMAGE_API_DOMAIN_OL  @"http://s.sogokids.com"
+#define MO_API_DOMAIN_OL            @"http://i.sogokids.com"
+#define MO_HTTPS_API_DOMAIN_OL      @"https://i.sogokids.com"
+#define MO_IMAGE_API_DOMAIN_OL      @"http://s.sogokids.com"
 
 // 开发环境
-#define MO_API_DOMAIN_DEV @"http://i.momia.cn"
-#define MO_HTTPS_API_DOMAIN_DEV  @"https://i.momia.cn"
-#define MO_IMAGE_API_DOMAIN_DEV  @"http://s.momia.cn"
+#define MO_API_DOMAIN_DEV           @"http://i.momia.cn"
+#define MO_HTTPS_API_DOMAIN_DEV     @"https://i.momia.cn"
+#define MO_IMAGE_API_DOMAIN_DEV     @"http://s.momia.cn"
 
 #if     MO_DEBUG == 0
+
 #define MO_API_DOMAIN               MO_API_DOMAIN_OL
 #define MO_HTTPS_API_DOMAIN         MO_HTTPS_API_DOMAIN_OL
 #define MO_IMAGE_API_DOMAIN         MO_IMAGE_API_DOMAIN_OL
+
+#define MO_SCHEME                   @"duola://"
+
 #else
+
 #define MO_API_DOMAIN               MO_API_DOMAIN_DEV
 #define MO_HTTPS_API_DOMAIN         MO_HTTPS_API_DOMAIN_DEV
 #define MO_IMAGE_API_DOMAIN         MO_IMAGE_API_DOMAIN_DEV
+
+#define MO_SCHEME                   @"duoladebug://"
+
 #endif
+
+// url scheme拼接
+#define MOURL_STRING(__pathAndParamsString__)   ([MO_SCHEME stringByAppendingString:__pathAndParamsString__])
+#define MOURL(__pathAndParamsString__)          ([NSURL URLWithString:MOURL_STRING(__pathAndParamsString__)])
 
 // App渠道
 #define MO_APP_CHANNEL          @"appstore"
@@ -105,10 +117,13 @@
 #define kSinaRedirectURI    @"https://api.weibo.com/oauth2/default.html"
 
 // wechat
-//#define kWechatAppKey         @"wxcf7b15b51d3b4e53" //哆啦亲子
 #define kWechatAppKey         @"wx50b2ac03c88ad6e7" //松果亲子
-
+#define kWechatAppKey_QA      @"wxcf7b15b51d3b4e53" //哆啦亲子
 
 // umeng
 #define kUMengAppKey          @"55a317be67e58ea6470059ba"
+
+// rong cloud
+#define kRCIMAppKey          @"e5t4ouvptfowa"
+#define kRCIMAppKey_QA       @"0vnjpoadnwp2z" //测试环境
 

@@ -9,16 +9,19 @@
 #import "MORootViewController.h"
 #import "MONavigationController.h"
 #import "HomeViewController.h"
-#import "FeedListViewController.h"
+#import "GroupListViewController.h"
 #import "MineViewController.h"
 #import "UIImage+Color.h"
+#import <RongIMKit/RongIMKit.h>
 
 @interface MORootViewController ()<UITabBarControllerDelegate> {
     
 }
 @property (nonatomic, strong) HomeViewController *home;
-@property (nonatomic, strong) FeedListViewController *playmate;
+@property (nonatomic, strong) GroupListViewController *group;
 @property (nonatomic, strong) MineViewController *mine;
+
+@property (nonatomic, strong) UIImageView *dotImage;
 
 @end
 
@@ -46,27 +49,81 @@
         _home.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"精品课" image:[UIImage imageNamed:@"TabHomeNormal"] selectedImage:[UIImage imageNamed:@"TabHomeSelect"]];
         _home.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -2);
         
-        _playmate = [[FeedListViewController alloc]initWithParams:nil];
-        _playmate.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"成长说" image:[UIImage imageNamed:@"TabPlaymateNormal"] selectedImage:[UIImage imageNamed:@"TabPlaymateSelect"]];
-        _playmate.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -2);
+        _group = [[GroupListViewController alloc]initWithParams:nil];
+        _group.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"群组" image:[UIImage imageNamed:@"TabPlaymateNormal"] selectedImage:[UIImage imageNamed:@"TabPlaymateSelect"]];
+        _group.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -2);
         
         _mine = [[MineViewController alloc]initWithParams:nil];
         _mine.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"我的" image:[UIImage imageNamed:@"TabMineNormal"] selectedImage:[UIImage imageNamed:@"TabMineSelect"]];
         _mine.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -2);
         
         MONavigationController *navHome = [[MONavigationController alloc] initWithRootViewController:_home];
-        MONavigationController *navPlaymate = [[MONavigationController alloc] initWithRootViewController:_playmate];
+        MONavigationController *navGroup = [[MONavigationController alloc] initWithRootViewController:_group];
         MONavigationController *navMine = [[MONavigationController alloc] initWithRootViewController:_mine];
         
         self.viewControllers = [NSArray arrayWithObjects:
                                 navHome,
-                                navPlaymate,
+                                navGroup,
                                 navMine,
                                 nil];
         
         self.delegate = self;
     }
     return self;
+}
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+    if ([viewController.tabBarItem.title isEqualToString:@"群组"]) {
+        if ([[AccountService defaultService]isLogin]) {
+            return YES;
+        } else {
+            [[AccountService defaultService] login:self success:^{
+                self.tabBarController.selectedIndex = 1;
+            }];
+            return NO;
+        }
+    }
+    else
+        return YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMineDotChanged:) name:@"onMineDotChanged" object:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self makeGroupDotHidden];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"onMineDotChanged" object:nil];
+}
+
+- (void)onMineDotChanged:(NSNotification*)notify {
+    [self makeGroupDotHidden];
+}
+
+- (void)makeGroupDotHidden {
+    if ([[RCIMClient sharedRCIMClient] getUnreadCount:@[@(ConversationType_PRIVATE), @(ConversationType_GROUP)]] > 0) {
+        [self.dotImage removeFromSuperview];
+        self.dotImage = [[UIImageView alloc] init];
+        self.dotImage.backgroundColor = MO_APP_TextColor_red;
+        CGRect tabFrame = self.tabBar.frame;
+        CGFloat x = ceilf(0.60 * tabFrame.size.width);
+        CGFloat y = ceilf(0.12 * tabFrame.size.height);
+        self.dotImage.frame = CGRectMake(x, y, 8, 8);
+        self.dotImage.layer.cornerRadius = 4;
+        [self.tabBar addSubview:self.dotImage];
+        [self.tabBar setNeedsDisplay];
+        
+    } else {
+        [self.dotImage removeFromSuperview];
+    }
 }
 
 - (void)makeTabBarHidden:(BOOL)hide {

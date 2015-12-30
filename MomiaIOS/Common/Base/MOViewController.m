@@ -11,7 +11,7 @@
 #import "URLMappingManager.h"
 #import "MORootViewController.h"
 #import "HomeViewController.h"
-#import "FeedListViewController.h"
+#import "GroupListViewController.h"
 #import "MineViewController.h"
 
 @interface MOViewController ()
@@ -36,7 +36,7 @@
     }
     
     [super viewWillAppear:animated];
-    [MobClick beginLogPageView:[NSString stringWithUTF8String:object_getClassName(self)]];
+    
     if(MO_OS_VERSION >= 7.0)
     {
         MONavigationController *navController = (MONavigationController *)self.navigationController;
@@ -55,6 +55,8 @@
         }
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+    
+    [MobClick beginLogPageView:[NSString stringWithUTF8String:object_getClassName(self)]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -97,7 +99,7 @@
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithNibName:nil bundle:nil]) {
         // todo
-        if (![self isKindOfClass:[HomeViewController class]] && ![self isKindOfClass:[MineViewController class]] && ![self isKindOfClass:[FeedListViewController class]]) {
+        if (![self isKindOfClass:[HomeViewController class]] && ![self isKindOfClass:[MineViewController class]] && ![self isKindOfClass:[GroupListViewController class]]) {
             self.hidesBottomBarWhenPushed = YES;
         }
     }
@@ -114,17 +116,17 @@
 }
 
 - (BOOL)openURL:(NSString *)urlStr {
-    NSURL *url = [NSURL URLWithString:urlStr];
+    NSURL *url = MOURL(urlStr);
     return [[UIApplication sharedApplication ] openURL:url];
 }
 
 - (BOOL)openURL:(NSString *)urlStr byNav:(UINavigationController *)nav {
-    NSURL *url = [NSURL URLWithString:urlStr];
+    NSURL *url = MOURL(urlStr);
     return [[URLMappingManager sharedManager] handleOpenURL:url byNav:nav];
 }
 
 - (BOOL)presentURL:(NSString *)urlStr {
-    NSURL *url = [NSURL URLWithString:urlStr];
+    NSURL *url = MOURL(urlStr);
     return [[URLMappingManager sharedManager] presentURL:url byParent:self animated:YES];
 }
 

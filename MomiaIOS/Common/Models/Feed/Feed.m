@@ -8,6 +8,10 @@
 
 #import "Feed.h"
 
+@implementation FeedChild
+
+@end
+
 @implementation Feed
 
 + (JSONKeyMapper *)keyMapper {

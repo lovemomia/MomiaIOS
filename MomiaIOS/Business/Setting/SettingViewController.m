@@ -109,7 +109,7 @@
                                  }];
             
         } else {
-            [self openURL:@"duola://about"];
+            [self openURL:@"about"];
         }
     }
 

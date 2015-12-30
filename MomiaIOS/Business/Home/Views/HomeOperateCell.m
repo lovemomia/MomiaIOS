@@ -92,6 +92,9 @@ static const int kItemHeight = 76;
     UIView *view = tap.view;
     IndexEvent *event = self.data[view.tag];
     [[UIApplication sharedApplication]openURL:[NSURL URLWithString:event.action]];
+    
+    NSDictionary *attributes = @{@"name":event.title, @"index":[NSString stringWithFormat:@"%d", view.tag]};
+    [MobClick event:@"Home_Event" attributes:attributes];
 }
 
 + (CGFloat)heightWithTableView:(UITableView *) tableView forModel:(id)model {

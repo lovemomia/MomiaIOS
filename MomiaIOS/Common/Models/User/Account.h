@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) NSNumber *uid;
 @property (nonatomic, strong) NSString<Optional> *token;
+@property (nonatomic, strong) NSString<Optional> *imToken; //融云token
 
 @property (nonatomic, strong) NSString *avatar;
 @property (nonatomic, strong) NSString<Optional> *birthday;
@@ -26,6 +27,7 @@
 @property (nonatomic, strong) NSArray<Optional> *children;
 
 @property (nonatomic, strong) NSString<Optional> *cover;
+@property (nonatomic, strong) NSNumber<Optional> *role;
 
 - (void)save;
 

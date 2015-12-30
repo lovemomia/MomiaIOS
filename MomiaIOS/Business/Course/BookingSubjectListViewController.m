@@ -34,7 +34,7 @@ static NSString * identifierBookingSubjectItemCell = @"BookingSubjectItemCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"待约课程包";
+    self.navigationItem.title = @"预约课程";
     
     [BookingSubjectItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierBookingSubjectItemCell];
     
@@ -106,9 +106,9 @@ static NSString * identifierBookingSubjectItemCell = @"BookingSubjectItemCell";
     if(indexPath.row < self.list.count) {
         BookingSubject *bs = self.list[indexPath.row];
         if ([bs.courseId intValue] > 0) {
-            [self openURL:[NSString stringWithFormat:@"duola://book?id=%@&pid=%@", bs.courseId, bs.packageId]];
+            [self openURL:[NSString stringWithFormat:@"book?id=%@&pid=%@", bs.courseId, bs.packageId]];
         } else {
-            [self openURL:[NSString stringWithFormat:@"duola://bookablecourselist?id=%@&pid=%@", bs.subjectId, bs.packageId]];
+            [self openURL:[NSString stringWithFormat:@"bookablecourselist?id=%@&pid=%@", bs.subjectId, bs.packageId]];
         }
     }
     

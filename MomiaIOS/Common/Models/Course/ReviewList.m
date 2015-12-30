@@ -8,10 +8,11 @@
 
 #import "ReviewList.h"
 
-@implementation Review
+@implementation ReviewChild
+@end
 
+@implementation Review
 @end
 
 @implementation ReviewList
-
 @end

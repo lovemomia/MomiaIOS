@@ -8,18 +8,16 @@
 
 #import "UserInfoViewController.h"
 #import "UserInfoHeaderView.h"
-#import "UserInfoModel.h"
+#import "UserTimelineModel.h"
 #import "UploadImageModel.h"
 #import "AccountModel.h"
 
-#import "FeedUserHeadCell.h"
-#import "FeedUgcCell.h"
-#import "FeedContentCell.h"
+#import "UserTimelineCell.h"
 
-static NSString *identifierPlaymateUserHeadCell = @"PlaymateUserHeadCell";
-static NSString *identifierPlaymateUgcCell = @"PlaymateUgcCell";
 
-@interface UserInfoViewController ()<FeedUgcCellDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
+static NSString *identifierUserTimelineCell = @"UserTimelineCell";
+
+@interface UserInfoViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, strong) NSNumber *uid;
 @property (nonatomic, assign) BOOL isMe;
@@ -49,13 +47,12 @@ static NSString *identifierPlaymateUgcCell = @"PlaymateUgcCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.title = self.isMe ? @"成长说" : @"Ta的成长说";
+    self.navigationItem.title = self.isMe ? @"我的评价" : @"Ta的动态";
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18],NSForegroundColorAttributeName:[UIColor whiteColor]}];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     
-    [FeedUserHeadCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierPlaymateUserHeadCell];
-    [FeedUgcCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierPlaymateUgcCell];
+    [UserTimelineCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierUserTimelineCell];
     
     self.list = [NSMutableArray new];
     self.nextIndex = 0;
@@ -77,27 +74,28 @@ static NSString *identifierPlaymateUgcCell = @"PlaymateUgcCell";
         [self.view removeEmptyView];
     }
     
+    NSString *path = self.isMe ? @"/user/comment/timeline" : @"/user/timeline";
     NSDictionary * paramDic = @{@"uid":self.uid, @"start":[NSString stringWithFormat:@"%@", self.nextIndex]};
-    self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/user/info")
-                                              parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[UserInfoModel class]
+    self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(path)
+                                              parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[UserTimelineModel class]
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                      if ([self.list count] == 0) {
                                                          [self.view removeLoadingBee];
                                                      }
                                                      
-                                                     UserInfoModel *model = (UserInfoModel *)responseObject;
-                                                     if (model.data.feeds.nextIndex) {
-                                                         self.nextIndex = model.data.feeds.nextIndex;
+                                                     UserTimelineModel *model = (UserTimelineModel *)responseObject;
+                                                     if (model.data.timeline.nextIndex) {
+                                                         self.nextIndex = model.data.timeline.nextIndex;
                                                      } else {
                                                          self.nextIndex = [NSNumber numberWithInt:-1];
                                                      }
                                                      
                                                      if (model.data.user) {
                                                          self.user = model.data.user;
+                                                         [self setTitleBtn];
                                                      }
                                                      
-                                                     if ([model.data.feeds.totalCount isEqualToNumber:[NSNumber numberWithInt:0]]) {
-//                                                         [self.view showEmptyView:@"Ta还没有成长说哦~"];
+                                                     if ([model.data.timeline.totalCount isEqualToNumber:[NSNumber numberWithInt:0]]) {
                                                          self.isEmpty = YES;
                                                          [self.tableView reloadData];
                                                          return;
@@ -106,8 +104,8 @@ static NSString *identifierPlaymateUgcCell = @"PlaymateUgcCell";
                                                      if (refresh) {
                                                          [self.list removeAllObjects];
                                                      }
-                                                     for (Feed *feed in model.data.feeds.list) {
-                                                         [self.list addObject:feed];
+                                                     for (UserTimelineItem *tl in model.data.timeline.list) {
+                                                         [self.list addObject:tl];
                                                      }
                                                      [self.tableView reloadData];
                                                      self.isLoading = NO;
@@ -120,6 +118,19 @@ static NSString *identifierPlaymateUgcCell = @"PlaymateUgcCell";
                                                      [self showDialogWithTitle:nil message:error.message];
                                                      self.isLoading = NO;
                                                  }];
+}
+
+- (void)setTitleBtn {
+    BOOL hasRole = (self.user && [self.user.role intValue] > 1) || ([[AccountService defaultService].account.role intValue] > 1);
+    BOOL isMe = [self.user.uid intValue] == [[AccountService defaultService].account.uid intValue];
+    
+    if (!isMe && hasRole) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"发起对话" style:UIBarButtonItemStylePlain target:self action:@selector(onChatClicked)];
+    }
+}
+
+- (void)onChatClicked {
+    [self openURL:[NSString stringWithFormat:@"chat?type=1&targetid=%@&username=%@&title=%@", self.user.uid, self.user.nickName, self.user.nickName]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -150,52 +161,27 @@ static NSString *identifierPlaymateUgcCell = @"PlaymateUgcCell";
 }
 
 - (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle {
-    return UITableViewCellSeparatorStyleSingleLine;
-}
-
-- (UIEdgeInsets)separatorInsetForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UIEdgeInsetsMake(0,65,0,0);
+    return UITableViewCellSeparatorStyleNone;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section < self.list.count) {
-        Feed *feed = [self.list objectAtIndex:indexPath.section];
-        [self openURL:[NSString stringWithFormat:@"duola://feeddetail?id=%@", feed.ids]];
-    }
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if (self.nextIndex && [self.nextIndex intValue] > 0) {
-        return self.list.count + 1;
-    }
-    if (self.isEmpty) {
+    if (self.user) {
         return 1;
-    }
-    return self.list.count;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section < self.list.count) {
-        Feed *feed = [self.list objectAtIndex:section];
-        if ([feed.type intValue] == 1) {
-            return 3;
-        }
     }
     return 0;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.list.count;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section < self.list.count) {
-        Feed *feed = [self.list objectAtIndex:indexPath.section];
-        if (indexPath.row == 0) {
-            return [FeedUserHeadCell heightWithTableView:tableView withIdentifier:identifierPlaymateUserHeadCell forIndexPath:indexPath data:feed];
-        } else if (indexPath.row == 2) {
-            return [FeedUgcCell heightWithTableView:tableView withIdentifier:identifierPlaymateUgcCell forIndexPath:indexPath data:feed];
-        } else {
-            return [FeedContentCell heightWithTableView:tableView contentModel:feed];
-        }
-    }
-    return 80;
+    UserTimelineItem *tl = self.list[indexPath.row];
+    return [UserTimelineCell heightWithTableView:tableView withIdentifier:identifierUserTimelineCell forIndexPath:indexPath data:tl];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -220,19 +206,19 @@ static NSString *identifierPlaymateUgcCell = @"PlaymateUgcCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (section == self.list.count) {
+    if (self.isEmpty) {
         return 50;
     }
-    return 10;
+    return 0.1;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 50)];
     if (self.isEmpty) {
-        [view showEmptyView:@"还没有成长说哦~"];
+        [view showEmptyView:self.isMe ? @"还没有任何评价哦~" : @"还没有任何状态哦~"];
         return view;
     }
-    if (section == self.list.count) {
+    if ([self.nextIndex intValue] > 0) {
         [view showLoadingBee];
         if(!self.isLoading) {
             [self requestData:false];
@@ -240,57 +226,18 @@ static NSString *identifierPlaymateUgcCell = @"PlaymateUgcCell";
         }
         return view;
     }
-    return view;
+    return nil;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
-    Feed *feed = [self.list objectAtIndex:indexPath.section];
-    if (indexPath.row == 0) {
-        FeedUserHeadCell *userHeadCell = [FeedUserHeadCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierPlaymateUserHeadCell];
-        [userHeadCell setData:feed];
-        cell = userHeadCell;
-        
-    } else if (indexPath.row == 1) {
-        FeedContentCell *contentCell = [[FeedContentCell alloc]initWithTableView:tableView contentModel:feed];
-        cell = contentCell;
-        
-    } else {
-        FeedUgcCell *ugcCell = [FeedUgcCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierPlaymateUgcCell];
-        [ugcCell setData:feed];
-        ugcCell.delegate = self;
-        ugcCell.tag = indexPath.section;
-        cell = ugcCell;
-    }
+    UserTimelineItem *tl = [self.list objectAtIndex:indexPath.row];
+    UserTimelineCell *tlCell = [UserTimelineCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierUserTimelineCell];
+    tlCell.data = tl;
+    cell = tlCell;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     return cell;
-}
-
-#pragma mark - FeedUgcCell delegate
-
-- (void)onCommentClicked:(id)cell {
-    FeedUgcCell *ugcCell = cell;
-    Feed *feed = [self.list objectAtIndex:ugcCell.tag];
-    [self openURL:[NSString stringWithFormat:@"duola://commentlist?id=%@", feed.ids]];
-}
-
-- (void)onZanClicked:(id)cell {
-    FeedUgcCell *ugcCell = cell;
-    Feed *feed = [self.list objectAtIndex:ugcCell.tag];
-    if (![[AccountService defaultService] isLogin]) {
-        [[AccountService defaultService] login:self];
-    }
-    NSDictionary * dic = @{@"id":feed.ids};
-    BOOL isStared = [feed.stared boolValue];
-    NSString *path = isStared ? @"/feed/unstar" : @"/feed/star";
-    [[HttpService defaultService] POST:URL_APPEND_PATH(path) parameters:dic JSONModelClass:[BaseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        feed.stared = [NSNumber numberWithBool:!isStared];
-        feed.starCount = [NSNumber numberWithInt:(isStared ? ([feed.starCount intValue] - 1) : ([feed.starCount intValue] + 1))];
-        [self.tableView reloadData];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-    }];
 }
 
 #pragma mark - cover select

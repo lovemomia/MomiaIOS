@@ -40,7 +40,7 @@ NSString * const pageKeyDesc          = @"desc";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        NSString *file = [[NSBundle mainBundle] pathForResource:@"scheme" ofType:@"plist"];
+        NSString *file = [[NSBundle mainBundle] pathForResource:@"mapping" ofType:@"plist"];
         NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:file];
         _urlMapping = dict;
     }
@@ -68,7 +68,7 @@ NSString * const pageKeyDesc          = @"desc";
         controller.loginSuccessBlock = ^(){
             [currentController dismissViewControllerAnimated:NO completion:nil];
             NSDictionary *params = [url queryDictionary];
-            MOViewController *controller = [[NSClassFromString(pageDic[pageKeyController]) alloc]initWithParams:params];
+            UIViewController *controller = [[NSClassFromString(pageDic[pageKeyController]) alloc]initWithParams:params];
             [nav pushViewController:controller animated:YES];
         };
         controller.loginFailBlock = ^(NSInteger code, NSString* message){
@@ -84,7 +84,7 @@ NSString * const pageKeyDesc          = @"desc";
         
     } else {
         NSDictionary *params = [url queryDictionary];
-        MOViewController *controller = [[NSClassFromString(pageDic[pageKeyController]) alloc]initWithParams:params];
+        UIViewController *controller = [[NSClassFromString(pageDic[pageKeyController]) alloc]initWithParams:params];
         if (controller == nil) {
             return NO;
         }
@@ -95,7 +95,7 @@ NSString * const pageKeyDesc          = @"desc";
 }
 
 - (BOOL)presentURL:(NSURL *)url byParent:(UIViewController *)parent animated:(BOOL)animated {
-    MOViewController *controller = [self createControllerFromURL:url];
+    UIViewController *controller = [self createControllerFromURL:url];
     if (controller == nil) {
         return NO;
     }
@@ -112,7 +112,7 @@ NSString * const pageKeyDesc          = @"desc";
     return pageDic;
 }
 
-- (MOViewController *)createControllerFromURL:(NSURL *)url {
+- (UIViewController *)createControllerFromURL:(NSURL *)url {
     NSDictionary *pageDic = [self parsePageWithURL:url];
     if (pageDic == nil) {
         NSLog(@"URLMapping fail (not found page with url:%@", url);
@@ -120,7 +120,7 @@ NSString * const pageKeyDesc          = @"desc";
     }
     
     NSDictionary *params = [url queryDictionary];
-    MOViewController *controller = [[NSClassFromString(pageDic[pageKeyController]) alloc]initWithParams:params];
+    UIViewController *controller = [[NSClassFromString(pageDic[pageKeyController]) alloc]initWithParams:params];
     return controller;
 }
 

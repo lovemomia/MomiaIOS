@@ -31,7 +31,7 @@
     starView.starHighlightedImage = [UIImage imageNamed:@"IconSmallRedStar"];
     starView.maxRating = 5.0;
     starView.horizontalMargin = 12;
-    starView.editable = YES;
+    starView.editable = NO;
     starView.displayMode = EDStarRatingDisplayFull;
 }
 
@@ -45,15 +45,51 @@
     self.review = data;
     [self.avatarIv sd_setImageWithURL:[NSURL URLWithString:data.avatar] placeholderImage:[UIImage imageNamed:@"IconAvatarDefault"]];
     self.nameLabel.text = data.nickName;
-    if (data.children.count > 0) {
-        NSMutableString *childrenStr = [[NSMutableString alloc]init];
-        for (int i = 0; i < data.children.count; i++) {
-            [childrenStr appendString:[NSString stringWithFormat:@"%@ ", data.children[i]]];
-        }
-        self.ageLabel.text = childrenStr;
-    }
     self.dateLabel.text = data.addTime;
     self.starView.rating = [data.star floatValue];
+    
+    // child info
+    [self.childContainer removeAllSubviews];
+    
+    UIView *lastChildView;
+    for (int i = 0; i < data.childrenDetail.count; i++) {
+        ReviewChild *child = data.childrenDetail[i];
+        UIImageView *icon = [[UIImageView alloc]init];
+        [self.childContainer addSubview:icon];
+        [icon mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@11);
+            make.width.equalTo(@11);
+            
+            if (lastChildView) {
+                make.left.equalTo(lastChildView.mas_right).with.offset(6);
+            } else {
+                make.left.equalTo(self.childContainer);
+            }
+            make.top.equalTo(self.childContainer).with.offset(2);
+            make.bottom.equalTo(self.childContainer).with.offset(-2);
+        }];
+        
+        if ([child.sex isEqualToString:@"男"]) {
+            icon.image = [UIImage imageNamed:@"IconBoy"];
+        } else {
+            icon.image = [UIImage imageNamed:@"IconGirl"];
+        }
+        
+        UILabel *age = [[UILabel alloc]init];
+        [self.childContainer addSubview:age];
+        [age mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@15);
+            
+            make.left.equalTo(icon.mas_right).with.offset(3);
+            make.top.equalTo(self.childContainer).with.offset(0);
+            make.bottom.equalTo(self.childContainer).with.offset(0);
+        }];
+        lastChildView = age;
+        
+        age.textColor = UIColorFromRGB(0x666666);
+        age.font = [UIFont systemFontOfSize:12];
+        age.text = [NSString stringWithFormat:@"%@", [child age]];
+    }
     
     [self.containerView removeAllSubviews];
     
@@ -184,7 +220,8 @@
 
 - (IBAction)onUserInfoClicked:(id)sender {
     if (self.review) {
-        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://userinfo?uid=%@", self.review.userId]]];
+        NSString *url = [NSString stringWithFormat:@"userinfo?uid=%@", self.review.userId];
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:MOURL_STRING(url)]];
     }
 }
 

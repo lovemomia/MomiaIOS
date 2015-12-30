@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -33,14 +33,15 @@
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="宝宝4岁" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VB7-ea-rBE">
-                        <rect key="frame" x="65" y="38.5" width="133" height="14.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIS-6p-miG">
+                        <rect key="frame" x="65" y="41" width="125" height="15"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="qzR-dP-vYE"/>
+                        </constraints>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pnW-fK-n2b">
-                        <rect key="frame" x="65" y="58" width="245" height="69.5"/>
+                        <rect key="frame" x="65" y="64" width="245" height="63.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5m-xX-Ccc">
@@ -70,28 +71,36 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="LeE-o3-Bze" firstAttribute="top" secondItem="Mxu-G6-MbB" secondAttribute="top" constant="16" id="23b-kJ-QUK"/>
-                    <constraint firstItem="VB7-ea-rBE" firstAttribute="top" secondItem="7zd-F8-wgs" secondAttribute="bottom" constant="5.5" id="2tT-q7-R98"/>
                     <constraint firstAttribute="trailing" secondItem="pnW-fK-n2b" secondAttribute="trailing" constant="10" id="8qq-l6-Jtu"/>
                     <constraint firstItem="c5m-xX-Ccc" firstAttribute="top" secondItem="Mxu-G6-MbB" secondAttribute="top" id="9Cz-HU-WUn"/>
                     <constraint firstItem="LeE-o3-Bze" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7zd-F8-wgs" secondAttribute="trailing" constant="10" id="ElS-L4-Mex"/>
                     <constraint firstAttribute="trailing" secondItem="LeE-o3-Bze" secondAttribute="trailing" constant="10" id="HYA-ed-Hgo"/>
                     <constraint firstItem="c5m-xX-Ccc" firstAttribute="leading" secondItem="Mxu-G6-MbB" secondAttribute="leading" id="I1v-rd-AOF"/>
+                    <constraint firstItem="pnW-fK-n2b" firstAttribute="top" secondItem="SIS-6p-miG" secondAttribute="bottom" constant="8" id="Moc-5v-mOh"/>
                     <constraint firstAttribute="bottom" secondItem="pnW-fK-n2b" secondAttribute="bottom" constant="10" id="Nij-DV-GY6"/>
-                    <constraint firstItem="d1x-RH-Jz9" firstAttribute="leading" secondItem="VB7-ea-rBE" secondAttribute="trailing" constant="17" id="QlV-iL-IGt"/>
                     <constraint firstItem="7zd-F8-wgs" firstAttribute="top" secondItem="Mxu-G6-MbB" secondAttribute="top" constant="16" id="SZf-1X-MuL"/>
                     <constraint firstItem="pnW-fK-n2b" firstAttribute="leading" secondItem="Mxu-G6-MbB" secondAttribute="leading" constant="65" id="To4-6x-Xjb"/>
                     <constraint firstItem="q8z-xG-5jy" firstAttribute="top" secondItem="Mxu-G6-MbB" secondAttribute="top" constant="15" id="U0m-L1-Aro"/>
+                    <constraint firstItem="pnW-fK-n2b" firstAttribute="top" secondItem="SIS-6p-miG" secondAttribute="bottom" constant="2" id="YCr-tA-jFJ"/>
+                    <constraint firstItem="pnW-fK-n2b" firstAttribute="top" secondItem="SIS-6p-miG" secondAttribute="bottom" constant="8" id="bHc-CM-7uI"/>
                     <constraint firstAttribute="trailing" secondItem="d1x-RH-Jz9" secondAttribute="trailing" constant="10" id="beO-EU-OAn"/>
                     <constraint firstItem="d1x-RH-Jz9" firstAttribute="top" secondItem="LeE-o3-Bze" secondAttribute="bottom" constant="7.5" id="c5O-3U-Tux"/>
                     <constraint firstItem="q8z-xG-5jy" firstAttribute="leading" secondItem="Mxu-G6-MbB" secondAttribute="leading" constant="10" id="cQH-oq-0sC"/>
-                    <constraint firstItem="pnW-fK-n2b" firstAttribute="top" secondItem="VB7-ea-rBE" secondAttribute="bottom" constant="5" id="eZv-n0-ZGi"/>
+                    <constraint firstItem="d1x-RH-Jz9" firstAttribute="leading" secondItem="SIS-6p-miG" secondAttribute="trailing" constant="25" id="dgU-LY-4Of"/>
                     <constraint firstItem="7zd-F8-wgs" firstAttribute="leading" secondItem="q8z-xG-5jy" secondAttribute="trailing" constant="10" id="iyS-1t-0XJ"/>
-                    <constraint firstItem="VB7-ea-rBE" firstAttribute="leading" secondItem="7zd-F8-wgs" secondAttribute="leading" id="mzX-xN-Oep"/>
+                    <constraint firstItem="SIS-6p-miG" firstAttribute="top" secondItem="7zd-F8-wgs" secondAttribute="bottom" constant="8" id="lV6-iW-0fC"/>
+                    <constraint firstItem="SIS-6p-miG" firstAttribute="leading" secondItem="7zd-F8-wgs" secondAttribute="leading" id="pI9-rJ-nuY"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Moc-5v-mOh"/>
+                        <exclude reference="YCr-tA-jFJ"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="ageLabel" destination="VB7-ea-rBE" id="F8P-Tj-m8n"/>
                 <outlet property="avatarIv" destination="q8z-xG-5jy" id="lIi-OX-AVd"/>
+                <outlet property="childContainer" destination="SIS-6p-miG" id="zzF-hQ-pxZ"/>
                 <outlet property="containerView" destination="pnW-fK-n2b" id="vj4-pH-loK"/>
                 <outlet property="dateLabel" destination="LeE-o3-Bze" id="59v-rQ-DPi"/>
                 <outlet property="nameLabel" destination="7zd-F8-wgs" id="cHn-cX-pH0"/>

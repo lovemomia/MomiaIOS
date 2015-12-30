@@ -10,6 +10,7 @@
 #import "MJRefreshHelper.h"
 #import "SubjectDetailModel.h"
 #import "CourseListModel.h"
+#import "ReviewListModel.h"
 
 #import "PhotoTitleHeaderCell.h"
 #import "SubjectBuyCell.h"
@@ -18,7 +19,7 @@
 #import "CourseSectionTitleCell.h"
 #import "CourseListItemCell.h"
 #import "CourseNoticeCell.h"
-#import "FeedListItemCell.h"
+#import "ReviewListItemCell.h"
 #import "SubjectTabCell.h"
 
 static NSString *identifierPhotoTitleHeaderCell = @"PhotoTitleHeaderCell";
@@ -28,7 +29,7 @@ static NSString *identifierCourseDiscCell = @"CourseDiscCell";
 static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
 static NSString *identifierCourseListItemCell = @"CourseListItemCell";
 static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
-static NSString *identifierFeedListItemCell = @"FeedListItemCell";
+static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
 static NSString *identifierSubjectTabCell = @"SubjectTabCell";
 
 @interface SubjectDetailViewController ()<SubjectTabCellDelegate>
@@ -48,8 +49,8 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
 @property (nonatomic, assign) BOOL clLoading;
 @property (nonatomic, assign) NSInteger clNextIndex;
 
-//成长说列表
-@property (nonatomic, strong) NSMutableArray *feedList;
+//评论列表
+@property (nonatomic, strong) NSMutableArray *reviewList;
 @property (nonatomic, assign) BOOL flLoading;
 @property (nonatomic, assign) NSInteger flNextIndex;
 
@@ -81,7 +82,7 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
     [CourseListItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierCourseListItemCell];
     [CourseNoticeCell registerCellFromClassWithTableView:self.tableView withIdentifier:identifierCourseNoticeCell];
     [CourseDiscCell registerCellFromClassWithTableView:self.tableView withIdentifier:identifierCourseDiscCell];
-    [FeedListItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierFeedListItemCell];
+    [ReviewListItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierReviewListItemCell];
     [SubjectTabCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierSubjectTabCell];
     
     [self setTopTabView];
@@ -140,7 +141,7 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
     
     if (self.courseList == nil) {
         self.courseList = [[NSMutableArray alloc]init];
-        self.feedList = [[NSMutableArray alloc]init];
+        self.reviewList = [[NSMutableArray alloc]init];
     }
     
     if (refresh) {
@@ -150,7 +151,7 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
         
         self.flNextIndex = 0;
         self.flLoading = NO;
-        [self.feedList removeAllObjects];
+        [self.reviewList removeAllObjects];
     }
     
     CacheType cacheType = refresh ? CacheTypeDisable : CacheTypeDisable;
@@ -162,7 +163,7 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
         }
         
         self.model = responseObject;
-        self.hasFeed = self.model.data.feeds && self.model.data.feeds.list.count > 0;
+        self.hasFeed = self.model.data.comments && self.model.data.comments.list.count > 0;
         self.hasCourse = self.model.data.courses &&  self.model.data.courses.list.count > 0;
         self.navigationItem.title = self.model.data.subject.title;
         
@@ -170,9 +171,9 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
             [self.courseList addObjectsFromArray:self.model.data.courses.list];
             self.clNextIndex = [self.model.data.courses.nextIndex integerValue];
         }
-        if (self.model.data.feeds) {
-            [self.feedList addObjectsFromArray:self.model.data.feeds.list];
-            self.flNextIndex = [self.model.data.feeds.nextIndex integerValue];
+        if (self.model.data.comments) {
+            [self.reviewList addObjectsFromArray:self.model.data.comments.list];
+            self.flNextIndex = [self.model.data.comments.nextIndex integerValue];
         }
         
         [self setBuyView];
@@ -230,13 +231,13 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
     }
     
     NSMutableDictionary *paramDic = [[NSMutableDictionary alloc]init];
-    [paramDic setValue:self.ids forKey:@"suid"];
+    [paramDic setValue:self.ids forKey:@"id"];
     [paramDic setValue:[NSString stringWithFormat:@"%ld", (long)self.flNextIndex] forKey:@"start"];
     
-    self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/feed/subject")
-                                              parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[FeedListModel class]
+    self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/subject/comment/list")
+                                              parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[ReviewListModel class]
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                                     FeedListModel *model = (FeedListModel *)responseObject;
+                                                     ReviewListModel *model = (ReviewListModel *)responseObject;
                                                      
                                                      if (model.data.nextIndex) {
                                                          self.flNextIndex = [model.data.nextIndex integerValue];
@@ -244,8 +245,8 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
                                                          self.flNextIndex = -1;
                                                      }
                                                      
-                                                     for (Feed *feed in model.data.list) {
-                                                         [self.feedList addObject:feed];
+                                                     for (Review *review in model.data.list) {
+                                                         [self.reviewList addObject:review];
                                                      }
                                                      [self.tableView reloadData];
                                                      self.flLoading = NO;
@@ -273,7 +274,7 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
     if (self.rectInTableView.origin.y == 0) {
         return;
     }
-   
+    
     if ((scrollView.contentOffset.y - self.rectInTableView.origin.y) > 0 && self.topTabView.hidden == NO) {
         return;
     }
@@ -298,10 +299,20 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
     NSInteger index = tap.view.tag;
     self.tabIndex = index;
     [self.tableView reloadData];
+    
+    if (index == 0) {
+        [MobClick event:@"Subject_Tab_Courses"];
+    } else if (index == 1) {
+        [MobClick event:@"Subject_Tab_Notice"];
+    } else {
+        [MobClick event:@"Subject_Tab_Feed"];
+    }
 }
 
 - (void)onBuyClicked:(UITapGestureRecognizer *)tap {
-    [self openURL:[NSString stringWithFormat:@"duola://fillorder?id=%@", self.model.data.subject.ids]];
+    [self openURL:[NSString stringWithFormat:@"fillorder?id=%@", self.model.data.subject.ids]];
+    
+    [MobClick event:@"Subject_Buy"];
 }
 
 - (void)onTabChanged:(NSInteger)index {
@@ -325,15 +336,13 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
     if (indexPath.section == 1 && indexPath.row > 0) {
         if (self.tabIndex == 0) {
             Course *course = self.model.data.courses.list[indexPath.row - 1];
-            [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@&buyable=0", course.ids]];
+            [self openURL:[NSString stringWithFormat:@"coursedetail?id=%@&buyable=0", course.ids]];
             
-//            [self openURL:[NSString stringWithFormat:@"duola://bookablecourselist?id=%@&onlyshow=1", self.model.data.subject.ids]];
+            NSDictionary *attributes = @{@"name":course.title, @"index":[NSString stringWithFormat:@"%d", (indexPath.row - 1)]};
+            [MobClick event:@"Subject_List" attributes:attributes];
         }
-//        else if (self.tabIndex == 2) {
-//            [self openURL:[NSString stringWithFormat:@"duola://coursedetail?id=%@", course.ids]];
-//        }
     } else if (indexPath.section == 3 && self.hasFeed) {
-        [self openURL:[NSString stringWithFormat:@"duola://reviewlist?subjectId=%@", self.ids]];
+        [self openURL:[NSString stringWithFormat:@"reviewlist?subjectId=%@", self.ids]];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -357,9 +366,9 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
             
         } else if (self.tabIndex == 2) {
             if (self.flNextIndex > 0) {
-                return self.feedList.count + 2;
+                return self.reviewList.count + 2;
             }
-            return 1 + self.feedList.count;
+            return 1 + self.reviewList.count;
             
         } else {
             return 2;
@@ -399,7 +408,9 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
             cell = tabCell;
             cell.selectionStyle = UITableViewCellSeparatorStyleNone;
             
-            self.rectInTableView = [self.tableView rectForRowAtIndexPath:indexPath];
+            if (self.rectInTableView.origin.y == 0) {
+                self.rectInTableView = [self.tableView rectForRowAtIndexPath:indexPath];
+            }
             
         } else {
             if (self.tabIndex == 0) {
@@ -429,7 +440,7 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
                 cell.selectionStyle = UITableViewCellSeparatorStyleNone;
                 
             } else {
-                if((row - 1) == self.feedList.count) {
+                if((row - 1) == self.reviewList.count) {
                     static NSString * loadIdentifier = @"CellLoading";
                     UITableViewCell * load = [tableView dequeueReusableCellWithIdentifier:loadIdentifier];
                     if(load == nil) {
@@ -443,8 +454,8 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
                     }
                     
                 } else {
-                    FeedListItemCell *reviewCell = [FeedListItemCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:identifierFeedListItemCell];
-                    [reviewCell setData:self.feedList[row - 1]];
+                    ReviewListItemCell *reviewCell = [ReviewListItemCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:identifierReviewListItemCell];
+                    [reviewCell setData:self.reviewList[row - 1]];
                     cell = reviewCell;
                     cell.selectionStyle = UITableViewCellSeparatorStyleNone;
                 }
@@ -483,10 +494,10 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
                 return [CourseNoticeCell heightWithTableView:tableView withIdentifier:identifierCourseNoticeCell forIndexPath:indexPath data:self.model.data.subject];
                 
             } else {
-                if((row - 1) == self.feedList.count) {
+                if((row - 1) == self.reviewList.count) {
                     return 44;
                 }
-                return [FeedListItemCell heightWithTableView:self.tableView withIdentifier:identifierFeedListItemCell forIndexPath:indexPath data:self.feedList[row - 1]];
+                return [ReviewListItemCell heightWithTableView:self.tableView withIdentifier:identifierReviewListItemCell forIndexPath:indexPath data:self.reviewList[row - 1]];
             }
         }
     }

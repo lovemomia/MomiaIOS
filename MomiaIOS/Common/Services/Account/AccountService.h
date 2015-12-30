@@ -11,6 +11,8 @@
 #import <Foundation/Foundation.h>
 #import "Account.h"
 
+typedef void (^BlockLoginSuccess)();
+
 @protocol AccountChangeListener<NSObject>
 
 - (void)onAccountChange;
@@ -31,7 +33,7 @@
  */
 - (BOOL)isLogin;
 
-- (void)login:(UIViewController *)controller;
+- (void)login:(UIViewController *)currentController success:(BlockLoginSuccess)success;
 
 - (void)logout:(UIViewController *)controller;
 

@@ -65,6 +65,9 @@ static const int kItemHeight = 76;
     UIView *view = tap.view;
     IndexIcon *icon = self.data[view.tag];
     [[UIApplication sharedApplication]openURL:[NSURL URLWithString:icon.action]];
+    
+    NSDictionary *attributes = @{@"name":icon.title, @"index":[NSString stringWithFormat:@"%d", view.tag]};
+    [MobClick event:@"Home_Icon" attributes:attributes];
 }
 
 + (CGFloat)heightWithTableView:(UITableView *) tableView forModel:(id)model {

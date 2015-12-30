@@ -14,6 +14,7 @@
 @end
 
 @implementation FeedUserHeadCell
+@synthesize childContainer;
 
 - (void)awakeFromNib {
     // Initialization code
@@ -32,19 +33,58 @@
     [self.avatarIv sd_setImageWithURL:[NSURL URLWithString:data.avatar] placeholderImage:[UIImage imageNamed:@"IconAvatarDefault"]];
     self.nameLabel.text = data.nickName;
     self.dateLabel.text = data.addTime;
-    if (data.children && data.children.count > 0) {
-        NSMutableString *ms = [[NSMutableString alloc] init];
-        for (NSString *child in data.children) {
-            [ms appendString:child];
-            [ms appendString:@" "];
+    
+    for (UIView * view in childContainer.subviews) {
+        if([view isKindOfClass:[UILabel class]] || [view isKindOfClass:[UIImageView class]]) {
+            [view removeFromSuperview];
         }
-        self.descLabel.text = ms;
+    }
+    
+    UIView *lastView;
+    for (int i = 0; i < data.childrenDetail.count; i++) {
+        FeedChild *child = data.childrenDetail[i];
+        UIImageView *icon = [[UIImageView alloc]init];
+        [childContainer addSubview:icon];
+        [icon mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@11);
+            make.width.equalTo(@11);
+            
+            if (lastView) {
+                make.left.equalTo(lastView.mas_right).with.offset(6);
+            } else {
+                make.left.equalTo(childContainer);
+            }
+            make.top.equalTo(childContainer).with.offset(2);
+            make.bottom.equalTo(childContainer).with.offset(-2);
+        }];
+        
+        if ([child.sex isEqualToString:@"男"]) {
+            icon.image = [UIImage imageNamed:@"IconBoy"];
+        } else {
+            icon.image = [UIImage imageNamed:@"IconGirl"];
+        }
+        
+        UILabel *age = [[UILabel alloc]init];
+        [childContainer addSubview:age];
+        [age mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@15);
+            
+            make.left.equalTo(icon.mas_right).with.offset(3);
+            make.top.equalTo(childContainer).with.offset(0);
+            make.bottom.equalTo(childContainer).with.offset(0);
+        }];
+        lastView = age;
+        
+        age.textColor = UIColorFromRGB(0x666666);
+        age.font = [UIFont systemFontOfSize:12];
+        age.text = [NSString stringWithFormat:@"%@ %@",[child name], [child age]];
     }
 }
 
 - (IBAction)onUserInfoClicked:(id)sender {
-    if (self.feed) {
-        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"duola://userinfo?uid=%@", self.feed.userId]]];
+    if (self.feed && !self.disableUserInfoClick) {
+        NSString *url = [NSString stringWithFormat:@"userinfo?uid=%@", self.feed.userId];
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:MOURL_STRING(url)]];
     }
 }
 

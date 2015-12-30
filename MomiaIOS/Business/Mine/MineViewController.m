@@ -10,6 +10,9 @@
 #import "FeedbackViewController.h"
 #import "Child.h"
 #import "CommonTableViewCell.h"
+#import "ChatListViewController.h"
+#import <RongIMKit/RongIMKit.h>
+#import "NSString+MOURLEncode.h"
 
 @interface MineViewController ()
 
@@ -22,8 +25,25 @@
     // Do any additional setup after loading the view from its nib.
     
     self.navigationItem.title = @"我的";
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(onSettingClicked)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleMsg"] style:UIBarButtonItemStylePlain target:self action:@selector(onTitleBtnClick)];
+    
     [[AccountService defaultService] addListener:self];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+}
+
+- (void)onTitleBtnClick {
+    NSString *title = @"系统通知";
+    [self openURL:[NSString stringWithFormat:@"chatpublic?type=6&targetid=10000&username=%@&title=%@", [title URLEncodedString], [title URLEncodedString]]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,6 +53,7 @@
 
 - (void)dealloc {
     [[AccountService defaultService]removeListener:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"onMineDotChanged" object:nil];
 }
 
 - (void)onAccountChange {
@@ -51,12 +72,12 @@
 
 // 单击设置
 - (void)onSettingClicked {
-    NSURL *url = [NSURL URLWithString:@"duola://setting"];
+    NSURL *url = [NSURL URLWithString:@"setting"];
     [[UIApplication sharedApplication ] openURL:url];
 }
 
 - (void)onLoginClicked {
-    [[AccountService defaultService] login:self];
+    [[AccountService defaultService] login:self success:nil];
 }
 
 #pragma mark - tableview delegate & datasource
@@ -71,15 +92,17 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0 || section == 2) {
+    if (section == 0) {
         return 1;
+    } else if (section == 2) {
+        return 3;
     }
     return 2;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 5;
+    return 4;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -93,40 +116,57 @@
         case 0:
         {
             if ([[AccountService defaultService] isLogin]) {
-                NSURL *url = [NSURL URLWithString:@"duola://personinfo"];
-                [[UIApplication sharedApplication ] openURL:url];
+                [[UIApplication sharedApplication ] openURL:MOURL(@"personinfo")];
+                
+                [MobClick event:@"Mine_PersonInfo"];
             }
         }
             break;
         case 1:
             if(row == 0) {
-                [self openURL:@"duola://bookingsubjectlist"];
+                [self openURL:@"bookingsubjectlist"];
+                
+                [MobClick event:@"Mine_Book"];
                 
             } else {
-               [self openURL:@"duola://bookedcourselist"];
+               [self openURL:@"bookedcourselist"];
+                
+                [MobClick event:@"Mine_Booked"];
             }
             break;
         case 2:
-            if (row == 0) {
+            if(row == 0) {
+                [self openURL:@"myorderlist"];
+                
+                [MobClick event:@"Mine_Order"];
+                
+            } else if (row == 1) {
                 if ([[AccountService defaultService]isLogin]) {
-                    [self openURL:[NSString stringWithFormat:@"duola://userinfo?uid=%@&me=1", [AccountService defaultService].account.uid]];
+                    [self openURL:[NSString stringWithFormat:@"userinfo?uid=%@&me=1", [AccountService defaultService].account.uid]];
+                } else {
+                    [[AccountService defaultService] login:self success:^{
+                       [self openURL:[NSString stringWithFormat:@"userinfo?uid=%@&me=1", [AccountService defaultService].account.uid]];
+                    }];
                 }
                 
+                [MobClick event:@"Mine_Feed"];
+                
+            } else {
+                [self openURL:@"couponlist?status=0"];
+                
+                [MobClick event:@"Mine_Coupon"];
             }
             break;
         case 3:
             if(row == 0) {
-                [self openURL:@"duola://myorderlist"];
-            } else {
-                [self openURL:@"duola://couponlist?status=0"];
-            }
-            break;
-        case 4:
-            if(row == 0) {
-                [self openURL:@"duola://feedback"];
+                [self openURL:@"feedback"];
+                
+                [MobClick event:@"Mine_Feedback"];
                 
             } else {
-                [self openURL:@"duola://setting"];
+                [self openURL:@"setting"];
+                
+                [MobClick event:@"Mine_Setting"];
             }
             break;
             
@@ -188,8 +228,7 @@
         }
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         CommonTableViewCell *commonCell = (CommonTableViewCell *)cell;
-//        cell.textLabel.textColor = UIColorFromRGB(0x333333);
-//        cell.textLabel.font = [UIFont systemFontOfSize: 16.0];
+        commonCell.dotIv.hidden = YES;
         
         switch (section) {
             case 1:
@@ -203,19 +242,17 @@
                 break;
             case 2:
                 if (row == 0) {
-                    commonCell.titleLabel.text = @"成长说";
-                    commonCell.iconIv.image = [UIImage imageNamed:@"IconFeed"];
-                }
-                break;
-            case 3:
-                if (row == 0) {
                     commonCell.titleLabel.text = @"我的订单";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconOrder"];
+                } else if (row == 1) {
+                    commonCell.titleLabel.text = @"我的评价";
+                    commonCell.iconIv.image = [UIImage imageNamed:@"IconFeed"];
+                    
                 } else {
                     commonCell.titleLabel.text = @"我的红包";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconCoupon"];
                 }                break;
-            case 4:
+            case 3:
                 if (row == 0) {
                     commonCell.titleLabel.text = @"意见反馈";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconFeedback"];

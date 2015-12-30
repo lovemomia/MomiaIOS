@@ -190,7 +190,10 @@ typedef enum {
 }
 
 - (void)onBuyClicked:(UITapGestureRecognizer *)tap {
-    [self openURL:[NSString stringWithFormat:@"duola://fillorder?id=%@&coid=%@&coname=%@", self.model.data.subjectId, self.model.data.ids, [self.model.data.subject URLEncodedString]]];
+    [self openURL:[NSString stringWithFormat:@"fillorder?id=%@&coid=%@&coname=%@", self.model.data.subjectId, self.model.data.ids, [self.model.data.subject URLEncodedString]]];
+    
+    NSDictionary *attributes = @{@"name":self.model.data.title};
+    [MobClick event:@"Course_Buy" attributes:attributes];
 }
 
 /*
@@ -208,24 +211,31 @@ typedef enum {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     CellType type = [self cellTypeForRowAtIndexPath:indexPath];
     if (type == CellTitlePoi) {
-        [self openURL:[NSString stringWithFormat:@"duola://book?id=%@&onlyshow=1", self.ids]];
+        [self openURL:[NSString stringWithFormat:@"book?id=%@&onlyshow=1", self.ids]];
+        
+        [MobClick event:@"Course_SkuList"];
         
     } else if (type == CellTitleTeacher) {
-        [self openURL:[NSString stringWithFormat:@"duola://courseteacherlist?id=%@", self.ids]];
+        [self openURL:[NSString stringWithFormat:@"courseteacherlist?id=%@", self.ids]];
+        
+        [MobClick event:@"Course_TeacherList"];
         
     } else if (type == CellTitleBook) {
-        [self openURL:[NSString stringWithFormat:@"duola://coursebookbrowser?id=%@", self.ids]];
+        [self openURL:[NSString stringWithFormat:@"coursebookbrowser?id=%@", self.ids]];
         
     } else if (type == CellTitleDetail) {
-//        NSString *url = [NSString stringWithFormat:@"http://%@/course/detail/app?id=%@", MO_DEBUG ? @"m.momia.cn" : @"m.sogokids.com", self.ids];
-//        [self openURL:[NSString stringWithFormat:@"duola://web?url=%@", [url URLEncodedString]]];
         
     } else if (type == CellTitleComment) {
-        [self openURL:[NSString stringWithFormat:@"duola://reviewlist?courseId=%@", self.ids]];
+        [self openURL:[NSString stringWithFormat:@"reviewlist?courseId=%@", self.ids]];
+        
+        NSDictionary *attributes = @{@"name":self.model.data.title};
+        [MobClick event:@"Course_ReviewList" attributes:attributes];
         
     } else if (type == CellTitleOrg) {
         NSString *url = [NSString stringWithFormat:@"http://%@/institution/detail/app?id=%@", MO_DEBUG ? @"m.momia.cn" : @"m.sogokids.com", self.ids];
-        [self openURL:[NSString stringWithFormat:@"duola://web?url=%@", [url URLEncodedString]]];
+        [self openURL:[NSString stringWithFormat:@"web?url=%@", [url URLEncodedString]]];
+        
+        [MobClick event:@"Course_Org"];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -277,7 +287,7 @@ typedef enum {
         }
     }
     
-    if (self.model.data.notice.length > 0) {
+    if (self.model.data.notice.length > 0 && self.buyAble) {
         num++;
         if (section == num) {
             return row == 0 ? CellTitleNotice : CellNotice;
@@ -311,7 +321,7 @@ typedef enum {
         if (self.model.data.tips.length > 0) {
             num++;
         }
-        if (self.model.data.notice.length > 0) {
+        if (self.model.data.notice.length > 0 && self.buyAble) {
             num++;
         }
         if (self.model.data.institution) {
@@ -411,7 +421,7 @@ typedef enum {
         
     } else if (type == CellTitleComment) {
         CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
-        titleCell.titleLabel.text = [NSString stringWithFormat:@"用户点评（%@）", self.model.data.comments.totalCount];
+        titleCell.titleLabel.text = [NSString stringWithFormat:@"用户评价（%@）", self.model.data.comments.totalCount];
         cell = titleCell;
         titleCell.subTitleLabel.text = @"更多";
         titleCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

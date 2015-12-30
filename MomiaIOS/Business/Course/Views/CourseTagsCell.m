@@ -45,8 +45,8 @@
             make.centerY.equalTo(self.contentView);
             if(i == 0) make.leading.equalTo(self.contentView).with.offset(10);
             else make.leading.equalTo(lastView.mas_trailing).with.offset(20);
-            make.width.equalTo(@17);
-            make.height.equalTo(@17);
+            make.width.equalTo(@14);
+            make.height.equalTo(@14);
         }];
         [imgView setImage:[UIImage imageNamed:@"IconProductTag"]];
         

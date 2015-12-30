@@ -32,8 +32,10 @@
 @property (strong, nonatomic) NSString *tagName;
 
 @property (strong, nonatomic) UITextView *contentTextView;
+@property (strong, nonatomic) MBProgressHUD *hud;
 
 @property (assign, nonatomic) BOOL isSubmitSuccess;
+@property (assign, nonatomic) BOOL isSubmiting;
 
 @end
 
@@ -74,12 +76,16 @@
 //        return;
 //    }
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.hud.mode = MBProgressHUDModeIndeterminate;
+    
     BOOL imagesUploaded = YES;
-    for (SelectImage *si in self.uploadImages) {
+    for (int i = 0; i < self.uploadImages.count; i++) {
+        SelectImage *si = self.uploadImages[i];
         if (si.uploadStatus <= UploadStatusIdle) {
             [self uploadImage:si];
             imagesUploaded = NO;
+            self.hud.labelText = [NSString stringWithFormat:@"正在上传第%d/%d张照片", (i+1), self.uploadImages.count];
             break;
         }
     }
@@ -87,7 +93,6 @@
         [self submit];
     }
 }
-
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 0) {
@@ -99,6 +104,11 @@
 
 // 提交
 - (void)submit {
+    if (self.isSubmiting) {
+        return;
+    }
+    self.isSubmiting = YES;
+    [self.contentCell.contentTv resignFirstResponder];
     [self.contentCell endEditing:YES];
     
     AddFeed *addFeed = [[AddFeed alloc]init];
@@ -122,6 +132,7 @@
         [self showDialogWithTitle:nil message:@"发布成功！"];
         self.isSubmitSuccess = YES;
         [MBProgressHUD hideHUDForView:self.view animated:YES];
+        self.isSubmiting = NO;
         
         [[NSNotificationCenter defaultCenter]postNotificationName:@"onDataChanged" object:nil];
         
@@ -129,6 +140,7 @@
         [self showDialogWithTitle:nil message:@"发布失败，请稍后再试"];
         
         [MBProgressHUD hideHUDForView:self.view animated:YES];
+        self.isSubmiting = NO;
     }];
 }
 
@@ -173,9 +185,11 @@
 }
 
 - (BOOL)isAllImagesUploadFinish {
-    for (SelectImage *si in self.uploadImages) {
+    for (int i = 0; i < self.uploadImages.count; i++) {
+        SelectImage *si = self.uploadImages[i];
         if (si.uploadStatus != UploadStatusFinish) {
             [self uploadImage:si];
+            self.hud.labelText = [NSString stringWithFormat:@"正在上传第%d/%d张照片", (i+1), self.uploadImages.count];
             return NO;
         }
     }
@@ -197,6 +211,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 1) {
+        self.content = self.contentCell.contentTv.text;
+        
         if (indexPath.row == 0) {
             TopicListViewController *controller = [[TopicListViewController alloc]init];
             controller.delegate = self;

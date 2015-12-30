@@ -138,7 +138,7 @@
 //                                 }
 //                             }];
         
-        [self openURL:@"duola://bookingsubjectlist"];
+        [self openURL:@"bookingsubjectlist"];
         
     } else {
 //        [self openURL:@"tel://02162578700"];
@@ -146,6 +146,6 @@
 }
 
 - (IBAction)onRightButtonClicked:(id)sender {
-    [self openURL:@"duola://myorderlist?status=3"];
+    [self openURL:@"myorderlist?status=3"];
 }
 @end

@@ -8,6 +8,15 @@
 
 #import "JSONModel.h"
 
+@interface FeedChild : JSONModel
+@property (nonatomic, strong) NSString *age;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *sex;
+@end
+
+@protocol FeedChild <NSObject>
+@end
+
 @interface Feed : JSONModel
 
 @property (nonatomic, strong) NSNumber *ids;
@@ -20,6 +29,7 @@
 @property (nonatomic, strong) NSArray *imgs;
 @property (nonatomic, strong) NSArray *largeImgs;
 @property (nonatomic, strong) NSArray<Optional> *children;
+@property (nonatomic, strong) NSArray<Optional, FeedChild> *childrenDetail;
 @property (nonatomic, strong) NSNumber *type;
 
 // ugc
