@@ -123,7 +123,7 @@
         self.groupList = responseObject;
         [self.view removeLoadingBee];
         if (self.groupList.data.count == 0) {
-            self.emptyConversationView.hidden = NO;
+//            self.emptyConversationView.hidden = NO;
         }
         [self refreshConversationTableViewIfNeeded];
         
@@ -139,14 +139,18 @@
 -(NSMutableArray *)willReloadTableData:(NSMutableArray *)dataSource
 {
     if(self.groupList) {
-        NSMutableArray *newDataSourse = [NSMutableArray new];
+//        NSMutableArray *newDataSourse = [NSMutableArray new];
         for (IMUserGroup *group in self.groupList.data) {
             BOOL hasGroup = NO;
             for (int i = 0; i < dataSource.count; i++) {
                 RCConversationModel *model = dataSource[i];
-                if (model.conversationType == ConversationType_GROUP && [model.targetId isEqualToString:[group.groupId stringValue]]) {
+                if (model.conversationType == ConversationType_PRIVATE) {
+//                    [newDataSourse addObject:model];
+                    continue;
+                    
+                } else if ((model.conversationType == ConversationType_GROUP && [model.targetId isEqualToString:[group.groupId stringValue]])) {
                     hasGroup = YES;
-                    [newDataSourse addObject:model];
+//                    [newDataSourse addObject:model];
                     continue;
                 }
             }
@@ -169,10 +173,10 @@
                 
                 con.conversationType = ConversationType_GROUP;
                 RCConversationModel *model = [[RCConversationModel alloc] init:RC_CONVERSATION_MODEL_TYPE_NORMAL conversation:con extend:@""];
-                [newDataSourse addObject:model];
+                [dataSource addObject:model];
             }
         }
-        return newDataSourse;
+//        return newDataSourse;
     }
     
     return dataSource;
