@@ -13,6 +13,7 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "GeTuiSdk.h"
 #import <RongIMKit/RongIMKit.h>
+#import "IQKeyboardManager.h"
 
 #import "IMTokenModel.h"
 #import "IMUserModel.h"
@@ -152,6 +153,13 @@
         UIRemoteNotificationTypeSound;
         [application registerForRemoteNotificationTypes:myTypes];
     }
+    
+    // 键盘遮挡问题解决
+    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+    manager.enable = YES;
+    manager.shouldResignOnTouchOutside = YES;
+    manager.shouldToolbarUsesTextFieldTintColor = YES;
+    manager.enableAutoToolbar = YES;
 
     return YES;
 }
