@@ -254,6 +254,34 @@
 		BC6CF5881C3CC469006F314C /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5781C3CC469006F314C /* IQToolbar.m */; };
 		BC6CF5891C3CC469006F314C /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF57A1C3CC469006F314C /* IQUIView+IQKeyboardToolbar.m */; };
 		BC6CF58A1C3CC469006F314C /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BC6CF57D1C3CC469006F314C /* IQKeyboardManager.bundle */; };
+		BC6CF5941C3CF03C006F314C /* IQNSArray+Sort.h in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF55E1C3CC469006F314C /* IQNSArray+Sort.h */; };
+		BC6CF5951C3CF03C006F314C /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF55F1C3CC469006F314C /* IQNSArray+Sort.m */; };
+		BC6CF5961C3CF03C006F314C /* IQUITextFieldView+Additions.h in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5601C3CC469006F314C /* IQUITextFieldView+Additions.h */; };
+		BC6CF5971C3CF03C006F314C /* IQUITextFieldView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5611C3CC469006F314C /* IQUITextFieldView+Additions.m */; };
+		BC6CF5981C3CF03C006F314C /* IQUIView+Hierarchy.h in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5621C3CC469006F314C /* IQUIView+Hierarchy.h */; };
+		BC6CF5991C3CF03C006F314C /* IQUIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5631C3CC469006F314C /* IQUIView+Hierarchy.m */; };
+		BC6CF59A1C3CF03C006F314C /* IQUIViewController+Additions.h in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5641C3CC469006F314C /* IQUIViewController+Additions.h */; };
+		BC6CF59B1C3CF03C006F314C /* IQUIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5651C3CC469006F314C /* IQUIViewController+Additions.m */; };
+		BC6CF59C1C3CF03C006F314C /* IQUIWindow+Hierarchy.h in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5661C3CC469006F314C /* IQUIWindow+Hierarchy.h */; };
+		BC6CF59D1C3CF03C006F314C /* IQUIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5671C3CC469006F314C /* IQUIWindow+Hierarchy.m */; };
+		BC6CF59E1C3CF03C006F314C /* IQKeyboardManagerConstants.h in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5691C3CC469006F314C /* IQKeyboardManagerConstants.h */; };
+		BC6CF59F1C3CF03C006F314C /* IQKeyboardManagerConstantsInternal.h in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF56A1C3CC469006F314C /* IQKeyboardManagerConstantsInternal.h */; };
+		BC6CF5A01C3CF03C006F314C /* IQKeyboardManager.h in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF56B1C3CC469006F314C /* IQKeyboardManager.h */; };
+		BC6CF5A11C3CF03C006F314C /* IQKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF56C1C3CC469006F314C /* IQKeyboardManager.m */; };
+		BC6CF5A21C3CF03C006F314C /* IQKeyboardReturnKeyHandler.h in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF56D1C3CC469006F314C /* IQKeyboardReturnKeyHandler.h */; };
+		BC6CF5A31C3CF03C006F314C /* IQKeyboardReturnKeyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF56E1C3CC469006F314C /* IQKeyboardReturnKeyHandler.m */; };
+		BC6CF5A41C3CF03C006F314C /* IQTextView.h in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5701C3CC469006F314C /* IQTextView.h */; };
+		BC6CF5A51C3CF03C006F314C /* IQTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5711C3CC469006F314C /* IQTextView.m */; };
+		BC6CF5A61C3CF03C006F314C /* IQBarButtonItem.h in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5731C3CC469006F314C /* IQBarButtonItem.h */; };
+		BC6CF5A71C3CF03C006F314C /* IQBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5741C3CC469006F314C /* IQBarButtonItem.m */; };
+		BC6CF5A81C3CF03C006F314C /* IQTitleBarButtonItem.h in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5751C3CC469006F314C /* IQTitleBarButtonItem.h */; };
+		BC6CF5A91C3CF03C006F314C /* IQTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5761C3CC469006F314C /* IQTitleBarButtonItem.m */; };
+		BC6CF5AA1C3CF03C006F314C /* IQToolbar.h in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5771C3CC469006F314C /* IQToolbar.h */; };
+		BC6CF5AB1C3CF03C006F314C /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5781C3CC469006F314C /* IQToolbar.m */; };
+		BC6CF5AC1C3CF03C006F314C /* IQUIView+IQKeyboardToolbar.h in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5791C3CC469006F314C /* IQUIView+IQKeyboardToolbar.h */; };
+		BC6CF5AD1C3CF03C006F314C /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF57A1C3CC469006F314C /* IQUIView+IQKeyboardToolbar.m */; };
+		BC6CF5AE1C3CF03C006F314C /* KeyboardManager.h in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF57B1C3CC469006F314C /* KeyboardManager.h */; };
+		BC6CF5AF1C3CF03C006F314C /* IQKeyboardManager.bundle in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF57D1C3CC469006F314C /* IQKeyboardManager.bundle */; };
 		BC753EAB1BAAD15900D2663C /* FeedDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC753EAA1BAAD15900D2663C /* FeedDetailModel.m */; };
 		BC753ECC1BAC07D300D2663C /* FeedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC753EAE1BAC07D300D2663C /* FeedDetailViewController.m */; };
 		BC753ECD1BAC07D300D2663C /* FeedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC753EB01BAC07D300D2663C /* FeedListViewController.m */; };
@@ -3798,6 +3826,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC6CF5941C3CF03C006F314C /* IQNSArray+Sort.h in Sources */,
+				BC6CF5951C3CF03C006F314C /* IQNSArray+Sort.m in Sources */,
+				BC6CF5961C3CF03C006F314C /* IQUITextFieldView+Additions.h in Sources */,
+				BC6CF5971C3CF03C006F314C /* IQUITextFieldView+Additions.m in Sources */,
+				BC6CF5981C3CF03C006F314C /* IQUIView+Hierarchy.h in Sources */,
+				BC6CF5991C3CF03C006F314C /* IQUIView+Hierarchy.m in Sources */,
+				BC6CF59A1C3CF03C006F314C /* IQUIViewController+Additions.h in Sources */,
+				BC6CF59B1C3CF03C006F314C /* IQUIViewController+Additions.m in Sources */,
+				BC6CF59C1C3CF03C006F314C /* IQUIWindow+Hierarchy.h in Sources */,
+				BC6CF59D1C3CF03C006F314C /* IQUIWindow+Hierarchy.m in Sources */,
+				BC6CF59E1C3CF03C006F314C /* IQKeyboardManagerConstants.h in Sources */,
+				BC6CF59F1C3CF03C006F314C /* IQKeyboardManagerConstantsInternal.h in Sources */,
+				BC6CF5A01C3CF03C006F314C /* IQKeyboardManager.h in Sources */,
+				BC6CF5A11C3CF03C006F314C /* IQKeyboardManager.m in Sources */,
+				BC6CF5A21C3CF03C006F314C /* IQKeyboardReturnKeyHandler.h in Sources */,
+				BC6CF5A31C3CF03C006F314C /* IQKeyboardReturnKeyHandler.m in Sources */,
+				BC6CF5A41C3CF03C006F314C /* IQTextView.h in Sources */,
+				BC6CF5A51C3CF03C006F314C /* IQTextView.m in Sources */,
+				BC6CF5A61C3CF03C006F314C /* IQBarButtonItem.h in Sources */,
+				BC6CF5A71C3CF03C006F314C /* IQBarButtonItem.m in Sources */,
+				BC6CF5A81C3CF03C006F314C /* IQTitleBarButtonItem.h in Sources */,
+				BC6CF5A91C3CF03C006F314C /* IQTitleBarButtonItem.m in Sources */,
+				BC6CF5AA1C3CF03C006F314C /* IQToolbar.h in Sources */,
+				BC6CF5AB1C3CF03C006F314C /* IQToolbar.m in Sources */,
+				BC6CF5AC1C3CF03C006F314C /* IQUIView+IQKeyboardToolbar.h in Sources */,
+				BC6CF5AD1C3CF03C006F314C /* IQUIView+IQKeyboardToolbar.m in Sources */,
+				BC6CF5AE1C3CF03C006F314C /* KeyboardManager.h in Sources */,
+				BC6CF5AF1C3CF03C006F314C /* IQKeyboardManager.bundle in Sources */,
 				BCEAFBFC1C2A394300CB082D /* LoginViewController.m in Sources */,
 				BCEAFBFD1C2A394300CB082D /* OrderListModel.m in Sources */,
 				BCEAFBFE1C2A394300CB082D /* NSTimer+Block.m in Sources */,
