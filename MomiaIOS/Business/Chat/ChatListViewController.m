@@ -139,18 +139,18 @@
 -(NSMutableArray *)willReloadTableData:(NSMutableArray *)dataSource
 {
     if(self.groupList) {
-//        NSMutableArray *newDataSourse = [NSMutableArray new];
+        NSMutableArray *newDataSourse = [NSMutableArray new];
         for (IMUserGroup *group in self.groupList.data) {
             BOOL hasGroup = NO;
             for (int i = 0; i < dataSource.count; i++) {
                 RCConversationModel *model = dataSource[i];
                 if (model.conversationType == ConversationType_PRIVATE) {
-//                    [newDataSourse addObject:model];
+                    [self insertGroup:model inArrayByTime:newDataSourse];
                     continue;
                     
                 } else if ((model.conversationType == ConversationType_GROUP && [model.targetId isEqualToString:[group.groupId stringValue]])) {
                     hasGroup = YES;
-//                    [newDataSourse addObject:model];
+                    [self insertGroup:model inArrayByTime:newDataSourse];
                     continue;
                 }
             }
@@ -159,7 +159,7 @@
                 RCConversation *con = [[RCConversation alloc] init];
                 con.targetId = [group.groupId stringValue];
                 con.conversationTitle = group.groupName;
-//                con.lastestMessage = [RCTextMessage messageWithContent:group.tips];
+                con.lastestMessage = [RCTextMessage messageWithContent:group.tips];
                 
                 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
                 [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
@@ -173,13 +173,26 @@
                 
                 con.conversationType = ConversationType_GROUP;
                 RCConversationModel *model = [[RCConversationModel alloc] init:RC_CONVERSATION_MODEL_TYPE_NORMAL conversation:con extend:@""];
-                [dataSource addObject:model];
+                [self insertGroup:model inArrayByTime:newDataSourse];
             }
         }
-//        return newDataSourse;
+        return newDataSourse;
     }
     
     return dataSource;
+}
+
+- (void)insertGroup:(RCConversationModel *)model inArrayByTime:(NSMutableArray *)dataSourse {
+    for (int i = 0; i < dataSourse.count; i++) {
+        RCConversationModel *group = dataSourse[i];
+        if (model.sentTime > group.sentTime) {
+            [dataSourse insertObject:model atIndex:i];
+            return;
+        } else if ([model.targetId isEqualToString:group.targetId]) {
+            return;
+        }
+    }
+    [dataSourse addObject:model];
 }
 
 /*

@@ -19,6 +19,8 @@
 #import "IMUserModel.h"
 #import "IMGroupModel.h"
 
+#import "ChatViewController.h"
+
 @interface AppDelegate ()<RCIMUserInfoDataSource, RCIMGroupInfoDataSource, RCIMReceiveMessageDelegate> {
 @private
     NSString *_deviceToken;
@@ -160,6 +162,7 @@
     manager.shouldResignOnTouchOutside = YES;
     manager.shouldToolbarUsesTextFieldTintColor = YES;
     manager.enableAutoToolbar = YES;
+    [[IQKeyboardManager sharedManager] disableToolbarInViewControllerClass:[ChatViewController class]];
 
     return YES;
 }
