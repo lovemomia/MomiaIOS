@@ -38,7 +38,7 @@
     Course *course = data;
     self.priceLabel.text = [StringUtils stringForPrice:course.price];
     
-    if ([course.buyable intValue] == 1) {
+    if ([course.status intValue] == 1) {
         self.buyButton.enabled = YES;
         [self.buyButton setTitle:@"立即抢购" forState:UIControlStateNormal];
     } else {

@@ -73,6 +73,7 @@
 
 @property (nonatomic, strong) NSNumber<Optional> *commented; //是否已评论过
 
-@property (nonatomic, strong) NSNumber<Optional> *buyable;  //1 可购买  2 不可购买
+@property (nonatomic, strong) NSNumber<Optional> *buyable;
+@property (nonatomic, strong) NSNumber<Optional> *status;//1 可购买  2 不可购买
 
 @end

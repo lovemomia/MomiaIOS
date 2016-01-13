@@ -98,9 +98,8 @@
     [self makeGroupDotHidden];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"onMineDotChanged" object:nil];
 }
 
