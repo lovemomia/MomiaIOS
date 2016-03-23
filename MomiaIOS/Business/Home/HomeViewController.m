@@ -31,7 +31,7 @@ static NSString *homeSubjectCoverCellIdentifier = @"HomeSubjectCoverCell";
 static NSString *homeSubjectCoursesCellIdentifier = @"HomeSubjectCoursesCell";
 static NSString *homeTopicCellIdentifier = @"HomeTopicCell";
 
-@interface HomeViewController ()
+@interface HomeViewController ()<AccountChangeListener>
 
 @property (nonatomic, strong) NSMutableArray * array;
 @property (nonatomic, strong) NSArray * banners;//当pageIndex为0时才有数据
@@ -67,7 +67,6 @@ static NSString *homeTopicCellIdentifier = @"HomeTopicCell";
 //    self.navigationItem.title = @"松果亲子";
 
     
-    
     NSArray * array = [[NSBundle mainBundle] loadNibNamed:@"TitleView" owner:self options:nil];
     UIView * cityView = array[0];
     self.cityLabel = (UILabel *)[cityView viewWithTag:2001];
@@ -78,11 +77,11 @@ static NSString *homeTopicCellIdentifier = @"HomeTopicCell";
     
     UIView *childView = array[1];
     self.childAvatarIv = [childView viewWithTag:1001];
-    [self.childAvatarIv sd_setImageWithURL:nil];
     self.childNameLabel = [childView viewWithTag:1002];
+    [self setupTitleChild];
     
-    UITapGestureRecognizer * tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTitleClick:)];
-    [cityView addGestureRecognizer:tapRecognizer];
+    [cityView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTitleCityClick:)]];
+    [childView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTitleChildClick:)]];
     
     UIBarButtonItem *cityItem = [[UIBarButtonItem alloc] initWithCustomView:cityView];
     UIBarButtonItem *childItem = [[UIBarButtonItem alloc] initWithCustomView:childView];
@@ -119,6 +118,28 @@ static NSString *homeTopicCellIdentifier = @"HomeTopicCell";
     self.tableView.width = SCREEN_WIDTH;
     
     [self requestData:YES];
+    
+    [[AccountService defaultService] addListener:self];
+}
+
+- (void)setupTitleChild {
+    if ([AccountService defaultService].isLogin) {
+        [self.childAvatarIv sd_setImageWithURL:[NSURL URLWithString:[AccountService defaultService].account.avatar]];
+        if ([[AccountService defaultService].account getBigChild]) {
+            self.childNameLabel.text = [NSString stringWithFormat:@"%@ %@", [AccountService defaultService].account.nickName, [[AccountService defaultService].account ageWithDateOfBirth]];
+        } else {
+            self.childNameLabel.text = [AccountService defaultService].account.nickName;
+        }
+        
+    } else {
+        [self.childAvatarIv sd_setImageWithURL:nil];
+        self.childNameLabel.text = @"松果亲子／点击登录";
+    }
+}
+
+- (void)onAccountChange {
+    [self setupTitleChild];
+    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)onCityChanged:(City *)newCity {
@@ -472,13 +493,13 @@ static NSString *homeTopicCellIdentifier = @"HomeTopicCell";
 }
 
 
--(void)onSearchClick
+-(void)onTitleChildClick:(UITapGestureRecognizer *)recognizer
 {
-   
+   [[UIApplication sharedApplication ] openURL:MOURL(@"personinfo")];
 
 }
 
--(void)onTitleClick:(UITapGestureRecognizer *)recognizer
+-(void)onTitleCityClick:(UITapGestureRecognizer *)recognizer
 {
     [[CityManager shareManager]chooseCity:self];
     [[CityManager shareManager]addCityChangeListener:self];
@@ -488,6 +509,7 @@ static NSString *homeTopicCellIdentifier = @"HomeTopicCell";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
     [[CityManager shareManager] removeCityChangeListener:self];
+    [[AccountService defaultService] removeListener:self];
 }
 
 /*
