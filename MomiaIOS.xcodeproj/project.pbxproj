@@ -355,6 +355,22 @@
 		BC7CBAF91B6868930047211D /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBAF71B6868930047211D /* AboutViewController.m */; };
 		BC7CBAFC1B68698A0047211D /* AboutHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7CBAFB1B68698A0047211D /* AboutHeaderView.xib */; };
 		BC7CBAFF1B6879100047211D /* PushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBAFE1B6879100047211D /* PushManager.m */; };
+		BC80B8381C9FDAC1009559F2 /* HomeEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC80B8361C9FDAC1009559F2 /* HomeEventCell.m */; };
+		BC80B8391C9FDAC1009559F2 /* HomeEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC80B8371C9FDAC1009559F2 /* HomeEventCell.xib */; };
+		BC80B83D1CA00A24009559F2 /* HomeEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC80B8361C9FDAC1009559F2 /* HomeEventCell.m */; };
+		BC80B83E1CA00A37009559F2 /* HomeEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC80B8371C9FDAC1009559F2 /* HomeEventCell.xib */; };
+		BC80B8421CA00E3F009559F2 /* HomeSubjectCoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC80B8401CA00E3F009559F2 /* HomeSubjectCoverCell.m */; };
+		BC80B8431CA00E3F009559F2 /* HomeSubjectCoverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC80B8411CA00E3F009559F2 /* HomeSubjectCoverCell.xib */; };
+		BC80B8471CA00E97009559F2 /* HomeSubjectCoursesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC80B8451CA00E97009559F2 /* HomeSubjectCoursesCell.m */; };
+		BC80B8481CA00E97009559F2 /* HomeSubjectCoursesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC80B8461CA00E97009559F2 /* HomeSubjectCoursesCell.xib */; };
+		BC80B84C1CA127DF009559F2 /* HomeTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC80B84A1CA127DF009559F2 /* HomeTopicCell.m */; };
+		BC80B84D1CA127DF009559F2 /* HomeTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC80B84B1CA127DF009559F2 /* HomeTopicCell.xib */; };
+		BC80B84E1CA13D1E009559F2 /* HomeSubjectCoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC80B8401CA00E3F009559F2 /* HomeSubjectCoverCell.m */; };
+		BC80B84F1CA13D1E009559F2 /* HomeSubjectCoursesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC80B8451CA00E97009559F2 /* HomeSubjectCoursesCell.m */; };
+		BC80B8501CA13D1E009559F2 /* HomeTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC80B84A1CA127DF009559F2 /* HomeTopicCell.m */; };
+		BC80B8511CA13D33009559F2 /* HomeSubjectCoverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC80B8411CA00E3F009559F2 /* HomeSubjectCoverCell.xib */; };
+		BC80B8521CA13D33009559F2 /* HomeSubjectCoursesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC80B8461CA00E97009559F2 /* HomeSubjectCoursesCell.xib */; };
+		BC80B8531CA13D33009559F2 /* HomeTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC80B84B1CA127DF009559F2 /* HomeTopicCell.xib */; };
 		BC82542B1B3917AC00430A6F /* MORootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82542A1B3917AC00430A6F /* MORootViewController.m */; };
 		BC8254331B3A76F500430A6F /* CustomDarkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8254321B3A76F500430A6F /* CustomDarkButton.m */; };
 		BC8254361B3AA0A500430A6F /* LoginCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC8254351B3AA0A500430A6F /* LoginCell.xib */; };
@@ -1442,6 +1458,18 @@
 		BC7CBAFB1B68698A0047211D /* AboutHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AboutHeaderView.xib; path = Business/Setting/Views/AboutHeaderView.xib; sourceTree = "<group>"; };
 		BC7CBAFD1B6879100047211D /* PushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushManager.h; path = Common/Utils/PushManager.h; sourceTree = "<group>"; };
 		BC7CBAFE1B6879100047211D /* PushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushManager.m; path = Common/Utils/PushManager.m; sourceTree = "<group>"; };
+		BC80B8351C9FDAC1009559F2 /* HomeEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeEventCell.h; path = Business/Home/Views/HomeEventCell.h; sourceTree = "<group>"; };
+		BC80B8361C9FDAC1009559F2 /* HomeEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeEventCell.m; path = Business/Home/Views/HomeEventCell.m; sourceTree = "<group>"; };
+		BC80B8371C9FDAC1009559F2 /* HomeEventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeEventCell.xib; path = Business/Home/Views/HomeEventCell.xib; sourceTree = "<group>"; };
+		BC80B83F1CA00E3F009559F2 /* HomeSubjectCoverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeSubjectCoverCell.h; path = Business/Home/Views/HomeSubjectCoverCell.h; sourceTree = "<group>"; };
+		BC80B8401CA00E3F009559F2 /* HomeSubjectCoverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeSubjectCoverCell.m; path = Business/Home/Views/HomeSubjectCoverCell.m; sourceTree = "<group>"; };
+		BC80B8411CA00E3F009559F2 /* HomeSubjectCoverCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeSubjectCoverCell.xib; path = Business/Home/Views/HomeSubjectCoverCell.xib; sourceTree = "<group>"; };
+		BC80B8441CA00E97009559F2 /* HomeSubjectCoursesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeSubjectCoursesCell.h; path = Business/Home/Views/HomeSubjectCoursesCell.h; sourceTree = "<group>"; };
+		BC80B8451CA00E97009559F2 /* HomeSubjectCoursesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeSubjectCoursesCell.m; path = Business/Home/Views/HomeSubjectCoursesCell.m; sourceTree = "<group>"; };
+		BC80B8461CA00E97009559F2 /* HomeSubjectCoursesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeSubjectCoursesCell.xib; path = Business/Home/Views/HomeSubjectCoursesCell.xib; sourceTree = "<group>"; };
+		BC80B8491CA127DF009559F2 /* HomeTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeTopicCell.h; path = Business/Home/Views/HomeTopicCell.h; sourceTree = "<group>"; };
+		BC80B84A1CA127DF009559F2 /* HomeTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeTopicCell.m; path = Business/Home/Views/HomeTopicCell.m; sourceTree = "<group>"; };
+		BC80B84B1CA127DF009559F2 /* HomeTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeTopicCell.xib; path = Business/Home/Views/HomeTopicCell.xib; sourceTree = "<group>"; };
 		BC8254291B3917AC00430A6F /* MORootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MORootViewController.h; path = Business/MORootViewController.h; sourceTree = "<group>"; };
 		BC82542A1B3917AC00430A6F /* MORootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MORootViewController.m; path = Business/MORootViewController.m; sourceTree = "<group>"; };
 		BC8254311B3A76F500430A6F /* CustomDarkButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomDarkButton.h; path = Common/Views/CustomDarkButton.h; sourceTree = "<group>"; };
@@ -2945,6 +2973,18 @@
 				BC359A481BC679EF002DE863 /* HomeGridCell.m */,
 				BC359A4A1BC67B4F002DE863 /* HomeOperateCell.h */,
 				BC359A4B1BC67B4F002DE863 /* HomeOperateCell.m */,
+				BC80B8351C9FDAC1009559F2 /* HomeEventCell.h */,
+				BC80B8361C9FDAC1009559F2 /* HomeEventCell.m */,
+				BC80B8371C9FDAC1009559F2 /* HomeEventCell.xib */,
+				BC80B83F1CA00E3F009559F2 /* HomeSubjectCoverCell.h */,
+				BC80B8401CA00E3F009559F2 /* HomeSubjectCoverCell.m */,
+				BC80B8411CA00E3F009559F2 /* HomeSubjectCoverCell.xib */,
+				BC80B8441CA00E97009559F2 /* HomeSubjectCoursesCell.h */,
+				BC80B8451CA00E97009559F2 /* HomeSubjectCoursesCell.m */,
+				BC80B8461CA00E97009559F2 /* HomeSubjectCoursesCell.xib */,
+				BC80B8491CA127DF009559F2 /* HomeTopicCell.h */,
+				BC80B84A1CA127DF009559F2 /* HomeTopicCell.m */,
+				BC80B84B1CA127DF009559F2 /* HomeTopicCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3324,6 +3364,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC80B8481CA00E97009559F2 /* HomeSubjectCoursesCell.xib in Resources */,
 				BC040D141BC8EDB600988AB2 /* CourseListItemCell.xib in Resources */,
 				5A08C1421B39117100642648 /* ProductDetailEnrollCell.xib in Resources */,
 				BC753EDA1BAC07D300D2663C /* FeedUgcCell.xib in Resources */,
@@ -3359,6 +3400,8 @@
 				5A5A2AA11B43EEF4000595A9 /* OrderContactCell.xib in Resources */,
 				BC753ED81BAC07D300D2663C /* FeedTitleCell.xib in Resources */,
 				5A08C13A1B39117100642648 /* ProductDetailViewController.xib in Resources */,
+				BC80B84D1CA127DF009559F2 /* HomeTopicCell.xib in Resources */,
+				BC80B8391C9FDAC1009559F2 /* HomeEventCell.xib in Resources */,
 				5A18DC5A1B29828F001458A4 /* HomeCarouselCell.xib in Resources */,
 				BC359A0D1BC61F1B002DE863 /* MJPhotoBrowser.bundle in Resources */,
 				BC7CBAFC1B68698A0047211D /* AboutHeaderView.xib in Resources */,
@@ -3375,6 +3418,7 @@
 				BCF74ABB1BE8982400138C2C /* AddReviewRatingCell.xib in Resources */,
 				BC8B9A101C1AD53100EE39A2 /* RongCloud.bundle in Resources */,
 				BC77378A1BCE4A9E00987B22 /* CoursePriceCell.xib in Resources */,
+				BC80B8431CA00E3F009559F2 /* HomeSubjectCoverCell.xib in Resources */,
 				BC0D44541C046F120007E9ED /* PackageHeaderCell.xib in Resources */,
 				5A33F1A21B2EA1D5002A8258 /* CashPayTopHeaderView.xib in Resources */,
 				BC6CF58A1C3CC469006F314C /* IQKeyboardManager.bundle in Resources */,
@@ -3419,6 +3463,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC80B8511CA13D33009559F2 /* HomeSubjectCoverCell.xib in Resources */,
+				BC80B8521CA13D33009559F2 /* HomeSubjectCoursesCell.xib in Resources */,
+				BC80B8531CA13D33009559F2 /* HomeTopicCell.xib in Resources */,
+				BC80B83E1CA00A37009559F2 /* HomeEventCell.xib in Resources */,
 				BCEAFD431C2A394300CB082D /* CourseListItemCell.xib in Resources */,
 				BCEAFD441C2A394300CB082D /* ProductDetailEnrollCell.xib in Resources */,
 				BCEAFD451C2A394300CB082D /* FeedUgcCell.xib in Resources */,
@@ -3536,6 +3584,7 @@
 				BC77085F1AFC5685000068A8 /* UILabel+ContentSize.m in Sources */,
 				5A3C6C721B579F1C006583FB /* ProductCalendarCell.m in Sources */,
 				BC7737821BCE45A300987B22 /* CourseTeacherCell.m in Sources */,
+				BC80B8381C9FDAC1009559F2 /* HomeEventCell.m in Sources */,
 				BC2C0C571B1309A800E2446E /* MOButton.m in Sources */,
 				BCF0339F1B4FB1BE005B71D6 /* ThirdShareHelper.m in Sources */,
 				BCF9DCFD1BD8F12800D8CDC6 /* CourseTeacherListItemCell.m in Sources */,
@@ -3597,6 +3646,7 @@
 				BC359A2A1BC61F3B002DE863 /* SGBaseMenu.m in Sources */,
 				BC77377F1BCE436A00987B22 /* CourseBookCell.m in Sources */,
 				BC8540BD1ADF8A09005A7C54 /* MOViewController.m in Sources */,
+				BC80B8471CA00E97009559F2 /* HomeSubjectCoursesCell.m in Sources */,
 				BC592BF21BD5F015008AE76A /* BookSkuDateTitleCell.m in Sources */,
 				BC8254331B3A76F500430A6F /* CustomDarkButton.m in Sources */,
 				BCBB16C11BF34B7200E273AF /* UserInfoViewController.m in Sources */,
@@ -3633,6 +3683,7 @@
 				5A33F1A11B2EA1D5002A8258 /* CashPayTopHeaderView.m in Sources */,
 				BC7CBAFF1B6879100047211D /* PushManager.m in Sources */,
 				BCF9DD041BD8FB7600D8CDC6 /* CourseBookBrowserViewController.m in Sources */,
+				BC80B84C1CA127DF009559F2 /* HomeTopicCell.m in Sources */,
 				BC66D3BE1B60F24C00A5BFC6 /* MyFavViewController.m in Sources */,
 				BC6CF5851C3CC469006F314C /* IQTextView.m in Sources */,
 				BC359A401BC648BF002DE863 /* PhotoTitleHeaderCell.m in Sources */,
@@ -3725,6 +3776,7 @@
 				BC2C0C7A1B141A3D00E2446E /* AccountModel.m in Sources */,
 				BC77379A1BCFAA1500987B22 /* SkuItemCell.m in Sources */,
 				BCF9DD0D1BDA218B00D8CDC6 /* OrderListViewController.m in Sources */,
+				BC80B8421CA00E3F009559F2 /* HomeSubjectCoverCell.m in Sources */,
 				BC753ED31BAC07D300D2663C /* FeedSuggestHeadCell.m in Sources */,
 				BC6CF57F1C3CC469006F314C /* IQUITextFieldView+Additions.m in Sources */,
 				BC66D3C51B60FBBE00A5BFC6 /* MyFavCell.m in Sources */,
@@ -3826,6 +3878,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC80B84E1CA13D1E009559F2 /* HomeSubjectCoverCell.m in Sources */,
+				BC80B84F1CA13D1E009559F2 /* HomeSubjectCoursesCell.m in Sources */,
+				BC80B8501CA13D1E009559F2 /* HomeTopicCell.m in Sources */,
+				BC80B83D1CA00A24009559F2 /* HomeEventCell.m in Sources */,
 				BC6CF5941C3CF03C006F314C /* IQNSArray+Sort.h in Sources */,
 				BC6CF5951C3CF03C006F314C /* IQNSArray+Sort.m in Sources */,
 				BC6CF5961C3CF03C006F314C /* IQUITextFieldView+Additions.h in Sources */,

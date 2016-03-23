@@ -76,4 +76,8 @@
 @property (nonatomic, strong) NSNumber<Optional> *buyable;
 @property (nonatomic, strong) NSNumber<Optional> *status;//1 可购买  2 不可购买
 
+@property (nonatomic, strong) NSString<Optional> *keyWord;//关键字
+@property (nonatomic, strong) NSString<Optional> *feature;//特色
+
+
 @end

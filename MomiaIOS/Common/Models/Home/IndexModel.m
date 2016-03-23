@@ -20,6 +20,26 @@
 
 @end
 
+@implementation IndexSubject
+
++ (JSONKeyMapper *)keyMapper {
+    return [[JSONKeyMapper alloc] initWithDictionary:@{
+                                                       @"id":@"ids"
+                                                       }];
+}
+
+@end
+
+@implementation IndexTopic
+
++ (JSONKeyMapper *)keyMapper {
+    return [[JSONKeyMapper alloc] initWithDictionary:@{
+                                                       @"id":@"ids"
+                                                       }];
+}
+
+@end
+
 @implementation IndexData
 
 @end

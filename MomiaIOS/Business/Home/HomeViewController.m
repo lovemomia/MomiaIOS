@@ -8,34 +8,44 @@
 
 #import "HomeViewController.h"
 #import "IndexModel.h"
+#import "HomeEventCell.h"
 #import "HomeCarouselCell.h"
 #import "HomeCell.h"
+#import "HomeSubjectCoverCell.h"
+#import "HomeSubjectCoursesCell.h"
+#import "HomeTopicCell.h"
 #import "LoadingCell.h"
 #import "LoadingErrorCell.h"
-#import "HomeGridCell.h"
 #import "HomeOperateCell.h"
 #import "MJRefreshHelper.h"
+#import "NSString+MOURLEncode.h"
+
 
 static NSString *homeGridIdentifier = @"CellGrid";
-static NSString *homeOperateIdentifier = @"CellOperate";
+static NSString *homeEventIdentifier = @"CellEvent";
 static NSString *homeIdentifier = @"CellHome";
 static NSString *homeCarouselIdentifier = @"CellHomeCarousel";
 static NSString *homeLoadingIdentifier = @"CellHomeLoading";
 static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
+static NSString *homeSubjectCoverCellIdentifier = @"HomeSubjectCoverCell";
+static NSString *homeSubjectCoursesCellIdentifier = @"HomeSubjectCoursesCell";
+static NSString *homeTopicCellIdentifier = @"HomeTopicCell";
 
 @interface HomeViewController ()
 
-@property (nonatomic,strong) NSMutableArray * array;
-@property (nonatomic,strong) NSArray * banners;//当pageIndex为0时才有数据
-@property (nonatomic,strong) NSArray * icons;//当pageIndex为0时才有数据
-@property (nonatomic,strong) NSArray * events;//当pageIndex为0时才有数据
-@property (strong,nonatomic) IndexModel * model;
-@property (nonatomic,assign) NSInteger nextIndex;
+@property (nonatomic, strong) NSMutableArray * array;
+@property (nonatomic, strong) NSArray * banners;//当pageIndex为0时才有数据
+//@property (nonatomic, strong) NSArray * icons;//当pageIndex为0时才有数据
+//@property (nonatomic, strong) NSArray * events;//当pageIndex为0时才有数据
+@property (strong, nonatomic) IndexModel * model;
+@property (nonatomic, assign) NSInteger nextIndex;
 
-@property (nonatomic,assign) BOOL isLoading;
-@property (nonatomic,assign) BOOL isError;//加载更多的时候出错
+@property (nonatomic, assign) BOOL isLoading;
+@property (nonatomic, assign) BOOL isError;//加载更多的时候出错
 
-@property(nonatomic,strong) UILabel * titleLabel;
+@property (nonatomic, strong) UILabel *cityLabel;
+@property (nonatomic, strong) UIImageView *childAvatarIv;
+@property (nonatomic, strong) UILabel *childNameLabel;
 
 @property(nonatomic,strong) AFHTTPRequestOperation * curOperation;
 
@@ -54,41 +64,52 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.title = @"松果亲子";
+//    self.navigationItem.title = @"松果亲子";
 
     
     
     NSArray * array = [[NSBundle mainBundle] loadNibNamed:@"TitleView" owner:self options:nil];
-    UIView * titleView = array[0];
-    self.titleLabel = (UILabel *)[titleView viewWithTag:2001];
+    UIView * cityView = array[0];
+    self.cityLabel = (UILabel *)[cityView viewWithTag:2001];
     NSString *city = [CityManager shareManager].choosedCity.name;
-    [self.titleLabel setText:city];
+    [self.cityLabel setText:city];
     
-    titleView.size = [titleView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    cityView.size = [cityView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     
+    UIView *childView = array[1];
+    self.childAvatarIv = [childView viewWithTag:1001];
+    [self.childAvatarIv sd_setImageWithURL:nil];
+    self.childNameLabel = [childView viewWithTag:1002];
     
     UITapGestureRecognizer * tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTitleClick:)];
-    [titleView addGestureRecognizer:tapRecognizer];
+    [cityView addGestureRecognizer:tapRecognizer];
     
-    UIBarButtonItem *cityItem = [[UIBarButtonItem alloc] initWithCustomView:titleView];
+    UIBarButtonItem *cityItem = [[UIBarButtonItem alloc] initWithCustomView:cityView];
+    UIBarButtonItem *childItem = [[UIBarButtonItem alloc] initWithCustomView:childView];
+    
     if (isCurrentDeviceSystemVersionLater(7.0)) {
         UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
         negativeSpacer.width = -10;
-        self.navigationItem.leftBarButtonItems = @[negativeSpacer, cityItem];
+        self.navigationItem.leftBarButtonItems = @[negativeSpacer, childItem];
+        self.navigationItem.rightBarButtonItems = @[negativeSpacer, cityItem];
         
     } else {
-        self.navigationItem.leftBarButtonItem = cityItem;
+        self.navigationItem.leftBarButtonItem = childItem;
+        self.navigationItem.rightBarButtonItem = cityItem;
     }
 
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleCalendar"] style:UIBarButtonItemStylePlain target:self action:@selector(onProductCalendarClick)];
     
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_search"] style:UIBarButtonItemStylePlain target:self action:@selector(onSearchClick)];
     
-    
+    [HomeEventCell registerCellFromNibWithTableView:self.tableView withIdentifier:homeEventIdentifier];
     [HomeCarouselCell registerCellFromNibWithTableView:self.tableView withIdentifier:homeCarouselIdentifier];
     [HomeCell registerCellFromNibWithTableView:self.tableView withIdentifier:homeIdentifier];
     [LoadingCell registerCellFromNibWithTableView:self.tableView withIdentifier:homeLoadingIdentifier];
     [LoadingErrorCell registerCellFromNibWithTableView:self.tableView withIdentifier:homeLoadingErrorIdentifier];
+    [HomeSubjectCoverCell registerCellFromNibWithTableView:self.tableView withIdentifier:homeSubjectCoverCellIdentifier];
+    [HomeSubjectCoursesCell registerCellFromNibWithTableView:self.tableView withIdentifier:homeSubjectCoursesCellIdentifier];
+    [HomeTopicCell registerCellFromNibWithTableView:self.tableView withIdentifier:homeTopicCellIdentifier];
     
     self.tableView.backgroundView = [[UIView alloc] init];
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
@@ -101,7 +122,7 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
 }
 
 - (void)onCityChanged:(City *)newCity {
-    [self.titleLabel setText:newCity.name];
+    [self.cityLabel setText:newCity.name];
     self.model = nil;
     [self.tableView reloadData];
     [self requestData:YES];
@@ -136,7 +157,7 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
     }
     
     NSDictionary * dic = @{@"start":@(self.nextIndex)};
-    self.curOperation = [[HttpService defaultService] GET:URL_APPEND_PATH(@"/v2/index") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[IndexModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    self.curOperation = [[HttpService defaultService] GET:URL_APPEND_PATH(@"/v3/index") parameters:dic cacheType:CacheTypeDisable JSONModelClass:[IndexModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         [self.view removeLoadingBee];
         
@@ -148,8 +169,8 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
         
         if(self.nextIndex == 0) {
             self.banners = self.model.data.banners;
-            self.icons = self.model.data.icons;
-            self.events = self.model.data.events;
+//            self.icons = self.model.data.icons;
+//            self.events = self.model.data.events;
         }
         
         if (self.model.data.courses.list.count > 0) {
@@ -205,59 +226,14 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
     return UITableViewStyleGrouped;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    BOOL hasBannerSec = self.banners.count > 0 || self.icons.count > 0;
-    BOOL hasEventSec = self.events.count > 0;
-    
-    int number = 0;
-    if (hasBannerSec) {
-        number++;
-    }
-    if (hasEventSec) {
-        number++;
-    }
-    
-    if (section == number) {
-        return 30;
-    }
     return 0.01;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     return 10;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    BOOL hasBannerSec = self.banners.count > 0 || self.icons.count > 0;
-    BOOL hasEventSec = self.events.count > 0;
-    
-    int number = 0;
-    if (hasBannerSec) {
-        number++;
-    }
-    if (hasEventSec) {
-        number++;
-    }
-    
-    UIView *view = [[UIView alloc]init];
-    if (section == number) {
-        view.frame = CGRectMake(0, 10, SCREEN_WIDTH, 20);
-        
-        UIView *line = [[UIView alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - 180)/2, 10, 180, 0.5)];
-        line.backgroundColor = UIColorFromRGB(0xdddddd);
-        [view addSubview:line];
-        
-        UILabel *text = [[UILabel alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - 60)/2, 0, 70, 20)];
-        text.textAlignment = NSTextAlignmentCenter;
-        text.textColor = UIColorFromRGB(0x999999);
-        text.backgroundColor = MO_APP_VCBackgroundColor;
-        text.font = [UIFont systemFontOfSize:14];
-        text.text = @"热门推荐";
-        [view addSubview:text];
-    }
-    return view;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
@@ -267,14 +243,18 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
     return header;
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     if(self.model) {
         int number = 0;
-        if (self.banners.count > 0 || self.icons.count > 0) {
+        if (self.banners.count > 0) {
             number++;
         }
-        if (self.events.count > 0) {
+        if (self.model.data.events.count > 0) {
+            number++;
+        }
+        number += self.model.data.subjects.count * 2;
+        if (self.model.data.topics.count > 0) {
             number++;
         }
         if (self.nextIndex > 0) {
@@ -285,62 +265,66 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
     return 0;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if(section == 0) {
-        if(self.banners.count > 0 && self.icons.count > 0) {
-            return 2;
-        }
-    }
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger section = indexPath.section;
-    BOOL hasBannerSec = self.banners.count > 0 || self.icons.count > 0;
-    BOOL hasEventSec = self.events.count > 0;
+    BOOL hasBannerSec = self.banners.count > 0;
+    BOOL hasEventSec = self.model.data.events.count > 0;
     
-    int number = 0;
+    int number = (int)section;
     if (hasBannerSec) {
-        number++;
-    }
-    if (hasEventSec) {
-        number++;
+        if (number == 0) {
+            return [HomeCarouselCell heightWithTableView:tableView];
+        }
+        number--;
     }
     
-    if (hasBannerSec && section == 0) {
-        if (hasBannerSec && indexPath.row == 0) {
-            return [HomeCarouselCell heightWithTableView:tableView];
-        } else {
-            return [HomeGridCell heightWithTableView:tableView forModel:self.icons];
+    if (hasEventSec) {
+        if (number == 0) {
+            return [HomeEventCell heightWithTableView:tableView withIdentifier:homeEventIdentifier forIndexPath:indexPath data:self.model];
         }
-        
-    } else if ((hasBannerSec && hasEventSec && section == 1) || (!hasBannerSec && hasEventSec && section == 0)) {
-        return [HomeOperateCell heightWithTableView:tableView forModel:self.events];
-        
-    } else if(section < self.array.count + number) {
-        return [HomeCell heightWithTableView:tableView withIdentifier:homeIdentifier forIndexPath:indexPath data:self.array[section - number]];
-        
-    } else return 40;
+        number--;
+    }
+    
+    if (number < self.model.data.subjects.count * 2) {
+        IndexSubject *subject = self.model.data.subjects[number / 2];
+        if (number % 2 == 0) {
+            return SCREEN_WIDTH * 180 / 320;
+            
+        } else {
+            return [HomeSubjectCoursesCell heightWithTableView:tableView withIdentifier:homeSubjectCoursesCellIdentifier forIndexPath:indexPath data:subject];
+        }
+    }
+    
+    number -= self.model.data.subjects.count * 2;
+    
+    if (self.model.data.topics.count > 0) {
+        if (number == 0) {
+            return [HomeTopicCell heightWithTableView:tableView withIdentifier:homeTopicCellIdentifier forIndexPath:indexPath data:self.model.data.topics[0]];
+        }
+        number--;
+    }
+    
+    if (number < self.array.count) {
+        return [HomeCell heightWithTableView:tableView withIdentifier:homeIdentifier forIndexPath:indexPath data:self.array[number]];
+    }
+    
+    return 40;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger section = indexPath.section;
-    UITableViewCell * cell;
 
-    BOOL hasBannerSec = self.banners.count > 0 || self.icons.count > 0;
-    BOOL hasEventSec = self.events.count > 0;
+    BOOL hasBannerSec = self.banners.count > 0;
+    BOOL hasEventSec = self.model.data.events.count > 0;
     
-    int number = 0;
+    int number = (int)section;
     if (hasBannerSec) {
-        number++;
-    }
-    if (hasEventSec) {
-        number++;
-    }
-    
-    if (hasBannerSec && section == 0) {
-        if (self.banners.count > 0 && indexPath.row == 0) {
+        if (number == 0) {
             HomeCarouselCell * carousel = [HomeCarouselCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeCarouselIdentifier];
             carousel.data = self.banners;
             carousel.scrollClick = ^void(NSInteger index) {
@@ -353,64 +337,125 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
                     [MobClick event:@"Home_Banner" attributes:attributes];
                 }
             };
-            cell = carousel;
-        } else {
-            HomeGridCell *gridCell = [[HomeGridCell alloc]initWithTableView:tableView forModel:self.icons reuseIdentifier:homeGridIdentifier];
-            cell = gridCell;
+            return carousel;
         }
-        
-    } else if ((hasBannerSec && hasEventSec && section == 1) || (!hasBannerSec && hasEventSec && section == 0)) {
-        HomeOperateCell *operateCell = [[HomeOperateCell alloc]initWithTableView:tableView forModel:self.events reuseIdentifier:homeOperateIdentifier];
-        cell = operateCell;
-        
-    } else if(section < self.array.count + number) {
-        HomeCell * home = [HomeCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeIdentifier];
-        home.data = self.array[section - number];
-        
-        cell = home;
-        
-    } else {
-        if(self.isError) {
-            LoadingErrorCell * error = [LoadingErrorCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:homeLoadingErrorIdentifier];
-            error.backgroundColor = MO_APP_VCBackgroundColor;
-            cell = error;
+        number--;
+    }
+    
+    if (hasEventSec) {
+        if (number == 0) {
+            HomeEventCell *operateCell = [HomeEventCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeEventIdentifier];
+            operateCell.data = self.model;
+            return operateCell;
+        }
+        number--;
+    }
+    
+    if (number < self.model.data.subjects.count * 2) {
+        IndexSubject *subject = self.model.data.subjects[number / 2];
+        if (number % 2 == 0) {
+            HomeSubjectCoverCell *subjectCover = [HomeSubjectCoverCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeSubjectCoverCellIdentifier];
+            subjectCover.data = subject.cover;
+            return subjectCover;
+            
         } else {
-            LoadingCell * loading = [LoadingCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:homeLoadingIdentifier];
-            [loading startAnimating];
-            if(!self.isLoading) {
-                self.isLoading = YES;
-                [self requestData:NO];
-            }
-            loading.backgroundColor = MO_APP_VCBackgroundColor;
-            cell = loading;
+            HomeSubjectCoursesCell *subjectCourses = [HomeSubjectCoursesCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeSubjectCoursesCellIdentifier];
+            subjectCourses.data = subject;
+            return subjectCourses;
         }
     }
     
-    cell.selectionStyle = UITableViewCellSeparatorStyleNone;
-    return cell;
+    number -= self.model.data.subjects.count * 2;
+    
+    if (self.model.data.topics.count > 0) {
+        if (number == 0) {
+            HomeTopicCell *topicCell = [HomeTopicCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeTopicCellIdentifier];
+            topicCell.data = self.model.data.topics[0];
+            return topicCell;
+        }
+        number--;
+    }
+    
+    if (number < self.array.count) {
+        HomeCell * home = [HomeCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeIdentifier];
+        home.data = self.array[number];
+        return home;
+    }
+    
+    if (self.isError) {
+        LoadingErrorCell * error = [LoadingErrorCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:homeLoadingErrorIdentifier];
+        error.backgroundColor = MO_APP_VCBackgroundColor;
+
+        return error;
+        
+    } else {
+        LoadingCell * loading = [LoadingCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:homeLoadingIdentifier];
+        [loading startAnimating];
+        if(!self.isLoading) {
+            self.isLoading = YES;
+            [self requestData:NO];
+        }
+        loading.backgroundColor = MO_APP_VCBackgroundColor;
+
+        return loading;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger section = indexPath.section;
-    BOOL hasBannerSec = self.banners.count > 0 || self.icons.count > 0;
-    BOOL hasEventSec = self.events.count > 0;
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    int number = 0;
+    NSInteger section = indexPath.section;
+    BOOL hasBannerSec = self.banners.count > 0;
+    BOOL hasEventSec = self.model.data.events.count > 0;
+    
+    int number = (int)section;
     if (hasBannerSec) {
-        number++;
+        if (number == 0) {
+            // handler by it self
+            return;
+        }
+        number--;
     }
+    
     if (hasEventSec) {
-        number++;
+        if (number == 0) {
+            // handler by it self
+            return;
+        }
+        number--;
     }
-    if (section < number) {
-        
-    } else if(section < self.array.count + number) {
-        Course *course = self.array[indexPath.section - number];
+    
+    if (number < self.model.data.subjects.count * 2) {
+        IndexSubject *subject = self.model.data.subjects[number / 2];
+        if (number % 2 == 0) {
+            [self openURL:[NSString stringWithFormat:@"subjectdetail?id=%@", subject.ids]];
+            return;
+            
+        } else {
+            // handler by it self
+            return;
+        }
+    }
+    
+    number -= self.model.data.subjects.count * 2;
+    
+    if (self.model.data.topics.count > 0) {
+        if (number == 0) {
+            NSString *url = [NSString stringWithFormat:@"http://%@/discuss/topic?id=%@", MO_DEBUG ? @"m.momia.cn" : @"m.sogokids.com", ((IndexSubject *)self.model.data.subjects[0]).ids];
+            [self openURL:[NSString stringWithFormat:@"web?url=%@", [url URLEncodedString]]];
+            return;
+        }
+        number--;
+    }
+    
+    if (number < self.array.count) {
+        Course *course = self.array[number];
         [self openURL:[NSString stringWithFormat:@"coursedetail?id=%@", course.ids]];
         
-        NSDictionary *attributes = @{@"name":course.title, @"index":[NSString stringWithFormat:@"%d", (indexPath.section - number)]};
+        NSDictionary *attributes = @{@"name":course.title, @"index":[NSString stringWithFormat:@"%d", number]};
         [MobClick event:@"Home_List" attributes:attributes];
+        return;
         
     } else {
         if(self.isError) {
@@ -420,11 +465,12 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
                 self.isLoading = YES;
                 [self requestData:NO];
             }
-
+            
         }
     }
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
+
 
 -(void)onSearchClick
 {

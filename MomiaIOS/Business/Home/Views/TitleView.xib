@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -37,13 +37,38 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="189.5" y="463.5"/>
         </view>
+        <view contentMode="scaleToFill" id="9Rw-QV-Fzh">
+            <rect key="frame" x="0.0" y="0.0" width="202" height="47"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" tag="1001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dlh-gW-Krv" customClass="AvatarImageView">
+                    <rect key="frame" x="5" y="6" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="yXw-tg-AfR"/>
+                        <constraint firstAttribute="height" constant="35" id="zJX-tx-1WZ"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" tag="1002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="松果亲子/点击登录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60C-se-N31">
+                    <rect key="frame" x="48" y="0.0" width="154" height="47"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="60C-se-N31" secondAttribute="trailing" id="2WL-vf-UdO"/>
+                <constraint firstItem="dlh-gW-Krv" firstAttribute="centerY" secondItem="9Rw-QV-Fzh" secondAttribute="centerY" id="AUv-6U-lVi"/>
+                <constraint firstItem="dlh-gW-Krv" firstAttribute="leading" secondItem="9Rw-QV-Fzh" secondAttribute="leading" constant="5" id="bRy-KT-Gj0"/>
+                <constraint firstAttribute="bottom" secondItem="60C-se-N31" secondAttribute="bottom" id="eQS-7t-h0Z"/>
+                <constraint firstItem="60C-se-N31" firstAttribute="leading" secondItem="dlh-gW-Krv" secondAttribute="trailing" constant="8" id="h5E-3G-t6Q"/>
+                <constraint firstItem="60C-se-N31" firstAttribute="top" secondItem="9Rw-QV-Fzh" secondAttribute="top" id="t1e-bh-tv4"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-36" y="524.5"/>
+        </view>
     </objects>
     <resources>
         <image name="IconLightDownArrow" width="11" height="6"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>
