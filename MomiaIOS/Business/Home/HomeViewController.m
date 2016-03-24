@@ -472,7 +472,7 @@ static NSString *homeTopicCellIdentifier = @"HomeTopicCell";
     
     if (number < self.array.count) {
         Course *course = self.array[number];
-        [self openURL:[NSString stringWithFormat:@"coursedetail?id=%@", course.ids]];
+        [self openURL:[NSString stringWithFormat:@"coursedetail?id=%@&recommend=1", course.ids]];
         
         NSDictionary *attributes = @{@"name":course.title, @"index":[NSString stringWithFormat:@"%d", number]};
         [MobClick event:@"Home_List" attributes:attributes];

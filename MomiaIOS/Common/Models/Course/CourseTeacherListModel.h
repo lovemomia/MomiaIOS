@@ -14,6 +14,9 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *education;
 @property (nonatomic, strong) NSString *experience;
+
+@property (nonatomic, strong) NSNumber<Optional> *isFirst; //自定义参数，非服务器返回
+
 @end
 
 @protocol CourseTeacher <NSObject>

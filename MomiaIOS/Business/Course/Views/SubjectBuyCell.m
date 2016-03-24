@@ -8,12 +8,10 @@
 
 #import "SubjectBuyCell.h"
 #import "Subject.h"
+#import "Course.h"
 #import "StringUtils.h"
 
 @interface SubjectBuyCell()
-
-@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
-@property (weak, nonatomic) IBOutlet UIButton *buyButton;
 
 @end
 
@@ -30,16 +28,40 @@
     // Configure the view for the selected state
 }
 
-- (void)setData:(Subject *)data {
-    Subject *subject = data;
-    self.priceLabel.text = [StringUtils stringForPrice:subject.price];
-    
-    if ([subject.status intValue] == 1) {
-        self.buyButton.enabled = YES;
-        [self.buyButton setTitle:@"立即抢购" forState:UIControlStateNormal];
+- (void)setData:(id)data {
+    if ([data isKindOfClass:[Subject class]]) {
+        Subject *subject = data;
+        self.priceLabel.text = [StringUtils stringForPrice:subject.price];
+        
+        if ([subject.status intValue] == 1) {
+            self.buyButton.enabled = YES;
+            [self.buyButton setTitle:@"立即抢购" forState:UIControlStateNormal];
+        } else {
+            self.buyButton.enabled = NO;
+            [self.buyButton setTitle:@"名额已满" forState:UIControlStateDisabled];
+        }
+        
     } else {
-        self.buyButton.enabled = NO;
-        [self.buyButton setTitle:@"名额已满" forState:UIControlStateDisabled];
+        Course *course = data;
+        if ([course.buyable boolValue]) {
+            // 单次课程
+            self.priceLabel.text = [StringUtils stringForPrice:course.price];
+            self.unitLabel.text = @"／次";
+            self.chooseLabel.text = @"";
+            
+        } else {
+            self.priceLabel.text = [StringUtils stringForPrice:course.price];
+            self.unitLabel.text = [NSString stringWithFormat:@"起／%@", course.cheapestSkuTimeUnit];
+            self.chooseLabel.text = course.cheapestSkuDesc;
+        }
+        
+        if ([course.status intValue] == 1) {
+            self.buyButton.enabled = YES;
+            [self.buyButton setTitle:@"立即抢购" forState:UIControlStateNormal];
+        } else {
+            self.buyButton.enabled = NO;
+            [self.buyButton setTitle:@"名额已满" forState:UIControlStateDisabled];
+        }
     }
 }
 

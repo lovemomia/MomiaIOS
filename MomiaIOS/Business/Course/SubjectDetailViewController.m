@@ -310,6 +310,7 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
 }
 
 - (void)onBuyClicked:(UITapGestureRecognizer *)tap {
+    NSString *url;
     [self openURL:[NSString stringWithFormat:@"fillorder?id=%@", self.model.data.subject.ids]];
     
     [MobClick event:@"Subject_Buy"];
@@ -336,7 +337,7 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
     if (indexPath.section == 1 && indexPath.row > 0) {
         if (self.tabIndex == 0) {
             Course *course = self.model.data.courses.list[indexPath.row - 1];
-            [self openURL:[NSString stringWithFormat:@"coursedetail?id=%@&buyable=0", course.ids]];
+            [self openURL:[NSString stringWithFormat:@"coursedetail?id=%@", course.ids]];
             
             NSDictionary *attributes = @{@"name":course.title, @"index":[NSString stringWithFormat:@"%d", (indexPath.row - 1)]};
             [MobClick event:@"Subject_List" attributes:attributes];
@@ -435,7 +436,7 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
                 
             } else if (self.tabIndex == 1) {
                 CourseNoticeCell *noticeCell = [CourseNoticeCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseNoticeCell];
-                noticeCell.data = self.model.data.subject;
+                noticeCell.data = self.model.data.subject.notice;
                 cell = noticeCell;
                 cell.selectionStyle = UITableViewCellSeparatorStyleNone;
                 
@@ -491,7 +492,7 @@ static NSString *identifierSubjectTabCell = @"SubjectTabCell";
                 return [CourseListItemCell heightWithTableView:tableView withIdentifier:identifierCourseListItemCell forIndexPath:indexPath data:self.courseList[row - 1]];
                 
             } else if (self.tabIndex == 1) {
-                return [CourseNoticeCell heightWithTableView:tableView withIdentifier:identifierCourseNoticeCell forIndexPath:indexPath data:self.model.data.subject];
+                return [CourseNoticeCell heightWithTableView:tableView withIdentifier:identifierCourseNoticeCell forIndexPath:indexPath data:self.model.data.subject.notice];
                 
             } else {
                 if((row - 1) == self.reviewList.count) {

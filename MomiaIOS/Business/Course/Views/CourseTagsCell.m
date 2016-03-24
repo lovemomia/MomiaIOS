@@ -23,6 +23,7 @@
 }
 
 -(void)setData:(id)model {
+    self.contentView.backgroundColor = UIColorFromRGB(0xf8f8f8);
     BOOL isSubject = [model isKindOfClass:[Subject class]];
     
     for (UIView * view in self.contentView.subviews) {
@@ -44,9 +45,9 @@
         [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.contentView);
             if(i == 0) make.leading.equalTo(self.contentView).with.offset(10);
-            else make.leading.equalTo(lastView.mas_trailing).with.offset(20);
-            make.width.equalTo(@14);
-            make.height.equalTo(@14);
+            else make.leading.equalTo(lastView.mas_trailing).with.offset(10);
+            make.width.equalTo(@10);
+            make.height.equalTo(@10);
         }];
         [imgView setImage:[UIImage imageNamed:@"IconProductTag"]];
         
@@ -63,8 +64,8 @@
             label.text = @"送保险";
         }
         
-        label.textColor = MO_APP_ThemeColor;
-        label.font = [UIFont systemFontOfSize:13.0f];
+        label.textColor = UIColorFromRGB(0x9999999);
+        label.font = [UIFont systemFontOfSize:12.0f];
         
         lastView = label;
     }
@@ -79,8 +80,8 @@
     [self.contentView addSubview:imgView];
     [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.contentView);
-        make.width.equalTo(@14);
-        make.height.equalTo(@14);
+        make.width.equalTo(@10);
+        make.height.equalTo(@10);
         make.left.equalTo(lastView.mas_right).with.offset(10);
     }];
     [imgView setImage:[UIImage imageNamed:@"IconProductTag"]];
@@ -91,9 +92,9 @@
         make.centerY.equalTo(self.contentView);
         make.left.equalTo(imgView.mas_right).with.offset(5);
     }];
-    label.text = [NSString stringWithFormat:@"%@人已参加", joined];
-    label.textColor = MO_APP_ThemeColor;
-    label.font = [UIFont systemFontOfSize:13.0f];
+    label.text = [NSString stringWithFormat:@"%@人参加", joined];
+    label.textColor = UIColorFromRGB(0x999999);
+    label.font = [UIFont systemFontOfSize:12.0f];
 }
 
 + (CGFloat)heightWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath data:(id)data {
