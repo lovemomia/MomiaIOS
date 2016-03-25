@@ -187,7 +187,7 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
     [paramDic setValue:self.ids forKey:@"id"];
     [paramDic setValue:[NSString stringWithFormat:@"%ld", (long)self.flNextIndex] forKey:@"start"];
     
-    self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/subject/comment/list")
+    self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/course/comment/list")
                                               parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[ReviewListModel class]
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                      ReviewListModel *model = (ReviewListModel *)responseObject;
@@ -297,34 +297,6 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
         
         [MobClick event:@"Course_SkuList"];
     }
-    
-//    CellType type = [self cellTypeForRowAtIndexPath:indexPath];
-//    if (type == CellTitlePoi) {
-    
-//
-//    } else if (type == CellTitleTeacher) {
-//        [self openURL:[NSString stringWithFormat:@"courseteacherlist?id=%@", self.ids]];
-//        
-//        [MobClick event:@"Course_TeacherList"];
-//        
-//    } else if (type == CellTitleBook) {
-//        [self openURL:[NSString stringWithFormat:@"coursebookbrowser?id=%@", self.ids]];
-//        
-//    } else if (type == CellTitleDetail) {
-//        
-//    } else if (type == CellTitleComment) {
-//        [self openURL:[NSString stringWithFormat:@"reviewlist?courseId=%@", self.ids]];
-//        
-//        NSDictionary *attributes = @{@"name":self.model.data.title};
-//        [MobClick event:@"Course_ReviewList" attributes:attributes];
-//        
-//    } else if (type == CellTitleOrg) {
-//        NSString *url = [NSString stringWithFormat:@"http://%@/institution/detail/app?id=%@", MO_DEBUG ? @"m.momia.cn" : @"m.sogokids.com", self.ids];
-//        [self openURL:[NSString stringWithFormat:@"web?url=%@", [url URLEncodedString]]];
-//        
-//        [MobClick event:@"Course_Org"];
-//    }
-    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

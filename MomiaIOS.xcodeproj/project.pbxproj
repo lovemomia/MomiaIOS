@@ -214,6 +214,12 @@
 		BC50639A1B539F0300AA233C /* StringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5063991B539F0300AA233C /* StringUtils.m */; };
 		BC50639D1B53A37200AA233C /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC50639C1B53A37200AA233C /* ForgetPasswordViewController.m */; };
 		BC50639F1B53A3A000AA233C /* ForgetPasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC50639E1B53A3A000AA233C /* ForgetPasswordCell.xib */; };
+		BC53A51C1CA3FE0200532F91 /* SubjectDiscCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC53A51B1CA3FE0200532F91 /* SubjectDiscCell.m */; };
+		BC53A51D1CA4001500532F91 /* SubjectDiscCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC53A51B1CA3FE0200532F91 /* SubjectDiscCell.m */; };
+		BC53A5211CA51B9800532F91 /* SubjectCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC53A51F1CA51B9800532F91 /* SubjectCourseCell.m */; };
+		BC53A5221CA51B9800532F91 /* SubjectCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC53A5201CA51B9800532F91 /* SubjectCourseCell.xib */; };
+		BC53A5231CA5250600532F91 /* SubjectCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC53A51F1CA51B9800532F91 /* SubjectCourseCell.m */; };
+		BC53A5241CA5251D00532F91 /* SubjectCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC53A5201CA51B9800532F91 /* SubjectCourseCell.xib */; };
 		BC592BBA1BD489DE008AE76A /* BookingSubjectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BB91BD489DE008AE76A /* BookingSubjectListViewController.m */; };
 		BC592BBD1BD48FAC008AE76A /* BookableCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BBC1BD48FAC008AE76A /* BookableCourseListViewController.m */; };
 		BC592BC01BD4977A008AE76A /* BookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BBF1BD4977A008AE76A /* BookViewController.m */; };
@@ -1263,6 +1269,11 @@
 		BC50639B1B53A37200AA233C /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForgetPasswordViewController.h; path = Business/Login/ForgetPasswordViewController.h; sourceTree = "<group>"; };
 		BC50639C1B53A37200AA233C /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForgetPasswordViewController.m; path = Business/Login/ForgetPasswordViewController.m; sourceTree = "<group>"; };
 		BC50639E1B53A3A000AA233C /* ForgetPasswordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ForgetPasswordCell.xib; path = Business/Login/Views/ForgetPasswordCell.xib; sourceTree = "<group>"; };
+		BC53A51A1CA3FE0200532F91 /* SubjectDiscCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectDiscCell.h; path = Business/Course/Views/SubjectDiscCell.h; sourceTree = "<group>"; };
+		BC53A51B1CA3FE0200532F91 /* SubjectDiscCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectDiscCell.m; path = Business/Course/Views/SubjectDiscCell.m; sourceTree = "<group>"; };
+		BC53A51E1CA51B9800532F91 /* SubjectCourseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectCourseCell.h; path = Business/Course/Views/SubjectCourseCell.h; sourceTree = "<group>"; };
+		BC53A51F1CA51B9800532F91 /* SubjectCourseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectCourseCell.m; path = Business/Course/Views/SubjectCourseCell.m; sourceTree = "<group>"; };
+		BC53A5201CA51B9800532F91 /* SubjectCourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SubjectCourseCell.xib; path = Business/Course/Views/SubjectCourseCell.xib; sourceTree = "<group>"; };
 		BC592BB81BD489DE008AE76A /* BookingSubjectListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookingSubjectListViewController.h; path = Business/Course/BookingSubjectListViewController.h; sourceTree = "<group>"; };
 		BC592BB91BD489DE008AE76A /* BookingSubjectListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookingSubjectListViewController.m; path = Business/Course/BookingSubjectListViewController.m; sourceTree = "<group>"; };
 		BC592BBB1BD48FAC008AE76A /* BookableCourseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookableCourseListViewController.h; path = Business/Course/BookableCourseListViewController.h; sourceTree = "<group>"; };
@@ -2195,6 +2206,8 @@
 				BC040D081BC8ABA900988AB2 /* CourseTagsCell.m */,
 				BC040D0A1BC8BB5500988AB2 /* CourseDiscCell.h */,
 				BC040D0B1BC8BB5500988AB2 /* CourseDiscCell.m */,
+				BC53A51A1CA3FE0200532F91 /* SubjectDiscCell.h */,
+				BC53A51B1CA3FE0200532F91 /* SubjectDiscCell.m */,
 				BC040D0D1BC8E62F00988AB2 /* CourseSectionTitleCell.h */,
 				BC040D0E1BC8E62F00988AB2 /* CourseSectionTitleCell.m */,
 				BC040D151BC9176000988AB2 /* CourseSectionTitleCell.xib */,
@@ -2250,6 +2263,9 @@
 				BC0D44451C02FBD50007E9ED /* FeedListItemCell.xib */,
 				BC0D44481C031ACE0007E9ED /* CourseDetailCell.h */,
 				BC0D44491C031ACE0007E9ED /* CourseDetailCell.m */,
+				BC53A51E1CA51B9800532F91 /* SubjectCourseCell.h */,
+				BC53A51F1CA51B9800532F91 /* SubjectCourseCell.m */,
+				BC53A5201CA51B9800532F91 /* SubjectCourseCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3379,6 +3395,7 @@
 				BCF564E51B4A54D0003A2227 /* PersonChildHeaderCell.xib in Resources */,
 				BC1052A51BB394CE00D81C15 /* TopicListCell.xib in Resources */,
 				BC753EDE1BAC07D300D2663C /* FeedZanCell.xib in Resources */,
+				BC53A5221CA51B9800532F91 /* SubjectCourseCell.xib in Resources */,
 				5AB1BDE01B4F9B49004A4511 /* ProductDetailTagsCell.xib in Resources */,
 				BCF74AC91BEB643400138C2C /* ReviewListItemCell.xib in Resources */,
 				5AD5275F1B53C7A300D01E1F /* FeedbackCell.xib in Resources */,
@@ -3452,6 +3469,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC53A5241CA5251D00532F91 /* SubjectCourseCell.xib in Resources */,
 				BC80B8511CA13D33009559F2 /* HomeSubjectCoverCell.xib in Resources */,
 				BC80B8521CA13D33009559F2 /* HomeSubjectCoursesCell.xib in Resources */,
 				BC80B8531CA13D33009559F2 /* HomeTopicCell.xib in Resources */,
@@ -3552,6 +3570,7 @@
 				BC77375F1BCCA31B00987B22 /* Course.m in Sources */,
 				BC2C0C891B15698B00E2446E /* NSError+MOError.m in Sources */,
 				BC3599F71BC61F0C002DE863 /* MLSelectPhotoPickerBrowserPhotoScrollView.m in Sources */,
+				BC53A51C1CA3FE0200532F91 /* SubjectDiscCell.m in Sources */,
 				BC359A4C1BC67B4F002DE863 /* HomeOperateCell.m in Sources */,
 				BCF564D21B46A437003A2227 /* ServerErrorHandler.m in Sources */,
 				BC592BF91BD73F58008AE76A /* BookedCourseListModel.m in Sources */,
@@ -3570,6 +3589,7 @@
 				5A3C6C7B1B57AEC1006583FB /* ProductCalendarViewController.m in Sources */,
 				5A08C1411B39117100642648 /* ProductDetailEnrollCell.m in Sources */,
 				BC77085F1AFC5685000068A8 /* UILabel+ContentSize.m in Sources */,
+				BC53A5211CA51B9800532F91 /* SubjectCourseCell.m in Sources */,
 				5A3C6C721B579F1C006583FB /* ProductCalendarCell.m in Sources */,
 				BC7737821BCE45A300987B22 /* CourseTeacherCell.m in Sources */,
 				BC80B8381C9FDAC1009559F2 /* HomeEventCell.m in Sources */,
@@ -3865,6 +3885,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC53A5231CA5250600532F91 /* SubjectCourseCell.m in Sources */,
+				BC53A51D1CA4001500532F91 /* SubjectDiscCell.m in Sources */,
 				BC80B84E1CA13D1E009559F2 /* HomeSubjectCoverCell.m in Sources */,
 				BC80B84F1CA13D1E009559F2 /* HomeSubjectCoursesCell.m in Sources */,
 				BC80B8501CA13D1E009559F2 /* HomeTopicCell.m in Sources */,

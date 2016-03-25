@@ -40,6 +40,8 @@
             self.buyButton.enabled = NO;
             [self.buyButton setTitle:@"名额已满" forState:UIControlStateDisabled];
         }
+        self.unitLabel.text = [NSString stringWithFormat:@"起／%@", subject.cheapestSkuTimeUnit];
+        self.chooseLabel.text = subject.cheapestSkuDesc;
         
     } else {
         Course *course = data;

@@ -31,4 +31,8 @@
 
 @property (nonatomic, strong) NSNumber<Optional> *status;
 
+@property (nonatomic, strong) NSString<Optional> *cheapestSkuDesc;
+@property (nonatomic, strong) NSNumber<Optional> *cheapestSkuPrice;
+@property (nonatomic, strong) NSString<Optional> *cheapestSkuTimeUnit;
+
 @end
