@@ -20,6 +20,16 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    self.leftDescLabel.layer.borderColor = [MO_APP_ThemeColor CGColor];
+    self.leftDescLabel.layer.borderWidth = 1.0f;
+    self.leftDescLabel.layer.cornerRadius = 5.0;
+    self.leftDescLabel.layer.masksToBounds = YES;
+    
+    self.rightDescLabel.layer.borderColor = [MO_APP_TextColor_red CGColor];
+    self.rightDescLabel.layer.borderWidth = 1.0f;
+    self.rightDescLabel.layer.cornerRadius = 5.0;
+    self.rightDescLabel.layer.masksToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

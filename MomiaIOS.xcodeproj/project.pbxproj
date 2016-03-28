@@ -406,6 +406,7 @@
 		BC97DF1C1B4E1DF0002B1A00 /* PayResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC97DF1A1B4E1DF0002B1A00 /* PayResultViewController.xib */; };
 		BC97DF271B4E4AA4002B1A00 /* PayTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC97DF261B4E4AA4002B1A00 /* PayTool.m */; };
 		BC99C9E71BF1A3AE00578EFC /* MJRefreshHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BC99C9E61BF1A3AE00578EFC /* MJRefreshHelper.m */; };
+		BC9B6C871CA910CB00A46A44 /* InsetsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9B6C861CA910CB00A46A44 /* InsetsLabel.m */; };
 		BC9C02B51C1E7A860019A693 /* GroupNoticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC9C02B41C1E7A860019A693 /* GroupNoticeView.xib */; };
 		BC9C02B81C1EBC3C0019A693 /* GroupNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9C02B71C1EBC3C0019A693 /* GroupNoticeView.m */; };
 		BCA272FD1AE8A2C7002E7534 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA272FB1AE8A2C7002E7534 /* MineViewController.m */; };
@@ -1529,6 +1530,8 @@
 		BC97DF261B4E4AA4002B1A00 /* PayTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayTool.m; sourceTree = "<group>"; };
 		BC99C9E51BF1A3AE00578EFC /* MJRefreshHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJRefreshHelper.h; path = Common/Utils/MJRefreshHelper.h; sourceTree = "<group>"; };
 		BC99C9E61BF1A3AE00578EFC /* MJRefreshHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJRefreshHelper.m; path = Common/Utils/MJRefreshHelper.m; sourceTree = "<group>"; };
+		BC9B6C851CA910CB00A46A44 /* InsetsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InsetsLabel.h; path = Common/Views/InsetsLabel.h; sourceTree = "<group>"; };
+		BC9B6C861CA910CB00A46A44 /* InsetsLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InsetsLabel.m; path = Common/Views/InsetsLabel.m; sourceTree = "<group>"; };
 		BC9C02B41C1E7A860019A693 /* GroupNoticeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GroupNoticeView.xib; path = Business/Chat/Views/GroupNoticeView.xib; sourceTree = "<group>"; };
 		BC9C02B61C1EBC3C0019A693 /* GroupNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupNoticeView.h; path = Business/Chat/Views/GroupNoticeView.h; sourceTree = "<group>"; };
 		BC9C02B71C1EBC3C0019A693 /* GroupNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupNoticeView.m; path = Business/Chat/Views/GroupNoticeView.m; sourceTree = "<group>"; };
@@ -2140,6 +2143,8 @@
 				BCBB16BA1BF3374900E273AF /* CommonTableViewCell.h */,
 				BCBB16BB1BF3374900E273AF /* CommonTableViewCell.m */,
 				BCBB16BC1BF3374900E273AF /* CommonTableViewCell.xib */,
+				BC9B6C851CA910CB00A46A44 /* InsetsLabel.h */,
+				BC9B6C861CA910CB00A46A44 /* InsetsLabel.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3865,6 +3870,7 @@
 				BCF9DD111BDA3BC000D8CDC6 /* BookCourseListItemCell.m in Sources */,
 				BC90897F1B5797D800A8D85B /* MOTabHost.m in Sources */,
 				BC2C0C8C1B15AF6E00E2446E /* MOGroupStyleTableViewController.m in Sources */,
+				BC9B6C871CA910CB00A46A44 /* InsetsLabel.m in Sources */,
 				BC79DF8A1C15931C0064C02F /* GroupMemberItemCell.m in Sources */,
 				BC753ECE1BAC07D300D2663C /* FeedCommentCell.m in Sources */,
 				5AC9FFCD1B17298C00C769EF /* FeedbackViewController.m in Sources */,

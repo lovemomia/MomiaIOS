@@ -51,22 +51,49 @@
         UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onItemClicked:)];
         [courseView addGestureRecognizer:singleTap];
         
-        AvatarImageView *icon = [[AvatarImageView alloc]init];
-        [icon sd_setImageWithURL:[NSURL URLWithString:course.cover]];
-        [self.coursesContainer addSubview:icon];
+        UIImageView *icon;
+        if ([model.subjectCourseType intValue] == 1) {
+            icon = [UIImageView new];
+            [icon sd_setImageWithURL:[NSURL URLWithString:course.cover]];
+            [self.coursesContainer addSubview:icon];
+            
+            [icon mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerX.mas_equalTo(courseView);
+                make.top.mas_equalTo(courseView);
+                make.width.mas_equalTo(@70);
+                make.height.mas_equalTo(@70);
+            }];
+            
+            UIImageView *sixSideIv = [UIImageView new];
+            sixSideIv.image = [UIImage imageNamed:@"BgSixSide"];
+            [self.coursesContainer addSubview:sixSideIv];
+            
+            [sixSideIv mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.bottom.mas_equalTo(icon);
+                make.top.mas_equalTo(icon);
+                make.left.mas_equalTo(icon);
+                make.right.mas_equalTo(icon);
+            }];
+            
+        } else {
+            icon = [[AvatarImageView alloc]init];
+            [icon sd_setImageWithURL:[NSURL URLWithString:course.cover]];
+            [self.coursesContainer addSubview:icon];
+            
+            // 圆形
+            icon.layer.masksToBounds = YES;
+            icon.layer.cornerRadius = 30;
+            icon.layer.borderWidth = 1;
+            icon.layer.borderColor = [[UIColor colorWithRed:85 green:85 blue:85 alpha:1] CGColor];
+            
+            [icon mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerX.mas_equalTo(courseView);
+                make.top.mas_equalTo(courseView);
+                make.width.mas_equalTo(@60);
+                make.height.mas_equalTo(@60);
+            }];
+        }
         
-        // 圆形
-        icon.layer.masksToBounds = YES;
-        icon.layer.cornerRadius = 30;
-        icon.layer.borderWidth = 1;
-        icon.layer.borderColor = [[UIColor colorWithRed:85 green:85 blue:85 alpha:1] CGColor];
-        
-        [icon mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.mas_equalTo(courseView);
-            make.top.mas_equalTo(courseView);
-            make.width.mas_equalTo(@60);
-            make.height.mas_equalTo(@60);
-        }];
         
         UILabel *nameLabel = [[UILabel alloc]init];
         nameLabel.text = course.keyWord;
@@ -95,7 +122,11 @@
         }];
         
         UILabel *joinedLabel = [[UILabel alloc]init];
-        joinedLabel.text = course.feature;
+        if ([model.subjectCourseType intValue] == 1) {
+            joinedLabel.text = [NSString stringWithFormat:@"%@人已参加", model.joined];
+        } else {
+            joinedLabel.text = course.feature;
+        }
         joinedLabel.textAlignment = NSTextAlignmentCenter;
         joinedLabel.font = [UIFont systemFontOfSize:12];
         joinedLabel.textColor = UIColorFromRGB(0x999999);
