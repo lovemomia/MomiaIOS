@@ -7,15 +7,13 @@
 //
 
 #import "BookableCourseListViewController.h"
-#import "BookCourseListItemCell.h"
 #import "CourseListItemCell.h"
 #import "CourseListModel.h"
 #import "JSDropDownMenu.h"
 
-static NSString * identifierBookCourseListItemCell = @"BookCourseListItemCell";
 static NSString * identifierCourseListItemCell = @"CourseListItemCell";
 
-@interface BookableCourseListViewController()<JSDropDownMenuDataSource,JSDropDownMenuDelegate,BookCourseListItemCellDelegate>
+@interface BookableCourseListViewController()<JSDropDownMenuDataSource,JSDropDownMenuDelegate>
 
 @property (nonatomic, strong) NSString *ids;
 @property (nonatomic, strong) NSString *pid;
@@ -55,7 +53,6 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
     [super viewDidLoad];
     self.navigationItem.title = @"可选课程";
     
-    [BookCourseListItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierBookCourseListItemCell];
     [CourseListItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierCourseListItemCell];
     
     self.list = [NSMutableArray new];
@@ -239,10 +236,6 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
     }
 }
 
-- (void)onBookBtnClick:(Course *)course {
-    NSString *url = [NSString stringWithFormat:@"book?id=%@&pid=%@", course.ids, self.pid];
-    [[UIApplication sharedApplication]openURL:MOURL(url)];
-}
 
 #pragma mark - tableview delegate & datasource
 
@@ -256,7 +249,7 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
             [self openURL:url];
             
         } else {
-            NSString *url = [NSString stringWithFormat:@"bookcoursedetail?id=%@&pid=%@&book=1", course.ids, self.pid];
+            NSString *url = [NSString stringWithFormat:@"book?id=%@&pid=%@", course.ids, self.pid];
             [self openURL:url];
         }
     }
@@ -290,16 +283,9 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
         }
         
     } else {
-        if (self.onlyShow) {
-            CourseListItemCell * itemCell = [CourseListItemCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseListItemCell];
-            itemCell.data = self.list[indexPath.row];
-            cell = itemCell;
-        } else {
-            BookCourseListItemCell * itemCell = [BookCourseListItemCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierBookCourseListItemCell];
-            itemCell.data = self.list[indexPath.row];
-            itemCell.delegate = self;
-            cell = itemCell;
-        }
+        CourseListItemCell * itemCell = [CourseListItemCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseListItemCell];
+        itemCell.data = self.list[indexPath.row];
+        cell = itemCell;
     }
     return cell;
 }

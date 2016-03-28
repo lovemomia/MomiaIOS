@@ -21,6 +21,7 @@ static NSString * identifierCourseListItemCell = @"BookCourseListItemCell";
 
 @property (nonatomic, strong) NSString *ids;
 @property (nonatomic, assign) BOOL finish;
+@property (nonatomic, strong) Course *cancelBookCourse;
 
 @property (nonatomic, strong) NSMutableArray *list;
 @property (nonatomic, assign) BOOL isLoading;
@@ -88,7 +89,6 @@ static NSString * identifierCourseListItemCell = @"BookCourseListItemCell";
                                                      }
                                                      if ([model.data.totalCount intValue] == 0) {
                                                          [self.view showEmptyView:@"还没有课程，赶紧去看看吧~"];
-                                                         return;
                                                      }
                                                      
                                                      for (Course *course in model.data.list) {
@@ -121,8 +121,34 @@ static NSString * identifierCourseListItemCell = @"BookCourseListItemCell";
 }
 
 - (void)onBookBtnClick:(Course *)course {
-    [self openURL:[NSString stringWithFormat:@"addreview?id=%@&bookingId=%@", course.ids, course.bookingId]];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onBookedChanged:) name:@"onBookedChanged" object:nil];
+    if (self.finish) {
+        [self openURL:[NSString stringWithFormat:@"addreview?id=%@&bookingId=%@", course.ids, course.bookingId]];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onBookedChanged:) name:@"onBookedChanged" object:nil];
+    } else {
+        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:@"确认取消预约吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        self.cancelBookCourse = course;
+        [alter show];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        if (self.cancelBookCourse) {
+            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            NSDictionary *params = @{@"bid" : self.cancelBookCourse.bookingId};
+            [[HttpService defaultService]POST:URL_APPEND_PATH(@"/course/cancel") parameters:params JSONModelClass:[BaseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+//                [self.navigationController popViewControllerAnimated:YES];
+                [self requestData:YES];
+                
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"onBookedChanged" object:nil];
+                
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [self showDialogWithTitle:nil message:error.message];
+            }];
+        }
+    }
 }
 
 #pragma mark - tableview delegate & datasource
@@ -130,12 +156,7 @@ static NSString * identifierCourseListItemCell = @"BookCourseListItemCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.row < self.list.count) {
         Course *course = self.list[indexPath.row];
-        if (self.finish) {
-            [self openURL:[NSString stringWithFormat:@"coursedetail?id=%@", course.ids]];
-        } else {
-            [self openURL:[NSString stringWithFormat:@"bookcoursedetail?id=%@&bid=%@", course.ids, course.bookingId]];
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onBookedChanged:) name:@"onBookedChanged" object:nil];
-        }
+        [self openURL:[NSString stringWithFormat:@"coursedetail?id=%@", course.ids]];
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -176,6 +197,13 @@ static NSString * identifierCourseListItemCell = @"BookCourseListItemCell";
         if (self.finish && course.commented && ![course.commented boolValue]) {
             itemCell.bookBtn.hidden = NO;
             [itemCell.bookBtn setTitle:@"评价" forState:UIControlStateNormal];
+            [itemCell.bookBtn setBackgroundImage:[UIImage imageNamed:@"BgRedMediumButtonNormal"] forState:UIControlStateNormal];
+            
+        } else if (!self.finish) {
+            itemCell.bookBtn.hidden = NO;
+            [itemCell.bookBtn setTitle:@"取消预约" forState:UIControlStateNormal];
+            [itemCell.bookBtn setBackgroundImage:[UIImage imageNamed:@"BgMediumButtonNormal"] forState:UIControlStateNormal];
+            
         } else {
             itemCell.bookBtn.hidden = YES;
         }

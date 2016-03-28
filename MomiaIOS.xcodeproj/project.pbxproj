@@ -535,7 +535,6 @@
 		BCEAFC5C1C2A394300CB082D /* CourseDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7737841BCE49B900987B22 /* CourseDetailModel.m */; };
 		BCEAFC5D1C2A394300CB082D /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6806ED1B01A48300D02A60 /* SettingViewController.m */; };
 		BCEAFC5E1C2A394300CB082D /* MLSelectPhotoNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3599D11BC61F0C002DE863 /* MLSelectPhotoNavigationViewController.m */; };
-		BCEAFC5F1C2A394300CB082D /* BookCourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DD091BD9D41E00D8CDC6 /* BookCourseDetailViewController.m */; };
 		BCEAFC601C2A394300CB082D /* MJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC359A0B1BC61F1B002DE863 /* MJPhotoView.m */; };
 		BCEAFC611C2A394300CB082D /* Feed.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1CC9F61BA90A9A001841E7 /* Feed.m */; };
 		BCEAFC621C2A394300CB082D /* AddFeedContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1052971BB24E4A00D81C15 /* AddFeedContentCell.m */; };
@@ -867,7 +866,6 @@
 		BCF9DD011BD8F15000D8CDC6 /* CourseTeacherListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DD001BD8F15000D8CDC6 /* CourseTeacherListModel.m */; };
 		BCF9DD041BD8FB7600D8CDC6 /* CourseBookBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DD031BD8FB7600D8CDC6 /* CourseBookBrowserViewController.m */; };
 		BCF9DD071BD8FC2500D8CDC6 /* CourseBookListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DD061BD8FC2500D8CDC6 /* CourseBookListModel.m */; };
-		BCF9DD0A1BD9D41E00D8CDC6 /* BookCourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DD091BD9D41E00D8CDC6 /* BookCourseDetailViewController.m */; };
 		BCF9DD0D1BDA218B00D8CDC6 /* OrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DD0C1BDA218B00D8CDC6 /* OrderListViewController.m */; };
 		BCF9DD111BDA3BC000D8CDC6 /* BookCourseListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9DD0F1BDA3BC000D8CDC6 /* BookCourseListItemCell.m */; };
 		BCF9DD121BDA3BC000D8CDC6 /* BookCourseListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF9DD101BDA3BC000D8CDC6 /* BookCourseListItemCell.xib */; };
@@ -1641,8 +1639,6 @@
 		BCF9DD031BD8FB7600D8CDC6 /* CourseBookBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseBookBrowserViewController.m; path = Business/Course/CourseBookBrowserViewController.m; sourceTree = "<group>"; };
 		BCF9DD051BD8FC2500D8CDC6 /* CourseBookListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseBookListModel.h; path = Common/Models/Course/CourseBookListModel.h; sourceTree = "<group>"; };
 		BCF9DD061BD8FC2500D8CDC6 /* CourseBookListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseBookListModel.m; path = Common/Models/Course/CourseBookListModel.m; sourceTree = "<group>"; };
-		BCF9DD081BD9D41E00D8CDC6 /* BookCourseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookCourseDetailViewController.h; path = Business/Course/BookCourseDetailViewController.h; sourceTree = "<group>"; };
-		BCF9DD091BD9D41E00D8CDC6 /* BookCourseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookCourseDetailViewController.m; path = Business/Course/BookCourseDetailViewController.m; sourceTree = "<group>"; };
 		BCF9DD0B1BDA218B00D8CDC6 /* OrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListViewController.h; sourceTree = "<group>"; };
 		BCF9DD0C1BDA218B00D8CDC6 /* OrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListViewController.m; sourceTree = "<group>"; };
 		BCF9DD0E1BDA3BC000D8CDC6 /* BookCourseListItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookCourseListItemCell.h; path = Business/Course/Views/BookCourseListItemCell.h; sourceTree = "<group>"; };
@@ -3151,8 +3147,6 @@
 				BC3599B71BC61DDF002DE863 /* Views */,
 				BCCDC6E71BBA9661007C2F57 /* CourseDetailViewController.h */,
 				BCCDC6E81BBA9661007C2F57 /* CourseDetailViewController.m */,
-				BCF9DD081BD9D41E00D8CDC6 /* BookCourseDetailViewController.h */,
-				BCF9DD091BD9D41E00D8CDC6 /* BookCourseDetailViewController.m */,
 				BC3599B21BC61DD0002DE863 /* SubjectDetailViewController.h */,
 				BC3599B31BC61DD0002DE863 /* SubjectDetailViewController.m */,
 				BC592BB81BD489DE008AE76A /* BookingSubjectListViewController.h */,
@@ -3676,7 +3670,6 @@
 				BC7737851BCE49B900987B22 /* CourseDetailModel.m in Sources */,
 				5A6806EE1B01A48300D02A60 /* SettingViewController.m in Sources */,
 				BC3599F11BC61F0C002DE863 /* MLSelectPhotoNavigationViewController.m in Sources */,
-				BCF9DD0A1BD9D41E00D8CDC6 /* BookCourseDetailViewController.m in Sources */,
 				BC359A121BC61F1B002DE863 /* MJPhotoView.m in Sources */,
 				BC1CC9F71BA90A9A001841E7 /* Feed.m in Sources */,
 				BC1052991BB24E4A00D81C15 /* AddFeedContentCell.m in Sources */,
@@ -4024,7 +4017,6 @@
 				BCEAFC5C1C2A394300CB082D /* CourseDetailModel.m in Sources */,
 				BCEAFC5D1C2A394300CB082D /* SettingViewController.m in Sources */,
 				BCEAFC5E1C2A394300CB082D /* MLSelectPhotoNavigationViewController.m in Sources */,
-				BCEAFC5F1C2A394300CB082D /* BookCourseDetailViewController.m in Sources */,
 				BCEAFC601C2A394300CB082D /* MJPhotoView.m in Sources */,
 				BCEAFC611C2A394300CB082D /* Feed.m in Sources */,
 				BCEAFC621C2A394300CB082D /* AddFeedContentCell.m in Sources */,
