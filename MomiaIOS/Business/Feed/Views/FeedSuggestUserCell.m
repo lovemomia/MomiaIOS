@@ -30,7 +30,7 @@
 }
 
 -(void)setData:(id)data {
-    [self.avatarIv sd_setImageWithURL:@"" placeholderImage:[UIImage imageNamed:@"IconAvatarDefault"]];
+    [self.avatarIv sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"IconAvatarDefault"]];
 }
 
 
