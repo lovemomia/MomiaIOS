@@ -3154,6 +3154,7 @@
 				BC8540871ADF74E9005A7C54 /* Sources */,
 				BC8540881ADF74E9005A7C54 /* Frameworks */,
 				BC8540891ADF74E9005A7C54 /* Resources */,
+				3D7F571B2650B3B176CE9352 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3426,6 +3427,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3D7F571B2650B3B176CE9352 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BC8540871ADF74E9005A7C54 /* Sources */ = {
@@ -4200,15 +4219,15 @@
 					"$(inherited)",
 					"-ObjC",
 					"-l\"MobClickLibrary\"",
-					"-l\"Pods-AFNetworking\"",
-					"-l\"Pods-ISDiskCache\"",
-					"-l\"Pods-JSONModel\"",
-					"-l\"Pods-MBProgressHUD\"",
-					"-l\"Pods-MJRefresh\"",
-					"-l\"Pods-Masonry\"",
-					"-l\"Pods-SDWebImage\"",
-					"-l\"Pods-TTTAttributedLabel\"",
-					"-l\"Pods-UITableView+FDTemplateLayoutCell\"",
+					"-l\"AFNetworking\"",
+					"-l\"ISDiskCache\"",
+					"-l\"JSONModel\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJRefresh\"",
+					"-l\"Masonry\"",
+					"-l\"SDWebImage\"",
+					"-l\"TTTAttributedLabel\"",
+					"-l\"UITableView+FDTemplateLayoutCell\"",
 					"-l\"z\"",
 					"-framework",
 					"\"CoreGraphics\"",
@@ -4283,15 +4302,15 @@
 					"$(inherited)",
 					"-ObjC",
 					"-l\"MobClickLibrary\"",
-					"-l\"Pods-AFNetworking\"",
-					"-l\"Pods-ISDiskCache\"",
-					"-l\"Pods-JSONModel\"",
-					"-l\"Pods-MBProgressHUD\"",
-					"-l\"Pods-MJRefresh\"",
-					"-l\"Pods-Masonry\"",
-					"-l\"Pods-SDWebImage\"",
-					"-l\"Pods-TTTAttributedLabel\"",
-					"-l\"Pods-UITableView+FDTemplateLayoutCell\"",
+					"-l\"AFNetworking\"",
+					"-l\"ISDiskCache\"",
+					"-l\"JSONModel\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJRefresh\"",
+					"-l\"Masonry\"",
+					"-l\"SDWebImage\"",
+					"-l\"TTTAttributedLabel\"",
+					"-l\"UITableView+FDTemplateLayoutCell\"",
 					"-l\"z\"",
 					"-framework",
 					"\"CoreGraphics\"",
@@ -4404,15 +4423,15 @@
 					"$(inherited)",
 					"-ObjC",
 					"-l\"MobClickLibrary\"",
-					"-l\"Pods-AFNetworking\"",
-					"-l\"Pods-ISDiskCache\"",
-					"-l\"Pods-JSONModel\"",
-					"-l\"Pods-MBProgressHUD\"",
-					"-l\"Pods-MJRefresh\"",
-					"-l\"Pods-Masonry\"",
-					"-l\"Pods-SDWebImage\"",
-					"-l\"Pods-TTTAttributedLabel\"",
-					"-l\"Pods-UITableView+FDTemplateLayoutCell\"",
+					"-l\"AFNetworking\"",
+					"-l\"ISDiskCache\"",
+					"-l\"JSONModel\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJRefresh\"",
+					"-l\"Masonry\"",
+					"-l\"SDWebImage\"",
+					"-l\"TTTAttributedLabel\"",
+					"-l\"UITableView+FDTemplateLayoutCell\"",
 					"-l\"z\"",
 					"-framework",
 					"\"CoreGraphics\"",
@@ -4489,15 +4508,15 @@
 					"$(inherited)",
 					"-ObjC",
 					"-l\"MobClickLibrary\"",
-					"-l\"Pods-AFNetworking\"",
-					"-l\"Pods-ISDiskCache\"",
-					"-l\"Pods-JSONModel\"",
-					"-l\"Pods-MBProgressHUD\"",
-					"-l\"Pods-MJRefresh\"",
-					"-l\"Pods-Masonry\"",
-					"-l\"Pods-SDWebImage\"",
-					"-l\"Pods-TTTAttributedLabel\"",
-					"-l\"Pods-UITableView+FDTemplateLayoutCell\"",
+					"-l\"AFNetworking\"",
+					"-l\"ISDiskCache\"",
+					"-l\"JSONModel\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJRefresh\"",
+					"-l\"Masonry\"",
+					"-l\"SDWebImage\"",
+					"-l\"TTTAttributedLabel\"",
+					"-l\"UITableView+FDTemplateLayoutCell\"",
 					"-l\"z\"",
 					"-framework",
 					"\"CoreGraphics\"",
