@@ -44,7 +44,7 @@
     UILabel *num = [[UILabel alloc]init];
     num.font = [UIFont systemFontOfSize:13];
     num.textColor = UIColorFromRGB(0x999999);
-    num.textAlignment = UITextAlignmentRight;
+    num.textAlignment = NSTextAlignmentRight;
     self.numLabel = num;
     [self.view addSubview:num];
     

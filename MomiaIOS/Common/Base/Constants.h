@@ -88,6 +88,12 @@
 #define MO_APP_VCBackgroundColor            (UIColorFromRGB(0xf1f1f1))
 
 /**
+ *  图片背景颜色
+ */
+#define MO_APP_ImageBackgroundColor            (UIColorFromRGB(0xcccccc))
+
+
+/**
  *  分割线颜色
  */
 #define MO_APP_SeparatorColor            (UIColorFromRGB(0xdddddd))

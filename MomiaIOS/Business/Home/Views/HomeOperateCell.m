@@ -93,7 +93,7 @@ static const int kItemHeight = 76;
     IndexEvent *event = self.data[view.tag];
     [[UIApplication sharedApplication]openURL:[NSURL URLWithString:event.action]];
     
-    NSDictionary *attributes = @{@"name":event.title, @"index":[NSString stringWithFormat:@"%d", view.tag]};
+    NSDictionary *attributes = @{@"name":event.title, @"index":[NSString stringWithFormat:@"%d", (int)view.tag]};
     [MobClick event:@"Home_Event" attributes:attributes];
 }
 

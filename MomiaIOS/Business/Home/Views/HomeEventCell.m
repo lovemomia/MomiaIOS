@@ -23,12 +23,12 @@
     
     self.leftDescLabel.layer.borderColor = [MO_APP_ThemeColor CGColor];
     self.leftDescLabel.layer.borderWidth = 1.0f;
-    self.leftDescLabel.layer.cornerRadius = 5.0;
+    self.leftDescLabel.layer.cornerRadius = 8.0;
     self.leftDescLabel.layer.masksToBounds = YES;
     
     self.rightDescLabel.layer.borderColor = [MO_APP_TextColor_red CGColor];
     self.rightDescLabel.layer.borderWidth = 1.0f;
-    self.rightDescLabel.layer.cornerRadius = 5.0;
+    self.rightDescLabel.layer.cornerRadius = 8.0;
     self.rightDescLabel.layer.masksToBounds = YES;
 }
 
@@ -62,11 +62,11 @@
     self.titleLabel.text = model.data.eventsTitle;
     
     self.leftTitleLabel.text = leftEvent.title;
-    self.leftDescLabel.text = leftEvent.desc;
+    self.leftDescLabel.text = [NSString stringWithFormat:@"  %@  ", leftEvent.desc];
     [self.leftIcon sd_setImageWithURL:[NSURL URLWithString:leftEvent.img]];
     
     self.rightTitleLabel.text = rightEvent.title;
-    self.rightDescLabel.text = rightEvent.desc;
+    self.rightDescLabel.text = [NSString stringWithFormat:@"  %@  ", rightEvent.desc];
     [self.rightIcon sd_setImageWithURL:[NSURL URLWithString:rightEvent.img]];
     
 }

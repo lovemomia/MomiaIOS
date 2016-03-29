@@ -21,7 +21,7 @@
 }
 
 - (void)setData:(NSString *)data {
-    [self.photoIv sd_setImageWithURL:data];
+    [self.photoIv sd_setImageWithURL:[NSURL URLWithString:data]];
 }
 
 @end

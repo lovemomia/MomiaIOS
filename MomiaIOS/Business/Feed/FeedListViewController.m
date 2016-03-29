@@ -50,7 +50,7 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
     [FeedSuggestUserCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierPlaymateSuggestUserCell];
     
     // 设置下拉刷新
-    self.tableView.header = [MJRefreshHelper createGifHeaderWithRefreshingTarget:self refreshingAction:@selector(requestData)];
+    self.tableView.mj_header = [MJRefreshHelper createGifHeaderWithRefreshingTarget:self refreshingAction:@selector(requestData)];
     
     self.list = [NSMutableArray new];
     self.nextIndex = 0;
@@ -68,7 +68,7 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
 }
 
 - (void)onDataChanged:(NSNotification*)notify {
-    [self.tableView.header beginRefreshing];
+    [self.tableView.mj_header beginRefreshing];
 }
 
 -(void)onZanChanged:(NSNotification *)note {
@@ -116,7 +116,7 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
     self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/feed")
                                               parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[FeedListModel class]
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                                     [self.tableView.header endRefreshing];
+                                                     [self.tableView.mj_header endRefreshing];
                                                      if ([self.list count] == 0) {
                                                          [self.view removeLoadingBee];
                                                      }
@@ -149,7 +149,7 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
                                                      }
                                                      [self showDialogWithTitle:nil message:error.message];
                                                      self.isLoading = NO;
-                                                     [self.tableView.header endRefreshing];
+                                                     [self.tableView.mj_header endRefreshing];
                                                  }];
 }
 
@@ -171,7 +171,7 @@ static NSString *identifierPlaymateSuggestUserCell = @"PlaymateSuggestUserCell";
         [self openURL:[NSString stringWithFormat:@"feeddetail?id=%@", feed.ids]];
         self.openIndex = indexPath.section;
         
-        NSDictionary *attributes = @{@"index":[NSString stringWithFormat:@"%d", indexPath.section]};
+        NSDictionary *attributes = @{@"index":[NSString stringWithFormat:@"%d", (int)indexPath.section]};
         [MobClick event:@"Feed_List" attributes:attributes];
     }
 }

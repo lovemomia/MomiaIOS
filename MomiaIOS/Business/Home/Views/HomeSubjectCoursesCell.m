@@ -54,14 +54,17 @@
         UIImageView *icon;
         if ([model.subjectCourseType intValue] == 1) {
             icon = [UIImageView new];
+            icon.backgroundColor = MO_APP_ImageBackgroundColor;
+            icon.contentMode = UIViewContentModeScaleAspectFill;
+            icon.clipsToBounds = YES;
             [icon sd_setImageWithURL:[NSURL URLWithString:course.cover]];
             [self.coursesContainer addSubview:icon];
             
             [icon mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerX.mas_equalTo(courseView);
                 make.top.mas_equalTo(courseView);
-                make.width.mas_equalTo(@70);
-                make.height.mas_equalTo(@70);
+                make.width.mas_equalTo(@83);
+                make.height.mas_equalTo(@83);
             }];
             
             UIImageView *sixSideIv = [UIImageView new];
@@ -77,20 +80,23 @@
             
         } else {
             icon = [[AvatarImageView alloc]init];
-            [icon sd_setImageWithURL:[NSURL URLWithString:course.cover]];
+            icon.backgroundColor = MO_APP_ImageBackgroundColor;
+            icon.contentMode = UIViewContentModeScaleAspectFill;
+            icon.clipsToBounds = YES;
+            [icon sd_setImageWithURL:[NSURL URLWithString:course.cover] placeholderImage:nil];
             [self.coursesContainer addSubview:icon];
             
             // 圆形
             icon.layer.masksToBounds = YES;
-            icon.layer.cornerRadius = 30;
+            icon.layer.cornerRadius = 40;
             icon.layer.borderWidth = 1;
             icon.layer.borderColor = [[UIColor colorWithRed:85 green:85 blue:85 alpha:1] CGColor];
             
             [icon mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerX.mas_equalTo(courseView);
                 make.top.mas_equalTo(courseView);
-                make.width.mas_equalTo(@60);
-                make.height.mas_equalTo(@60);
+                make.width.mas_equalTo(@80);
+                make.height.mas_equalTo(@80);
             }];
         }
         
@@ -105,7 +111,7 @@
         [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.mas_equalTo(courseView);
             make.trailing.mas_equalTo(courseView);
-            make.top.mas_equalTo(icon.mas_bottom).with.offset(10);
+            make.top.mas_equalTo(icon.mas_bottom).with.offset(5);
         }];
         
         UILabel *ageLabel = [[UILabel alloc]init];
@@ -118,7 +124,7 @@
         [ageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.mas_equalTo(courseView);
             make.trailing.mas_equalTo(courseView);
-            make.top.mas_equalTo(nameLabel.mas_bottom).with.offset(10);
+            make.top.mas_equalTo(nameLabel.mas_bottom).with.offset(5);
         }];
         
         UILabel *joinedLabel = [[UILabel alloc]init];
@@ -135,7 +141,7 @@
         [joinedLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.mas_equalTo(courseView);
             make.trailing.mas_equalTo(courseView);
-            make.top.mas_equalTo(ageLabel.mas_bottom).with.offset(10);
+            make.top.mas_equalTo(ageLabel.mas_bottom).with.offset(5);
         }];
         
     }

@@ -16,7 +16,7 @@
     
     self.countLabel.layer.borderColor = [UIColorFromRGB(0x333333) CGColor];
     self.countLabel.layer.borderWidth = 1.0f;
-    self.countLabel.layer.cornerRadius = 5.0;
+    self.countLabel.layer.cornerRadius = 8.0;
     self.countLabel.layer.masksToBounds = YES;
 }
 

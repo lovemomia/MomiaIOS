@@ -11,6 +11,7 @@
 #import "ReviewList.h"
 #import "CourseTeacherListModel.h"
 #import "Notice.h"
+#import "Subject.h"
 
 @interface CoursePlace : JSONModel
 @property (nonatomic, strong) NSNumber *ids;
@@ -40,9 +41,6 @@
 @end
 
 @protocol CourseDetail <NSObject>
-@end
-
-@protocol Notice <NSObject>
 @end
 
 @interface Course : JSONModel

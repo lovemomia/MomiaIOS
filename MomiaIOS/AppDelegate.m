@@ -80,7 +80,6 @@
     
     if (MO_DEBUG == 1) {
         [MobClick setLogEnabled:YES];
-        [self printDeviceID];
     }
     
     // config
@@ -166,22 +165,6 @@
 
     return YES;
 }
-
-#pragma mark - umeng
-- (void)printDeviceID {
-    Class cls = NSClassFromString(@"UMANUtil");
-    SEL deviceIDSelector = @selector(openUDIDString);
-    NSString *deviceID = nil;
-    if(cls && [cls respondsToSelector:deviceIDSelector]){
-        deviceID = [cls performSelector:deviceIDSelector];
-    }
-    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:@{@"oid" : deviceID}
-                                                       options:NSJSONWritingPrettyPrinted
-                                                         error:nil];
-    
-    NSLog(@"UMeng deviceId: %@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
-}
-
 
 #pragma mark - 'GeTui' push sdk manager
 - (void)handleRemoteNotification:(NSDictionary *)dict {
@@ -505,7 +488,7 @@
         
     } error:^(RCConnectErrorCode status) {
         // Connect 失败
-        NSLog(@"RCIM connect failed, status:%d", status);
+        NSLog(@"RCIM connect failed, status:%ld", status);
         
     } tokenIncorrect:^{
         // Token 失效的状态处理

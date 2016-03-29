@@ -19,12 +19,12 @@ static NSString * identifier = @"CellPersonChildHeader";
 
 +(instancetype)cellWithTableView:(UITableView *)tableView
 {
-    PersonChildHeaderCell * view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+    UIView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
     if (view == nil) {
         NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"PersonChildHeaderCell" owner:self options:nil];
         view = [arr objectAtIndex:0];
     }
-    return view;
+    return (PersonChildHeaderCell *)view;
 }
 
 @end

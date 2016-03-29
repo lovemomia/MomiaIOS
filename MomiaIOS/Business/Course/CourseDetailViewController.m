@@ -118,7 +118,7 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
 
 - (UIEdgeInsets)separatorInsetForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return UIEdgeInsetsMake(0,0,0,0);
+        return UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0);
     }
     return UIEdgeInsetsMake(0,10,0,0);
 }

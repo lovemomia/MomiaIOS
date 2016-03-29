@@ -114,7 +114,7 @@ static NSString *homeTopicCellIdentifier = @"HomeTopicCell";
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
     
     // 设置下拉刷新
-    self.tableView.header = [MJRefreshHelper createGifHeaderWithRefreshingTarget:self refreshingAction:@selector(requestData)];
+    self.tableView.mj_header = [MJRefreshHelper createGifHeaderWithRefreshingTarget:self refreshingAction:@selector(requestData)];
     self.tableView.width = SCREEN_WIDTH;
     
     [self requestData:YES];
@@ -206,7 +206,7 @@ static NSString *homeTopicCellIdentifier = @"HomeTopicCell";
         }
         
         [self.tableView reloadData];
-        [self.tableView.header endRefreshing];
+        [self.tableView.mj_header endRefreshing];
         
         self.isError = NO;
         self.isLoading = NO;
@@ -233,7 +233,7 @@ static NSString *homeTopicCellIdentifier = @"HomeTopicCell";
             }
             
         }
-        [self.tableView.header endRefreshing];
+        [self.tableView.mj_header endRefreshing];
      
         NSLog(@"Error: %@", error);
     }];
@@ -354,7 +354,7 @@ static NSString *homeTopicCellIdentifier = @"HomeTopicCell";
                     IndexBanner * banner = self.model.data.banners[index];
                     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:banner.action]];
                     
-                    NSDictionary *attributes = @{@"index":[NSString stringWithFormat:@"%d", index]};
+                    NSDictionary *attributes = @{@"index":[NSString stringWithFormat:@"%d", (int)index]};
                     [MobClick event:@"Home_Banner" attributes:attributes];
                 }
             };

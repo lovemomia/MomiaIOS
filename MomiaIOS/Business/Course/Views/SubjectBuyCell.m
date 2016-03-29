@@ -52,7 +52,7 @@
             self.chooseLabel.text = @"";
             
         } else {
-            self.priceLabel.text = [StringUtils stringForPrice:course.price];
+            self.priceLabel.text = [StringUtils stringForPrice:[course.cheapestSkuPrice floatValue]];
             self.unitLabel.text = [NSString stringWithFormat:@"起／%@", course.cheapestSkuTimeUnit];
             self.chooseLabel.text = course.cheapestSkuDesc;
         }

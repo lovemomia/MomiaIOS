@@ -128,7 +128,7 @@
         }
     }];
     
-    self.tableView.header = [MJRefreshHelper createGifHeaderWithRefreshingTarget:self refreshingAction:@selector(requestData)];
+    self.tableView.mj_header = [MJRefreshHelper createGifHeaderWithRefreshingTarget:self refreshingAction:@selector(requestData)];
     
     
     [self requestData];
@@ -189,7 +189,7 @@
         [self.dataArray addObjectsFromArray:self.commentModel.data.commentList];
         
         [self.tableView reloadData];
-        [self.tableView.header endRefreshing];
+        [self.tableView.mj_header endRefreshing];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self.view removeLoadingBee];

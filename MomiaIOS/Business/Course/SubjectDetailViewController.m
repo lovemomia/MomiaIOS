@@ -94,7 +94,7 @@ static NSString *identifierSubjectCourseCell = @"SubjectCourseCell";
 
 - (UIEdgeInsets)separatorInsetForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return UIEdgeInsetsMake(0,0,0,0);
+        return UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0);
     }
     return UIEdgeInsetsMake(0,10,0,0);
 }
@@ -136,7 +136,6 @@ static NSString *identifierSubjectCourseCell = @"SubjectCourseCell";
 
 
 - (void)onBuyClicked:(UITapGestureRecognizer *)tap {
-    NSString *url;
     [self openURL:[NSString stringWithFormat:@"fillorder?id=%@", self.model.data.subject.ids]];
     
     [MobClick event:@"Subject_Buy"];
@@ -241,7 +240,7 @@ static NSString *identifierSubjectCourseCell = @"SubjectCourseCell";
             return [SubjectDiscCell heightWithTableView:tableView withIdentifier:identifierSubjectDiscCell forIndexPath:indexPath data:self.model.data.subject.intro];
             
         } else {
-            return (SCREEN_WIDTH - 20) * 180 / 300;
+            return (SCREEN_WIDTH - 20) * 180 / 300 + 10;
         }
         
     } else if (section == 1 && self.hasFeed) {

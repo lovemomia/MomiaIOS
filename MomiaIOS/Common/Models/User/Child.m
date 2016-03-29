@@ -106,6 +106,11 @@
     
     // 几个月
     NSInteger month = currentDateMonth - brithDateMonth;
+    if (currentDateMonth < brithDateMonth) {
+        month = 12 - brithDateMonth + currentDateMonth;
+    } else if (currentDateMonth == brithDateMonth) {
+        month = 1;
+    }
     return [NSString stringWithFormat:@"%d个月", (int)month];
 }
 
