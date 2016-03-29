@@ -275,7 +275,7 @@ static NSString *const _identifier = @"toolBarThumbCollectionViewCell";
 - (void)pickerCollectionViewDidCameraSelect:(MLSelectPhotoPickerCollectionView *)pickerCollectionView{
     
     if (self.selectAssets.count >= KPhotoShowMaxCount) {
-        [self.view showMessageWithText:[NSString stringWithFormat:@"选择的图片个数不能大于%ld",KPhotoShowMaxCount]];
+        [self.view showMessageWithText:[NSString stringWithFormat:@"选择的图片个数不能大于%d",(int)KPhotoShowMaxCount]];
         return ;
     }
     
@@ -386,7 +386,7 @@ static NSString *const _identifier = @"toolBarThumbCollectionViewCell";
                 [self.selectAssets removeObjectAtIndex:selectAssetsCurrentPage];
             }
             [self.collectionView.selectsIndexPath removeObject:@(selectAssetsCurrentPage)];
-            self.makeView.text = [NSString stringWithFormat:@"%ld",self.selectAssets.count];
+            self.makeView.text = [NSString stringWithFormat:@"%d", (int)self.selectAssets.count];
         }
         // 刷新下最小的页数
         self.maxCount = self.selectAssets.count + (_privateTempMaxCount - self.selectAssets.count);

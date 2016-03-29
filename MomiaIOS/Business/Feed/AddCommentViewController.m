@@ -224,7 +224,7 @@
     }
     
     //不让显示负数
-    self.numLabel.text = [NSString stringWithFormat:@"%ld/%d",MAX(0,MAX_LIMIT_NUMS - existTextNum),MAX_LIMIT_NUMS];
+    self.numLabel.text = [NSString stringWithFormat:@"%d/%d", (int)MAX(0,MAX_LIMIT_NUMS - existTextNum), (int)MAX_LIMIT_NUMS];
 }
 
 @end
