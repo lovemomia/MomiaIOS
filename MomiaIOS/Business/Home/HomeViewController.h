@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
 //
 
-#import "MOTableViewController.h"
+#import "MOGroupStyleTableViewController.h"
 #import "CityManager.h"
 
-@interface HomeViewController : MOTableViewController<CityChangeListener>
+@interface HomeViewController : MOGroupStyleTableViewController<CityChangeListener>
 @end

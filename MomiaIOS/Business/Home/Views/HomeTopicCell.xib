@@ -23,12 +23,12 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="孩子经常咬手指怎么办" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vli-ms-HbR">
-                        <rect key="frame" x="85" y="61" width="150" height="25"/>
+                        <rect key="frame" x="85" y="61" width="150" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="100人在讨论" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rr1-vY-IAf" customClass="InsetsLabel">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="100人在讨论" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rr1-vY-IAf">
                         <rect key="frame" x="125.5" y="175.5" width="69" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="64" id="KhF-DX-WfB"/>
@@ -44,14 +44,14 @@
                         </variation>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconSongguo" translatesAutoresizingMaskIntoConstraints="NO" id="XVs-Ug-ZtF">
-                        <rect key="frame" x="141" y="132.5" width="38" height="28"/>
+                        <rect key="frame" x="142.5" y="127.5" width="35" height="33"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="38" id="Ebo-aS-lqn"/>
-                            <constraint firstAttribute="height" constant="28" id="Kum-Yg-3dJ"/>
+                            <constraint firstAttribute="width" constant="35" id="Ebo-aS-lqn"/>
+                            <constraint firstAttribute="height" constant="33" id="Kum-Yg-3dJ"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="来看看专家怎么说" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6G6-jP-D6f">
-                        <rect key="frame" x="105" y="98" width="110" height="14.5"/>
+                        <rect key="frame" x="105" y="93" width="110" height="14.5"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="110" id="EEF-0b-n2x"/>
@@ -62,7 +62,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zzb-E9-QAr">
-                        <rect key="frame" x="223" y="106" width="40" height="1"/>
+                        <rect key="frame" x="223" y="101" width="40" height="1"/>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="1kg-cS-bI5"/>
@@ -70,7 +70,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qca-PM-hS8">
-                        <rect key="frame" x="57" y="106" width="40" height="1"/>
+                        <rect key="frame" x="57" y="101" width="40" height="1"/>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="OmN-Ym-yZG"/>
@@ -111,7 +111,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="IconSongguo" width="38" height="28"/>
+        <image name="IconSongguo" width="42" height="39"/>
         <image name="IconTopic" width="43" height="26"/>
     </resources>
 </document>

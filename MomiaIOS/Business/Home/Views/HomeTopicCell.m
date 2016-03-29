@@ -29,7 +29,7 @@
 - (void)setData:(IndexTopic *)data {
     self.titleLabel.text = data.title;
     self.subTitleLabel.text = data.subTitle;
-    self.countLabel.text = [NSString stringWithFormat:@" %@人在讨论 ", data.joined];
+    self.countLabel.text = [NSString stringWithFormat:@"  %@人在讨论  ", data.joined];
 }
 
 @end

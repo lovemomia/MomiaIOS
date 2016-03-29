@@ -7,18 +7,17 @@
 //
 
 #import "MOTableCell.h"
-#import "InsetsLabel.h"
 
 
 @interface HomeEventCell : MOTableCell<MOTableCellDataProtocol>
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *leftTitleLabel;
-@property (weak, nonatomic) IBOutlet InsetsLabel *leftDescLabel;
+@property (weak, nonatomic) IBOutlet UILabel *leftDescLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *leftIcon;
 
 @property (weak, nonatomic) IBOutlet UILabel *rightTitleLabel;
-@property (weak, nonatomic) IBOutlet InsetsLabel *rightDescLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rightDescLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *rightIcon;
 
 - (IBAction)onLeftClicked:(id)sender;

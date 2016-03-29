@@ -7,13 +7,12 @@
 //
 
 #import "MOTableCell.h"
-#import "InsetsLabel.h"
 
 @interface HomeTopicCell : MOTableCell<MOTableCellDataProtocol>
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *subTitleLabel;
 
-@property (weak, nonatomic) IBOutlet InsetsLabel *countLabel;
+@property (weak, nonatomic) IBOutlet UILabel *countLabel;
 
 @end

@@ -110,12 +110,8 @@ static NSString *homeTopicCellIdentifier = @"HomeTopicCell";
     [HomeSubjectCoursesCell registerCellFromNibWithTableView:self.tableView withIdentifier:homeSubjectCoursesCellIdentifier];
     [HomeTopicCell registerCellFromNibWithTableView:self.tableView withIdentifier:homeTopicCellIdentifier];
     
-    self.tableView.backgroundView = [[UIView alloc] init];
-    self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
-    
     // 设置下拉刷新
     self.tableView.mj_header = [MJRefreshHelper createGifHeaderWithRefreshingTarget:self refreshingAction:@selector(requestData)];
-    self.tableView.width = SCREEN_WIDTH;
     
     [self requestData:YES];
     
@@ -241,6 +237,10 @@ static NSString *homeTopicCellIdentifier = @"HomeTopicCell";
 
 - (BOOL)isNavDarkStyle {
     return true;
+}
+
+- (UIEdgeInsets)separatorInsetForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UIEdgeInsetsMake(0,0,0,0);
 }
 
 - (UITableViewStyle)tableViewStyle {
