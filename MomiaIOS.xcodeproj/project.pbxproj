@@ -254,7 +254,6 @@
 		BC6CF5A91C3CF03C006F314C /* IQTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5761C3CC469006F314C /* IQTitleBarButtonItem.m */; };
 		BC6CF5AB1C3CF03C006F314C /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5781C3CC469006F314C /* IQToolbar.m */; };
 		BC6CF5AD1C3CF03C006F314C /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF57A1C3CC469006F314C /* IQUIView+IQKeyboardToolbar.m */; };
-		BC6CF5AF1C3CF03C006F314C /* IQKeyboardManager.bundle in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF57D1C3CC469006F314C /* IQKeyboardManager.bundle */; };
 		BC753EAB1BAAD15900D2663C /* FeedDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC753EAA1BAAD15900D2663C /* FeedDetailModel.m */; };
 		BC753ECC1BAC07D300D2663C /* FeedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC753EAE1BAC07D300D2663C /* FeedDetailViewController.m */; };
 		BC753ECD1BAC07D300D2663C /* FeedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC753EB01BAC07D300D2663C /* FeedListViewController.m */; };
@@ -3764,7 +3763,6 @@
 				BC6CF5A91C3CF03C006F314C /* IQTitleBarButtonItem.m in Sources */,
 				BC6CF5AB1C3CF03C006F314C /* IQToolbar.m in Sources */,
 				BC6CF5AD1C3CF03C006F314C /* IQUIView+IQKeyboardToolbar.m in Sources */,
-				BC6CF5AF1C3CF03C006F314C /* IQKeyboardManager.bundle in Sources */,
 				BCEAFBFC1C2A394300CB082D /* LoginViewController.m in Sources */,
 				BCEAFBFD1C2A394300CB082D /* OrderListModel.m in Sources */,
 				BCEAFBFE1C2A394300CB082D /* NSTimer+Block.m in Sources */,
@@ -4169,7 +4167,6 @@
 					"$(PROJECT_DIR)/ThirdParty",
 					"$(PROJECT_DIR)/ThirdParty/BaiduMap",
 					"$(inherited)",
-					"$(PROJECT_DIR)/ThirdParty/RongCloud",
 					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
 				);
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
@@ -4194,10 +4191,8 @@
 					"$(PROJECT_DIR)/ThirdParty/libWeiboSDK",
 					"$(PROJECT_DIR)/MomiaIOS/SDKExport",
 					"$(PROJECT_DIR)/ThirdParty/GeTui",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Pods/",
 					"$(PROJECT_DIR)/ThirdParty/WeChatSDK_1.6",
-					"$(PROJECT_DIR)/ThirdParty/RongCloud",
 					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
 				);
 				ONLY_ACTIVE_ARCH = YES;
@@ -4255,7 +4250,6 @@
 					"$(PROJECT_DIR)/ThirdParty",
 					"$(PROJECT_DIR)/ThirdParty/BaiduMap",
 					"$(inherited)",
-					"$(PROJECT_DIR)/ThirdParty/RongCloud",
 					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
 				);
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
@@ -4280,10 +4274,8 @@
 					"$(PROJECT_DIR)/ThirdParty/libWeiboSDK",
 					"$(PROJECT_DIR)/MomiaIOS/SDKExport",
 					"$(PROJECT_DIR)/ThirdParty/GeTui",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Pods/",
 					"$(PROJECT_DIR)/ThirdParty/WeChatSDK_1.6",
-					"$(PROJECT_DIR)/ThirdParty/RongCloud",
 					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
 				);
 				ONLY_ACTIVE_ARCH = NO;
@@ -4333,10 +4325,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -4356,10 +4345,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MomiaIOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.youxing.$(PRODUCT_NAME:rfc1034identifier)";
@@ -4408,7 +4394,6 @@
 					"$(PROJECT_DIR)/ThirdParty/libWeiboSDK",
 					"$(PROJECT_DIR)/MomiaIOS/SDKExport",
 					"$(PROJECT_DIR)/ThirdParty/GeTui",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Pods/",
 					"$(PROJECT_DIR)/ThirdParty/WeChatSDK_1.6",
 					"$(PROJECT_DIR)/ThirdParty/RongCloud",
@@ -4494,7 +4479,6 @@
 					"$(PROJECT_DIR)/ThirdParty/libWeiboSDK",
 					"$(PROJECT_DIR)/MomiaIOS/SDKExport",
 					"$(PROJECT_DIR)/ThirdParty/GeTui",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Pods/",
 					"$(PROJECT_DIR)/ThirdParty/WeChatSDK_1.6",
 					"$(PROJECT_DIR)/ThirdParty/RongCloud",
