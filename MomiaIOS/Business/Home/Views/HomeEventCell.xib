@@ -74,7 +74,7 @@
                             <constraint firstItem="Bcf-Ob-Lvp" firstAttribute="centerY" secondItem="Gcx-Nm-NUH" secondAttribute="centerY" constant="-10" id="DrP-lw-Saf"/>
                             <constraint firstItem="5nT-J0-lDj" firstAttribute="leading" secondItem="Gcx-Nm-NUH" secondAttribute="leading" id="M2j-g9-yjy"/>
                             <constraint firstAttribute="height" constant="76.5" id="RfB-bp-dId"/>
-                            <constraint firstItem="NUH-uk-VED" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5nT-J0-lDj" secondAttribute="trailing" id="ZlA-hC-d1C"/>
+                            <constraint firstItem="NUH-uk-VED" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5nT-J0-lDj" secondAttribute="trailing" constant="10" id="ZlA-hC-d1C"/>
                             <constraint firstAttribute="bottom" secondItem="5nT-J0-lDj" secondAttribute="bottom" constant="18" id="a0T-18-TuD"/>
                             <constraint firstItem="5nT-J0-lDj" firstAttribute="centerY" secondItem="Gcx-Nm-NUH" secondAttribute="centerY" constant="14" id="bks-M0-P23"/>
                             <constraint firstAttribute="trailing" secondItem="NUH-uk-VED" secondAttribute="trailing" constant="8" id="dhc-Aq-x3P"/>
@@ -131,7 +131,7 @@
                             <constraint firstItem="xl9-Io-Lvg" firstAttribute="top" secondItem="GGX-Ot-ggp" secondAttribute="top" constant="23" id="G1O-LC-OYA"/>
                             <constraint firstItem="xl9-Io-Lvg" firstAttribute="centerY" secondItem="GGX-Ot-ggp" secondAttribute="centerY" constant="-10" id="GP1-AZ-ncN"/>
                             <constraint firstItem="Rsk-dP-TFh" firstAttribute="leading" secondItem="GGX-Ot-ggp" secondAttribute="leading" id="K3a-iq-58L"/>
-                            <constraint firstItem="wGz-WH-VIQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Rsk-dP-TFh" secondAttribute="trailing" id="QLJ-EH-0Dh"/>
+                            <constraint firstItem="wGz-WH-VIQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Rsk-dP-TFh" secondAttribute="trailing" constant="10" id="QLJ-EH-0Dh"/>
                             <constraint firstItem="xl9-Io-Lvg" firstAttribute="leading" secondItem="GGX-Ot-ggp" secondAttribute="leading" id="QOC-Ef-ZXd"/>
                             <constraint firstItem="Rsk-dP-TFh" firstAttribute="centerY" secondItem="GGX-Ot-ggp" secondAttribute="centerY" constant="14" id="c2e-Ab-mHf"/>
                             <constraint firstItem="Rsk-dP-TFh" firstAttribute="top" secondItem="xl9-Io-Lvg" secondAttribute="bottom" constant="8" id="gv4-7z-25p"/>
