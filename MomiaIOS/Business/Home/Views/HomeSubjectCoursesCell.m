@@ -156,8 +156,11 @@
     }
 }
 
-+ (CGFloat)heightWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath data:(id)data {
-    return 222;
++ (CGFloat)heightWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath data:(IndexSubject *)data {
+    if (data.courses.count > 0) {
+        return 222;
+    }
+    return 60;
 }
 
 @end

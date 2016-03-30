@@ -36,6 +36,8 @@
                     <constraint firstItem="Xbx-Fm-bwt" firstAttribute="top" secondItem="w2h-vq-p8K" secondAttribute="top" constant="30" id="Ey1-xA-2jr"/>
                     <constraint firstAttribute="trailing" secondItem="Wit-hD-yEo" secondAttribute="trailing" id="H4m-Lx-vQ6"/>
                     <constraint firstItem="Xbx-Fm-bwt" firstAttribute="leading" secondItem="MpX-tc-YJX" secondAttribute="trailing" constant="7" id="K3y-jz-bhK"/>
+                    <constraint firstItem="MpX-tc-YJX" firstAttribute="centerY" secondItem="Ndz-5D-372" secondAttribute="centerY" id="Khh-mW-cFY"/>
+                    <constraint firstItem="Xbx-Fm-bwt" firstAttribute="centerY" secondItem="MpX-tc-YJX" secondAttribute="centerY" id="V8x-uK-10a"/>
                     <constraint firstItem="Ndz-5D-372" firstAttribute="top" secondItem="w2h-vq-p8K" secondAttribute="top" constant="30" id="XL1-Tg-C0s"/>
                     <constraint firstAttribute="bottom" secondItem="Wit-hD-yEo" secondAttribute="bottom" constant="8" id="bWA-Ac-adZ"/>
                     <constraint firstItem="Wit-hD-yEo" firstAttribute="leading" secondItem="w2h-vq-p8K" secondAttribute="leading" id="l1l-G0-kwL"/>
@@ -43,6 +45,12 @@
                     <constraint firstItem="MpX-tc-YJX" firstAttribute="leading" secondItem="Ndz-5D-372" secondAttribute="trailing" constant="10" id="uO0-ON-Dji"/>
                     <constraint firstItem="MpX-tc-YJX" firstAttribute="centerX" secondItem="w2h-vq-p8K" secondAttribute="centerX" id="xU1-tT-6On"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="XL1-Tg-C0s"/>
+                        <exclude reference="Ey1-xA-2jr"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="coursesContainer" destination="Wit-hD-yEo" id="79J-wq-ncb"/>
