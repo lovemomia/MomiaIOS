@@ -53,9 +53,16 @@
                     <constraint firstItem="RAs-bi-P4p" firstAttribute="top" secondItem="cXh-vx-03x" secondAttribute="bottom" constant="48" id="JRf-VF-vJR"/>
                     <constraint firstItem="cXh-vx-03x" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="37" id="bri-fu-yfB"/>
                     <constraint firstItem="RAs-bi-P4p" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="gdO-iW-5hh"/>
+                    <constraint firstItem="cXh-vx-03x" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="p0M-SM-hss"/>
                     <constraint firstItem="r3b-2I-z5D" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="r1z-Th-n3W"/>
                     <constraint firstAttribute="trailing" secondItem="cXh-vx-03x" secondAttribute="trailing" constant="40" id="rCr-ea-meg"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="0HC-Wd-hc2"/>
+                        <exclude reference="rCr-ea-meg"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="discLabel" destination="RAs-bi-P4p" id="nHu-Ot-izj"/>
