@@ -463,7 +463,7 @@ static NSString *homeTopicCellIdentifier = @"HomeTopicCell";
     
     if (self.model.data.topics.count > 0) {
         if (number == 0) {
-            NSString *url = [NSString stringWithFormat:@"http://%@/discuss/topic?id=%@", MO_DEBUG ? @"m.momia.cn" : @"m.sogokids.com", ((IndexSubject *)self.model.data.subjects[0]).ids];
+            NSString *url = [NSString stringWithFormat:@"http://%@/discuss/topic?id=%@", MO_DEBUG ? @"m.momia.cn" : @"m.sogokids.com", ((IndexSubject *)self.model.data.topics[0]).ids];
             [self openURL:[NSString stringWithFormat:@"web?url=%@", [url URLEncodedString]]];
             return;
         }
