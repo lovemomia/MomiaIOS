@@ -14,6 +14,7 @@
 #import "CommonHeaderView.h"
 #import "Child.h"
 #import "PersonChildHeaderCell.h"
+#import "WalkChildsViewController.h"
 
 @interface PersonInfoViewController ()<UIAlertViewDelegate, DatePickerSheetDelegate>
 
@@ -138,21 +139,24 @@
     } else if (section == 1) {
         return 2;
     } else if (section == 2) {
-        Account *account = [AccountService defaultService].account;
-        if ([account.children count] == 0) {
-            return 0;
-        }
-        return 3;
+//        Account *account = [AccountService defaultService].account;
+//        if ([account.children count] == 0) {
+//            return 0;
+//        }
+        return 1;
     } else return 3;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    Account *account = [AccountService defaultService].account;
-    if ([account.children count] == 0) {
-        return 3;
-    }
-    return 2 + [account.children count];
+//    Account *account = [AccountService defaultService].account;
+//    if ([account.children count] == 0) {
+//        return 3;
+//    }
+//    return 2 + [account.children count];
+    
+    return 3;
+    
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -160,32 +164,34 @@
     if (section == 0) {
         header = [CommonHeaderView cellWithTableView:self.tableView];
         ((CommonHeaderView * )header).data = @"个人信息";
-    } else if (section == 2) {
-        Account *account = [AccountService defaultService].account;
-        header = [PersonChildHeaderCell cellWithTableView:self.tableView];
-        
-        ((PersonChildHeaderCell *)header).titleLabel.text = [NSString stringWithFormat:@"孩子信息（%d个）", (int)[account.children count]];
-        ((PersonChildHeaderCell *)header).stepperView.minValue = 0;
-        ((PersonChildHeaderCell *)header).stepperView.maxValue = 5;
-        ((PersonChildHeaderCell *)header).stepperView.currentValue = [account.children count];
-        ((PersonChildHeaderCell *)header).stepperView.onclickStepper = ^(NSUInteger currentValue){//单击+、-事件响应
-            Account *account = [AccountService defaultService].account;
-            if (currentValue < account.children.count) {
-                [self deleteChild];
-            } else if (currentValue > account.children.count) {
-                [self addChild];
-            }
-        };
     }
+//    else if (section == 2) {
+//        Account *account = [AccountService defaultService].account;
+//        header = [PersonChildHeaderCell cellWithTableView:self.tableView];
+//        
+//        ((PersonChildHeaderCell *)header).titleLabel.text = [NSString stringWithFormat:@"孩子信息（%d个）", (int)[account.children count]];
+//        ((PersonChildHeaderCell *)header).stepperView.minValue = 0;
+//        ((PersonChildHeaderCell *)header).stepperView.maxValue = 5;
+//        ((PersonChildHeaderCell *)header).stepperView.currentValue = [account.children count];
+//        ((PersonChildHeaderCell *)header).stepperView.onclickStepper = ^(NSUInteger currentValue){//单击+、-事件响应
+//            Account *account = [AccountService defaultService].account;
+//            if (currentValue < account.children.count) {
+//                [self deleteChild];
+//            } else if (currentValue > account.children.count) {
+//                [self addChild];
+//            }
+//        };
+//    }
     return header;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (section == 0) {
         return 40;
-    } else if (section == 2) {
-        return 50;
     }
+//    else if (section == 2) {
+//        return 50;
+//    }
     return 10;
 }
 
@@ -217,6 +223,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"section -- %d -- %d",indexPath.section,indexPath.row);
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     NSString *title;
@@ -235,6 +242,11 @@
             return;
         }
         
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"修改%@", title] message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认修改", nil];
+        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        alert.tag = tag;
+        [alert show];
+        
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             [self showSexPicker:1];
@@ -245,23 +257,28 @@
             tag = 1;
         }
         
-    } else {
-        if (indexPath.row == 0) {
-            title = @"姓名";
-            tag = section;
-        } else if (indexPath.row == 1) {
-            [self showSexPicker:(section)];
-            return;
-        } else if (indexPath.row == 2) {
-            [self showDatePicker:(section)];
-            return;
-        }
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"修改%@", title] message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认修改", nil];
+        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        alert.tag = tag;
+        [alert show];
+        
     }
-    
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"修改%@", title] message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认修改", nil];
-    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    alert.tag = tag;
-    [alert show];
+    else {
+//        if (indexPath.row == 0) {
+//            title = @"姓名";
+//            tag = section;
+//        } else if (indexPath.row == 1) {
+//            [self showSexPicker:(section)];
+//            return;
+//        } else if (indexPath.row == 2) {
+//            [self showDatePicker:(section)];
+//            return;
+//        }
+        
+        WalkChildsViewController *walkChindsVC = [[WalkChildsViewController alloc]init];
+        [self.navigationController pushViewController:walkChindsVC animated:YES];
+        
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -325,20 +342,26 @@
                 self.addressCell = cell;
             }
             
-        } else {
-            Child *child = [self childAtIndex:(section - 2)];
-            if (row == 0) {
-                cell.textLabel.text = @"孩子昵称";
-                cell.detailTextLabel.text = child.name;
-                
-            } else if (row == 1) {
-                cell.textLabel.text = @"性别";
-                cell.detailTextLabel.text = child.sex;
-            } else if (row == 2) {
-                cell.textLabel.text = @"生日";
-                cell.detailTextLabel.text = child.birthday;
-            }
         }
+        else{
+            
+            cell.textLabel.text = @"出行宝宝";
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d个",[account.children count]];
+        }
+//        else {
+//            Child *child = [self childAtIndex:(section - 2)];
+//            if (row == 0) {
+//                cell.textLabel.text = @"孩子昵称";
+//                cell.detailTextLabel.text = child.name;
+//                
+//            } else if (row == 1) {
+//                cell.textLabel.text = @"性别";
+//                cell.detailTextLabel.text = child.sex;
+//            } else if (row == 2) {
+//                cell.textLabel.text = @"生日";
+//                cell.detailTextLabel.text = child.birthday;
+//            }
+//        }
     }
     return cell;
 }

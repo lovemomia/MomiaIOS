@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="68.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sMR-bm-Qdw" customClass="AvatarImageView">
+                    <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconUserNotLogin" translatesAutoresizingMaskIntoConstraints="NO" id="sMR-bm-Qdw" customClass="AvatarImageView">
                         <rect key="frame" x="267" y="8" width="53" height="53"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="53" id="L2j-Gw-pbw"/>
@@ -22,22 +22,23 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="头像" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwJ-m9-PeX">
-                        <rect key="frame" x="13" y="17" width="30" height="34"/>
+                        <rect key="frame" x="13" y="25" width="30" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="sMR-bm-Qdw" firstAttribute="centerY" secondItem="zfk-WR-WBd" secondAttribute="centerY" id="3mw-Ge-e3x"/>
                     <constraint firstAttribute="trailing" secondItem="sMR-bm-Qdw" secondAttribute="trailing" id="5A9-R6-bms"/>
-                    <constraint firstAttribute="bottom" secondItem="gwJ-m9-PeX" secondAttribute="bottom" constant="17.5" id="CVO-Cw-wh7"/>
                     <constraint firstItem="gwJ-m9-PeX" firstAttribute="leading" secondItem="zfk-WR-WBd" secondAttribute="leading" constant="13" id="Hhl-r5-tlP"/>
-                    <constraint firstItem="sMR-bm-Qdw" firstAttribute="top" secondItem="zfk-WR-WBd" secondAttribute="top" constant="8" id="KUS-st-eWY"/>
-                    <constraint firstAttribute="bottom" secondItem="sMR-bm-Qdw" secondAttribute="bottom" constant="7.5" id="NLy-82-of2"/>
-                    <constraint firstItem="gwJ-m9-PeX" firstAttribute="top" secondItem="zfk-WR-WBd" secondAttribute="top" constant="17" id="a56-PI-pmT"/>
+                    <constraint firstItem="gwJ-m9-PeX" firstAttribute="centerY" secondItem="zfk-WR-WBd" secondAttribute="centerY" id="veq-v6-AeZ"/>
                 </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="265" y="211"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="IconUserNotLogin" width="58" height="58"/>
+    </resources>
 </document>

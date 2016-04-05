@@ -161,7 +161,7 @@ static NSString *identifierBookSkuDateTitleCell = @"BookSkuDateTitleCell";
     } else if (row == 3 && !skuList.isShowMore) {
         return 46;
     }
-    return 82;
+    return 100;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

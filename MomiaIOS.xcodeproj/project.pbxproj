@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		002B66421CB3686C0096EB6E /* WalkChildsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66411CB3686C0096EB6E /* WalkChildsViewController.m */; };
+		002B66431CB3686C0096EB6E /* WalkChildsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66411CB3686C0096EB6E /* WalkChildsViewController.m */; };
+		002B66471CB36D100096EB6E /* WalkChildCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66451CB36D100096EB6E /* WalkChildCellTableViewCell.m */; };
+		002B66481CB36D100096EB6E /* WalkChildCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66451CB36D100096EB6E /* WalkChildCellTableViewCell.m */; };
+		002B66491CB36D100096EB6E /* WalkChildCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 002B66461CB36D100096EB6E /* WalkChildCellTableViewCell.xib */; };
+		002B664A1CB36D100096EB6E /* WalkChildCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 002B66461CB36D100096EB6E /* WalkChildCellTableViewCell.xib */; };
+		002B664D1CB38ED30096EB6E /* ChildDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B664C1CB38ED30096EB6E /* ChildDetailViewController.m */; };
+		002B664E1CB38ED30096EB6E /* ChildDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B664C1CB38ED30096EB6E /* ChildDetailViewController.m */; };
+		002B665D1CB3AFE30096EB6E /* ConfirmBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */; };
+		002B665E1CB3AFE30096EB6E /* ConfirmBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */; };
+		005B4E3E1CB3BCF00044BAD1 /* CourseLocationTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 005B4E3D1CB3BCF00044BAD1 /* CourseLocationTimeCell.m */; };
+		005B4E3F1CB3BCF00044BAD1 /* CourseLocationTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 005B4E3D1CB3BCF00044BAD1 /* CourseLocationTimeCell.m */; };
+		00A72BFD1CB4001400CD9C9B /* test.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00A72BFC1CB4001400CD9C9B /* test.xib */; };
+		00A72BFE1CB4001400CD9C9B /* test.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00A72BFC1CB4001400CD9C9B /* test.xib */; };
 		087C98AEC54638860E9ACAB0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9DF4BE98C18CC18BDADCD8 /* libPods.a */; };
 		5A08C14A1B3911CA00642648 /* ProductDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C1491B3911CA00642648 /* ProductDetailModel.m */; };
 		5A11C7291B589BB600B0CDFE /* ProductCalendarWeekendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A11C7281B589BB600B0CDFE /* ProductCalendarWeekendViewController.m */; };
@@ -841,6 +855,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		002B66401CB3686C0096EB6E /* WalkChildsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkChildsViewController.h; sourceTree = "<group>"; };
+		002B66411CB3686C0096EB6E /* WalkChildsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkChildsViewController.m; sourceTree = "<group>"; };
+		002B66441CB36D100096EB6E /* WalkChildCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkChildCellTableViewCell.h; sourceTree = "<group>"; };
+		002B66451CB36D100096EB6E /* WalkChildCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkChildCellTableViewCell.m; sourceTree = "<group>"; };
+		002B66461CB36D100096EB6E /* WalkChildCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalkChildCellTableViewCell.xib; sourceTree = "<group>"; };
+		002B664B1CB38ED30096EB6E /* ChildDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildDetailViewController.h; sourceTree = "<group>"; };
+		002B664C1CB38ED30096EB6E /* ChildDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildDetailViewController.m; sourceTree = "<group>"; };
+		002B665B1CB3AFE30096EB6E /* ConfirmBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmBookViewController.h; sourceTree = "<group>"; };
+		002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmBookViewController.m; sourceTree = "<group>"; };
+		005B4E3C1CB3BCF00044BAD1 /* CourseLocationTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseLocationTimeCell.h; sourceTree = "<group>"; };
+		005B4E3D1CB3BCF00044BAD1 /* CourseLocationTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseLocationTimeCell.m; sourceTree = "<group>"; };
+		00A72BFC1CB4001400CD9C9B /* test.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = test.xib; sourceTree = "<group>"; };
 		569FE54592CF71500372F186 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5A08C1481B3911CA00642648 /* ProductDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailModel.h; sourceTree = "<group>"; };
 		5A08C1491B3911CA00642648 /* ProductDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailModel.m; sourceTree = "<group>"; };
@@ -2147,11 +2173,13 @@
 				BC0D44431C02FBD50007E9ED /* FeedListItemCell.h */,
 				BC0D44441C02FBD50007E9ED /* FeedListItemCell.m */,
 				BC0D44451C02FBD50007E9ED /* FeedListItemCell.xib */,
+				BC53A51E1CA51B9800532F91 /* SubjectCourseCell.h */,
 				BC0D44481C031ACE0007E9ED /* CourseDetailCell.h */,
 				BC0D44491C031ACE0007E9ED /* CourseDetailCell.m */,
-				BC53A51E1CA51B9800532F91 /* SubjectCourseCell.h */,
 				BC53A51F1CA51B9800532F91 /* SubjectCourseCell.m */,
 				BC53A5201CA51B9800532F91 /* SubjectCourseCell.xib */,
+				005B4E3C1CB3BCF00044BAD1 /* CourseLocationTimeCell.h */,
+				005B4E3D1CB3BCF00044BAD1 /* CourseLocationTimeCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2916,6 +2944,10 @@
 			isa = PBXGroup;
 			children = (
 				BCA273251AEB1E6D002E7534 /* Views */,
+				002B66401CB3686C0096EB6E /* WalkChildsViewController.h */,
+				002B66411CB3686C0096EB6E /* WalkChildsViewController.m */,
+				002B664B1CB38ED30096EB6E /* ChildDetailViewController.h */,
+				002B664C1CB38ED30096EB6E /* ChildDetailViewController.m */,
 				BCA272FA1AE8A2C7002E7534 /* MineViewController.h */,
 				BCA272FB1AE8A2C7002E7534 /* MineViewController.m */,
 				5A6806F11B01C9C700D02A60 /* PersonInfoViewController.h */,
@@ -3001,6 +3033,9 @@
 		BCA273251AEB1E6D002E7534 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				002B66441CB36D100096EB6E /* WalkChildCellTableViewCell.h */,
+				002B66451CB36D100096EB6E /* WalkChildCellTableViewCell.m */,
+				002B66461CB36D100096EB6E /* WalkChildCellTableViewCell.xib */,
 				BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */,
 				5A6806F41B01CEF700D02A60 /* PersonLogoCell.xib */,
 				BCF564E11B4A54D0003A2227 /* PersonChildHeaderCell.h */,
@@ -3021,6 +3056,7 @@
 				BC36B1991C293FB700013E9A /* UserTimelineCell.h */,
 				BC36B19A1C293FB700013E9A /* UserTimelineCell.m */,
 				BC36B19B1C293FB700013E9A /* UserTimelineCell.xib */,
+				00A72BFC1CB4001400CD9C9B /* test.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3051,6 +3087,8 @@
 				BCF74AB51BE895AD00138C2C /* AddReviewViewController.m */,
 				BCF74ACA1BEC98ED00138C2C /* ReviewListViewController.h */,
 				BCF74ACB1BEC98ED00138C2C /* ReviewListViewController.m */,
+				002B665B1CB3AFE30096EB6E /* ConfirmBookViewController.h */,
+				002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */,
 			);
 			name = Course;
 			sourceTree = "<group>";
@@ -3279,6 +3317,7 @@
 				BC1052A51BB394CE00D81C15 /* TopicListCell.xib in Resources */,
 				BC753EDE1BAC07D300D2663C /* FeedZanCell.xib in Resources */,
 				BC53A5221CA51B9800532F91 /* SubjectCourseCell.xib in Resources */,
+				00A72BFD1CB4001400CD9C9B /* test.xib in Resources */,
 				BCF74AC91BEB643400138C2C /* ReviewListItemCell.xib in Resources */,
 				5AD5275F1B53C7A300D01E1F /* FeedbackCell.xib in Resources */,
 				BC8B9A0F1C1AD53100EE39A2 /* release_notes_ios.txt in Resources */,
@@ -3297,6 +3336,7 @@
 				BC359A411BC648BF002DE863 /* PhotoTitleHeaderCell.xib in Resources */,
 				BC5CF2FF1BB53E6400EC5227 /* read_me.txt in Resources */,
 				BC040D161BC9176000988AB2 /* CourseSectionTitleCell.xib in Resources */,
+				002B66491CB36D100096EB6E /* WalkChildCellTableViewCell.xib in Resources */,
 				BC8B9A0C1C1AD53100EE39A2 /* Emoji.plist in Resources */,
 				BCA273101AE9D79F002E7534 /* mapping.plist in Resources */,
 				BC50639F1B53A3A000AA233C /* ForgetPasswordCell.xib in Resources */,
@@ -3376,6 +3416,7 @@
 				BCEAFD5A1C2A394300CB082D /* FeedZanCell.xib in Resources */,
 				BCEAFD5C1C2A394300CB082D /* ReviewListItemCell.xib in Resources */,
 				BCEAFD5D1C2A394300CB082D /* FeedbackCell.xib in Resources */,
+				00A72BFE1CB4001400CD9C9B /* test.xib in Resources */,
 				BCEAFD5E1C2A394300CB082D /* release_notes_ios.txt in Resources */,
 				BCEAFD5F1C2A394300CB082D /* LoadingCell.xib in Resources */,
 				BCEAFD601C2A394300CB082D /* CourseTitleCell.xib in Resources */,
@@ -3397,6 +3438,7 @@
 				BCEAFD741C2A394300CB082D /* RongCloud.bundle in Resources */,
 				BCEAFD751C2A394300CB082D /* CoursePriceCell.xib in Resources */,
 				BCEAFD761C2A394300CB082D /* PackageHeaderCell.xib in Resources */,
+				002B664A1CB36D100096EB6E /* WalkChildCellTableViewCell.xib in Resources */,
 				BCEAFD771C2A394300CB082D /* CashPayTopHeaderView.xib in Resources */,
 				BCEAFD781C2A394300CB082D /* MOStepperView.xib in Resources */,
 				BCEAFD791C2A394300CB082D /* LoginCell.xib in Resources */,
@@ -3517,6 +3559,7 @@
 				BC9C02B81C1EBC3C0019A693 /* GroupNoticeView.m in Sources */,
 				BC7737891BCE4A9E00987B22 /* CoursePriceCell.m in Sources */,
 				BCF9DD071BD8FC2500D8CDC6 /* CourseBookListModel.m in Sources */,
+				002B665D1CB3AFE30096EB6E /* ConfirmBookViewController.m in Sources */,
 				5ABDA5B31B42CD4B003BAE80 /* PostOrderModel.m in Sources */,
 				BC592BF61BD65392008AE76A /* BookedCourseListViewController.m in Sources */,
 				BC97DEFC1B4B75A8002B1A00 /* OrderPerson.m in Sources */,
@@ -3584,6 +3627,7 @@
 				BC592BDE1BD5D8FB008AE76A /* BookSkuItemCell.m in Sources */,
 				BC7737951BCF9C1E00987B22 /* SkuListModel.m in Sources */,
 				BC36B1951C28005300013E9A /* GroupListViewController.m in Sources */,
+				002B66471CB36D100096EB6E /* WalkChildCellTableViewCell.m in Sources */,
 				BC97DF061B4BE21F002B1A00 /* WechatPayModel.m in Sources */,
 				BC97DEFF1B4BCFF1002B1A00 /* PayChannel.m in Sources */,
 				BC77378D1BCE6AD200987B22 /* SubjectList.m in Sources */,
@@ -3595,6 +3639,7 @@
 				BCBB16C51BF5898A00E273AF /* UserInfoHeaderView.m in Sources */,
 				5A794F941B4E68C900BB3B7C /* OrderDetailModel.m in Sources */,
 				5A8EF03D1B31619E003ABAF8 /* ProductModel.m in Sources */,
+				002B66421CB3686C0096EB6E /* WalkChildsViewController.m in Sources */,
 				BC359A1B1BC61F2A002DE863 /* LJViewPager.m in Sources */,
 				BC79DF7D1C1186180064C02F /* IMGroupModel.m in Sources */,
 				BC3509081BFDD1830043D37C /* SubjectTabCell.m in Sources */,
@@ -3603,6 +3648,7 @@
 				BC359A291BC61F3B002DE863 /* SGAlertMenu.m in Sources */,
 				BC3599F81BC61F0C002DE863 /* MLSelectPhotoPickerBrowserPhotoView.m in Sources */,
 				BC7CBADE1B662E590047211D /* MOTagLabel.m in Sources */,
+				005B4E3E1CB3BCF00044BAD1 /* CourseLocationTimeCell.m in Sources */,
 				BCCDC6EA1BBA9661007C2F57 /* CourseDetailViewController.m in Sources */,
 				5AC9FFC91B17020300C769EF /* SubmitPostModel.m in Sources */,
 				BCF74AB61BE895AD00138C2C /* AddReviewViewController.m in Sources */,
@@ -3690,6 +3736,7 @@
 				BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */,
 				BC3504921BD0F865009A24B0 /* Subject.m in Sources */,
 				BC3599EA1BC61F0C002DE863 /* UIImage+MLTint.m in Sources */,
+				002B664D1CB38ED30096EB6E /* ChildDetailViewController.m in Sources */,
 				BCF9DCF91BD8F0E200D8CDC6 /* CourseTeacherListViewController.m in Sources */,
 				5A18DC4B1B295C03001458A4 /* HomeViewController.m in Sources */,
 				BC753ED91BAC07D300D2663C /* FeedUgcCell.m in Sources */,
@@ -3786,10 +3833,12 @@
 				BCEAFBFD1C2A394300CB082D /* OrderListModel.m in Sources */,
 				BCEAFBFE1C2A394300CB082D /* NSTimer+Block.m in Sources */,
 				BCEAFBFF1C2A394300CB082D /* CourseDiscCell.m in Sources */,
+				002B66431CB3686C0096EB6E /* WalkChildsViewController.m in Sources */,
 				BCEAFC001C2A394300CB082D /* Course.m in Sources */,
 				BCEAFC011C2A394300CB082D /* NSError+MOError.m in Sources */,
 				BCEAFC021C2A394300CB082D /* MLSelectPhotoPickerBrowserPhotoScrollView.m in Sources */,
 				BCEAFC031C2A394300CB082D /* HomeOperateCell.m in Sources */,
+				002B665E1CB3AFE30096EB6E /* ConfirmBookViewController.m in Sources */,
 				BCEAFC041C2A394300CB082D /* ServerErrorHandler.m in Sources */,
 				BCEAFC051C2A394300CB082D /* BookedCourseListModel.m in Sources */,
 				BCEAFC061C2A394300CB082D /* MBProgressHUD+Add.m in Sources */,
@@ -3817,6 +3866,7 @@
 				BCEAFC1D1C2A394300CB082D /* FeedSuggestUserCell.m in Sources */,
 				BCEAFC1E1C2A394300CB082D /* IMTokenModel.m in Sources */,
 				BCEAFC1F1C2A394300CB082D /* MLSelectPhotoPickerCollectionView.m in Sources */,
+				005B4E3F1CB3BCF00044BAD1 /* CourseLocationTimeCell.m in Sources */,
 				BCEAFC201C2A394300CB082D /* Account.m in Sources */,
 				BCEAFC211C2A394300CB082D /* LJTabBar.m in Sources */,
 				BCEAFC221C2A394300CB082D /* FeedListViewController.m in Sources */,
@@ -3876,6 +3926,7 @@
 				BCEAFC5A1C2A394300CB082D /* CouponListItemCell.m in Sources */,
 				BCEAFC5B1C2A394300CB082D /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m in Sources */,
 				BCEAFC5C1C2A394300CB082D /* CourseDetailModel.m in Sources */,
+				002B66481CB36D100096EB6E /* WalkChildCellTableViewCell.m in Sources */,
 				BCEAFC5D1C2A394300CB082D /* SettingViewController.m in Sources */,
 				BCEAFC5E1C2A394300CB082D /* MLSelectPhotoNavigationViewController.m in Sources */,
 				BCEAFC601C2A394300CB082D /* MJPhotoView.m in Sources */,
@@ -4014,6 +4065,7 @@
 				BCEAFCEB1C2A394300CB082D /* Child.m in Sources */,
 				BCEAFCEC1C2A394300CB082D /* ConfigService.m in Sources */,
 				BCEAFCED1C2A394300CB082D /* OrderPersonModel.m in Sources */,
+				002B664E1CB38ED30096EB6E /* ChildDetailViewController.m in Sources */,
 				BCEAFCEE1C2A394300CB082D /* MOStepperView.m in Sources */,
 				BCEAFCEF1C2A394300CB082D /* CourseSkuListModel.m in Sources */,
 				BCEAFCF01C2A394300CB082D /* MLSelectPhotoBrowserViewController.m in Sources */,
