@@ -43,7 +43,10 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0) {
-        [self openURL:@"web?url=http%3a%2f%2fitunes.apple.com%2fapp%2fid1019473117%3fmt%3d8"];
+        
+        //[self openURL:@"web?url=http%3a%2f%2fitunes.apple.com%2fapp%2fid1019473117%3fmt%3d8"];
+        NSString *iTunesLink = @"https://itunes.apple.com/cn/app/apple-store/id1019473117?mt=8";
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
     } else {
         [self openURL:@"web?url=http://www.sogokids.com/agreement.html"];
     }
