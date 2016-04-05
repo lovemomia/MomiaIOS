@@ -10,4 +10,10 @@
 
 @interface SubjectBuyCell : MOTableCell<MOTableCellDataProtocol>
 
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UIButton *buyButton;
+@property (weak, nonatomic) IBOutlet UILabel *unitLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *chooseLabel;
+
 @end

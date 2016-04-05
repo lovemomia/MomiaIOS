@@ -99,7 +99,7 @@
                                  selectedHandle:^(NSInteger index) {
                                      NSString *url = @"http://m.sogokids.com/";
                                      UIImage *thumb = [UIImage imageNamed:@"IconShareLogo"];
-                                     NSString *title = @"松果亲子，约上玩伴，探索世界";
+                                     NSString *title = @"小松果，大世界，一起去探索";
                                      NSString *desc = @"这里有最新鲜、最有趣、最具特色的亲子课程，来这里给孩子最美好的童年吧";
                                      if (index == 1) {
                                          [helper shareToWechat:url thumb:thumb title:title desc:desc scene:1];

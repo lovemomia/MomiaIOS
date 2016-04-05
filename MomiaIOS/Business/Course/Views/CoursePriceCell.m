@@ -113,7 +113,7 @@
 }
 
 + (CGFloat)heightWithTableView:(UITableView *)tableView withIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath data:(id)data {
-    return 50;
+    return 45;
 }
 
 @end

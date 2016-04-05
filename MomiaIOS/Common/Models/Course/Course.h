@@ -10,6 +10,8 @@
 #import "HomeworkList.h"
 #import "ReviewList.h"
 #import "CourseTeacherListModel.h"
+#import "Notice.h"
+#import "Subject.h"
 
 @interface CoursePlace : JSONModel
 @property (nonatomic, strong) NSNumber *ids;
@@ -56,7 +58,12 @@
 @property (nonatomic, strong) NSString *subject;
 @property (nonatomic, strong) NSNumber *subjectId;
 @property (nonatomic, strong) NSNumber<Optional> *type; // 0:一般课程，1:公益课， 2:推荐课程
-@property (nonatomic, strong) NSString<Optional> *notice;
+@property (nonatomic, strong) NSString<Optional> *notice; //课程的购买须知，用于单买时展示，纯文本
+@property (nonatomic, strong) NSArray<Notice, Optional> *subjectNotice;//课程包的购买须知，用于只能按包买时展示，JSON格式
+
+@property (nonatomic, strong) NSString<Optional> *cheapestSkuDesc;
+@property (nonatomic, strong) NSNumber<Optional> *cheapestSkuPrice;
+@property (nonatomic, strong) NSString<Optional> *cheapestSkuTimeUnit;
 
 @property (nonatomic, strong) NSArray<Optional> *imgs; //头图
 @property (nonatomic, strong) NSString<Optional> *goal;  //课程目标
@@ -73,6 +80,11 @@
 
 @property (nonatomic, strong) NSNumber<Optional> *commented; //是否已评论过
 
-@property (nonatomic, strong) NSNumber<Optional> *buyable;  //1 可购买  2 不可购买
+@property (nonatomic, strong) NSNumber<Optional> *buyable;
+@property (nonatomic, strong) NSNumber<Optional> *status;//1 可购买  2 不可购买
+
+@property (nonatomic, strong) NSString<Optional> *keyWord;//关键字
+@property (nonatomic, strong) NSString<Optional> *feature;//特色
+
 
 @end

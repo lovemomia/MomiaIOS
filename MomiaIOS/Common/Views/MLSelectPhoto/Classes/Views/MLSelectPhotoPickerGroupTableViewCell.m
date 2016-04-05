@@ -54,7 +54,7 @@
     
     self.groupNameLabel.text = group.groupName;
     self.groupImageView.image = group.thumbImage;
-    self.groupPicCountLabel.text = [NSString stringWithFormat:@"(%ld)",group.assetsCount];
+    self.groupPicCountLabel.text = [NSString stringWithFormat:@"(%ld)",(long)group.assetsCount];
 }
 
 @end

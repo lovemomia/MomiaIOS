@@ -43,7 +43,7 @@
 		<key>controller</key>
 		<string>PersonInfoViewController</string>
 		<key>needlogin</key>
-		<false/>
+		<true/>
 		<key>desc</key>
 		<string>个人信息</string>
 	</dict>
@@ -182,24 +182,6 @@
 		<key>desc</key>
 		<string>支付成功</string>
 	</dict>
-	<key>productdetail</key>
-	<dict>
-		<key>controller</key>
-		<string>ProductDetailViewController</string>
-		<key>needlogin</key>
-		<false/>
-		<key>desc</key>
-		<string>活动详情页(id)</string>
-	</dict>
-	<key>playmate</key>
-	<dict>
-		<key>controller</key>
-		<string>PlaymateViewController</string>
-		<key>needlogin</key>
-		<false/>
-		<key>desc</key>
-		<string>玩伴</string>
-	</dict>
 	<key>citylist</key>
 	<dict>
 		<key>controller</key>
@@ -218,15 +200,6 @@
 		<key>desc</key>
 		<string>订单列表页</string>
 	</dict>
-	<key>productplayfellow</key>
-	<dict>
-		<key>controller</key>
-		<string>ProductPlayFellowViewController</string>
-		<key>needlogin</key>
-		<false/>
-		<key>desc</key>
-		<string>玩伴信息页</string>
-	</dict>
 	<key>orderdetail</key>
 	<dict>
 		<key>controller</key>
@@ -244,15 +217,6 @@
 		<true/>
 		<key>desc</key>
 		<string>红包列表页</string>
-	</dict>
-	<key>productcalendar</key>
-	<dict>
-		<key>controller</key>
-		<string>ProductCalendarViewController</string>
-		<key>needlogin</key>
-		<false/>
-		<key>desc</key>
-		<string>活动日历页面</string>
 	</dict>
 	<key>feeddetail</key>
 	<dict>
@@ -343,15 +307,6 @@
 		<true/>
 		<key>desc</key>
 		<string>可选课程列表</string>
-	</dict>
-	<key>bookcoursedetail</key>
-	<dict>
-		<key>controller</key>
-		<string>BookCourseDetailViewController</string>
-		<key>needlogin</key>
-		<true/>
-		<key>desc</key>
-		<string>含预约操作的课程详情页</string>
 	</dict>
 	<key>book</key>
 	<dict>

@@ -85,7 +85,7 @@
         if (si.uploadStatus <= UploadStatusIdle) {
             [self uploadImage:si];
             imagesUploaded = NO;
-            self.hud.labelText = [NSString stringWithFormat:@"正在上传第%d/%d张照片", (i+1), self.uploadImages.count];
+            self.hud.labelText = [NSString stringWithFormat:@"正在上传第%d/%d张照片", (i+1), (int)self.uploadImages.count];
             break;
         }
     }
@@ -189,7 +189,7 @@
         SelectImage *si = self.uploadImages[i];
         if (si.uploadStatus != UploadStatusFinish) {
             [self uploadImage:si];
-            self.hud.labelText = [NSString stringWithFormat:@"正在上传第%d/%d张照片", (i+1), self.uploadImages.count];
+            self.hud.labelText = [NSString stringWithFormat:@"正在上传第%d/%d张照片", (i+1), (int)self.uploadImages.count];
             return NO;
         }
     }

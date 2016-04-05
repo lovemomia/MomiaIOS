@@ -136,7 +136,7 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
             } else if (indexPath.row == 3) {
                 text = [NSString stringWithFormat:@"总价：%@", self.model.data.totalFee];
             } else if (indexPath.row == 4 && self.model.data.couponDesc.length > 0) {
-                text = [NSString stringWithFormat:@"使用抵扣：%@", self.model.data.totalFee];
+                text = [NSString stringWithFormat:@"使用抵扣：%@", self.model.data.couponDesc];
             } else {
                 text = [NSString stringWithFormat:@"下单时间：%@", self.model.data.addTime];
             }

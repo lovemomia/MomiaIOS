@@ -113,7 +113,14 @@
     if (data.imgs && data.imgs.count > 0) {
         UIImageView *lastImage;
         NSNumber *imageSize = [[NSNumber alloc]initWithInt:(SCREEN_WIDTH - 65 - 40) / 3];
-        for (int i = 0; i < data.imgs.count; i++) {
+        
+        BOOL isShowOnly3Photos = [data.isShowOnly3Photos boolValue];
+        NSInteger limit = data.imgs.count;
+        if (isShowOnly3Photos && limit > 3) {
+            limit = 3;
+        }
+        
+        for (int i = 0; i < limit; i++) {
             UIImageView *imageView = [[UIImageView alloc]init];
             [self.containerView addSubview:imageView];
             [imageView mas_makeConstraints:^(MASConstraintMaker *make) {

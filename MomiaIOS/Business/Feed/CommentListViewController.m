@@ -43,7 +43,7 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
     self.list = [NSMutableArray new];
     
     // 设置下拉刷新
-    self.tableView.header = [MJRefreshHelper createGifHeaderWithRefreshingTarget:self refreshingAction:@selector(requestData)];
+    self.tableView.mj_header = [MJRefreshHelper createGifHeaderWithRefreshingTarget:self refreshingAction:@selector(requestData)];
     
     [self requestData:YES];
 }
@@ -116,7 +116,7 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
                                                      }
                                                      [self.tableView reloadData];
                                                      self.isLoading = NO;
-                                                     [self.tableView.header endRefreshing];
+                                                     [self.tableView.mj_header endRefreshing];
                                                      
                                                  }
                          
@@ -126,7 +126,7 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
                                                      }
                                                      [self showDialogWithTitle:nil message:error.message];
                                                      self.isLoading = NO;
-                                                     [self.tableView.header endRefreshing];
+                                                     [self.tableView.mj_header endRefreshing];
                                                  }];
 }
 

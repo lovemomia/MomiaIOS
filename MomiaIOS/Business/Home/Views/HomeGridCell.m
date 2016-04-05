@@ -66,7 +66,7 @@ static const int kItemHeight = 76;
     IndexIcon *icon = self.data[view.tag];
     [[UIApplication sharedApplication]openURL:[NSURL URLWithString:icon.action]];
     
-    NSDictionary *attributes = @{@"name":icon.title, @"index":[NSString stringWithFormat:@"%d", view.tag]};
+    NSDictionary *attributes = @{@"name":icon.title, @"index":[NSString stringWithFormat:@"%d", (int)view.tag]};
     [MobClick event:@"Home_Icon" attributes:attributes];
 }
 

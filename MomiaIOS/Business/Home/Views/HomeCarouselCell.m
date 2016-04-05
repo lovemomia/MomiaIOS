@@ -41,13 +41,12 @@
         }
     }
     self.scrollClick(index);
-    
 }
 
 +(CGFloat)heightWithTableView:(UITableView *)tableView
 {
 //    return CGRectGetWidth(tableView.bounds) * cellScale;
-    return SCREEN_WIDTH * 0.3;
+    return SCREEN_WIDTH * 180 / 320;
 }
 
 -(void)setData:(NSArray *) banners

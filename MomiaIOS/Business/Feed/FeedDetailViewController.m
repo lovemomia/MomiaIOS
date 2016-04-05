@@ -75,7 +75,7 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
     self.tableView.backgroundView.backgroundColor = UIColorFromRGB(0xf1f1f1);
     
     // 设置下拉刷新
-    self.tableView.header = [MJRefreshHelper createGifHeaderWithRefreshingTarget:self refreshingAction:@selector(requestData)];
+    self.tableView.mj_header = [MJRefreshHelper createGifHeaderWithRefreshingTarget:self refreshingAction:@selector(requestData)];
     
     [self.commentBtn setImageEdgeInsets:UIEdgeInsetsMake(0.0, -10, 0.0, 0.0)];
     [self.zanBtn setImageEdgeInsets:UIEdgeInsetsMake(0.0, -10, 0.0, 0.0)];
@@ -113,13 +113,13 @@ static NSString *identifierFeedCommentCell = @"FeedCommentCell";
         }
         
         [self.tableView reloadData];
-        [self.tableView.header endRefreshing];
+        [self.tableView.mj_header endRefreshing];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self.view removeLoadingBee];
         [self showDialogWithTitle:nil message:error.message];
         NSLog(@"Error: %@", error);
-        [self.tableView.header endRefreshing];
+        [self.tableView.mj_header endRefreshing];
     }];
 }
 

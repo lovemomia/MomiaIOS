@@ -79,7 +79,7 @@
             
         } error:^(RCConnectErrorCode status) {
             // Connect 失败
-            NSLog(@"RCIM connect failed, status:%ld", status);
+            NSLog(@"RCIM connect failed, status:%ld", (long)status);
             
         } tokenIncorrect:^{
             // Token 失效的状态处理

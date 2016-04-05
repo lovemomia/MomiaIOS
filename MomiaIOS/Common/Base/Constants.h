@@ -88,6 +88,12 @@
 #define MO_APP_VCBackgroundColor            (UIColorFromRGB(0xf1f1f1))
 
 /**
+ *  图片背景颜色
+ */
+#define MO_APP_ImageBackgroundColor            (UIColorFromRGB(0xcccccc))
+
+
+/**
  *  分割线颜色
  */
 #define MO_APP_SeparatorColor            (UIColorFromRGB(0xdddddd))
@@ -121,7 +127,7 @@
 #define kWechatAppKey_QA      @"wxcf7b15b51d3b4e53" //哆啦亲子
 
 // umeng
-#define kUMengAppKey          @"55a317be67e58ea6470059ba"
+#define kUMengAppKey          @"568ccc82e0f55a0c86000a5f"
 
 // rong cloud
 #define kRCIMAppKey          @"e5t4ouvptfowa"

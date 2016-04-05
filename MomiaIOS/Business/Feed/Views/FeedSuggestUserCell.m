@@ -16,7 +16,6 @@
     [self.followBtn.layer setMasksToBounds:YES];
     [self.followBtn.layer setCornerRadius:2.0]; //设置矩圆角半径
     [self.followBtn.layer setBorderWidth:1.0];   //边框宽度
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGColorRef colorref = [UIColorFromRGB(0xF67531) CGColor];
     [self.followBtn.layer setBorderColor:colorref];//边框颜色
 }
@@ -31,7 +30,7 @@
 }
 
 -(void)setData:(id)data {
-    [self.avatarIv sd_setImageWithURL:@"" placeholderImage:[UIImage imageNamed:@"IconAvatarDefault"]];
+    [self.avatarIv sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"IconAvatarDefault"]];
 }
 
 

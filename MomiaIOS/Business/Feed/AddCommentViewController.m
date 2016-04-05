@@ -44,7 +44,7 @@
     UILabel *num = [[UILabel alloc]init];
     num.font = [UIFont systemFontOfSize:13];
     num.textColor = UIColorFromRGB(0x999999);
-    num.textAlignment = UITextAlignmentRight;
+    num.textAlignment = NSTextAlignmentRight;
     self.numLabel = num;
     [self.view addSubview:num];
     
@@ -224,7 +224,7 @@
     }
     
     //不让显示负数
-    self.numLabel.text = [NSString stringWithFormat:@"%ld/%d",MAX(0,MAX_LIMIT_NUMS - existTextNum),MAX_LIMIT_NUMS];
+    self.numLabel.text = [NSString stringWithFormat:@"%d/%d", (int)MAX(0,MAX_LIMIT_NUMS - existTextNum), (int)MAX_LIMIT_NUMS];
 }
 
 @end

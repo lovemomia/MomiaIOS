@@ -13,10 +13,13 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "GeTuiSdk.h"
 #import <RongIMKit/RongIMKit.h>
+#import "IQKeyboardManager.h"
 
 #import "IMTokenModel.h"
 #import "IMUserModel.h"
 #import "IMGroupModel.h"
+
+#import "ChatViewController.h"
 
 @interface AppDelegate ()<RCIMUserInfoDataSource, RCIMGroupInfoDataSource, RCIMReceiveMessageDelegate> {
 @private
@@ -77,7 +80,6 @@
     
     if (MO_DEBUG == 1) {
         [MobClick setLogEnabled:YES];
-        [self printDeviceID];
     }
     
     // config
@@ -152,25 +154,17 @@
         UIRemoteNotificationTypeSound;
         [application registerForRemoteNotificationTypes:myTypes];
     }
+    
+    // 键盘遮挡问题解决
+    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+    manager.enable = YES;
+    manager.shouldResignOnTouchOutside = YES;
+    manager.shouldToolbarUsesTextFieldTintColor = YES;
+    manager.enableAutoToolbar = YES;
+    [[IQKeyboardManager sharedManager] disableToolbarInViewControllerClass:[ChatViewController class]];
 
     return YES;
 }
-
-#pragma mark - umeng
-- (void)printDeviceID {
-    Class cls = NSClassFromString(@"UMANUtil");
-    SEL deviceIDSelector = @selector(openUDIDString);
-    NSString *deviceID = nil;
-    if(cls && [cls respondsToSelector:deviceIDSelector]){
-        deviceID = [cls performSelector:deviceIDSelector];
-    }
-    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:@{@"oid" : deviceID}
-                                                       options:NSJSONWritingPrettyPrinted
-                                                         error:nil];
-    
-    NSLog(@"UMeng deviceId: %@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
-}
-
 
 #pragma mark - 'GeTui' push sdk manager
 - (void)handleRemoteNotification:(NSDictionary *)dict {
@@ -494,7 +488,7 @@
         
     } error:^(RCConnectErrorCode status) {
         // Connect 失败
-        NSLog(@"RCIM connect failed, status:%d", status);
+        NSLog(@"RCIM connect failed, status:%ld", (long)status);
         
     } tokenIncorrect:^{
         // Token 失效的状态处理

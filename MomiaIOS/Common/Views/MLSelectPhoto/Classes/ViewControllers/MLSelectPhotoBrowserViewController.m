@@ -144,7 +144,7 @@ static NSString *_cellIdentifier = @"collectionViewCell";
     _doneAssets = [NSMutableArray arrayWithArray:photos];
     
     [self reloadData];
-    self.makeView.text = [NSString stringWithFormat:@"%ld",self.photos.count];
+    self.makeView.text = [NSString stringWithFormat:@"%d", (int)self.photos.count];
 }
 
 - (void)setSheet:(UIActionSheet *)sheet{
@@ -188,7 +188,7 @@ static NSString *_cellIdentifier = @"collectionViewCell";
 }
 
 - (void)deleteAsset{
-    NSString *currentPage = [NSString stringWithFormat:@"%ld",self.currentPage];
+    NSString *currentPage = [NSString stringWithFormat:@"%ld",(long)self.currentPage];
     if ([_deleteAssets valueForKeyPath:currentPage] == nil) {
         [self.deleteAssets setObject:@YES forKey:currentPage];
         [self.deleleBtn setImage:[[UIImage imageNamed:MLSelectPhotoSrcName(@"AssetsPickerChecked") ] imageWithTintColor:[UIColor grayColor]] forState:UIControlStateNormal];
@@ -204,7 +204,7 @@ static NSString *_cellIdentifier = @"collectionViewCell";
         [self.deleleBtn setImage:[UIImage imageNamed:MLSelectPhotoSrcName(@"AssetsPickerChecked") ] forState:UIControlStateNormal];
     }
     
-    self.makeView.text = [NSString stringWithFormat:@"%ld",self.doneAssets.count];
+    self.makeView.text = [NSString stringWithFormat:@"%ld",(long)self.doneAssets.count];
 }
 
 #pragma mark - reloadData
@@ -312,7 +312,7 @@ static NSString *_cellIdentifier = @"collectionViewCell";
         tempF.origin.x = -ZLPickerColletionViewPadding;
     }
     
-    if([[self.deleteAssets allValues] count] == 0 || [self.deleteAssets valueForKeyPath:[NSString stringWithFormat:@"%ld",(currentPage)]] == nil){
+    if([[self.deleteAssets allValues] count] == 0 || [self.deleteAssets valueForKeyPath:[NSString stringWithFormat:@"%ld",((long)currentPage)]] == nil){
         [self.deleleBtn setImage:[UIImage imageNamed:MLSelectPhotoSrcName(@"AssetsPickerChecked") ] forState:UIControlStateNormal];
     }else{
         [self.deleleBtn setImage:[[UIImage imageNamed:MLSelectPhotoSrcName(@"AssetsPickerChecked") ] imageWithTintColor:[UIColor grayColor]] forState:UIControlStateNormal];
@@ -329,7 +329,7 @@ static NSString *_cellIdentifier = @"collectionViewCell";
 }
 
 - (void)setPageLabelPage:(NSInteger)page{
-    self.title = [NSString stringWithFormat:@"%ld / %ld",page + 1, self.photos.count];
+    self.title = [NSString stringWithFormat:@"%ld / %ld",(long)page + 1, (long)self.photos.count];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{

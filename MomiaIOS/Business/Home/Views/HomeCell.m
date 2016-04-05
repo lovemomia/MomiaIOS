@@ -16,8 +16,8 @@
 {
     [self.imgView sd_setImageWithURL:[NSURL URLWithString:model.cover] placeholderImage:nil];
     self.titleLabel.text = model.title;
-    self.timeLabel.text = [NSString stringWithFormat:@"%@ | %@ | %@", model.age, model.scheduler, model.region];
-    self.descLabel.text = model.subject;
+    self.timeLabel.text = [NSString stringWithFormat:@"%@ | %@", model.age, model.region];
+    self.descLabel.text = [NSString stringWithFormat:@" %@ ", model.subject];;
     
     if ([model.joined intValue] == 0) {
         self.enrollmentLabel.hidden = YES;

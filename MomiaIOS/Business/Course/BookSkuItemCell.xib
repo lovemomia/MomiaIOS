@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hPE-k9-QpM">
-                        <rect key="frame" x="80" y="-76" width="99" height="35"/>
+                        <rect key="frame" x="-13" y="-30" width="17" height="36"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bbbb" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TS9-Xr-ds7">
@@ -25,35 +25,35 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="aaaa" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8m-w3-1UC">
-                        <rect key="frame" x="31" y="37" width="279" height="14.5"/>
+                        <rect key="frame" x="29" y="37" width="281" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxx" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGV-2R-gMc">
-                        <rect key="frame" x="31" y="60.5" width="19" height="14.5"/>
+                        <rect key="frame" x="29" y="60" width="19" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHx-JI-8gc">
-                        <rect key="frame" x="65" y="60.5" width="14" height="14.5"/>
+                        <rect key="frame" x="63" y="60" width="14" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.96470588239999999" green="0.45882352939999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconAddress" translatesAutoresizingMaskIntoConstraints="NO" id="aK0-B6-oju">
-                        <rect key="frame" x="10" y="37" width="16" height="16"/>
+                        <rect key="frame" x="10" y="37" width="14" height="14"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="16" id="SaM-OE-Tgd"/>
-                            <constraint firstAttribute="width" constant="16" id="UBp-dA-Z9Y"/>
+                            <constraint firstAttribute="height" constant="14" id="SaM-OE-Tgd"/>
+                            <constraint firstAttribute="width" constant="14" id="UBp-dA-Z9Y"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconAlarm" translatesAutoresizingMaskIntoConstraints="NO" id="cBm-rt-geV">
-                        <rect key="frame" x="10" y="61" width="16" height="16"/>
+                        <rect key="frame" x="10" y="59" width="14" height="14"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="16" id="Vzx-t4-Eia"/>
-                            <constraint firstAttribute="width" constant="16" id="uc3-gu-1XD"/>
+                            <constraint firstAttribute="height" constant="14" id="Vzx-t4-Eia"/>
+                            <constraint firstAttribute="width" constant="14" id="uc3-gu-1XD"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -85,7 +85,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="IconAddress" width="16" height="16"/>
-        <image name="IconAlarm" width="16" height="16"/>
+        <image name="IconAddress" width="14" height="14"/>
+        <image name="IconAlarm" width="14" height="13"/>
     </resources>
 </document>

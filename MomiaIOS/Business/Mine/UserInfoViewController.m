@@ -215,7 +215,7 @@ static NSString *identifierUserTimelineCell = @"UserTimelineCell";
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 50)];
     if (self.isEmpty) {
-        [view showEmptyView:self.isMe ? @"还没有任何评价哦~" : @"还没有任何状态哦~"];
+        [view showEmptyView:self.isMe ? @"还没有任何评价哦~" : @"还没有任何动态哦~"];
         return view;
     }
     if ([self.nextIndex intValue] > 0) {

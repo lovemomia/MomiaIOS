@@ -13,7 +13,7 @@
 #define LineSpacing 6
 #define titleFontSize 14.0f
 #define contentFontSize 13.0f
-#define ImgScale 0.75
+#define ImgScale 0.70
 
 @implementation CourseDetailCell
 
@@ -44,7 +44,7 @@
         make.bottom.lessThanOrEqualTo(self.contentView).with.offset(-12);
     }];
     label.numberOfLines = 0;
-    label.textColor = UIColorFromRGB(0x333333);
+    label.textColor = UIColorFromRGB(0x666666);
     label.font = [UIFont systemFontOfSize:contentFontSize];
     label.lineSpacing = LineSpacing;
     label.text = data.goal;
@@ -67,7 +67,7 @@
         }];
         index.textColor = [UIColor whiteColor];
         index.backgroundColor = MO_APP_ThemeColor;
-        index.font = [UIFont boldSystemFontOfSize:titleFontSize];
+        index.font = [UIFont systemFontOfSize:titleFontSize];
         index.text = [NSString stringWithFormat:@"%d", (i+1)];
         index.textAlignment = NSTextAlignmentCenter;
         
@@ -82,7 +82,7 @@
         }];
         title.numberOfLines = 0;
         title.textColor = UIColorFromRGB(0x333333);
-        title.font = [UIFont boldSystemFontOfSize:titleFontSize];
+        title.font = [UIFont systemFontOfSize:titleFontSize];
         title.lineSpacing = LineSpacing;
         title.text = detail.title;
         lastView = title;
@@ -115,7 +115,7 @@
                     make.bottom.lessThanOrEqualTo(self.contentView).with.offset(-12);
                 }];
                 text.numberOfLines = 0;
-                text.textColor = UIColorFromRGB(0x333333);
+                text.textColor = UIColorFromRGB(0x666666);
                 text.font = [UIFont systemFontOfSize:contentFontSize];
                 text.lineSpacing = LineSpacing;
                 text.text = content.text;

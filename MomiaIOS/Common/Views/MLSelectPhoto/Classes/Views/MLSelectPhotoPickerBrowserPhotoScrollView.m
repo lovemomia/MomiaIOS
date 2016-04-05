@@ -60,7 +60,7 @@
 - (void)setSheet:(UIActionSheet *)sheet{
     _sheet = sheet;
     if (!sheet) {
-        self.isHiddenShowSheet = sheet;
+        self.isHiddenShowSheet = (sheet == nil);
     }
 }
 

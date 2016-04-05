@@ -76,7 +76,7 @@
         lastView = label;
         if (data.comment.imgs && data.comment.imgs.count > 0) {
             UIImageView *lastImage;
-            NSNumber *imageSize = [[NSNumber alloc]initWithInt:(self.reviewContainer.width - 36) / 3];
+            NSNumber *imageSize = [[NSNumber alloc]initWithInt:(SCREEN_WIDTH - 37 - 30) / 3];
             for (int i = 0; i < data.comment.imgs.count; i++) {
                 UIImageView *imageView = [[UIImageView alloc]init];
                 [self.reviewContainer addSubview:imageView];
@@ -93,7 +93,7 @@
                             if (i/3 == 0) {
                                 make.top.equalTo(lastImage.mas_top).with.offset(0);
                             } else {
-                                make.top.equalTo(lastImage.mas_bottom).with.offset(-8);
+                                make.top.equalTo(lastImage.mas_bottom).with.offset(5);
                             }
                             
                         } else {
@@ -101,7 +101,7 @@
                         }
                         
                     } else {
-                        make.left.equalTo(lastImage.mas_right).with.offset(8);
+                        make.left.equalTo(lastImage.mas_right).with.offset(5);
                         if (lastImage) {
                             make.top.equalTo(lastImage.mas_top).with.offset(0);
                             

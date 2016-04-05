@@ -1,38 +1,38 @@
 PODS:
-  - AFNetworking (2.6.0):
-    - AFNetworking/NSURLConnection (= 2.6.0)
-    - AFNetworking/NSURLSession (= 2.6.0)
-    - AFNetworking/Reachability (= 2.6.0)
-    - AFNetworking/Security (= 2.6.0)
-    - AFNetworking/Serialization (= 2.6.0)
-    - AFNetworking/UIKit (= 2.6.0)
-  - AFNetworking/NSURLConnection (2.6.0):
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.0):
+  - AFNetworking/NSURLSession (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.0)
-  - AFNetworking/Security (2.6.0)
-  - AFNetworking/Serialization (2.6.0)
-  - AFNetworking/UIKit (2.6.0):
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - EDStarRating (1.1)
   - ISDiskCache (0.1.3)
-  - JSONModel (1.1.0)
-  - Masonry (0.6.2)
-  - MBProgressHUD (0.9.1)
-  - MJRefresh (2.4.10)
-  - SDWebImage (3.7.3):
-    - SDWebImage/Core (= 3.7.3)
-  - SDWebImage/Core (3.7.3)
+  - JSONModel (1.2.0)
+  - Masonry (0.6.4)
+  - MBProgressHUD (0.9.2)
+  - MJRefresh (3.1.0)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
   - THProgressView (1.0)
   - TTTAttributedLabel (1.13.4)
-  - UITableView+FDTemplateLayoutCell (1.3)
-  - UMengAnalytics-NO-IDFA (3.5.17)
+  - UITableView+FDTemplateLayoutCell (1.4)
+  - UMengAnalytics-NO-IDFA (3.6.7)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
@@ -49,17 +49,17 @@ DEPENDENCIES:
   - UMengAnalytics-NO-IDFA
 
 SPEC CHECKSUMS:
-  AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   EDStarRating: a41a6440a945020745d0e9ff8ada7d1afa952114
   ISDiskCache: 83d1b6ca5c2f5f2d14832ae1e9fcd6e20de43142
-  JSONModel: ec77e9865236a7a09d9cf7668df6b4b328d9ec1d
-  Masonry: 362e8a1cc0beada4a4c4832d5e863da2a51533be
-  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
-  MJRefresh: e52328552ed9cbfce3501e3820b18bf7643c65cc
-  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  JSONModel: 12523685c4b623553ccf844bbbf7007624317b2c
+  Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   THProgressView: 999dc78f748f4cb6d69408f545de4d82ef7f1cec
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
-  UITableView+FDTemplateLayoutCell: d5be6056b5060313f5955a2590ecd33142ad713d
-  UMengAnalytics-NO-IDFA: 601dab9ffe32f9de3fa0a6116768aed18a56f8a9
+  UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
+  UMengAnalytics-NO-IDFA: 6d02561a00579b2e37718f204eb81347df5d7b8b
 
-COCOAPODS: 0.37.1
+COCOAPODS: 0.39.0

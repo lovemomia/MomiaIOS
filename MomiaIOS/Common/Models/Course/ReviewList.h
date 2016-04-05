@@ -34,6 +34,8 @@
 @property (nonatomic, strong) NSNumber<Optional> *courseId;
 @property (nonatomic, strong) NSString<Optional> *courseTitle;
 
+@property (nonatomic, strong) NSNumber<Optional> *isShowOnly3Photos; //自定义
+
 @end
 
 @protocol Review <NSObject>
