@@ -88,28 +88,11 @@
 
 - (void)onDoneClick {
     
-    ConfirmBookViewController *confirmBookVC = [[ConfirmBookViewController alloc]init];
-    [self.navigationController pushViewController:confirmBookVC animated:YES];
-//    if (self.selectSku) {
-//        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//        
-//        NSDictionary *params = @{@"sid":self.selectSku.ids, @"pid":self.pid};
-//        [[HttpService defaultService]POST:URL_APPEND_PATH(@"/course/booking")
-//                               parameters:params JSONModelClass:[BaseModel class]
-//                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//                                      [MBProgressHUD hideHUDForView:self.view animated:YES];
-//                                      [self showDialogWithTitle:nil message:@"预约成功，您已被拉入该课群组，猛戳 “我的—我的群组” 就可以随意调戏我们的老师啦~" tag:1];
-//                                      [[NSNotificationCenter defaultCenter]postNotificationName:@"onMineDotChanged" object:nil];
-//                                  }
-//         
-//                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//                                      [MBProgressHUD hideHUDForView:self.view animated:YES];
-//                                      [self showDialogWithTitle:nil message:error.message];
-//                                  }];
-//        
-//    } else {
-//        [self showDialogWithTitle:nil message:@"您还没有选择课程！"];
-//    }
+    if(self.selectSku){
+        ConfirmBookViewController *confirmBookVC = [[ConfirmBookViewController alloc]initWithParams:@{@"skuIds":self.selectSku.ids,@"pid":self.pid}];
+        [self.navigationController pushViewController:confirmBookVC animated:YES];
+    }
+    
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{

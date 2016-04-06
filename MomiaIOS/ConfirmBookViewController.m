@@ -40,13 +40,20 @@ enum TagForActionSheet{
 
 @implementation ConfirmBookViewController
 
+-(instancetype)initWithParams:(NSDictionary *)params{
+    self = [super initWithParams:params];
+    if (self) {
+        
+        self.selectSkuIds = [params objectForKey:@"skuIds"];
+        self.pid = [params objectForKey:@"pid"];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     self.title = @"确认约课";
-    //由于本地没存孩子信息，需要从服务端拿
-//    [self fromServerGetAccount];
     
 }
 
@@ -110,7 +117,11 @@ enum TagForActionSheet{
 //section 头部
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
+    static NSString *reuseHeaderIdentifer = @"reuseHeaderIdentifer";
+    UIView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseHeaderIdentifer];
+    if (view == nil) {
+        view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
+    }
     UILabel *label = [[UILabel alloc]init];
     
     if (section == 0) {
@@ -209,6 +220,24 @@ enum TagForActionSheet{
     }
 }
 
+-(void)onDoneBookCourse{
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
+        NSDictionary *params = @{@"sid":self.selectSkuIds, @"pid":self.pid};
+        [[HttpService defaultService]POST:URL_APPEND_PATH(@"/course/booking")
+                               parameters:params JSONModelClass:[BaseModel class]
+                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                      [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                      [self showDialogWithTitle:nil message:@"预约成功，您已被拉入该课群组，猛戳 “我的—我的群组” 就可以随意调戏我们的老师啦~" tag:1];
+                                      [[NSNotificationCenter defaultCenter]postNotificationName:@"onMineDotChanged" object:nil];
+                                  }
+         
+                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                      [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                      [self showDialogWithTitle:nil message:error.message];
+                                  }];
+
+}
 //新增孩子信息
 -(void)confirmAdd{
     
@@ -237,12 +266,9 @@ enum TagForActionSheet{
                                   AccountModel *result = (AccountModel *)responseObject;
                                   [AccountService defaultService].account = result.data;
                                   
-                                  //[self.tableView reloadData];
-                                  
                                   //广播出去
                                   [[NSNotificationCenter defaultCenter] postNotificationName:@"Notification_UpdateUserInfo" object:nil userInfo:nil];
-                                  //新增完信息，跳转到上一页
-//                                  [self popToPrev];
+                                  
                               }
      
                               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -403,7 +429,6 @@ enum TagForActionSheet{
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    //    [picker dismissModalViewControllerAnimated:YES];
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 

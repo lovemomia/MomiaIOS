@@ -36,12 +36,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"出行宝宝";
+    if ([self.action isEqualToString:@"chooseChild"]) {
+        self.title = @"选择宝宝";
+    }else{
+        self.title = @"出行宝宝";
+    }
+    
     [self setNavItem];
     
     Account *account = [AccountService defaultService].account;
     self.childs = account.children;
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UpdateUserInfo:) name:@"Notification_UpdateUserInfo" object:nil];
 }
 
