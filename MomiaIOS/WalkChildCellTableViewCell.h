@@ -13,6 +13,11 @@
 
 
 @property(nonatomic,weak) UIViewController* ownerVC;
+@property (weak, nonatomic) IBOutlet UIButton *avatar;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *sex;
+@property (weak, nonatomic) IBOutlet UILabel *age;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
 
 -(void)setData:(Child *)child;
 

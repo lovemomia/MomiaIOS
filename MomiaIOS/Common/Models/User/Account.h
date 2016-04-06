@@ -9,6 +9,9 @@
 #import "BaseModel.h"
 #import "Child.h"
 
+@protocol Child <NSObject>
+@end
+
 @interface Account : JSONModel<NSCoding>
 
 @property (nonatomic, strong) NSNumber *uid;
@@ -24,7 +27,7 @@
 @property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) NSNumber<Optional> *city;
 @property (nonatomic, strong) Child<Optional> *bigChild;
-@property (nonatomic, strong) NSArray<Optional> *children;
+@property (nonatomic, strong) NSMutableArray<Child, Optional> *children;
 
 @property (nonatomic, strong) NSString<Optional> *cover;
 @property (nonatomic, strong) NSNumber<Optional> *role;

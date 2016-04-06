@@ -10,4 +10,6 @@
 
 @interface ConfirmBookViewController : MOGroupStyleTableViewController
 
+@property(nonatomic,assign) NSInteger choosedChildItem;
+
 @end

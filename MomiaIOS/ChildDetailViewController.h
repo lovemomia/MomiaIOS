@@ -11,4 +11,7 @@
 //宝宝信息
 @interface ChildDetailViewController : MOGroupStyleTableViewController
 
+
+- (instancetype)initWithParams:(NSDictionary *)params;
+
 @end

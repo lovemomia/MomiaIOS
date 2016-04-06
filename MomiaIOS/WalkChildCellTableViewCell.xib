@@ -33,20 +33,20 @@
                         <rect key="frame" x="86" y="18" width="128" height="58"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3TP-sz-oM8">
-                                <rect key="frame" x="2" y="2" width="43" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="2" y="2" width="38" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1o-bw-RU0">
-                                <rect key="frame" x="2" y="27.5" width="29" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="2" y="24.5" width="25.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J72-bM-CHJ">
-                                <rect key="frame" x="61" y="2" width="27" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="56" y="2" width="23.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -67,7 +67,9 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="s6I-x5-sOw"/>
                         </constraints>
-                        <state key="normal" title="编辑"/>
+                        <state key="normal" title="编辑">
+                            <color key="titleColor" red="0.018115562080536912" green="0.74242344798657722" blue="0.36760696308724805" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
                         <connections>
                             <action selector="editChildDetail:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bp4-Se-oW8"/>
                         </connections>
@@ -88,7 +90,14 @@
                     <constraint firstAttribute="trailingMargin" secondItem="sYa-jC-KxF" secondAttribute="trailing" constant="2" id="yfd-HH-Qai"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="334.5" y="478"/>
+            <connections>
+                <outlet property="age" destination="r1o-bw-RU0" id="ta2-CV-m7N"/>
+                <outlet property="avatar" destination="Asq-Fc-nLD" id="arZ-05-pzu"/>
+                <outlet property="editButton" destination="sYa-jC-KxF" id="ST7-Gg-vMi"/>
+                <outlet property="name" destination="3TP-sz-oM8" id="QsK-dJ-PVj"/>
+                <outlet property="sex" destination="J72-bM-CHJ" id="h0k-j8-MO7"/>
+            </connections>
+            <point key="canvasLocation" x="226.5" y="683"/>
         </tableViewCell>
     </objects>
     <resources>

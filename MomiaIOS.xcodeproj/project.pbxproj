@@ -19,8 +19,6 @@
 		002B665E1CB3AFE30096EB6E /* ConfirmBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */; };
 		005B4E3E1CB3BCF00044BAD1 /* CourseLocationTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 005B4E3D1CB3BCF00044BAD1 /* CourseLocationTimeCell.m */; };
 		005B4E3F1CB3BCF00044BAD1 /* CourseLocationTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 005B4E3D1CB3BCF00044BAD1 /* CourseLocationTimeCell.m */; };
-		00A72BFD1CB4001400CD9C9B /* test.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00A72BFC1CB4001400CD9C9B /* test.xib */; };
-		00A72BFE1CB4001400CD9C9B /* test.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00A72BFC1CB4001400CD9C9B /* test.xib */; };
 		087C98AEC54638860E9ACAB0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9DF4BE98C18CC18BDADCD8 /* libPods.a */; };
 		5A08C14A1B3911CA00642648 /* ProductDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C1491B3911CA00642648 /* ProductDetailModel.m */; };
 		5A11C7291B589BB600B0CDFE /* ProductCalendarWeekendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A11C7281B589BB600B0CDFE /* ProductCalendarWeekendViewController.m */; };
@@ -866,7 +864,6 @@
 		002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmBookViewController.m; sourceTree = "<group>"; };
 		005B4E3C1CB3BCF00044BAD1 /* CourseLocationTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseLocationTimeCell.h; sourceTree = "<group>"; };
 		005B4E3D1CB3BCF00044BAD1 /* CourseLocationTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseLocationTimeCell.m; sourceTree = "<group>"; };
-		00A72BFC1CB4001400CD9C9B /* test.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = test.xib; sourceTree = "<group>"; };
 		569FE54592CF71500372F186 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5A08C1481B3911CA00642648 /* ProductDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailModel.h; sourceTree = "<group>"; };
 		5A08C1491B3911CA00642648 /* ProductDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailModel.m; sourceTree = "<group>"; };
@@ -3056,7 +3053,6 @@
 				BC36B1991C293FB700013E9A /* UserTimelineCell.h */,
 				BC36B19A1C293FB700013E9A /* UserTimelineCell.m */,
 				BC36B19B1C293FB700013E9A /* UserTimelineCell.xib */,
-				00A72BFC1CB4001400CD9C9B /* test.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3317,7 +3313,6 @@
 				BC1052A51BB394CE00D81C15 /* TopicListCell.xib in Resources */,
 				BC753EDE1BAC07D300D2663C /* FeedZanCell.xib in Resources */,
 				BC53A5221CA51B9800532F91 /* SubjectCourseCell.xib in Resources */,
-				00A72BFD1CB4001400CD9C9B /* test.xib in Resources */,
 				BCF74AC91BEB643400138C2C /* ReviewListItemCell.xib in Resources */,
 				5AD5275F1B53C7A300D01E1F /* FeedbackCell.xib in Resources */,
 				BC8B9A0F1C1AD53100EE39A2 /* release_notes_ios.txt in Resources */,
@@ -3416,7 +3411,6 @@
 				BCEAFD5A1C2A394300CB082D /* FeedZanCell.xib in Resources */,
 				BCEAFD5C1C2A394300CB082D /* ReviewListItemCell.xib in Resources */,
 				BCEAFD5D1C2A394300CB082D /* FeedbackCell.xib in Resources */,
-				00A72BFE1CB4001400CD9C9B /* test.xib in Resources */,
 				BCEAFD5E1C2A394300CB082D /* release_notes_ios.txt in Resources */,
 				BCEAFD5F1C2A394300CB082D /* LoadingCell.xib in Resources */,
 				BCEAFD601C2A394300CB082D /* CourseTitleCell.xib in Resources */,
@@ -4260,7 +4254,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdParty/libWeiboSDK",
-					"$(PROJECT_DIR)/MomiaIOS/SDKExport",
 					"$(PROJECT_DIR)/ThirdParty/GeTui",
 					"$(PROJECT_DIR)/Pods/",
 					"$(PROJECT_DIR)/ThirdParty/WeChatSDK_1.6",
@@ -4343,7 +4336,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdParty/libWeiboSDK",
-					"$(PROJECT_DIR)/MomiaIOS/SDKExport",
 					"$(PROJECT_DIR)/ThirdParty/GeTui",
 					"$(PROJECT_DIR)/Pods/",
 					"$(PROJECT_DIR)/ThirdParty/WeChatSDK_1.6",

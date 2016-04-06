@@ -91,16 +91,8 @@
 //    [self save];
 //}
 
-- (NSArray *)children {
-    NSArray *dicArray = _children;
-    NSMutableArray *childArray = [NSMutableArray new];
-    for (NSDictionary *dic in dicArray) {
-        Child *child = [[Child alloc]initWithDictionary:dic error:nil];
-        if (child != nil) {
-            [childArray addObject:child];
-        }
-    }
-    return childArray;
+- (NSMutableArray *)children {
+    return _children;
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder//编码

@@ -9,9 +9,7 @@
 #import "JSONModel.h"
 #import "Child.h"
 
-@protocol Child <NSObject>
-
-@end
+@class Child;
 
 @interface User : JSONModel
 

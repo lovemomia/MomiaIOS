@@ -38,6 +38,16 @@
     [CommonHeaderView registerCellFromNibWithTableView:self.tableView];
     
     [self refreshAccount];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UpdateUserInfo:) name:@"Notification_UpdateUserInfo" object:nil];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(UpdateUserInfo:) name:@"Notification_DeleteInfo" object:nil];
+}
+
+
+-(void)UpdateUserInfo:(id)sender{
+    [self.tableView reloadData];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,57 +78,57 @@
                               }];
 }
 
-- (void)addChild {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
-    NSMutableArray *babyArray = [[NSMutableArray alloc] init];
-    Child *baby = [[Child alloc]init];
-    baby.name = [self defaultChildName:[AccountService defaultService].account.children.count];
-    baby.sex = @"男";
-    baby.birthday = @"2015-07-01";
-    [babyArray addObject:[baby toNSDictionary]];
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:babyArray options:NSJSONWritingPrettyPrinted error:nil];
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+//- (void)addChild {
+//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    
+//    NSMutableArray *babyArray = [[NSMutableArray alloc] init];
+//    Child *baby = [[Child alloc]init];
+//    baby.name = [self defaultChildName:[AccountService defaultService].account.children.count];
+//    baby.sex = @"男";
+//    baby.birthday = @"2015-07-01";
+//    [babyArray addObject:[baby toNSDictionary]];
+//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:babyArray options:NSJSONWritingPrettyPrinted error:nil];
+//    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+//
+//    NSDictionary *params = @{@"children" : jsonString};
+//    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/child")
+//                           parameters:params JSONModelClass:[AccountModel class]
+//                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+//                                  AccountModel *result = (AccountModel *)responseObject;
+//                                  [AccountService defaultService].account = result.data;
+//                                  
+//                                  [self.tableView reloadData];
+//                              }
+//     
+//                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+//                                  [self showDialogWithTitle:nil message:error.message];
+//                              }];
+//}
 
-    NSDictionary *params = @{@"children" : jsonString};
-    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/child")
-                           parameters:params JSONModelClass:[AccountModel class]
-                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                  AccountModel *result = (AccountModel *)responseObject;
-                                  [AccountService defaultService].account = result.data;
-                                  
-                                  [self.tableView reloadData];
-                              }
-     
-                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                  [self showDialogWithTitle:nil message:error.message];
-                              }];
-}
-
-- (void)deleteChild {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
-    Account *account = [AccountService defaultService].account;
-    Child *child = [account.children objectAtIndexedSubscript:(account.children.count - 1)];
-    
-    NSDictionary *params = @{@"cid" : [NSString stringWithFormat:@"%@", child.ids]};
-    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/child/delete")
-                           parameters:params JSONModelClass:[AccountModel class]
-                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                  AccountModel *result = (AccountModel *)responseObject;
-                                  [AccountService defaultService].account = result.data;
-                                  
-                                  [self.tableView reloadData];
-                              }
-     
-                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                  [self showDialogWithTitle:nil message:error.message];
-                              }];
-}
+//- (void)deleteChild {
+//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    
+//    Account *account = [AccountService defaultService].account;
+//    Child *child = [account.children objectAtIndexedSubscript:(account.children.count - 1)];
+//    
+//    NSDictionary *params = @{@"cid" : [NSString stringWithFormat:@"%@", child.ids]};
+//    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/child/delete")
+//                           parameters:params JSONModelClass:[AccountModel class]
+//                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+//                                  AccountModel *result = (AccountModel *)responseObject;
+//                                  [AccountService defaultService].account = result.data;
+//                                  
+//                                  [self.tableView reloadData];
+//                              }
+//     
+//                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+//                                  [self showDialogWithTitle:nil message:error.message];
+//                              }];
+//}
 
 /*
 #pragma mark - Navigation
@@ -139,21 +149,12 @@
     } else if (section == 1) {
         return 2;
     } else if (section == 2) {
-//        Account *account = [AccountService defaultService].account;
-//        if ([account.children count] == 0) {
-//            return 0;
-//        }
         return 1;
     } else return 3;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-//    Account *account = [AccountService defaultService].account;
-//    if ([account.children count] == 0) {
-//        return 3;
-//    }
-//    return 2 + [account.children count];
     
     return 3;
     
@@ -189,9 +190,6 @@
     if (section == 0) {
         return 40;
     }
-//    else if (section == 2) {
-//        return 50;
-//    }
     return 10;
 }
 
@@ -223,12 +221,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"section -- %d -- %d",indexPath.section,indexPath.row);
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     NSString *title;
     NSInteger tag = 0;
-    NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     if (indexPath.section == 0) {
         if (row == 0) {
@@ -346,32 +342,10 @@
         else{
             
             cell.textLabel.text = @"出行宝宝";
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%d个",[account.children count]];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu个",(unsigned long)[account.children count]];
         }
-//        else {
-//            Child *child = [self childAtIndex:(section - 2)];
-//            if (row == 0) {
-//                cell.textLabel.text = @"孩子昵称";
-//                cell.detailTextLabel.text = child.name;
-//                
-//            } else if (row == 1) {
-//                cell.textLabel.text = @"性别";
-//                cell.detailTextLabel.text = child.sex;
-//            } else if (row == 2) {
-//                cell.textLabel.text = @"生日";
-//                cell.detailTextLabel.text = child.birthday;
-//            }
-//        }
     }
     return cell;
-}
-
-- (NSString *)defaultChildName:(NSInteger)index {
-    if (index < 0 || index > 4) {
-        return @"宝宝";
-    }
-    NSArray *baby = [NSArray arrayWithObjects:@"大宝", @"二宝", @"三宝", @"四宝", @"五宝", nil];
-    return [baby objectAtIndex:index];
 }
 
 

@@ -15,16 +15,19 @@
     [super awakeFromNib];
     // Initialization code
     
-    
 }
 
 -(void)setData:(Child *)child{
+    
+    [_name setText:child.name];
+    [_sex setText:child.sex];
+    [_age setText:[child ageWithDateOfBirth]];
     
 }
 
 - (IBAction)editChildDetail:(id)sender {
     
-    ChildDetailViewController *childDetailVC = [[ChildDetailViewController alloc]init];
+    ChildDetailViewController *childDetailVC = [[ChildDetailViewController alloc]initWithParams:@{@"action":@"update",@"childid":@123}];
     [_ownerVC.navigationController pushViewController:childDetailVC animated:YES];
     
 }

@@ -20,6 +20,11 @@
                             <constraint firstAttribute="width" constant="53" id="L2j-Gw-pbw"/>
                             <constraint firstAttribute="height" constant="53" id="rrE-k8-pDW"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <real key="value" value="26.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="头像" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwJ-m9-PeX">
                         <rect key="frame" x="13" y="25" width="30" height="18"/>
