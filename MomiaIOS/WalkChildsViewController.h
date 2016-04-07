@@ -8,7 +8,6 @@
 
 #import "MOGroupStyleTableViewController.h"
 
-//出行宝宝
 @interface WalkChildsViewController : MOGroupStyleTableViewController
 
 - (instancetype)initWithParams:(NSDictionary *)params;

@@ -14,27 +14,21 @@
 #import "WalkChildsViewController.h"
 #import "DatePickerSheet.h"
 #import "WalkChildCellTableViewCell.h"
+#import "ChildDetailViewController.h"
+#import "UploadImageModel.h"
 
-enum TagForActionSheet{
-    TagForImagePicker,
-    TagForSexPicker,
-    TagForDatePicker
-}TagForActionSheet;
+typedef void (^uploadSuccess)(NSString *filePath);
+typedef void (^uploadFail)(void);
 
-//确认约课
 @interface ConfirmBookViewController ()<UIActionSheetDelegate,DatePickerSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
-@property(nonatomic,weak) UIImageView *avaorImageView;
-@property(nonatomic,weak) UILabel *sexCellItem;
-@property(nonatomic,weak) UILabel *dateCellItem;
-@property(nonatomic,strong) NSString *action;
-@property(nonatomic,assign) NSInteger *childId;
-@property(nonatomic,strong) Child *child;
-@property(nonatomic,weak) UITextField *childNameField;
-@property(nonatomic,assign) BOOL isAvatarSet;
-@property(nonatomic,assign) BOOL isNameSet;
-@property(nonatomic,assign) BOOL isSexSet;
-@property(nonatomic,assign) BOOL isBirthdaySet;
+@property (nonatomic,weak  ) UIImageView *avaorImageView;
+@property (nonatomic,weak  ) UILabel     *sexCellItem;
+@property (nonatomic,weak  ) UILabel     *dateCellItem;
+@property (nonatomic,weak  ) UITextField *childNameField;
+@property (nonatomic,strong) NSString    *action;
+@property (nonatomic,strong) NSString    *filePath;
+@property (nonatomic,strong) Child       *child;
 
 @end
 
@@ -54,6 +48,11 @@ enum TagForActionSheet{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"确认约课";
+    if ([AccountService defaultService].account.children && [AccountService defaultService].account.children.count > 0) {
+        self.child = [AccountService defaultService].account.children[0];
+    }else{
+        _child = [[Child alloc]init];
+    }
     
 }
 
@@ -64,6 +63,7 @@ enum TagForActionSheet{
 
 
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     if ([AccountService defaultService].account.children.count > 0 ) {
         _child = [AccountService defaultService].account.children[_choosedChildItem];
         [self.tableView reloadData];
@@ -73,13 +73,10 @@ enum TagForActionSheet{
 
 #pragma tableView
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    
     return 2;
 }
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
     if (section == 0) {
         return 1;
     }else if(section == 1 && [AccountService defaultService].account.children.count == 0){
@@ -96,7 +93,6 @@ enum TagForActionSheet{
     return 0.1f;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     if (indexPath.section == 0 && indexPath.row == 0) {
         return 120;
     }
@@ -143,7 +139,7 @@ enum TagForActionSheet{
 
 -(void)showSexPicker:(NSInteger)tag {
     UIActionSheet *sexSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"男",@"女",nil];
-    sexSheet.tag = TagForSexPicker;
+    sexSheet.tag = tag;
     [sexSheet showInView:[[UIApplication sharedApplication].delegate window]];
 }
 
@@ -153,12 +149,11 @@ enum TagForActionSheet{
                                    withMinDate:nil
                             withDatePickerMode:UIDatePickerModeDate
                                   withDelegate:self];
-    datePickerSheet.tag = TagForDatePicker;
+    datePickerSheet.tag = tag;
     [datePickerSheet showDatePickerSheet];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     //选择宝宝
     if (indexPath.section == 1 && [AccountService defaultService].account.children.count != 0) {
         
@@ -179,16 +174,13 @@ enum TagForActionSheet{
 
 
 //弹出actionsheet。选择获取头像的方式
-//从相册获取图片
--(void)takePictureClick
-{
+-(void)takePictureClick{
     UIActionSheet* actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:@"请选择图片来源"
                                   delegate:self
                                   cancelButtonTitle:@"取消"
                                   destructiveButtonTitle:nil
                                   otherButtonTitles:@"照相机", @"本地相簿",nil];
-    actionSheet.tag = TagForImagePicker;
     [actionSheet showInView:self.view];
 }
 
@@ -211,80 +203,135 @@ enum TagForActionSheet{
     return view;
 }
 
-//提交到服务器--确认预约
+//--确认预约
 -(void)onConfirmBook:(id)sender{
-    
     if ([AccountService defaultService].account.children.count == 0) {
         //先新增孩子
-        [self confirmAdd];
+        [self addChild];
+    }else if (self.child) {
+        [self commitToServer:self.selectSkuIds.integerValue pid:self.pid cid:self.child.ids.integerValue];
     }
+    
+}
+//提交到服务器
+-(void)commitToServer:(NSInteger)skuId pid:(NSString *)pid
+                  cid:(NSInteger)cid{
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    NSDictionary *params = @{@"sid":[NSNumber numberWithInteger:skuId], @"pid":pid,@"cid":[NSNumber numberWithInteger:cid]};
+    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/course/booking")
+                           parameters:params JSONModelClass:[BaseModel class]
+                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  [self showDialogWithTitle:nil message:@"预约成功，您已被拉入该课群组，猛戳 “我的—我的群组” 就可以随意调戏我们的老师啦~" tag:1];
+                                  [[NSNotificationCenter defaultCenter]postNotificationName:@"onMineDotChanged" object:nil];
+                    
+                              }
+                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  [self showDialogWithTitle:nil message:error.message];
+                              }];
 }
 
--(void)onDoneBookCourse{
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (alertView.tag == 88) {
+        return;
+    }
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+//新增孩子
+-(void)addChild{
+    //1.检查参数
+    if (![self checkInput]) {
+        return;
+    }
+    //2.添加数据
+    [self addChildData];
+    //3.上传文件
+    [self uploadFile:self.filePath fileName:@"selfPhoto.jpg" success:^(NSString *filePath) {
+        //4.增加孩子
+        _child.avatar = filePath;
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        
-        NSDictionary *params = @{@"sid":self.selectSkuIds, @"pid":self.pid};
-        [[HttpService defaultService]POST:URL_APPEND_PATH(@"/course/booking")
-                               parameters:params JSONModelClass:[BaseModel class]
+        NSMutableArray *babyArray = [[NSMutableArray alloc] init];
+        [babyArray addObject:[_child toNSDictionary]];
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:babyArray options:NSJSONWritingPrettyPrinted error:nil];
+        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",jsonString);
+        NSDictionary *params = @{@"children" : jsonString};
+        [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/child")
+                               parameters:params JSONModelClass:[AccountModel class]
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                       [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                      [self showDialogWithTitle:nil message:@"预约成功，您已被拉入该课群组，猛戳 “我的—我的群组” 就可以随意调戏我们的老师啦~" tag:1];
-                                      [[NSNotificationCenter defaultCenter]postNotificationName:@"onMineDotChanged" object:nil];
+                                      AccountModel *result = (AccountModel *)responseObject;
+                                      [AccountService defaultService].account = result.data;
+                                      self.child = [[AccountService defaultService].account.children lastObject];
+                                      //广播出去
+                                      [[NSNotificationCenter defaultCenter] postNotificationName:@"Notification_UpdateUserInfo" object:nil userInfo:nil];
+                                       //提交预约
+                                      [self commitToServer:self.selectSkuIds.integerValue pid:self.pid cid:self.child.ids.integerValue];
+                                      
                                   }
          
                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       [MBProgressHUD hideHUDForView:self.view animated:YES];
                                       [self showDialogWithTitle:nil message:error.message];
                                   }];
+    } fail:^{
+        [UIAlertController alertControllerWithTitle:@"上传出错" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    }];
+}
+//上传文件
+-(void)uploadFile:(NSString *)filePath fileName:(NSString *)fileName success:(uploadSuccess)success fail:(uploadFail)fail{
+    
+    [[HttpService defaultService] uploadImageWithFilePath:filePath fileName:fileName handler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            [self showDialogWithTitle:nil message:@"error"];
+            fail();
+        }else{
+            UploadImageData *data = ((UploadImageModel *)responseObject).data;
+            success(data.path);
+        }
+    }];
+}
 
+-(BOOL)checkInput{
+    
+    if (_avaorImageView.image == nil ) {
+        [self alertMessage:@"头像没有设置"];
+        return NO;
+    }else if(_childNameField.text == nil || [_childNameField.text isEqualToString:@""]){
+        [self alertMessage:@"姓名没有设置"];
+        return NO;
+    }else if(_sexCellItem.text == nil || [ _sexCellItem.text isEqualToString:@""]){
+        [self alertMessage:@"性别没有设置"];
+        return NO;
+    }else if(_dateCellItem.text == nil || [_dateCellItem.text isEqualToString:@""]){
+        [self alertMessage:@"生日没有设置"];
+        return NO;
+    }
+    return YES;
 }
-//新增孩子信息
--(void)confirmAdd{
-    
-    if (_childNameField.text != nil && ![_childNameField.text isEqualToString:@""]) {
-        _isNameSet = YES;
-    }
-    if (!(_isNameSet && _isSexSet && _isBirthdaySet)) {
-        
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"信息不完整" message:nil delegate:self cancelButtonTitle:@"确认" otherButtonTitles:nil, nil];
-        [alert show];
-        return;
-    }
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
-    NSMutableArray *babyArray = [[NSMutableArray alloc] init];
+
+-(void)addChildData{
     _child.name = _childNameField.text;
-    [babyArray addObject:[_child toNSDictionary]];
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:babyArray options:NSJSONWritingPrettyPrinted error:nil];
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    
-    NSDictionary *params = @{@"children" : jsonString};
-    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/child")
-                           parameters:params JSONModelClass:[AccountModel class]
-                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                  AccountModel *result = (AccountModel *)responseObject;
-                                  [AccountService defaultService].account = result.data;
-                                  
-                                  //广播出去
-                                  [[NSNotificationCenter defaultCenter] postNotificationName:@"Notification_UpdateUserInfo" object:nil userInfo:nil];
-                                  
-                              }
-     
-                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                  [self showDialogWithTitle:nil message:error.message];
-                              }];
+    _child.sex = _sexCellItem.text;
+    _child.birthday = _dateCellItem.text;
 }
+
+-(void)alertMessage:(NSString *)message{
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:message message:nil delegate:self cancelButtonTitle:@"确认" otherButtonTitles:nil, nil];
+    alert.tag = 88;
+    [alert show];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
     if (indexPath.section == 0 && indexPath.row == 0 ) {
-        
         CourseLocationTimeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CourseLocationTimeCell"];
         if (cell == nil) {
             cell = [[CourseLocationTimeCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CourseLocationTimeCell"];
-            
         }
         return cell;
         
@@ -349,8 +396,8 @@ enum TagForActionSheet{
             cell = [[[NSBundle mainBundle]loadNibNamed:@"WalkChildCellTableViewCell" owner:self options:nil]lastObject];
             [cell setData:_child];
             [[cell viewWithTag:13]removeFromSuperview];
-            UIButton *button = [cell viewWithTag:14];
-            [button setTitle:@"选择宝宝" forState:UIControlStateNormal];
+            UILabel *label = [cell viewWithTag:14];
+            [label setText:@"选择宝宝"];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
         return cell;
@@ -362,7 +409,7 @@ enum TagForActionSheet{
 #pragma UIActionSheet Delegate
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (actionSheet.tag == TagForImagePicker) {
+    if (actionSheet.tag == 0) {
         switch (buttonIndex) {
             case 0://照相机
             {
@@ -391,7 +438,7 @@ enum TagForActionSheet{
         }
     }
     
-    else if(actionSheet.tag == TagForSexPicker){
+    else if(actionSheet.tag == 2){
         
         if(buttonIndex > 1){
             return;
@@ -399,27 +446,21 @@ enum TagForActionSheet{
         //选择性别
         NSString * sex = buttonIndex == 0 ? @"男" : @"女";
         [_sexCellItem setText:sex];
-        _child.sex = sex;
-        _isSexSet = YES;
     }
 
 }
-- (void)datePickerSheet:(DatePickerSheet*)datePickerSheet chosenDate:(NSDate*)date
-{
+- (void)datePickerSheet:(DatePickerSheet*)datePickerSheet chosenDate:(NSDate*)date{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yyyy-MM-dd";
     NSString *dateString = [formatter stringFromDate:date];
     
     //设置生日
     [_dateCellItem setText:dateString];
-    _child.birthday = dateString;
-    _isBirthdaySet = YES;
 }
 
 #pragma mark -
 #pragma UIImagePickerController Delegate
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     if ([[info objectForKey:UIImagePickerControllerMediaType] isEqualToString:(__bridge NSString *)kUTTypeImage]) {
         UIImage *img = [info objectForKey:UIImagePickerControllerEditedImage];
         [self performSelector:@selector(saveImage:)  withObject:img afterDelay:0.5];
@@ -446,5 +487,7 @@ enum TagForActionSheet{
     
     [_avaorImageView setImage:newImage];
     [UIImageJPEGRepresentation(newImage, 1.0f) writeToFile:imageFilePath atomically:YES];
+    
+    self.filePath = imageFilePath;
 }
 @end

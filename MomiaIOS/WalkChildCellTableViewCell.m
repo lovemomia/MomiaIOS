@@ -19,15 +19,21 @@
 
 -(void)setData:(Child *)child{
     
+    self.child = child;
     [_name setText:child.name];
     [_sex setText:child.sex];
     [_age setText:[child ageWithDateOfBirth]];
-    
+    if (child.avatar) {
+        NSURL *url = [[NSURL alloc]initWithString:child.avatar];
+        [_avatar sd_setImageWithURL:url completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            [_avatar setImage:image];
+        }];
+    }
 }
 
 - (IBAction)editChildDetail:(id)sender {
     
-    ChildDetailViewController *childDetailVC = [[ChildDetailViewController alloc]initWithParams:@{@"action":@"update",@"childid":@123}];
+    ChildDetailViewController *childDetailVC = [[ChildDetailViewController alloc]initWithParams:@{@"action":@"update",@"childId":self.child.ids}];
     [_ownerVC.navigationController pushViewController:childDetailVC animated:YES];
     
 }

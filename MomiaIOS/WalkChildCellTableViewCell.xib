@@ -15,39 +15,24 @@
                 <rect key="frame" x="0.0" y="0.0" width="365" height="95.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Asq-Fc-nLD">
-                        <rect key="frame" x="18" y="18" width="58" height="58"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="58" id="7L6-dS-oWb"/>
-                            <constraint firstAttribute="height" constant="58" id="y5N-M3-x3v"/>
-                        </constraints>
-                        <state key="normal" image="IconUserNotLogin"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="29"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                        </userDefinedRuntimeAttributes>
-                    </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iJO-9f-agj">
-                        <rect key="frame" x="86" y="18" width="128" height="58"/>
+                        <rect key="frame" x="86" y="19" width="128" height="58"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3TP-sz-oM8">
                                 <rect key="frame" x="2" y="2" width="38" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1o-bw-RU0">
                                 <rect key="frame" x="2" y="24.5" width="25.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J72-bM-CHJ">
                                 <rect key="frame" x="56" y="2" width="23.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -74,33 +59,44 @@
                             <action selector="editChildDetail:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bp4-Se-oW8"/>
                         </connections>
                     </button>
-                    <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYa-jC-KxF">
-                        <rect key="frame" x="325" y="33" width="30" height="30"/>
-                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oQL-7a-bep">
+                        <rect key="frame" x="18" y="19" width="58" height="58"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="58" id="d9Q-e0-AzJ"/>
+                            <constraint firstAttribute="height" constant="58" id="f2t-mr-O4V"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <real key="value" value="28.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="14" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUC-IM-pnJ">
+                        <rect key="frame" x="318.5" y="39" width="37.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="iJO-9f-agj" firstAttribute="centerY" secondItem="Asq-Fc-nLD" secondAttribute="centerY" id="C7i-uD-qub"/>
                     <constraint firstItem="P8m-3K-r6W" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Fxn-9v-DbR"/>
                     <constraint firstAttribute="trailingMargin" secondItem="P8m-3K-r6W" secondAttribute="trailing" constant="10" id="JAX-NW-1IE"/>
-                    <constraint firstItem="iJO-9f-agj" firstAttribute="height" secondItem="Asq-Fc-nLD" secondAttribute="height" id="MdB-sJ-C9y"/>
-                    <constraint firstItem="Asq-Fc-nLD" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ZWs-ae-l7X"/>
-                    <constraint firstItem="sYa-jC-KxF" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dg4-cq-Sau"/>
-                    <constraint firstItem="iJO-9f-agj" firstAttribute="leading" secondItem="Asq-Fc-nLD" secondAttribute="trailing" constant="10" id="fKH-rX-Who"/>
-                    <constraint firstItem="Asq-Fc-nLD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="wqa-G9-ope"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="sYa-jC-KxF" secondAttribute="trailing" constant="2" id="yfd-HH-Qai"/>
+                    <constraint firstItem="iJO-9f-agj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="M57-4M-7Xy"/>
+                    <constraint firstItem="iJO-9f-agj" firstAttribute="height" secondItem="oQL-7a-bep" secondAttribute="height" id="Mp2-2I-tv2"/>
+                    <constraint firstItem="dUC-IM-pnJ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Nbo-oL-TtN"/>
+                    <constraint firstItem="iJO-9f-agj" firstAttribute="leading" secondItem="oQL-7a-bep" secondAttribute="trailing" constant="10" id="UNE-Me-99d"/>
+                    <constraint firstItem="oQL-7a-bep" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="itZ-z8-Lcb"/>
+                    <constraint firstItem="oQL-7a-bep" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="lA0-bj-wZG"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="dUC-IM-pnJ" secondAttribute="trailing" constant="1" id="r90-ec-crZ"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="age" destination="r1o-bw-RU0" id="ta2-CV-m7N"/>
-                <outlet property="avatar" destination="Asq-Fc-nLD" id="arZ-05-pzu"/>
-                <outlet property="editButton" destination="sYa-jC-KxF" id="ST7-Gg-vMi"/>
+                <outlet property="avatar" destination="oQL-7a-bep" id="2e0-rn-bJm"/>
                 <outlet property="name" destination="3TP-sz-oM8" id="QsK-dJ-PVj"/>
                 <outlet property="sex" destination="J72-bM-CHJ" id="h0k-j8-MO7"/>
             </connections>
             <point key="canvasLocation" x="226.5" y="683"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="IconUserNotLogin" width="58" height="58"/>
-    </resources>
 </document>

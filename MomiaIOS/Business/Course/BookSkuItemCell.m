@@ -13,6 +13,20 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+        UILabel *label = [UILabel new];
+        label.text = @"已满";
+        label.font = [UIFont systemFontOfSize:15.0];
+        label.backgroundColor = [UIColor grayColor];
+        label.textAlignment = NSTextAlignmentCenter;
+        [self addSubview:label];
+    
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(40, 20));
+            make.top.equalTo(self).with.offset(0);
+            make.right.equalTo(self).with.offset(0);
+        }];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -8,9 +8,7 @@
 
 #import "MOGroupStyleTableViewController.h"
 
-//宝宝信息
 @interface ChildDetailViewController : MOGroupStyleTableViewController
-
 
 - (instancetype)initWithParams:(NSDictionary *)params;
 

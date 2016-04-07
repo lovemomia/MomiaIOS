@@ -14,16 +14,15 @@
 
 @interface WalkChildsViewController ()
 
-@property(nonatomic,assign) NSInteger childCount;
-@property(nonatomic,strong) NSMutableArray *childs;
-@property(nonatomic,strong) NSString *action;
-@property(nonatomic,assign) NSInteger choosedChildItem;
+@property (nonatomic, assign) NSInteger childCount;
+@property (nonatomic, strong) NSMutableArray *childs;
+@property (nonatomic, strong) NSString *action;
+@property (nonatomic, assign) NSInteger choosedChildItem;
 
 @end
 
 @implementation WalkChildsViewController
-
-
+//动作有选择宝宝和 出行宝宝两种类型(既action动作)
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
         self.action = [params objectForKey:@"action"];
@@ -34,8 +33,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
     if ([self.action isEqualToString:@"chooseChild"]) {
         self.title = @"选择宝宝";
     }else{
@@ -68,16 +65,13 @@
 
 -(void)addChild{
     
-    ChildDetailViewController *childDetailVC = [[ChildDetailViewController alloc]initWithParams:@{@"action":@"add",@"childid":@123}];
+    ChildDetailViewController *childDetailVC = [[ChildDetailViewController alloc]initWithParams:@{@"action":@"add"}];
     [self.navigationController pushViewController:childDetailVC animated:YES];
 }
 
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    
     return 1;
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
@@ -88,11 +82,9 @@
     
     return 10;
 }
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
 
-- (UITableViewCellAccessoryType)tableView:(UITableView *)tableView accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCellAccessoryType)tableView:(UITableView *)tableView
+         accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath{
     if ([self.action isEqualToString:@"chooseChild"] && indexPath.row == _choosedChildItem) {
         
         __weak ConfirmBookViewController *vc = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 2 ];
@@ -102,7 +94,15 @@
     return UITableViewCellAccessoryNone;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (![self.action isEqualToString:@"chooseChild"]) {
+        return YES;
+    }
+    return NO;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     _choosedChildItem = indexPath.row;
     [self.tableView reloadData];
 }
@@ -126,7 +126,8 @@
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSInteger row = indexPath.row;
     static NSString *WalkChildsCellIdentifer = @"WalkChildsCellInentifer";
@@ -150,7 +151,6 @@
 - (void)deleteChild:(NSNumber *)ids {
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
     NSDictionary *params = @{@"cid" : [NSString stringWithFormat:@"%@", ids]};
     [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/child/delete")
                            parameters:params JSONModelClass:[AccountModel class]

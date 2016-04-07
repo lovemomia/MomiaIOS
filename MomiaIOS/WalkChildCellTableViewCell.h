@@ -11,13 +11,13 @@
 
 @interface WalkChildCellTableViewCell : UITableViewCell
 
-
 @property(nonatomic,weak) UIViewController* ownerVC;
-@property (weak, nonatomic) IBOutlet UIButton *avatar;
+@property (weak, nonatomic) IBOutlet UIImageView *avatar;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *sex;
 @property (weak, nonatomic) IBOutlet UILabel *age;
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
+@property (weak, nonatomic) Child *child;
 
 -(void)setData:(Child *)child;
 
