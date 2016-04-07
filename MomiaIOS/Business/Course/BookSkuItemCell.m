@@ -8,25 +8,39 @@
 
 #import "BookSkuItemCell.h"
 #import "CourseSkuListModel.h"
+#import "MOStepperView.h"
 
 @implementation BookSkuItemCell
 
 - (void)awakeFromNib {
     // Initialization code
     
-        UILabel *label = [UILabel new];
-        label.text = @"已满";
-        label.font = [UIFont systemFontOfSize:15.0];
-        label.backgroundColor = [UIColor grayColor];
-        label.textAlignment = NSTextAlignmentCenter;
-        [self addSubview:label];
+    UILabel *label = [UILabel new];
+    label.text = @"已满";
+    label.font = [UIFont systemFontOfSize:15.0];
+    label.backgroundColor = [UIColor grayColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    [self addSubview:label];
     
-        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(40, 20));
             make.top.equalTo(self).with.offset(0);
             make.right.equalTo(self).with.offset(0);
         }];
-
+    
+    MOStepperView *stepView = [[MOStepperView alloc]init];
+    stepView.maxValue = 10;
+    stepView.minValue = 0;
+    stepView.currentValue = 3;
+    stepView.plusEnabled = YES;
+    [self addSubview:stepView];
+    
+    [stepView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.size.mas_equalTo(CGSizeMake(100, 20));
+        make.centerY.equalTo(self);
+        make.right.equalTo(self).with.offset(-10);
+    }];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
