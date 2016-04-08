@@ -188,18 +188,14 @@ static NSString *identifierBookSkuDateTitleCell = @"BookSkuDateTitleCell";
         
         if (self.selectSection == section && self.selectRow == row) {
             cell.tintColor = MO_APP_ThemeColor;
-//            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
         } else {
-//            cell.accessoryType = UITableViewCellAccessoryNone;
+            cell.accessoryType = UITableViewCellAccessoryNone;
         }
     }
     return cell;
 }
 
-- (UITableViewCellAccessoryType)tableView:(UITableView *)tableView accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath{
- 
-    return UITableViewCellAccessoryNone;
-}
 -(void)tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

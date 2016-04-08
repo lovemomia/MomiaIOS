@@ -15,18 +15,18 @@
 - (void)awakeFromNib {
     // Initialization code
     
-    UILabel *label = [UILabel new];
-    label.text = @"已满";
-    label.font = [UIFont systemFontOfSize:15.0];
-    label.backgroundColor = [UIColor grayColor];
-    label.textAlignment = NSTextAlignmentCenter;
-    [self addSubview:label];
-    
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(40, 20));
-            make.top.equalTo(self).with.offset(0);
-            make.right.equalTo(self).with.offset(0);
-        }];
+//    UILabel *label = [UILabel new];
+//    label.text = @"已满";
+//    label.font = [UIFont systemFontOfSize:15.0];
+//    label.backgroundColor = [UIColor grayColor];
+//    label.textAlignment = NSTextAlignmentCenter;
+//    [self addSubview:label];
+//    
+//    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.size.mas_equalTo(CGSizeMake(40, 20));
+//            make.top.equalTo(self).with.offset(0);
+//            make.right.equalTo(self).with.offset(0);
+//        }];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -37,13 +37,6 @@
 
 - (void)setData:(CourseSku *)data {
     
-    _steperView.maxValue = 10;
-    _steperView.minValue = 0;
-    _steperView.currentValue = 0;
-    _steperView.plusEnabled = YES;
-    _steperView.onclickStepper = ^(NSUInteger i){
-        
-    };
     self.titleLabel.text = data.place.name;
     self.addressLabel.text = data.place.address;
     if ([data.closed boolValue]) {
