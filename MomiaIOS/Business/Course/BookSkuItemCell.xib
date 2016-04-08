@@ -48,16 +48,25 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHx-JI-8gc">
-                        <rect key="frame" x="9" y="75.5" width="14" height="14.5"/>
+                        <rect key="frame" x="9" y="75" width="14" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.96470588239999999" green="0.45882352939999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ff-WX-wfd" customClass="MOStepperView">
+                        <rect key="frame" x="215" y="39.5" width="90" height="30"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="Rgt-Zw-uWe"/>
+                            <constraint firstAttribute="width" constant="90" id="q1i-Vq-OQe"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="D8m-w3-1UC" secondAttribute="trailing" constant="10" id="6K7-PK-9P2"/>
                     <constraint firstItem="fHx-JI-8gc" firstAttribute="top" secondItem="IGV-2R-gMc" secondAttribute="bottom" constant="1" id="AM2-58-3tn"/>
                     <constraint firstItem="IGV-2R-gMc" firstAttribute="leading" secondItem="cBm-rt-geV" secondAttribute="trailing" constant="5" id="ICe-Al-ZH6"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="3Ff-WX-wfd" secondAttribute="trailing" constant="10" id="NA8-kK-ZFn"/>
                     <constraint firstItem="D8m-w3-1UC" firstAttribute="leading" secondItem="aK0-B6-oju" secondAttribute="trailing" constant="5" id="PPe-KB-3yc"/>
                     <constraint firstItem="aK0-B6-oju" firstAttribute="top" secondItem="TS9-Xr-ds7" secondAttribute="bottom" constant="9" id="WyO-YD-TON"/>
                     <constraint firstAttribute="trailing" secondItem="TS9-Xr-ds7" secondAttribute="trailing" constant="10" id="XOP-Mz-4N9"/>
@@ -66,6 +75,7 @@
                     <constraint firstItem="TS9-Xr-ds7" firstAttribute="leading" secondItem="aSd-ZE-hD9" secondAttribute="leading" constant="10" id="diA-XU-idz"/>
                     <constraint firstItem="IGV-2R-gMc" firstAttribute="top" secondItem="D8m-w3-1UC" secondAttribute="bottom" constant="9" id="ffV-WH-e13"/>
                     <constraint firstItem="aK0-B6-oju" firstAttribute="leading" secondItem="aSd-ZE-hD9" secondAttribute="leading" constant="10" id="kDX-Zs-y2x"/>
+                    <constraint firstItem="3Ff-WX-wfd" firstAttribute="centerY" secondItem="aSd-ZE-hD9" secondAttribute="centerY" id="lS1-4o-1oJ"/>
                     <constraint firstItem="D8m-w3-1UC" firstAttribute="top" secondItem="TS9-Xr-ds7" secondAttribute="bottom" constant="9" id="p56-vE-8Wo"/>
                     <constraint firstItem="TS9-Xr-ds7" firstAttribute="top" secondItem="aSd-ZE-hD9" secondAttribute="top" constant="10" id="q7r-sJ-0DD"/>
                     <constraint firstItem="fHx-JI-8gc" firstAttribute="leading" secondItem="aSd-ZE-hD9" secondAttribute="leadingMargin" constant="1" id="z4z-te-eE4"/>
@@ -74,10 +84,11 @@
             <connections>
                 <outlet property="addressLabel" destination="D8m-w3-1UC" id="cYG-HH-VJn"/>
                 <outlet property="countLabel" destination="fHx-JI-8gc" id="Iig-SG-D3x"/>
+                <outlet property="steperView" destination="3Ff-WX-wfd" id="lQW-mx-gYo"/>
                 <outlet property="timeLabel" destination="IGV-2R-gMc" id="Gc5-oI-TlL"/>
                 <outlet property="titleLabel" destination="TS9-Xr-ds7" id="M4F-Jc-xVn"/>
             </connections>
-            <point key="canvasLocation" x="212.5" y="185"/>
+            <point key="canvasLocation" x="233.5" y="208"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -27,20 +27,6 @@
             make.top.equalTo(self).with.offset(0);
             make.right.equalTo(self).with.offset(0);
         }];
-    
-    MOStepperView *stepView = [[MOStepperView alloc]init];
-    stepView.maxValue = 10;
-    stepView.minValue = 0;
-    stepView.currentValue = 3;
-    stepView.plusEnabled = YES;
-    [self addSubview:stepView];
-    
-    [stepView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.size.mas_equalTo(CGSizeMake(100, 20));
-        make.centerY.equalTo(self);
-        make.right.equalTo(self).with.offset(-10);
-    }];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -50,6 +36,14 @@
 }
 
 - (void)setData:(CourseSku *)data {
+    
+    _steperView.maxValue = 10;
+    _steperView.minValue = 0;
+    _steperView.currentValue = 0;
+    _steperView.plusEnabled = YES;
+    _steperView.onclickStepper = ^(NSUInteger i){
+        
+    };
     self.titleLabel.text = data.place.name;
     self.addressLabel.text = data.place.address;
     if ([data.closed boolValue]) {

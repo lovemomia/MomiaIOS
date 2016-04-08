@@ -11,6 +11,8 @@
 
 @implementation Account
 
+@synthesize children = _children;
+
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithDictionary:@{
                                                        @"id":@"uid"
@@ -86,10 +88,10 @@
     return self.bigChild;
 }
 
-//- (void)setChildren:(NSArray *)children {
-//    _children = children;
-//    [self save];
-//}
+- (void)setChildren:(NSMutableArray *)children {
+    _children = children;
+    [self save];
+}
 
 - (NSMutableArray *)children {
     return _children;
