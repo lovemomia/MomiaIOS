@@ -8,6 +8,14 @@
 
 #import "CourseLocationTimeCell.h"
 
+@interface CourseLocationTimeCell()
+
+@property(nonatomic,strong) UILabel *address;
+@property(nonatomic,strong) UILabel *startTime;
+@property(nonatomic,strong) UILabel *name;
+
+
+@end
 @implementation CourseLocationTimeCell
 
 - (void)awakeFromNib {
@@ -35,14 +43,13 @@
         }];
         
         UILabel *timeLabel = [[UILabel alloc]init];
+        self.startTime = timeLabel;
         [view addSubview:timeLabel];
         [timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
            
             make.centerY.equalTo(timeImage);
             make.left.equalTo(timeImage.mas_right).offset(10); //相对locImage偏移10个单位
         }];
-        timeLabel.text = @"1月1号(周六) 10:00 - 12:00";
-        
         UIImageView *locImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"IconAddress"]];
         [view addSubview:locImage];
         [locImage mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -52,13 +59,13 @@
         }];
         
         UILabel *locLabel = [UILabel new];
+        self.name = locLabel;
         [view addSubview:locLabel];
         [locLabel mas_makeConstraints:^(MASConstraintMaker *make) {
            
             make.centerY.equalTo(locImage);
             make.left.equalTo(locImage.mas_right).offset(15);
         }];
-        locLabel.text = @"瑞尔齿科（中山公园店)";
         
         UILabel *detailLoc = [UILabel new];
         [view addSubview:detailLoc];
@@ -67,10 +74,18 @@
             make.left.equalTo(locLabel);
             make.top.equalTo(locLabel.mas_bottom).offset(15);
         }];
-        detailLoc.text = @"长宁区长宁路999号龙之梦,200米";
+        self.address = detailLoc;
     }
     
     return self;
+}
+
+-(void)setData:(CourseSku *)selectSku{
+    if (selectSku) {
+        self.startTime.text = selectSku.time;
+        self.address.text = selectSku.place.address;
+        self.name.text = selectSku.place.name;
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

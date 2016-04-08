@@ -88,12 +88,16 @@
     return self.bigChild;
 }
 
-- (void)setChildren:(NSMutableArray *)children {
+- (void)setChildren:(NSMutableArray<Child,Optional> *)children {
     _children = children;
     [self save];
 }
 
 - (NSMutableArray *)children {
+    if (!_children) {
+        _children = [[NSMutableArray<Child,Optional> alloc]init];
+        return _children;
+    }
     return _children;
 }
 
@@ -159,6 +163,17 @@
     Child *child = [self getBigChild];
     
     return [NSString stringWithFormat:@"%@", [child ageWithDateOfBirth]];
+}
+
+-(Child *)getFirstChild{
+    if (self.children) {
+        return self.children[0];
+    }
+    return nil;
+}
+
+-(BOOL)haveChildren{
+    return self.children;
 }
 
 @end

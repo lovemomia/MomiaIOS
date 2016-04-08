@@ -15,13 +15,14 @@
 typedef void (^uploadSuccess)(NSString *filePath);
 typedef void (^uploadFail)(void);
 
+static NSString *tempImagePath = @"tempImage.jepg";
 @interface ChildDetailViewController ()<UIActionSheetDelegate,DatePickerSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (nonatomic, strong) NSString    *action;
 @property (nonatomic, strong) NSString    *filePath;
 @property (nonatomic, assign) NSInteger   childId;
 @property (nonatomic, strong) Child       *child;
-@property (nonatomic, strong) Child       *freshChild; //更新的child
+@property (nonatomic, strong) Child       *oldChild; //更新的child
 @property (nonatomic, weak  ) UIImageView *avaorImageView;
 @property (nonatomic, weak  ) UILabel     *sexCellItem;
 @property (nonatomic, weak  ) UILabel     *dateCellItem;
@@ -51,8 +52,9 @@ typedef void (^uploadFail)(void);
         self.title = @"宝宝信息";
         [[AccountService defaultService].account.children enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if(_childId == ((Child *)obj).ids.integerValue){
-                _child = obj;
-                _freshChild = [_child copy];
+                _oldChild = obj;
+                _child = [_oldChild copy];
+                NSLog(@" ---- %@---",[_child toJSONString]);
             }
         }];
     }
@@ -131,11 +133,17 @@ typedef void (^uploadFail)(void);
 //确认修改
 -(void)confirmUpdate:(id)sender{
  
-    if([self checkInput]){
-        [self addChildData];
-        [self.confirmButton setUserInteractionEnabled:NO];
+    [self.confirmButton setUserInteractionEnabled:NO];
+    [self addChildData];
+    //1.判断头像是否修改  _filePath = nil （未修改)
+    if (_filePath == nil ) {
+        if (![_oldChild.name isEqualToString:_child.name] || ![_oldChild.sex isEqualToString: _child.sex] || ![_oldChild.birthday isEqualToString: _child.birthday]) {
+            [self commitToServer:_child];
+        }
+    }else if(_filePath != nil){ //修改了头像  1.上传图片  2.提交孩子信息
         [self uploadFile:self.filePath fileName:@"selfPhoto.jpg" success:^(NSString *filePath) {
-            [self commitToServer:filePath];
+            _child.avatar = filePath;
+            [self commitToServer:_child];
         } fail:^{
             [UIAlertController alertControllerWithTitle:@"上传出错" message:nil preferredStyle:UIAlertControllerStyleAlert];
         }];
@@ -143,12 +151,12 @@ typedef void (^uploadFail)(void);
 }
 //新增孩子
 -(void)confirmAdd:(id)sender{
-    
     if([self checkInput]){
         [self addChildData];
         [self.confirmButton setUserInteractionEnabled:NO];
         [self uploadFile:self.filePath fileName:@"selfPhoto.jpg" success:^(NSString *filePath) {
-            [self commitToServer:filePath];
+            _child.avatar = filePath;
+            [self commitToServer:_child];
         } fail:^{
             [UIAlertController alertControllerWithTitle:@"上传出错" message:nil preferredStyle:UIAlertControllerStyleAlert];
         }];
@@ -185,12 +193,10 @@ typedef void (^uploadFail)(void);
     [alert show];
 }
 
--(void)commitToServer:(NSString *)path{
+-(void)commitToServer:(Child *)child{
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     NSMutableArray *babyArray = [[NSMutableArray alloc] init];
-    _child.name = _childNameField.text;
-    _child.avatar = path;
     [babyArray addObject:[_child toNSDictionary]];
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:babyArray options:NSJSONWritingPrettyPrinted error:nil];
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];

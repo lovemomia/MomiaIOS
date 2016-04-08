@@ -119,4 +119,11 @@
     }
 }
 
+- (Child *)childAtIndex:(NSInteger)index{
+    if(self.account && self.account.children && self.account.children.count > 0){
+        return self.account.children[index];
+    }
+    return nil;
+}
+
 @end

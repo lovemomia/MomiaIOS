@@ -88,8 +88,10 @@
 
 - (void)onDoneClick {
     
+    NSLog(@"%@--",[_selectSku toJSONString]);
     if(self.selectSku){
         ConfirmBookViewController *confirmBookVC = [[ConfirmBookViewController alloc]initWithParams:@{@"skuIds":self.selectSku.ids,@"pid":self.pid}];
+        confirmBookVC.selectSku = self.selectSku;
         [self.navigationController pushViewController:confirmBookVC animated:YES];
     }
     

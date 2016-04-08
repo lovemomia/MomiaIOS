@@ -16,15 +16,11 @@
 #import "PersonChildHeaderCell.h"
 #import "WalkChildsViewController.h"
 
-@interface PersonInfoViewController ()<UIAlertViewDelegate, DatePickerSheetDelegate>
+@interface PersonInfoViewController ()<UIAlertViewDelegate, DatePickerSheetDelegate , AccountChangeListener>
 
 @property (nonatomic, strong) UITableViewCell *nickCell;
 @property (nonatomic, strong) UITableViewCell *babyAgeCell;
 @property (nonatomic, strong) UITableViewCell *addressCell;
-
-@property (nonatomic, strong) MOStepperView *stepperView;
-
-@property (nonatomic, assign) NSInteger uploadBabyAvatarIndex;
 
 @end
 
@@ -34,20 +30,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"个人信息";
-    
+    [[AccountService defaultService] addListener:self];
+    [self refreshAccount]; //这里的刷新账户？
     [CommonHeaderView registerCellFromNibWithTableView:self.tableView];
-    
-    [self refreshAccount];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UpdateUserInfo:) name:@"Notification_UpdateUserInfo" object:nil];
-    
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(UpdateUserInfo:) name:@"Notification_DeleteInfo" object:nil];
-}
-
-
--(void)UpdateUserInfo:(id)sender{
-    [self.tableView reloadData];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,9 +45,13 @@
     return [account.children objectAtIndex:index];
 }
 
+#pragma mark -- account change listener
+- (void)onAccountChange{
+    [self.tableView reloadData];
+}
+
 - (void)refreshAccount {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
     [[HttpService defaultService]GET:URL_APPEND_PATH(@"/user")
                           parameters:nil cacheType:CacheTypeDisable JSONModelClass:[AccountModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -78,72 +67,9 @@
                               }];
 }
 
-//- (void)addChild {
-//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//    
-//    NSMutableArray *babyArray = [[NSMutableArray alloc] init];
-//    Child *baby = [[Child alloc]init];
-//    baby.name = [self defaultChildName:[AccountService defaultService].account.children.count];
-//    baby.sex = @"男";
-//    baby.birthday = @"2015-07-01";
-//    [babyArray addObject:[baby toNSDictionary]];
-//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:babyArray options:NSJSONWritingPrettyPrinted error:nil];
-//    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-//
-//    NSDictionary *params = @{@"children" : jsonString};
-//    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/child")
-//                           parameters:params JSONModelClass:[AccountModel class]
-//                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
-//                                  AccountModel *result = (AccountModel *)responseObject;
-//                                  [AccountService defaultService].account = result.data;
-//                                  
-//                                  [self.tableView reloadData];
-//                              }
-//     
-//                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
-//                                  [self showDialogWithTitle:nil message:error.message];
-//                              }];
-//}
-
-//- (void)deleteChild {
-//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//    
-//    Account *account = [AccountService defaultService].account;
-//    Child *child = [account.children objectAtIndexedSubscript:(account.children.count - 1)];
-//    
-//    NSDictionary *params = @{@"cid" : [NSString stringWithFormat:@"%@", child.ids]};
-//    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/child/delete")
-//                           parameters:params JSONModelClass:[AccountModel class]
-//                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
-//                                  AccountModel *result = (AccountModel *)responseObject;
-//                                  [AccountService defaultService].account = result.data;
-//                                  
-//                                  [self.tableView reloadData];
-//                              }
-//     
-//                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
-//                                  [self showDialogWithTitle:nil message:error.message];
-//                              }];
-//}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 #pragma mark - tableview delegate & datasource
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 0) {
         return 3;
     } else if (section == 1) {
@@ -153,9 +79,7 @@
     } else return 3;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 3;
     
 }
@@ -166,23 +90,6 @@
         header = [CommonHeaderView cellWithTableView:self.tableView];
         ((CommonHeaderView * )header).data = @"个人信息";
     }
-//    else if (section == 2) {
-//        Account *account = [AccountService defaultService].account;
-//        header = [PersonChildHeaderCell cellWithTableView:self.tableView];
-//        
-//        ((PersonChildHeaderCell *)header).titleLabel.text = [NSString stringWithFormat:@"孩子信息（%d个）", (int)[account.children count]];
-//        ((PersonChildHeaderCell *)header).stepperView.minValue = 0;
-//        ((PersonChildHeaderCell *)header).stepperView.maxValue = 5;
-//        ((PersonChildHeaderCell *)header).stepperView.currentValue = [account.children count];
-//        ((PersonChildHeaderCell *)header).stepperView.onclickStepper = ^(NSUInteger currentValue){//单击+、-事件响应
-//            Account *account = [AccountService defaultService].account;
-//            if (currentValue < account.children.count) {
-//                [self deleteChild];
-//            } else if (currentValue > account.children.count) {
-//                [self addChild];
-//            }
-//        };
-//    }
     return header;
 }
 
@@ -228,7 +135,6 @@
     NSInteger row = indexPath.row;
     if (indexPath.section == 0) {
         if (row == 0) {
-            self.uploadBabyAvatarIndex = -1;
             [self takePictureClick];
             return;
         } else if (row == 1) {
@@ -260,17 +166,6 @@
         
     }
     else {
-//        if (indexPath.row == 0) {
-//            title = @"姓名";
-//            tag = section;
-//        } else if (indexPath.row == 1) {
-//            [self showSexPicker:(section)];
-//            return;
-//        } else if (indexPath.row == 2) {
-//            [self showDatePicker:(section)];
-//            return;
-//        }
-        
         WalkChildsViewController *walkChindsVC = [[WalkChildsViewController alloc]init];
         [self.navigationController pushViewController:walkChindsVC animated:YES];
         
@@ -482,13 +377,8 @@
             UploadImageData *data = ((UploadImageModel *)responseObject).data;
             NSDictionary *params;
             NSString *path;
-            if (self.uploadBabyAvatarIndex == -1) {
-                path = @"/user/avatar";
-                params = @{@"avatar":data.path};
-            } else {
-                path = @"/user/child/avatar";
-                params = @{@"cid":[self childAtIndex:(self.uploadBabyAvatarIndex)].ids, @"avatar":data.path};
-            }
+            path = @"/user/avatar";
+            params = @{@"avatar":data.path};
             [[HttpService defaultService]POST:URL_APPEND_PATH(path) parameters:params JSONModelClass:[AccountModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
                 

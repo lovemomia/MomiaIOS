@@ -22,7 +22,7 @@
 @end
 
 @implementation WalkChildsViewController
-//动作有选择宝宝和 出行宝宝两种类型(既action动作)
+//动作有选择宝宝和 出行宝宝两种类型(既action动作) 1.chooseChild  2.
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
         self.action = [params objectForKey:@"action"];
@@ -38,16 +38,13 @@
     }else{
         self.title = @"出行宝宝";
     }
-    
     [self setNavItem];
-    
     Account *account = [AccountService defaultService].account;
     self.childs = account.children;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UpdateUserInfo:) name:@"Notification_UpdateUserInfo" object:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     return 80;
 }
 
@@ -74,21 +71,16 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
     return self.childs.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    
     return 10;
 }
 
 - (UITableViewCellAccessoryType)tableView:(UITableView *)tableView
          accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath{
     if ([self.action isEqualToString:@"chooseChild"] && indexPath.row == _choosedChildItem) {
-        
-        __weak ConfirmBookViewController *vc = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 2 ];
-        vc.choosedChildItem = indexPath.row;
          return UITableViewCellAccessoryCheckmark;
     }
     return UITableViewCellAccessoryNone;
@@ -101,16 +93,20 @@
     return NO;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    _choosedChildItem = indexPath.row;
-    [self.tableView reloadData];
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if([self.action isEqualToString:@"chooseChild"]){
+        _choosedChildItem = indexPath.row;
+        [self.tableView reloadData];
+        __weak ConfirmBookViewController *vc = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 2 ];
+        vc.choosedChildItem = indexPath.row;
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
         Child *child = _childs[indexPath.row];
         [self deleteChild:child.ids];
         [_childs removeObjectAtIndex:indexPath.row];
@@ -128,7 +124,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     NSInteger row = indexPath.row;
     static NSString *WalkChildsCellIdentifer = @"WalkChildsCellInentifer";
     WalkChildCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:WalkChildsCellIdentifer];
@@ -136,12 +131,10 @@
         cell = [[[NSBundle mainBundle]loadNibNamed:@"WalkChildCellTableViewCell" owner:self options:nil]lastObject];
         [[cell viewWithTag:14]removeFromSuperview];
         [cell setData:_childs[row]];
-        
         if ([self.action isEqualToString:@"chooseChild"]) {
             [[cell viewWithTag:13]removeFromSuperview];
             [[cell viewWithTag:14]removeFromSuperview];
         }
-        
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     cell.ownerVC = self;

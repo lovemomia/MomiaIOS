@@ -68,7 +68,9 @@
     [dictionary setValue:self.sex forKey:@"sex"];
     [dictionary setValue:self.birthday forKey:@"birthday"];
     [dictionary setValue:self.avatar forKey:@"avatar"];
-    
+    if (self.ids) { //判断是否有id
+        [dictionary setValue:self.ids forKey:@"id"];
+    }
     return dictionary;
 }
 

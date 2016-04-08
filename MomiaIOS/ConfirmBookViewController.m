@@ -16,6 +16,7 @@
 #import "WalkChildCellTableViewCell.h"
 #import "ChildDetailViewController.h"
 #import "UploadImageModel.h"
+#import "CommonHeaderView.h"
 
 typedef void (^uploadSuccess)(NSString *filePath);
 typedef void (^uploadFail)(void);
@@ -47,13 +48,17 @@ typedef void (^uploadFail)(void);
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //注册一些公共的title
+    [CommonHeaderView registerCellFromNibWithTableView:self.tableView];
     self.title = @"确认约课";
-    if ([AccountService defaultService].account.children && [AccountService defaultService].account.children.count > 0) {
-        self.child = [AccountService defaultService].account.children[0];
-    }else{
-        _child = [[Child alloc]init]; //需要新增
+    _child = [[AccountService defaultService].account getFirstChild];
+}
+
+-(Child *)child{
+    if (_child) {
+        _child = [Child new];
     }
-    
+    return _child;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,8 +69,8 @@ typedef void (^uploadFail)(void);
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    if ([AccountService defaultService].account.children.count > 0 ) {
-        _child = [AccountService defaultService].account.children[_choosedChildItem];
+    if ([[AccountService defaultService].account haveChildren]) {
+        _child = [[AccountService defaultService]childAtIndex:_choosedChildItem];
         [self.tableView reloadData];
     }
 }
@@ -78,14 +83,13 @@ typedef void (^uploadFail)(void);
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 0) {
         return 1;
-    }else if(section == 1 && [AccountService defaultService].account.children.count == 0){
+    }else if(section == 1 && ![[AccountService defaultService].account haveChildren]){
         return 4;
     }
     return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    
     if (section == [self numberOfSectionsInTableView:self.tableView] - 1) {
         return 80;
     }
@@ -95,9 +99,8 @@ typedef void (^uploadFail)(void);
     if (indexPath.section == 0 && indexPath.row == 0) {
         return 120;
     }
-    else if (indexPath.section == 1 && [AccountService defaultService].account.children.count == 0 ) {
+    else if (indexPath.section == 1 && ![[AccountService defaultService].account haveChildren]) {
         if (indexPath.row == 0) {
-            
             return 80;
         }
         else return 46;
@@ -111,29 +114,14 @@ typedef void (^uploadFail)(void);
 
 //section 头部
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-    static NSString *reuseHeaderIdentifer = @"reuseHeaderIdentifer";
-    UIView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseHeaderIdentifer];
-    if (view == nil) {
-        view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
-    }
-    UILabel *label = [[UILabel alloc]init];
-    
+    UIView *header;
+    header = [CommonHeaderView cellWithTableView:self.tableView];
     if (section == 0) {
-        label.text = @"上课时间地点";
+        ((CommonHeaderView * )header).data = @"上课时间地点";
     }else{
-        label.text = @"出行宝宝";
+        ((CommonHeaderView * )header).data  = @"出行宝宝";
     }
-    
-    label.font = [UIFont systemFontOfSize:15.0];
-    [view addSubview:label];
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-       
-        make.left.equalTo(view).offset(10);
-        make.centerY.equalTo(view);
-    }];
-    
-    return view;
+    return header;
 }
 
 -(void)showSexPicker:(NSInteger)tag {
@@ -154,12 +142,12 @@ typedef void (^uploadFail)(void);
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //选择宝宝
-    if (indexPath.section == 1 && [AccountService defaultService].account.children.count != 0) {
+    if (indexPath.section == 1 && [[AccountService defaultService].account haveChildren]) {
         
         WalkChildsViewController *walkChildsVC = [[WalkChildsViewController alloc]initWithParams:@{@"action":@"chooseChild",@"choosedChildItem":[[NSNumber alloc] initWithInteger:_choosedChildItem]}];
         [self.navigationController pushViewController:walkChildsVC animated:YES];
     }
-    if (indexPath.section == 1 && [AccountService defaultService].account.children.count == 0) {
+    if (indexPath.section == 1 && ![[AccountService defaultService].account haveChildren]) {
         if (indexPath.row == 0) {
             
             [self takePictureClick];
@@ -170,7 +158,6 @@ typedef void (^uploadFail)(void);
             [self showDatePicker:3];
         }    }
 }
-
 
 //弹出actionsheet。选择获取头像的方式
 -(void)takePictureClick{
@@ -202,10 +189,10 @@ typedef void (^uploadFail)(void);
     return view;
 }
 
-//--确认预约
+//确认预约
 -(void)onConfirmBook:(id)sender{
     [self.confirmButton setUserInteractionEnabled:NO]; //设置按钮为不可点击
-    if ([AccountService defaultService].account.children.count == 0) {
+    if (![[AccountService defaultService].account haveChildren]) {//之前没有添加
         //先新增孩子
         [self addChild];
     }else if (self.child) {
@@ -299,7 +286,7 @@ typedef void (^uploadFail)(void);
 
 -(BOOL)checkInput{
     
-    if (_avaorImageView.image == nil ) {
+    if (_filePath == nil ) {
         [self alertMessage:@"头像没有设置"];
         return NO;
     }else if(_childNameField.text == nil || [_childNameField.text isEqualToString:@""]){
@@ -333,11 +320,11 @@ typedef void (^uploadFail)(void);
         CourseLocationTimeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CourseLocationTimeCell"];
         if (cell == nil) {
             cell = [[CourseLocationTimeCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CourseLocationTimeCell"];
+            [cell setData:self.selectSku];
         }
         return cell;
         
     }
-    
     UITableViewCell *cell;
     if (indexPath.section == 1 && [AccountService defaultService].account.children.count == 0) {
         static NSString *CellDefault = @"DefaultCell";

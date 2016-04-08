@@ -7,11 +7,13 @@
 //
 
 #import "MOGroupStyleTableViewController.h"
+#import "CourseSkuListModel.h"
 
 @interface ConfirmBookViewController : MOGroupStyleTableViewController
 
-@property(nonatomic,assign) NSInteger choosedChildItem;
-@property (nonatomic,strong) NSNumber *selectSkuIds;
-@property (nonatomic, strong) NSString *pid;
+@property (nonatomic, assign) NSInteger choosedChildItem;
+@property (nonatomic, strong) NSNumber* selectSkuIds;
+@property (nonatomic, strong) NSString* pid;
+@property (nonatomic, weak)   CourseSku* selectSku;
 
 @end

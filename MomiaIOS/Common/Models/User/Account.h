@@ -40,4 +40,8 @@
 
 - (Child *)getBigChild;
 
+-(Child *)getFirstChild;
+
+-(BOOL)haveChildren;
+
 @end

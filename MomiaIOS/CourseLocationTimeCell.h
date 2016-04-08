@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CourseSkuListModel.h"
 
 @interface CourseLocationTimeCell : UITableViewCell
+
+-(void)setData:(CourseSku *)selectSku;
 
 @end

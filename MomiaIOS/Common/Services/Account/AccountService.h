@@ -40,5 +40,7 @@ typedef void (^BlockLoginSuccess)();
 - (void)addListener:(id<AccountChangeListener>)listener;
 
 - (void)removeListener:(id<AccountChangeListener>)listener;
+//根据index获取孩子
+- (Child *)childAtIndex:(NSInteger)index;
 
 @end
