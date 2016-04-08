@@ -26,6 +26,7 @@ typedef void (^uploadFail)(void);
 @property (nonatomic,weak  ) UILabel     *sexCellItem;
 @property (nonatomic,weak  ) UILabel     *dateCellItem;
 @property (nonatomic,weak  ) UITextField *childNameField;
+@property (nonatomic,weak  ) UIButton    *confirmButton;
 @property (nonatomic,strong) NSString    *action;
 @property (nonatomic,strong) NSString    *filePath;
 @property (nonatomic,strong) Child       *child;
@@ -37,7 +38,6 @@ typedef void (^uploadFail)(void);
 -(instancetype)initWithParams:(NSDictionary *)params{
     self = [super initWithParams:params];
     if (self) {
-        
         self.selectSkuIds = [params objectForKey:@"skuIds"];
         self.pid = [params objectForKey:@"pid"];
     }
@@ -51,7 +51,7 @@ typedef void (^uploadFail)(void);
     if ([AccountService defaultService].account.children && [AccountService defaultService].account.children.count > 0) {
         self.child = [AccountService defaultService].account.children[0];
     }else{
-        _child = [[Child alloc]init];
+        _child = [[Child alloc]init]; //需要新增
     }
     
 }
@@ -68,7 +68,6 @@ typedef void (^uploadFail)(void);
         _child = [AccountService defaultService].account.children[_choosedChildItem];
         [self.tableView reloadData];
     }
-    
 }
 
 #pragma tableView
@@ -197,7 +196,7 @@ typedef void (^uploadFail)(void);
         [button addTarget:self action:@selector(onConfirmBook:) forControlEvents:UIControlEventTouchUpInside];
         [button setBackgroundImage:[UIImage imageNamed:@"BgLargeButtonNormal"] forState:UIControlStateNormal];
         [button setBackgroundImage:[UIImage imageNamed:@"BgLargeButtonDisable"] forState:UIControlStateDisabled];
-        
+        self.confirmButton = button;
         [view addSubview:button];
     }
     return view;
@@ -205,6 +204,7 @@ typedef void (^uploadFail)(void);
 
 //--确认预约
 -(void)onConfirmBook:(id)sender{
+    [self.confirmButton setUserInteractionEnabled:NO]; //设置按钮为不可点击
     if ([AccountService defaultService].account.children.count == 0) {
         //先新增孩子
         [self addChild];
@@ -225,16 +225,16 @@ typedef void (^uploadFail)(void);
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
                                   [self showDialogWithTitle:nil message:@"预约成功，您已被拉入该课群组，猛戳 “我的—我的群组” 就可以随意调戏我们的老师啦~" tag:1];
                                   [[NSNotificationCenter defaultCenter]postNotificationName:@"onMineDotChanged" object:nil];
-                    
+                                  [self.confirmButton setUserInteractionEnabled:YES];
                               }
                               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
                                   [self showDialogWithTitle:nil message:error.message];
+                                  [self.confirmButton setUserInteractionEnabled:YES];
                               }];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
     if (alertView.tag == 88) {
         return;
     }
@@ -267,9 +267,9 @@ typedef void (^uploadFail)(void);
                                       AccountModel *result = (AccountModel *)responseObject;
                                       [AccountService defaultService].account = result.data;
                                       self.child = [[AccountService defaultService].account.children lastObject];
-                                      //广播出去
+                                      //5.广播出去
                                       [[NSNotificationCenter defaultCenter] postNotificationName:@"Notification_UpdateUserInfo" object:nil userInfo:nil];
-                                       //提交预约
+                                       //6.提交预约
                                       [self commitToServer:self.selectSkuIds.integerValue pid:self.pid cid:self.child.ids.integerValue];
                                       
                                   }
@@ -277,6 +277,7 @@ typedef void (^uploadFail)(void);
                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       [MBProgressHUD hideHUDForView:self.view animated:YES];
                                       [self showDialogWithTitle:nil message:error.message];
+                                      [self.confirmButton setUserInteractionEnabled:YES];
                                   }];
     } fail:^{
         [UIAlertController alertControllerWithTitle:@"上传出错" message:nil preferredStyle:UIAlertControllerStyleAlert];
@@ -339,7 +340,6 @@ typedef void (^uploadFail)(void);
     
     UITableViewCell *cell;
     if (indexPath.section == 1 && [AccountService defaultService].account.children.count == 0) {
-
         static NSString *CellDefault = @"DefaultCell";
         static NSString *CellLogo = @"LogoCell";
         static NSString *childName = @"ChildNameCellIdentifer";
@@ -439,7 +439,6 @@ typedef void (^uploadFail)(void);
     }
     
     else if(actionSheet.tag == 2){
-        
         if(buttonIndex > 1){
             return;
         }
