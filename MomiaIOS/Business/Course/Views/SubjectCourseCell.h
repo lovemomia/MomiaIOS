@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *ageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *joinedLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *joinedBg;
 @property (weak, nonatomic) IBOutlet MONetworkPhotoView *coverIv;
 
 

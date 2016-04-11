@@ -24,7 +24,17 @@
 - (void)setData:(Course *)data {
     self.titleLabel.text = data.title;
     self.ageLabel.text = data.age;
-    self.joinedLabel.text = [NSString stringWithFormat:@"%@人参加", data.joined];
+    
+    if ([data.joined intValue] > 0) {
+        self.joinedLabel.text = [NSString stringWithFormat:@"%@人参加", data.joined];
+        self.joinedLabel.hidden = NO;
+        self.joinedBg.hidden = NO;
+        
+    } else {
+        self.joinedLabel.hidden = YES;
+        self.joinedBg.hidden = YES;
+    }
+    
     [self.coverIv sd_setImageWithURL:[NSURL URLWithString:data.cover]];
 }
 
