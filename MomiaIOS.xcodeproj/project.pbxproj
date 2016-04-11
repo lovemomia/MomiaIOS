@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		002B66421CB3686C0096EB6E /* WalkChildsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66411CB3686C0096EB6E /* WalkChildsViewController.m */; };
-		002B66431CB3686C0096EB6E /* WalkChildsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66411CB3686C0096EB6E /* WalkChildsViewController.m */; };
-		002B66471CB36D100096EB6E /* WalkChildCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66451CB36D100096EB6E /* WalkChildCellTableViewCell.m */; };
-		002B66481CB36D100096EB6E /* WalkChildCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66451CB36D100096EB6E /* WalkChildCellTableViewCell.m */; };
-		002B66491CB36D100096EB6E /* WalkChildCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 002B66461CB36D100096EB6E /* WalkChildCellTableViewCell.xib */; };
-		002B664A1CB36D100096EB6E /* WalkChildCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 002B66461CB36D100096EB6E /* WalkChildCellTableViewCell.xib */; };
-		002B664D1CB38ED30096EB6E /* ChildDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B664C1CB38ED30096EB6E /* ChildDetailViewController.m */; };
-		002B664E1CB38ED30096EB6E /* ChildDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B664C1CB38ED30096EB6E /* ChildDetailViewController.m */; };
+		002B66421CB3686C0096EB6E /* ChildListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66411CB3686C0096EB6E /* ChildListViewController.m */; };
+		002B66431CB3686C0096EB6E /* ChildListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66411CB3686C0096EB6E /* ChildListViewController.m */; };
+		002B66471CB36D100096EB6E /* ChildListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66451CB36D100096EB6E /* ChildListCell.m */; };
+		002B66481CB36D100096EB6E /* ChildListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66451CB36D100096EB6E /* ChildListCell.m */; };
+		002B66491CB36D100096EB6E /* ChildListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 002B66461CB36D100096EB6E /* ChildListCell.xib */; };
+		002B664A1CB36D100096EB6E /* ChildListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 002B66461CB36D100096EB6E /* ChildListCell.xib */; };
+		002B664D1CB38ED30096EB6E /* ChildInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B664C1CB38ED30096EB6E /* ChildInfoViewController.m */; };
+		002B664E1CB38ED30096EB6E /* ChildInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B664C1CB38ED30096EB6E /* ChildInfoViewController.m */; };
 		002B665D1CB3AFE30096EB6E /* ConfirmBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */; };
 		002B665E1CB3AFE30096EB6E /* ConfirmBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */; };
 		005B4E3E1CB3BCF00044BAD1 /* CourseLocationTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 005B4E3D1CB3BCF00044BAD1 /* CourseLocationTimeCell.m */; };
@@ -853,13 +853,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		002B66401CB3686C0096EB6E /* WalkChildsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkChildsViewController.h; sourceTree = "<group>"; };
-		002B66411CB3686C0096EB6E /* WalkChildsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkChildsViewController.m; sourceTree = "<group>"; };
-		002B66441CB36D100096EB6E /* WalkChildCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkChildCellTableViewCell.h; sourceTree = "<group>"; };
-		002B66451CB36D100096EB6E /* WalkChildCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkChildCellTableViewCell.m; sourceTree = "<group>"; };
-		002B66461CB36D100096EB6E /* WalkChildCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalkChildCellTableViewCell.xib; sourceTree = "<group>"; };
-		002B664B1CB38ED30096EB6E /* ChildDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildDetailViewController.h; sourceTree = "<group>"; };
-		002B664C1CB38ED30096EB6E /* ChildDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildDetailViewController.m; sourceTree = "<group>"; };
+		002B66401CB3686C0096EB6E /* ChildListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildListViewController.h; sourceTree = "<group>"; };
+		002B66411CB3686C0096EB6E /* ChildListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildListViewController.m; sourceTree = "<group>"; };
+		002B66441CB36D100096EB6E /* ChildListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildListCell.h; sourceTree = "<group>"; };
+		002B66451CB36D100096EB6E /* ChildListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildListCell.m; sourceTree = "<group>"; };
+		002B66461CB36D100096EB6E /* ChildListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChildListCell.xib; sourceTree = "<group>"; };
+		002B664B1CB38ED30096EB6E /* ChildInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildInfoViewController.h; sourceTree = "<group>"; };
+		002B664C1CB38ED30096EB6E /* ChildInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildInfoViewController.m; sourceTree = "<group>"; };
 		002B665B1CB3AFE30096EB6E /* ConfirmBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmBookViewController.h; sourceTree = "<group>"; };
 		002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmBookViewController.m; sourceTree = "<group>"; };
 		005B4E3C1CB3BCF00044BAD1 /* CourseLocationTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseLocationTimeCell.h; sourceTree = "<group>"; };
@@ -2941,10 +2941,10 @@
 			isa = PBXGroup;
 			children = (
 				BCA273251AEB1E6D002E7534 /* Views */,
-				002B66401CB3686C0096EB6E /* WalkChildsViewController.h */,
-				002B66411CB3686C0096EB6E /* WalkChildsViewController.m */,
-				002B664B1CB38ED30096EB6E /* ChildDetailViewController.h */,
-				002B664C1CB38ED30096EB6E /* ChildDetailViewController.m */,
+				002B66401CB3686C0096EB6E /* ChildListViewController.h */,
+				002B66411CB3686C0096EB6E /* ChildListViewController.m */,
+				002B664B1CB38ED30096EB6E /* ChildInfoViewController.h */,
+				002B664C1CB38ED30096EB6E /* ChildInfoViewController.m */,
 				BCA272FA1AE8A2C7002E7534 /* MineViewController.h */,
 				BCA272FB1AE8A2C7002E7534 /* MineViewController.m */,
 				5A6806F11B01C9C700D02A60 /* PersonInfoViewController.h */,
@@ -3030,9 +3030,9 @@
 		BCA273251AEB1E6D002E7534 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				002B66441CB36D100096EB6E /* WalkChildCellTableViewCell.h */,
-				002B66451CB36D100096EB6E /* WalkChildCellTableViewCell.m */,
-				002B66461CB36D100096EB6E /* WalkChildCellTableViewCell.xib */,
+				002B66441CB36D100096EB6E /* ChildListCell.h */,
+				002B66451CB36D100096EB6E /* ChildListCell.m */,
+				002B66461CB36D100096EB6E /* ChildListCell.xib */,
 				BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */,
 				5A6806F41B01CEF700D02A60 /* PersonLogoCell.xib */,
 				BCF564E11B4A54D0003A2227 /* PersonChildHeaderCell.h */,
@@ -3331,7 +3331,7 @@
 				BC359A411BC648BF002DE863 /* PhotoTitleHeaderCell.xib in Resources */,
 				BC5CF2FF1BB53E6400EC5227 /* read_me.txt in Resources */,
 				BC040D161BC9176000988AB2 /* CourseSectionTitleCell.xib in Resources */,
-				002B66491CB36D100096EB6E /* WalkChildCellTableViewCell.xib in Resources */,
+				002B66491CB36D100096EB6E /* ChildListCell.xib in Resources */,
 				BC8B9A0C1C1AD53100EE39A2 /* Emoji.plist in Resources */,
 				BCA273101AE9D79F002E7534 /* mapping.plist in Resources */,
 				BC50639F1B53A3A000AA233C /* ForgetPasswordCell.xib in Resources */,
@@ -3432,7 +3432,7 @@
 				BCEAFD741C2A394300CB082D /* RongCloud.bundle in Resources */,
 				BCEAFD751C2A394300CB082D /* CoursePriceCell.xib in Resources */,
 				BCEAFD761C2A394300CB082D /* PackageHeaderCell.xib in Resources */,
-				002B664A1CB36D100096EB6E /* WalkChildCellTableViewCell.xib in Resources */,
+				002B664A1CB36D100096EB6E /* ChildListCell.xib in Resources */,
 				BCEAFD771C2A394300CB082D /* CashPayTopHeaderView.xib in Resources */,
 				BCEAFD781C2A394300CB082D /* MOStepperView.xib in Resources */,
 				BCEAFD791C2A394300CB082D /* LoginCell.xib in Resources */,
@@ -3621,7 +3621,7 @@
 				BC592BDE1BD5D8FB008AE76A /* BookSkuItemCell.m in Sources */,
 				BC7737951BCF9C1E00987B22 /* SkuListModel.m in Sources */,
 				BC36B1951C28005300013E9A /* GroupListViewController.m in Sources */,
-				002B66471CB36D100096EB6E /* WalkChildCellTableViewCell.m in Sources */,
+				002B66471CB36D100096EB6E /* ChildListCell.m in Sources */,
 				BC97DF061B4BE21F002B1A00 /* WechatPayModel.m in Sources */,
 				BC97DEFF1B4BCFF1002B1A00 /* PayChannel.m in Sources */,
 				BC77378D1BCE6AD200987B22 /* SubjectList.m in Sources */,
@@ -3633,7 +3633,7 @@
 				BCBB16C51BF5898A00E273AF /* UserInfoHeaderView.m in Sources */,
 				5A794F941B4E68C900BB3B7C /* OrderDetailModel.m in Sources */,
 				5A8EF03D1B31619E003ABAF8 /* ProductModel.m in Sources */,
-				002B66421CB3686C0096EB6E /* WalkChildsViewController.m in Sources */,
+				002B66421CB3686C0096EB6E /* ChildListViewController.m in Sources */,
 				BC359A1B1BC61F2A002DE863 /* LJViewPager.m in Sources */,
 				BC79DF7D1C1186180064C02F /* IMGroupModel.m in Sources */,
 				BC3509081BFDD1830043D37C /* SubjectTabCell.m in Sources */,
@@ -3730,7 +3730,7 @@
 				BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */,
 				BC3504921BD0F865009A24B0 /* Subject.m in Sources */,
 				BC3599EA1BC61F0C002DE863 /* UIImage+MLTint.m in Sources */,
-				002B664D1CB38ED30096EB6E /* ChildDetailViewController.m in Sources */,
+				002B664D1CB38ED30096EB6E /* ChildInfoViewController.m in Sources */,
 				BCF9DCF91BD8F0E200D8CDC6 /* CourseTeacherListViewController.m in Sources */,
 				5A18DC4B1B295C03001458A4 /* HomeViewController.m in Sources */,
 				BC753ED91BAC07D300D2663C /* FeedUgcCell.m in Sources */,
@@ -3827,7 +3827,7 @@
 				BCEAFBFD1C2A394300CB082D /* OrderListModel.m in Sources */,
 				BCEAFBFE1C2A394300CB082D /* NSTimer+Block.m in Sources */,
 				BCEAFBFF1C2A394300CB082D /* CourseDiscCell.m in Sources */,
-				002B66431CB3686C0096EB6E /* WalkChildsViewController.m in Sources */,
+				002B66431CB3686C0096EB6E /* ChildListViewController.m in Sources */,
 				BCEAFC001C2A394300CB082D /* Course.m in Sources */,
 				BCEAFC011C2A394300CB082D /* NSError+MOError.m in Sources */,
 				BCEAFC021C2A394300CB082D /* MLSelectPhotoPickerBrowserPhotoScrollView.m in Sources */,
@@ -3920,7 +3920,7 @@
 				BCEAFC5A1C2A394300CB082D /* CouponListItemCell.m in Sources */,
 				BCEAFC5B1C2A394300CB082D /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m in Sources */,
 				BCEAFC5C1C2A394300CB082D /* CourseDetailModel.m in Sources */,
-				002B66481CB36D100096EB6E /* WalkChildCellTableViewCell.m in Sources */,
+				002B66481CB36D100096EB6E /* ChildListCell.m in Sources */,
 				BCEAFC5D1C2A394300CB082D /* SettingViewController.m in Sources */,
 				BCEAFC5E1C2A394300CB082D /* MLSelectPhotoNavigationViewController.m in Sources */,
 				BCEAFC601C2A394300CB082D /* MJPhotoView.m in Sources */,
@@ -4059,7 +4059,7 @@
 				BCEAFCEB1C2A394300CB082D /* Child.m in Sources */,
 				BCEAFCEC1C2A394300CB082D /* ConfigService.m in Sources */,
 				BCEAFCED1C2A394300CB082D /* OrderPersonModel.m in Sources */,
-				002B664E1CB38ED30096EB6E /* ChildDetailViewController.m in Sources */,
+				002B664E1CB38ED30096EB6E /* ChildInfoViewController.m in Sources */,
 				BCEAFCEE1C2A394300CB082D /* MOStepperView.m in Sources */,
 				BCEAFCEF1C2A394300CB082D /* CourseSkuListModel.m in Sources */,
 				BCEAFCF01C2A394300CB082D /* MLSelectPhotoBrowserViewController.m in Sources */,

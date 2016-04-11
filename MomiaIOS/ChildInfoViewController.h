@@ -1,5 +1,5 @@
 //
-//  WalkChildsViewController.h
+//  ChildDetailViewController.h
 //  MomiaIOS
 //
 //  Created by mosl on 16/4/5.
@@ -8,7 +8,7 @@
 
 #import "MOGroupStyleTableViewController.h"
 
-@interface WalkChildsViewController : MOGroupStyleTableViewController
+@interface ChildInfoViewController : MOGroupStyleTableViewController
 
 - (instancetype)initWithParams:(NSDictionary *)params;
 

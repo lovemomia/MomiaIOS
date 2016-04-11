@@ -6,7 +6,7 @@
 //  Copyright © 2016年 Deng Jun. All rights reserved.
 //
 
-#import "ChildDetailViewController.h"
+#import "ChildInfoViewController.h"
 #import "DatePickerSheet.h"
 #import "Child.h"
 #import "AccountModel.h"
@@ -16,11 +16,11 @@ typedef void (^uploadSuccess)(NSString *filePath);
 typedef void (^uploadFail)(void);
 
 static NSString *tempImagePath = @"tempImage.jepg";
-@interface ChildDetailViewController ()<UIActionSheetDelegate,DatePickerSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface ChildInfoViewController ()<UIActionSheetDelegate,DatePickerSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate>
 
 @property (nonatomic, strong) NSString    *action;
-@property (nonatomic, strong) NSString    *filePath;
-@property (nonatomic, assign) NSInteger   childId;
+@property (nonatomic, strong) NSString    *filePath;  //保存的是本地图片路径
+@property (nonatomic, assign) NSNumber    *childId;
 @property (nonatomic, strong) Child       *child;
 @property (nonatomic, strong) Child       *oldChild; //更新的child
 @property (nonatomic, weak  ) UIImageView *avaorImageView;
@@ -31,55 +31,124 @@ static NSString *tempImagePath = @"tempImage.jepg";
 
 @end
 
-@implementation ChildDetailViewController
+@implementation ChildInfoViewController
 
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
-        self.action      = [params objectForKey:@"action"];
-        NSNumber *number = (NSNumber *)[params objectForKey:@"childId"];
-        _childId         = number.integerValue;
+        [self decoderParams:params];
     }
     return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
+-(void)decoderParams:(NSDictionary *)params{
+    self.action  = [params objectForKey:@"action"];
+    self.childId = (NSNumber *)[params objectForKey:@"childId"];
     if ([self.action isEqualToString:@"add"]){
         self.title = @"添加宝宝";
-        _child = [[Child alloc]init];
+        self.child = [[Child alloc]init];
     }else if([self.action isEqualToString:@"update"]){
         self.title = @"宝宝信息";
-        [[AccountService defaultService].account.children enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if(_childId == ((Child *)obj).ids.integerValue){
-                _oldChild = obj;
-                _child = [_oldChild copy];
-                NSLog(@" ---- %@---",[_child toJSONString]);
+        for (int i = 0; i < [AccountService defaultService].account.children.count; i++) {
+            Child *child = [AccountService defaultService].account.children[i];
+            if ([self.childId integerValue] == [child.ids integerValue]) {
+                self.oldChild = child;
+                self.child = [self.oldChild copy];
             }
-        }];
+        }
     }
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
+#pragma UITableView datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 4;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    static NSString *CellDefault = @"DefaultCell";
+    static NSString *CellLogo = @"LogoCell";
+    static NSString *childName = @"ChildNameCellIdentifer";
+    UITableViewCell *cell;
+    if ((section == 0) && row == 0) {
+        cell = [tableView dequeueReusableCellWithIdentifier:CellLogo];
+        if (cell == nil) {
+            NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"PersonLogoCell" owner:self options:nil];
+            cell = [arr objectAtIndex:0];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            UILabel *titleLabel = (UILabel *)[cell viewWithTag:2];
+            titleLabel.text = @"宝宝靓照";
+            UIImageView *imageView = (UIImageView *)[cell viewWithTag:1];
+            self.avaorImageView = imageView;
+            if (self.child && self.child.avatar && ![self.child.avatar isEqualToString:@""]) {
+                NSURL *url = [[NSURL alloc]initWithString:self.child.avatar];
+                [imageView sd_setImageWithURL:url
+                                    completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                                        [imageView setImage:image];
+                                    }];
+            }
+        }
+        
+    } else if(section == 0 && row == 1){
+        cell = [tableView dequeueReusableCellWithIdentifier:childName];
+        if(cell == nil){
+            NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"MineInfoCell" owner:self options:nil];
+            cell = [arr objectAtIndex:2];
+            UILabel *titleLabel = (UILabel *)[cell viewWithTag:1];
+            titleLabel.text = @"姓名";
+            self.childNameField = (UITextField *)[cell viewWithTag:2];
+            self.childNameField.delegate = self;
+            if (self.child) {
+                [self.childNameField setText:_child.name];
+            }
+        }
+    }else {
+        cell = [tableView dequeueReusableCellWithIdentifier:CellDefault];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellDefault];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }
+        cell.textLabel.textColor = UIColorFromRGB(0x333333);
+        cell.textLabel.font = [UIFont systemFontOfSize: 15.0];
+        cell.detailTextLabel.textColor = UIColorFromRGB(0x999999);
+        cell.detailTextLabel.font = [UIFont systemFontOfSize: 15.0];
+        if(section == 0 && row == 2){
+            cell.textLabel.text = @"性别";
+            _sexCellItem = cell.detailTextLabel;
+            
+            if (_child) {
+                [_sexCellItem setText:_child.sex];
+            }
+        }else if(section == 0 && row ==3){
+            cell.textLabel.text = @"生日";
+            _dateCellItem = cell.detailTextLabel;
+            if (_child) {
+                [_dateCellItem setText:_child.birthday];
+            }
+        }
+    }
+    return cell;
+}
+
+#pragma UITableView delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0 && indexPath.row == 0) {
         return 80;
     }
     return 48;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section == 0) {
-        return 4;
-    }
-    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -89,15 +158,11 @@ static NSString *tempImagePath = @"tempImage.jepg";
     return 80;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0) {
-        [self takePictureClick];
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    if (section == [self numberOfSectionsInTableView:tableView] - 1){
+        return 80;
     }
-    else if (indexPath.row == 2) {
-        [self showSexPicker:2];
-    }else if(indexPath.row == 3){
-        [self showDatePicker:3];
-    }
+    return 0.1;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
@@ -124,17 +189,24 @@ static NSString *tempImagePath = @"tempImage.jepg";
     return view;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    if (section == [self numberOfSectionsInTableView:tableView] - 1){
-        return 80;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        [self takePictureClick];
     }
-    return 0.1;
+    else if(indexPath.row == 1){
+        [self.childNameField becomeFirstResponder];
+    }
+    else if (indexPath.row == 2) {
+        [self showSexPicker:2];
+    }else if(indexPath.row == 3){
+        [self showDatePicker:3];
+    }
 }
 //确认修改
 -(void)confirmUpdate:(id)sender{
- 
     [self.confirmButton setUserInteractionEnabled:NO];
-    [self addChildData];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self setChildData];
     //1.判断头像是否修改  _filePath = nil （未修改)
     if (_filePath == nil ) {
         if (![_oldChild.name isEqualToString:_child.name] || ![_oldChild.sex isEqualToString: _child.sex] || ![_oldChild.birthday isEqualToString: _child.birthday]) {
@@ -145,6 +217,7 @@ static NSString *tempImagePath = @"tempImage.jepg";
             _child.avatar = filePath;
             [self commitToServer:_child];
         } fail:^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
             [UIAlertController alertControllerWithTitle:@"上传出错" message:nil preferredStyle:UIAlertControllerStyleAlert];
         }];
     }
@@ -152,24 +225,23 @@ static NSString *tempImagePath = @"tempImage.jepg";
 //新增孩子
 -(void)confirmAdd:(id)sender{
     if([self checkInput]){
-        [self addChildData];
+        [self setChildData];
         [self.confirmButton setUserInteractionEnabled:NO];
-        [self uploadFile:self.filePath fileName:@"selfPhoto.jpg" success:^(NSString *filePath) {
-            _child.avatar = filePath;
+        if (_filePath == nil) { //没有设置头像
             [self commitToServer:_child];
-        } fail:^{
-            [UIAlertController alertControllerWithTitle:@"上传出错" message:nil preferredStyle:UIAlertControllerStyleAlert];
-        }];
+        }else{
+            [self uploadFile:self.filePath fileName:@"selfPhoto.jpg" success:^(NSString *filePath) {
+                _child.avatar = filePath;
+                [self commitToServer:_child];
+            } fail:^{
+                [UIAlertController alertControllerWithTitle:@"上传出错" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            }];
+        }
     }
-    
 }
-
+//检查输入参数
 -(BOOL)checkInput{
-    
-    if (_filePath == nil ) {
-        [self alertMessage:@"头像没有设置"];
-        return NO;
-    }else if(_childNameField.text == nil || [_childNameField.text isEqualToString:@""]){
+    if(_childNameField.text == nil || [_childNameField.text isEqualToString:@""]){
         [self alertMessage:@"姓名没有设置"];
         return NO;
     }else if(_sexCellItem.text == nil || [ _sexCellItem.text isEqualToString:@""]){
@@ -182,7 +254,7 @@ static NSString *tempImagePath = @"tempImage.jepg";
     return YES;
 }
 
--(void)addChildData{
+-(void)setChildData{
     _child.name = _childNameField.text;
     _child.sex = _sexCellItem.text;
     _child.birthday = _dateCellItem.text;
@@ -194,23 +266,24 @@ static NSString *tempImagePath = @"tempImage.jepg";
 }
 
 -(void)commitToServer:(Child *)child{
-    
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    if (!child) {
+        return;
+    }
     NSMutableArray *babyArray = [[NSMutableArray alloc] init];
-    [babyArray addObject:[_child toNSDictionary]];
+    [babyArray addObject:[child toNSDictionary]];
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:babyArray options:NSJSONWritingPrettyPrinted error:nil];
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     NSDictionary *params = @{@"children" : jsonString};
     [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/child")
                            parameters:params JSONModelClass:[AccountModel class]
                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
                                   AccountModel *result = (AccountModel *)responseObject;
                                   [AccountService defaultService].account = result.data;
                                   //广播出去
                                   [[NSNotificationCenter defaultCenter] postNotificationName:@"Notification_UpdateUserInfo" object:nil userInfo:nil];
-                                  //新增完信息，跳转到上一页
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
                                   [self.confirmButton setUserInteractionEnabled:YES];
+                                  //新增完信息，跳转到上一页
                                   [self popToPrev];
                               }
      
@@ -225,75 +298,6 @@ static NSString *tempImagePath = @"tempImage.jepg";
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSInteger section = indexPath.section;
-    NSInteger row = indexPath.row;
-    static NSString *CellDefault = @"DefaultCell";
-    static NSString *CellLogo = @"LogoCell";
-    static NSString *childName = @"ChildNameCellIdentifer";
-    UITableViewCell *cell;
-    if ((section == 0) && row == 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:CellLogo];
-        if (cell == nil) {
-            NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"PersonLogoCell" owner:self options:nil];
-            cell = [arr objectAtIndex:0];
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            UILabel *titleLabel = (UILabel *)[cell viewWithTag:2];
-            titleLabel.text = @"宝宝靓照";
-            UIImageView *imageView = (UIImageView *)[cell viewWithTag:1];
-            _avaorImageView = imageView;
-            if (_child && _child.avatar) {
-                NSURL *url = [[NSURL alloc]initWithString:_child.avatar];
-                [imageView sd_setImageWithURL:url
-                                    completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                    [imageView setImage:image];
-                }];
-            }
-        }
-        
-    } else if(section == 0 && row == 1){
-        cell = [tableView dequeueReusableCellWithIdentifier:childName];
-        if(cell == nil){
-            NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"MineInfoCell" owner:self options:nil];
-            cell = [arr objectAtIndex:2];
-            UILabel *titleLabel = (UILabel *)[cell viewWithTag:1];
-            titleLabel.text = @"姓名";
-            _childNameField = (UITextField *)[cell viewWithTag:2];
-            
-            if (_child) {
-                [_childNameField setText:_child.name];
-            }
-        }
-    }else {
-        cell = [tableView dequeueReusableCellWithIdentifier:CellDefault];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellDefault];
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }
-        cell.textLabel.textColor = UIColorFromRGB(0x333333);
-        cell.textLabel.font = [UIFont systemFontOfSize: 15.0];
-        cell.detailTextLabel.textColor = UIColorFromRGB(0x999999);
-        cell.detailTextLabel.font = [UIFont systemFontOfSize: 15.0];
-        if(section == 0 && row == 2){
-            cell.textLabel.text = @"性别";
-            _sexCellItem = cell.detailTextLabel;
-
-            if (_child) {
-                [_sexCellItem setText:_child.sex];
-            }
-        }else if(section == 0 && row ==3){
-            cell.textLabel.text = @"生日";
-            _dateCellItem = cell.detailTextLabel;
-            
-            if (_child) {
-                [_dateCellItem setText:_child.birthday];
-            }
-        }
-    }
-    return cell;
-}
-
 -(void)showSexPicker:(NSInteger)tag {
     UIActionSheet *sexSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                           delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"男",@"女",nil];
@@ -304,7 +308,7 @@ static NSString *tempImagePath = @"tempImage.jepg";
 - (void)showDatePicker:(NSInteger)tag {
     DatePickerSheet * datePickerSheet = [DatePickerSheet getInstance];
     [datePickerSheet initializationWithMaxDate:[NSDate date]
-                                   withMinDate:[NSDate dateWithTimeIntervalSinceNow: -(24 * 60 * 60 * 30 * 12 * 20)]
+                                   withMinDate:[NSDate dateWithTimeIntervalSinceNow: - (24 * 60 * 60 * 30 * 12 * 20)]
                             withDatePickerMode:UIDatePickerModeDate
                                   withDelegate:self];
     datePickerSheet.tag = tag;
@@ -355,7 +359,6 @@ static NSString *tempImagePath = @"tempImage.jepg";
         }
     }
     else if(actionSheet.tag == 2){
-        
         if(buttonIndex > 1){
             return;
         }
@@ -392,7 +395,6 @@ static NSString *tempImagePath = @"tempImage.jepg";
 
 //上传文件
 -(void)uploadFile:(NSString *)filePath fileName:(NSString *)fileName success:(uploadSuccess)success fail:(uploadFail)fail{
-    
     [[HttpService defaultService] uploadImageWithFilePath:filePath fileName:fileName handler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
             [self showDialogWithTitle:nil message:@"error"];
@@ -403,7 +405,7 @@ static NSString *tempImagePath = @"tempImage.jepg";
         }
     }];
 }
-
+//保存图片
 - (void)saveImage:(UIImage *)image {
     
     CGSize size = CGSizeMake(100, 100);
@@ -421,5 +423,21 @@ static NSString *tempImagePath = @"tempImage.jepg";
     self.filePath = [NSString stringWithString:imageFilePath];
 }
 
+#pragma UITextField Delegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+    return YES;
+}
 
 @end

@@ -6,10 +6,15 @@
 //  Copyright © 2016年 Deng Jun. All rights reserved.
 //
 
-#import "WalkChildCellTableViewCell.h"
-#import "ChildDetailViewController.h"
+#import "ChildListCell.h"
 
-@implementation WalkChildCellTableViewCell
+@interface  ChildListCell()
+
+@property (nonatomic,weak) ChildListViewController* controller;
+
+@end
+
+@implementation ChildListCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -17,25 +22,22 @@
     
 }
 
--(void)setData:(Child *)child{
-    
+-(void)setData:(Child *)child delegate:(ChildListViewController *)controller{
     self.child = child;
-    [_name setText:child.name];
-    [_sex setText:child.sex];
-    [_age setText:[child ageWithDateOfBirth]];
-    if (child.avatar) {
+    [self.name setText:child.name];
+    [self.sex setText:child.sex];
+    [self.age setText:[child ageWithDateOfBirth]];
+    if (child.avatar && ![child.avatar isEqualToString:@""]) {
         NSURL *url = [[NSURL alloc]initWithString:child.avatar];
         [_avatar sd_setImageWithURL:url completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            [_avatar setImage:image];
+            [self.avatar setImage:image];
         }];
     }
+    self.controller = controller;
 }
 
 - (IBAction)editChildDetail:(id)sender {
-    
-    ChildDetailViewController *childDetailVC = [[ChildDetailViewController alloc]initWithParams:@{@"action":@"update",@"childId":self.child.ids}];
-    [_ownerVC.navigationController pushViewController:childDetailVC animated:YES];
-    
+    [self.controller openURL:[NSString stringWithFormat:@"childinfo?action=update&childId=%@",self.child.ids]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

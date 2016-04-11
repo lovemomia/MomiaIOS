@@ -14,7 +14,6 @@
 #import "CommonHeaderView.h"
 #import "Child.h"
 #import "PersonChildHeaderCell.h"
-#import "WalkChildsViewController.h"
 
 @interface PersonInfoViewController ()<UIAlertViewDelegate, DatePickerSheetDelegate , AccountChangeListener>
 
@@ -158,7 +157,6 @@
             title = @"常住地";
             tag = 1;
         }
-        
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"修改%@", title] message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认修改", nil];
         alert.alertViewStyle = UIAlertViewStylePlainTextInput;
         alert.tag = tag;
@@ -166,9 +164,7 @@
         
     }
     else {
-        WalkChildsViewController *walkChindsVC = [[WalkChildsViewController alloc]init];
-        [self.navigationController pushViewController:walkChindsVC animated:YES];
-        
+        [self openURL:@"childlist"];
     }
 }
 
@@ -380,11 +376,11 @@
             path = @"/user/avatar";
             params = @{@"avatar":data.path};
             [[HttpService defaultService]POST:URL_APPEND_PATH(path) parameters:params JSONModelClass:[AccountModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
                 
                 AccountModel *result = (AccountModel *)responseObject;
                 [AccountService defaultService].account = result.data;
                 [self.tableView reloadData];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
                 
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 [MBProgressHUD hideHUDForView:self.view animated:YES];

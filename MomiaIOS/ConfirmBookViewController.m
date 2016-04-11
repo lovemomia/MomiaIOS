@@ -11,10 +11,8 @@
 #import "CourseLocationTimeCell.h"
 #import "Account.h"
 #import "AccountModel.h"
-#import "WalkChildsViewController.h"
 #import "DatePickerSheet.h"
-#import "WalkChildCellTableViewCell.h"
-#import "ChildDetailViewController.h"
+#import "ChildListCell.h"
 #import "UploadImageModel.h"
 #import "CommonHeaderView.h"
 
@@ -39,38 +37,43 @@ typedef void (^uploadFail)(void);
 -(instancetype)initWithParams:(NSDictionary *)params{
     self = [super initWithParams:params];
     if (self) {
-        self.selectSkuIds = [params objectForKey:@"skuIds"];
-        self.pid = [params objectForKey:@"pid"];
+        [self decoderParams:params];
     }
     return self;
 }
 
+-(void)decoderParams:(NSDictionary *)params{
+    self.selectSkuIds = [params objectForKey:@"skuIds"];
+    self.pid = [params objectForKey:@"pid"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     //注册一些公共的title
     [CommonHeaderView registerCellFromNibWithTableView:self.tableView];
     self.title = @"确认约课";
-    _child = [[AccountService defaultService].account getFirstChild];
 }
 
 -(Child *)child{
     if (_child) {
-        _child = [Child new];
+        return _child;
     }
+    _child = [[AccountService defaultService].account getFirstChild];
+    if (_child) {
+        return _child;
+    }
+    _child = [Child new];
     return _child;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if ([[AccountService defaultService].account haveChildren]) {
-        _child = [[AccountService defaultService]childAtIndex:_choosedChildItem];
+        self.child = [[AccountService defaultService]childAtIndex:_choosedChildItem];
         [self.tableView reloadData];
     }
 }
@@ -95,6 +98,7 @@ typedef void (^uploadFail)(void);
     }
     return 0.1f;
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0 && indexPath.row == 0) {
         return 120;
@@ -111,7 +115,6 @@ typedef void (^uploadFail)(void);
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 40;
 }
-
 //section 头部
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *header;
@@ -143,13 +146,10 @@ typedef void (^uploadFail)(void);
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //选择宝宝
     if (indexPath.section == 1 && [[AccountService defaultService].account haveChildren]) {
-        
-        WalkChildsViewController *walkChildsVC = [[WalkChildsViewController alloc]initWithParams:@{@"action":@"chooseChild",@"choosedChildItem":[[NSNumber alloc] initWithInteger:_choosedChildItem]}];
-        [self.navigationController pushViewController:walkChildsVC animated:YES];
+        [self openURL:[NSString stringWithFormat:@"childlist?action=%@&choosedChildItem=%@",@"chooseChild",[[NSNumber alloc] initWithInteger:_choosedChildItem]]];
     }
     if (indexPath.section == 1 && ![[AccountService defaultService].account haveChildren]) {
         if (indexPath.row == 0) {
-            
             [self takePictureClick];
         }
         else if (indexPath.row == 2) {
@@ -203,7 +203,6 @@ typedef void (^uploadFail)(void);
 //提交到服务器
 -(void)commitToServer:(NSInteger)skuId pid:(NSString *)pid
                   cid:(NSInteger)cid{
-    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     NSDictionary *params = @{@"sid":[NSNumber numberWithInteger:skuId], @"pid":pid,@"cid":[NSNumber numberWithInteger:cid]};
     [[HttpService defaultService]POST:URL_APPEND_PATH(@"/course/booking")
@@ -235,40 +234,51 @@ typedef void (^uploadFail)(void);
         return;
     }
     //2.添加数据
-    [self addChildData];
-    //3.上传文件
-    [self uploadFile:self.filePath fileName:@"selfPhoto.jpg" success:^(NSString *filePath) {
-        //4.增加孩子
-        _child.avatar = filePath;
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        NSMutableArray *babyArray = [[NSMutableArray alloc] init];
-        [babyArray addObject:[_child toNSDictionary]];
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:babyArray options:NSJSONWritingPrettyPrinted error:nil];
-        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",jsonString);
-        NSDictionary *params = @{@"children" : jsonString};
-        [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/child")
-                               parameters:params JSONModelClass:[AccountModel class]
-                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                      [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                      AccountModel *result = (AccountModel *)responseObject;
-                                      [AccountService defaultService].account = result.data;
-                                      self.child = [[AccountService defaultService].account.children lastObject];
-                                      //5.广播出去
-                                      [[NSNotificationCenter defaultCenter] postNotificationName:@"Notification_UpdateUserInfo" object:nil userInfo:nil];
-                                       //6.提交预约
-                                      [self commitToServer:self.selectSkuIds.integerValue pid:self.pid cid:self.child.ids.integerValue];
-                                      
-                                  }
-         
-                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                      [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                      [self showDialogWithTitle:nil message:error.message];
-                                      [self.confirmButton setUserInteractionEnabled:YES];
-                                  }];
-    } fail:^{
-        [UIAlertController alertControllerWithTitle:@"上传出错" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    }];
+    [self setChildData];
+    if(_filePath == nil){ //未设置头像
+        [self commitChildToServer:self.child];
+    }else if(_filePath != nil){
+        //3.上传文件
+        [self uploadFile:self.filePath fileName:@"selfPhoto.jpg" success:^(NSString *filePath) {
+            //4.增加孩子
+            self.child.avatar = filePath;
+            [self commitChildToServer:self.child];
+        } fail:^{
+            [UIAlertController alertControllerWithTitle:@"上传出错" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        }];
+    }
+}
+
+-(void)commitChildToServer:(Child*)child{
+    if (!child) {
+        return;
+    }
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    NSMutableArray *babyArray = [[NSMutableArray alloc] init];
+    [babyArray addObject:[child toNSDictionary]];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:babyArray options:NSJSONWritingPrettyPrinted error:nil];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",jsonString);
+    NSDictionary *params = @{@"children" : jsonString};
+    [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/child")
+                           parameters:params JSONModelClass:[AccountModel class]
+                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  AccountModel *result = (AccountModel *)responseObject;
+                                  [AccountService defaultService].account = result.data;
+                                  self.child = [[AccountService defaultService].account.children lastObject];
+                                  //5.广播出去
+                                  [[NSNotificationCenter defaultCenter] postNotificationName:@"Notification_UpdateUserInfo" object:nil userInfo:nil];
+                                  //6.提交预约
+                                  [self commitToServer:self.selectSkuIds.integerValue pid:self.pid cid:self.child.ids.integerValue];
+                                  
+                              }
+     
+                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                  [self showDialogWithTitle:nil message:error.message];
+                                  [self.confirmButton setUserInteractionEnabled:YES];
+                              }];
 }
 //上传文件
 -(void)uploadFile:(NSString *)filePath fileName:(NSString *)fileName success:(uploadSuccess)success fail:(uploadFail)fail{
@@ -286,10 +296,7 @@ typedef void (^uploadFail)(void);
 
 -(BOOL)checkInput{
     
-    if (_filePath == nil ) {
-        [self alertMessage:@"头像没有设置"];
-        return NO;
-    }else if(_childNameField.text == nil || [_childNameField.text isEqualToString:@""]){
+    if(_childNameField.text == nil || [_childNameField.text isEqualToString:@""]){
         [self alertMessage:@"姓名没有设置"];
         return NO;
     }else if(_sexCellItem.text == nil || [ _sexCellItem.text isEqualToString:@""]){
@@ -302,10 +309,10 @@ typedef void (^uploadFail)(void);
     return YES;
 }
 
--(void)addChildData{
-    _child.name = _childNameField.text;
-    _child.sex = _sexCellItem.text;
-    _child.birthday = _dateCellItem.text;
+-(void)setChildData{
+    self.child.name = _childNameField.text;
+    self.child.sex = _sexCellItem.text;
+    self.child.birthday = _dateCellItem.text;
 }
 
 -(void)alertMessage:(NSString *)message{
@@ -377,11 +384,11 @@ typedef void (^uploadFail)(void);
         }
     }else{
         
-        WalkChildCellTableViewCell *cell;
+        ChildListCell *cell;
         cell = [tableView dequeueReusableCellWithIdentifier:@"WalkChildsCellIdentifer"];
         if(cell == nil){
             cell = [[[NSBundle mainBundle]loadNibNamed:@"WalkChildCellTableViewCell" owner:self options:nil]lastObject];
-            [cell setData:_child];
+            [cell setData:self.child delegate:nil];
             [[cell viewWithTag:13]removeFromSuperview];
             UILabel *label = [cell viewWithTag:14];
             [label setText:@"选择宝宝"];
@@ -435,6 +442,7 @@ typedef void (^uploadFail)(void);
     }
 
 }
+
 - (void)datePickerSheet:(DatePickerSheet*)datePickerSheet chosenDate:(NSDate*)date{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yyyy-MM-dd";
@@ -476,4 +484,5 @@ typedef void (^uploadFail)(void);
     
     self.filePath = imageFilePath;
 }
+
 @end

@@ -6,13 +6,12 @@
 //  Copyright © 2016年 Deng Jun. All rights reserved.
 //
 
-#import "WalkChildsViewController.h"
-#import "WalkChildCellTableViewCell.h"
-#import "ChildDetailViewController.h"
-#import "AccountModel.h"
+#import "ChildListViewController.h"
 #import "ConfirmBookViewController.h"
+#import "ChildListCell.h"
+#import "AccountModel.h"
 
-@interface WalkChildsViewController ()
+@interface ChildListViewController ()
 
 @property (nonatomic, assign) NSInteger childCount;
 @property (nonatomic, strong) NSMutableArray *childs;
@@ -21,31 +20,31 @@
 
 @end
 
-@implementation WalkChildsViewController
-//动作有选择宝宝和 出行宝宝两种类型(既action动作) 1.chooseChild  2.
+@implementation ChildListViewController
+//动作有选择宝宝和 出行宝宝两种类型(既action动作) 1.chooseChild  2.updateChild
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
-        self.action = [params objectForKey:@"action"];
-        self.choosedChildItem = ((NSNumber *)[params objectForKey:@"choosedChildItem"]).integerValue;
+        [self decoderParams:params];
     }
     return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+-(void)decoderParams:(NSDictionary *)params{
+    self.action = [params objectForKey:@"action"];
+    self.choosedChildItem = ((NSNumber *)[params objectForKey:@"choosedChildItem"]).integerValue;
     if ([self.action isEqualToString:@"chooseChild"]) {
         self.title = @"选择宝宝";
     }else{
         self.title = @"出行宝宝";
     }
-    [self setNavItem];
     Account *account = [AccountService defaultService].account;
     self.childs = account.children;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UpdateUserInfo:) name:@"Notification_UpdateUserInfo" object:nil];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 80;
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setNavItem];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UpdateUserInfo:) name:@"Notification_UpdateUserInfo" object:nil];
 }
 
 -(void)UpdateUserInfo:(id)sender{
@@ -56,93 +55,15 @@
 
 //设置导航
 -(void)setNavItem{
-    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"添加" style:UIBarButtonItemStylePlain target:self action:@selector(addChild)];
 }
 
+#pragma child -- action
 -(void)addChild{
-    
-    ChildDetailViewController *childDetailVC = [[ChildDetailViewController alloc]initWithParams:@{@"action":@"add"}];
-    [self.navigationController pushViewController:childDetailVC animated:YES];
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.childs.count;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 10;
-}
-
-- (UITableViewCellAccessoryType)tableView:(UITableView *)tableView
-         accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath{
-    if ([self.action isEqualToString:@"chooseChild"] && indexPath.row == _choosedChildItem) {
-         return UITableViewCellAccessoryCheckmark;
-    }
-    return UITableViewCellAccessoryNone;
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (![self.action isEqualToString:@"chooseChild"]) {
-        return YES;
-    }
-    return NO;
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    if([self.action isEqualToString:@"chooseChild"]){
-        _choosedChildItem = indexPath.row;
-        [self.tableView reloadData];
-        __weak ConfirmBookViewController *vc = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 2 ];
-        vc.choosedChildItem = indexPath.row;
-        [self.navigationController popViewControllerAnimated:YES];
-    }
-}
-
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        Child *child = _childs[indexPath.row];
-        [self deleteChild:child.ids];
-        [_childs removeObjectAtIndex:indexPath.row];
-        // Delete the row from the data source.
-        //广播删除消息
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"Notification_DeleteInfo" object:nil userInfo:nil];
-        
-        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
-    }
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSInteger row = indexPath.row;
-    static NSString *WalkChildsCellIdentifer = @"WalkChildsCellInentifer";
-    WalkChildCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:WalkChildsCellIdentifer];
-    if(cell == nil){
-        cell = [[[NSBundle mainBundle]loadNibNamed:@"WalkChildCellTableViewCell" owner:self options:nil]lastObject];
-        [[cell viewWithTag:14]removeFromSuperview];
-        [cell setData:_childs[row]];
-        if ([self.action isEqualToString:@"chooseChild"]) {
-            [[cell viewWithTag:13]removeFromSuperview];
-            [[cell viewWithTag:14]removeFromSuperview];
-        }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
-    cell.ownerVC = self;
-    return cell;
+    [self openURL:[NSString stringWithFormat:@"childinfo?action=%@",@"add"]];
 }
 
 - (void)deleteChild:(NSNumber *)ids {
-    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     NSDictionary *params = @{@"cid" : [NSString stringWithFormat:@"%@", ids]};
     [[HttpService defaultService]POST:URL_APPEND_PATH(@"/user/child/delete")
@@ -159,6 +80,83 @@
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
                                   [self showDialogWithTitle:nil message:error.message];
                               }];
+}
+
+#pragma UITableView -- datasource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.childs.count;
+}
+
+- (UITableViewCellAccessoryType)tableView:(UITableView *)tableView
+         accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath{
+    if ([self.action isEqualToString:@"chooseChild"] && indexPath.row == _choosedChildItem) {
+        return UITableViewCellAccessoryCheckmark;
+    }
+    return UITableViewCellAccessoryNone;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (![self.action isEqualToString:@"chooseChild"]) {
+        return YES;
+    }
+    return NO;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        Child *child = _childs[indexPath.row];
+        [self deleteChild:child.ids];
+        [_childs removeObjectAtIndex:indexPath.row];
+        // Delete the row from the data source.
+        //广播删除消息
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Notification_DeleteInfo" object:nil userInfo:nil];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger row = indexPath.row;
+    static NSString *WalkChildsCellIdentifer = @"ChildListCellReuseInentifer";
+    ChildListCell *cell = [tableView dequeueReusableCellWithIdentifier:WalkChildsCellIdentifer];
+    if(cell == nil){
+        cell = [[[NSBundle mainBundle]loadNibNamed:@"ChildListCell" owner:self options:nil]lastObject];
+        [[cell viewWithTag:14]removeFromSuperview];
+        [cell setData:self.childs[row] delegate:self];
+        if ([self.action isEqualToString:@"chooseChild"]) {
+            [[cell viewWithTag:13]removeFromSuperview];
+            [[cell viewWithTag:14]removeFromSuperview];
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    cell.ownerVC = self;
+    return cell;
+}
+
+#pragma UITableView -- delegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 80;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 10;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if([self.action isEqualToString:@"chooseChild"]){
+        _choosedChildItem = indexPath.row;
+        [self.tableView reloadData];
+        __weak ConfirmBookViewController *vc = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 2 ];
+        vc.choosedChildItem = indexPath.row;
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

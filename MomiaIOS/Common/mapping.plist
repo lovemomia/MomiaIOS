@@ -434,5 +434,23 @@
 		<key>desc</key>
 		<string>聊天用户</string>
 	</dict>
+	<key>childinfo</key>
+	<dict>
+		<key>controller</key>
+		<string>ChildInfoViewController</string>
+		<key>needlogin</key>
+		<true/>
+		<key>desc</key>
+		<string>孩子信息</string>
+	</dict>
+	<key>childlist</key>
+	<dict>
+		<key>desc</key>
+		<string>孩子列表</string>
+		<key>needlogin</key>
+		<true/>
+		<key>controller</key>
+		<string>ChildListViewController</string>
+	</dict>
 </dict>
 </plist>

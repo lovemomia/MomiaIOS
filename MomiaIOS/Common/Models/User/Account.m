@@ -166,14 +166,14 @@
 }
 
 -(Child *)getFirstChild{
-    if (self.children) {
+    if (self.children && self.children.count > 0) {
         return self.children[0];
     }
     return nil;
 }
 
--(BOOL)haveChildren{
-    return self.children;
+-(BOOL)haveChildren{ //这里判断条件  1.不为nil  2.个数
+    return self.children && self.children.count > 0;
 }
 
 @end
