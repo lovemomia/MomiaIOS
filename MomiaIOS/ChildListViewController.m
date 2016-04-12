@@ -10,7 +10,6 @@
 #import "ConfirmBookViewController.h"
 #import "ChildListCell.h"
 #import "AccountModel.h"
-#import "NSMutableArray+Queue.h"
 #import "NSString+MOEncrypt.h"
 
 @interface ChildListViewController ()
@@ -47,13 +46,6 @@
     [super viewDidLoad];
     [self setNavItem];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UpdateUserInfo:) name:@"Notification_UpdateUserInfo" object:nil];
-    
-    NSMutableArray *good = [[NSMutableArray alloc]initWithCapacity:10];
-    [good addObject:@"1"];
-    [good addObject:@"2"];
-    [good addObject:@"3"];
-    [good addObject:@"4"];
-    NSLog(@"%@",[good deQueue]);
 }
 
 -(void)UpdateUserInfo:(id)sender{

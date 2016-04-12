@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0026931B1CBC988A00669044 /* NSMutableArray+Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0026931A1CBC988A00669044 /* NSMutableArray+Queue.m */; };
 		002B66421CB3686C0096EB6E /* ChildListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66411CB3686C0096EB6E /* ChildListViewController.m */; };
 		002B66431CB3686C0096EB6E /* ChildListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66411CB3686C0096EB6E /* ChildListViewController.m */; };
 		002B66471CB36D100096EB6E /* ChildListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66451CB36D100096EB6E /* ChildListCell.m */; };
@@ -20,7 +19,6 @@
 		002B665E1CB3AFE30096EB6E /* ConfirmBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */; };
 		005B4E3E1CB3BCF00044BAD1 /* CourseLocationTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 005B4E3D1CB3BCF00044BAD1 /* CourseLocationTimeCell.m */; };
 		005B4E3F1CB3BCF00044BAD1 /* CourseLocationTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 005B4E3D1CB3BCF00044BAD1 /* CourseLocationTimeCell.m */; };
-		00D12ACE1CBCACCF00DE1F38 /* NSMutableArray+Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0026931A1CBC988A00669044 /* NSMutableArray+Queue.m */; };
 		087C98AEC54638860E9ACAB0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9DF4BE98C18CC18BDADCD8 /* libPods.a */; };
 		5A08C14A1B3911CA00642648 /* ProductDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C1491B3911CA00642648 /* ProductDetailModel.m */; };
 		5A11C7291B589BB600B0CDFE /* ProductCalendarWeekendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A11C7281B589BB600B0CDFE /* ProductCalendarWeekendViewController.m */; };
@@ -854,8 +852,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		002693191CBC988A00669044 /* NSMutableArray+Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Queue.h"; sourceTree = "<group>"; };
-		0026931A1CBC988A00669044 /* NSMutableArray+Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Queue.m"; sourceTree = "<group>"; };
 		002B66401CB3686C0096EB6E /* ChildListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildListViewController.h; sourceTree = "<group>"; };
 		002B66411CB3686C0096EB6E /* ChildListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildListViewController.m; sourceTree = "<group>"; };
 		002B66441CB36D100096EB6E /* ChildListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildListCell.h; sourceTree = "<group>"; };
@@ -2994,8 +2990,6 @@
 		BCA2731B1AE9FA83002E7534 /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
-				002693191CBC988A00669044 /* NSMutableArray+Queue.h */,
-				0026931A1CBC988A00669044 /* NSMutableArray+Queue.m */,
 				BC359A341BC61F89002DE863 /* MBProgressHUD+Add.h */,
 				BC359A351BC61F89002DE863 /* MBProgressHUD+Add.m */,
 				BC359A361BC61F89002DE863 /* SDWebImageManager+MJ.h */,
@@ -3534,7 +3528,6 @@
 				BC6CF5821C3CC469006F314C /* IQUIWindow+Hierarchy.m in Sources */,
 				BC359A1A1BC61F2A002DE863 /* LJTabBar.m in Sources */,
 				BC753ECD1BAC07D300D2663C /* FeedListViewController.m in Sources */,
-				0026931B1CBC988A00669044 /* NSMutableArray+Queue.m in Sources */,
 				BC1052951BB1709900D81C15 /* AddFeedViewController.m in Sources */,
 				5AEB188A1B1865F90098FD5F /* MySuggestModel.m in Sources */,
 				BC99C9E71BF1A3AE00578EFC /* MJRefreshHelper.m in Sources */,
@@ -3810,7 +3803,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00D12ACE1CBCACCF00DE1F38 /* NSMutableArray+Queue.m in Sources */,
 				BC53A5231CA5250600532F91 /* SubjectCourseCell.m in Sources */,
 				BC53A51D1CA4001500532F91 /* SubjectDiscCell.m in Sources */,
 				BC80B84E1CA13D1E009559F2 /* HomeSubjectCoverCell.m in Sources */,

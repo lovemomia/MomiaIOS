@@ -18,7 +18,6 @@
 #import "LoadingErrorCell.h"
 #import "HomeOperateCell.h"
 #import "MJRefreshHelper.h"
-#import "NSMutableArray+Queue.h"
 #import "NSString+MOURLEncode.h"
 
 static NSString *homeGridIdentifier = @"CellGrid";
