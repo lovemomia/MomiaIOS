@@ -9,6 +9,7 @@
 #import "AccountService.h"
 #import "MONavigationController.h"
 #import <RongIMKit/RongIMKit.h>
+#import "LoginViewController.h"
 
 @interface AccountService()
 @property (nonatomic, strong) NSMutableArray *listeners;
@@ -63,38 +64,38 @@
 }
 
 - (void)login:(UIViewController *)currentController success:(BlockLoginSuccess)success {
-//    LoginViewController *controller = [[LoginViewController alloc]initWithParams:nil];
-//    
-//    controller.loginSuccessBlock = ^(){
-//        [currentController dismissViewControllerAnimated:YES completion:nil];
-//        if (success) {
-//            success();
-//        }
-//        
-//        // 快速集成第二步，连接融云服务器
-//        [[RCIM sharedRCIM] connectWithToken:self.account.imToken success:^(NSString *userId) {
-//            // Connect 成功
-//            NSLog(@"RCIM connect success, uid:%@", userId);
-//            
-//        } error:^(RCConnectErrorCode status) {
-//            // Connect 失败
-//            NSLog(@"RCIM connect failed, status:%ld", (long)status);
-//            
-//        } tokenIncorrect:^{
-//            // Token 失效的状态处理
-//            NSLog(@"RCIM connect failed, token incorrect");
-//        }];
-//    };
-//    controller.loginFailBlock = ^(NSInteger code, NSString* message){
-//        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-//        [alert show];
-//    };
-//    controller.loginCancelBlock = ^(){
-//        [currentController dismissViewControllerAnimated:YES completion:nil];
-//    };
-//    
-//    MONavigationController *navController = [[MONavigationController alloc]initWithRootViewController:controller];
-//    [currentController presentViewController:navController animated:YES completion:nil];
+    LoginViewController *controller = [[LoginViewController alloc]initWithParams:nil];
+    
+    controller.loginSuccessBlock = ^(){
+        [currentController dismissViewControllerAnimated:YES completion:nil];
+        if (success) {
+            success();
+        }
+        
+        // 快速集成第二步，连接融云服务器
+        [[RCIM sharedRCIM] connectWithToken:self.account.imToken success:^(NSString *userId) {
+            // Connect 成功
+            NSLog(@"RCIM connect success, uid:%@", userId);
+            
+        } error:^(RCConnectErrorCode status) {
+            // Connect 失败
+            NSLog(@"RCIM connect failed, status:%ld", (long)status);
+            
+        } tokenIncorrect:^{
+            // Token 失效的状态处理
+            NSLog(@"RCIM connect failed, token incorrect");
+        }];
+    };
+    controller.loginFailBlock = ^(NSInteger code, NSString* message){
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+    };
+    controller.loginCancelBlock = ^(){
+        [currentController dismissViewControllerAnimated:YES completion:nil];
+    };
+    
+    MONavigationController *navController = [[MONavigationController alloc]initWithRootViewController:controller];
+    [currentController presentViewController:navController animated:YES completion:nil];
 }
 
 - (void)logout:(UIViewController *)controller {

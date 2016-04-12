@@ -11,6 +11,7 @@
 #import "MOViewController.h"
 #import "Constants.h"
 #import "MONavigationController.h"
+#import "LoginViewController.h"
 
 #define INIT_VIEW(name) [[name alloc] initWithNibName:@#name bundle:nil]
 
@@ -58,31 +59,30 @@ NSString * const pageKeyDesc          = @"desc";
         return NO;
     }
     
-//    // 判断是否需要登录
-//    BOOL needLogin = [[pageDic objectForKey:pageKeyNeedLogin] boolValue];
-//    if (needLogin && ![[AccountService defaultService] isLogin]) {
-//        UIViewController *currentController = [nav.viewControllers objectAtIndex:[nav.viewControllers count] - 1];
-//        LoginViewController *controller = [[LoginViewController alloc]initWithParams:nil];
-//        
-//        controller.loginSuccessBlock = ^(){
-//            [currentController dismissViewControllerAnimated:NO completion:nil];
-//            NSDictionary *params = [url queryDictionary];
-//            UIViewController *controller = [[NSClassFromString(pageDic[pageKeyController]) alloc]initWithParams:params];
-//            [nav pushViewController:controller animated:YES];
-//        };
-//        controller.loginFailBlock = ^(NSInteger code, NSString* message){
-//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-//            [alert show];
-//        };
-//        controller.loginCancelBlock = ^(){
-//            [currentController dismissViewControllerAnimated:YES completion:nil];
-//        };
-//        
-//        MONavigationController *navController = [[MONavigationController alloc]initWithRootViewController:controller];
-//        [currentController presentViewController:navController animated:YES completion:nil];
-//        
-//    } else
-    {
+    // 判断是否需要登录
+    BOOL needLogin = [[pageDic objectForKey:pageKeyNeedLogin] boolValue];
+    if (needLogin && ![[AccountService defaultService] isLogin]) {
+        UIViewController *currentController = [nav.viewControllers objectAtIndex:[nav.viewControllers count] - 1];
+        LoginViewController *controller = [[LoginViewController alloc]initWithParams:nil];
+        
+        controller.loginSuccessBlock = ^(){
+            [currentController dismissViewControllerAnimated:NO completion:nil];
+            NSDictionary *params = [url queryDictionary];
+            UIViewController *controller = [[NSClassFromString(pageDic[pageKeyController]) alloc]initWithParams:params];
+            [nav pushViewController:controller animated:YES];
+        };
+        controller.loginFailBlock = ^(NSInteger code, NSString* message){
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+        };
+        controller.loginCancelBlock = ^(){
+            [currentController dismissViewControllerAnimated:YES completion:nil];
+        };
+        
+        MONavigationController *navController = [[MONavigationController alloc]initWithRootViewController:controller];
+        [currentController presentViewController:navController animated:YES completion:nil];
+        
+    } else{
         NSDictionary *params = [url queryDictionary];
         UIViewController *controller = [[NSClassFromString(pageDic[pageKeyController]) alloc]initWithParams:params];
         if (controller == nil) {
