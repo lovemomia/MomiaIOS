@@ -20,6 +20,7 @@
 		002B665E1CB3AFE30096EB6E /* ConfirmBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */; };
 		005B4E3E1CB3BCF00044BAD1 /* CourseLocationTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 005B4E3D1CB3BCF00044BAD1 /* CourseLocationTimeCell.m */; };
 		005B4E3F1CB3BCF00044BAD1 /* CourseLocationTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 005B4E3D1CB3BCF00044BAD1 /* CourseLocationTimeCell.m */; };
+		00D12ACE1CBCACCF00DE1F38 /* NSMutableArray+Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0026931A1CBC988A00669044 /* NSMutableArray+Queue.m */; };
 		087C98AEC54638860E9ACAB0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9DF4BE98C18CC18BDADCD8 /* libPods.a */; };
 		5A08C14A1B3911CA00642648 /* ProductDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C1491B3911CA00642648 /* ProductDetailModel.m */; };
 		5A11C7291B589BB600B0CDFE /* ProductCalendarWeekendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A11C7281B589BB600B0CDFE /* ProductCalendarWeekendViewController.m */; };
@@ -3809,6 +3810,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00D12ACE1CBCACCF00DE1F38 /* NSMutableArray+Queue.m in Sources */,
 				BC53A5231CA5250600532F91 /* SubjectCourseCell.m in Sources */,
 				BC53A51D1CA4001500532F91 /* SubjectDiscCell.m in Sources */,
 				BC80B84E1CA13D1E009559F2 /* HomeSubjectCoverCell.m in Sources */,

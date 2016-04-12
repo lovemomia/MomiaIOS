@@ -10,6 +10,6 @@
 
 @interface NSMutableArray (Queue)
 
--(NSString *)deQueue;
+-(id)deQueue;
 
 @end

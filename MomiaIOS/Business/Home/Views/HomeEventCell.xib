@@ -185,9 +185,9 @@
                 <variation key="default">
                     <mask key="constraints">
                         <exclude reference="mYi-by-iQ1"/>
+                        <exclude reference="arF-wG-JtG"/>
                         <exclude reference="9aP-7J-teW"/>
                         <exclude reference="qgW-b4-NIc"/>
-                        <exclude reference="arF-wG-JtG"/>
                         <exclude reference="jsO-MK-Vv3"/>
                     </mask>
                 </variation>

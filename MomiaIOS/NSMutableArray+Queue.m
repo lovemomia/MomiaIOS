@@ -11,12 +11,12 @@
 @implementation NSMutableArray (Queue)
 
 
--(NSString *)deQueue{
-//    id obj = nil;
-//    if (self && self.count > 0) {
-//        obj = [self firstObject];
-//        [self removeObjectAtIndex:0];
-//    }
-    return @"hah";
+-(id)deQueue{
+    id obj = nil;
+    if (self && self.count > 0) {
+        obj = [self firstObject];
+        [self removeObjectAtIndex:0];
+    }
+    return obj;
 }
 @end
