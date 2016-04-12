@@ -87,6 +87,7 @@
             <connections>
                 <outlet property="ageLabel" destination="A8i-Ki-NvB" id="7NJ-5Z-ekf"/>
                 <outlet property="coverIv" destination="09E-yA-wOC" id="eAW-rk-UVx"/>
+                <outlet property="joinedBg" destination="vnw-QU-0re" id="TW3-Ig-DzZ"/>
                 <outlet property="joinedLabel" destination="C6W-9p-TqY" id="Os6-I7-Rwi"/>
                 <outlet property="titleLabel" destination="SgH-Vc-ZGT" id="gF4-GT-2yI"/>
             </connections>

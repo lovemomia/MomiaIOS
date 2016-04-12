@@ -51,7 +51,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="来看看专家怎么说" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6G6-jP-D6f">
-                        <rect key="frame" x="105" y="93" width="110" height="14.5"/>
+                        <rect key="frame" x="108" y="93" width="104" height="14.5"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="110" id="EEF-0b-n2x"/>
@@ -60,9 +60,14 @@
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="EEF-0b-n2x"/>
+                            </mask>
+                        </variation>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zzb-E9-QAr">
-                        <rect key="frame" x="223" y="101" width="40" height="1"/>
+                        <rect key="frame" x="220" y="100" width="40" height="1"/>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="1kg-cS-bI5"/>
@@ -70,7 +75,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qca-PM-hS8">
-                        <rect key="frame" x="57" y="101" width="40" height="1"/>
+                        <rect key="frame" x="60" y="100" width="40" height="1"/>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="OmN-Ym-yZG"/>
@@ -90,15 +95,19 @@
                     <constraint firstItem="6G6-jP-D6f" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="VFn-UN-tjj"/>
                     <constraint firstItem="6G6-jP-D6f" firstAttribute="top" secondItem="Vli-ms-HbR" secondAttribute="bottom" constant="12" id="a2p-PJ-Bo8"/>
                     <constraint firstItem="Rr1-vY-IAf" firstAttribute="top" secondItem="XVs-Ug-ZtF" secondAttribute="bottom" constant="15" id="fjP-h2-5bp"/>
+                    <constraint firstItem="Zzb-E9-QAr" firstAttribute="centerY" secondItem="6G6-jP-D6f" secondAttribute="centerY" id="l8Z-BB-WCU"/>
                     <constraint firstItem="Zzb-E9-QAr" firstAttribute="leading" secondItem="6G6-jP-D6f" secondAttribute="trailing" constant="8" id="mSJ-VM-f7S"/>
                     <constraint firstItem="qja-O3-b8f" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="mWX-PO-T3L"/>
                     <constraint firstItem="XVs-Ug-ZtF" firstAttribute="top" secondItem="6G6-jP-D6f" secondAttribute="bottom" constant="20" id="mfI-11-pkV"/>
                     <constraint firstItem="Vli-ms-HbR" firstAttribute="top" secondItem="qja-O3-b8f" secondAttribute="bottom" constant="17" id="pf6-gZ-vji"/>
+                    <constraint firstItem="6G6-jP-D6f" firstAttribute="centerY" secondItem="Qca-PM-hS8" secondAttribute="centerY" id="vXW-cV-vo8"/>
                     <constraint firstAttribute="bottom" secondItem="Rr1-vY-IAf" secondAttribute="bottom" constant="20" id="yQV-L2-r3y"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="7E4-ZI-h3t"/>
                         <exclude reference="VFn-UN-tjj"/>
+                        <exclude reference="Px1-AX-PAe"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
