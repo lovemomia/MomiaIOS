@@ -63,10 +63,7 @@ static NSString *homeTopicCellIdentifier = @"HomeTopicCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-//    self.navigationItem.title = @"松果亲子";
 
-    
     NSArray * array = [[NSBundle mainBundle] loadNibNamed:@"TitleView" owner:self options:nil];
     UIView * cityView = array[0];
     self.cityLabel = (UILabel *)[cityView viewWithTag:2001];
@@ -96,10 +93,6 @@ static NSString *homeTopicCellIdentifier = @"HomeTopicCell";
         self.navigationItem.leftBarButtonItem = childItem;
         self.navigationItem.rightBarButtonItem = cityItem;
     }
-
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleCalendar"] style:UIBarButtonItemStylePlain target:self action:@selector(onProductCalendarClick)];
-    
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_search"] style:UIBarButtonItemStylePlain target:self action:@selector(onSearchClick)];
     
     [HomeEventCell registerCellFromNibWithTableView:self.tableView withIdentifier:homeEventIdentifier];
     [HomeCarouselCell registerCellFromNibWithTableView:self.tableView withIdentifier:homeCarouselIdentifier];
@@ -116,6 +109,7 @@ static NSString *homeTopicCellIdentifier = @"HomeTopicCell";
     [self requestData:YES];
     
     [[AccountService defaultService] addListener:self];
+    
 }
 
 - (void)setupTitleChild {

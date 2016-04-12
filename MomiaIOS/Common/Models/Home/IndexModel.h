@@ -30,7 +30,7 @@
 @interface IndexSubject : JSONModel
 @property (nonatomic, strong) NSNumber *ids;
 @property (nonatomic, strong) NSString *cover;
-@property (nonatomic, strong) NSString *age;
+@property (nonatomic, strong) NSString<Optional> *age;
 @property (nonatomic, strong) NSNumber *joined;
 @property (nonatomic, strong) NSNumber *price;
 @property (nonatomic, strong) NSString *title;

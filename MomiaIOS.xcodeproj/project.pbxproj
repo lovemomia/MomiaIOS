@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0026931B1CBC988A00669044 /* NSMutableArray+Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0026931A1CBC988A00669044 /* NSMutableArray+Queue.m */; };
 		002B66421CB3686C0096EB6E /* ChildListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66411CB3686C0096EB6E /* ChildListViewController.m */; };
 		002B66431CB3686C0096EB6E /* ChildListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66411CB3686C0096EB6E /* ChildListViewController.m */; };
 		002B66471CB36D100096EB6E /* ChildListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66451CB36D100096EB6E /* ChildListCell.m */; };
@@ -122,7 +123,6 @@
 		BC1CC9F01BA7E4AD001841E7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1CC9EF1BA7E4AD001841E7 /* AVFoundation.framework */; };
 		BC1CC9F71BA90A9A001841E7 /* Feed.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1CC9F61BA90A9A001841E7 /* Feed.m */; };
 		BC1CC9FA1BA910AF001841E7 /* FeedListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1CC9F91BA910AF001841E7 /* FeedListModel.m */; };
-		BC2C0C521B1303BA00E2446E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
 		BC2C0C571B1309A800E2446E /* MOButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C561B1309A800E2446E /* MOButton.m */; };
 		BC2C0C641B130CDB00E2446E /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C631B130CDB00E2446E /* Account.m */; };
 		BC2C0C681B131ED500E2446E /* AccountService.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C671B131ED500E2446E /* AccountService.m */; };
@@ -853,6 +853,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		002693191CBC988A00669044 /* NSMutableArray+Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Queue.h"; sourceTree = "<group>"; };
+		0026931A1CBC988A00669044 /* NSMutableArray+Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Queue.m"; sourceTree = "<group>"; };
 		002B66401CB3686C0096EB6E /* ChildListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildListViewController.h; sourceTree = "<group>"; };
 		002B66411CB3686C0096EB6E /* ChildListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildListViewController.m; sourceTree = "<group>"; };
 		002B66441CB36D100096EB6E /* ChildListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildListCell.h; sourceTree = "<group>"; };
@@ -2991,6 +2993,8 @@
 		BCA2731B1AE9FA83002E7534 /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
+				002693191CBC988A00669044 /* NSMutableArray+Queue.h */,
+				0026931A1CBC988A00669044 /* NSMutableArray+Queue.m */,
 				BC359A341BC61F89002DE863 /* MBProgressHUD+Add.h */,
 				BC359A351BC61F89002DE863 /* MBProgressHUD+Add.m */,
 				BC359A361BC61F89002DE863 /* SDWebImageManager+MJ.h */,
@@ -3487,7 +3491,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC2C0C521B1303BA00E2446E /* LoginViewController.m in Sources */,
 				BCF564DD1B490052003A2227 /* OrderListModel.m in Sources */,
 				BCF564CC1B43EC53003A2227 /* NSTimer+Block.m in Sources */,
 				BC040D0C1BC8BB5500988AB2 /* CourseDiscCell.m in Sources */,
@@ -3530,6 +3533,7 @@
 				BC6CF5821C3CC469006F314C /* IQUIWindow+Hierarchy.m in Sources */,
 				BC359A1A1BC61F2A002DE863 /* LJTabBar.m in Sources */,
 				BC753ECD1BAC07D300D2663C /* FeedListViewController.m in Sources */,
+				0026931B1CBC988A00669044 /* NSMutableArray+Queue.m in Sources */,
 				BC1052951BB1709900D81C15 /* AddFeedViewController.m in Sources */,
 				5AEB188A1B1865F90098FD5F /* MySuggestModel.m in Sources */,
 				BC99C9E71BF1A3AE00578EFC /* MJRefreshHelper.m in Sources */,

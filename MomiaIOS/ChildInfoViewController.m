@@ -28,6 +28,7 @@ static NSString *tempImagePath = @"tempImage.jepg";
 @property (nonatomic, weak  ) UILabel     *dateCellItem;
 @property (nonatomic, weak  ) UITextField *childNameField;
 @property (nonatomic, strong) UIButton    *confirmButton;
+@property (nonatomic, assign) BOOL        isKeyBoardOpen;
 
 @end
 
@@ -128,7 +129,6 @@ static NSString *tempImagePath = @"tempImage.jepg";
         if(section == 0 && row == 2){
             cell.textLabel.text = @"性别";
             _sexCellItem = cell.detailTextLabel;
-            
             if (_child) {
                 [_sexCellItem setText:_child.sex];
             }
@@ -194,7 +194,13 @@ static NSString *tempImagePath = @"tempImage.jepg";
         [self takePictureClick];
     }
     else if(indexPath.row == 1){
-        [self.childNameField becomeFirstResponder];
+        NSLog(@"select cell");
+        if (!self.isKeyBoardOpen) {
+            [self.childNameField becomeFirstResponder];
+            self.isKeyBoardOpen = YES;
+        }else{
+            self.isKeyBoardOpen = NO;
+        }
     }
     else if (indexPath.row == 2) {
         [self showSexPicker:2];
@@ -429,11 +435,11 @@ static NSString *tempImagePath = @"tempImage.jepg";
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
-    
+
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
-    
+
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{

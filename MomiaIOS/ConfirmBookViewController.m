@@ -385,9 +385,9 @@ typedef void (^uploadFail)(void);
     }else{
         
         ChildListCell *cell;
-        cell = [tableView dequeueReusableCellWithIdentifier:@"WalkChildsCellIdentifer"];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"ChildListCellIdentifer"];
         if(cell == nil){
-            cell = [[[NSBundle mainBundle]loadNibNamed:@"WalkChildCellTableViewCell" owner:self options:nil]lastObject];
+            cell = [[[NSBundle mainBundle]loadNibNamed:@"ChildListCell" owner:self options:nil]lastObject];
             [cell setData:self.child delegate:nil];
             [[cell viewWithTag:13]removeFromSuperview];
             UILabel *label = [cell viewWithTag:14];
