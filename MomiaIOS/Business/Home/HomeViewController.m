@@ -41,7 +41,7 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
 
 @interface CellItem : NSObject
 
-@property(nonatomic,assign) NSInteger itemType;
+@property(nonatomic,assign) NSInteger itemType; //Cell 类型
 @property(nonatomic,strong) id object;
 
 -(instancetype)init:(HomeViewCellType)itemType obj:(id)obj;
@@ -151,6 +151,7 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
 }
 
 - (void)onAccountChange {
+    [self requestData:YES]; //账户发生改变，更新首页
     [self setupTitleChild];
     [self.tableView.mj_header beginRefreshing];
 }
@@ -293,8 +294,8 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger row = indexPath.section;
-    CellItem *item = self.dataArray[row];
+    NSInteger section = indexPath.section;
+    CellItem *item = self.dataArray[section];
     switch (item.itemType) {
         case HomeViewCellTypeBanner:
             return [HomeCarouselCell heightWithTableView:tableView];
@@ -317,10 +318,10 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
     }
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger row = indexPath.section;
-    CellItem *item = self.dataArray[row];
+    NSInteger section = indexPath.section;
+    CellItem *item = self.dataArray[section];
     if (item.itemType == HomeViewCellTypeBanner) {
         HomeCarouselCell * carousel = [HomeCarouselCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeCarouselIdentifier];
         carousel.data = item.object;
@@ -334,26 +335,27 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
             }
         };
         return carousel;
-    }else if(item.itemType == HomeViewCellTypeEvent){
+        
+    } else if (item.itemType == HomeViewCellTypeEvent) {
         HomeEventCell *operateCell = [HomeEventCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeEventIdentifier];
         operateCell.data = item.object;
         return operateCell;
 
-    }else if(item.itemType == HomeViewCellTypeSubjectCover){
+    } else if(item.itemType == HomeViewCellTypeSubjectCover){
         HomeSubjectCoverCell *subjectCover = [HomeSubjectCoverCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeSubjectCoverCellIdentifier];
         subjectCover.data = [item.object cover];
         return subjectCover;
 
-    }else if(item.itemType == HomeViewCellTypeSubject){
+    } else if(item.itemType == HomeViewCellTypeSubject){
         HomeSubjectCoursesCell *subjectCourses = [HomeSubjectCoursesCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeSubjectCoursesCellIdentifier];
         subjectCourses.data = item.object;
         return subjectCourses;
-    }else if(item.itemType == HomeViewCellTypeTopic){
+    } else if(item.itemType == HomeViewCellTypeTopic){
         HomeTopicCell *topicCell = [HomeTopicCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeTopicCellIdentifier];
         topicCell.data = item.object;
         return topicCell;
 
-    }else if(item.itemType == HomeViewCellTypeCourse){
+    } else if(item.itemType == HomeViewCellTypeCourse){
         HomeCell * home = [HomeCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeIdentifier];
         home.data = item.object;
         return home;

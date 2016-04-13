@@ -37,7 +37,7 @@
 }
 
 - (IBAction)editChildDetail:(id)sender {
-    [self.controller openURL:[NSString stringWithFormat:@"childinfo?action=update&childId=%@",self.child.ids]];
+    [self.controller openURL:[NSString stringWithFormat:@"childinfo?cid=%@",self.child.ids]];//传递cid过去
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

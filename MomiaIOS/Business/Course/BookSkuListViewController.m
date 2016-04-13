@@ -84,6 +84,7 @@ static NSString *identifierBookSkuDateTitleCell = @"BookSkuDateTitleCell";
     if (self.isRequestMonth) {
         path = self.onlyShow ? @"/course/sku/month/notend" : @"/course/sku/month/bookable";
         dic = @{@"id":self.ids, @"month":@(self.month)};
+        NSLog(@"%@",dic);
     } else {
         path = self.onlyShow ? @"/course/sku/week/notend" : @"/course/sku/week/bookable";
         dic = @{@"id":self.ids};

@@ -7,22 +7,24 @@
 //
 
 #import "ChildListViewController.h"
-#import "ConfirmBookViewController.h"
 #import "ChildListCell.h"
 #import "AccountModel.h"
 #import "NSString+MOEncrypt.h"
 
-@interface ChildListViewController ()
+static NSString *ChooseChildAction = @"ChooseChildAction";
+static NSString *ChildListAction = @"ChildListAction";
+static NSString *ChoosedChildId = @"ChoosedChildId";
 
-@property (nonatomic, assign) NSInteger childCount;
-@property (nonatomic, strong) NSMutableArray *childs;
+@interface ChildListViewController ()<AccountChangeListener>
+
 @property (nonatomic, strong) NSString *action;
-@property (nonatomic, assign) NSInteger choosedChildItem;
+@property (nonatomic, assign) NSNumber *choosedChildId;
+@property (nonatomic, strong) NSMutableArray *childs;
 
 @end
 
 @implementation ChildListViewController
-//动作有选择宝宝和 出行宝宝两种类型(既action动作) 1.chooseChild  2.updateChild
+//动作有选择宝宝和 出行宝宝两种类型(既action动作) 1.chooseChild  2.ChildList
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
         [self decoderParams:params];
@@ -31,24 +33,34 @@
 }
 
 -(void)decoderParams:(NSDictionary *)params{
-    self.action = [params objectForKey:@"action"];
-    self.choosedChildItem = ((NSNumber *)[params objectForKey:@"choosedChildItem"]).integerValue;
-    if ([self.action isEqualToString:@"chooseChild"]) {
+    NSNumber* select = [params objectForKey:@"select"];
+    BOOL isSelect = [select boolValue];
+    if (isSelect) {
         self.title = @"选择宝宝";
-    }else{
+        self.action = ChooseChildAction;
+        self.choosedChildId = [params objectForKey:@"cid"];
+    } else {
         self.title = @"出行宝宝";
     }
     Account *account = [AccountService defaultService].account;
     self.childs = account.children;
 }
 
+-(NSString *)action{ //action 默认是List
+    if (!_action) {
+        _action = ChildListAction;
+    }
+    return _action;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavItem];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UpdateUserInfo:) name:@"Notification_UpdateUserInfo" object:nil];
+    [[AccountService defaultService]addListener:self];
 }
 
--(void)UpdateUserInfo:(id)sender{
+
+-(void)onAccountChange{
     Account *account = [AccountService defaultService].account;
     self.childs = account.children;
     [self.tableView reloadData];
@@ -56,12 +68,12 @@
 
 //设置导航
 -(void)setNavItem{
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"添加" style:UIBarButtonItemStylePlain target:self action:@selector(addChild)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"添加" style:UIBarButtonItemStylePlain target:self action:@selector(addChildAction)];
 }
 
 #pragma child -- action
--(void)addChild{
-    [self openURL:[NSString stringWithFormat:@"childinfo?action=%@",@"add"]];
+-(void)addChildAction{
+    [self openURL:@"childinfo"];
 }
 
 - (void)deleteChild:(NSNumber *)ids {
@@ -92,16 +104,8 @@
     return self.childs.count;
 }
 
-- (UITableViewCellAccessoryType)tableView:(UITableView *)tableView
-         accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath{
-    if ([self.action isEqualToString:@"chooseChild"] && indexPath.row == _choosedChildItem) {
-        return UITableViewCellAccessoryCheckmark;
-    }
-    return UITableViewCellAccessoryNone;
-}
-
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (![self.action isEqualToString:@"chooseChild"]) {
+    if (![self.action isEqualToString:ChooseChildAction]) {
         return YES;
     }
     return NO;
@@ -124,16 +128,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSInteger row = indexPath.row;
+    Child *child = self.childs[indexPath.row];
     static NSString *WalkChildsCellIdentifer = @"ChildListCellReuseInentifer";
     ChildListCell *cell = [tableView dequeueReusableCellWithIdentifier:WalkChildsCellIdentifer];
     if(cell == nil){
         cell = [[[NSBundle mainBundle]loadNibNamed:@"ChildListCell" owner:self options:nil]lastObject];
         [[cell viewWithTag:14]removeFromSuperview];
-        [cell setData:self.childs[row] delegate:self];
-        if ([self.action isEqualToString:@"chooseChild"]) {
+        [cell setData:child delegate:self];
+        if ([self.action isEqualToString:ChooseChildAction]) {
             [[cell viewWithTag:13]removeFromSuperview];
             [[cell viewWithTag:14]removeFromSuperview];
+        }
+        if ([self.action isEqualToString:ChooseChildAction] && child.ids.integerValue == self.choosedChildId.integerValue) {
+            cell.accessoryType =  UITableViewCellAccessoryCheckmark;
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
@@ -151,11 +158,8 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if([self.action isEqualToString:@"chooseChild"]){
-        _choosedChildItem = indexPath.row;
-        [self.tableView reloadData];
-        __weak ConfirmBookViewController *vc = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 2 ];
-        vc.choosedChildItem = indexPath.row;
+    if([self.action isEqualToString:ChooseChildAction]){
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"updateChoosedChild" object:[[NSNumber alloc]initWithInteger:indexPath.row]];
         [self.navigationController popViewControllerAnimated:YES];
     }
 }

@@ -4432,7 +4432,6 @@
 					"$(PROJECT_DIR)/ThirdParty",
 					"$(PROJECT_DIR)/ThirdParty/BaiduMap",
 					"$(inherited)",
-					"$(PROJECT_DIR)/ThirdParty/RongCloud",
 					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
 				);
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
@@ -4455,11 +4454,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdParty/libWeiboSDK",
-					"$(PROJECT_DIR)/MomiaIOS/SDKExport",
 					"$(PROJECT_DIR)/ThirdParty/GeTui",
 					"$(PROJECT_DIR)/Pods/",
 					"$(PROJECT_DIR)/ThirdParty/WeChatSDK_1.6",
-					"$(PROJECT_DIR)/ThirdParty/RongCloud",
 					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
 				);
 				ONLY_ACTIVE_ARCH = YES;
@@ -4517,7 +4514,6 @@
 					"$(PROJECT_DIR)/ThirdParty",
 					"$(PROJECT_DIR)/ThirdParty/BaiduMap",
 					"$(inherited)",
-					"$(PROJECT_DIR)/ThirdParty/RongCloud",
 					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
 				);
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
@@ -4540,11 +4536,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdParty/libWeiboSDK",
-					"$(PROJECT_DIR)/MomiaIOS/SDKExport",
 					"$(PROJECT_DIR)/ThirdParty/GeTui",
 					"$(PROJECT_DIR)/Pods/",
 					"$(PROJECT_DIR)/ThirdParty/WeChatSDK_1.6",
-					"$(PROJECT_DIR)/ThirdParty/RongCloud",
 					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
 				);
 				ONLY_ACTIVE_ARCH = NO;

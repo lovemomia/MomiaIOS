@@ -229,9 +229,7 @@
                 self.addressCell = cell;
             }
             
-        }
-        else{
-            
+        } else {
             cell.textLabel.text = @"出行宝宝";
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu个",(unsigned long)[account.children count]];
         }

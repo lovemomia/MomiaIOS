@@ -19,6 +19,8 @@
 typedef void (^uploadSuccess)(NSString *filePath);
 typedef void (^uploadFail)(void);
 
+static NSString *ChooseChildAction = @"ChooseChildAction";
+
 @interface ConfirmBookViewController ()<UIActionSheetDelegate,DatePickerSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (nonatomic,weak  ) UIImageView *avaorImageView;
@@ -52,6 +54,8 @@ typedef void (^uploadFail)(void);
     //注册一些公共的title
     [CommonHeaderView registerCellFromNibWithTableView:self.tableView];
     self.title = @"确认约课";
+    //注册通知
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateChoosedChild:) name:@"updateChoosedChild" object:nil];
 }
 
 -(Child *)child{
@@ -59,7 +63,7 @@ typedef void (^uploadFail)(void);
         return _child;
     }
     _child = [[AccountService defaultService].account getFirstChild];
-    if (_child) {
+    if (_child) { //如果没有添加孩子
         return _child;
     }
     _child = [Child new];
@@ -72,10 +76,12 @@ typedef void (^uploadFail)(void);
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    if ([[AccountService defaultService].account haveChildren]) {
-        self.child = [[AccountService defaultService]childAtIndex:_choosedChildItem];
-        [self.tableView reloadData];
-    }
+}
+
+-(void)updateChoosedChild:(NSNotification*) aNotification{
+    self.choosedChildItem = [aNotification.object integerValue];
+    self.child = [[AccountService defaultService]childAtIndex:self.choosedChildItem];
+    [self.tableView reloadData];
 }
 
 #pragma tableView
@@ -146,7 +152,7 @@ typedef void (^uploadFail)(void);
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //选择宝宝
     if (indexPath.section == 1 && [[AccountService defaultService].account haveChildren]) {
-        [self openURL:[NSString stringWithFormat:@"childlist?action=%@&choosedChildItem=%@",@"chooseChild",[[NSNumber alloc] initWithInteger:_choosedChildItem]]];
+        [self openURL:[NSString stringWithFormat:@"childlist?select=%@&cid=%@",[NSNumber numberWithBool:YES],self.child.ids]];
     }
     if (indexPath.section == 1 && ![[AccountService defaultService].account haveChildren]) {
         if (indexPath.row == 0) {
@@ -267,9 +273,7 @@ typedef void (^uploadFail)(void);
                                   AccountModel *result = (AccountModel *)responseObject;
                                   [AccountService defaultService].account = result.data;
                                   self.child = [[AccountService defaultService].account.children lastObject];
-                                  //5.广播出去
-                                  [[NSNotificationCenter defaultCenter] postNotificationName:@"Notification_UpdateUserInfo" object:nil userInfo:nil];
-                                  //6.提交预约
+                                  //5.提交预约
                                   [self commitToServer:self.selectSkuIds.integerValue pid:self.pid cid:self.child.ids.integerValue];
                                   
                               }
@@ -374,10 +378,10 @@ typedef void (^uploadFail)(void);
             cell.detailTextLabel.textColor = UIColorFromRGB(0x999999);
             cell.detailTextLabel.font = [UIFont systemFontOfSize: 15.0];
             
-            if(indexPath.row == 2){
+            if (indexPath.row == 2) {
                 cell.textLabel.text = @"性别";
                 _sexCellItem = cell.detailTextLabel;
-            }else if(indexPath.row ==3){
+            } else if( indexPath.row == 3 ) {
                 cell.textLabel.text = @"生日";
                 _dateCellItem = cell.detailTextLabel;
             }

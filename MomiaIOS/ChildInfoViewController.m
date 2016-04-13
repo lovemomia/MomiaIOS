@@ -16,6 +16,13 @@ typedef void (^uploadSuccess)(NSString *filePath);
 typedef void (^uploadFail)(void);
 
 static NSString *tempImagePath = @"tempImage.jepg";
+
+typedef NS_ENUM(NSInteger,OpenActionSheetTag){
+    OpenActionSheetTagSex,
+    OpenActionSheetTagTime,
+    OpenActionSheetTagPicture,
+};
+
 @interface ChildInfoViewController ()<UIActionSheetDelegate,DatePickerSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate>
 
 @property (nonatomic, strong) NSString    *action;
@@ -42,12 +49,13 @@ static NSString *tempImagePath = @"tempImage.jepg";
 }
 
 -(void)decoderParams:(NSDictionary *)params{
-    self.action  = [params objectForKey:@"action"];
-    self.childId = (NSNumber *)[params objectForKey:@"childId"];
-    if ([self.action isEqualToString:@"add"]){
-        self.title = @"添加宝宝";
+    self.childId = (NSNumber *)[params objectForKey:@"cid"];
+    if (!self.childId) {
+        self.action = @"add";
         self.child = [[Child alloc]init];
-    }else if([self.action isEqualToString:@"update"]){
+        self.title = @"添加宝宝";
+    } else {
+        self.action = @"update";
         self.title = @"宝宝信息";
         for (int i = 0; i < [AccountService defaultService].account.children.count; i++) {
             Child *child = [AccountService defaultService].account.children[i];
@@ -140,6 +148,7 @@ static NSString *tempImagePath = @"tempImage.jepg";
             }
         }
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -194,7 +203,6 @@ static NSString *tempImagePath = @"tempImage.jepg";
         [self takePictureClick];
     }
     else if(indexPath.row == 1){
-        NSLog(@"select cell");
         if (!self.isKeyBoardOpen) {
             [self.childNameField becomeFirstResponder];
             self.isKeyBoardOpen = YES;
@@ -203,9 +211,9 @@ static NSString *tempImagePath = @"tempImage.jepg";
         }
     }
     else if (indexPath.row == 2) {
-        [self showSexPicker:2];
+        [self showSexPicker];
     }else if(indexPath.row == 3){
-        [self showDatePicker:3];
+        [self showDatePicker];
     }
 }
 //确认修改
@@ -286,7 +294,6 @@ static NSString *tempImagePath = @"tempImage.jepg";
                                   AccountModel *result = (AccountModel *)responseObject;
                                   [AccountService defaultService].account = result.data;
                                   //广播出去
-                                  [[NSNotificationCenter defaultCenter] postNotificationName:@"Notification_UpdateUserInfo" object:nil userInfo:nil];
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
                                   [self.confirmButton setUserInteractionEnabled:YES];
                                   //新增完信息，跳转到上一页
@@ -304,20 +311,20 @@ static NSString *tempImagePath = @"tempImage.jepg";
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)showSexPicker:(NSInteger)tag {
+-(void)showSexPicker{
     UIActionSheet *sexSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                           delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"男",@"女",nil];
-    sexSheet.tag = tag;
+    sexSheet.tag = OpenActionSheetTagSex;
     [sexSheet showInView:[[UIApplication sharedApplication].delegate window]];
 }
 
-- (void)showDatePicker:(NSInteger)tag {
+- (void)showDatePicker{
     DatePickerSheet * datePickerSheet = [DatePickerSheet getInstance];
     [datePickerSheet initializationWithMaxDate:[NSDate date]
                                    withMinDate:[NSDate dateWithTimeIntervalSinceNow: - (24 * 60 * 60 * 30 * 12 * 20)]
                             withDatePickerMode:UIDatePickerModeDate
                                   withDelegate:self];
-    datePickerSheet.tag = tag;
+    datePickerSheet.tag = OpenActionSheetTagTime;
     [datePickerSheet showDatePickerSheet];
 
 }
@@ -330,13 +337,14 @@ static NSString *tempImagePath = @"tempImage.jepg";
                                   cancelButtonTitle:@"取消"
                                   destructiveButtonTitle:nil
                                   otherButtonTitles:@"照相机", @"本地相簿",nil];
+    actionSheet.tag = OpenActionSheetTagPicture;
     [actionSheet showInView:self.view];
 }
 
 #pragma mark -
 #pragma UIActionSheet Delegate
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (actionSheet.tag == 0) {
+    if (actionSheet.tag == OpenActionSheetTagPicture) {
         switch (buttonIndex) {
             case 0://照相机
             {
@@ -364,7 +372,7 @@ static NSString *tempImagePath = @"tempImage.jepg";
                 break;
         }
     }
-    else if(actionSheet.tag == 2){
+    else if(actionSheet.tag == OpenActionSheetTagSex){
         if(buttonIndex > 1){
             return;
         }
