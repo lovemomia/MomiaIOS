@@ -489,4 +489,8 @@ static NSString *ChooseChildAction = @"ChooseChildAction";
     self.filePath = imageFilePath;
 }
 
+-(void)dealloc { //移除
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 @end

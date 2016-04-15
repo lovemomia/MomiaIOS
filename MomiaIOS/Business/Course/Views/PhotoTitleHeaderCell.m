@@ -23,7 +23,6 @@
 @property (nonatomic, strong) NSArray *imgs;
 @property (nonatomic, strong) NSMutableArray *imgsIvArray;
 
-
 @property (assign, nonatomic) int imgsNum;
 @property (assign, nonatomic) int currentPage;
 
@@ -48,6 +47,9 @@
 -(void)setData:(id)model
 {
     BOOL isPackage = [model isKindOfClass:[Subject class]];
+    if (!isPackage) {
+        return;
+    }
     [self layoutIfNeeded];
     
     CGFloat width = SCREEN_WIDTH;

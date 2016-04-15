@@ -10,4 +10,5 @@
 
 @interface PhotoTitleHeaderCell : MOTableCell<MOTableCellDataProtocol>
 
+
 @end

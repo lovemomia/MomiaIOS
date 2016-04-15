@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, assign) CGFloat price;
 @property (nonatomic, assign) CGFloat originalPrice;
-@property (nonatomic, strong) NSString *age;
+@property (nonatomic, strong) NSString<Optional> *age;
 @property (nonatomic, strong) NSNumber *joined;
 @property (nonatomic, strong) NSArray<Optional> *imgs;
 

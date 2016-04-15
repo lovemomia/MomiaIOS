@@ -9,11 +9,11 @@
 #import "JSONModel.h"
 #import "Course.h"
 
-@protocol Course <NSObject>
+@protocol Course
 @end
 
 @interface CourseList : JSONModel
 @property (nonatomic, strong) NSArray<Course> *list;
 @property (nonatomic, strong) NSNumber<Optional> *nextIndex;
-@property (nonatomic, strong) NSNumber *totalCount;
+@property (nonatomic, strong) NSNumber<Optional> *totalCount;
 @end

@@ -46,9 +46,11 @@
 @interface Course : JSONModel
 
 @property (nonatomic, strong) NSNumber *ids;
+@property (nonatomic, strong) NSNumber<Optional> *addTime; //添加时间
 @property (nonatomic, strong) NSString<Optional> *cover; //封面
 @property (nonatomic, strong) NSString *title; //标题
 @property (nonatomic, assign) CGFloat price; //价格
+@property (nonatomic,assign)  CGFloat originalPrice; //原始价格
 @property (nonatomic, strong) NSString *age; //年龄
 @property (nonatomic, strong) NSNumber *joined; //参加人数
 @property (nonatomic, strong) NSString<Optional> *scheduler; //场次日期
