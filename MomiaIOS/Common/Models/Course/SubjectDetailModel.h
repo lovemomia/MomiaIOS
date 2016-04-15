@@ -8,16 +8,21 @@
 
 #import "BaseModel.h"
 #import "Subject.h"
-#import "CourseList.h"
+#import "Course.h"
 #import "ReviewList.h"
 //#import "FeedListModel.h"
 
+@protocol Course
+@end
+
 @interface SubjectDetailData : JSONModel
 @property (nonatomic, strong) Subject *subject;
-@property (nonatomic, strong) CourseList *courses;
+@property (nonatomic, strong) NSArray<Optional,Course> *courses;
 @property (nonatomic, strong) ReviewList<Optional> *comments;
+@property (nonatomic, strong) NSArray<Optional,Course> *freshCourses;
 //@property (nonatomic, strong) FeedListData<Optional> *feeds;
 @end
+
 
 @interface SubjectDetailModel : BaseModel
 @property (nonatomic, strong) SubjectDetailData *data;

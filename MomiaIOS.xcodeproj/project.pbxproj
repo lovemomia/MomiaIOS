@@ -20,6 +20,8 @@
 		005B4E3E1CB3BCF00044BAD1 /* CourseLocationTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 005B4E3D1CB3BCF00044BAD1 /* CourseLocationTimeCell.m */; };
 		005B4E3F1CB3BCF00044BAD1 /* CourseLocationTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 005B4E3D1CB3BCF00044BAD1 /* CourseLocationTimeCell.m */; };
 		00B59E881CBD4695005565EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
+		00C796841CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
+		00C796851CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
 		087C98AEC54638860E9ACAB0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9DF4BE98C18CC18BDADCD8 /* libPods.a */; };
 		5A08C14A1B3911CA00642648 /* ProductDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C1491B3911CA00642648 /* ProductDetailModel.m */; };
 		5A11C7291B589BB600B0CDFE /* ProductCalendarWeekendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A11C7281B589BB600B0CDFE /* ProductCalendarWeekendViewController.m */; };
@@ -864,6 +866,7 @@
 		002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmBookViewController.m; sourceTree = "<group>"; };
 		005B4E3C1CB3BCF00044BAD1 /* CourseLocationTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseLocationTimeCell.h; sourceTree = "<group>"; };
 		005B4E3D1CB3BCF00044BAD1 /* CourseLocationTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseLocationTimeCell.m; sourceTree = "<group>"; };
+		00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectDetailHeaders.xib; sourceTree = "<group>"; };
 		569FE54592CF71500372F186 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5A08C1481B3911CA00642648 /* ProductDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailModel.h; sourceTree = "<group>"; };
 		5A08C1491B3911CA00642648 /* ProductDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailModel.m; sourceTree = "<group>"; };
@@ -2177,6 +2180,7 @@
 				BC53A5201CA51B9800532F91 /* SubjectCourseCell.xib */,
 				005B4E3C1CB3BCF00044BAD1 /* CourseLocationTimeCell.h */,
 				005B4E3D1CB3BCF00044BAD1 /* CourseLocationTimeCell.m */,
+				00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3291,6 +3295,7 @@
 				BC80B8481CA00E97009559F2 /* HomeSubjectCoursesCell.xib in Resources */,
 				BC040D141BC8EDB600988AB2 /* CourseListItemCell.xib in Resources */,
 				BC753EDA1BAC07D300D2663C /* FeedUgcCell.xib in Resources */,
+				00C796841CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */,
 				5A6806F01B01A9BD00D02A60 /* SettingMsgCell.xib in Resources */,
 				BC753ED41BAC07D300D2663C /* FeedSuggestHeadCell.xib in Resources */,
 				BCFC9E971BD890FC003D9EA3 /* ico_make.png in Resources */,
@@ -3452,6 +3457,7 @@
 				BCEAFD871C2A394300CB082D /* ShareViewCell.xib in Resources */,
 				BCEAFD881C2A394300CB082D /* CommonHeaderView.xib in Resources */,
 				BCEAFD891C2A394300CB082D /* BookCourseListItemCell.xib in Resources */,
+				00C796851CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */,
 				BCEAFD8B1C2A394300CB082D /* HomeCell.xib in Resources */,
 				BCEAFD8C1C2A394300CB082D /* CourseTeacherListItemCell.xib in Resources */,
 				BCEAFD8E1C2A394300CB082D /* BookSkuMoreCell.xib in Resources */,

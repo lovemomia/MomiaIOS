@@ -10,6 +10,15 @@
 
 @implementation SubjectDetailData
 
++(JSONKeyMapper*)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{
+                                                       @"subject": @"subject",
+                                                       @"courses": @"courses",
+                                                       @"comments": @"comments",
+                                                       @"newCourses":@"freshCourses"
+                                                       }];
+}
 @end
 
 @implementation SubjectDetailModel
