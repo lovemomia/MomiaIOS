@@ -96,9 +96,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) {
+    if (section == 0 || section == 2) {
         return 1;
-    } else if (section == 2) {
+    } else if (section == 3) {
         return 3;
     }
     return 2;
@@ -106,7 +106,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 4;
+    return 5;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -139,29 +139,35 @@
             }
             break;
         case 2:
+            if ([[AccountService defaultService]isLogin]) {
+                [self openURL:[NSString stringWithFormat:@"userinfo?uid=%@&me=1", [AccountService defaultService].account.uid]];
+            } else {
+                [[AccountService defaultService] login:self success:^{
+                    [self openURL:[NSString stringWithFormat:@"userinfo?uid=%@&me=1", [AccountService defaultService].account.uid]];
+                }];
+            }
+            
+            [MobClick event:@"Mine_Feed"];
+            break;
+            
+        case 3:
             if(row == 0) {
                 [self openURL:@"myorderlist"];
                 
                 [MobClick event:@"Mine_Order"];
                 
             } else if (row == 1) {
-                if ([[AccountService defaultService]isLogin]) {
-                    [self openURL:[NSString stringWithFormat:@"userinfo?uid=%@&me=1", [AccountService defaultService].account.uid]];
-                } else {
-                    [[AccountService defaultService] login:self success:^{
-                       [self openURL:[NSString stringWithFormat:@"userinfo?uid=%@&me=1", [AccountService defaultService].account.uid]];
-                    }];
-                }
-                
-                [MobClick event:@"Mine_Feed"];
-                
-            } else {
                 [self openURL:@"couponlist?status=0"];
                 
                 [MobClick event:@"Mine_Coupon"];
+                
+            } else {
+                [self openURL:@"share"];
+                
+                [MobClick event:@"Mine_Gift"];
             }
             break;
-        case 3:
+        case 4:
             if(row == 0) {
                 [self openURL:@"feedback"];
                 
@@ -264,19 +270,33 @@
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconBooked"];
                 }
                 break;
+                
             case 2:
+                commonCell.titleLabel.text = @"我的评价";
+                commonCell.iconIv.image = [UIImage imageNamed:@"IconFeed"];
+                break;
+                
+            case 3:
                 if (row == 0) {
                     commonCell.titleLabel.text = @"我的订单";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconOrder"];
-                } else if (row == 1) {
-                    commonCell.titleLabel.text = @"我的评价";
-                    commonCell.iconIv.image = [UIImage imageNamed:@"IconFeed"];
-                    
-                } else {
+                } else if (row == 1){
                     commonCell.titleLabel.text = @"我的红包";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconCoupon"];
-                }                break;
-            case 3:
+                } else {
+                    commonCell.titleLabel.text = @"推荐有奖";
+                    commonCell.iconIv.image = [UIImage imageNamed:@"IconGift"];
+                    
+                    commonCell.subTitleLabel.text = @" 抢50元红包 ";
+                    commonCell.subTitleLabel.textColor = MO_APP_TextColor_red;
+                    commonCell.subTitleLabel.layer.borderColor = [MO_APP_TextColor_red CGColor];
+                    commonCell.subTitleLabel.layer.borderWidth = 1.0f;
+                    commonCell.subTitleLabel.layer.cornerRadius = 2.0;
+                    commonCell.subTitleLabel.layer.masksToBounds = YES;
+                }
+                break;
+                
+            case 4:
                 if (row == 0) {
                     commonCell.titleLabel.text = @"意见反馈";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconFeedback"];
@@ -286,6 +306,7 @@
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconSetting"];
                 }
                 break;
+                
             default:
                 break;
         }
