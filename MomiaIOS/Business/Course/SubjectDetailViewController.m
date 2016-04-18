@@ -296,7 +296,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
         SubjectDetailRowItem *rowItem = rowsArray[row];
         if(rowItem.subjectDetailRowType == SubjectDetailRowTypeData){
             Course *course = rowItem.data;
-            [self openURL:[NSString stringWithFormat:@"coursedetail?id=%@", course.ids]];
+            [self openURL:[NSString stringWithFormat:@"coursedetail?id=%@&sid=%@", course.ids, course.skuId]];
             NSDictionary *attributes = @{@"name":course.title, @"index":[NSString stringWithFormat:@"%d", (int)(indexPath.row - 2)]};
             [MobClick event:@"Subject_List" attributes:attributes];
         }

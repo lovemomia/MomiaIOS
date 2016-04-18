@@ -99,7 +99,7 @@ static NSString *identifierBookSkuDateTitleCell = @"BookSkuDateTitleCell";
         if(self.model.data.count > 0) {
             [self.tableView reloadData];
         } else {
-            [self.view showEmptyView:@"还没有课程，敬请期待哦！"];
+            [self.view showEmptyView:@"我们正在快马加鞭地排课中......"];
         }
         
         

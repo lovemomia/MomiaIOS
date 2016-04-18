@@ -45,6 +45,7 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
 @interface CourseDetailViewController ()<SubjectTabCellDelegate>
 
 @property (nonatomic, strong) NSString *ids;
+@property (nonatomic, strong) NSString *sid;
 @property (nonatomic, assign) int recommend;
 @property (nonatomic, strong) CourseDetailModel *model;
 @property (nonatomic, assign) NSInteger tabIndex;
@@ -66,6 +67,7 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
         self.ids = [params objectForKey:@"id"];
+        self.sid = [params objectForKey:@"sid"];
         if ([params objectForKey:@"recommend"]) {
             self.recommend = [[params objectForKey:@"recommend"] intValue];
         } else {
@@ -149,10 +151,10 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
     NSDictionary * dic;
     if ([[LocationService defaultService] hasLocation]) {
         CLLocation *location = [LocationService defaultService].location;
-        dic = @{@"id":self.ids, @"pos":[NSString stringWithFormat:@"%f,%f", location.coordinate.longitude, location.coordinate.latitude], @"recommend":[NSString stringWithFormat:@"%d", self.recommend]};
+        dic = @{@"id":self.ids, @"pos":[NSString stringWithFormat:@"%f,%f", location.coordinate.longitude, location.coordinate.latitude], @"recommend":[NSString stringWithFormat:@"%d", self.recommend], @"sid":(self.sid ? self.sid : @"")};
         
     } else {
-        dic = @{@"id":self.ids, @"recommend":[NSString stringWithFormat:@"%d", self.recommend]};
+        dic = @{@"id":self.ids, @"recommend":[NSString stringWithFormat:@"%d", self.recommend], @"sid":(self.sid ? self.sid : @"")};
     }
     
     [[HttpService defaultService] GET:URL_APPEND_PATH(@"/v3/course") parameters:dic cacheType:cacheType JSONModelClass:[CourseDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -280,7 +282,8 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
     self.tabIndex = index;
     [self.tableView reloadData];
     self.topTabView.data = [NSNumber numberWithInteger:index];
-    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
+    int section = self.model.data.place ? 2 : 1;
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
     [self.tableView scrollToRowAtIndexPath:indexPath
                           atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
@@ -292,7 +295,7 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     
-    if (section == 1 && row == 0) {
+    if (self.model.data.place && section == 1 && row == 0) {
         [self openURL:[NSString stringWithFormat:@"book?id=%@&onlyshow=1", self.ids]];
         
         [MobClick event:@"Course_SkuList"];
@@ -301,7 +304,10 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (self.model) {
-        return 3;
+        if (self.model.data.place) {
+            return 3;
+        }
+        return 2;
     }
     return 0;
 }
@@ -310,13 +316,10 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
     if (section == 0) {
         return 3;
         
-    } else if (section == 1) {
-        if (self.model.data.place) {
-            return 2;
-        }
-        return 1;
+    } else if (section == 1 && self.model.data.place) {
+        return 2;
         
-    } else if (section == 2) {
+    } else {
         if (self.tabIndex == 0) {
             if (self.model.data.teachers) {
                 return 3 + self.model.data.teachers.count;
@@ -364,7 +367,7 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
             cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         }
         
-    } else if (section == 1) {
+    } else if (section == 1 && self.model.data.place) {
         if (row == 0) {
             CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
             titleCell.titleLabel.text = @"课程表";
@@ -379,7 +382,8 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
             cell = poiCell;
             cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         }
-    } else if (section == 2) {
+        
+    } else {
         if (row == 0) {
             SubjectTabCell *tabCell = [SubjectTabCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierSubjectTabCell];
             tabCell.delegate = self;
@@ -470,7 +474,7 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
             return [CourseTagsCell heightWithTableView:tableView withIdentifier:identifierCourseTagsCell forIndexPath:indexPath data:self.model.data];
         }
         
-    } else if (section == 1) {
+    } else if (section == 1 && self.model.data.place) {
         if (row == 0) {
             return [CourseSectionTitleCell heightWithTableView:tableView withIdentifier:identifierCourseSectionTitleCell forIndexPath:indexPath data:nil];
             
@@ -478,7 +482,7 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
             return [CoursePoiCell heightWithTableView:tableView withIdentifier:identifierCoursePoiCell forIndexPath:indexPath data:nil];
         }
         
-    } else if (section == 2) {
+    } else {
         if (row == 0) {
             return 50;
             
