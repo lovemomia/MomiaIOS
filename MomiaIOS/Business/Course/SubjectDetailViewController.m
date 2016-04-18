@@ -21,6 +21,8 @@
 #import "SubjectCourseCell.h"
 #import "CourseListItemCell.h"
 
+#define SubjectDetailURL URL_APPEND_PATH(@"/v3/subject")
+
 static NSString *identifierPhotoTitleHeaderCell = @"PhotoTitleHeaderCell";
 static NSString *identifierSubjctBuyCell = @"SubjctBuyCell";
 static NSString *identifierSubjectDiscCell = @"SubjectDiscCell";
@@ -124,7 +126,11 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             SubjectDetailRowItem *item = [[SubjectDetailRowItem alloc]init];
             item.subjectDetailRowType = SubjectDetailRowTypeHeader;
             [dataArray addObject:item];
-            for (int i = 0; i < model.data.freshCourses.count; i++ ) {
+            NSInteger Count = 3;
+            if (model.data.courses.count < Count) {
+                Count = model.data.courses.count;
+            }
+            for (int i = 0; i < Count; i++ ) {
                 SubjectDetailRowItem *item = [[SubjectDetailRowItem alloc]init];
                 item.subjectDetailRowType = SubjectDetailRowTypeData;
                 item.data = model.data.freshCourses[i];
@@ -183,7 +189,6 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
     [ReviewListItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierReviewListItemCell];
     [SubjectCourseCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierSubjectCourseCell];
     [CourseListItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierNewCoursesCell];
-    [self setBuyView];
     [self requestData:YES];
 }
 
@@ -192,6 +197,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
     NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"SubjectBuyCell" owner:self options:nil];
     SubjectBuyCell *buyCell = [arr objectAtIndex:0];
     buyCell.data = self.model.data.subject;
+    NSLog(@"-----%@-----",self.model.data.subject);
     UIButton *buyBtn = buyCell.buyButton;
     UITapGestureRecognizer *singleTap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onBuyClicked:)];
     [buyBtn addGestureRecognizer:singleTap];
@@ -204,22 +210,18 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
 }
 
 - (UIEdgeInsets)separatorInsetForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0);
+    }
     SubjectDetailSectionItem *sectionItem = self.dataArray[indexPath.section];
     if (sectionItem.itemType == SubjectDetailSectionTypeAllCourses) {
-        NSArray *rowsItem = sectionItem.data;
-        SubjectDetailRowItem *rowItem = rowsItem[indexPath.row];
-        if (rowItem.subjectDetailRowType == SubjectDetailRowTypeFooter || rowItem.subjectDetailRowType == SubjectDetailRowTypeHeader) {
-            return UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0);
-        }
+        return UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0);
     }else if(sectionItem.itemType == SubjectDetailSectionTypeNewCourses){
         NSArray *rowsItem = sectionItem.data;
         SubjectDetailRowItem *rowItem = rowsItem[indexPath.row];
         if (rowItem.subjectDetailRowType == SubjectDetailRowTypeHeader || rowItem.subjectDetailRowType == SubjectDetailRowTypeFooter) {
             return UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0);
         }
-    }
-    if (indexPath.section == 0) {
-        return UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0);
     }
     return UIEdgeInsetsMake(0,10,0,0);
 }
@@ -237,7 +239,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
     
     CacheType cacheType = refresh ? CacheTypeDisable : CacheTypeDisable;
     NSDictionary * dic = @{@"id":self.ids};
-    [[HttpService defaultService] GET:URL_APPEND_PATH(@"/v3/subject") parameters:dic cacheType:cacheType JSONModelClass:[SubjectDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[HttpService defaultService] GET:SubjectDetailURL parameters:dic cacheType:cacheType JSONModelClass:[SubjectDetailModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self.dataArray removeAllObjects];
         self.model = responseObject;
         if (self.model != nil) {
@@ -246,7 +248,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
         self.navigationItem.title = self.model.data.subject.title;
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
-        
+        [self setBuyView];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         [self.view removeLoadingBee];
@@ -290,10 +292,13 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
--(void)tapFold{
+//点击全部课程的展开按钮
+-(void)tapAllCoursesFold{
     if (!self.isOPenAllCourses && self.model.data.courses.count > 3) {
         NSMutableArray *dataArray = [self.keySection objectForKey:@"SubjectDetailSectionTypeAllCourses"];
+        if (!dataArray) {
+            return;
+        }
         NSInteger offset = dataArray.count - 2;
         for (NSInteger i = offset; i < self.model.data.courses.count; i++) {
             SubjectDetailRowItem *rowItem = [[SubjectDetailRowItem alloc]init];
@@ -305,11 +310,43 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
         self.isOPenAllCourses = YES;
     }else if (self.isOPenAllCourses && self.model.data.courses.count > 3) {
         NSMutableArray *dataArray = [self.keySection objectForKey:@"SubjectDetailSectionTypeAllCourses"];
+        if (!dataArray) {
+            return;
+        }
         for (NSInteger i = dataArray.count - 2 ; i > 3; i--) {
             [dataArray removeObjectAtIndex:i];
         }
         [self.tableView reloadData];
         self.isOPenAllCourses = NO;
+    }
+}
+
+//点击最新课程的展开按钮
+-(void)tapNewCoursesFold{
+    if (!self.isOpenNewCourses && self.model.data.freshCourses.count > 3) {
+        NSMutableArray *dataArray = [self.keySection objectForKey:@"SubjectDetailSectionTypeNewCourses"];
+        if (!dataArray) {
+            return;
+        }
+        NSInteger offset = dataArray.count - 2;
+        for (NSInteger i = offset; i < self.model.data.freshCourses.count; i++) {
+            SubjectDetailRowItem *rowItem = [[SubjectDetailRowItem alloc]init];
+            rowItem.data = self.model.data.freshCourses[i];
+            rowItem.subjectDetailRowType = SubjectDetailRowTypeData;
+            [dataArray insertObject:rowItem atIndex:dataArray.count -1];
+        }
+        [self.tableView reloadData];
+        self.isOpenNewCourses = YES;
+    }else if (self.isOpenNewCourses && self.model.data.freshCourses.count > 3) {
+        NSMutableArray *dataArray = [self.keySection objectForKey:@"SubjectDetailSectionTypeNewCourses"];
+        if (!dataArray) {
+            return;
+        }
+        for (NSInteger i = dataArray.count - 2 ; i > 3; i--) {
+            [dataArray removeObjectAtIndex:i];
+        }
+        [self.tableView reloadData];
+        self.isOpenNewCourses = NO;
     }
 }
 
@@ -351,7 +388,6 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             discCell.data = self.model.data.subject.intro;
             cell = discCell;
             cell.selectionStyle = UITableViewCellSeparatorStyleNone;
-            //TO Do
             return cell;
         }
     }else if (item.itemType == SubjectDetailSectionTypeNewCourses ){
@@ -371,6 +407,21 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"SubjectDetailHeaders" owner:self options:nil];
             UITableViewCell *newCoursesHeader = array[0];
             newCoursesHeader.selectionStyle = UITableViewCellSeparatorStyleNone;
+            UIButton *btn = [newCoursesHeader viewWithTag:11];
+            UILabel *label = [newCoursesHeader viewWithTag:12];
+            UIImageView *arrowImage = [newCoursesHeader viewWithTag:13];
+            newCoursesHeader.selectionStyle = UITableViewCellSeparatorStyleNone;
+            if (self.isOpenNewCourses) {
+                label.text = @"点击收起";
+                arrowImage.image = [UIImage imageNamed:@"fold"];
+            }else{
+                label.text = @"点击展开";
+                arrowImage.image = [UIImage imageNamed:@"unfold"];
+            }
+            [btn addTarget:self action:@selector(tapNewCoursesFold) forControlEvents:UIControlEventTouchDown];
+            btn.layer.borderWidth = 1;
+            btn.layer.borderColor = [UIColor blackColor].CGColor;
+            btn.layer.cornerRadius = 5;
             return newCoursesHeader;
         }
 
@@ -385,6 +436,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
         }else if(rowItem.subjectDetailRowType == SubjectDetailRowTypeData){
             Course *course = rowItem.data;
             SubjectCourseCell *courseCell = [SubjectCourseCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierSubjectCourseCell];
+            courseCell.lessonCountLabel.text = [NSString stringWithFormat: @"LESSON %d",row];
             courseCell.data = course;
             cell = courseCell;
             cell.selectionStyle = UITableViewCellSeparatorStyleNone;
@@ -394,13 +446,16 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             UITableViewCell *allCourseCellFooter = array[0];
             UIButton *btn = [allCourseCellFooter viewWithTag:11];
             UILabel *label = [allCourseCellFooter viewWithTag:12];
+            UIImageView *arrowImage = [allCourseCellFooter viewWithTag:13];
             allCourseCellFooter.selectionStyle = UITableViewCellSeparatorStyleNone;
             if (self.isOPenAllCourses) {
                 label.text = @"点击收起";
+                arrowImage.image = [UIImage imageNamed:@"fold"];
             }else{
                 label.text = @"点击展开";
+                arrowImage.image = [UIImage imageNamed:@"unfold"];
             }
-            [btn addTarget:self action:@selector(tapFold) forControlEvents:UIControlEventTouchDown];
+            [btn addTarget:self action:@selector(tapAllCoursesFold) forControlEvents:UIControlEventTouchDown];
             btn.layer.borderWidth = 1;
             btn.layer.borderColor = [UIColor blackColor].CGColor;
             btn.layer.cornerRadius = 5;
@@ -450,9 +505,9 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             NSArray *rowsArray = itemSection.data;
             SubjectDetailRowItem *rowItem = rowsArray[row];
             if (rowItem.subjectDetailRowType == SubjectDetailRowTypeHeader) {
-                return 80;
+                return 61;
             }else if(rowItem.subjectDetailRowType == SubjectDetailRowTypeFooter){
-                return 80;
+                return 61;
             }else {
                 Course *course = rowItem.data;
                 return [CourseListItemCell heightWithTableView:tableView withIdentifier:identifierNewCoursesCell forIndexPath:indexPath data:course];
@@ -471,9 +526,9 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             NSArray *rowsArray = itemSection.data;
             SubjectDetailRowItem *rowItem = rowsArray[row];
             if (rowItem.subjectDetailRowType == SubjectDetailRowTypeHeader) {
-                return 80;
+                return 61;
             }else if(rowItem.subjectDetailRowType == SubjectDetailRowTypeFooter){
-                return 80;
+                return 61;
             }else if(rowItem.subjectDetailRowType == SubjectDetailRowTypeData){
                 return (SCREEN_WIDTH - 20) * 180 / 300 + 10;
             }

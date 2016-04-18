@@ -71,7 +71,7 @@
         }
         if ([result isKindOfClass:responseModelClass] && result.errNo == 0) {
             success(operation, result);
-            NSLog(@"http (GET) success: \nurl : %@\nparams : %@\nresult : %@", URLString, allParams, responseObject);
+//            NSLog(@"http (GET) success: \nurl : %@\nparams : %@\nresult : %@", URLString, allParams, responseObject);
             
             // 校准时间
             [DateManager shareManager].serverTimeSeconds = (long)(result.timestamp / 1000);
@@ -86,7 +86,7 @@
             [[ServerErrorHandler defaultHandler] handlerError:err];
             failure(operation, err);
             
-            NSLog(@"http (GET) fail: \nurl : %@\nparams : %@\nresult : %@", URLString, allParams, responseObject);
+//            NSLog(@"http (GET) fail: \nurl : %@\nparams : %@\nresult : %@", URLString, allParams, responseObject);
         }
 
     };

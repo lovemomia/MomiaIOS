@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *joinedLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *joinedBg;
 @property (weak, nonatomic) IBOutlet MONetworkPhotoView *coverIv;
+@property (weak, nonatomic) IBOutlet UILabel *lessonCountLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *renshuImageView;
 
 
 @end

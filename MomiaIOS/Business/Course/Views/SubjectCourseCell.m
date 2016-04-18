@@ -26,11 +26,13 @@
     self.ageLabel.text = data.age;
     
     if ([data.joined intValue] > 0) {
-        self.joinedLabel.text = [NSString stringWithFormat:@"%@人参加", data.joined];
+        NSString *joinedText = [NSString stringWithFormat:@"%@人参加", data.joined];
+        self.joinedLabel.text = joinedText;
         self.joinedLabel.hidden = NO;
         self.joinedBg.hidden = NO;
         
     } else {
+        [self.renshuImageView setHidden:YES];
         self.joinedLabel.hidden = YES;
         self.joinedBg.hidden = YES;
     }
