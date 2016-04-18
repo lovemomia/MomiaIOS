@@ -16,7 +16,7 @@
 @interface CoursePlace : JSONModel
 @property (nonatomic, strong) NSNumber *ids;
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *address;
+@property (nonatomic, strong) NSString<Optional> *address;
 @property (nonatomic, assign) CGFloat lng;
 @property (nonatomic, assign) CGFloat lat;
 @property (nonatomic, strong) NSString<Optional> *scheduler;
@@ -87,6 +87,8 @@
 
 @property (nonatomic, strong) NSString<Optional> *keyWord;//关键字
 @property (nonatomic, strong) NSString<Optional> *feature;//特色
+
+@property (nonatomic, strong) NSString<Optional> *skuId;
 
 
 @end
