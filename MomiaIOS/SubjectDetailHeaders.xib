@@ -27,7 +27,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" tag="12" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击展开" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyI-fE-aTv">
                                 <rect key="frame" x="24" y="9" width="48" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -64,13 +64,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最新开班" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMW-JA-TN2">
-                        <rect key="frame" x="141" y="27" width="68" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <rect key="frame" x="145" y="28.5" width="60" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebG-BI-wDX" userLabel="left dot">
-                        <rect key="frame" x="129" y="34" width="6" height="6"/>
+                        <rect key="frame" x="133" y="34" width="6" height="6"/>
                         <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="6" id="J7c-Fd-jYC"/>
@@ -84,7 +84,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pdh-yz-FQa" userLabel="right dot">
-                        <rect key="frame" x="215" y="34" width="6" height="6"/>
+                        <rect key="frame" x="211" y="34" width="6" height="6"/>
                         <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -94,7 +94,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HP5-DP-vtw" userLabel="right line">
-                        <rect key="frame" x="229" y="37" width="60" height="1"/>
+                        <rect key="frame" x="225" y="37" width="60" height="1"/>
                         <color key="backgroundColor" red="0.0" green="0.76862745098039209" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="gIc-1x-8B7"/>
@@ -102,7 +102,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCD-UX-Y1b" userLabel="left line">
-                        <rect key="frame" x="63" y="37" width="60" height="1"/>
+                        <rect key="frame" x="67" y="37" width="60" height="1"/>
                         <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="Kkm-CP-LGC"/>
@@ -136,13 +136,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全部课程" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pmr-5V-AaY">
-                        <rect key="frame" x="145" y="33" width="68" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <rect key="frame" x="149" y="34.5" width="60" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V2Q-wb-46O" userLabel="left dot">
-                        <rect key="frame" x="131" y="40" width="6" height="6"/>
+                        <rect key="frame" x="135" y="40" width="6" height="6"/>
                         <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="6" id="F4d-qW-ruJ"/>
@@ -156,7 +156,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ToY-S5-ACt" userLabel="right dot">
-                        <rect key="frame" x="221" y="40" width="6" height="6"/>
+                        <rect key="frame" x="217" y="40" width="6" height="6"/>
                         <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="6" id="aM2-uk-YyA"/>
@@ -170,7 +170,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r5f-Em-Doj" userLabel="right line">
-                        <rect key="frame" x="233" y="43" width="60" height="1"/>
+                        <rect key="frame" x="229" y="43" width="60" height="1"/>
                         <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="QP0-By-jck"/>
@@ -178,7 +178,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sJo-Yr-Kff" userLabel="left line">
-                        <rect key="frame" x="65" y="43" width="60" height="1"/>
+                        <rect key="frame" x="69" y="43" width="60" height="1"/>
                         <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </subviews>

@@ -93,12 +93,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入宝宝的大名" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h8J-kI-yjy">
-                        <rect key="frame" x="171" y="29" width="140" height="22"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <rect key="frame" x="187" y="31" width="124" height="18"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Elt-Rg-Vtp">
-                        <rect key="frame" x="17" y="30.5" width="37.5" height="18"/>
+                        <rect key="frame" x="18" y="30" width="37.5" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -107,8 +108,9 @@
                 <constraints>
                     <constraint firstItem="Elt-Rg-Vtp" firstAttribute="centerY" secondItem="J5S-cD-gAR" secondAttribute="centerY" id="0jl-rL-KsB"/>
                     <constraint firstItem="h8J-kI-yjy" firstAttribute="centerY" secondItem="J5S-cD-gAR" secondAttribute="centerY" id="1mD-9y-fuT"/>
-                    <constraint firstItem="Elt-Rg-Vtp" firstAttribute="leading" secondItem="J5S-cD-gAR" secondAttribute="leadingMargin" constant="9" id="ZOL-9r-BM0"/>
+                    <constraint firstItem="Elt-Rg-Vtp" firstAttribute="leading" secondItem="J5S-cD-gAR" secondAttribute="leadingMargin" constant="10" id="ZOL-9r-BM0"/>
                     <constraint firstAttribute="trailingMargin" secondItem="h8J-kI-yjy" secondAttribute="trailing" constant="10" id="blg-ZD-Mg2"/>
+                    <constraint firstItem="h8J-kI-yjy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="J5S-cD-gAR" secondAttribute="leadingMargin" constant="100" id="zyY-4a-HjW"/>
                 </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="208.5" y="412.5"/>

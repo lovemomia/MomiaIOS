@@ -15,8 +15,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="365" height="95.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iJO-9f-agj">
-                        <rect key="frame" x="86" y="21" width="88" height="54"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iJO-9f-agj">
+                        <rect key="frame" x="86" y="23.5" width="56" height="49"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aJ-dg-UJv">
                                 <rect key="frame" x="2" y="5" width="34" height="21"/>
@@ -24,28 +24,29 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="性别" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8b-z1-UWd">
-                                <rect key="frame" x="44" y="5" width="34" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="年龄" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4f-0w-dzf">
+                                <rect key="frame" x="2" y="31" width="26" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="年龄" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4f-0w-dzf">
-                                <rect key="frame" x="2" y="31" width="34" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconGirl" translatesAutoresizingMaskIntoConstraints="NO" id="g6I-1e-zcf" userLabel="sex">
+                                <rect key="frame" x="45" y="10" width="11" height="11"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="11" id="TXL-ol-63g"/>
+                                    <constraint firstAttribute="width" constant="11" id="f6U-pO-pvQ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="P4f-0w-dzf" firstAttribute="leading" secondItem="iJO-9f-agj" secondAttribute="leading" constant="2" id="Ph6-uE-WZF"/>
                             <constraint firstItem="P4f-0w-dzf" firstAttribute="top" secondItem="0aJ-dg-UJv" secondAttribute="bottom" constant="5" id="R5k-KM-OWb"/>
+                            <constraint firstAttribute="trailing" secondItem="g6I-1e-zcf" secondAttribute="trailing" id="U7U-ff-2LR"/>
+                            <constraint firstItem="g6I-1e-zcf" firstAttribute="centerY" secondItem="0aJ-dg-UJv" secondAttribute="centerY" id="Y9v-kN-Uab"/>
+                            <constraint firstItem="g6I-1e-zcf" firstAttribute="leading" secondItem="0aJ-dg-UJv" secondAttribute="trailing" constant="9" id="ZDP-Oh-FV5"/>
                             <constraint firstAttribute="bottom" secondItem="P4f-0w-dzf" secondAttribute="bottom" constant="2" id="bxg-u1-sCO"/>
-                            <constraint firstAttribute="trailing" secondItem="j8b-z1-UWd" secondAttribute="trailing" constant="10" id="duQ-qS-vaI"/>
-                            <constraint firstItem="j8b-z1-UWd" firstAttribute="centerY" secondItem="0aJ-dg-UJv" secondAttribute="centerY" id="gTh-ao-OJ2"/>
                             <constraint firstItem="0aJ-dg-UJv" firstAttribute="top" secondItem="iJO-9f-agj" secondAttribute="top" constant="5" id="mKK-z3-o4V"/>
                             <constraint firstItem="0aJ-dg-UJv" firstAttribute="leading" secondItem="iJO-9f-agj" secondAttribute="leading" constant="2" id="ogE-F0-4Bd"/>
-                            <constraint firstItem="j8b-z1-UWd" firstAttribute="leading" secondItem="0aJ-dg-UJv" secondAttribute="trailing" constant="8" id="tdU-5d-WO0"/>
                         </constraints>
                     </view>
                     <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8m-3K-r6W">
@@ -54,7 +55,7 @@
                             <constraint firstAttribute="height" constant="30" id="s6I-x5-sOw"/>
                         </constraints>
                         <state key="normal" title="编辑">
-                            <color key="titleColor" red="0.018115562080536912" green="0.74242344798657722" blue="0.36760696308724805" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <connections>
                             <action selector="editChildDetail:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bp4-Se-oW8"/>
@@ -85,6 +86,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="P8m-3K-r6W" secondAttribute="trailing" constant="10" id="JAX-NW-1IE"/>
                     <constraint firstItem="dUC-IM-pnJ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Nbo-oL-TtN"/>
                     <constraint firstItem="oQL-7a-bep" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="itZ-z8-Lcb"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="iJO-9f-agj" secondAttribute="trailing" constant="150" id="kjJ-MS-hFD"/>
                     <constraint firstItem="oQL-7a-bep" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="lA0-bj-wZG"/>
                     <constraint firstAttribute="trailingMargin" secondItem="dUC-IM-pnJ" secondAttribute="trailing" constant="1" id="r90-ec-crZ"/>
                     <constraint firstItem="iJO-9f-agj" firstAttribute="leading" secondItem="oQL-7a-bep" secondAttribute="trailing" constant="10" id="riG-db-I2f"/>
@@ -94,12 +96,13 @@
                 <outlet property="age" destination="P4f-0w-dzf" id="1fp-yD-iV9"/>
                 <outlet property="avatar" destination="oQL-7a-bep" id="2e0-rn-bJm"/>
                 <outlet property="name" destination="0aJ-dg-UJv" id="fRw-Po-nY9"/>
-                <outlet property="sex" destination="j8b-z1-UWd" id="NjV-z6-ERS"/>
+                <outlet property="sexIcon" destination="g6I-1e-zcf" id="Vdd-gn-tb9"/>
             </connections>
             <point key="canvasLocation" x="86.5" y="458"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="IconGirl" width="11" height="11"/>
         <image name="IconUserNotLogin" width="58" height="58"/>
     </resources>
 </document>

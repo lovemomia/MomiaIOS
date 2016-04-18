@@ -567,7 +567,6 @@
 		BCEAFC941C2A394300CB082D /* IMUserGroupListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF7F1C118FBA0064C02F /* IMUserGroupListModel.m */; };
 		BCEAFC951C2A394300CB082D /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = BC82543E1B3C26E400430A6F /* LocationService.m */; };
 		BCEAFC961C2A394300CB082D /* ConvertFromXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AABF70E1B281BEF000A9D3F /* ConvertFromXib.m */; };
-		BCEAFC971C2A394300CB082D /* PersonChildHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564E21B4A54D0003A2227 /* PersonChildHeaderCell.m */; };
 		BCEAFC981C2A394300CB082D /* CashPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A33F1901B2E9FC5002A8258 /* CashPayViewController.m */; };
 		BCEAFC991C2A394300CB082D /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF691C0EDEF30064C02F /* ChatViewController.m */; };
 		BCEAFC9A1C2A394300CB082D /* DateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0EC2931B58EFD200D9A82F /* DateManager.m */; };
@@ -752,7 +751,6 @@
 		BCEAFD551C2A394300CB082D /* CashPayBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A33F1961B2EA0A4002A8258 /* CashPayBottomCell.xib */; };
 		BCEAFD561C2A394300CB082D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC85409B1ADF74E9005A7C54 /* Images.xcassets */; };
 		BCEAFD571C2A394300CB082D /* BookingSubjectItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC592BC61BD4CC81008AE76A /* BookingSubjectItemCell.xib */; };
-		BCEAFD581C2A394300CB082D /* PersonChildHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF564E31B4A54D0003A2227 /* PersonChildHeaderCell.xib */; };
 		BCEAFD591C2A394300CB082D /* TopicListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1052A31BB394CE00D81C15 /* TopicListCell.xib */; };
 		BCEAFD5A1C2A394300CB082D /* FeedZanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC753ECB1BAC07D300D2663C /* FeedZanCell.xib */; };
 		BCEAFD5C1C2A394300CB082D /* ReviewListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF74AC71BEB643400138C2C /* ReviewListItemCell.xib */; };
@@ -815,8 +813,6 @@
 		BCF564DA1B48FE90003A2227 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564D91B48FE90003A2227 /* Order.m */; };
 		BCF564DD1B490052003A2227 /* OrderListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564DC1B490052003A2227 /* OrderListModel.m */; };
 		BCF564E01B491799003A2227 /* OrderListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564DF1B491799003A2227 /* OrderListItemCell.m */; };
-		BCF564E41B4A54D0003A2227 /* PersonChildHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF564E21B4A54D0003A2227 /* PersonChildHeaderCell.m */; };
-		BCF564E51B4A54D0003A2227 /* PersonChildHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF564E31B4A54D0003A2227 /* PersonChildHeaderCell.xib */; };
 		BCF74AB61BE895AD00138C2C /* AddReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF74AB51BE895AD00138C2C /* AddReviewViewController.m */; };
 		BCF74ABA1BE8982400138C2C /* AddReviewRatingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF74AB81BE8982400138C2C /* AddReviewRatingCell.m */; };
 		BCF74ABB1BE8982400138C2C /* AddReviewRatingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF74AB91BE8982400138C2C /* AddReviewRatingCell.xib */; };
@@ -1562,9 +1558,6 @@
 		BCF564DC1B490052003A2227 /* OrderListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderListModel.m; path = Common/Models/Order/OrderListModel.m; sourceTree = "<group>"; };
 		BCF564DE1B491799003A2227 /* OrderListItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderListItemCell.h; path = Business/Order/views/OrderListItemCell.h; sourceTree = "<group>"; };
 		BCF564DF1B491799003A2227 /* OrderListItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderListItemCell.m; path = Business/Order/views/OrderListItemCell.m; sourceTree = "<group>"; };
-		BCF564E11B4A54D0003A2227 /* PersonChildHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonChildHeaderCell.h; path = Business/Mine/Views/PersonChildHeaderCell.h; sourceTree = "<group>"; };
-		BCF564E21B4A54D0003A2227 /* PersonChildHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonChildHeaderCell.m; path = Business/Mine/Views/PersonChildHeaderCell.m; sourceTree = "<group>"; };
-		BCF564E31B4A54D0003A2227 /* PersonChildHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PersonChildHeaderCell.xib; path = Business/Mine/Views/PersonChildHeaderCell.xib; sourceTree = "<group>"; };
 		BCF74AB41BE895AD00138C2C /* AddReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddReviewViewController.h; path = Business/Course/AddReviewViewController.h; sourceTree = "<group>"; };
 		BCF74AB51BE895AD00138C2C /* AddReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddReviewViewController.m; path = Business/Course/AddReviewViewController.m; sourceTree = "<group>"; };
 		BCF74AB71BE8982400138C2C /* AddReviewRatingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddReviewRatingCell.h; path = Business/Course/Views/AddReviewRatingCell.h; sourceTree = "<group>"; };
@@ -3039,9 +3032,6 @@
 				002B66461CB36D100096EB6E /* ChildListCell.xib */,
 				BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */,
 				5A6806F41B01CEF700D02A60 /* PersonLogoCell.xib */,
-				BCF564E11B4A54D0003A2227 /* PersonChildHeaderCell.h */,
-				BCF564E21B4A54D0003A2227 /* PersonChildHeaderCell.m */,
-				BCF564E31B4A54D0003A2227 /* PersonChildHeaderCell.xib */,
 				5AD5275B1B53C7A300D01E1F /* FeedbackCell.h */,
 				5AD5275C1B53C7A300D01E1F /* FeedbackCell.m */,
 				5AD5275D1B53C7A300D01E1F /* FeedbackCell.xib */,
@@ -3314,7 +3304,6 @@
 				5A33F19B1B2EA0A4002A8258 /* CashPayBottomCell.xib in Resources */,
 				BC85409C1ADF74E9005A7C54 /* Images.xcassets in Resources */,
 				BC592BC81BD4CC81008AE76A /* BookingSubjectItemCell.xib in Resources */,
-				BCF564E51B4A54D0003A2227 /* PersonChildHeaderCell.xib in Resources */,
 				BC1052A51BB394CE00D81C15 /* TopicListCell.xib in Resources */,
 				BC753EDE1BAC07D300D2663C /* FeedZanCell.xib in Resources */,
 				BC53A5221CA51B9800532F91 /* SubjectCourseCell.xib in Resources */,
@@ -3411,7 +3400,6 @@
 				BCEAFD551C2A394300CB082D /* CashPayBottomCell.xib in Resources */,
 				BCEAFD561C2A394300CB082D /* Images.xcassets in Resources */,
 				BCEAFD571C2A394300CB082D /* BookingSubjectItemCell.xib in Resources */,
-				BCEAFD581C2A394300CB082D /* PersonChildHeaderCell.xib in Resources */,
 				BCEAFD591C2A394300CB082D /* TopicListCell.xib in Resources */,
 				BCEAFD5A1C2A394300CB082D /* FeedZanCell.xib in Resources */,
 				BCEAFD5C1C2A394300CB082D /* ReviewListItemCell.xib in Resources */,
@@ -3659,7 +3647,6 @@
 				BC79DF801C118FBA0064C02F /* IMUserGroupListModel.m in Sources */,
 				BC82543F1B3C26E400430A6F /* LocationService.m in Sources */,
 				5AABF70F1B281BEF000A9D3F /* ConvertFromXib.m in Sources */,
-				BCF564E41B4A54D0003A2227 /* PersonChildHeaderCell.m in Sources */,
 				5A33F1921B2E9FC5002A8258 /* CashPayViewController.m in Sources */,
 				BC79DF6A1C0EDEF30064C02F /* ChatViewController.m in Sources */,
 				BC0EC2941B58EFD200D9A82F /* DateManager.m in Sources */,
@@ -3982,7 +3969,6 @@
 				BCEAFC941C2A394300CB082D /* IMUserGroupListModel.m in Sources */,
 				BCEAFC951C2A394300CB082D /* LocationService.m in Sources */,
 				BCEAFC961C2A394300CB082D /* ConvertFromXib.m in Sources */,
-				BCEAFC971C2A394300CB082D /* PersonChildHeaderCell.m in Sources */,
 				BCEAFC981C2A394300CB082D /* CashPayViewController.m in Sources */,
 				BCEAFC991C2A394300CB082D /* ChatViewController.m in Sources */,
 				BCEAFC9A1C2A394300CB082D /* DateManager.m in Sources */,

@@ -13,7 +13,6 @@
 #import "UIImage+Color.h"
 #import "CommonHeaderView.h"
 #import "Child.h"
-#import "PersonChildHeaderCell.h"
 
 @interface PersonInfoViewController ()<UIAlertViewDelegate, DatePickerSheetDelegate , AccountChangeListener>
 

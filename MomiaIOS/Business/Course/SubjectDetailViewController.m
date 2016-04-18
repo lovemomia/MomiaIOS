@@ -431,7 +431,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             }
             [btn addTarget:self action:@selector(tapNewCoursesFold) forControlEvents:UIControlEventTouchDown];
             btn.layer.borderWidth = 1;
-            btn.layer.borderColor = [UIColor blackColor].CGColor;
+            btn.layer.borderColor = [UIColor darkGrayColor].CGColor;
             btn.layer.cornerRadius = 5;
             return newCoursesHeader;
         }
@@ -468,7 +468,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             }
             [btn addTarget:self action:@selector(tapAllCoursesFold) forControlEvents:UIControlEventTouchDown];
             btn.layer.borderWidth = 1;
-            btn.layer.borderColor = [UIColor blackColor].CGColor;
+            btn.layer.borderColor = [UIColor darkGrayColor].CGColor;
             btn.layer.cornerRadius = 5;
             return allCourseCellFooter;
         }

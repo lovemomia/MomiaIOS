@@ -26,6 +26,8 @@
     self.child = child;
     [self.name setText:child.name];
     [self.sex setText:child.sex];
+    BOOL isBoy = [child.sex isEqualToString:@"男"] ? YES : NO;
+    [self.sexIcon setImage:[UIImage imageNamed:isBoy ? @"IconBoy":@"IconGirl"]];
     [self.age setText:[child ageWithDateOfBirth]];
     if (child.avatar && ![child.avatar isEqualToString:@""]) {
         NSURL *url = [[NSURL alloc]initWithString:child.avatar];

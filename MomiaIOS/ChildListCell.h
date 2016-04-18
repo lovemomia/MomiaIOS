@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *sex;
 @property (weak, nonatomic) IBOutlet UILabel *age;
 @property (strong, nonatomic) Child *child;
+@property (weak, nonatomic) IBOutlet UIImageView *sexIcon;
 
 -(void)setData:(Child *)child delegate:(ChildListViewController *)controller;
 
