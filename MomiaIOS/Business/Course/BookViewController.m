@@ -87,6 +87,9 @@
 }
 
 - (void)onDoneClick {
+//    if (self.selectSku) {
+//        [self openURL:[NSString stringWithFormat:@"confirmbook?skuIds=%@&pid=%@",self.selectSku.ids,self.pid]];
+//    }
     if(self.selectSku){
         ConfirmBookViewController *confirmBookVC = [[ConfirmBookViewController alloc]initWithParams:@{@"skuIds":self.selectSku.ids,@"pid":self.pid}];
         confirmBookVC.selectSku = self.selectSku;

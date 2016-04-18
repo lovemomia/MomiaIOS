@@ -452,5 +452,14 @@
 		<key>controller</key>
 		<string>ChildListViewController</string>
 	</dict>
+	<key>confirmbook</key>
+	<dict>
+		<key>desc</key>
+		<string>确认约课</string>
+		<key>needlogin</key>
+		<true/>
+		<key>controller</key>
+		<string>ConfirmBookViewController</string>
+	</dict>
 </dict>
 </plist>

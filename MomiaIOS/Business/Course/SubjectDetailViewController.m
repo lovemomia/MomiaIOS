@@ -447,7 +447,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
         }else if(rowItem.subjectDetailRowType == SubjectDetailRowTypeData){
             Course *course = rowItem.data;
             SubjectCourseCell *courseCell = [SubjectCourseCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierSubjectCourseCell];
-            courseCell.lessonCountLabel.text = [NSString stringWithFormat: @"LESSON %d",row];
+            courseCell.lessonCountLabel.text = [NSString stringWithFormat: @"LESSON %ld",(long)row];
             courseCell.data = course;
             cell = courseCell;
             cell.selectionStyle = UITableViewCellSeparatorStyleNone;
