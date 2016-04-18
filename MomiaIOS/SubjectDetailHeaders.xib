@@ -15,17 +15,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AYS-xJ-art">
-                        <rect key="frame" x="124.5" y="24" width="85" height="36"/>
+                        <rect key="frame" x="126" y="26" width="82" height="32"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" tag="13" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unfold" translatesAutoresizingMaskIntoConstraints="NO" id="lXy-OT-S91" userLabel="arrow image">
-                                <rect key="frame" x="10" y="15.5" width="9" height="5"/>
+                                <rect key="frame" x="10" y="13.5" width="9" height="5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="9" id="1Si-Gz-65R"/>
                                     <constraint firstAttribute="height" constant="5" id="fZw-96-IE4"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" tag="12" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击展开" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyI-fE-aTv">
-                                <rect key="frame" x="27" y="11" width="48" height="14.5"/>
+                                <rect key="frame" x="24" y="9" width="48" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -33,16 +33,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="36" id="J9T-5D-Occ"/>
+                            <constraint firstAttribute="height" constant="32" id="J9T-5D-Occ"/>
                             <constraint firstItem="lXy-OT-S91" firstAttribute="centerY" secondItem="AYS-xJ-art" secondAttribute="centerY" id="KAy-sh-nlH"/>
                             <constraint firstAttribute="trailing" secondItem="UyI-fE-aTv" secondAttribute="trailing" constant="10" id="Pf9-ka-Pgz"/>
-                            <constraint firstItem="UyI-fE-aTv" firstAttribute="leading" secondItem="lXy-OT-S91" secondAttribute="trailing" constant="8" id="W8d-VO-oUK"/>
+                            <constraint firstItem="UyI-fE-aTv" firstAttribute="leading" secondItem="lXy-OT-S91" secondAttribute="trailing" constant="5" id="W8d-VO-oUK"/>
                             <constraint firstItem="UyI-fE-aTv" firstAttribute="centerY" secondItem="AYS-xJ-art" secondAttribute="centerY" id="Wxi-3v-MiZ"/>
                             <constraint firstItem="lXy-OT-S91" firstAttribute="leading" secondItem="AYS-xJ-art" secondAttribute="leading" constant="10" id="aXC-aC-Y7m"/>
                         </constraints>
                     </view>
                     <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZ9-Ol-SXl">
-                        <rect key="frame" x="124.5" y="24" width="85" height="36"/>
+                        <rect key="frame" x="126" y="26" width="82" height="32"/>
                     </button>
                 </subviews>
                 <constraints>

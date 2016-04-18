@@ -115,6 +115,8 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
 }
 
 -(void)setModel:(SubjectDetailModel *)model{
+    self.isOpenNewCourses = NO;
+    self.isOPenAllCourses = NO;
     _model = model;
     if (model) {
         if (model.data.subject) { //设置subject
@@ -413,10 +415,10 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             newCoursesHeader.selectionStyle = UITableViewCellSeparatorStyleNone;
             if (self.isOpenNewCourses) {
                 label.text = @"点击收起";
-                arrowImage.image = [UIImage imageNamed:@"fold"];
+                arrowImage.image = [UIImage imageNamed:@"Fold"];
             }else{
                 label.text = @"点击展开";
-                arrowImage.image = [UIImage imageNamed:@"unfold"];
+                arrowImage.image = [UIImage imageNamed:@"Unfold"];
             }
             [btn addTarget:self action:@selector(tapNewCoursesFold) forControlEvents:UIControlEventTouchDown];
             btn.layer.borderWidth = 1;
@@ -450,10 +452,10 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             allCourseCellFooter.selectionStyle = UITableViewCellSeparatorStyleNone;
             if (self.isOPenAllCourses) {
                 label.text = @"点击收起";
-                arrowImage.image = [UIImage imageNamed:@"fold"];
+                arrowImage.image = [UIImage imageNamed:@"Fold"];
             }else{
                 label.text = @"点击展开";
-                arrowImage.image = [UIImage imageNamed:@"unfold"];
+                arrowImage.image = [UIImage imageNamed:@"Unfold"];
             }
             [btn addTarget:self action:@selector(tapAllCoursesFold) forControlEvents:UIControlEventTouchDown];
             btn.layer.borderWidth = 1;
