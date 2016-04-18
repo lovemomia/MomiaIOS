@@ -63,18 +63,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="351" height="75.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最新开班" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMW-JA-TN2">
+                    <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最新开班" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMW-JA-TN2">
                         <rect key="frame" x="145" y="28.5" width="60" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebG-BI-wDX" userLabel="left dot">
-                        <rect key="frame" x="133" y="34" width="6" height="6"/>
+                        <rect key="frame" x="135" y="35" width="4" height="4"/>
                         <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="6" id="J7c-Fd-jYC"/>
-                            <constraint firstAttribute="height" constant="6" id="NN5-Br-5b4"/>
+                            <constraint firstAttribute="width" constant="4" id="J7c-Fd-jYC"/>
+                            <constraint firstAttribute="height" constant="4" id="NN5-Br-5b4"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -84,7 +84,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pdh-yz-FQa" userLabel="right dot">
-                        <rect key="frame" x="211" y="34" width="6" height="6"/>
+                        <rect key="frame" x="211" y="35" width="4" height="4"/>
                         <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -94,7 +94,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HP5-DP-vtw" userLabel="right line">
-                        <rect key="frame" x="225" y="37" width="60" height="1"/>
+                        <rect key="frame" x="223" y="37" width="60" height="1"/>
                         <color key="backgroundColor" red="0.0" green="0.76862745098039209" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="gIc-1x-8B7"/>
@@ -102,7 +102,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCD-UX-Y1b" userLabel="left line">
-                        <rect key="frame" x="67" y="37" width="60" height="1"/>
+                        <rect key="frame" x="69" y="37" width="60" height="1"/>
                         <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="Kkm-CP-LGC"/>
@@ -127,83 +127,6 @@
             </tableViewCellContentView>
             <inset key="separatorInset" minX="500" minY="0.0" maxX="0.0" maxY="0.0"/>
             <point key="canvasLocation" x="291.5" y="335"/>
-        </tableViewCell>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="88" id="6O8-p3-idD" userLabel="全部课程">
-            <rect key="frame" x="0.0" y="0.0" width="358" height="88"/>
-            <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6O8-p3-idD" id="pi3-xe-WR3">
-                <rect key="frame" x="0.0" y="0.0" width="358" height="87.5"/>
-                <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全部课程" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pmr-5V-AaY">
-                        <rect key="frame" x="149" y="34.5" width="60" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V2Q-wb-46O" userLabel="left dot">
-                        <rect key="frame" x="135" y="40" width="6" height="6"/>
-                        <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="6" id="F4d-qW-ruJ"/>
-                            <constraint firstAttribute="width" constant="6" id="vcI-Gs-WDd"/>
-                        </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="5"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                        </userDefinedRuntimeAttributes>
-                    </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ToY-S5-ACt" userLabel="right dot">
-                        <rect key="frame" x="217" y="40" width="6" height="6"/>
-                        <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="6" id="aM2-uk-YyA"/>
-                            <constraint firstAttribute="width" constant="6" id="fLr-a2-3kv"/>
-                        </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="3"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                        </userDefinedRuntimeAttributes>
-                    </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r5f-Em-Doj" userLabel="right line">
-                        <rect key="frame" x="229" y="43" width="60" height="1"/>
-                        <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="QP0-By-jck"/>
-                            <constraint firstAttribute="width" constant="60" id="XdX-g6-Xbs"/>
-                        </constraints>
-                    </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sJo-Yr-Kff" userLabel="left line">
-                        <rect key="frame" x="69" y="43" width="60" height="1"/>
-                        <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                </subviews>
-                <constraints>
-                    <constraint firstItem="Pmr-5V-AaY" firstAttribute="centerX" secondItem="pi3-xe-WR3" secondAttribute="centerX" id="1sv-rY-rBz"/>
-                    <constraint firstItem="sJo-Yr-Kff" firstAttribute="height" secondItem="r5f-Em-Doj" secondAttribute="height" id="3iP-Dq-uoq"/>
-                    <constraint firstItem="r5f-Em-Doj" firstAttribute="leading" secondItem="ToY-S5-ACt" secondAttribute="trailing" constant="6" id="AnR-vq-lK7"/>
-                    <constraint firstItem="V2Q-wb-46O" firstAttribute="leading" secondItem="sJo-Yr-Kff" secondAttribute="trailing" constant="6" id="BBe-su-ZHy"/>
-                    <constraint firstItem="V2Q-wb-46O" firstAttribute="centerY" secondItem="Pmr-5V-AaY" secondAttribute="centerY" id="CGs-9h-EKX"/>
-                    <constraint firstItem="sJo-Yr-Kff" firstAttribute="width" secondItem="r5f-Em-Doj" secondAttribute="width" id="F41-yX-PjF"/>
-                    <constraint firstItem="Pmr-5V-AaY" firstAttribute="leading" secondItem="V2Q-wb-46O" secondAttribute="trailing" constant="8" id="Lyf-W4-MGM"/>
-                    <constraint firstItem="Pmr-5V-AaY" firstAttribute="centerY" secondItem="pi3-xe-WR3" secondAttribute="centerY" id="QOf-b5-imr"/>
-                    <constraint firstItem="r5f-Em-Doj" firstAttribute="centerY" secondItem="Pmr-5V-AaY" secondAttribute="centerY" id="Svf-Jh-PQX"/>
-                    <constraint firstItem="sJo-Yr-Kff" firstAttribute="centerY" secondItem="Pmr-5V-AaY" secondAttribute="centerY" id="kme-Qu-FN3"/>
-                    <constraint firstItem="ToY-S5-ACt" firstAttribute="centerY" secondItem="Pmr-5V-AaY" secondAttribute="centerY" id="x2d-cs-J0G"/>
-                    <constraint firstItem="ToY-S5-ACt" firstAttribute="leading" secondItem="Pmr-5V-AaY" secondAttribute="trailing" constant="8" id="zbF-Eg-oG0"/>
-                </constraints>
-                <userDefinedRuntimeAttributes>
-                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                        <integer key="value" value="3"/>
-                    </userDefinedRuntimeAttribute>
-                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                </userDefinedRuntimeAttributes>
-            </tableViewCellContentView>
-            <point key="canvasLocation" x="293" y="501"/>
         </tableViewCell>
     </objects>
     <resources>

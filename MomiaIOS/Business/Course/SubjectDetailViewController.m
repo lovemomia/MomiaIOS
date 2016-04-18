@@ -407,6 +407,8 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
         if (rowItem.subjectDetailRowType == SubjectDetailRowTypeHeader) {
             NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"SubjectDetailHeaders" owner:self options:nil];
             UITableViewCell *newCoursesHeader = array[1];
+            UILabel *titleLabel = [newCoursesHeader viewWithTag:1000];
+            titleLabel.text = @"最新开班";
             newCoursesHeader.selectionStyle = UITableViewCellSeparatorStyleNone;
             return newCoursesHeader;
         }else if(rowItem.subjectDetailRowType == SubjectDetailRowTypeData) {
@@ -441,7 +443,9 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
         SubjectDetailRowItem *rowItem = rowsArray[row];
         if (rowItem.subjectDetailRowType == SubjectDetailRowTypeHeader) {
             NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"SubjectDetailHeaders" owner:self options:nil];
-            UITableViewCell *allCourseCell = array[2];
+            UITableViewCell *allCourseCell = array[1];
+            UILabel *titleLabel = [allCourseCell viewWithTag:1000];
+            titleLabel.text = @"全部课程";
             allCourseCell.selectionStyle = UITableViewCellSeparatorStyleNone;
             return allCourseCell;
         }else if(rowItem.subjectDetailRowType == SubjectDetailRowTypeData){
