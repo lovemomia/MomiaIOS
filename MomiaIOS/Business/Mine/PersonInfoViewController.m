@@ -29,7 +29,7 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"个人信息";
     [[AccountService defaultService] addListener:self];
-    [self refreshAccount]; //这里的刷新账户？
+    [self refreshAccount]; //这里的刷新账户
     [CommonHeaderView registerCellFromNibWithTableView:self.tableView];
 }
 
@@ -82,19 +82,16 @@
     
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *header;
-    if (section == 0) {
-        header = [CommonHeaderView cellWithTableView:self.tableView];
-        ((CommonHeaderView * )header).data = @"个人信息";
-    }
-    return header;
-}
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+//    UIView *header;
+////    if (section == 0) {
+////        header = [CommonHeaderView cellWithTableView:self.tableView];
+////        ((CommonHeaderView * )header).data = @"个人信息";
+////    }
+//    return header;
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section == 0) {
-        return 40;
-    }
     return 10;
 }
 
