@@ -140,8 +140,8 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             item.subjectDetailRowType = SubjectDetailRowTypeHeader;
             [dataArray addObject:item];
             NSInteger Count = ShowSubjectCoursesConstantCount;
-            if (model.data.courses.count < Count) {
-                Count = model.data.courses.count;
+            if (model.data.freshCourses.count < Count) {
+                Count = model.data.freshCourses.count;
             }
             for (int i = 0; i < Count; i++ ) {
                 SubjectDetailRowItem *item = [[SubjectDetailRowItem alloc]init];
@@ -233,9 +233,12 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
         if (rowItem.subjectDetailRowType == SubjectDetailRowTypeHeader || rowItem.subjectDetailRowType == SubjectDetailRowTypeFooter) {
             return UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0);
         } else if (rowItem.subjectDetailRowType == SubjectDetailRowTypeData) {
-            SubjectDetailRowItem *nextRowItem = rowsItem[indexPath.row + 1];
-            if (nextRowItem.subjectDetailRowType == SubjectDetailRowTypeFooter) {
-                return UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0);
+            NSArray *array = [self.keySection objectForKey:SubjectDetailSectionTypeNewCoursesDictKey];
+            if (array && array.count > 3) {
+                SubjectDetailRowItem *nextRowItem = rowsItem[indexPath.row + 1];
+                if (nextRowItem.subjectDetailRowType == SubjectDetailRowTypeFooter) {
+                    return UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0);
+                }
             }
             return UIEdgeInsetsMake(0,10,0,0);
         }
