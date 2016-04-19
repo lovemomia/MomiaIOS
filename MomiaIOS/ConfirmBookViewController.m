@@ -115,7 +115,7 @@ static NSString *ChooseChildAction = @"ChooseChildAction";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0 && indexPath.row == 0) {
-        return 90;
+        return 80;
     }
     else if (indexPath.section == 1 && ![[AccountService defaultService].account haveChildren]) {
         if (indexPath.row == 0) {

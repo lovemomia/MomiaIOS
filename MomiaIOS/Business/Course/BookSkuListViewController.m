@@ -11,10 +11,12 @@
 #import "BookSkuItemCell.h"
 #import "BookSkuMoreCell.h"
 #import "BookSkuDateTitleCell.h"
+#import "CoursePoiCell.h"
 
 static NSString *identifierBookSkuItemCell = @"BookSkuItemCell";
 static NSString *identifierBookSkuMoreCell = @"BookSkuMoreCell";
 static NSString *identifierBookSkuDateTitleCell = @"BookSkuDateTitleCell";
+static NSString *identifierCoursePoiCell = @"CoursePoiCell";
 
 @interface BookSkuListViewController ()
 
@@ -162,7 +164,7 @@ static NSString *identifierBookSkuDateTitleCell = @"BookSkuDateTitleCell";
     } else if (row == 3 && !skuList.isShowMore) {
         return 46;
     }
-    return 100;
+    return 80;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
