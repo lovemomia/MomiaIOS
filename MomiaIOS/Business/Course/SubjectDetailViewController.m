@@ -233,8 +233,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
         if (rowItem.subjectDetailRowType == SubjectDetailRowTypeHeader || rowItem.subjectDetailRowType == SubjectDetailRowTypeFooter) {
             return UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0);
         } else if (rowItem.subjectDetailRowType == SubjectDetailRowTypeData) {
-            NSArray *array = [self.keySection objectForKey:SubjectDetailSectionTypeNewCoursesDictKey];
-            if (array && array.count > 3) {
+            if (self.model && self.model.data.freshCourses.count > 3) {
                 SubjectDetailRowItem *nextRowItem = rowsItem[indexPath.row + 1];
                 if (nextRowItem.subjectDetailRowType == SubjectDetailRowTypeFooter) {
                     return UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0);
