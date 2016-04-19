@@ -22,7 +22,7 @@ typedef void (^uploadFail)(void);
 
 static NSString *ChooseChildAction = @"ChooseChildAction";
 
-@interface ConfirmBookViewController ()<UIActionSheetDelegate,DatePickerSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface ConfirmBookViewController ()<UIActionSheetDelegate,DatePickerSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,AccountChangeListener>
 
 @property (nonatomic,weak  ) UIImageView *avaorImageView;
 @property (nonatomic,weak  ) UILabel     *sexCellItem;
@@ -58,6 +58,12 @@ static NSString *ChooseChildAction = @"ChooseChildAction";
     //注册通知
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateChoosedChild:) name:@"updateChoosedChild" object:nil];
     [BookSkuItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:@"BookSkuItemCell"];
+    [[AccountService defaultService] addListener:self];
+}
+
+- (void)onAccountChange{
+    self.child = [[AccountService defaultService]childAtIndex:self.choosedChildItem];
+    [self.tableView reloadData];
 }
 
 -(Child *)child{
@@ -109,7 +115,7 @@ static NSString *ChooseChildAction = @"ChooseChildAction";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0 && indexPath.row == 0) {
-        return 100;
+        return 90;
     }
     else if (indexPath.section == 1 && ![[AccountService defaultService].account haveChildren]) {
         if (indexPath.row == 0) {

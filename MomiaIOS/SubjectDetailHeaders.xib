@@ -54,7 +54,7 @@
                     <constraint firstItem="AYS-xJ-art" firstAttribute="centerX" secondItem="lz3-vm-hPS" secondAttribute="centerX" id="vgt-mR-SM2"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="291" y="174"/>
+            <point key="canvasLocation" x="291" y="-90"/>
         </tableViewCell>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="76" id="rdn-sz-6nW" userLabel="最新开班">
             <rect key="frame" x="0.0" y="0.0" width="351" height="76"/>
@@ -64,13 +64,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最新开班" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMW-JA-TN2">
-                        <rect key="frame" x="145" y="28.5" width="60" height="18"/>
+                        <rect key="frame" x="145" y="39" width="60" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebG-BI-wDX" userLabel="left dot">
-                        <rect key="frame" x="135" y="35" width="4" height="4"/>
+                        <rect key="frame" x="135" y="45.5" width="4" height="4"/>
                         <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="4" id="J7c-Fd-jYC"/>
@@ -84,7 +84,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pdh-yz-FQa" userLabel="right dot">
-                        <rect key="frame" x="211" y="35" width="4" height="4"/>
+                        <rect key="frame" x="211" y="45.5" width="4" height="4"/>
                         <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -94,7 +94,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HP5-DP-vtw" userLabel="right line">
-                        <rect key="frame" x="223" y="37" width="60" height="1"/>
+                        <rect key="frame" x="223" y="47.5" width="60" height="1"/>
                         <color key="backgroundColor" red="0.0" green="0.76862745098039209" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="gIc-1x-8B7"/>
@@ -102,7 +102,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCD-UX-Y1b" userLabel="left line">
-                        <rect key="frame" x="69" y="37" width="60" height="1"/>
+                        <rect key="frame" x="69" y="47.5" width="60" height="1"/>
                         <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="Kkm-CP-LGC"/>
@@ -112,7 +112,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="pdh-yz-FQa" firstAttribute="width" secondItem="ebG-BI-wDX" secondAttribute="width" id="0Sh-rv-kat"/>
-                    <constraint firstItem="GMW-JA-TN2" firstAttribute="centerY" secondItem="L7M-BN-wTT" secondAttribute="centerY" id="7o3-uI-fSC"/>
+                    <constraint firstItem="GMW-JA-TN2" firstAttribute="centerY" secondItem="L7M-BN-wTT" secondAttribute="centerY" constant="10" id="7o3-uI-fSC"/>
                     <constraint firstItem="pdh-yz-FQa" firstAttribute="height" secondItem="ebG-BI-wDX" secondAttribute="height" id="9hs-kH-MgY"/>
                     <constraint firstItem="pdh-yz-FQa" firstAttribute="leading" secondItem="GMW-JA-TN2" secondAttribute="trailing" constant="6" id="DvR-TA-hw3"/>
                     <constraint firstItem="GMW-JA-TN2" firstAttribute="centerX" secondItem="L7M-BN-wTT" secondAttribute="centerX" id="Ed3-9T-0Y7"/>
@@ -126,7 +126,79 @@
                 </constraints>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="500" minY="0.0" maxX="0.0" maxY="0.0"/>
-            <point key="canvasLocation" x="291.5" y="335"/>
+            <point key="canvasLocation" x="299.5" y="76"/>
+        </tableViewCell>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="76" id="JMl-Xa-dGj" userLabel="最新开班">
+            <rect key="frame" x="0.0" y="0.0" width="351" height="76"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JMl-Xa-dGj" id="BwT-qH-Tuy">
+                <rect key="frame" x="0.0" y="0.0" width="351" height="75.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全部课程" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Zx-VF-tCY">
+                        <rect key="frame" x="145" y="28.5" width="60" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M1Q-mK-jts" userLabel="left dot">
+                        <rect key="frame" x="135" y="35" width="4" height="4"/>
+                        <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="4" id="1t2-BC-Sc7"/>
+                            <constraint firstAttribute="width" constant="4" id="yJx-Vu-JiC"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xA4-Dd-5Wy" userLabel="right dot">
+                        <rect key="frame" x="211" y="35" width="4" height="4"/>
+                        <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56w-nf-asf" userLabel="right line">
+                        <rect key="frame" x="223" y="37" width="60" height="1"/>
+                        <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="LYW-tU-H0u"/>
+                            <constraint firstAttribute="width" constant="60" id="vO3-Yd-XPg"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7qv-zR-5HA" userLabel="left line">
+                        <rect key="frame" x="69" y="37" width="60" height="1"/>
+                        <color key="backgroundColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="363-NX-yH4"/>
+                            <constraint firstAttribute="width" constant="60" id="BJe-HW-2D8"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="xA4-Dd-5Wy" firstAttribute="width" secondItem="M1Q-mK-jts" secondAttribute="width" id="3TT-qr-c7w"/>
+                    <constraint firstItem="3Zx-VF-tCY" firstAttribute="centerX" secondItem="BwT-qH-Tuy" secondAttribute="centerX" id="Gwe-mc-4OY"/>
+                    <constraint firstItem="xA4-Dd-5Wy" firstAttribute="height" secondItem="M1Q-mK-jts" secondAttribute="height" id="M5r-Eb-Vdb"/>
+                    <constraint firstItem="3Zx-VF-tCY" firstAttribute="centerY" secondItem="BwT-qH-Tuy" secondAttribute="centerY" id="PL9-Yj-0Rm"/>
+                    <constraint firstItem="7qv-zR-5HA" firstAttribute="centerY" secondItem="3Zx-VF-tCY" secondAttribute="centerY" id="WGc-ok-A9V"/>
+                    <constraint firstItem="xA4-Dd-5Wy" firstAttribute="leading" secondItem="3Zx-VF-tCY" secondAttribute="trailing" constant="6" id="Z9y-N2-6kf"/>
+                    <constraint firstItem="xA4-Dd-5Wy" firstAttribute="centerY" secondItem="3Zx-VF-tCY" secondAttribute="centerY" id="dzT-1j-JI3"/>
+                    <constraint firstItem="56w-nf-asf" firstAttribute="leading" secondItem="xA4-Dd-5Wy" secondAttribute="trailing" constant="8" id="kMz-s4-692"/>
+                    <constraint firstItem="3Zx-VF-tCY" firstAttribute="leading" secondItem="M1Q-mK-jts" secondAttribute="trailing" constant="6" id="mBS-mV-3L1"/>
+                    <constraint firstItem="M1Q-mK-jts" firstAttribute="leading" secondItem="7qv-zR-5HA" secondAttribute="trailing" constant="6" id="rBV-71-8kD"/>
+                    <constraint firstItem="M1Q-mK-jts" firstAttribute="centerY" secondItem="3Zx-VF-tCY" secondAttribute="centerY" id="uc2-g2-RLc"/>
+                    <constraint firstItem="56w-nf-asf" firstAttribute="centerY" secondItem="3Zx-VF-tCY" secondAttribute="centerY" id="xh2-BZ-Yff"/>
+                </constraints>
+            </tableViewCellContentView>
+            <inset key="separatorInset" minX="500" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <point key="canvasLocation" x="299.5" y="251"/>
         </tableViewCell>
     </objects>
     <resources>
