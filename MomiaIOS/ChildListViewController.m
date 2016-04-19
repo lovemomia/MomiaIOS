@@ -44,6 +44,9 @@ static NSString *ChoosedChildId = @"ChoosedChildId";
     }
     Account *account = [AccountService defaultService].account;
     self.childs = account.children;
+    if (self.childs.count == 0) {
+        [self.view showEmptyView:@"还没有宝宝呢，赶紧添加一个吧～"];
+    }
 }
 
 -(NSString *)action{ //action 默认是List
@@ -63,6 +66,11 @@ static NSString *ChoosedChildId = @"ChoosedChildId";
 -(void)onAccountChange{
     Account *account = [AccountService defaultService].account;
     self.childs = account.children;
+    if (self.childs.count == 0) {
+        [self.view showEmptyView:@"还没有宝宝呢，赶紧添加一个吧～"];
+    } else {
+        [self.view removeEmptyView];
+    }
     [self.tableView reloadData];
 }
 
