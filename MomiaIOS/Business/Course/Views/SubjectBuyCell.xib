@@ -33,11 +33,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8V-A0-E0s">
-                        <rect key="frame" x="190" y="10" width="120" height="44"/>
+                        <rect key="frame" x="150" y="10" width="160" height="44"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="108" id="7gV-83-7di"/>
                             <constraint firstAttribute="height" constant="34.5" id="LD9-jW-ChM"/>
-                            <constraint firstAttribute="width" constant="120" id="Zks-Fc-WRz"/>
+                            <constraint firstAttribute="width" constant="160" id="Zks-Fc-WRz"/>
                         </constraints>
                         <state key="normal" title="立即抢购" backgroundImage="BgRedMediumButtonNormal"/>
                         <variation key="default">
@@ -63,7 +63,7 @@
                         </variation>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="28" translatesAutoresizingMaskIntoConstraints="NO" id="sTg-em-9ix">
-                        <rect key="frame" x="154" y="10" width="28" height="43.5"/>
+                        <rect key="frame" x="114" y="10" width="28" height="43.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="28" id="jGj-6I-eoh"/>
                         </constraints>
