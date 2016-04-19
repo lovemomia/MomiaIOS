@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="68.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconUserNotLogin" translatesAutoresizingMaskIntoConstraints="NO" id="sMR-bm-Qdw" customClass="AvatarImageView">
+                    <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconAvatarDefault" translatesAutoresizingMaskIntoConstraints="NO" id="sMR-bm-Qdw" customClass="AvatarImageView">
                         <rect key="frame" x="267" y="8" width="53" height="53"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="53" id="L2j-Gw-pbw"/>
@@ -45,6 +45,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="IconUserNotLogin" width="58" height="58"/>
+        <image name="IconAvatarDefault" width="58" height="58"/>
     </resources>
 </document>

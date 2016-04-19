@@ -44,6 +44,8 @@
         
         UILabel *timeLabel = [[UILabel alloc]init];
         self.startTime = timeLabel;
+        timeLabel.font = [UIFont systemFontOfSize:15];
+        
         [view addSubview:timeLabel];
         [timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
            
@@ -59,15 +61,18 @@
         }];
         
         UILabel *locLabel = [UILabel new];
+        locLabel.font = [UIFont systemFontOfSize:15];
+        
         self.name = locLabel;
         [view addSubview:locLabel];
         [locLabel mas_makeConstraints:^(MASConstraintMaker *make) {
            
             make.centerY.equalTo(locImage);
-            make.left.equalTo(locImage.mas_right).offset(15);
+            make.left.equalTo(timeLabel);
         }];
         
         UILabel *detailLoc = [UILabel new];
+        detailLoc.font = [UIFont systemFontOfSize:15];
         [view addSubview:detailLoc];
         [detailLoc mas_makeConstraints:^(MASConstraintMaker *make) {
            

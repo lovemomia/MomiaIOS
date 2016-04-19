@@ -136,8 +136,9 @@ static NSString *ChoosedChildId = @"ChoosedChildId";
         [[cell viewWithTag:14]removeFromSuperview];
         [cell setData:child delegate:self];
         if ([self.action isEqualToString:ChooseChildAction]) {
-            [[cell viewWithTag:13]removeFromSuperview];
-            [[cell viewWithTag:14]removeFromSuperview];
+            [[cell viewWithTag:13]setHidden:YES];
+            [[cell viewWithTag:14]setHidden:YES];
+            [[cell viewWithTag:15]setHidden:YES];
         }
         if ([self.action isEqualToString:ChooseChildAction] && child.ids.integerValue == self.choosedChildId.integerValue) {
             cell.accessoryType =  UITableViewCellAccessoryCheckmark;

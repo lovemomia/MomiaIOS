@@ -15,6 +15,7 @@
 #import "ChildListCell.h"
 #import "UploadImageModel.h"
 #import "CommonHeaderView.h"
+#import "BookSkuItemCell.h"
 
 typedef void (^uploadSuccess)(NSString *filePath);
 typedef void (^uploadFail)(void);
@@ -56,6 +57,7 @@ static NSString *ChooseChildAction = @"ChooseChildAction";
     self.title = @"确认约课";
     //注册通知
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateChoosedChild:) name:@"updateChoosedChild" object:nil];
+    [BookSkuItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:@"BookSkuItemCell"];
 }
 
 -(Child *)child{
@@ -107,7 +109,7 @@ static NSString *ChooseChildAction = @"ChooseChildAction";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0 && indexPath.row == 0) {
-        return 120;
+        return 100;
     }
     else if (indexPath.section == 1 && ![[AccountService defaultService].account haveChildren]) {
         if (indexPath.row == 0) {
@@ -328,13 +330,10 @@ static NSString *ChooseChildAction = @"ChooseChildAction";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.section == 0 && indexPath.row == 0 ) {
-        CourseLocationTimeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CourseLocationTimeCell"];
-        if (cell == nil) {
-            cell = [[CourseLocationTimeCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CourseLocationTimeCell"];
-            [cell setData:self.selectSku];
-        }
-        return cell;
-        
+        BookSkuItemCell *bookSkuItemCell = [tableView dequeueReusableCellWithIdentifier:@"BookSkuItemCell"];
+        [bookSkuItemCell setData:self.selectSku];
+        bookSkuItemCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return bookSkuItemCell;
     }
     UITableViewCell *cell;
     if (indexPath.section == 1 && [AccountService defaultService].account.children.count == 0) {
@@ -393,13 +392,16 @@ static NSString *ChooseChildAction = @"ChooseChildAction";
         if(cell == nil){
             cell = [[[NSBundle mainBundle]loadNibNamed:@"ChildListCell" owner:self options:nil]lastObject];
             [cell setData:self.child delegate:nil];
-            [[cell viewWithTag:13]removeFromSuperview];
+            [[cell viewWithTag:13]setHidden:YES];
+            [[cell viewWithTag:15]setHidden:YES];
             UILabel *label = [cell viewWithTag:14];
             [label setText:@"选择宝宝"];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         return cell;
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

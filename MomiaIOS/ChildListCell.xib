@@ -16,22 +16,22 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iJO-9f-agj">
-                        <rect key="frame" x="86" y="23.5" width="56" height="49"/>
+                        <rect key="frame" x="86" y="25" width="52" height="46"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aJ-dg-UJv">
-                                <rect key="frame" x="2" y="5" width="34" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="2" y="5" width="30" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="年龄" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4f-0w-dzf">
-                                <rect key="frame" x="2" y="31" width="26" height="16"/>
+                                <rect key="frame" x="2" y="28" width="26" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconGirl" translatesAutoresizingMaskIntoConstraints="NO" id="g6I-1e-zcf" userLabel="sex">
-                                <rect key="frame" x="45" y="10" width="11" height="11"/>
+                                <rect key="frame" x="41" y="8.5" width="11" height="11"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="11" id="TXL-ol-63g"/>
                                     <constraint firstAttribute="width" constant="11" id="f6U-pO-pvQ"/>
@@ -55,13 +55,13 @@
                             <constraint firstAttribute="height" constant="30" id="s6I-x5-sOw"/>
                         </constraints>
                         <state key="normal" title="编辑">
-                            <color key="titleColor" red="0.0" green="0.76862745099999996" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <connections>
                             <action selector="editChildDetail:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bp4-Se-oW8"/>
                         </connections>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconUserNotLogin" translatesAutoresizingMaskIntoConstraints="NO" id="oQL-7a-bep">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconAvatarDefault" translatesAutoresizingMaskIntoConstraints="NO" id="oQL-7a-bep">
                         <rect key="frame" x="18" y="19" width="58" height="58"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="58" id="d9Q-e0-AzJ"/>
@@ -80,15 +80,24 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" tag="15" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconEdit" translatesAutoresizingMaskIntoConstraints="NO" id="RoL-pP-BOc">
+                        <rect key="frame" x="300" y="40" width="15" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="AlE-mi-HE9"/>
+                            <constraint firstAttribute="width" constant="15" id="lpz-ie-N0Z"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="iJO-9f-agj" firstAttribute="centerY" secondItem="oQL-7a-bep" secondAttribute="centerY" id="6FH-7w-Egt"/>
                     <constraint firstItem="P8m-3K-r6W" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Fxn-9v-DbR"/>
                     <constraint firstAttribute="trailingMargin" secondItem="P8m-3K-r6W" secondAttribute="trailing" constant="10" id="JAX-NW-1IE"/>
                     <constraint firstItem="dUC-IM-pnJ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Nbo-oL-TtN"/>
+                    <constraint firstItem="P8m-3K-r6W" firstAttribute="leading" secondItem="RoL-pP-BOc" secondAttribute="trailing" constant="2" id="X1Q-JU-j2h"/>
                     <constraint firstItem="oQL-7a-bep" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="itZ-z8-Lcb"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="iJO-9f-agj" secondAttribute="trailing" constant="150" id="kjJ-MS-hFD"/>
                     <constraint firstItem="oQL-7a-bep" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="lA0-bj-wZG"/>
+                    <constraint firstItem="RoL-pP-BOc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qFS-xD-iiI"/>
                     <constraint firstAttribute="trailingMargin" secondItem="dUC-IM-pnJ" secondAttribute="trailing" constant="1" id="r90-ec-crZ"/>
                     <constraint firstItem="iJO-9f-agj" firstAttribute="leading" secondItem="oQL-7a-bep" secondAttribute="trailing" constant="10" id="riG-db-I2f"/>
                 </constraints>
@@ -103,7 +112,8 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="IconAvatarDefault" width="58" height="58"/>
+        <image name="IconEdit" width="15" height="16"/>
         <image name="IconGirl" width="11" height="11"/>
-        <image name="IconUserNotLogin" width="58" height="58"/>
     </resources>
 </document>
