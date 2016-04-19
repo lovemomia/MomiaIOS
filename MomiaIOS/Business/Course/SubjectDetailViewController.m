@@ -35,6 +35,8 @@ static NSString *identifierNewCoursesCell = @"CourseListItemCell";
 static NSString *SubjectDetailSectionTypeNewCoursesDictKey = @"SubjectDetailSectionTypeNewCoursesDictKey";
 static NSString *SubjectDetailSectionTypeAllCoursesDictKey = @"SubjectDetailSectionTypeAllCoursesDictKey";
 
+static NSInteger ShowSubjectCoursesConstantCount = 3;
+
 typedef NS_ENUM(NSInteger,SubjectDetailSectionType){
     SubjectDetailSectionTypeCover,
     SubjectDetailSectionTypeNewCourses,
@@ -49,7 +51,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
     SubjectDetailRowTypeFooter,
 };
 
-@interface SubjectDetailSectionItem : NSObject
+@interface SubjectDetailSectionItem : NSObject //Section Cell Type
 
 @property (nonatomic, assign) SubjectDetailSectionType itemType;
 @property (nonatomic, strong) id data;
@@ -69,7 +71,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
 }
 @end
 
-@interface SubjectDetailRowItem : NSObject
+@interface SubjectDetailRowItem : NSObject //Row Cell Type
 
 @property (nonatomic,assign) NSInteger subjectDetailRowType;
 @property (nonatomic,strong) id data;
@@ -98,9 +100,13 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
 
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
-        self.ids = [params objectForKey:@"id"];
+        [self decodeParams:params];
     }
     return self;
+}
+
+-(void)decodeParams:(NSDictionary *)params{
+    self.ids = [params objectForKey:@"id"];
 }
 
 -(NSMutableArray*)dataArray{
@@ -133,7 +139,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             SubjectDetailRowItem *item = [[SubjectDetailRowItem alloc]init];
             item.subjectDetailRowType = SubjectDetailRowTypeHeader;
             [dataArray addObject:item];
-            NSInteger Count = 3;
+            NSInteger Count = ShowSubjectCoursesConstantCount;
             if (model.data.courses.count < Count) {
                 Count = model.data.courses.count;
             }
@@ -143,7 +149,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
                 item.data = model.data.freshCourses[i];
                 [dataArray addObject:item];
             }
-            if (model.data.freshCourses.count > 3) {
+            if (model.data.freshCourses.count > ShowSubjectCoursesConstantCount) {
                 SubjectDetailRowItem *item = [[SubjectDetailRowItem alloc]init];
                 item.subjectDetailRowType = SubjectDetailRowTypeFooter;
                 [dataArray addObject:item];
@@ -154,20 +160,20 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
         if (model.data.courses.count > 0) {//全部课程
             //同上
             NSMutableArray *dataArray = [[NSMutableArray alloc]init];
-            SubjectDetailRowItem *item = [[SubjectDetailRowItem alloc]init];
-            item.subjectDetailRowType = SubjectDetailRowTypeHeader;
-            [dataArray addObject:item];
-            NSInteger Count = 3;
+            NSInteger Count = ShowSubjectCoursesConstantCount;
             if (model.data.courses.count < Count) {
                 Count = model.data.courses.count;
             }
-            for (int i = 0; i < Count; i++ ) {
+            SubjectDetailRowItem *item = [[SubjectDetailRowItem alloc]init];
+            item.subjectDetailRowType = SubjectDetailRowTypeHeader;
+            [dataArray addObject:item]; //添加header
+            for (int i = 0; i < Count; i++ ) { //添加数据
                 SubjectDetailRowItem *item = [[SubjectDetailRowItem alloc]init];
                 item.subjectDetailRowType = SubjectDetailRowTypeData;
                 item.data = model.data.courses[i];
                 [dataArray addObject:item];
             }
-            if (model.data.courses.count > 3) {
+            if (model.data.courses.count > ShowSubjectCoursesConstantCount) { //添加footer
                 SubjectDetailRowItem *item = [[SubjectDetailRowItem alloc]init];
                 item.subjectDetailRowType = SubjectDetailRowTypeFooter;
                 [dataArray addObject:item];
@@ -221,12 +227,12 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
     SubjectDetailSectionItem *sectionItem = self.dataArray[indexPath.section];
     if (sectionItem.itemType == SubjectDetailSectionTypeAllCourses) {
         return UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0);
-    }else if (sectionItem.itemType == SubjectDetailSectionTypeNewCourses) {
+    } else if (sectionItem.itemType == SubjectDetailSectionTypeNewCourses) {
         NSArray *rowsItem = sectionItem.data;
         SubjectDetailRowItem *rowItem = rowsItem[indexPath.row];
         if (rowItem.subjectDetailRowType == SubjectDetailRowTypeHeader || rowItem.subjectDetailRowType == SubjectDetailRowTypeFooter) {
             return UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0);
-        }else if (rowItem.subjectDetailRowType == SubjectDetailRowTypeData){
+        } else if (rowItem.subjectDetailRowType == SubjectDetailRowTypeData) {
             SubjectDetailRowItem *nextRowItem = rowsItem[indexPath.row + 1];
             if (nextRowItem.subjectDetailRowType == SubjectDetailRowTypeFooter) {
                 return UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0);
@@ -257,8 +263,8 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             [self.view removeLoadingBee];
         }
         self.navigationItem.title = self.model.data.subject.title;
-        [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
+        [self.tableView reloadData];
         [self setBuyView];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -283,18 +289,18 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
     if (item.itemType == SubjectDetailSectionTypeAllCourses) {
         NSArray *rowsArray = item.data;
         SubjectDetailRowItem *rowItem = rowsArray[row];
-        if(rowItem.subjectDetailRowType == SubjectDetailRowTypeData){
+        if(rowItem.subjectDetailRowType == SubjectDetailRowTypeData) {
             Course *course = rowItem.data;
             [self openURL:[NSString stringWithFormat:@"coursedetail?id=%@", course.ids]];
             NSDictionary *attributes = @{@"name":course.title, @"index":[NSString stringWithFormat:@"%d", (int)(indexPath.row - 2)]};
             [MobClick event:@"Subject_List" attributes:attributes];
         }
-    }else if(item.itemType == SubjectDetailSectionTypeComments){
+    } else if (item.itemType == SubjectDetailSectionTypeComments) {
         [self openURL:[NSString stringWithFormat:@"reviewlist?subjectId=%@", self.ids]];
-    }else if(item.itemType == SubjectDetailSectionTypeNewCourses){
+    } else if (item.itemType == SubjectDetailSectionTypeNewCourses) {
         NSArray *rowsArray = item.data;
         SubjectDetailRowItem *rowItem = rowsArray[row];
-        if(rowItem.subjectDetailRowType == SubjectDetailRowTypeData){
+        if (rowItem.subjectDetailRowType == SubjectDetailRowTypeData) {
             Course *course = rowItem.data;
             [self openURL:[NSString stringWithFormat:@"coursedetail?id=%@&sid=%@", course.ids, course.skuId]];
             NSDictionary *attributes = @{@"name":course.title, @"index":[NSString stringWithFormat:@"%d", (int)(indexPath.row - 2)]};
@@ -304,8 +310,8 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 //点击全部课程的展开按钮
--(void)tapAllCoursesFold{
-    if (!self.isOPenAllCourses && self.model.data.courses.count > 3) {
+-(void)tapAllCoursesFold {
+    if (!self.isOPenAllCourses && self.model.data.courses.count > ShowSubjectCoursesConstantCount) {
         NSMutableArray *dataArray = [self.keySection objectForKey:SubjectDetailSectionTypeAllCoursesDictKey];
         if (!dataArray) {
             return;
@@ -319,7 +325,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
         }
         [self.tableView reloadData];
         self.isOPenAllCourses = YES;
-    }else if (self.isOPenAllCourses && self.model.data.courses.count > 3) {
+    } else if (self.isOPenAllCourses && self.model.data.courses.count > ShowSubjectCoursesConstantCount) {
         NSMutableArray *dataArray = [self.keySection objectForKey:SubjectDetailSectionTypeAllCoursesDictKey];
         if (!dataArray) {
             return;
@@ -334,7 +340,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
 
 //点击最新课程的展开按钮
 -(void)tapNewCoursesFold{
-    if (!self.isOpenNewCourses && self.model.data.freshCourses.count > 3) {
+    if (!self.isOpenNewCourses && self.model.data.freshCourses.count > ShowSubjectCoursesConstantCount) {
         NSMutableArray *dataArray = [self.keySection objectForKey:SubjectDetailSectionTypeNewCoursesDictKey];
         if (!dataArray) {
             return;
@@ -348,7 +354,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
         }
         [self.tableView reloadData];
         self.isOpenNewCourses = YES;
-    }else if (self.isOpenNewCourses && self.model.data.freshCourses.count > 3) {
+    } else if (self.isOpenNewCourses && self.model.data.freshCourses.count > ShowSubjectCoursesConstantCount) {
         NSMutableArray *dataArray = [self.keySection objectForKey:SubjectDetailSectionTypeNewCoursesDictKey];
         if (!dataArray) {
             return;
@@ -369,15 +375,15 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
     SubjectDetailSectionItem *item = [self.dataArray objectAtIndex:section];
     if (item.itemType == SubjectDetailSectionTypeCover) {
         return 2;
-    }else if (item.itemType == SubjectDetailSectionTypeNewCourses){
+    } else if (item.itemType == SubjectDetailSectionTypeNewCourses) {
         NSArray *rowsArray = item.data;
         return rowsArray.count;
-    }else if (item.itemType == SubjectDetailSectionTypeAllCourses){
+    } else if (item.itemType == SubjectDetailSectionTypeAllCourses) {
         NSArray *rowsArray = item.data;
         return rowsArray.count;
-    }else if (item.itemType == SubjectDetailSectionTypeComments){
+    } else if (item.itemType == SubjectDetailSectionTypeComments) {
         return 2;
-    }else if(item.itemType == SubjectDetailSectionTypeNotices){
+    } else if(item.itemType == SubjectDetailSectionTypeNotices) {
         return 1;
     }
     return 0;
@@ -390,18 +396,18 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
     SubjectDetailSectionItem *item = [self.dataArray objectAtIndex:section];
     UITableViewCell *cell;
     if (item.itemType == SubjectDetailSectionTypeCover) {
-        if (row == 0){
+        if (row == 0) {
             PhotoTitleHeaderCell *headerCell = [PhotoTitleHeaderCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierPhotoTitleHeaderCell];
             headerCell.data = self.model.data.subject;
             return headerCell;
-        }else{
+        } else {
             SubjectDiscCell *discCell = [SubjectDiscCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierSubjectDiscCell];
             discCell.data = self.model.data.subject.intro;
             cell = discCell;
             cell.selectionStyle = UITableViewCellSeparatorStyleNone;
             return cell;
         }
-    }else if (item.itemType == SubjectDetailSectionTypeNewCourses ){
+    } else if (item.itemType == SubjectDetailSectionTypeNewCourses ) {
         NSArray *rowsArray = item.data;
         SubjectDetailRowItem *rowItem = rowsArray[row];
         if (rowItem.subjectDetailRowType == SubjectDetailRowTypeHeader) {
@@ -411,12 +417,12 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             titleLabel.text = @"最新开班";
             newCoursesHeader.selectionStyle = UITableViewCellSeparatorStyleNone;
             return newCoursesHeader;
-        }else if(rowItem.subjectDetailRowType == SubjectDetailRowTypeData) {
+        } else if(rowItem.subjectDetailRowType == SubjectDetailRowTypeData) {
             Course *course = rowItem.data;
             CourseListItemCell * itemCell = [CourseListItemCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierNewCoursesCell];
             itemCell.data = course;
             return itemCell;
-        }else if(rowItem.subjectDetailRowType == SubjectDetailRowTypeFooter) {
+        } else if (rowItem.subjectDetailRowType == SubjectDetailRowTypeFooter) {
             NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"SubjectDetailHeaders" owner:self options:nil];
             UITableViewCell *newCoursesHeader = array[0];
             newCoursesHeader.selectionStyle = UITableViewCellSeparatorStyleNone;
@@ -438,7 +444,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             return newCoursesHeader;
         }
 
-    }else if(item.itemType == SubjectDetailSectionTypeAllCourses){
+    } else if(item.itemType == SubjectDetailSectionTypeAllCourses) {
         NSArray *rowsArray = item.data;
         SubjectDetailRowItem *rowItem = rowsArray[row];
         if (rowItem.subjectDetailRowType == SubjectDetailRowTypeHeader) {
@@ -448,7 +454,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             titleLabel.text = @"全部课程";
             allCourseCell.selectionStyle = UITableViewCellSeparatorStyleNone;
             return allCourseCell;
-        }else if(rowItem.subjectDetailRowType == SubjectDetailRowTypeData){
+        } else if(rowItem.subjectDetailRowType == SubjectDetailRowTypeData) {
             Course *course = rowItem.data;
             SubjectCourseCell *courseCell = [SubjectCourseCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierSubjectCourseCell];
             courseCell.lessonCountLabel.text = [NSString stringWithFormat: @"LESSON %ld",(long)row];
@@ -456,7 +462,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             cell = courseCell;
             cell.selectionStyle = UITableViewCellSeparatorStyleNone;
             return cell;
-        }else if(rowItem.subjectDetailRowType == SubjectDetailRowTypeFooter){
+        } else if(rowItem.subjectDetailRowType == SubjectDetailRowTypeFooter) {
             NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"SubjectDetailHeaders" owner:self options:nil];
             UITableViewCell *allCourseCellFooter = array[0];
             UIButton *btn = [allCourseCellFooter viewWithTag:11];
@@ -466,7 +472,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             if (self.isOPenAllCourses) {
                 label.text = @"点击收起";
                 arrowImage.image = [UIImage imageNamed:@"Fold"];
-            }else{
+            } else {
                 label.text = @"点击展开";
                 arrowImage.image = [UIImage imageNamed:@"Unfold"];
             }
@@ -477,9 +483,11 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             return allCourseCellFooter;
         }
     }
-    else if(item.itemType == SubjectDetailSectionTypeComments){
+    else if(item.itemType == SubjectDetailSectionTypeComments) {
         if (row == 0) {
-            CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseSectionTitleCell];
+            CourseSectionTitleCell *titleCell = [CourseSectionTitleCell cellWithTableView:tableView
+                                                                             forIndexPath:indexPath
+                                                                           withIdentifier:identifierCourseSectionTitleCell];
             titleCell.titleLabel.text = @"用户评价";
             titleCell.subTitleLabel.text = @"";
             titleCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -487,7 +495,9 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             cell.selectionStyle = UITableViewCellSeparatorStyleSingleLine;
             return cell;
         } else {
-            ReviewListItemCell *reviewCell = [ReviewListItemCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:identifierReviewListItemCell];
+            ReviewListItemCell *reviewCell = [ReviewListItemCell cellWithTableView:self.tableView
+                                                                      forIndexPath:indexPath
+                                                                    withIdentifier:identifierReviewListItemCell];
             Review *review = self.model.data.comments.list[0];
             review.isShowOnly3Photos = [NSNumber numberWithBool:YES];
             [reviewCell setData:review];
@@ -495,8 +505,10 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         }
         return cell;
-    }else if(item.itemType == SubjectDetailSectionTypeNotices) {
-            CourseNoticeCell *noticeCell = [CourseNoticeCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:identifierCourseNoticeCell];
+    } else if(item.itemType == SubjectDetailSectionTypeNotices) {
+            CourseNoticeCell *noticeCell = [CourseNoticeCell cellWithTableView:tableView
+                                                                  forIndexPath:indexPath
+                                                                withIdentifier:identifierCourseNoticeCell];
             noticeCell.data = self.model.data.subject.notice;
             cell = noticeCell;
             cell.selectionStyle = UITableViewCellSeparatorStyleNone;
@@ -516,28 +528,28 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             } else if(row == 1) {
                 return [SubjectDiscCell heightWithTableView:tableView withIdentifier:identifierSubjectDiscCell forIndexPath:indexPath data:self.model.data.subject.intro];
             }
-        }else if (itemSection.itemType == SubjectDetailSectionTypeNewCourses) {
+        } else if (itemSection.itemType == SubjectDetailSectionTypeNewCourses) {
             NSArray *rowsArray = itemSection.data;
             SubjectDetailRowItem *rowItem = rowsArray[row];
             if (rowItem.subjectDetailRowType == SubjectDetailRowTypeHeader) {
                 return 61;
-            }else if(rowItem.subjectDetailRowType == SubjectDetailRowTypeFooter){
+            } else if(rowItem.subjectDetailRowType == SubjectDetailRowTypeFooter) {
                 return 61;
-            }else {
+            } else {
                 Course *course = rowItem.data;
                 return [CourseListItemCell heightWithTableView:tableView withIdentifier:identifierNewCoursesCell forIndexPath:indexPath data:course];
             }
             
-        }else if (itemSection.itemType == SubjectDetailSectionTypeComments) {
-            if (row == 0){
+        } else if (itemSection.itemType == SubjectDetailSectionTypeComments) {
+            if (row == 0) {
                 return 44;
             }
             Review *review = self.model.data.comments.list[0];
             review.isShowOnly3Photos = [NSNumber numberWithBool:YES];
             return [ReviewListItemCell heightWithTableView:tableView withIdentifier:identifierReviewListItemCell forIndexPath:indexPath data:review];
-        }else if (itemSection.itemType == SubjectDetailSectionTypeNotices) {
+        } else if (itemSection.itemType == SubjectDetailSectionTypeNotices) {
             return [CourseNoticeCell heightWithTableView:tableView withIdentifier:identifierCourseNoticeCell forIndexPath:indexPath data:self.model.data.subject.notice];
-        }else if (itemSection.itemType == SubjectDetailSectionTypeAllCourses) {
+        } else if (itemSection.itemType == SubjectDetailSectionTypeAllCourses) {
             NSArray *rowsArray = itemSection.data;
             SubjectDetailRowItem *rowItem = rowsArray[row];
             if (rowItem.subjectDetailRowType == SubjectDetailRowTypeHeader) {

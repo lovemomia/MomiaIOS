@@ -41,7 +41,7 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
 
 @interface CellItem : NSObject
 
-@property(nonatomic,assign) NSInteger itemType; //Cell 类型
+@property(nonatomic,assign) NSInteger itemType; //Section Cell 类型
 @property(nonatomic,strong) id object;
 
 -(instancetype)init:(HomeViewCellType)itemType obj:(id)obj;
