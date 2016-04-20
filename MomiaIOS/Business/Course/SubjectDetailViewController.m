@@ -31,6 +31,7 @@ static NSString *identifierCourseNoticeCell = @"CourseNoticeCell";
 static NSString *identifierReviewListItemCell = @"ReviewListItemCell";
 static NSString *identifierSubjectCourseCell = @"SubjectCourseCell";
 static NSString *identifierNewCoursesCell = @"CourseListItemCell";
+static NSString *SubjectDetailHeaders = @"SubjectDetailHeaders";
 
 static NSString *SubjectDetailSectionTypeNewCoursesDictKey = @"SubjectDetailSectionTypeNewCoursesDictKey";
 static NSString *SubjectDetailSectionTypeAllCoursesDictKey = @"SubjectDetailSectionTypeAllCoursesDictKey";
@@ -111,7 +112,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
 
 -(NSMutableArray*)dataArray{
     if (!_dataArray) {
-        _dataArray = [[NSMutableArray alloc]initWithCapacity:20];
+        _dataArray = [[NSMutableArray alloc]init];
     }
     return _dataArray;
 }
@@ -413,7 +414,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
         NSArray *rowsArray = item.data;
         SubjectDetailRowItem *rowItem = rowsArray[row];
         if (rowItem.subjectDetailRowType == SubjectDetailRowTypeHeader) {
-            NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"SubjectDetailHeaders" owner:self options:nil];
+            NSArray *array = [[NSBundle mainBundle] loadNibNamed:SubjectDetailHeaders owner:self options:nil];
             UITableViewCell *newCoursesHeader = array[1];
             newCoursesHeader.selectionStyle = UITableViewCellSeparatorStyleNone;
             return newCoursesHeader;
@@ -423,7 +424,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             itemCell.data = course;
             return itemCell;
         } else if (rowItem.subjectDetailRowType == SubjectDetailRowTypeFooter) {
-            NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"SubjectDetailHeaders" owner:self options:nil];
+            NSArray *array = [[NSBundle mainBundle] loadNibNamed:SubjectDetailHeaders owner:self options:nil];
             UITableViewCell *newCoursesHeader = array[0];
             newCoursesHeader.selectionStyle = UITableViewCellSeparatorStyleNone;
             UIButton *btn = [newCoursesHeader viewWithTag:11];
@@ -448,7 +449,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
         NSArray *rowsArray = item.data;
         SubjectDetailRowItem *rowItem = rowsArray[row];
         if (rowItem.subjectDetailRowType == SubjectDetailRowTypeHeader) {
-            NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"SubjectDetailHeaders" owner:self options:nil];
+            NSArray *array = [[NSBundle mainBundle] loadNibNamed:SubjectDetailHeaders owner:self options:nil];
             UITableViewCell *allCourseCell = array[2];
             allCourseCell.selectionStyle = UITableViewCellSeparatorStyleNone;
             return allCourseCell;
@@ -461,7 +462,7 @@ typedef NS_ENUM(NSInteger,SubjectDetailRowType){
             cell.selectionStyle = UITableViewCellSeparatorStyleNone;
             return cell;
         } else if(rowItem.subjectDetailRowType == SubjectDetailRowTypeFooter) {
-            NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"SubjectDetailHeaders" owner:self options:nil];
+            NSArray *array = [[NSBundle mainBundle] loadNibNamed:SubjectDetailHeaders owner:self options:nil];
             UITableViewCell *allCourseCellFooter = array[0];
             UIButton *btn = [allCourseCellFooter viewWithTag:11];
             UILabel *label = [allCourseCellFooter viewWithTag:12];

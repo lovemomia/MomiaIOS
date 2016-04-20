@@ -328,12 +328,15 @@ static NSString *ChooseChildAction = @"ChooseChildAction";
     
     if(_childNameField.text == nil || [_childNameField.text isEqualToString:@""]){
         [self alertMessage:@"姓名没有设置"];
+        [self.confirmButton setUserInteractionEnabled:YES];
         return NO;
     }else if(_sexCellItem.text == nil || [ _sexCellItem.text isEqualToString:@""]){
         [self alertMessage:@"性别没有设置"];
+        [self.confirmButton setUserInteractionEnabled:YES];
         return NO;
     }else if(_dateCellItem.text == nil || [_dateCellItem.text isEqualToString:@""]){
         [self alertMessage:@"生日没有设置"];
+        [self.confirmButton setUserInteractionEnabled:YES];
         return NO;
     }
     return YES;
