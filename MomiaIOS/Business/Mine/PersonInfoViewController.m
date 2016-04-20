@@ -82,15 +82,6 @@
     
 }
 
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-//    UIView *header;
-////    if (section == 0) {
-////        header = [CommonHeaderView cellWithTableView:self.tableView];
-////        ((CommonHeaderView * )header).data = @"个人信息";
-////    }
-//    return header;
-//}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 10;
 }

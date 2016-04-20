@@ -54,11 +54,12 @@ static NSString *ChooseChildAction = @"ChooseChildAction";
     [super viewDidLoad];
     //注册一些公共的title
     [CommonHeaderView registerCellFromNibWithTableView:self.tableView];
+    [BookSkuItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:@"BookSkuItemCell"];
     self.title = @"确认约课";
     //注册通知
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateChoosedChild:) name:@"updateChoosedChild" object:nil];
-    [BookSkuItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:@"BookSkuItemCell"];
     [[AccountService defaultService] addListener:self];
+    [self refreshAccount]; //这里刷新账户
 }
 
 - (void)onAccountChange{
@@ -76,6 +77,23 @@ static NSString *ChooseChildAction = @"ChooseChildAction";
     }
     _child = [Child new];
     return _child;
+}
+
+- (void)refreshAccount {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[HttpService defaultService]GET:URL_APPEND_PATH(@"/user")
+                          parameters:nil cacheType:CacheTypeDisable JSONModelClass:[AccountModel class]
+                             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                 [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                 AccountModel *result = (AccountModel *)responseObject;
+                                 [AccountService defaultService].account = result.data;
+                                 [self.tableView reloadData];
+                             }
+     
+                             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                 [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                 [self showDialogWithTitle:nil message:error.message];
+                             }];
 }
 
 - (void)didReceiveMemoryWarning {
