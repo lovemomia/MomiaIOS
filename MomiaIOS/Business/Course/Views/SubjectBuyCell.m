@@ -29,7 +29,6 @@
 }
 
 - (void)setData:(id)data {
-    NSLog(@"-----%@",data);
     if ([data isKindOfClass:[Subject class]]) {
         Subject *subject = data;
         self.priceLabel.text = [StringUtils stringForPrice:subject.price];

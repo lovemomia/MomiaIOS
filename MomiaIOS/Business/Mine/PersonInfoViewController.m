@@ -171,15 +171,8 @@
         }
         UIImageView *avatarIv = (UIImageView *)[cell viewWithTag:1];
         UILabel *titleLabel = (UILabel *)[cell viewWithTag:2];
-        if (section == 0) {
-            titleLabel.text = @"头像";
-            [avatarIv sd_setImageWithURL:[NSURL URLWithString:account.avatar]];
-        } else {
-            Child *child = [self childAtIndex:(section - 2)];
-            titleLabel.text = @"孩子头像";
-            [avatarIv sd_setImageWithURL:[NSURL URLWithString:child.avatar]];
-        }
-        
+        titleLabel.text = @"头像";
+        [avatarIv sd_setImageWithURL:[NSURL URLWithString:account.avatar]];
         
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:CellDefault];
