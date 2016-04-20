@@ -17,8 +17,6 @@
 		002B664E1CB38ED30096EB6E /* ChildInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B664C1CB38ED30096EB6E /* ChildInfoViewController.m */; };
 		002B665D1CB3AFE30096EB6E /* ConfirmBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */; };
 		002B665E1CB3AFE30096EB6E /* ConfirmBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */; };
-		005B4E3E1CB3BCF00044BAD1 /* CourseLocationTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 005B4E3D1CB3BCF00044BAD1 /* CourseLocationTimeCell.m */; };
-		005B4E3F1CB3BCF00044BAD1 /* CourseLocationTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 005B4E3D1CB3BCF00044BAD1 /* CourseLocationTimeCell.m */; };
 		00B59E881CBD4695005565EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
 		00C796841CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
 		00C796851CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
@@ -860,8 +858,6 @@
 		002B664C1CB38ED30096EB6E /* ChildInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildInfoViewController.m; sourceTree = "<group>"; };
 		002B665B1CB3AFE30096EB6E /* ConfirmBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmBookViewController.h; sourceTree = "<group>"; };
 		002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmBookViewController.m; sourceTree = "<group>"; };
-		005B4E3C1CB3BCF00044BAD1 /* CourseLocationTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseLocationTimeCell.h; sourceTree = "<group>"; };
-		005B4E3D1CB3BCF00044BAD1 /* CourseLocationTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseLocationTimeCell.m; sourceTree = "<group>"; };
 		00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectDetailHeaders.xib; sourceTree = "<group>"; };
 		569FE54592CF71500372F186 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5A08C1481B3911CA00642648 /* ProductDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailModel.h; sourceTree = "<group>"; };
@@ -2171,8 +2167,6 @@
 				BC0D44491C031ACE0007E9ED /* CourseDetailCell.m */,
 				BC53A51F1CA51B9800532F91 /* SubjectCourseCell.m */,
 				BC53A5201CA51B9800532F91 /* SubjectCourseCell.xib */,
-				005B4E3C1CB3BCF00044BAD1 /* CourseLocationTimeCell.h */,
-				005B4E3D1CB3BCF00044BAD1 /* CourseLocationTimeCell.m */,
 				00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */,
 			);
 			name = Views;
@@ -3636,7 +3630,6 @@
 				BC359A291BC61F3B002DE863 /* SGAlertMenu.m in Sources */,
 				BC3599F81BC61F0C002DE863 /* MLSelectPhotoPickerBrowserPhotoView.m in Sources */,
 				BC7CBADE1B662E590047211D /* MOTagLabel.m in Sources */,
-				005B4E3E1CB3BCF00044BAD1 /* CourseLocationTimeCell.m in Sources */,
 				BCCDC6EA1BBA9661007C2F57 /* CourseDetailViewController.m in Sources */,
 				5AC9FFC91B17020300C769EF /* SubmitPostModel.m in Sources */,
 				BCF74AB61BE895AD00138C2C /* AddReviewViewController.m in Sources */,
@@ -3853,7 +3846,6 @@
 				BCEAFC1D1C2A394300CB082D /* FeedSuggestUserCell.m in Sources */,
 				BCEAFC1E1C2A394300CB082D /* IMTokenModel.m in Sources */,
 				BCEAFC1F1C2A394300CB082D /* MLSelectPhotoPickerCollectionView.m in Sources */,
-				005B4E3F1CB3BCF00044BAD1 /* CourseLocationTimeCell.m in Sources */,
 				BCEAFC201C2A394300CB082D /* Account.m in Sources */,
 				BCEAFC211C2A394300CB082D /* LJTabBar.m in Sources */,
 				BCEAFC221C2A394300CB082D /* FeedListViewController.m in Sources */,
