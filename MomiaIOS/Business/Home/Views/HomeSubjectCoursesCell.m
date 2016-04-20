@@ -129,9 +129,7 @@
         
         UILabel *joinedLabel = [[UILabel alloc]init];
         if ([model.subjectCourseType intValue] == 1) {
-            if ([course.joined intValue] > 0) {
-                joinedLabel.text = [NSString stringWithFormat:@"%@人已参加", course.joined];
-            }
+            joinedLabel.text = [NSString stringWithFormat:@"%@人已参加", course.joined];
             
         } else {
             joinedLabel.text = course.feature;

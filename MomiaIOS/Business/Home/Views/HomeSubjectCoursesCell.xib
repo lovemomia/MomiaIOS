@@ -20,10 +20,10 @@
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconWave" translatesAutoresizingMaskIntoConstraints="NO" id="Ndz-5D-372">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="IconWave" translatesAutoresizingMaskIntoConstraints="NO" id="Ndz-5D-372">
                         <rect key="frame" x="90" y="30" width="12" height="4"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconWave" translatesAutoresizingMaskIntoConstraints="NO" id="Xbx-Fm-bwt">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="IconWave" translatesAutoresizingMaskIntoConstraints="NO" id="Xbx-Fm-bwt">
                         <rect key="frame" x="215" y="30" width="12" height="4"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wit-hD-yEo">
