@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		002AF7BE1CC7759D00052BEC /* MOSectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 002AF7BD1CC7759D00052BEC /* MOSectionObject.m */; };
+		002AF7BF1CC7759D00052BEC /* MOSectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 002AF7BD1CC7759D00052BEC /* MOSectionObject.m */; };
+		002AF7C21CC7769C00052BEC /* MORowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 002AF7C11CC7769C00052BEC /* MORowObject.m */; };
+		002AF7C31CC7769C00052BEC /* MORowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 002AF7C11CC7769C00052BEC /* MORowObject.m */; };
 		002B66421CB3686C0096EB6E /* ChildListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66411CB3686C0096EB6E /* ChildListViewController.m */; };
 		002B66431CB3686C0096EB6E /* ChildListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66411CB3686C0096EB6E /* ChildListViewController.m */; };
 		002B66471CB36D100096EB6E /* ChildListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66451CB36D100096EB6E /* ChildListCell.m */; };
@@ -849,6 +853,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		002AF7BC1CC7759D00052BEC /* MOSectionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSectionObject.h; sourceTree = "<group>"; };
+		002AF7BD1CC7759D00052BEC /* MOSectionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSectionObject.m; sourceTree = "<group>"; };
+		002AF7C01CC7769C00052BEC /* MORowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MORowObject.h; sourceTree = "<group>"; };
+		002AF7C11CC7769C00052BEC /* MORowObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MORowObject.m; sourceTree = "<group>"; };
 		002B66401CB3686C0096EB6E /* ChildListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildListViewController.h; sourceTree = "<group>"; };
 		002B66411CB3686C0096EB6E /* ChildListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildListViewController.m; sourceTree = "<group>"; };
 		002B66441CB36D100096EB6E /* ChildListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildListCell.h; sourceTree = "<group>"; };
@@ -2845,6 +2853,10 @@
 				BC2C0C8B1B15AF6E00E2446E /* MOGroupStyleTableViewController.m */,
 				5A456F981B2E687700E95756 /* MOTableCell.h */,
 				5A456F991B2E687700E95756 /* MOTableCell.m */,
+				002AF7BC1CC7759D00052BEC /* MOSectionObject.h */,
+				002AF7BD1CC7759D00052BEC /* MOSectionObject.m */,
+				002AF7C01CC7769C00052BEC /* MORowObject.h */,
+				002AF7C11CC7769C00052BEC /* MORowObject.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -3657,6 +3669,7 @@
 				5AB1BDEA1B4FB7ED004A4511 /* LoadingErrorCell.m in Sources */,
 				BC10529D1BB2580A00D81C15 /* AddFeed.m in Sources */,
 				5A5A2AA41B4412FC000595A9 /* NSString+Predicate.m in Sources */,
+				002AF7BE1CC7759D00052BEC /* MOSectionObject.m in Sources */,
 				BCF0339C1B4F77BE005B71D6 /* AlipayOrderModel.m in Sources */,
 				BC0D44531C046F120007E9ED /* PackageHeaderCell.m in Sources */,
 				BC359A331BC61F68002DE863 /* MCAvatarView.m in Sources */,
@@ -3754,6 +3767,7 @@
 				BC753EDB1BAC07D300D2663C /* FeedUserHeadCell.m in Sources */,
 				BC79DF861C15910C0064C02F /* ChatGroupMemberViewController.m in Sources */,
 				BC0BD7061B5518F000B95B3A /* CouponPriceModel.m in Sources */,
+				002AF7C21CC7769C00052BEC /* MORowObject.m in Sources */,
 				BC359A2B1BC61F3B002DE863 /* SGGridMenu.m in Sources */,
 				BC592BC71BD4CC81008AE76A /* BookingSubjectItemCell.m in Sources */,
 				BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */,
@@ -3920,6 +3934,7 @@
 				BCEAFC6B1C2A394300CB082D /* ChatPublicViewController.m in Sources */,
 				BCEAFC6C1C2A394300CB082D /* UITextView+Placeholder.m in Sources */,
 				BCEAFC6D1C2A394300CB082D /* MOLabel.m in Sources */,
+				002AF7C31CC7769C00052BEC /* MORowObject.m in Sources */,
 				BCEAFC6E1C2A394300CB082D /* LoadingCell.m in Sources */,
 				BCEAFC6F1C2A394300CB082D /* CashPayTopHeaderView.m in Sources */,
 				BCEAFC701C2A394300CB082D /* PushManager.m in Sources */,
@@ -4054,6 +4069,7 @@
 				BCEAFCF51C2A394300CB082D /* SendCommentView.m in Sources */,
 				BCEAFCF61C2A394300CB082D /* NSString+MOAttribuedString.m in Sources */,
 				BCEAFCF71C2A394300CB082D /* UploadImageModel.m in Sources */,
+				002AF7BF1CC7759D00052BEC /* MOSectionObject.m in Sources */,
 				BCEAFCF81C2A394300CB082D /* TopicListModel.m in Sources */,
 				BCEAFCF91C2A394300CB082D /* UITableView+FDTemplateLayoutHeader.m in Sources */,
 				BCEAFCFB1C2A394300CB082D /* MLSelectPhotoPickerGroup.m in Sources */,

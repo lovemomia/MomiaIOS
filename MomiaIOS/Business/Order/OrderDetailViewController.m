@@ -113,7 +113,7 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
             cell = itemCell;
         }
         [(OrderListItemCell *)cell setData:self.model.data];
-        ((OrderListItemCell *)cell).actionBtn.hidden = YES;
+//        ((OrderListItemCell *)cell).actionBtn.hidden = YES;
         
     } else {
         if (indexPath.row == 0) {
