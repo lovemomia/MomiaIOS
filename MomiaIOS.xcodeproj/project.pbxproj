@@ -28,6 +28,8 @@
 		00B59E881CBD4695005565EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
 		00C796841CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
 		00C796851CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
+		00E3286F1CCA20D30051807A /* UIView+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E3286E1CCA20D30051807A /* UIView+Border.m */; };
+		00E328701CCA20D30051807A /* UIView+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E3286E1CCA20D30051807A /* UIView+Border.m */; };
 		00EFAFB31CC9CF4C0059E444 /* RefundDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EFAFB21CC9CF4C0059E444 /* RefundDetailViewController.m */; };
 		00EFAFB41CC9CF4C0059E444 /* RefundDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EFAFB21CC9CF4C0059E444 /* RefundDetailViewController.m */; };
 		087C98AEC54638860E9ACAB0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9DF4BE98C18CC18BDADCD8 /* libPods.a */; };
@@ -877,6 +879,8 @@
 		0035B74E1CC8CE5200F5EAEF /* ApplyRefundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyRefundViewController.h; sourceTree = "<group>"; };
 		0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyRefundViewController.m; sourceTree = "<group>"; };
 		00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectDetailHeaders.xib; sourceTree = "<group>"; };
+		00E3286D1CCA20D30051807A /* UIView+Border.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Border.h"; sourceTree = "<group>"; };
+		00E3286E1CCA20D30051807A /* UIView+Border.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Border.m"; sourceTree = "<group>"; };
 		00EFAFB11CC9CF4C0059E444 /* RefundDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefundDetailViewController.h; sourceTree = "<group>"; };
 		00EFAFB21CC9CF4C0059E444 /* RefundDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefundDetailViewController.m; sourceTree = "<group>"; };
 		569FE54592CF71500372F186 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -3044,6 +3048,8 @@
 				5A9E811B1B4BDF560028AC47 /* NSDate+Age.m */,
 				BC829A841B53CE850056BE61 /* NSString+MOEncrypt.h */,
 				BC829A851B53CE850056BE61 /* NSString+MOEncrypt.m */,
+				00E3286D1CCA20D30051807A /* UIView+Border.h */,
+				00E3286E1CCA20D30051807A /* UIView+Border.m */,
 			);
 			name = Categorys;
 			sourceTree = "<group>";
@@ -3610,6 +3616,7 @@
 				BC359A1C1BC61F2A002DE863 /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m in Sources */,
 				BC7737851BCE49B900987B22 /* CourseDetailModel.m in Sources */,
 				5A6806EE1B01A48300D02A60 /* SettingViewController.m in Sources */,
+				00E3286F1CCA20D30051807A /* UIView+Border.m in Sources */,
 				BC3599F11BC61F0C002DE863 /* MLSelectPhotoNavigationViewController.m in Sources */,
 				BC359A121BC61F1B002DE863 /* MJPhotoView.m in Sources */,
 				BC1CC9F71BA90A9A001841E7 /* Feed.m in Sources */,
@@ -4066,6 +4073,7 @@
 				BCEAFCDA1C2A394300CB082D /* UIView+MLExtension.m in Sources */,
 				BCEAFCDB1C2A394300CB082D /* FillOrderModel.m in Sources */,
 				BCEAFCDD1C2A394300CB082D /* ProductCalendarWeekendViewController.m in Sources */,
+				00E328701CCA20D30051807A /* UIView+Border.m in Sources */,
 				BCEAFCDE1C2A394300CB082D /* ProductDetailModel.m in Sources */,
 				BCEAFCDF1C2A394300CB082D /* Notice.m in Sources */,
 				BCEAFCE01C2A394300CB082D /* FeedZanCell.m in Sources */,

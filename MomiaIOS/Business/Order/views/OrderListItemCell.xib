@@ -133,6 +133,42 @@
             </tableViewCellContentView>
             <point key="canvasLocation" x="244" y="465.5"/>
         </tableViewCell>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="uK7-ii-VOS">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uK7-ii-VOS" id="y48-wH-KpG">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNK-95-vLg">
+                        <rect key="frame" x="246" y="9" width="64" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="64" id="NSw-Rs-8AF"/>
+                            <constraint firstAttribute="height" constant="26" id="fjW-ZJ-co8"/>
+                        </constraints>
+                        <state key="normal" title="退款">
+                            <color key="titleColor" red="0.01176470588" green="0.79607843140000001" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.011764705882352941" green="0.79607843137254897" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="oNK-95-vLg" secondAttribute="trailing" constant="10" id="rp0-tw-I92"/>
+                    <constraint firstItem="oNK-95-vLg" firstAttribute="centerY" secondItem="y48-wH-KpG" secondAttribute="centerY" id="t4e-IX-fgx"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="245" y="610"/>
+        </tableViewCell>
     </objects>
     <resources>
         <image name="BgRedMediumButtonNormal" width="145" height="40"/>
