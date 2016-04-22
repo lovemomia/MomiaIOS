@@ -31,12 +31,12 @@ static NSString *homeSubjectCoursesCellIdentifier = @"HomeSubjectCoursesCell";
 static NSString *homeTopicCellIdentifier = @"HomeTopicCell";
 
 typedef NS_ENUM(NSInteger, HomeViewCellType) {
-    HomeViewCellTypeBanner,
-    HomeViewCellTypeEvent,
-    HomeViewCellTypeSubjectCover,
-    HomeViewCellTypeSubject,
-    HomeViewCellTypeTopic,
-    HomeViewCellTypeCourse
+    HomeViewCellTypeBanner = 1,
+    HomeViewCellTypeEvent = 2,
+    HomeViewCellTypeSubjectCover = 3,
+    HomeViewCellTypeSubject = 4,
+    HomeViewCellTypeTopic = 5,
+    HomeViewCellTypeCourse = 6,
 };
 
 @interface CellItem : NSObject
@@ -62,16 +62,16 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
 
 @interface HomeViewController ()<AccountChangeListener>
 
-@property (nonatomic, strong) NSArray                *banners;//当pageIndex为0时才有数据
-@property (strong, nonatomic) IndexModel             *model;
+@property (nonatomic, strong) NSArray                *banners;
+@property (nonatomic, strong) IndexModel             *model;
 @property (nonatomic, assign) NSInteger              nextIndex;
 @property (nonatomic, assign) BOOL                   isLoading;
 @property (nonatomic, assign) BOOL                   isError;//加载更多的时候出错
 @property (nonatomic, strong) UILabel                *cityLabel;
 @property (nonatomic, strong) UIImageView            *childAvatarIv;
 @property (nonatomic, strong) UILabel                *childNameLabel;
-@property (nonatomic,strong ) AFHTTPRequestOperation *curOperation;
-@property (nonatomic,strong ) NSMutableArray         *dataArray;
+@property (nonatomic, strong ) AFHTTPRequestOperation *curOperation;
+@property (nonatomic, strong ) NSMutableArray         *dataArray;
 
 @end
 
@@ -86,7 +86,7 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     NSArray * array = [[NSBundle mainBundle] loadNibNamed:@"TitleView" owner:self options:nil];
     UIView * cityView = array[0];
     self.cityLabel = (UILabel *)[cityView viewWithTag:2001];
@@ -341,21 +341,21 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
         operateCell.data = item.object;
         return operateCell;
 
-    } else if(item.itemType == HomeViewCellTypeSubjectCover){
+    } else if(item.itemType == HomeViewCellTypeSubjectCover) {
         HomeSubjectCoverCell *subjectCover = [HomeSubjectCoverCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeSubjectCoverCellIdentifier];
         subjectCover.data = [item.object cover];
         return subjectCover;
 
-    } else if(item.itemType == HomeViewCellTypeSubject){
+    } else if(item.itemType == HomeViewCellTypeSubject) {
         HomeSubjectCoursesCell *subjectCourses = [HomeSubjectCoursesCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeSubjectCoursesCellIdentifier];
         subjectCourses.data = item.object;
         return subjectCourses;
-    } else if(item.itemType == HomeViewCellTypeTopic){
+    } else if(item.itemType == HomeViewCellTypeTopic) {
         HomeTopicCell *topicCell = [HomeTopicCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeTopicCellIdentifier];
         topicCell.data = item.object;
         return topicCell;
 
-    } else if(item.itemType == HomeViewCellTypeCourse){
+    } else if(item.itemType == HomeViewCellTypeCourse) {
         HomeCell * home = [HomeCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeIdentifier];
         home.data = item.object;
         return home;
@@ -389,15 +389,15 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
     if (item.itemType == HomeViewCellTypeSubjectCover) {
         IndexSubject *subject = item.object;
         [self openURL:[NSString stringWithFormat:@"subjectdetail?id=%@", subject.ids]];
-    }else if(item.itemType == HomeViewCellTypeTopic){
+    } else if(item.itemType == HomeViewCellTypeTopic) {
         NSString *url = [NSString stringWithFormat:@"http://%@/discuss/topic?id=%@", MO_DEBUG ? @"m.momia.cn" : @"m.sogokids.com", ((IndexSubject *)item.object).ids];
         [self openURL:[NSString stringWithFormat:@"web?url=%@", [url URLEncodedString]]];
-    }else if(item.itemType == HomeViewCellTypeCourse){
+    } else if(item.itemType == HomeViewCellTypeCourse) {
         Course *course = item.object;
         [self openURL:[NSString stringWithFormat:@"coursedetail?id=%@&recommend=1", course.ids]];
         NSDictionary *attributes = @{@"name":course.title, @"index":[NSString stringWithFormat:@"%d", number]};
         [MobClick event:@"Home_List" attributes:attributes];
-    }else {
+    } else {
         if(self.isError) {
             self.isError = NO;
             [self.tableView reloadData];

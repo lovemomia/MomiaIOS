@@ -1,13 +1,13 @@
 //
-//  CaskBackStatusView.h
+//  UIView+Border.h
 //  MomiaIOS
 //
-//  Created by mosl on 16/4/21.
+//  Created by mosl on 16/4/22.
 //  Copyright © 2016年 Deng Jun. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface CashBackStatusView : UIView
+@interface UIView (Border)
 
 @end

@@ -6,9 +6,9 @@
 //  Copyright © 2016年 Deng Jun. All rights reserved.
 //
 
-#import "CashBackStatusView.h"
+#import "RefundStatusView.h"
 
-@implementation CashBackStatusView
+@implementation RefundStatusView
 
 - (void)drawRect:(CGRect)rect {
     
