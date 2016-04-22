@@ -59,10 +59,10 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
 }
 
 @end
+
 @interface HomeViewController ()<AccountChangeListener>
+
 @property (nonatomic, strong) NSArray                *banners;//当pageIndex为0时才有数据
-//@property (nonatomic, strong) NSArray * icons;//当pageIndex为0时才有数据
-//@property (nonatomic, strong) NSArray * events;//当pageIndex为0时才有数据
 @property (strong, nonatomic) IndexModel             *model;
 @property (nonatomic, assign) NSInteger              nextIndex;
 @property (nonatomic, assign) BOOL                   isLoading;
@@ -79,7 +79,7 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
 
 -(NSMutableArray*)dataArray{
     if (!_dataArray) {
-        _dataArray = [[NSMutableArray alloc]initWithCapacity:100];
+        _dataArray = [[NSMutableArray alloc]init];
     }
     return _dataArray;
 }
@@ -425,7 +425,6 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
     [[CityManager shareManager] removeCityChangeListener:self];
     [[AccountService defaultService] removeListener:self];
 }
