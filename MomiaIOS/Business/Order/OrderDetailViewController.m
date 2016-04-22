@@ -9,9 +9,10 @@
 #import "OrderDetailViewController.h"
 #import "OrderDetailModel.h"
 #import "PostOrderModel.h"
-
 #import "OrderListItemCell.h"
 #import "CourseSectionTitleCell.h"
+
+#define OrderDetailPathURL URL_APPEND_PATH(@"/subject/order/detail?utoken=%@&oid=%@")
 
 static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
 
@@ -31,7 +32,6 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     self.navigationItem.title = @"订单详情";
     
     [CourseSectionTitleCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierCourseSectionTitleCell];
@@ -41,7 +41,6 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)requestData {
@@ -50,15 +49,18 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
     }
     
     NSDictionary * paramDic = @{@"oid":self.oid};
-    [[HttpService defaultService]GET:URL_APPEND_PATH(@"/subject/order/detail")
-                                              parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[OrderDetailModel class]
-                                                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSString *orderDetailURL = [NSString stringWithFormat:OrderDetailPathURL,self.oid,self.oid];
+    [[HttpService defaultService]GET:orderDetailURL
+                          parameters:paramDic
+                           cacheType:CacheTypeDisable
+                      JSONModelClass:[OrderDetailModel class]
+                             success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                      [self.view removeLoadingBee];
                                                      self.model = responseObject;
                                                      [self.tableView reloadData];
                                                  }
                          
-                                                 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                            failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                      [self.view removeLoadingBee];
                                                      [self showDialogWithTitle:nil message:error.message];
                                                  }];

@@ -11,6 +11,8 @@
 #import "OrderListItemCell.h"
 #import "PostPersonModel.h"
 
+#define UserOrderPathURL URL_APPEND_PATH(@"/user/order"
+
 NS_ENUM(NSInteger,SectionType){
     SectionTypeNotPay = 2,
     SectionTypePayed = 3,
@@ -96,7 +98,7 @@ NS_ENUM(NSInteger,RowType){
     NSDictionary * paramDic = @{@"status":[NSString stringWithFormat:@"%d", (int)self.status],
                                 @"type":type, @"start":[NSString stringWithFormat:@"%d",(int)page],
                                 @"count":[NSNumber numberWithInt:(int)count]};
-    self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/user/order")
+    self.curOperation = [[HttpService defaultService]GET:UserOrderPathURL)
                                               parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[OrderListModel class]
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                      [self.view removeLoadingBee];

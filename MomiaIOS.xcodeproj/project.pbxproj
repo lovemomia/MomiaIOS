@@ -21,6 +21,10 @@
 		002B664E1CB38ED30096EB6E /* ChildInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B664C1CB38ED30096EB6E /* ChildInfoViewController.m */; };
 		002B665D1CB3AFE30096EB6E /* ConfirmBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */; };
 		002B665E1CB3AFE30096EB6E /* ConfirmBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */; };
+		0035B74C1CC8BADC00F5EAEF /* CashBackStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0035B74B1CC8BADC00F5EAEF /* CashBackStatusView.m */; };
+		0035B74D1CC8BADC00F5EAEF /* CashBackStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0035B74B1CC8BADC00F5EAEF /* CashBackStatusView.m */; };
+		0035B7501CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */; };
+		0035B7511CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */; };
 		00B59E881CBD4695005565EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
 		00C796841CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
 		00C796851CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
@@ -866,6 +870,10 @@
 		002B664C1CB38ED30096EB6E /* ChildInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildInfoViewController.m; sourceTree = "<group>"; };
 		002B665B1CB3AFE30096EB6E /* ConfirmBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmBookViewController.h; sourceTree = "<group>"; };
 		002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmBookViewController.m; sourceTree = "<group>"; };
+		0035B74A1CC8BADC00F5EAEF /* CashBackStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashBackStatusView.h; sourceTree = "<group>"; };
+		0035B74B1CC8BADC00F5EAEF /* CashBackStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashBackStatusView.m; sourceTree = "<group>"; };
+		0035B74E1CC8CE5200F5EAEF /* ApplyRefundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyRefundViewController.h; sourceTree = "<group>"; };
+		0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyRefundViewController.m; sourceTree = "<group>"; };
 		00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectDetailHeaders.xib; sourceTree = "<group>"; };
 		569FE54592CF71500372F186 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5A08C1481B3911CA00642648 /* ProductDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailModel.h; sourceTree = "<group>"; };
@@ -1834,6 +1842,8 @@
 				BC7737901BCF91CA00987B22 /* SubjectOrderFillViewController.xib */,
 				BC0D44551C0551160007E9ED /* OrderDetailViewController.h */,
 				BC0D44561C0551160007E9ED /* OrderDetailViewController.m */,
+				0035B74E1CC8CE5200F5EAEF /* ApplyRefundViewController.h */,
+				0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -1853,6 +1863,8 @@
 				BC0D44501C046F120007E9ED /* PackageHeaderCell.h */,
 				BC0D44511C046F120007E9ED /* PackageHeaderCell.m */,
 				BC0D44521C046F120007E9ED /* PackageHeaderCell.xib */,
+				0035B74A1CC8BADC00F5EAEF /* CashBackStatusView.h */,
+				0035B74B1CC8BADC00F5EAEF /* CashBackStatusView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3616,6 +3628,7 @@
 				BC359A401BC648BF002DE863 /* PhotoTitleHeaderCell.m in Sources */,
 				BC3509001BFC4CD40043D37C /* ShareViewCell.m in Sources */,
 				BC6CF5831C3CC469006F314C /* IQKeyboardManager.m in Sources */,
+				0035B7501CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */,
 				BC359A491BC679EF002DE863 /* HomeGridCell.m in Sources */,
 				BC9089821B58983300A8D85B /* MyOrderListViewController.m in Sources */,
 				BC592BDE1BD5D8FB008AE76A /* BookSkuItemCell.m in Sources */,
@@ -3728,6 +3741,7 @@
 				BC753EDD1BAC07D300D2663C /* FeedZanCell.m in Sources */,
 				BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */,
 				BC3504921BD0F865009A24B0 /* Subject.m in Sources */,
+				0035B74C1CC8BADC00F5EAEF /* CashBackStatusView.m in Sources */,
 				BC3599EA1BC61F0C002DE863 /* UIImage+MLTint.m in Sources */,
 				002B664D1CB38ED30096EB6E /* ChildInfoViewController.m in Sources */,
 				BCF9DCF91BD8F0E200D8CDC6 /* CourseTeacherListViewController.m in Sources */,
@@ -3970,6 +3984,7 @@
 				BCEAFC8E1C2A394300CB082D /* SubmitPostModel.m in Sources */,
 				BCEAFC8F1C2A394300CB082D /* AddReviewViewController.m in Sources */,
 				BCEAFC901C2A394300CB082D /* SubjectDetailModel.m in Sources */,
+				0035B74D1CC8BADC00F5EAEF /* CashBackStatusView.m in Sources */,
 				BCEAFC911C2A394300CB082D /* LeaderSkuModel.m in Sources */,
 				BCEAFC921C2A394300CB082D /* MORootViewController.m in Sources */,
 				BCEAFC931C2A394300CB082D /* PostPersonModel.m in Sources */,
@@ -4028,6 +4043,7 @@
 				BCEAFCCC1C2A394300CB082D /* FeedSuggestHeadCell.m in Sources */,
 				BCEAFCCD1C2A394300CB082D /* MyFavCell.m in Sources */,
 				BCEAFCCE1C2A394300CB082D /* FeedListItemCell.m in Sources */,
+				0035B7511CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */,
 				BCEAFCCF1C2A394300CB082D /* TopicListViewController.m in Sources */,
 				BCEAFCD01C2A394300CB082D /* CourseTitleCell.m in Sources */,
 				BCEAFCD11C2A394300CB082D /* UIButton+Block.m in Sources */,
