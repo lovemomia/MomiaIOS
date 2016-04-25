@@ -6,8 +6,9 @@
 //  Copyright © 2016年 Deng Jun. All rights reserved.
 //
 
-#import "MOViewController.h"
+#import "MOGroupStyleTableViewController.h"
+
 //退款详情
-@interface RefundDetailViewController : MOViewController
+@interface RefundDetailViewController : MOGroupStyleTableViewController
 
 @end

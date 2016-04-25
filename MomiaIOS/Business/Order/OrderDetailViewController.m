@@ -11,6 +11,7 @@
 #import "PostOrderModel.h"
 #import "OrderListItemCell.h"
 #import "CourseSectionTitleCell.h"
+#import "ApplyRefundViewController.h"
 
 #define OrderDetailPathURL URL_APPEND_PATH(@"/subject/order/detail?utoken=%@&oid=%@")
 
@@ -108,6 +109,8 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
         if (indexPath.row == 1) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"OrderListItemCell" owner:self options:nil];
             cell = [arr objectAtIndex:2];
+            UIButton *btn = [cell viewWithTag:1001];
+            [btn addTarget:self action:@selector(refundBtnPressed) forControlEvents:UIControlEventTouchUpInside];
             return cell;
         }
         static NSString *Cell_Order_List_Item = @"CellOrderListItem";
@@ -227,6 +230,12 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
 //    }
 //    return view;
 //}
+
+-(void)refundBtnPressed{
+    
+    ApplyRefundViewController *refundVC = [[ApplyRefundViewController alloc]init];
+    [self.navigationController pushViewController:refundVC animated:YES];
+}
 
 - (void)onActionBtnClicked {
     Order *order = self.model.data;
