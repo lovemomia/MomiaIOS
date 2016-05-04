@@ -13,8 +13,6 @@
 #import "CourseSectionTitleCell.h"
 #import "ApplyRefundViewController.h"
 
-#define OrderDetailPathURL URL_APPEND_PATH(@"/subject/order/detail?utoken=%@&oid=%@")
-
 static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
 
 @interface OrderDetailViewController ()
@@ -51,8 +49,8 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
     }
     
     NSDictionary * paramDic = @{@"oid":self.oid};
-    NSString *orderDetailURL = [NSString stringWithFormat:OrderDetailPathURL,self.oid,self.oid];
-    [[HttpService defaultService]GET:URL_APPEND_PATH(@"/subject/order/detail")
+    NSString *orderDetailURL = URL_APPEND_PATH(@"/subject/order/detail");
+    [[HttpService defaultService]GET:orderDetailURL
                           parameters:paramDic
                            cacheType:CacheTypeDisable
                       JSONModelClass:[OrderDetailModel class]
@@ -88,6 +86,9 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (self.model) {
+        if (self.model.data.groupInfo == nil) {
+            return 2;
+        }
         return 3;
     }
     return 0;
@@ -122,7 +123,7 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
         }
         [(OrderListItemCell *)cell setData:self.model.data];
         
-    } else if(indexPath.section == 1){
+    } else if(indexPath.section == 1 && self.model.data.groupInfo != nil){
         if (indexPath.row == 0) {
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellDefault"];
             cell.textLabel.font = [UIFont systemFontOfSize:14];
@@ -148,7 +149,32 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
             cell.textLabel.text = text;
         }
         
-    } else if(indexPath.section == 2) {
+    } else if(indexPath.section == 2 && self.model.data.groupInfo != nil) {
+        if (indexPath.row == 0) {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellDefault"];
+            cell.textLabel.font = [UIFont systemFontOfSize:14];
+            cell.textLabel.textColor = UIColorFromRGB(0x333333);
+            cell.textLabel.text = @"订单详情";
+            
+        } else {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellDefault"];
+            cell.textLabel.font = [UIFont systemFontOfSize:13];
+            cell.textLabel.textColor = MO_APP_TextColor_gray;
+            NSString *text;
+            if (indexPath.row == 1) {
+                text = [NSString stringWithFormat:@"订单号：%@", self.model.data.ids];
+            } else if (indexPath.row == 2) {
+                text = [NSString stringWithFormat:@"数量：%@", self.model.data.count];
+            } else if (indexPath.row == 3) {
+                text = [NSString stringWithFormat:@"总价：%@", self.model.data.totalFee];
+            } else if (indexPath.row == 4 && self.model.data.couponDesc.length > 0) {
+                text = [NSString stringWithFormat:@"使用抵扣：%@", self.model.data.couponDesc];
+            } else {
+                text = [NSString stringWithFormat:@"下单时间：%@", self.model.data.addTime];
+            }
+            cell.textLabel.text = text;
+        }
+    } else if(indexPath.section == 1 && self.model.data.groupInfo == nil) {
         if (indexPath.row == 0) {
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellDefault"];
             cell.textLabel.font = [UIFont systemFontOfSize:14];
@@ -191,12 +217,6 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-//    if (section == 0) {
-//        Order *order = self.model.data;
-//        if ([order.status intValue] == 2 || [order.bookingStatus intValue] == 1) {
-//            return 50;
-//        }
-//    }
     return 10.f;
 }
 

@@ -142,24 +142,26 @@ NS_ENUM(NSInteger,RowType){
     UITableViewCell * cell;
     if (rowObject.Type == RowTypeHeader) {
         
-        static NSString *Cell_Order_List_Item = @"CellOrderListItemHeader";
-        cell = [tableView dequeueReusableCellWithIdentifier:Cell_Order_List_Item];
+        static NSString *CellOrderListItem = @"CellOrderListItemHeader";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellOrderListItem];
         if (cell == nil) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"OrderListItemCell" owner:self options:nil];
             OrderListItemCell *itemCell = [arr objectAtIndex:0];
+            UIView *view = [itemCell viewWithTag:1005];
+            view.hidden = YES;
             [itemCell setData:order];
             cell = itemCell;
         }
     } else if (rowObject.Type ==RowTypeFooter) {
         
-        static NSString *Cell_Order_List_Item = @"CellOrderListItemFooter";
-        cell = [tableView dequeueReusableCellWithIdentifier:Cell_Order_List_Item];
+        static NSString *CellOrderListItem = @"CellOrderListItemFooter";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellOrderListItem];
         if (cell == nil) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"OrderListItemCell" owner:self options:nil];
             OrderListItemCell *itemCell = [arr objectAtIndex:1];
-            UILabel *countLabel = [itemCell viewWithTag:10001];
-            UILabel *priceLabel = [itemCell viewWithTag:10002];
-            UIButton *actionBtn = [itemCell viewWithTag:10003];
+            UILabel *countLabel = [itemCell viewWithTag:1001];
+            UILabel *priceLabel = [itemCell viewWithTag:1002];
+            UIButton *actionBtn = [itemCell viewWithTag:1003];
             countLabel.text = [NSString stringWithFormat:@"数量: %@",order.count];
             priceLabel.text = [NSString stringWithFormat:@"合计: ￥%@",order.totalFee];
             if ([order.status intValue] == 2) {
