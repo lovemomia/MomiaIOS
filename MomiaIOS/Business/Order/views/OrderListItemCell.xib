@@ -92,7 +92,7 @@
             </connections>
             <point key="canvasLocation" x="244" y="307"/>
         </tableViewCell>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellOrderListItemFooter" rowHeight="49" id="keo-D4-O3l" userLabel="CellOrderListItemFooter">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellOrderListItemFooter" rowHeight="49" id="keo-D4-O3l" userLabel="CellOrderListItemFooter" customClass="OrderListItemFooterCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="keo-D4-O3l" id="Ujh-OG-tFO">
@@ -120,6 +120,9 @@
                         <state key="normal" title="付款" backgroundImage="BgRedMediumButtonNormal">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="actionBtnPressed:" destination="keo-D4-O3l" eventType="touchUpInside" id="Uuk-e5-WOW"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -131,6 +134,11 @@
                     <constraint firstItem="6nO-KM-vtg" firstAttribute="centerY" secondItem="Ujh-OG-tFO" secondAttribute="centerY" id="lBL-ie-aHK"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="actionBtn" destination="6nO-KM-vtg" id="i5V-2m-u0k"/>
+                <outlet property="amount" destination="STB-gu-3UW" id="Wf4-eN-yC7"/>
+                <outlet property="totalFee" destination="YAa-IP-mdi" id="nXg-db-z8K"/>
+            </connections>
             <point key="canvasLocation" x="244" y="465.5"/>
         </tableViewCell>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="uK7-ii-VOS">

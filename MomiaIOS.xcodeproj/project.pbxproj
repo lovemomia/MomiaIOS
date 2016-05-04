@@ -33,6 +33,8 @@
 		0035B74D1CC8BADC00F5EAEF /* RefundStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0035B74B1CC8BADC00F5EAEF /* RefundStatusView.m */; };
 		0035B7501CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */; };
 		0035B7511CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */; };
+		00AECE141CD9EB650086DEC4 /* OrderListItemFooterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AECE131CD9EB650086DEC4 /* OrderListItemFooterCell.m */; };
+		00AECE151CD9EB650086DEC4 /* OrderListItemFooterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AECE131CD9EB650086DEC4 /* OrderListItemFooterCell.m */; };
 		00B59E881CBD4695005565EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
 		00C796841CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
 		00C796851CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
@@ -892,6 +894,8 @@
 		0035B74B1CC8BADC00F5EAEF /* RefundStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefundStatusView.m; sourceTree = "<group>"; };
 		0035B74E1CC8CE5200F5EAEF /* ApplyRefundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyRefundViewController.h; sourceTree = "<group>"; };
 		0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyRefundViewController.m; sourceTree = "<group>"; };
+		00AECE121CD9EB650086DEC4 /* OrderListItemFooterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListItemFooterCell.h; sourceTree = "<group>"; };
+		00AECE131CD9EB650086DEC4 /* OrderListItemFooterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListItemFooterCell.m; sourceTree = "<group>"; };
 		00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectDetailHeaders.xib; sourceTree = "<group>"; };
 		00E3286D1CCA20D30051807A /* UIView+Border.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Border.h"; sourceTree = "<group>"; };
 		00E3286E1CCA20D30051807A /* UIView+Border.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Border.m"; sourceTree = "<group>"; };
@@ -1882,6 +1886,8 @@
 				5A5A2A9E1B43EED4000595A9 /* OrderContactCell.m */,
 				5A5A2AA01B43EEF3000595A9 /* OrderContactCell.xib */,
 				BCF564D61B48E1E7003A2227 /* OrderListItemCell.xib */,
+				00AECE121CD9EB650086DEC4 /* OrderListItemFooterCell.h */,
+				00AECE131CD9EB650086DEC4 /* OrderListItemFooterCell.m */,
 				BCF564DE1B491799003A2227 /* OrderListItemCell.h */,
 				BCF564DF1B491799003A2227 /* OrderListItemCell.m */,
 				BC0D44501C046F120007E9ED /* PackageHeaderCell.h */,
@@ -3613,6 +3619,7 @@
 				BC6CF5861C3CC469006F314C /* IQBarButtonItem.m in Sources */,
 				BC1052EE1BB3F64900D81C15 /* SelectImage.m in Sources */,
 				BC3599FB1BC61F0C002DE863 /* MLSelectPhotoPickerFooterCollectionReusableView.m in Sources */,
+				00AECE141CD9EB650086DEC4 /* OrderListItemFooterCell.m in Sources */,
 				5A5A2A691B43E531000595A9 /* OrderContactViewController.m in Sources */,
 				BC592BD41BD50194008AE76A /* BookSkuListViewController.m in Sources */,
 				BC0D44571C0551160007E9ED /* OrderDetailViewController.m in Sources */,
@@ -4086,6 +4093,7 @@
 				BCEAFCCD1C2A394300CB082D /* MyFavCell.m in Sources */,
 				BCEAFCCE1C2A394300CB082D /* FeedListItemCell.m in Sources */,
 				0035B7511CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */,
+				00AECE151CD9EB650086DEC4 /* OrderListItemFooterCell.m in Sources */,
 				000E0DC41CCDEAD700E77173 /* RefundLabelCell.m in Sources */,
 				BCEAFCCF1C2A394300CB082D /* TopicListViewController.m in Sources */,
 				BCEAFCD01C2A394300CB082D /* CourseTitleCell.m in Sources */,

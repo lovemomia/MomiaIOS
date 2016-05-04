@@ -10,6 +10,8 @@
 #import "OrderListModel.h"
 #import "OrderListItemCell.h"
 #import "PostPersonModel.h"
+#import "PostOrderModel.h"
+#import "OrderListItemFooterCell.h"
 
 #define UserOrderPathURL URL_APPEND_PATH(@"/user/order"
 
@@ -137,7 +139,7 @@ NS_ENUM(NSInteger,RowType){
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MORowObject *rowObject = [self rowInIndexPath:indexPath];;
+    MORowObject *rowObject = [self rowInIndexPath:indexPath];
     Order *order = rowObject.Data;
     UITableViewCell * cell;
     if (rowObject.Type == RowTypeHeader) {
@@ -158,19 +160,8 @@ NS_ENUM(NSInteger,RowType){
         cell = [tableView dequeueReusableCellWithIdentifier:CellOrderListItem];
         if (cell == nil) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"OrderListItemCell" owner:self options:nil];
-            OrderListItemCell *itemCell = [arr objectAtIndex:1];
-            UILabel *countLabel = [itemCell viewWithTag:1001];
-            UILabel *priceLabel = [itemCell viewWithTag:1002];
-            UIButton *actionBtn = [itemCell viewWithTag:1003];
-            countLabel.text = [NSString stringWithFormat:@"数量: %@",order.count];
-            priceLabel.text = [NSString stringWithFormat:@"合计: ￥%@",order.totalFee];
-            if ([order.status intValue] == 2) {
-                [actionBtn setTitle:@"付款" forState:UIControlStateNormal];
-            } else if ([order.bookingStatus intValue] == 1) {
-                [actionBtn setTitle:@"预约" forState:UIControlStateNormal];
-            } else {
-                actionBtn.hidden = YES;
-            }
+            OrderListItemFooterCell *itemCell = [arr objectAtIndex:1];
+            [itemCell setData:order];
             cell = itemCell;
         }
     }

@@ -10,11 +10,14 @@
 #import "MOTableCell.h"
 
 @interface RefundTimeLineCell: MOTableCell<MOTableCellDataProtocol>
+
 @property (weak, nonatomic) IBOutlet UIView *topLine;
 @property (weak, nonatomic) IBOutlet UILabel *numberLabel;
 @property (weak, nonatomic) IBOutlet UIView *bottomLine;
 @property (weak, nonatomic) IBOutlet UILabel *applyTitle;
 @property (weak, nonatomic) IBOutlet UILabel *applyDetail;
 @property (weak, nonatomic) IBOutlet UILabel *applyTimeLabel;
+
+- (void)setData:(id)data;
 
 @end
