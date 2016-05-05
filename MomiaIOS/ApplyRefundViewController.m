@@ -8,6 +8,7 @@
 
 #import "ApplyRefundViewController.h"
 #import "RefundDetailViewController.h"
+#import "CheckBoxCell.h"
 
 @interface ApplyRefundViewController ()
 
@@ -64,17 +65,19 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell;
-    if (indexPath.section == 0 ) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"CellDefault"];
-        cell.textLabel.text = @"退款金额";
-        cell.detailTextLabel.text = @" $ 1999";
-    } else if (indexPath.section == 1){
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellDefault"];
-        cell.textLabel.text = @"原路退回(3-10个工作日内到账，0手续费";
-    } else {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellDefault"];
-        cell.textLabel.text = @"退款原因";
-    }
+//    if (indexPath.section == 0 ) {
+//        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"CellDefault"];
+//        cell.textLabel.text = @"退款金额";
+//        cell.detailTextLabel.text = @" $ 1999";
+//    } else if (indexPath.section == 1){
+//        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellDefault"];
+//        cell.textLabel.text = @"原路退回(3-10个工作日内到账，0手续费";
+//    } else {
+//        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellDefault"];
+//        cell.textLabel.text = @"退款原因";
+//    }
+    NSArray *array= [[NSBundle mainBundle]loadNibNamed:@"CheckBoxCell" owner:self options:nil];
+    cell = array[0];
     return cell;
 }
 
@@ -117,6 +120,16 @@
         label.text = @"退款原因";
     }
     return view;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CheckBoxCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (cell.checkDotView.isChecked) {
+         [cell.checkDotView uncheck];
+    } else {
+        [cell.checkDotView checked];
+    }
 }
 
 -(void)onRefundBtnClicked{

@@ -40,6 +40,12 @@
 		00C796851CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
 		00E3286F1CCA20D30051807A /* UIView+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E3286E1CCA20D30051807A /* UIView+Border.m */; };
 		00E328701CCA20D30051807A /* UIView+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E3286E1CCA20D30051807A /* UIView+Border.m */; };
+		00E9566E1CDB200100FD7124 /* CheckBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E9566C1CDB200100FD7124 /* CheckBoxCell.m */; };
+		00E9566F1CDB200100FD7124 /* CheckBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E9566C1CDB200100FD7124 /* CheckBoxCell.m */; };
+		00E956701CDB200100FD7124 /* CheckBoxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00E9566D1CDB200100FD7124 /* CheckBoxCell.xib */; };
+		00E956711CDB200100FD7124 /* CheckBoxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00E9566D1CDB200100FD7124 /* CheckBoxCell.xib */; };
+		00E956741CDB219C00FD7124 /* CheckDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E956731CDB219C00FD7124 /* CheckDotView.m */; };
+		00E956751CDB219C00FD7124 /* CheckDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E956731CDB219C00FD7124 /* CheckDotView.m */; };
 		00EFAFB31CC9CF4C0059E444 /* RefundDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EFAFB21CC9CF4C0059E444 /* RefundDetailViewController.m */; };
 		00EFAFB41CC9CF4C0059E444 /* RefundDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EFAFB21CC9CF4C0059E444 /* RefundDetailViewController.m */; };
 		087C98AEC54638860E9ACAB0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9DF4BE98C18CC18BDADCD8 /* libPods.a */; };
@@ -899,6 +905,11 @@
 		00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectDetailHeaders.xib; sourceTree = "<group>"; };
 		00E3286D1CCA20D30051807A /* UIView+Border.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Border.h"; sourceTree = "<group>"; };
 		00E3286E1CCA20D30051807A /* UIView+Border.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Border.m"; sourceTree = "<group>"; };
+		00E9566B1CDB200100FD7124 /* CheckBoxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBoxCell.h; sourceTree = "<group>"; };
+		00E9566C1CDB200100FD7124 /* CheckBoxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckBoxCell.m; sourceTree = "<group>"; };
+		00E9566D1CDB200100FD7124 /* CheckBoxCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckBoxCell.xib; sourceTree = "<group>"; };
+		00E956721CDB219C00FD7124 /* CheckDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckDotView.h; sourceTree = "<group>"; };
+		00E956731CDB219C00FD7124 /* CheckDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckDotView.m; sourceTree = "<group>"; };
 		00EFAFB11CC9CF4C0059E444 /* RefundDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefundDetailViewController.h; sourceTree = "<group>"; };
 		00EFAFB21CC9CF4C0059E444 /* RefundDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefundDetailViewController.m; sourceTree = "<group>"; };
 		569FE54592CF71500372F186 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -1901,6 +1912,11 @@
 				000E0DC71CCDEAEF00E77173 /* RefundTimeLineCell.h */,
 				000E0DC81CCDEAEF00E77173 /* RefundTimeLineCell.m */,
 				000E0DC91CCDEAEF00E77173 /* RefundTimeLineCell.xib */,
+				00E9566B1CDB200100FD7124 /* CheckBoxCell.h */,
+				00E9566C1CDB200100FD7124 /* CheckBoxCell.m */,
+				00E9566D1CDB200100FD7124 /* CheckBoxCell.xib */,
+				00E956721CDB219C00FD7124 /* CheckDotView.h */,
+				00E956731CDB219C00FD7124 /* CheckDotView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3392,6 +3408,7 @@
 				BC77378A1BCE4A9E00987B22 /* CoursePriceCell.xib in Resources */,
 				BC80B8431CA00E3F009559F2 /* HomeSubjectCoverCell.xib in Resources */,
 				BC0D44541C046F120007E9ED /* PackageHeaderCell.xib in Resources */,
+				00E956701CDB200100FD7124 /* CheckBoxCell.xib in Resources */,
 				5A33F1A21B2EA1D5002A8258 /* CashPayTopHeaderView.xib in Resources */,
 				BC6CF58A1C3CC469006F314C /* IQKeyboardManager.bundle in Resources */,
 				5AE4F8681B3D642B005879B7 /* MOStepperView.xib in Resources */,
@@ -3437,6 +3454,7 @@
 				BC80B8511CA13D33009559F2 /* HomeSubjectCoverCell.xib in Resources */,
 				BC80B8521CA13D33009559F2 /* HomeSubjectCoursesCell.xib in Resources */,
 				BC80B8531CA13D33009559F2 /* HomeTopicCell.xib in Resources */,
+				00E956711CDB200100FD7124 /* CheckBoxCell.xib in Resources */,
 				BC80B83E1CA00A37009559F2 /* HomeEventCell.xib in Resources */,
 				BCEAFD431C2A394300CB082D /* CourseListItemCell.xib in Resources */,
 				BCEAFD451C2A394300CB082D /* FeedUgcCell.xib in Resources */,
@@ -3550,6 +3568,7 @@
 				BC3599F71BC61F0C002DE863 /* MLSelectPhotoPickerBrowserPhotoScrollView.m in Sources */,
 				BC53A51C1CA3FE0200532F91 /* SubjectDiscCell.m in Sources */,
 				BC359A4C1BC67B4F002DE863 /* HomeOperateCell.m in Sources */,
+				00E956741CDB219C00FD7124 /* CheckDotView.m in Sources */,
 				BCF564D21B46A437003A2227 /* ServerErrorHandler.m in Sources */,
 				BC592BF91BD73F58008AE76A /* BookedCourseListModel.m in Sources */,
 				BC359A3A1BC61F89002DE863 /* MBProgressHUD+Add.m in Sources */,
@@ -3664,6 +3683,7 @@
 				BC359A3C1BC61F89002DE863 /* UITextView+Placeholder.m in Sources */,
 				BC2C0C991B1858E800E2446E /* MOLabel.m in Sources */,
 				5AB1BDE51B4FB6C8004A4511 /* LoadingCell.m in Sources */,
+				00E9566E1CDB200100FD7124 /* CheckBoxCell.m in Sources */,
 				5A33F1A11B2EA1D5002A8258 /* CashPayTopHeaderView.m in Sources */,
 				BC7CBAFF1B6879100047211D /* PushManager.m in Sources */,
 				BCF9DD041BD8FB7600D8CDC6 /* CourseBookBrowserViewController.m in Sources */,
@@ -4010,6 +4030,7 @@
 				BCEAFC771C2A394300CB082D /* BookSkuItemCell.m in Sources */,
 				BCEAFC781C2A394300CB082D /* SkuListModel.m in Sources */,
 				BCEAFC791C2A394300CB082D /* GroupListViewController.m in Sources */,
+				00E9566F1CDB200100FD7124 /* CheckBoxCell.m in Sources */,
 				BCEAFC7A1C2A394300CB082D /* WechatPayModel.m in Sources */,
 				BCEAFC7B1C2A394300CB082D /* PayChannel.m in Sources */,
 				BCEAFC7C1C2A394300CB082D /* SubjectList.m in Sources */,
@@ -4043,6 +4064,7 @@
 				BCEAFC981C2A394300CB082D /* CashPayViewController.m in Sources */,
 				BCEAFC991C2A394300CB082D /* ChatViewController.m in Sources */,
 				BCEAFC9A1C2A394300CB082D /* DateManager.m in Sources */,
+				00E956751CDB219C00FD7124 /* CheckDotView.m in Sources */,
 				BCEAFC9B1C2A394300CB082D /* AddOrderModel.m in Sources */,
 				BCEAFC9C1C2A394300CB082D /* UIView+Frame.m in Sources */,
 				BCEAFC9D1C2A394300CB082D /* NSDate+Age.m in Sources */,
