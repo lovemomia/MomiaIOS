@@ -7,8 +7,12 @@
 //
 
 #import "MOGroupStyleTableViewController.h"
+#import "OrderDetailModel.h"
 
 //申请退款
 @interface ApplyRefundViewController : MOGroupStyleTableViewController
+
+@property (nonatomic, strong) NSString *oid;
+@property (nonatomic, strong) OrderDetailModel *model;
 
 @end

@@ -11,4 +11,8 @@
 
 @interface RefundLabelCell: MOTableCell<MOTableCellDataProtocol>
 
+@property (weak, nonatomic) IBOutlet UILabel *refundTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *refundDetailTextLabel;
+
+- (void)setData:(id)data;
 @end

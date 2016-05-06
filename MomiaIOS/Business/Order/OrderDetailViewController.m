@@ -220,40 +220,11 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
     return 10.f;
 }
 
-//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-//    UIView *view = [UIView new];
-//    if (section == 0) {
-//        Order *order = self.model.data;
-//        if ([order.status intValue] == 2 || [order.bookingStatus intValue] == 1) {
-//            Order *order = self.model.data;
-//            NSString *title;
-//            if ([order.status intValue] == 2) {
-//                title = @"继续支付";
-//                
-//            } else if ([order.bookingStatus intValue] == 1) {
-//                title = @"我要预约";
-//            }
-//            
-//            UIButton *button = [[UIButton alloc]init];
-//            button.height = 40;
-//            button.width = 280;
-//            button.left = (SCREEN_WIDTH - button.width) / 2;
-//            button.top = 10;
-//            [button setTitle:title forState:UIControlStateNormal];
-//            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//            [button addTarget:self action:@selector(onActionBtnClicked) forControlEvents:UIControlEventTouchUpInside];
-//            [button setBackgroundImage:[UIImage imageNamed:@"BgRedLargeButtonNormal"] forState:UIControlStateNormal];
-//            [button setBackgroundImage:[UIImage imageNamed:@"BgLargeButtonDisable"] forState:UIControlStateDisabled];
-//            
-//            [view addSubview:button];
-//        }
-//    }
-//    return view;
-//}
-
 -(void)refundBtnPressed{
     
     ApplyRefundViewController *refundVC = [[ApplyRefundViewController alloc]init];
+    refundVC.model  = self.model;
+    refundVC.oid = self.oid;
     [self.navigationController pushViewController:refundVC animated:YES];
 }
 

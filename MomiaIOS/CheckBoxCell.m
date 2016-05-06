@@ -15,6 +15,12 @@
     // Initialization code
 }
 
+
+-(void)setDetailText:(NSString *)detailText{
+    self.detailText = detailText;
+    self.detailLabel.text = self.detailText;
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

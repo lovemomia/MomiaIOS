@@ -22,7 +22,6 @@ static NSString* RefundLableCellIdentifer = @"RefundLableCellIdentifer";
 -(void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"退款详情";
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [RefundTimeLineCell registerCellFromNibWithTableView:self.tableView withIdentifier:RefundTimeLineCellIdentifier];
     [RefundLabelCell registerCellFromNibWithTableView:self.tableView withIdentifier:RefundLableCellIdentifer];
 }
@@ -44,24 +43,82 @@ static NSString* RefundLableCellIdentifer = @"RefundLableCellIdentifer";
     
     UITableViewCell *cell;
     if (indexPath.section == 0) {
-        cell = [self.tableView dequeueReusableCellWithIdentifier:RefundLableCellIdentifer];
+        RefundLabelCell *refundLabelCell = [self.tableView dequeueReusableCellWithIdentifier:RefundLableCellIdentifer];
+        switch (indexPath.row) {
+            case 0:
+                refundLabelCell.refundTextLabel.text = @"退款金额";
+                refundLabelCell.refundTextLabel.textColor = [UIColor darkGrayColor];
+                refundLabelCell.refundDetailTextLabel.text = @"$399";
+                break;
+            case 1:
+                refundLabelCell.refundTextLabel.text = @"数量";
+                refundLabelCell.refundTextLabel.textColor = [UIColor darkGrayColor];
+                refundLabelCell.refundDetailTextLabel.text = @"1";
+                break;
+            default:
+                refundLabelCell.refundTextLabel.text = @"退回账户";
+                refundLabelCell.refundTextLabel.textColor = [UIColor darkGrayColor];
+                refundLabelCell.refundDetailTextLabel.text = @"微信账户";
+                break;
+        }
+        cell = refundLabelCell;
     } else {
         if (indexPath.row == 0) {
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellDefault"];
+            cell.textLabel.font = [UIFont systemFontOfSize:15];
             cell.textLabel.text = @"退款流程";
         } else {
-            cell = [self.tableView dequeueReusableCellWithIdentifier:RefundTimeLineCellIdentifier];
-            if (indexPath.row == 1) {
-                 [((RefundTimeLineCell *)cell).topLine setHidden:YES];
-            } else if (indexPath.row == 4){
-                [((RefundTimeLineCell *)cell).bottomLine setHidden:YES];
+            RefundTimeLineCell *refundTimeLineCell = [self.tableView dequeueReusableCellWithIdentifier:RefundTimeLineCellIdentifier];
+            switch (indexPath.row) {
+                case 1:
+                    [refundTimeLineCell.topLine setHidden:YES];
+                    [refundTimeLineCell.numberLabel setText:@"1"];
+                    [refundTimeLineCell.applyTitle setText:@"申请已提交"];
+                    [refundTimeLineCell.applyDetail setText:@"您的退款申请已成功提交"];
+                    break;
+                case 2:
+                    [refundTimeLineCell.numberLabel setText:@"2"];
+                    [refundTimeLineCell.applyTitle setText:@"松果处理中"];
+                    [refundTimeLineCell.applyDetail setText:@"您的退款申请已受理，松果会尽快完成审核,部分情况需要1-2个工作日。"];
+                    break;
+                case 3:
+                    [refundTimeLineCell.numberLabel setText:@"3"];
+                    [refundTimeLineCell.applyTitle setText:@"申请已提交"];
+                    [refundTimeLineCell.applyDetail setText:@"您的退款申请已成功提交"];
+                    break;
+                default:
+                    [refundTimeLineCell.numberLabel setText:@"1"];
+                    [refundTimeLineCell.applyTitle setText:@"申请已提交"];
+                    [refundTimeLineCell.applyDetail setText:@"您的退款申请已成功提交"];
+                    [refundTimeLineCell.bottomLine setHidden:YES];
+                    break;
             }
+            cell = refundTimeLineCell;
         }
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+ 
+    if (indexPath.section == 0) {
+        return 30;
+    } else if(indexPath.row == 0) {
+        return 44;
+    } else if(indexPath.row == 1){
+        return 60;
+    }
+    return 80;
+}
+
+- (UIEdgeInsets)separatorInsetForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        return UIEdgeInsetsMake(0,10,0,0);
+    }
+    return UIEdgeInsetsMake(0,SCREEN_WIDTH,0,0);
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

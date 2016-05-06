@@ -16,8 +16,6 @@
 
 - (void)drawRect:(CGRect)rect {
     
-    NSLog(@"%@",NSStringFromCGRect(rect));
-    
     centerPoint.x = rect.size.width / 2.0;
     centerPoint.y = rect.size.height / 2.0;
     radius = rect.size.width > rect.size.height ? rect.size.height / 2.0 : rect.size.width / 2.0;

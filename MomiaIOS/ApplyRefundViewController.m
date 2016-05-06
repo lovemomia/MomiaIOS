@@ -20,6 +20,8 @@
     [super viewDidLoad];
     self.title = @"申请退款";
     [self setUpRefundBtn];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"CheckBoxCell" bundle:nil] forCellReuseIdentifier:@"CheckBoxCell"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,19 +67,36 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell;
-//    if (indexPath.section == 0 ) {
-//        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"CellDefault"];
-//        cell.textLabel.text = @"退款金额";
-//        cell.detailTextLabel.text = @" $ 1999";
-//    } else if (indexPath.section == 1){
-//        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellDefault"];
-//        cell.textLabel.text = @"原路退回(3-10个工作日内到账，0手续费";
-//    } else {
-//        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellDefault"];
-//        cell.textLabel.text = @"退款原因";
-//    }
-    NSArray *array= [[NSBundle mainBundle]loadNibNamed:@"CheckBoxCell" owner:self options:nil];
-    cell = array[0];
+    
+    if (indexPath.section == 0) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"CellDefault"];
+        cell.textLabel.text = @"退款金额";
+        cell.detailTextLabel.textColor = [UIColor redColor];
+        cell.detailTextLabel.text = @"$399";
+    } else if (indexPath.section == 1){
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellDefault"];
+        cell.textLabel.text = @"原路退回(3-10个工作日内到账，0手续费）";
+    } else {
+        CheckBoxCell *checkBoxCell = [self.tableView dequeueReusableCellWithIdentifier:@"CheckBoxCell"];
+        switch (indexPath.row) {
+            case 0:
+                checkBoxCell.detailLabel.text = @"买多了/买错了";
+                break;
+            case 1:
+                checkBoxCell.detailLabel.text = @"计划有变，没时间上课";
+                break;
+            case 2:
+                checkBoxCell.detailLabel.text = @"后悔了，不想要了";
+                break;
+            case 3:
+                checkBoxCell.detailLabel.text = @"预约到不想上的课";
+                break;
+            default:
+                checkBoxCell.detailLabel.text = @"其他原因";
+                break;
+        }
+        cell = checkBoxCell;
+    }
     return cell;
 }
 
@@ -119,23 +138,43 @@
     } else {
         label.text = @"退款原因";
     }
+    label.textColor = [UIColor darkGrayColor];
     return view;
+}
+
+-(void)commitRefund {
+    
+    NSDictionary * paramDic = @{@"oid":self.oid,@"fee":self.model.data.totalFee,@"message":@"买错了"};
+    NSString *orderRefundURL = URL_APPEND_PATH(@"/subject/order/refund");
+    [[HttpService defaultService]POST:orderRefundURL
+                          parameters:paramDic
+                      JSONModelClass:nil
+                             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                 RefundDetailViewController *refundVC = [[RefundDetailViewController alloc]init];
+                                 [self.navigationController pushViewController:refundVC animated:YES];
+                             }
+     
+                             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                 
+                             }];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    CheckBoxCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if (cell.checkDotView.isChecked) {
-         [cell.checkDotView uncheck];
-    } else {
-        [cell.checkDotView checked];
+    if (indexPath.section == 2) {
+        
+        CheckBoxCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        if (cell.checkDotView.isChecked) {
+            [cell.checkDotView uncheck];
+        } else {
+            [cell.checkDotView checked];
+        }
     }
 }
 
 -(void)onRefundBtnClicked{
     
-    RefundDetailViewController *refundVC = [[RefundDetailViewController alloc]init];
-    [self.navigationController pushViewController:refundVC animated:YES];
+    [self commitRefund];
 }
 
 @end
