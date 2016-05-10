@@ -24,7 +24,7 @@
         CGContextRef contextRef = UIGraphicsGetCurrentContext();
         CGContextSetLineWidth(contextRef, 1.0);
         
-        CGContextSetRGBStrokeColor(contextRef, 0.0, 0.0, 255.0, 1.0);
+        CGContextSetRGBStrokeColor(contextRef, 196 / 255.0, 196 /255.0, 196 /255.0, 1.0);
         CGContextAddArc(contextRef, centerPoint.x, centerPoint.y, radius - 1, 0, 2 * M_PI, 0);
         CGContextDrawPath(contextRef, kCGPathStroke);
     } else {
@@ -32,11 +32,11 @@
         CGContextRef contextRef = UIGraphicsGetCurrentContext();
         CGContextSetLineWidth(contextRef, 1.0);
         
-        CGContextSetRGBStrokeColor(contextRef, 0.0, 0.0, 255.0, 1.0);
+        CGContextSetRGBStrokeColor(contextRef, 196 / 255.0, 196 /255.0, 196 /255.0, 1.0);
         CGContextAddArc(contextRef, centerPoint.x, centerPoint.y, radius - 1, 0, 2 * M_PI, 0);
         CGContextDrawPath(contextRef, kCGPathStroke);
         
-        CGContextSetRGBFillColor(contextRef, 0.0, 255.0, 0.0, 1.0);
+        CGContextSetRGBFillColor(contextRef, 0.0, 196/ 255.0, 157 / 255.0, 1.0);
         CGContextAddArc(contextRef, centerPoint.x, centerPoint.y, radius - 2, 0, 2 * M_PI, 0); //添加一个圆
         CGContextDrawPath(contextRef, kCGPathFill);//绘制填充
     }

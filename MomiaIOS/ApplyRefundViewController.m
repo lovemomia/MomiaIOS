@@ -12,6 +12,8 @@
 
 @interface ApplyRefundViewController ()
 
+@property (nonatomic, assign) NSInteger selectRefundReasonIndex;
+
 @end
 
 @implementation ApplyRefundViewController
@@ -67,7 +69,6 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell;
-    
     if (indexPath.section == 0) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"CellDefault"];
         cell.textLabel.text = @"退款金额";
@@ -78,6 +79,11 @@
         cell.textLabel.text = @"原路退回(3-10个工作日内到账，0手续费）";
     } else {
         CheckBoxCell *checkBoxCell = [self.tableView dequeueReusableCellWithIdentifier:@"CheckBoxCell"];
+        if (indexPath.row == self.selectRefundReasonIndex) {
+            [checkBoxCell.checkDotView checked];
+        } else {
+             [checkBoxCell.checkDotView uncheck];
+        }
         switch (indexPath.row) {
             case 0:
                 checkBoxCell.detailLabel.text = @"买多了/买错了";
@@ -97,6 +103,7 @@
         }
         cell = checkBoxCell;
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -163,12 +170,8 @@
     
     if (indexPath.section == 2) {
         
-        CheckBoxCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        if (cell.checkDotView.isChecked) {
-            [cell.checkDotView uncheck];
-        } else {
-            [cell.checkDotView checked];
-        }
+        self.selectRefundReasonIndex = indexPath.row;
+        [self.tableView reloadData];
     }
 }
 
