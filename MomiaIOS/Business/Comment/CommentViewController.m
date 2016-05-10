@@ -33,13 +33,6 @@
 
 @implementation CommentViewController
 
-
-///* tableView分割线，默认无 */
-//- (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle
-//{
-//    return UITableViewCellSeparatorStyleSingleLine;
-//}
-
 -(SendCommentView *)sendCommentView
 {
     if(_sendCommentView == nil) {
@@ -69,9 +62,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-//    [self.view setBackgroundColor:MO_APP_VCBackgroundColor];
     self.navigationItem.title = @"评论";
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -141,16 +132,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
 #pragma mark - requestData
 //请求评论详情数据
 - (void)requestData {
@@ -197,9 +178,6 @@
         NSLog(@"Error: %@", error);
     }];
 }
-
-
-
 
 #pragma mark - tableview delegate & datasource
 

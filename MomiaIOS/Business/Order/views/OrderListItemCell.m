@@ -57,36 +57,13 @@
     self.order = order;
     [self.iconTv sd_setImageWithURL:[NSURL URLWithString:order.cover] placeholderImage:nil];
     self.titleLabel.text = order.title;
-    self.priceLabel.text = [NSString stringWithFormat:@"总价：￥%@", order.totalFee];
-    self.countLabel.text = [NSString stringWithFormat:@"数量：%@", order.count];
+    self.priceLabel.text = [NSString stringWithFormat:@"价格：￥%@", order.totalFee];
+//    self.countLabel.text = [NSString stringWithFormat:@"数量：%@", order.count];
     self.statusLabel.text = [self stringWithStatus:order];
-    
-    if ([order.status intValue] == 2) {
-        self.actionBtn.hidden = NO;
-        [self.actionBtn setTitle:@"付款" forState:UIControlStateNormal];
-    } else if ([order.bookingStatus intValue] == 1) {
-        self.actionBtn.hidden = NO;
-        [self.actionBtn setTitle:@"预约" forState:UIControlStateNormal];
-    } else {
-        self.actionBtn.hidden = YES;
-    }
 }
 
 - (NSString *)stringWithStatus:(Order *)order {
-    int st = [order.status intValue];
-    if (st == 2) {
-        return @"未付款";
-    }
-    
-    st = [order.bookingStatus intValue];
-    if (st == 1) {
-        return @"待预约";
-    } else if (st == 2) {
-        return @"待上课";
-    } else if (st == 3) {
-        return @"已上课";
-    }
-    return @"未付款";
+    return @"每次任选三次课，1大1小参加";
 }
 
 @end

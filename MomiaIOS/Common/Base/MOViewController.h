@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "AFHTTPRequestOperationManager.h"
-
+#import "MOSectionObject.h"
+#import "MORowObject.h"
 
 @interface MOViewController : UIViewController <UIAlertViewDelegate>
 

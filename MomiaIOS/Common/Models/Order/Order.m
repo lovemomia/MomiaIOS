@@ -17,3 +17,7 @@
 }
 
 @end
+
+@implementation GroupInfo
+
+@end

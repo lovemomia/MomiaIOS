@@ -1,0 +1,28 @@
+//
+//  RefundLabelCell.m
+//  MomiaIOS
+//
+//  Created by mosl on 16/4/25.
+//  Copyright © 2016年 Deng Jun. All rights reserved.
+//
+
+#import "RefundLabelCell.h"
+
+@implementation RefundLabelCell
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    // Initialization code
+}
+
+- (void)setData:(id)data {
+    
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+@end
