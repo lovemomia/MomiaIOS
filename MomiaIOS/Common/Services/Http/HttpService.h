@@ -9,7 +9,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AFHTTPRequestOperationManager.h"
+#import "AFNetworking.h"
 
 
 typedef void (^BlockMOHTTPRequestSuccess)(AFHTTPRequestOperation *operation, id responseObject);
