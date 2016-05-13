@@ -48,7 +48,8 @@
 		00E956751CDB219C00FD7124 /* CheckDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E956731CDB219C00FD7124 /* CheckDotView.m */; };
 		00EFAFB31CC9CF4C0059E444 /* RefundDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EFAFB21CC9CF4C0059E444 /* RefundDetailViewController.m */; };
 		00EFAFB41CC9CF4C0059E444 /* RefundDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EFAFB21CC9CF4C0059E444 /* RefundDetailViewController.m */; };
-		087C98AEC54638860E9ACAB0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9DF4BE98C18CC18BDADCD8 /* libPods.a */; };
+		4CA5D72228DAAA226950866E /* libPods-MomiaIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A48F417781FBC604CC6405D0 /* libPods-MomiaIOS.a */; };
+		581F3BAF56DB9B8ABD7DF661 /* libPods-MomiaIOS DEBUG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2153D5D15EE0AABB09D248BD /* libPods-MomiaIOS DEBUG.a */; };
 		5A08C14A1B3911CA00642648 /* ProductDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C1491B3911CA00642648 /* ProductDetailModel.m */; };
 		5A11C7291B589BB600B0CDFE /* ProductCalendarWeekendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A11C7281B589BB600B0CDFE /* ProductCalendarWeekendViewController.m */; };
 		5A11C7301B58B49B00B0CDFE /* ProductCalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A11C72F1B58B49B00B0CDFE /* ProductCalendarModel.m */; };
@@ -756,7 +757,6 @@
 		BCEAFD3E1C2A394300CB082D /* BaiduMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC7737581BCB92A400987B22 /* BaiduMapAPI.framework */; };
 		BCEAFD3F1C2A394300CB082D /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8B9A091C1AD53100EE39A2 /* RongIMKit.framework */; };
 		BCEAFD401C2A394300CB082D /* libGeTuiSdk-1.2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1CC9EB1BA7E228001841E7 /* libGeTuiSdk-1.2.1.a */; };
-		BCEAFD411C2A394300CB082D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9DF4BE98C18CC18BDADCD8 /* libPods.a */; };
 		BCEAFD431C2A394300CB082D /* CourseListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC040D121BC8EDB600988AB2 /* CourseListItemCell.xib */; };
 		BCEAFD451C2A394300CB082D /* FeedUgcCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC753EC51BAC07D300D2663C /* FeedUgcCell.xib */; };
 		BCEAFD461C2A394300CB082D /* SettingMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A6806EF1B01A9BD00D02A60 /* SettingMsgCell.xib */; };
@@ -912,7 +912,8 @@
 		00E956731CDB219C00FD7124 /* CheckDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckDotView.m; sourceTree = "<group>"; };
 		00EFAFB11CC9CF4C0059E444 /* RefundDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefundDetailViewController.h; sourceTree = "<group>"; };
 		00EFAFB21CC9CF4C0059E444 /* RefundDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefundDetailViewController.m; sourceTree = "<group>"; };
-		569FE54592CF71500372F186 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		2153D5D15EE0AABB09D248BD /* libPods-MomiaIOS DEBUG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MomiaIOS DEBUG.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		59DC716E634E10FD34964389 /* Pods-MomiaIOS DEBUG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MomiaIOS DEBUG.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MomiaIOS DEBUG/Pods-MomiaIOS DEBUG.debug.xcconfig"; sourceTree = "<group>"; };
 		5A08C1481B3911CA00642648 /* ProductDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailModel.h; sourceTree = "<group>"; };
 		5A08C1491B3911CA00642648 /* ProductDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailModel.m; sourceTree = "<group>"; };
 		5A11C7271B589BB600B0CDFE /* ProductCalendarWeekendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductCalendarWeekendViewController.h; path = Business/Home/ProductCalendarWeekendViewController.h; sourceTree = "<group>"; };
@@ -1017,7 +1018,9 @@
 		5AE4F86A1B3D645E005879B7 /* MOStepperGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOStepperGroup.m; path = Common/Views/MOStepper/MOStepperGroup.m; sourceTree = "<group>"; };
 		5AEB18881B1865F90098FD5F /* MySuggestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySuggestModel.h; path = Common/Models/MySuggest/MySuggestModel.h; sourceTree = "<group>"; };
 		5AEB18891B1865F90098FD5F /* MySuggestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySuggestModel.m; path = Common/Models/MySuggest/MySuggestModel.m; sourceTree = "<group>"; };
-		5B9DF4BE98C18CC18BDADCD8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EC599971F6456CF4810ADED /* Pods-MomiaIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MomiaIOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MomiaIOS/Pods-MomiaIOS.release.xcconfig"; sourceTree = "<group>"; };
+		A48F417781FBC604CC6405D0 /* libPods-MomiaIOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MomiaIOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB1F4A4CFB21EB624277BD71 /* Pods-MomiaIOS DEBUG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MomiaIOS DEBUG.release.xcconfig"; path = "Pods/Target Support Files/Pods-MomiaIOS DEBUG/Pods-MomiaIOS DEBUG.release.xcconfig"; sourceTree = "<group>"; };
 		BC040D071BC8ABA900988AB2 /* CourseTagsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseTagsCell.h; path = Business/Course/Views/CourseTagsCell.h; sourceTree = "<group>"; };
 		BC040D081BC8ABA900988AB2 /* CourseTagsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseTagsCell.m; path = Business/Course/Views/CourseTagsCell.m; sourceTree = "<group>"; };
 		BC040D0A1BC8BB5500988AB2 /* CourseDiscCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseDiscCell.h; path = Business/Course/Views/CourseDiscCell.h; sourceTree = "<group>"; };
@@ -1652,7 +1655,7 @@
 		BCFC2C351AF9C6B800164BC2 /* ActivityWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityWebViewController.h; path = Business/Web/ActivityWebViewController.h; sourceTree = "<group>"; };
 		BCFC2C361AF9C6B800164BC2 /* ActivityWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityWebViewController.m; path = Business/Web/ActivityWebViewController.m; sourceTree = "<group>"; };
 		BCFC9E961BD890FC003D9EA3 /* ico_make.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_make.png; sourceTree = "<group>"; };
-		CD4DAFFDE6B36FEA8B30C4C2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		EAC1023B0650D69FB9873227 /* Pods-MomiaIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MomiaIOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MomiaIOS/Pods-MomiaIOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1694,7 +1697,7 @@
 				BC7737591BCB92A400987B22 /* BaiduMapAPI.framework in Frameworks */,
 				BC8B9A111C1AD53100EE39A2 /* RongIMKit.framework in Frameworks */,
 				BC1CC9EC1BA7E228001841E7 /* libGeTuiSdk-1.2.1.a in Frameworks */,
-				087C98AEC54638860E9ACAB0 /* libPods.a in Frameworks */,
+				4CA5D72228DAAA226950866E /* libPods-MomiaIOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1743,7 +1746,7 @@
 				BCEAFD3E1C2A394300CB082D /* BaiduMapAPI.framework in Frameworks */,
 				BCEAFD3F1C2A394300CB082D /* RongIMKit.framework in Frameworks */,
 				BCEAFD401C2A394300CB082D /* libGeTuiSdk-1.2.1.a in Frameworks */,
-				BCEAFD411C2A394300CB082D /* libPods.a in Frameworks */,
+				581F3BAF56DB9B8ABD7DF661 /* libPods-MomiaIOS DEBUG.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1784,7 +1787,8 @@
 				BC38D28E1B09B8AA0051C7E9 /* libsqlite3.dylib */,
 				BC38D28C1B09B8960051C7E9 /* libz.dylib */,
 				BC38D28A1B09B8740051C7E9 /* libGexinSdk-1.1.1.a */,
-				5B9DF4BE98C18CC18BDADCD8 /* libPods.a */,
+				A48F417781FBC604CC6405D0 /* libPods-MomiaIOS.a */,
+				2153D5D15EE0AABB09D248BD /* libPods-MomiaIOS DEBUG.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2011,11 +2015,13 @@
 			name = MySuggest;
 			sourceTree = "<group>";
 		};
-		A6F45CE3FFFD30E793606A24 /* Pods */ = {
+		7EB435BBA6F256DDDC097CAF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CD4DAFFDE6B36FEA8B30C4C2 /* Pods.debug.xcconfig */,
-				569FE54592CF71500372F186 /* Pods.release.xcconfig */,
+				59DC716E634E10FD34964389 /* Pods-MomiaIOS DEBUG.debug.xcconfig */,
+				AB1F4A4CFB21EB624277BD71 /* Pods-MomiaIOS DEBUG.release.xcconfig */,
+				EAC1023B0650D69FB9873227 /* Pods-MomiaIOS.debug.xcconfig */,
+				9EC599971F6456CF4810ADED /* Pods-MomiaIOS.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -2777,9 +2783,9 @@
 				BC85408D1ADF74E9005A7C54 /* MomiaIOS */,
 				BC8540A71ADF74E9005A7C54 /* MomiaIOSTests */,
 				BC85408C1ADF74E9005A7C54 /* Products */,
-				A6F45CE3FFFD30E793606A24 /* Pods */,
 				26D758803C76A62629C50A39 /* Frameworks */,
 				BCCDF6601B0B4E3F008BAE12 /* ThirdParty */,
+				7EB435BBA6F256DDDC097CAF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -3251,10 +3257,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC8540AE1ADF74E9005A7C54 /* Build configuration list for PBXNativeTarget "MomiaIOS" */;
 			buildPhases = (
+				E0E606A63FA804C7861CD66E /* 📦 Check Pods Manifest.lock */,
 				BC8540871ADF74E9005A7C54 /* Sources */,
 				BC8540881ADF74E9005A7C54 /* Frameworks */,
 				BC8540891ADF74E9005A7C54 /* Resources */,
-				3D7F571B2650B3B176CE9352 /* Embed Pods Frameworks */,
+				2A2B35806DE4393FDA17A130 /* 📦 Embed Pods Frameworks */,
+				CBFF346D431848F401BB78E6 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3287,9 +3295,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BCEAFD931C2A394300CB082D /* Build configuration list for PBXNativeTarget "MomiaIOS DEBUG" */;
 			buildPhases = (
+				D97B20613E752F1596C3FA12 /* 📦 Check Pods Manifest.lock */,
 				BCEAFBFB1C2A394300CB082D /* Sources */,
 				BCEAFD1E1C2A394300CB082D /* Frameworks */,
 				BCEAFD421C2A394300CB082D /* Resources */,
+				97683EBE496F63E62DF80184 /* 📦 Embed Pods Frameworks */,
+				C37BE118FF34A92062EA04D9 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3537,19 +3548,94 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3D7F571B2650B3B176CE9352 /* Embed Pods Frameworks */ = {
+		2A2B35806DE4393FDA17A130 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MomiaIOS/Pods-MomiaIOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97683EBE496F63E62DF80184 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MomiaIOS DEBUG/Pods-MomiaIOS DEBUG-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C37BE118FF34A92062EA04D9 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MomiaIOS DEBUG/Pods-MomiaIOS DEBUG-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBFF346D431848F401BB78E6 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MomiaIOS/Pods-MomiaIOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D97B20613E752F1596C3FA12 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E0E606A63FA804C7861CD66E /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -4310,7 +4396,7 @@
 		};
 		BC8540AF1ADF74E9005A7C54 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CD4DAFFDE6B36FEA8B30C4C2 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = EAC1023B0650D69FB9873227 /* Pods-MomiaIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -4354,16 +4440,6 @@
 					"$(inherited)",
 					"-ObjC",
 					"-l\"MobClickLibrary\"",
-					"-l\"AFNetworking\"",
-					"-l\"ISDiskCache\"",
-					"-l\"JSONModel\"",
-					"-l\"MBProgressHUD\"",
-					"-l\"MJRefresh\"",
-					"-l\"Masonry\"",
-					"-l\"SDWebImage\"",
-					"-l\"TTTAttributedLabel\"",
-					"-l\"UITableView+FDTemplateLayoutCell\"",
-					"-l\"z\"",
 					"-framework",
 					"\"CoreGraphics\"",
 					"-framework",
@@ -4392,7 +4468,7 @@
 		};
 		BC8540B01ADF74E9005A7C54 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 569FE54592CF71500372F186 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 9EC599971F6456CF4810ADED /* Pods-MomiaIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -4436,16 +4512,6 @@
 					"$(inherited)",
 					"-ObjC",
 					"-l\"MobClickLibrary\"",
-					"-l\"AFNetworking\"",
-					"-l\"ISDiskCache\"",
-					"-l\"JSONModel\"",
-					"-l\"MBProgressHUD\"",
-					"-l\"MJRefresh\"",
-					"-l\"Masonry\"",
-					"-l\"SDWebImage\"",
-					"-l\"TTTAttributedLabel\"",
-					"-l\"UITableView+FDTemplateLayoutCell\"",
-					"-l\"z\"",
 					"-framework",
 					"\"CoreGraphics\"",
 					"-framework",
@@ -4510,7 +4576,7 @@
 		};
 		BCEAFD941C2A394300CB082D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CD4DAFFDE6B36FEA8B30C4C2 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 59DC716E634E10FD34964389 /* Pods-MomiaIOS DEBUG.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -4592,7 +4658,7 @@
 		};
 		BCEAFD951C2A394300CB082D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 569FE54592CF71500372F186 /* Pods.release.xcconfig */;
+			baseConfigurationReference = AB1F4A4CFB21EB624277BD71 /* Pods-MomiaIOS DEBUG.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
