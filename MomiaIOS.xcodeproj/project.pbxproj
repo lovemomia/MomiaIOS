@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000E0DC31CCDEAD700E77173 /* RefundLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 000E0DC11CCDEAD700E77173 /* RefundLabelCell.m */; };
+		000E0DC41CCDEAD700E77173 /* RefundLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 000E0DC11CCDEAD700E77173 /* RefundLabelCell.m */; };
+		000E0DC51CCDEAD700E77173 /* RefundLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 000E0DC21CCDEAD700E77173 /* RefundLabelCell.xib */; };
+		000E0DC61CCDEAD700E77173 /* RefundLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 000E0DC21CCDEAD700E77173 /* RefundLabelCell.xib */; };
+		000E0DCA1CCDEAEF00E77173 /* RefundTimeLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 000E0DC81CCDEAEF00E77173 /* RefundTimeLineCell.m */; };
+		000E0DCB1CCDEAEF00E77173 /* RefundTimeLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 000E0DC81CCDEAEF00E77173 /* RefundTimeLineCell.m */; };
+		000E0DCC1CCDEAEF00E77173 /* RefundTimeLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 000E0DC91CCDEAEF00E77173 /* RefundTimeLineCell.xib */; };
+		000E0DCD1CCDEAEF00E77173 /* RefundTimeLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 000E0DC91CCDEAEF00E77173 /* RefundTimeLineCell.xib */; };
+		002AF7BE1CC7759D00052BEC /* MOSectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 002AF7BD1CC7759D00052BEC /* MOSectionObject.m */; };
+		002AF7BF1CC7759D00052BEC /* MOSectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 002AF7BD1CC7759D00052BEC /* MOSectionObject.m */; };
+		002AF7C21CC7769C00052BEC /* MORowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 002AF7C11CC7769C00052BEC /* MORowObject.m */; };
+		002AF7C31CC7769C00052BEC /* MORowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 002AF7C11CC7769C00052BEC /* MORowObject.m */; };
 		002B66421CB3686C0096EB6E /* ChildListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66411CB3686C0096EB6E /* ChildListViewController.m */; };
 		002B66431CB3686C0096EB6E /* ChildListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66411CB3686C0096EB6E /* ChildListViewController.m */; };
 		002B66471CB36D100096EB6E /* ChildListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B66451CB36D100096EB6E /* ChildListCell.m */; };
@@ -17,25 +29,27 @@
 		002B664E1CB38ED30096EB6E /* ChildInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B664C1CB38ED30096EB6E /* ChildInfoViewController.m */; };
 		002B665D1CB3AFE30096EB6E /* ConfirmBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */; };
 		002B665E1CB3AFE30096EB6E /* ConfirmBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */; };
-		00A628D21CE1E84D006BE4AD /* MOSectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A628D11CE1E84D006BE4AD /* MOSectionObject.m */; };
-		00A628D31CE1E84D006BE4AD /* MOSectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A628D11CE1E84D006BE4AD /* MOSectionObject.m */; };
-		00A628D61CE1E85A006BE4AD /* RefundDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A628D51CE1E85A006BE4AD /* RefundDetailViewController.m */; };
-		00A628D71CE1E85A006BE4AD /* RefundDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A628D51CE1E85A006BE4AD /* RefundDetailViewController.m */; };
-		00A628DC1CE1E8AF006BE4AD /* ApplyRefundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A628D91CE1E8AF006BE4AD /* ApplyRefundViewController.m */; };
-		00A628DD1CE1E8AF006BE4AD /* ApplyRefundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A628D91CE1E8AF006BE4AD /* ApplyRefundViewController.m */; };
-		00A628E21CE1E8E4006BE4AD /* MORowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A628E11CE1E8E4006BE4AD /* MORowObject.m */; };
-		00A628E31CE1E8E4006BE4AD /* MORowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A628E11CE1E8E4006BE4AD /* MORowObject.m */; };
-		00A628E71CE1E944006BE4AD /* RefundLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A628E51CE1E944006BE4AD /* RefundLabelCell.m */; };
-		00A628E81CE1E944006BE4AD /* RefundLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A628E51CE1E944006BE4AD /* RefundLabelCell.m */; };
-		00A628E91CE1E944006BE4AD /* RefundLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00A628E61CE1E944006BE4AD /* RefundLabelCell.xib */; };
-		00A628EA1CE1E944006BE4AD /* RefundLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00A628E61CE1E944006BE4AD /* RefundLabelCell.xib */; };
-		00A628EE1CE1E97B006BE4AD /* RefundTimeLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A628EC1CE1E97B006BE4AD /* RefundTimeLineCell.m */; };
-		00A628EF1CE1E97B006BE4AD /* RefundTimeLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A628EC1CE1E97B006BE4AD /* RefundTimeLineCell.m */; };
-		00A628F01CE1E97B006BE4AD /* RefundTimeLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00A628ED1CE1E97B006BE4AD /* RefundTimeLineCell.xib */; };
-		00A628F11CE1E97B006BE4AD /* RefundTimeLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00A628ED1CE1E97B006BE4AD /* RefundTimeLineCell.xib */; };
+		0035B74C1CC8BADC00F5EAEF /* RefundStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0035B74B1CC8BADC00F5EAEF /* RefundStatusView.m */; };
+		0035B74D1CC8BADC00F5EAEF /* RefundStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0035B74B1CC8BADC00F5EAEF /* RefundStatusView.m */; };
+		0035B7501CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */; };
+		0035B7511CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */; };
+		00AECE141CD9EB650086DEC4 /* OrderListItemFooterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AECE131CD9EB650086DEC4 /* OrderListItemFooterCell.m */; };
+		00AECE151CD9EB650086DEC4 /* OrderListItemFooterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AECE131CD9EB650086DEC4 /* OrderListItemFooterCell.m */; };
 		00B59E881CBD4695005565EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
 		00C796841CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
 		00C796851CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
+		00E3286F1CCA20D30051807A /* UIView+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E3286E1CCA20D30051807A /* UIView+Border.m */; };
+		00E328701CCA20D30051807A /* UIView+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E3286E1CCA20D30051807A /* UIView+Border.m */; };
+		00E9566E1CDB200100FD7124 /* CheckBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E9566C1CDB200100FD7124 /* CheckBoxCell.m */; };
+		00E9566F1CDB200100FD7124 /* CheckBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E9566C1CDB200100FD7124 /* CheckBoxCell.m */; };
+		00E956701CDB200100FD7124 /* CheckBoxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00E9566D1CDB200100FD7124 /* CheckBoxCell.xib */; };
+		00E956711CDB200100FD7124 /* CheckBoxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00E9566D1CDB200100FD7124 /* CheckBoxCell.xib */; };
+		00E956741CDB219C00FD7124 /* CheckDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E956731CDB219C00FD7124 /* CheckDotView.m */; };
+		00E956751CDB219C00FD7124 /* CheckDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E956731CDB219C00FD7124 /* CheckDotView.m */; };
+		00EFAFB31CC9CF4C0059E444 /* RefundDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EFAFB21CC9CF4C0059E444 /* RefundDetailViewController.m */; };
+		00EFAFB41CC9CF4C0059E444 /* RefundDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EFAFB21CC9CF4C0059E444 /* RefundDetailViewController.m */; };
+		4CA5D72228DAAA226950866E /* libPods-MomiaIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A48F417781FBC604CC6405D0 /* libPods-MomiaIOS.a */; };
+		581F3BAF56DB9B8ABD7DF661 /* libPods-MomiaIOS DEBUG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2153D5D15EE0AABB09D248BD /* libPods-MomiaIOS DEBUG.a */; };
 		5A08C14A1B3911CA00642648 /* ProductDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C1491B3911CA00642648 /* ProductDetailModel.m */; };
 		5A11C7291B589BB600B0CDFE /* ProductCalendarWeekendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A11C7281B589BB600B0CDFE /* ProductCalendarWeekendViewController.m */; };
 		5A11C7301B58B49B00B0CDFE /* ProductCalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A11C72F1B58B49B00B0CDFE /* ProductCalendarModel.m */; };
@@ -95,7 +109,6 @@
 		5AE4F8681B3D642B005879B7 /* MOStepperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE4F8661B3D642B005879B7 /* MOStepperView.xib */; };
 		5AE4F86B1B3D645E005879B7 /* MOStepperGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE4F86A1B3D645E005879B7 /* MOStepperGroup.m */; };
 		5AEB188A1B1865F90098FD5F /* MySuggestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB18891B1865F90098FD5F /* MySuggestModel.m */; };
-		6E64DF92D7E3C822A3169D69 /* libPods-MomiaIOS DEBUG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C87293CBC9FF7DA372E13B3B /* libPods-MomiaIOS DEBUG.a */; };
 		BC040D091BC8ABA900988AB2 /* CourseTagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC040D081BC8ABA900988AB2 /* CourseTagsCell.m */; };
 		BC040D0C1BC8BB5500988AB2 /* CourseDiscCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC040D0B1BC8BB5500988AB2 /* CourseDiscCell.m */; };
 		BC040D0F1BC8E62F00988AB2 /* CourseSectionTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC040D0E1BC8E62F00988AB2 /* CourseSectionTitleCell.m */; };
@@ -864,6 +877,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		000E0DC01CCDEAD700E77173 /* RefundLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefundLabelCell.h; sourceTree = "<group>"; };
+		000E0DC11CCDEAD700E77173 /* RefundLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefundLabelCell.m; sourceTree = "<group>"; };
+		000E0DC21CCDEAD700E77173 /* RefundLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundLabelCell.xib; sourceTree = "<group>"; };
+		000E0DC71CCDEAEF00E77173 /* RefundTimeLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefundTimeLineCell.h; sourceTree = "<group>"; };
+		000E0DC81CCDEAEF00E77173 /* RefundTimeLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefundTimeLineCell.m; sourceTree = "<group>"; };
+		000E0DC91CCDEAEF00E77173 /* RefundTimeLineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundTimeLineCell.xib; sourceTree = "<group>"; };
+		002AF7BC1CC7759D00052BEC /* MOSectionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSectionObject.h; sourceTree = "<group>"; };
+		002AF7BD1CC7759D00052BEC /* MOSectionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSectionObject.m; sourceTree = "<group>"; };
+		002AF7C01CC7769C00052BEC /* MORowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MORowObject.h; sourceTree = "<group>"; };
+		002AF7C11CC7769C00052BEC /* MORowObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MORowObject.m; sourceTree = "<group>"; };
 		002B66401CB3686C0096EB6E /* ChildListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildListViewController.h; sourceTree = "<group>"; };
 		002B66411CB3686C0096EB6E /* ChildListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildListViewController.m; sourceTree = "<group>"; };
 		002B66441CB36D100096EB6E /* ChildListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildListCell.h; sourceTree = "<group>"; };
@@ -873,21 +896,24 @@
 		002B664C1CB38ED30096EB6E /* ChildInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildInfoViewController.m; sourceTree = "<group>"; };
 		002B665B1CB3AFE30096EB6E /* ConfirmBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmBookViewController.h; sourceTree = "<group>"; };
 		002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmBookViewController.m; sourceTree = "<group>"; };
-		00A628D01CE1E84D006BE4AD /* MOSectionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSectionObject.h; sourceTree = "<group>"; };
-		00A628D11CE1E84D006BE4AD /* MOSectionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSectionObject.m; sourceTree = "<group>"; };
-		00A628D41CE1E85A006BE4AD /* RefundDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefundDetailViewController.h; sourceTree = "<group>"; };
-		00A628D51CE1E85A006BE4AD /* RefundDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefundDetailViewController.m; sourceTree = "<group>"; };
-		00A628D81CE1E8AF006BE4AD /* ApplyRefundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyRefundViewController.h; sourceTree = "<group>"; };
-		00A628D91CE1E8AF006BE4AD /* ApplyRefundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyRefundViewController.m; sourceTree = "<group>"; };
-		00A628E01CE1E8E4006BE4AD /* MORowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MORowObject.h; sourceTree = "<group>"; };
-		00A628E11CE1E8E4006BE4AD /* MORowObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MORowObject.m; sourceTree = "<group>"; };
-		00A628E41CE1E944006BE4AD /* RefundLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefundLabelCell.h; sourceTree = "<group>"; };
-		00A628E51CE1E944006BE4AD /* RefundLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefundLabelCell.m; sourceTree = "<group>"; };
-		00A628E61CE1E944006BE4AD /* RefundLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundLabelCell.xib; sourceTree = "<group>"; };
-		00A628EB1CE1E97B006BE4AD /* RefundTimeLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefundTimeLineCell.h; sourceTree = "<group>"; };
-		00A628EC1CE1E97B006BE4AD /* RefundTimeLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefundTimeLineCell.m; sourceTree = "<group>"; };
-		00A628ED1CE1E97B006BE4AD /* RefundTimeLineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundTimeLineCell.xib; sourceTree = "<group>"; };
+		0035B74A1CC8BADC00F5EAEF /* RefundStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefundStatusView.h; sourceTree = "<group>"; };
+		0035B74B1CC8BADC00F5EAEF /* RefundStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefundStatusView.m; sourceTree = "<group>"; };
+		0035B74E1CC8CE5200F5EAEF /* ApplyRefundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyRefundViewController.h; sourceTree = "<group>"; };
+		0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyRefundViewController.m; sourceTree = "<group>"; };
+		00AECE121CD9EB650086DEC4 /* OrderListItemFooterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListItemFooterCell.h; sourceTree = "<group>"; };
+		00AECE131CD9EB650086DEC4 /* OrderListItemFooterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListItemFooterCell.m; sourceTree = "<group>"; };
 		00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectDetailHeaders.xib; sourceTree = "<group>"; };
+		00E3286D1CCA20D30051807A /* UIView+Border.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Border.h"; sourceTree = "<group>"; };
+		00E3286E1CCA20D30051807A /* UIView+Border.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Border.m"; sourceTree = "<group>"; };
+		00E9566B1CDB200100FD7124 /* CheckBoxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBoxCell.h; sourceTree = "<group>"; };
+		00E9566C1CDB200100FD7124 /* CheckBoxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckBoxCell.m; sourceTree = "<group>"; };
+		00E9566D1CDB200100FD7124 /* CheckBoxCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckBoxCell.xib; sourceTree = "<group>"; };
+		00E956721CDB219C00FD7124 /* CheckDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckDotView.h; sourceTree = "<group>"; };
+		00E956731CDB219C00FD7124 /* CheckDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckDotView.m; sourceTree = "<group>"; };
+		00EFAFB11CC9CF4C0059E444 /* RefundDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefundDetailViewController.h; sourceTree = "<group>"; };
+		00EFAFB21CC9CF4C0059E444 /* RefundDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefundDetailViewController.m; sourceTree = "<group>"; };
+		2153D5D15EE0AABB09D248BD /* libPods-MomiaIOS DEBUG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MomiaIOS DEBUG.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		59DC716E634E10FD34964389 /* Pods-MomiaIOS DEBUG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MomiaIOS DEBUG.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MomiaIOS DEBUG/Pods-MomiaIOS DEBUG.debug.xcconfig"; sourceTree = "<group>"; };
 		5A08C1481B3911CA00642648 /* ProductDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailModel.h; sourceTree = "<group>"; };
 		5A08C1491B3911CA00642648 /* ProductDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailModel.m; sourceTree = "<group>"; };
 		5A11C7271B589BB600B0CDFE /* ProductCalendarWeekendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductCalendarWeekendViewController.h; path = Business/Home/ProductCalendarWeekendViewController.h; sourceTree = "<group>"; };
@@ -992,8 +1018,9 @@
 		5AE4F86A1B3D645E005879B7 /* MOStepperGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOStepperGroup.m; path = Common/Views/MOStepper/MOStepperGroup.m; sourceTree = "<group>"; };
 		5AEB18881B1865F90098FD5F /* MySuggestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySuggestModel.h; path = Common/Models/MySuggest/MySuggestModel.h; sourceTree = "<group>"; };
 		5AEB18891B1865F90098FD5F /* MySuggestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySuggestModel.m; path = Common/Models/MySuggest/MySuggestModel.m; sourceTree = "<group>"; };
-		5C919AB20BEF5A75BBD4E4E4 /* Pods-MomiaIOS DEBUG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MomiaIOS DEBUG.release.xcconfig"; path = "Pods/Target Support Files/Pods-MomiaIOS DEBUG/Pods-MomiaIOS DEBUG.release.xcconfig"; sourceTree = "<group>"; };
-		A2F474001B9EB974850B3259 /* Pods-MomiaIOS DEBUG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MomiaIOS DEBUG.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MomiaIOS DEBUG/Pods-MomiaIOS DEBUG.debug.xcconfig"; sourceTree = "<group>"; };
+		9EC599971F6456CF4810ADED /* Pods-MomiaIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MomiaIOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MomiaIOS/Pods-MomiaIOS.release.xcconfig"; sourceTree = "<group>"; };
+		A48F417781FBC604CC6405D0 /* libPods-MomiaIOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MomiaIOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB1F4A4CFB21EB624277BD71 /* Pods-MomiaIOS DEBUG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MomiaIOS DEBUG.release.xcconfig"; path = "Pods/Target Support Files/Pods-MomiaIOS DEBUG/Pods-MomiaIOS DEBUG.release.xcconfig"; sourceTree = "<group>"; };
 		BC040D071BC8ABA900988AB2 /* CourseTagsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseTagsCell.h; path = Business/Course/Views/CourseTagsCell.h; sourceTree = "<group>"; };
 		BC040D081BC8ABA900988AB2 /* CourseTagsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseTagsCell.m; path = Business/Course/Views/CourseTagsCell.m; sourceTree = "<group>"; };
 		BC040D0A1BC8BB5500988AB2 /* CourseDiscCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseDiscCell.h; path = Business/Course/Views/CourseDiscCell.h; sourceTree = "<group>"; };
@@ -1628,7 +1655,7 @@
 		BCFC2C351AF9C6B800164BC2 /* ActivityWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityWebViewController.h; path = Business/Web/ActivityWebViewController.h; sourceTree = "<group>"; };
 		BCFC2C361AF9C6B800164BC2 /* ActivityWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityWebViewController.m; path = Business/Web/ActivityWebViewController.m; sourceTree = "<group>"; };
 		BCFC9E961BD890FC003D9EA3 /* ico_make.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_make.png; sourceTree = "<group>"; };
-		C87293CBC9FF7DA372E13B3B /* libPods-MomiaIOS DEBUG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MomiaIOS DEBUG.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAC1023B0650D69FB9873227 /* Pods-MomiaIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MomiaIOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MomiaIOS/Pods-MomiaIOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1670,6 +1697,7 @@
 				BC7737591BCB92A400987B22 /* BaiduMapAPI.framework in Frameworks */,
 				BC8B9A111C1AD53100EE39A2 /* RongIMKit.framework in Frameworks */,
 				BC1CC9EC1BA7E228001841E7 /* libGeTuiSdk-1.2.1.a in Frameworks */,
+				4CA5D72228DAAA226950866E /* libPods-MomiaIOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1718,22 +1746,13 @@
 				BCEAFD3E1C2A394300CB082D /* BaiduMapAPI.framework in Frameworks */,
 				BCEAFD3F1C2A394300CB082D /* RongIMKit.framework in Frameworks */,
 				BCEAFD401C2A394300CB082D /* libGeTuiSdk-1.2.1.a in Frameworks */,
-				6E64DF92D7E3C822A3169D69 /* libPods-MomiaIOS DEBUG.a in Frameworks */,
+				581F3BAF56DB9B8ABD7DF661 /* libPods-MomiaIOS DEBUG.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		254FEBA55F8F790735DC3D54 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A2F474001B9EB974850B3259 /* Pods-MomiaIOS DEBUG.debug.xcconfig */,
-				5C919AB20BEF5A75BBD4E4E4 /* Pods-MomiaIOS DEBUG.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		26D758803C76A62629C50A39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1768,7 +1787,8 @@
 				BC38D28E1B09B8AA0051C7E9 /* libsqlite3.dylib */,
 				BC38D28C1B09B8960051C7E9 /* libz.dylib */,
 				BC38D28A1B09B8740051C7E9 /* libGexinSdk-1.1.1.a */,
-				C87293CBC9FF7DA372E13B3B /* libPods-MomiaIOS DEBUG.a */,
+				A48F417781FBC604CC6405D0 /* libPods-MomiaIOS.a */,
+				2153D5D15EE0AABB09D248BD /* libPods-MomiaIOS DEBUG.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1855,16 +1875,6 @@
 		5A82F19C1B25721E000D2C60 /* Order */ = {
 			isa = PBXGroup;
 			children = (
-				00A628D81CE1E8AF006BE4AD /* ApplyRefundViewController.h */,
-				00A628D91CE1E8AF006BE4AD /* ApplyRefundViewController.m */,
-				00A628EB1CE1E97B006BE4AD /* RefundTimeLineCell.h */,
-				00A628EC1CE1E97B006BE4AD /* RefundTimeLineCell.m */,
-				00A628ED1CE1E97B006BE4AD /* RefundTimeLineCell.xib */,
-				00A628E41CE1E944006BE4AD /* RefundLabelCell.h */,
-				00A628E51CE1E944006BE4AD /* RefundLabelCell.m */,
-				00A628E61CE1E944006BE4AD /* RefundLabelCell.xib */,
-				00A628D41CE1E85A006BE4AD /* RefundDetailViewController.h */,
-				00A628D51CE1E85A006BE4AD /* RefundDetailViewController.m */,
 				5A82F1A51B25812E000D2C60 /* Views */,
 				5A5A2A661B43E531000595A9 /* OrderContactViewController.h */,
 				5A5A2A671B43E531000595A9 /* OrderContactViewController.m */,
@@ -1873,6 +1883,10 @@
 				BC7737901BCF91CA00987B22 /* SubjectOrderFillViewController.xib */,
 				BC0D44551C0551160007E9ED /* OrderDetailViewController.h */,
 				BC0D44561C0551160007E9ED /* OrderDetailViewController.m */,
+				0035B74E1CC8CE5200F5EAEF /* ApplyRefundViewController.h */,
+				0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */,
+				00EFAFB11CC9CF4C0059E444 /* RefundDetailViewController.h */,
+				00EFAFB21CC9CF4C0059E444 /* RefundDetailViewController.m */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -1887,11 +1901,26 @@
 				5A5A2A9E1B43EED4000595A9 /* OrderContactCell.m */,
 				5A5A2AA01B43EEF3000595A9 /* OrderContactCell.xib */,
 				BCF564D61B48E1E7003A2227 /* OrderListItemCell.xib */,
+				00AECE121CD9EB650086DEC4 /* OrderListItemFooterCell.h */,
+				00AECE131CD9EB650086DEC4 /* OrderListItemFooterCell.m */,
 				BCF564DE1B491799003A2227 /* OrderListItemCell.h */,
 				BCF564DF1B491799003A2227 /* OrderListItemCell.m */,
 				BC0D44501C046F120007E9ED /* PackageHeaderCell.h */,
 				BC0D44511C046F120007E9ED /* PackageHeaderCell.m */,
 				BC0D44521C046F120007E9ED /* PackageHeaderCell.xib */,
+				0035B74A1CC8BADC00F5EAEF /* RefundStatusView.h */,
+				0035B74B1CC8BADC00F5EAEF /* RefundStatusView.m */,
+				000E0DC01CCDEAD700E77173 /* RefundLabelCell.h */,
+				000E0DC11CCDEAD700E77173 /* RefundLabelCell.m */,
+				000E0DC21CCDEAD700E77173 /* RefundLabelCell.xib */,
+				000E0DC71CCDEAEF00E77173 /* RefundTimeLineCell.h */,
+				000E0DC81CCDEAEF00E77173 /* RefundTimeLineCell.m */,
+				000E0DC91CCDEAEF00E77173 /* RefundTimeLineCell.xib */,
+				00E9566B1CDB200100FD7124 /* CheckBoxCell.h */,
+				00E9566C1CDB200100FD7124 /* CheckBoxCell.m */,
+				00E9566D1CDB200100FD7124 /* CheckBoxCell.xib */,
+				00E956721CDB219C00FD7124 /* CheckDotView.h */,
+				00E956731CDB219C00FD7124 /* CheckDotView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1984,6 +2013,17 @@
 				5AEB18891B1865F90098FD5F /* MySuggestModel.m */,
 			);
 			name = MySuggest;
+			sourceTree = "<group>";
+		};
+		7EB435BBA6F256DDDC097CAF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				59DC716E634E10FD34964389 /* Pods-MomiaIOS DEBUG.debug.xcconfig */,
+				AB1F4A4CFB21EB624277BD71 /* Pods-MomiaIOS DEBUG.release.xcconfig */,
+				EAC1023B0650D69FB9873227 /* Pods-MomiaIOS.debug.xcconfig */,
+				9EC599971F6456CF4810ADED /* Pods-MomiaIOS.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		BC0EC2951B5E1F2F00D9A82F /* Cache */ = {
@@ -2745,7 +2785,7 @@
 				BC85408C1ADF74E9005A7C54 /* Products */,
 				26D758803C76A62629C50A39 /* Frameworks */,
 				BCCDF6601B0B4E3F008BAE12 /* ThirdParty */,
-				254FEBA55F8F790735DC3D54 /* Pods */,
+				7EB435BBA6F256DDDC097CAF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2867,16 +2907,12 @@
 		BC8540BA1ADF8976005A7C54 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				00A628D01CE1E84D006BE4AD /* MOSectionObject.h */,
-				00A628D11CE1E84D006BE4AD /* MOSectionObject.m */,
 				BC8540BB1ADF8A09005A7C54 /* MOViewController.h */,
 				BC8540BC1ADF8A09005A7C54 /* MOViewController.m */,
 				BCA273221AEB166E002E7534 /* MONavigationController.h */,
 				BCA273231AEB166E002E7534 /* MONavigationController.m */,
 				BCFC2C311AF9C09400164BC2 /* MOWebViewController.h */,
 				BCFC2C321AF9C09400164BC2 /* MOWebViewController.m */,
-				00A628E01CE1E8E4006BE4AD /* MORowObject.h */,
-				00A628E11CE1E8E4006BE4AD /* MORowObject.m */,
 				BC77084F1AFAFD54000068A8 /* MOTableViewController.h */,
 				BC7708501AFAFD54000068A8 /* MOTableViewController.m */,
 				5A2144561B0C6A8A0072682F /* AlertNotice.h */,
@@ -2887,6 +2923,10 @@
 				BC2C0C8B1B15AF6E00E2446E /* MOGroupStyleTableViewController.m */,
 				5A456F981B2E687700E95756 /* MOTableCell.h */,
 				5A456F991B2E687700E95756 /* MOTableCell.m */,
+				002AF7BC1CC7759D00052BEC /* MOSectionObject.h */,
+				002AF7BD1CC7759D00052BEC /* MOSectionObject.m */,
+				002AF7C01CC7769C00052BEC /* MORowObject.h */,
+				002AF7C11CC7769C00052BEC /* MORowObject.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -3056,6 +3096,8 @@
 				5A9E811B1B4BDF560028AC47 /* NSDate+Age.m */,
 				BC829A841B53CE850056BE61 /* NSString+MOEncrypt.h */,
 				BC829A851B53CE850056BE61 /* NSString+MOEncrypt.m */,
+				00E3286D1CCA20D30051807A /* UIView+Border.h */,
+				00E3286E1CCA20D30051807A /* UIView+Border.m */,
 			);
 			name = Categorys;
 			sourceTree = "<group>";
@@ -3215,9 +3257,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC8540AE1ADF74E9005A7C54 /* Build configuration list for PBXNativeTarget "MomiaIOS" */;
 			buildPhases = (
+				E0E606A63FA804C7861CD66E /* 📦 Check Pods Manifest.lock */,
 				BC8540871ADF74E9005A7C54 /* Sources */,
 				BC8540881ADF74E9005A7C54 /* Frameworks */,
 				BC8540891ADF74E9005A7C54 /* Resources */,
+				2A2B35806DE4393FDA17A130 /* 📦 Embed Pods Frameworks */,
+				CBFF346D431848F401BB78E6 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3250,12 +3295,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BCEAFD931C2A394300CB082D /* Build configuration list for PBXNativeTarget "MomiaIOS DEBUG" */;
 			buildPhases = (
-				6CF4FE88403B4FB4F8888DA3 /* 📦 Check Pods Manifest.lock */,
+				D97B20613E752F1596C3FA12 /* 📦 Check Pods Manifest.lock */,
 				BCEAFBFB1C2A394300CB082D /* Sources */,
 				BCEAFD1E1C2A394300CB082D /* Frameworks */,
 				BCEAFD421C2A394300CB082D /* Resources */,
-				725DA6D8FB0F4F65F7E0B5CF /* 📦 Embed Pods Frameworks */,
-				C8067FC0D9220CAE53C80634 /* 📦 Copy Pods Resources */,
+				97683EBE496F63E62DF80184 /* 📦 Embed Pods Frameworks */,
+				C37BE118FF34A92062EA04D9 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3356,11 +3401,12 @@
 				BC753ED81BAC07D300D2663C /* FeedTitleCell.xib in Resources */,
 				BC80B84D1CA127DF009559F2 /* HomeTopicCell.xib in Resources */,
 				BC80B8391C9FDAC1009559F2 /* HomeEventCell.xib in Resources */,
-				00A628F01CE1E97B006BE4AD /* RefundTimeLineCell.xib in Resources */,
+				000E0DCC1CCDEAEF00E77173 /* RefundTimeLineCell.xib in Resources */,
 				5A18DC5A1B29828F001458A4 /* HomeCarouselCell.xib in Resources */,
 				BC359A0D1BC61F1B002DE863 /* MJPhotoBrowser.bundle in Resources */,
 				BC7CBAFC1B68698A0047211D /* AboutHeaderView.xib in Resources */,
 				BC66D3C61B60FBBE00A5BFC6 /* MyFavCell.xib in Resources */,
+				000E0DC51CCDEAD700E77173 /* RefundLabelCell.xib in Resources */,
 				BC359A411BC648BF002DE863 /* PhotoTitleHeaderCell.xib in Resources */,
 				BC5CF2FF1BB53E6400EC5227 /* read_me.txt in Resources */,
 				BC040D161BC9176000988AB2 /* CourseSectionTitleCell.xib in Resources */,
@@ -3373,6 +3419,7 @@
 				BC77378A1BCE4A9E00987B22 /* CoursePriceCell.xib in Resources */,
 				BC80B8431CA00E3F009559F2 /* HomeSubjectCoverCell.xib in Resources */,
 				BC0D44541C046F120007E9ED /* PackageHeaderCell.xib in Resources */,
+				00E956701CDB200100FD7124 /* CheckBoxCell.xib in Resources */,
 				5A33F1A21B2EA1D5002A8258 /* CashPayTopHeaderView.xib in Resources */,
 				BC6CF58A1C3CC469006F314C /* IQKeyboardManager.bundle in Resources */,
 				5AE4F8681B3D642B005879B7 /* MOStepperView.xib in Resources */,
@@ -3381,7 +3428,6 @@
 				5AB1BDEB1B4FB7ED004A4511 /* LoadingErrorCell.xib in Resources */,
 				5A33F1A81B2EBC2F002A8258 /* TitleView.xib in Resources */,
 				BC3509091BFDD1830043D37C /* SubjectTabCell.xib in Resources */,
-				00A628E91CE1E944006BE4AD /* RefundLabelCell.xib in Resources */,
 				BC36B19D1C293FB700013E9A /* UserTimelineCell.xib in Resources */,
 				BC0D444F1C0465210007E9ED /* SubjectBuyCell.xib in Resources */,
 				BC1601DE1BB00459005F11FD /* FeedDetailViewController.xib in Resources */,
@@ -3419,6 +3465,7 @@
 				BC80B8511CA13D33009559F2 /* HomeSubjectCoverCell.xib in Resources */,
 				BC80B8521CA13D33009559F2 /* HomeSubjectCoursesCell.xib in Resources */,
 				BC80B8531CA13D33009559F2 /* HomeTopicCell.xib in Resources */,
+				00E956711CDB200100FD7124 /* CheckBoxCell.xib in Resources */,
 				BC80B83E1CA00A37009559F2 /* HomeEventCell.xib in Resources */,
 				BCEAFD431C2A394300CB082D /* CourseListItemCell.xib in Resources */,
 				BCEAFD451C2A394300CB082D /* FeedUgcCell.xib in Resources */,
@@ -3430,6 +3477,7 @@
 				BCEAFD4B1C2A394300CB082D /* MLSelectPhoto.bundle in Resources */,
 				BCEAFD4C1C2A394300CB082D /* CouponListItemCell.xib in Resources */,
 				BCEAFD4D1C2A394300CB082D /* GroupMemberItemCell.xib in Resources */,
+				000E0DC61CCDEAD700E77173 /* RefundLabelCell.xib in Resources */,
 				BCEAFD4E1C2A394300CB082D /* PersonLogoCell.xib in Resources */,
 				BCEAFD4F1C2A394300CB082D /* CommonTableViewCell.xib in Resources */,
 				BCEAFD501C2A394300CB082D /* RegisterCell.xib in Resources */,
@@ -3448,15 +3496,14 @@
 				BCEAFD5F1C2A394300CB082D /* LoadingCell.xib in Resources */,
 				BCEAFD601C2A394300CB082D /* CourseTitleCell.xib in Resources */,
 				BCEAFD611C2A394300CB082D /* FeedCommentCell.xib in Resources */,
+				000E0DCD1CCDEAEF00E77173 /* RefundTimeLineCell.xib in Resources */,
 				BCEAFD621C2A394300CB082D /* RongCloudKit.strings in Resources */,
-				00A628F11CE1E97B006BE4AD /* RefundTimeLineCell.xib in Resources */,
 				BCEAFD631C2A394300CB082D /* OrderContactCell.xib in Resources */,
 				BCEAFD641C2A394300CB082D /* FeedTitleCell.xib in Resources */,
 				BCEAFD661C2A394300CB082D /* HomeCarouselCell.xib in Resources */,
 				BCEAFD671C2A394300CB082D /* MJPhotoBrowser.bundle in Resources */,
 				BCEAFD681C2A394300CB082D /* AboutHeaderView.xib in Resources */,
 				BCEAFD6B1C2A394300CB082D /* MyFavCell.xib in Resources */,
-				00A628EA1CE1E944006BE4AD /* RefundLabelCell.xib in Resources */,
 				BCEAFD6D1C2A394300CB082D /* PhotoTitleHeaderCell.xib in Resources */,
 				BCEAFD6E1C2A394300CB082D /* read_me.txt in Resources */,
 				BCEAFD6F1C2A394300CB082D /* CourseSectionTitleCell.xib in Resources */,
@@ -3501,22 +3548,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6CF4FE88403B4FB4F8888DA3 /* 📦 Check Pods Manifest.lock */ = {
+		2A2B35806DE4393FDA17A130 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MomiaIOS/Pods-MomiaIOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		725DA6D8FB0F4F65F7E0B5CF /* 📦 Embed Pods Frameworks */ = {
+		97683EBE496F63E62DF80184 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -3531,7 +3578,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MomiaIOS DEBUG/Pods-MomiaIOS DEBUG-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C8067FC0D9220CAE53C80634 /* 📦 Copy Pods Resources */ = {
+		C37BE118FF34A92062EA04D9 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -3544,6 +3591,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MomiaIOS DEBUG/Pods-MomiaIOS DEBUG-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBFF346D431848F401BB78E6 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MomiaIOS/Pods-MomiaIOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D97B20613E752F1596C3FA12 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E0E606A63FA804C7861CD66E /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3562,11 +3654,11 @@
 				BC3599F71BC61F0C002DE863 /* MLSelectPhotoPickerBrowserPhotoScrollView.m in Sources */,
 				BC53A51C1CA3FE0200532F91 /* SubjectDiscCell.m in Sources */,
 				BC359A4C1BC67B4F002DE863 /* HomeOperateCell.m in Sources */,
+				00E956741CDB219C00FD7124 /* CheckDotView.m in Sources */,
 				BCF564D21B46A437003A2227 /* ServerErrorHandler.m in Sources */,
 				BC592BF91BD73F58008AE76A /* BookedCourseListModel.m in Sources */,
 				BC359A3A1BC61F89002DE863 /* MBProgressHUD+Add.m in Sources */,
 				BC93ACA41C15A38E009E3BDD /* ChatUserViewController.m in Sources */,
-				00A628D61CE1E85A006BE4AD /* RefundDetailViewController.m in Sources */,
 				BCF74ABE1BE99B8600138C2C /* AddReviewContentCell.m in Sources */,
 				BC6CF5841C3CC469006F314C /* IQKeyboardReturnKeyHandler.m in Sources */,
 				BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */,
@@ -3615,7 +3707,6 @@
 				BC3599FC1BC61F0C002DE863 /* MLSelectPhotoPickerGroupTableViewCell.m in Sources */,
 				BC359A3B1BC61F89002DE863 /* SDWebImageManager+MJ.m in Sources */,
 				BC7737711BCDEFE200987B22 /* CourseNoticeCell.m in Sources */,
-				00A628E71CE1E944006BE4AD /* RefundLabelCell.m in Sources */,
 				BC6CF5801C3CC469006F314C /* IQUIView+Hierarchy.m in Sources */,
 				BC3D0BA71B6F77AF004C7B81 /* LeaderProductModel.m in Sources */,
 				BC9C02B81C1EBC3C0019A693 /* GroupNoticeView.m in Sources */,
@@ -3629,9 +3720,11 @@
 				5A83074D1B327FB40057412A /* CommonHeaderView.m in Sources */,
 				BC79DF831C158F8A0064C02F /* IMGroupMemberModel.m in Sources */,
 				BC6CF5881C3CC469006F314C /* IQToolbar.m in Sources */,
+				000E0DCA1CCDEAEF00E77173 /* RefundTimeLineCell.m in Sources */,
 				BC6CF5861C3CC469006F314C /* IQBarButtonItem.m in Sources */,
 				BC1052EE1BB3F64900D81C15 /* SelectImage.m in Sources */,
 				BC3599FB1BC61F0C002DE863 /* MLSelectPhotoPickerFooterCollectionReusableView.m in Sources */,
+				00AECE141CD9EB650086DEC4 /* OrderListItemFooterCell.m in Sources */,
 				5A5A2A691B43E531000595A9 /* OrderContactViewController.m in Sources */,
 				BC592BD41BD50194008AE76A /* BookSkuListViewController.m in Sources */,
 				BC0D44571C0551160007E9ED /* OrderDetailViewController.m in Sources */,
@@ -3660,6 +3753,7 @@
 				BC359A1C1BC61F2A002DE863 /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m in Sources */,
 				BC7737851BCE49B900987B22 /* CourseDetailModel.m in Sources */,
 				5A6806EE1B01A48300D02A60 /* SettingViewController.m in Sources */,
+				00E3286F1CCA20D30051807A /* UIView+Border.m in Sources */,
 				BC3599F11BC61F0C002DE863 /* MLSelectPhotoNavigationViewController.m in Sources */,
 				BC359A121BC61F1B002DE863 /* MJPhotoView.m in Sources */,
 				BC1CC9F71BA90A9A001841E7 /* Feed.m in Sources */,
@@ -3675,6 +3769,7 @@
 				BC359A3C1BC61F89002DE863 /* UITextView+Placeholder.m in Sources */,
 				BC2C0C991B1858E800E2446E /* MOLabel.m in Sources */,
 				5AB1BDE51B4FB6C8004A4511 /* LoadingCell.m in Sources */,
+				00E9566E1CDB200100FD7124 /* CheckBoxCell.m in Sources */,
 				5A33F1A11B2EA1D5002A8258 /* CashPayTopHeaderView.m in Sources */,
 				BC7CBAFF1B6879100047211D /* PushManager.m in Sources */,
 				BCF9DD041BD8FB7600D8CDC6 /* CourseBookBrowserViewController.m in Sources */,
@@ -3684,6 +3779,7 @@
 				BC359A401BC648BF002DE863 /* PhotoTitleHeaderCell.m in Sources */,
 				BC3509001BFC4CD40043D37C /* ShareViewCell.m in Sources */,
 				BC6CF5831C3CC469006F314C /* IQKeyboardManager.m in Sources */,
+				0035B7501CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */,
 				BC359A491BC679EF002DE863 /* HomeGridCell.m in Sources */,
 				BC9089821B58983300A8D85B /* MyOrderListViewController.m in Sources */,
 				BC592BDE1BD5D8FB008AE76A /* BookSkuItemCell.m in Sources */,
@@ -3737,6 +3833,7 @@
 				5AB1BDEA1B4FB7ED004A4511 /* LoadingErrorCell.m in Sources */,
 				BC10529D1BB2580A00D81C15 /* AddFeed.m in Sources */,
 				5A5A2AA41B4412FC000595A9 /* NSString+Predicate.m in Sources */,
+				002AF7BE1CC7759D00052BEC /* MOSectionObject.m in Sources */,
 				BCF0339C1B4F77BE005B71D6 /* AlipayOrderModel.m in Sources */,
 				BC0D44531C046F120007E9ED /* PackageHeaderCell.m in Sources */,
 				BC359A331BC61F68002DE863 /* MCAvatarView.m in Sources */,
@@ -3761,7 +3858,6 @@
 				BCF74ABA1BE8982400138C2C /* AddReviewRatingCell.m in Sources */,
 				BC3508FB1BFB3A740043D37C /* ShareViewController.m in Sources */,
 				BC3599F31BC61F0C002DE863 /* MLSelectPhotoPickerGroupViewController.m in Sources */,
-				00A628DC1CE1E8AF006BE4AD /* ApplyRefundViewController.m in Sources */,
 				BC3599B51BC61DD0002DE863 /* SubjectDetailViewController.m in Sources */,
 				5A3DBE5A1B18577900E708AC /* FavouriteModel.m in Sources */,
 				BC0BD6FE1B55170A00B95B3A /* CouponListViewController.m in Sources */,
@@ -3785,6 +3881,7 @@
 				BCF9ECAA1B4171EC00AEBE1E /* CityListViewController.m in Sources */,
 				BC829A861B53CE850056BE61 /* NSString+MOEncrypt.m in Sources */,
 				BC36B19C1C293FB700013E9A /* UserTimelineCell.m in Sources */,
+				000E0DC31CCDEAD700E77173 /* RefundLabelCell.m in Sources */,
 				BC1052A41BB394CE00D81C15 /* TopicListCell.m in Sources */,
 				BC79DF7A1C1184A20064C02F /* IMUserModel.m in Sources */,
 				BC3599EB1BC61F0C002DE863 /* UIView+MLExtension.m in Sources */,
@@ -3796,11 +3893,11 @@
 				BC753EDD1BAC07D300D2663C /* FeedZanCell.m in Sources */,
 				BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */,
 				BC3504921BD0F865009A24B0 /* Subject.m in Sources */,
+				0035B74C1CC8BADC00F5EAEF /* RefundStatusView.m in Sources */,
 				BC3599EA1BC61F0C002DE863 /* UIImage+MLTint.m in Sources */,
 				002B664D1CB38ED30096EB6E /* ChildInfoViewController.m in Sources */,
 				BCF9DCF91BD8F0E200D8CDC6 /* CourseTeacherListViewController.m in Sources */,
 				5A18DC4B1B295C03001458A4 /* HomeViewController.m in Sources */,
-				00A628E21CE1E8E4006BE4AD /* MORowObject.m in Sources */,
 				BC753ED91BAC07D300D2663C /* FeedUgcCell.m in Sources */,
 				BC753ECC1BAC07D300D2663C /* FeedDetailViewController.m in Sources */,
 				BC2C0C8F1B18075D00E2446E /* UIImage+Color.m in Sources */,
@@ -3810,17 +3907,16 @@
 				BC3D0B951B6F0190004C7B81 /* ConfigService.m in Sources */,
 				5AB444821B41479800FBADD4 /* OrderPersonModel.m in Sources */,
 				5AE4F8671B3D642B005879B7 /* MOStepperView.m in Sources */,
-				00A628EE1CE1E97B006BE4AD /* RefundTimeLineCell.m in Sources */,
 				BC592BD71BD50564008AE76A /* CourseSkuListModel.m in Sources */,
 				BC3599F01BC61F0C002DE863 /* MLSelectPhotoBrowserViewController.m in Sources */,
 				5A2144581B0C6A8A0072682F /* AlertNotice.m in Sources */,
 				BC592BC31BD4C55F008AE76A /* BookingSubjectListModel.m in Sources */,
 				5AA9B8251B416CDB00265C67 /* UpdatePersonModel.m in Sources */,
 				BCF74AC41BEB5C8C00138C2C /* ReviewListModel.m in Sources */,
+				00EFAFB31CC9CF4C0059E444 /* RefundDetailViewController.m in Sources */,
 				5A1B35F31B12BE2400E1D31B /* SendCommentView.m in Sources */,
 				5A8EF0401B31A4A2003ABAF8 /* NSString+MOAttribuedString.m in Sources */,
 				BC41ABAD1B0C7ABF00A419DA /* UploadImageModel.m in Sources */,
-				00A628D21CE1E84D006BE4AD /* MOSectionObject.m in Sources */,
 				BC1052A81BB3955800D81C15 /* TopicListModel.m in Sources */,
 				5A18DC471B292BDF001458A4 /* UITableView+FDTemplateLayoutHeader.m in Sources */,
 				BC3599EF1BC61F0C002DE863 /* MLSelectPhotoPickerGroup.m in Sources */,
@@ -3838,6 +3934,7 @@
 				BC753EDB1BAC07D300D2663C /* FeedUserHeadCell.m in Sources */,
 				BC79DF861C15910C0064C02F /* ChatGroupMemberViewController.m in Sources */,
 				BC0BD7061B5518F000B95B3A /* CouponPriceModel.m in Sources */,
+				002AF7C21CC7769C00052BEC /* MORowObject.m in Sources */,
 				BC359A2B1BC61F3B002DE863 /* SGGridMenu.m in Sources */,
 				BC592BC71BD4CC81008AE76A /* BookingSubjectItemCell.m in Sources */,
 				BC2FAA161AFCB2EE00E2071E /* BaseModel.m in Sources */,
@@ -3917,6 +4014,7 @@
 				BCEAFC0F1C2A394300CB082D /* CashPayBottomCell.m in Sources */,
 				BCEAFC101C2A394300CB082D /* ReviewListItemCell.m in Sources */,
 				BCEAFC111C2A394300CB082D /* ProductCalendarViewController.m in Sources */,
+				000E0DCB1CCDEAEF00E77173 /* RefundTimeLineCell.m in Sources */,
 				BCEAFC131C2A394300CB082D /* UILabel+ContentSize.m in Sources */,
 				BCEAFC141C2A394300CB082D /* ProductCalendarCell.m in Sources */,
 				BCEAFC151C2A394300CB082D /* CourseTeacherCell.m in Sources */,
@@ -3987,7 +4085,6 @@
 				BCEAFC581C2A394300CB082D /* MJPhotoLoadingView.m in Sources */,
 				BCEAFC591C2A394300CB082D /* ForgetPasswordViewController.m in Sources */,
 				BCEAFC5A1C2A394300CB082D /* CouponListItemCell.m in Sources */,
-				00A628E81CE1E944006BE4AD /* RefundLabelCell.m in Sources */,
 				BCEAFC5B1C2A394300CB082D /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m in Sources */,
 				BCEAFC5C1C2A394300CB082D /* CourseDetailModel.m in Sources */,
 				002B66481CB36D100096EB6E /* ChildListCell.m in Sources */,
@@ -3998,6 +4095,7 @@
 				BCEAFC621C2A394300CB082D /* AddFeedContentCell.m in Sources */,
 				BCEAFC631C2A394300CB082D /* MOStepperGroup.m in Sources */,
 				BCEAFC641C2A394300CB082D /* MineViewController.m in Sources */,
+				00EFAFB41CC9CF4C0059E444 /* RefundDetailViewController.m in Sources */,
 				BCEAFC661C2A394300CB082D /* CommentViewController.m in Sources */,
 				BCEAFC671C2A394300CB082D /* NSURL+MOURL.m in Sources */,
 				BCEAFC681C2A394300CB082D /* ChatLocationPickerViewController.m in Sources */,
@@ -4005,6 +4103,7 @@
 				BCEAFC6B1C2A394300CB082D /* ChatPublicViewController.m in Sources */,
 				BCEAFC6C1C2A394300CB082D /* UITextView+Placeholder.m in Sources */,
 				BCEAFC6D1C2A394300CB082D /* MOLabel.m in Sources */,
+				002AF7C31CC7769C00052BEC /* MORowObject.m in Sources */,
 				BCEAFC6E1C2A394300CB082D /* LoadingCell.m in Sources */,
 				BCEAFC6F1C2A394300CB082D /* CashPayTopHeaderView.m in Sources */,
 				BCEAFC701C2A394300CB082D /* PushManager.m in Sources */,
@@ -4017,6 +4116,7 @@
 				BCEAFC771C2A394300CB082D /* BookSkuItemCell.m in Sources */,
 				BCEAFC781C2A394300CB082D /* SkuListModel.m in Sources */,
 				BCEAFC791C2A394300CB082D /* GroupListViewController.m in Sources */,
+				00E9566F1CDB200100FD7124 /* CheckBoxCell.m in Sources */,
 				BCEAFC7A1C2A394300CB082D /* WechatPayModel.m in Sources */,
 				BCEAFC7B1C2A394300CB082D /* PayChannel.m in Sources */,
 				BCEAFC7C1C2A394300CB082D /* SubjectList.m in Sources */,
@@ -4037,10 +4137,10 @@
 				BCEAFC8B1C2A394300CB082D /* MLSelectPhotoPickerBrowserPhotoView.m in Sources */,
 				BCEAFC8C1C2A394300CB082D /* MOTagLabel.m in Sources */,
 				BCEAFC8D1C2A394300CB082D /* CourseDetailViewController.m in Sources */,
-				00A628DD1CE1E8AF006BE4AD /* ApplyRefundViewController.m in Sources */,
 				BCEAFC8E1C2A394300CB082D /* SubmitPostModel.m in Sources */,
 				BCEAFC8F1C2A394300CB082D /* AddReviewViewController.m in Sources */,
 				BCEAFC901C2A394300CB082D /* SubjectDetailModel.m in Sources */,
+				0035B74D1CC8BADC00F5EAEF /* RefundStatusView.m in Sources */,
 				BCEAFC911C2A394300CB082D /* LeaderSkuModel.m in Sources */,
 				BCEAFC921C2A394300CB082D /* MORootViewController.m in Sources */,
 				BCEAFC931C2A394300CB082D /* PostPersonModel.m in Sources */,
@@ -4050,6 +4150,7 @@
 				BCEAFC981C2A394300CB082D /* CashPayViewController.m in Sources */,
 				BCEAFC991C2A394300CB082D /* ChatViewController.m in Sources */,
 				BCEAFC9A1C2A394300CB082D /* DateManager.m in Sources */,
+				00E956751CDB219C00FD7124 /* CheckDotView.m in Sources */,
 				BCEAFC9B1C2A394300CB082D /* AddOrderModel.m in Sources */,
 				BCEAFC9C1C2A394300CB082D /* UIView+Frame.m in Sources */,
 				BCEAFC9D1C2A394300CB082D /* NSDate+Age.m in Sources */,
@@ -4099,6 +4200,9 @@
 				BCEAFCCC1C2A394300CB082D /* FeedSuggestHeadCell.m in Sources */,
 				BCEAFCCD1C2A394300CB082D /* MyFavCell.m in Sources */,
 				BCEAFCCE1C2A394300CB082D /* FeedListItemCell.m in Sources */,
+				0035B7511CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */,
+				00AECE151CD9EB650086DEC4 /* OrderListItemFooterCell.m in Sources */,
+				000E0DC41CCDEAD700E77173 /* RefundLabelCell.m in Sources */,
 				BCEAFCCF1C2A394300CB082D /* TopicListViewController.m in Sources */,
 				BCEAFCD01C2A394300CB082D /* CourseTitleCell.m in Sources */,
 				BCEAFCD11C2A394300CB082D /* UIButton+Block.m in Sources */,
@@ -4113,6 +4217,7 @@
 				BCEAFCDA1C2A394300CB082D /* UIView+MLExtension.m in Sources */,
 				BCEAFCDB1C2A394300CB082D /* FillOrderModel.m in Sources */,
 				BCEAFCDD1C2A394300CB082D /* ProductCalendarWeekendViewController.m in Sources */,
+				00E328701CCA20D30051807A /* UIView+Border.m in Sources */,
 				BCEAFCDE1C2A394300CB082D /* ProductDetailModel.m in Sources */,
 				BCEAFCDF1C2A394300CB082D /* Notice.m in Sources */,
 				BCEAFCE01C2A394300CB082D /* FeedZanCell.m in Sources */,
@@ -4129,7 +4234,6 @@
 				BCEAFCEB1C2A394300CB082D /* Child.m in Sources */,
 				BCEAFCEC1C2A394300CB082D /* ConfigService.m in Sources */,
 				BCEAFCED1C2A394300CB082D /* OrderPersonModel.m in Sources */,
-				00A628EF1CE1E97B006BE4AD /* RefundTimeLineCell.m in Sources */,
 				002B664E1CB38ED30096EB6E /* ChildInfoViewController.m in Sources */,
 				BCEAFCEE1C2A394300CB082D /* MOStepperView.m in Sources */,
 				BCEAFCEF1C2A394300CB082D /* CourseSkuListModel.m in Sources */,
@@ -4141,6 +4245,7 @@
 				BCEAFCF51C2A394300CB082D /* SendCommentView.m in Sources */,
 				BCEAFCF61C2A394300CB082D /* NSString+MOAttribuedString.m in Sources */,
 				BCEAFCF71C2A394300CB082D /* UploadImageModel.m in Sources */,
+				002AF7BF1CC7759D00052BEC /* MOSectionObject.m in Sources */,
 				BCEAFCF81C2A394300CB082D /* TopicListModel.m in Sources */,
 				BCEAFCF91C2A394300CB082D /* UITableView+FDTemplateLayoutHeader.m in Sources */,
 				BCEAFCFB1C2A394300CB082D /* MLSelectPhotoPickerGroup.m in Sources */,
@@ -4151,7 +4256,6 @@
 				BCEAFD001C2A394300CB082D /* RegisterViewController.m in Sources */,
 				BCEAFD011C2A394300CB082D /* Order.m in Sources */,
 				BCEAFD021C2A394300CB082D /* FeedDetailModel.m in Sources */,
-				00A628D31CE1E84D006BE4AD /* MOSectionObject.m in Sources */,
 				BCEAFD031C2A394300CB082D /* CouponListModel.m in Sources */,
 				BCEAFD041C2A394300CB082D /* BookSkuMoreCell.m in Sources */,
 				BCEAFD051C2A394300CB082D /* FeedTitleCell.m in Sources */,
@@ -4168,9 +4272,7 @@
 				BCEAFD101C2A394300CB082D /* HomeCell.m in Sources */,
 				BCEAFD111C2A394300CB082D /* WechatPayData.m in Sources */,
 				BCEAFD121C2A394300CB082D /* ActivityWebViewController.m in Sources */,
-				00A628E31CE1E8E4006BE4AD /* MORowObject.m in Sources */,
 				BCEAFD131C2A394300CB082D /* ReviewList.m in Sources */,
-				00A628D71CE1E85A006BE4AD /* RefundDetailViewController.m in Sources */,
 				BCEAFD141C2A394300CB082D /* FeedMoreCell.m in Sources */,
 				BCEAFD151C2A394300CB082D /* HomeModel.m in Sources */,
 				BCEAFD161C2A394300CB082D /* BookCourseListItemCell.m in Sources */,
@@ -4294,6 +4396,7 @@
 		};
 		BC8540AF1ADF74E9005A7C54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAC1023B0650D69FB9873227 /* Pods-MomiaIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -4337,16 +4440,6 @@
 					"$(inherited)",
 					"-ObjC",
 					"-l\"MobClickLibrary\"",
-					"-l\"AFNetworking\"",
-					"-l\"ISDiskCache\"",
-					"-l\"JSONModel\"",
-					"-l\"MBProgressHUD\"",
-					"-l\"MJRefresh\"",
-					"-l\"Masonry\"",
-					"-l\"SDWebImage\"",
-					"-l\"TTTAttributedLabel\"",
-					"-l\"UITableView+FDTemplateLayoutCell\"",
-					"-l\"z\"",
 					"-framework",
 					"\"CoreGraphics\"",
 					"-framework",
@@ -4375,6 +4468,7 @@
 		};
 		BC8540B01ADF74E9005A7C54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EC599971F6456CF4810ADED /* Pods-MomiaIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -4418,16 +4512,6 @@
 					"$(inherited)",
 					"-ObjC",
 					"-l\"MobClickLibrary\"",
-					"-l\"AFNetworking\"",
-					"-l\"ISDiskCache\"",
-					"-l\"JSONModel\"",
-					"-l\"MBProgressHUD\"",
-					"-l\"MJRefresh\"",
-					"-l\"Masonry\"",
-					"-l\"SDWebImage\"",
-					"-l\"TTTAttributedLabel\"",
-					"-l\"UITableView+FDTemplateLayoutCell\"",
-					"-l\"z\"",
 					"-framework",
 					"\"CoreGraphics\"",
 					"-framework",
@@ -4492,7 +4576,7 @@
 		};
 		BCEAFD941C2A394300CB082D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2F474001B9EB974850B3259 /* Pods-MomiaIOS DEBUG.debug.xcconfig */;
+			baseConfigurationReference = 59DC716E634E10FD34964389 /* Pods-MomiaIOS DEBUG.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -4574,7 +4658,7 @@
 		};
 		BCEAFD951C2A394300CB082D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C919AB20BEF5A75BBD4E4E4 /* Pods-MomiaIOS DEBUG.release.xcconfig */;
+			baseConfigurationReference = AB1F4A4CFB21EB624277BD71 /* Pods-MomiaIOS DEBUG.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
