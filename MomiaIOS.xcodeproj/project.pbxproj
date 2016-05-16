@@ -232,6 +232,8 @@
 		BC53A5221CA51B9800532F91 /* SubjectCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC53A5201CA51B9800532F91 /* SubjectCourseCell.xib */; };
 		BC53A5231CA5250600532F91 /* SubjectCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC53A51F1CA51B9800532F91 /* SubjectCourseCell.m */; };
 		BC53A5241CA5251D00532F91 /* SubjectCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC53A5201CA51B9800532F91 /* SubjectCourseCell.xib */; };
+		BC5681111CE9C94300DD6D00 /* RNCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5681101CE9C94300DD6D00 /* RNCommon.m */; };
+		BC5681121CE9CA7A00DD6D00 /* RNCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5681101CE9C94300DD6D00 /* RNCommon.m */; };
 		BC592BBA1BD489DE008AE76A /* BookingSubjectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BB91BD489DE008AE76A /* BookingSubjectListViewController.m */; };
 		BC592BBD1BD48FAC008AE76A /* BookableCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BBC1BD48FAC008AE76A /* BookableCourseListViewController.m */; };
 		BC592BC01BD4977A008AE76A /* BookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC592BBF1BD4977A008AE76A /* BookViewController.m */; };
@@ -1247,6 +1249,8 @@
 		BC53A51E1CA51B9800532F91 /* SubjectCourseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectCourseCell.h; path = Business/Course/Views/SubjectCourseCell.h; sourceTree = "<group>"; };
 		BC53A51F1CA51B9800532F91 /* SubjectCourseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectCourseCell.m; path = Business/Course/Views/SubjectCourseCell.m; sourceTree = "<group>"; };
 		BC53A5201CA51B9800532F91 /* SubjectCourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SubjectCourseCell.xib; path = Business/Course/Views/SubjectCourseCell.xib; sourceTree = "<group>"; };
+		BC56810F1CE9C94300DD6D00 /* RNCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNCommon.h; path = Common/React/RNCommon.h; sourceTree = "<group>"; };
+		BC5681101CE9C94300DD6D00 /* RNCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNCommon.m; path = Common/React/RNCommon.m; sourceTree = "<group>"; };
 		BC592BB81BD489DE008AE76A /* BookingSubjectListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookingSubjectListViewController.h; path = Business/Course/BookingSubjectListViewController.h; sourceTree = "<group>"; };
 		BC592BB91BD489DE008AE76A /* BookingSubjectListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookingSubjectListViewController.m; path = Business/Course/BookingSubjectListViewController.m; sourceTree = "<group>"; };
 		BC592BBB1BD48FAC008AE76A /* BookableCourseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookableCourseListViewController.h; path = Business/Course/BookableCourseListViewController.h; sourceTree = "<group>"; };
@@ -2427,6 +2431,15 @@
 			path = Common/Models/Suggest;
 			sourceTree = "<group>";
 		};
+		BC56810E1CE9C8AF00DD6D00 /* React */ = {
+			isa = PBXGroup;
+			children = (
+				BC56810F1CE9C94300DD6D00 /* RNCommon.h */,
+				BC5681101CE9C94300DD6D00 /* RNCommon.m */,
+			);
+			name = React;
+			sourceTree = "<group>";
+		};
 		BC592BC91BD4DAB9008AE76A /* JSDropDownMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -2812,6 +2825,7 @@
 				BCA273171AE9F90C002E7534 /* Utils */,
 				BC2C0C541B13095A00E2446E /* Views */,
 				BC8540BA1ADF8976005A7C54 /* Base */,
+				BC56810E1CE9C8AF00DD6D00 /* React */,
 				BCA2730F1AE9D79F002E7534 /* mapping.plist */,
 				BCA273141AE9F6F0002E7534 /* URLMappingManager.h */,
 				BCA273151AE9F6F0002E7534 /* URLMappingManager.m */,
@@ -3637,6 +3651,7 @@
 				BC0D44571C0551160007E9ED /* OrderDetailViewController.m in Sources */,
 				BC10528C1BB15BAE00D81C15 /* CommentListViewController.m in Sources */,
 				BC7737911BCF91CA00987B22 /* SubjectOrderFillViewController.m in Sources */,
+				BC5681111CE9C94300DD6D00 /* RNCommon.m in Sources */,
 				5A1B35E81B12BBAC00E1D31B /* CommentModel.m in Sources */,
 				BC0EC2981B5E1F5300D9A82F /* CacheService.m in Sources */,
 				BC5063971B5385FD00AA233C /* MONetworkPhotoView.m in Sources */,
@@ -3875,6 +3890,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC5681121CE9CA7A00DD6D00 /* RNCommon.m in Sources */,
 				BC53A5231CA5250600532F91 /* SubjectCourseCell.m in Sources */,
 				BC53A51D1CA4001500532F91 /* SubjectDiscCell.m in Sources */,
 				BC80B84E1CA13D1E009559F2 /* HomeSubjectCoverCell.m in Sources */,

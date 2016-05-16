@@ -26,6 +26,18 @@ PODS:
   - Masonry (1.0.0)
   - MBProgressHUD (0.9.2)
   - MJRefresh (3.1.0)
+  - React/Core (0.25.1)
+  - React/RCTImage (0.25.1):
+    - React/Core
+    - React/RCTNetwork
+  - React/RCTLinkingIOS (0.25.1):
+    - React/Core
+  - React/RCTNetwork (0.25.1):
+    - React/Core
+  - React/RCTText (0.25.1):
+    - React/Core
+  - React/RCTWebSocket (0.25.1):
+    - React/Core
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
@@ -42,11 +54,21 @@ DEPENDENCIES:
   - Masonry
   - MBProgressHUD (~> 0.9.1)
   - MJRefresh
+  - React/Core (from `./node_modules/react-native`)
+  - React/RCTImage (from `./node_modules/react-native`)
+  - React/RCTLinkingIOS (from `./node_modules/react-native`)
+  - React/RCTNetwork (from `./node_modules/react-native`)
+  - React/RCTText (from `./node_modules/react-native`)
+  - React/RCTWebSocket (from `./node_modules/react-native`)
   - SDWebImage
   - THProgressView (~> 1.0)
   - TTTAttributedLabel
   - UITableView+FDTemplateLayoutCell
   - UMengAnalytics-NO-IDFA
+
+EXTERNAL SOURCES:
+  React:
+    :path: "./node_modules/react-native"
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
@@ -56,12 +78,13 @@ SPEC CHECKSUMS:
   Masonry: b529bb169217897b6354d4b56b1fada6d475b13d
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
+  React: b35b2b2e07273da1f7266ab2975e0d1033bd913d
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   THProgressView: 999dc78f748f4cb6d69408f545de4d82ef7f1cec
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
   UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
   UMengAnalytics-NO-IDFA: 6d02561a00579b2e37718f204eb81347df5d7b8b
 
-PODFILE CHECKSUM: 2b2c9c2dd6c7e1fd34523ffb4a782fdeb2f4331e
+PODFILE CHECKSUM: 843caa91a7aecc4d3321116aa9ec9212e47ef1e7
 
 COCOAPODS: 1.0.0.rc.2
