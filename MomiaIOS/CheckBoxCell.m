@@ -17,8 +17,7 @@
 
 
 -(void)setDetailText:(NSString *)detailText{
-    self.detailText = detailText;
-    self.detailLabel.text = self.detailText;
+    self.detailLabel.text = detailText;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

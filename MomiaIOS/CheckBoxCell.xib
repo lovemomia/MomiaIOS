@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,33 +15,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="40Z-0y-Hue" customClass="CheckDotView">
-                        <rect key="frame" x="261" y="12" width="20" height="20"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="20" id="Q1a-iS-5IM"/>
-                            <constraint firstAttribute="height" constant="20" id="Z8u-fI-sEz"/>
-                        </constraints>
-                    </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYu-N6-LyF">
-                        <rect key="frame" x="10" y="12" width="29" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYu-N6-LyF">
+                        <rect key="frame" x="10" y="14" width="25" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKe-di-AsZ">
+                        <rect key="frame" x="277" y="10" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="CwJ-tb-Agw"/>
+                            <constraint firstAttribute="height" constant="25" id="EGq-Ns-ZIc"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="IconChecked"/>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="40Z-0y-Hue" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="DnH-tm-c5q"/>
+                    <constraint firstItem="fKe-di-AsZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IQf-SQ-3cN"/>
                     <constraint firstItem="rYu-N6-LyF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="aip-ve-AIV"/>
-                    <constraint firstAttribute="trailing" secondItem="40Z-0y-Hue" secondAttribute="trailing" constant="39" id="dsD-ls-Q1B"/>
                     <constraint firstItem="rYu-N6-LyF" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="fCq-8S-S51"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="fKe-di-AsZ" secondAttribute="trailing" constant="10" id="ywn-pP-BMM"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="checkDotView" destination="40Z-0y-Hue" id="tBD-m4-aQb"/>
+                <outlet property="checkBtn" destination="fKe-di-AsZ" id="jg7-51-jc8"/>
                 <outlet property="detailLabel" destination="rYu-N6-LyF" id="UcR-5b-Vx7"/>
             </connections>
             <point key="canvasLocation" x="379" y="209"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="IconChecked" width="25" height="25"/>
+    </resources>
 </document>

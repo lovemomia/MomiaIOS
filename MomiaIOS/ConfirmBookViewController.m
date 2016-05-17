@@ -51,7 +51,7 @@ static NSString *ChooseChildAction = @"ChooseChildAction";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //注册一些公共的title
+    
     [CommonHeaderView registerCellFromNibWithTableView:self.tableView];
     [BookSkuItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:@"BookSkuItemCell"];
     self.title = @"确认约课";

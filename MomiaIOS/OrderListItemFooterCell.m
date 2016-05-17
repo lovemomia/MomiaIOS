@@ -18,8 +18,16 @@
     _totalFee.text = [NSString stringWithFormat:@"合计: ￥%@",order.totalFee];
     if ([order.status intValue] == 2) {
         [_actionBtn setTitle:@"付款" forState:UIControlStateNormal];
-    } else if ([order.bookingStatus intValue] == 1) {
-        [_actionBtn setTitle:@"预约" forState:UIControlStateNormal];
+    } else if (order.status.intValue == 5 ){
+        [_actionBtn setTitle:@"退款申请" forState:UIControlStateNormal];
+    } else if (order.status.intValue == 6 ) {
+        [_actionBtn setTitle:@"已退款" forState:UIControlStateNormal];
+    } else if (order.status.intValue == 7 ) {
+        [_actionBtn setTitle:@"申请通过" forState:UIControlStateNormal];
+    } else if (order.status.intValue == 8 ) {
+        [_actionBtn setTitle:@"返现中" forState:UIControlStateNormal];
+    } else if (order.status.intValue == 9 ) {
+        [_actionBtn setTitle:@"已返现" forState:UIControlStateNormal];
     } else {
         _actionBtn.hidden = YES;
     }
@@ -44,9 +52,6 @@
                          [[postOrder toJSONString] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:MOURL_STRING(url)]];
         
-    } else if ([self.order.bookingStatus intValue] == 1) {
-        NSString *url = [NSString stringWithFormat:@"bookingsubjectlist?oid=%@",self.order.ids];
-        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:MOURL_STRING(url)]];
     }
     
 }

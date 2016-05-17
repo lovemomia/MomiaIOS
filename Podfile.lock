@@ -44,7 +44,7 @@ PODS:
   - THProgressView (1.0)
   - TTTAttributedLabel (1.13.4)
   - UITableView+FDTemplateLayoutCell (1.4)
-  - UMengAnalytics-NO-IDFA (4.0.1)
+  - UMengAnalytics-NO-IDFA (3.6.7)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
@@ -64,7 +64,7 @@ DEPENDENCIES:
   - THProgressView (~> 1.0)
   - TTTAttributedLabel
   - UITableView+FDTemplateLayoutCell
-  - UMengAnalytics-NO-IDFA
+  - UMengAnalytics-NO-IDFA (= 3.6.7)
 
 EXTERNAL SOURCES:
   React:
@@ -83,8 +83,8 @@ SPEC CHECKSUMS:
   THProgressView: 999dc78f748f4cb6d69408f545de4d82ef7f1cec
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
   UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
-  UMengAnalytics-NO-IDFA: 0dc13e0a7b34eaff346e7f57fc7a698f8f26cd59
+  UMengAnalytics-NO-IDFA: 6d02561a00579b2e37718f204eb81347df5d7b8b
 
-PODFILE CHECKSUM: 8f4e1aa39bc239b2d16c780d4e3600fc5fe48d09
+PODFILE CHECKSUM: bcb2c5afbe14a81ad74535f47168adf534c62ebc
 
 COCOAPODS: 1.0.0

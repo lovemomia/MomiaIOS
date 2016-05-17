@@ -15,14 +15,6 @@
 
 #define UserOrderPathURL URL_APPEND_PATH(@"/user/order"
 
-NS_ENUM(NSInteger,SectionType){
-    SectionTypeNotPay = 2,
-    SectionTypePayed = 3,
-    SectionTypeUsed = 4,
-    SectionTypeNotCashBack = 5, //待退款
-    SectionTypeCashBacked = 6,
-};
-
 NS_ENUM(NSInteger,RowType){
     RowTypeHeader = 0,
     RowTypeFooter = 1,

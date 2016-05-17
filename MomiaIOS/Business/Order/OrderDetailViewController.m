@@ -12,6 +12,7 @@
 #import "OrderListItemCell.h"
 #import "CourseSectionTitleCell.h"
 #import "ApplyRefundViewController.h"
+#import "RefundDetailViewController.h"
 
 static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
 
@@ -96,6 +97,9 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
+        if (self.model.data.status.integerValue == 2) {
+            return 1;
+        }
         return 2;
     } else if (self.model.data.couponDesc.length > 0) {
         return 6;
@@ -112,6 +116,8 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
             cell = [arr objectAtIndex:2];
             UIButton *btn = [cell viewWithTag:1001];
             [btn addTarget:self action:@selector(refundBtnPressed) forControlEvents:UIControlEventTouchUpInside];
+            
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
         static NSString *Cell_Order_List_Item = @"CellOrderListItem";
@@ -222,10 +228,33 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
 
 -(void)refundBtnPressed{
     
-    ApplyRefundViewController *refundVC = [[ApplyRefundViewController alloc]init];
-    refundVC.model  = self.model;
-    refundVC.oid = self.oid;
-    [self.navigationController pushViewController:refundVC animated:YES];
+    Order *order = self.model.data;
+    if ([order.status intValue] == 3) {
+        ApplyRefundViewController *refundVC = [[ApplyRefundViewController alloc]init];
+        refundVC.model  = self.model;
+        refundVC.oid = self.oid;
+        [self.navigationController pushViewController:refundVC animated:YES];
+    } else if (order.status.intValue == 5 ){
+        
+        RefundDetailViewController *refundVC = [[RefundDetailViewController alloc]init];
+        [self.navigationController pushViewController:refundVC animated:YES];
+    } else if (order.status.intValue == 6 ) {
+        
+        RefundDetailViewController *refundVC = [[RefundDetailViewController alloc]init];
+        [self.navigationController pushViewController:refundVC animated:YES];
+    } else if (order.status.intValue == 7 ) {
+        
+        RefundDetailViewController *refundVC = [[RefundDetailViewController alloc]init];
+        [self.navigationController pushViewController:refundVC animated:YES];
+    } else if (order.status.intValue == 8 ) {
+        
+        RefundDetailViewController *refundVC = [[RefundDetailViewController alloc]init];
+        [self.navigationController pushViewController:refundVC animated:YES];
+    } else if (order.status.intValue == 9 ) {
+        
+        RefundDetailViewController *refundVC = [[RefundDetailViewController alloc]init];
+        [self.navigationController pushViewController:refundVC animated:YES];
+    }
 }
 
 - (void)onActionBtnClicked {
@@ -246,8 +275,6 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
         [self openURL:[NSString stringWithFormat:@"cashpay?pom=%@",
                        [[po toJSONString] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
         
-    } else if ([order.bookingStatus intValue] == 1) {
-        [self openURL:[NSString stringWithFormat:@"bookingsubjectlist?oid=%@", self.oid]];
     }
 }
 

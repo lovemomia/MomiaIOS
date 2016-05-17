@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CheckDotView.h"
 
 @interface CheckBoxCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet CheckDotView *checkDotView;
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
-@property (nonatomic,strong) NSString *detailText;
+@property (weak, nonatomic) IBOutlet UIButton *checkBtn;
+
+-(void)setDetailText:(NSString *)detailText;
 
 @end

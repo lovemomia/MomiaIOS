@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="iTb-fm-hSo">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iTb-fm-hSo" id="bjr-ES-soc">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="退款金额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pzz-2J-PYU">
+                        <rect key="frame" x="8" y="13" width="56" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥399" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cz-jZ-nf3">
+                        <rect key="frame" x="261.5" y="16" width="40.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.96078431369999995" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="1cz-jZ-nf3" secondAttribute="trailing" constant="10" id="0yg-L4-4ji"/>
+                    <constraint firstItem="1cz-jZ-nf3" firstAttribute="centerY" secondItem="bjr-ES-soc" secondAttribute="centerY" constant="3" id="6U2-pt-Oii"/>
+                    <constraint firstItem="Pzz-2J-PYU" firstAttribute="centerY" secondItem="bjr-ES-soc" secondAttribute="centerY" id="QDp-yb-8VE"/>
+                    <constraint firstItem="Pzz-2J-PYU" firstAttribute="leading" secondItem="bjr-ES-soc" secondAttribute="leadingMargin" id="x5p-wb-JgD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="267" y="140"/>
+        </tableViewCell>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="lA4-RF-icS">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lA4-RF-icS" id="nuj-Wh-rbh">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="原路退回" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lsc-D0-eKa">
+                        <rect key="frame" x="8" y="15.5" width="60" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="（3-5个工作日到账，0手续费)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hjm-0h-acb">
+                        <rect key="frame" x="68" y="16.5" width="192" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.96078431369999995" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Lsc-D0-eKa" firstAttribute="centerY" secondItem="nuj-Wh-rbh" secondAttribute="centerY" constant="2.75" id="6CB-6Z-qWH"/>
+                    <constraint firstItem="Hjm-0h-acb" firstAttribute="centerY" secondItem="Lsc-D0-eKa" secondAttribute="centerY" id="AaL-KN-MhN"/>
+                    <constraint firstItem="Lsc-D0-eKa" firstAttribute="leading" secondItem="nuj-Wh-rbh" secondAttribute="leadingMargin" id="OE9-IJ-huA"/>
+                    <constraint firstItem="Hjm-0h-acb" firstAttribute="leading" secondItem="Lsc-D0-eKa" secondAttribute="trailing" id="P5d-52-5JX"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="269" y="290"/>
+        </tableViewCell>
+    </objects>
+</document>

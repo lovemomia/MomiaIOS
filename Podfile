@@ -10,7 +10,7 @@ def available_pods
   pod 'UITableView+FDTemplateLayoutCell'
   pod 'ISDiskCache'
   pod 'TTTAttributedLabel'
-  pod 'UMengAnalytics-NO-IDFA'
+  pod 'UMengAnalytics-NO-IDFA','3.6.7'
   pod 'THProgressView', '~> 1.0'
   pod 'EDStarRating'
   

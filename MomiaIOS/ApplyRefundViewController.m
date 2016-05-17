@@ -9,6 +9,7 @@
 #import "ApplyRefundViewController.h"
 #import "RefundDetailViewController.h"
 #import "CheckBoxCell.h"
+#import "CommonHeaderView.h"
 
 @interface ApplyRefundViewController ()
 
@@ -23,6 +24,7 @@
     self.title = @"申请退款";
     [self setUpRefundBtn];
     
+    [CommonHeaderView registerCellFromNibWithTableView:self.tableView];
     [self.tableView registerNib:[UINib nibWithNibName:@"CheckBoxCell" bundle:nil] forCellReuseIdentifier:@"CheckBoxCell"];
 }
 
@@ -61,6 +63,23 @@
     return 0;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 40;
+}
+//section 头部
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *header;
+    header = [CommonHeaderView cellWithTableView:self.tableView];
+    if (section == 0) {
+        ((CommonHeaderView * )header).data = @"职业梦想体系";
+    }else if (section == 1) {
+        ((CommonHeaderView * )header).data  = @"退款方式";
+    } else {
+        ((CommonHeaderView * )header).data  = @"退款原因";
+    }
+    return header;
+}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
     return 3;
@@ -70,20 +89,15 @@
     
     UITableViewCell *cell;
     if (indexPath.section == 0) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"CellDefault"];
-        cell.textLabel.text = @"退款金额";
-        cell.detailTextLabel.textColor = [UIColor redColor];
-        cell.detailTextLabel.text = @"$399";
+        
+        NSArray *array = [[NSBundle mainBundle]loadNibNamed:@"RefundText" owner:self options:nil];
+        cell = [array objectAtIndex:0];
     } else if (indexPath.section == 1){
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellDefault"];
-        cell.textLabel.text = @"原路退回(3-10个工作日内到账，0手续费）";
+        
+        NSArray *array = [[NSBundle mainBundle]loadNibNamed:@"RefundText" owner:self options:nil];
+        cell = [array objectAtIndex:1];
     } else {
         CheckBoxCell *checkBoxCell = [self.tableView dequeueReusableCellWithIdentifier:@"CheckBoxCell"];
-        if (indexPath.row == self.selectRefundReasonIndex) {
-            [checkBoxCell.checkDotView checked];
-        } else {
-             [checkBoxCell.checkDotView uncheck];
-        }
         switch (indexPath.row) {
             case 0:
                 checkBoxCell.detailLabel.text = @"买多了/买错了";
@@ -101,52 +115,19 @@
                 checkBoxCell.detailLabel.text = @"其他原因";
                 break;
         }
+        if (self.selectRefundReasonIndex == indexPath.row) {
+            [checkBoxCell.checkBtn setImage:[UIImage imageNamed:@"IconChecked"] forState:UIControlStateNormal];
+        } else {
+            [checkBoxCell.checkBtn setImage:[UIImage imageNamed:@"IconUncheck"] forState:UIControlStateNormal];
+        }
         cell = checkBoxCell;
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 54.f;
-}
-
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 0.000001f;
-}
-
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *view = [UIView new];
-    UILabel *label = [[UILabel alloc]init];
-    [view addSubview:label];
-    label.translatesAutoresizingMaskIntoConstraints = NO;
-    label.font = [UIFont systemFontOfSize:18];
-    NSLayoutConstraint *centerConstraint = [NSLayoutConstraint constraintWithItem:label
-                                                                        attribute:NSLayoutAttributeCenterY
-                                                                        relatedBy:NSLayoutRelationEqual
-                                                                           toItem:view
-                                                                        attribute:NSLayoutAttributeCenterY
-                                                                       multiplier:1.0
-                                                                         constant:0];
-    NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:label
-                                                                      attribute:NSLayoutAttributeLeading
-                                                                      relatedBy:NSLayoutRelationEqual
-                                                                         toItem:view
-                                                                      attribute:NSLayoutAttributeLeading
-                                                                     multiplier:1.0
-                                                                       constant:15];
-    [view addConstraint:leftConstraint];
-    [view addConstraint:centerConstraint];
-    
-    if (section == 0) {
-        label.text = @"职业梦想体系";
-    } else if (section == 1){
-        label.text = @"退款方式";
-    } else {
-        label.text = @"退款原因";
-    }
-    label.textColor = [UIColor darkGrayColor];
-    return view;
 }
 
 -(void)commitRefund {

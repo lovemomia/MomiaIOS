@@ -35,7 +35,7 @@ static NSString* RefundLableCellIdentifer = @"RefundLableCellIdentifer";
     if (section == 0) {
         return 3;
     } else {
-        return 5;
+        return 4;
     }
 }
 
@@ -47,18 +47,15 @@ static NSString* RefundLableCellIdentifer = @"RefundLableCellIdentifer";
         switch (indexPath.row) {
             case 0:
                 refundLabelCell.refundTextLabel.text = @"退款金额";
-                refundLabelCell.refundTextLabel.textColor = [UIColor darkGrayColor];
-                refundLabelCell.refundDetailTextLabel.text = @"$399";
+                refundLabelCell.refundDetailTextLabel.text = @"￥399";
                 break;
             case 1:
                 refundLabelCell.refundTextLabel.text = @"数量";
-                refundLabelCell.refundTextLabel.textColor = [UIColor darkGrayColor];
                 refundLabelCell.refundDetailTextLabel.text = @"1";
                 break;
             default:
                 refundLabelCell.refundTextLabel.text = @"退回账户";
-                refundLabelCell.refundTextLabel.textColor = [UIColor darkGrayColor];
-                refundLabelCell.refundDetailTextLabel.text = @"微信账户";
+                refundLabelCell.refundDetailTextLabel.text = @"支付账户";
                 break;
         }
         cell = refundLabelCell;
@@ -83,11 +80,6 @@ static NSString* RefundLableCellIdentifer = @"RefundLableCellIdentifer";
                     break;
                 case 3:
                     [refundTimeLineCell.numberLabel setText:@"3"];
-                    [refundTimeLineCell.applyTitle setText:@"申请已提交"];
-                    [refundTimeLineCell.applyDetail setText:@"您的退款申请已成功提交"];
-                    break;
-                default:
-                    [refundTimeLineCell.numberLabel setText:@"1"];
                     [refundTimeLineCell.applyTitle setText:@"申请已提交"];
                     [refundTimeLineCell.applyDetail setText:@"您的退款申请已成功提交"];
                     [refundTimeLineCell.bottomLine setHidden:YES];
