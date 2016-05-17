@@ -1,23 +1,23 @@
 PODS:
-  - AFNetworking (2.5.4):
-    - AFNetworking/NSURLConnection (= 2.5.4)
-    - AFNetworking/NSURLSession (= 2.5.4)
-    - AFNetworking/Reachability (= 2.5.4)
-    - AFNetworking/Security (= 2.5.4)
-    - AFNetworking/Serialization (= 2.5.4)
-    - AFNetworking/UIKit (= 2.5.4)
-  - AFNetworking/NSURLConnection (2.5.4):
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.4):
+  - AFNetworking/NSURLSession (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.4)
-  - AFNetworking/Security (2.5.4)
-  - AFNetworking/Serialization (2.5.4)
-  - AFNetworking/UIKit (2.5.4):
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - EDStarRating (1.1)
@@ -47,7 +47,7 @@ PODS:
   - UMengAnalytics-NO-IDFA (3.6.7)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.5.4)
+  - AFNetworking (~> 2.0)
   - EDStarRating
   - ISDiskCache
   - JSONModel
@@ -71,7 +71,7 @@ EXTERNAL SOURCES:
     :path: "./node_modules/react-native"
 
 SPEC CHECKSUMS:
-  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   EDStarRating: a41a6440a945020745d0e9ff8ada7d1afa952114
   ISDiskCache: 83d1b6ca5c2f5f2d14832ae1e9fcd6e20de43142
   JSONModel: 12523685c4b623553ccf844bbbf7007624317b2c
@@ -85,6 +85,6 @@ SPEC CHECKSUMS:
   UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
   UMengAnalytics-NO-IDFA: 6d02561a00579b2e37718f204eb81347df5d7b8b
 
-PODFILE CHECKSUM: 843caa91a7aecc4d3321116aa9ec9212e47ef1e7
+PODFILE CHECKSUM: 8f4e1aa39bc239b2d16c780d4e3600fc5fe48d09
 
 COCOAPODS: 1.0.0.rc.2

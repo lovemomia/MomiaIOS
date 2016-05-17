@@ -274,7 +274,7 @@
     NSMutableString * ms = [[NSMutableString alloc]initWithString:url];
 
     NSRange range = [url rangeOfString:@"?"];
-    if(range.length > 0) {
+    if(range.length == NSNotFound) {
         [ms appendString:@"?"];
     }
     for (NSString *key in [parameters keyEnumerator]) {

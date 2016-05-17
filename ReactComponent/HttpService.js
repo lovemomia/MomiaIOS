@@ -22,13 +22,20 @@ class HttpService extends React.Component {
 	 *callback:回调函数
 	 */
 	static get(url, callback) {
-		fetch(url)
-			.then((response) => response.text())
-			.then((responseText) => {
-				callback(JSON.parse(responseText));
-			}).catch((error) => {
-				console.warn(error);
-			}).done();
+		RNCommon.wrapUrl(url, (error, newUrl) => {
+			if (error) {
+				console.error(error);
+			} else {
+				console.log('Get: ' + newUrl);
+				fetch(newUrl)
+					.then((response) => response.json())
+					.then((responseData) => {
+						callback(responseData);
+					}).catch((error) => {
+						console.warn(error);
+					}).done();
+			}
+		})
 	}
 
 	/**
@@ -39,12 +46,12 @@ class HttpService extends React.Component {
 	 *callback:回调函数
 	 */
 	static get(url, params, callback) {
-		RNCommon.signRequestParams(params, (error, signResult) => {
+		RNCommon.wrapParams(params, (error, fullParams) => {
 			if (error) {
 				console.error(error);
 			} else {
-				var newUrl = url + HttpService.toQueryString(params) + '&sign=' + signResult;
-				console.log(newUrl);
+				var newUrl = url + HttpService.toQueryString(fullParams);
+				console.log('Get: ' + newUrl);
 				fetch(newUrl)
 					.then((response) => response.json())
 					.then((responseData) => {
