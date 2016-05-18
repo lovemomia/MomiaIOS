@@ -133,32 +133,30 @@ NS_ENUM(NSInteger,RowType){
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MORowObject *rowObject = [self rowInIndexPath:indexPath];
     Order *order = rowObject.Data;
-    UITableViewCell * cell;
+    OrderListItemCell *itemCell;
     if (rowObject.Type == RowTypeHeader) {
         
         static NSString *CellOrderListItem = @"CellOrderListItemHeader";
-        cell = [tableView dequeueReusableCellWithIdentifier:CellOrderListItem];
-        if (cell == nil) {
+        itemCell = [tableView dequeueReusableCellWithIdentifier:CellOrderListItem];
+        if (itemCell == nil) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"OrderListItemCell" owner:self options:nil];
-            OrderListItemCell *itemCell = [arr objectAtIndex:0];
+            itemCell = [arr objectAtIndex:0];
             UIView *view = [itemCell viewWithTag:1005];
             view.hidden = YES;
-            [itemCell setData:order];
-            cell = itemCell;
         }
+        [itemCell setData:order];
     } else if (rowObject.Type ==RowTypeFooter) {
         
         static NSString *CellOrderListItem = @"CellOrderListItemFooter";
-        cell = [tableView dequeueReusableCellWithIdentifier:CellOrderListItem];
-        if (cell == nil) {
+        itemCell = [tableView dequeueReusableCellWithIdentifier:CellOrderListItem];
+        if (itemCell == nil) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"OrderListItemCell" owner:self options:nil];
-            OrderListItemFooterCell *itemCell = [arr objectAtIndex:1];
-            [itemCell setData:order];
-            cell = itemCell;
+            itemCell = [arr objectAtIndex:1];
         }
+        [itemCell setData:order];
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
+    itemCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return itemCell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

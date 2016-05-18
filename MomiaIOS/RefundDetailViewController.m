@@ -9,24 +9,44 @@
 #import "RefundDetailViewController.h"
 #import "RefundLabelCell.h"
 #import "RefundTimeLineCell.h"
+#import "OrderDetailModel.h"
+#import "Order.h"
 
 static NSString* RefundTimeLineCellIdentifier = @"RefundTimeLineCellIdentifier";
 static NSString* RefundLableCellIdentifer = @"RefundLableCellIdentifer";
 
 @interface RefundDetailViewController ()
 
+@property (nonatomic, strong) NSNumber *oid;
+@property (nonatomic, strong) OrderDetailModel *model;
+
 @end
 
 @implementation RefundDetailViewController
 
+- (instancetype)initWithParams:(NSDictionary *)params {
+    if (self = [super initWithParams:params]) {
+        self.oid = [params objectForKey:@"oid"];
+    }
+    return self;
+}
+
 -(void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"退款详情";
+    
     [RefundTimeLineCell registerCellFromNibWithTableView:self.tableView withIdentifier:RefundTimeLineCellIdentifier];
     [RefundLabelCell registerCellFromNibWithTableView:self.tableView withIdentifier:RefundLableCellIdentifer];
+    
+    [self requestData];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    if (!self.model) {
+        [self.view showLoadingBee];
+        return 0;
+    }
     return 2;
 }
 
@@ -40,18 +60,18 @@ static NSString* RefundLableCellIdentifer = @"RefundLableCellIdentifer";
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    Order *order = self.model.data;
     UITableViewCell *cell;
     if (indexPath.section == 0) {
         RefundLabelCell *refundLabelCell = [self.tableView dequeueReusableCellWithIdentifier:RefundLableCellIdentifer];
         switch (indexPath.row) {
             case 0:
                 refundLabelCell.refundTextLabel.text = @"退款金额";
-                refundLabelCell.refundDetailTextLabel.text = @"￥399";
+                refundLabelCell.refundDetailTextLabel.text = [NSString stringWithFormat:@"￥%@",order.payedFee];
                 break;
             case 1:
                 refundLabelCell.refundTextLabel.text = @"数量";
-                refundLabelCell.refundDetailTextLabel.text = @"1";
+                refundLabelCell.refundDetailTextLabel.text = [NSString stringWithFormat:@"%@",order.count];
                 break;
             default:
                 refundLabelCell.refundTextLabel.text = @"退回账户";
@@ -85,11 +105,83 @@ static NSString* RefundLableCellIdentifer = @"RefundLableCellIdentifer";
                     [refundTimeLineCell.bottomLine setHidden:YES];
                     break;
             }
+            [self configCell:refundTimeLineCell row:indexPath.row];
             cell = refundTimeLineCell;
         }
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+
+-(void)configCell:(RefundTimeLineCell*)cell row:(NSInteger) row {
+    Order *order = self.model.data;
+    if(order.status.intValue == 5 ) {
+        switch (row ) {
+            case 1:
+                break;
+            case 2:
+                cell.circle.backgroundColor = [UIColor lightGrayColor];
+                cell.applyTitle.textColor = [UIColor lightGrayColor];
+                cell.applyDetail.textColor = [UIColor lightGrayColor];
+                break;
+            case 3:
+                cell.circle.backgroundColor = [UIColor lightGrayColor];
+                cell.applyTitle.textColor = [UIColor lightGrayColor];
+                cell.applyDetail.textColor = [UIColor lightGrayColor];
+                break;
+        }
+    } else if (order.status.intValue == 7 ){
+        switch (row ) {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                cell.circle.backgroundColor = [UIColor lightGrayColor];
+                cell.applyTitle.textColor = [UIColor lightGrayColor];
+                cell.applyDetail.textColor = [UIColor lightGrayColor];
+                break;
+        }
+    } else if (order.status.intValue == 6 ){
+        switch (row ) {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+        }
+    } else {
+        cell.circle.backgroundColor = [UIColor lightGrayColor];
+        cell.applyTitle.textColor = [UIColor lightGrayColor];
+        cell.applyDetail.textColor = [UIColor lightGrayColor];
+    }
+}
+
+- (void)requestData {
+    if (self.model == nil) {
+        [self.view showLoadingBee];
+    }
+    if (!self.oid) {
+        [self.view removeLoadingBee];
+        return;
+    }
+    NSDictionary * paramDic = @{@"oid":self.oid};
+    NSString *orderDetailURL = URL_APPEND_PATH(@"/subject/order/detail");
+    [[HttpService defaultService]GET:orderDetailURL
+                          parameters:paramDic
+                           cacheType:CacheTypeDisable
+                      JSONModelClass:[OrderDetailModel class]
+                             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                 [self.view removeLoadingBee];
+                                 self.model = responseObject;
+                                 [self.tableView reloadData];
+                             }
+     
+                             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                 [self.view removeLoadingBee];
+                                 [self showDialogWithTitle:nil message:error.message];
+                             }];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

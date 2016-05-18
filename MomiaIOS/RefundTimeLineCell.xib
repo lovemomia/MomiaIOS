@@ -74,23 +74,15 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-4-25 14：17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaa-cs-NS1">
-                        <rect key="frame" x="247.5" y="20.5" width="110.5" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="sYp-qs-6aO" secondAttribute="bottom" id="4a3-T8-6H0"/>
                     <constraint firstItem="Rah-mQ-nzq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="7Bi-Bl-uRZ"/>
-                    <constraint firstAttribute="trailing" secondItem="yaa-cs-NS1" secondAttribute="trailing" constant="10" id="CgC-gv-u1p"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Sd2-YF-DNJ" secondAttribute="trailing" constant="20" id="Itu-N4-0ne"/>
                     <constraint firstItem="EgA-Vt-xuz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="S64-9B-7R2"/>
                     <constraint firstItem="sYp-qs-6aO" firstAttribute="centerX" secondItem="Rah-mQ-nzq" secondAttribute="centerX" id="S8D-VD-ObT"/>
                     <constraint firstItem="7GC-xF-sy7" firstAttribute="leading" secondItem="Rah-mQ-nzq" secondAttribute="trailing" constant="10" id="U4b-sN-51F"/>
                     <constraint firstItem="Sd2-YF-DNJ" firstAttribute="leading" secondItem="7GC-xF-sy7" secondAttribute="leading" id="W8s-hY-5GQ"/>
-                    <constraint firstItem="yaa-cs-NS1" firstAttribute="centerY" secondItem="7GC-xF-sy7" secondAttribute="centerY" id="bfD-BR-WsY"/>
                     <constraint firstItem="Sd2-YF-DNJ" firstAttribute="top" secondItem="7GC-xF-sy7" secondAttribute="bottom" constant="5" id="eql-KP-euW"/>
                     <constraint firstItem="sYp-qs-6aO" firstAttribute="top" secondItem="Rah-mQ-nzq" secondAttribute="bottom" id="lPp-N4-Grc"/>
                     <constraint firstItem="7GC-xF-sy7" firstAttribute="centerY" secondItem="Rah-mQ-nzq" secondAttribute="centerY" id="pPR-jG-5jc"/>
@@ -103,9 +95,9 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="applyDetail" destination="Sd2-YF-DNJ" id="0Rt-OH-N4O"/>
-                <outlet property="applyTimeLabel" destination="yaa-cs-NS1" id="2o5-R1-RTD"/>
                 <outlet property="applyTitle" destination="7GC-xF-sy7" id="THC-2c-XFe"/>
                 <outlet property="bottomLine" destination="sYp-qs-6aO" id="FQf-l5-be2"/>
+                <outlet property="circle" destination="Rah-mQ-nzq" id="GWe-uO-MCg"/>
                 <outlet property="numberLabel" destination="D1i-zw-AFy" id="6jn-Il-jFC"/>
                 <outlet property="topLine" destination="EgA-Vt-xuz" id="nOF-qj-u8V"/>
             </connections>

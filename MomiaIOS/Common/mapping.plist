@@ -461,5 +461,23 @@
 		<key>controller</key>
 		<string>ConfirmBookViewController</string>
 	</dict>
+	<key>refunddetail</key>
+	<dict>
+		<key>desc</key>
+		<string>退款详情</string>
+		<key>needlogin</key>
+		<true/>
+		<key>controller</key>
+		<string>RefundDetailViewController</string>
+	</dict>
+	<key>applyrefund</key>
+	<dict>
+		<key>desc</key>
+		<string>申请退款</string>
+		<key>needlogin</key>
+		<true/>
+		<key>controller</key>
+		<string>ApplyRefundViewController</string>
+	</dict>
 </dict>
 </plist>

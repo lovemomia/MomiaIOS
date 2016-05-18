@@ -18,18 +18,17 @@
     _totalFee.text = [NSString stringWithFormat:@"合计: ￥%@",order.totalFee];
     if ([order.status intValue] == 2) {
         [_actionBtn setTitle:@"付款" forState:UIControlStateNormal];
+    } else if(order.status.intValue == 3 ){
+        [_actionBtn setTitle:@"退款" forState:UIControlStateNormal];
     } else if (order.status.intValue == 5 ){
         [_actionBtn setTitle:@"退款申请" forState:UIControlStateNormal];
     } else if (order.status.intValue == 6 ) {
         [_actionBtn setTitle:@"已退款" forState:UIControlStateNormal];
     } else if (order.status.intValue == 7 ) {
         [_actionBtn setTitle:@"申请通过" forState:UIControlStateNormal];
-    } else if (order.status.intValue == 8 ) {
-        [_actionBtn setTitle:@"返现中" forState:UIControlStateNormal];
-    } else if (order.status.intValue == 9 ) {
-        [_actionBtn setTitle:@"已返现" forState:UIControlStateNormal];
     } else {
         _actionBtn.hidden = YES;
+        _backGroundView.hidden = YES;
     }
 }
 
@@ -50,6 +49,16 @@
         
         NSString *url = [NSString stringWithFormat:@"cashpay?pom=%@",
                          [[postOrder toJSONString] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:MOURL_STRING(url)]];
+        
+    } else if ([self.order.status intValue] == 5 || [self.order.status intValue] == 6 || [self.order.status intValue] == 7 || [self.order.status intValue] == 8 || [self.order.status intValue] == 9){
+        
+        NSString *url = [NSString stringWithFormat:@"refunddetail?oid=%@",self.order.ids];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:MOURL_STRING(url)]];
+        
+    } else if (self.order.status.intValue == 3 ){
+        
+        NSString *url = [NSString stringWithFormat:@"applyrefund?oid=%@",self.order.ids];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:MOURL_STRING(url)]];
         
     }

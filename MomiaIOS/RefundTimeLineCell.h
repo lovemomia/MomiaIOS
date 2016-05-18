@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIView *bottomLine;
 @property (weak, nonatomic) IBOutlet UILabel *applyTitle;
 @property (weak, nonatomic) IBOutlet UILabel *applyDetail;
-@property (weak, nonatomic) IBOutlet UILabel *applyTimeLabel;
+@property (weak, nonatomic) IBOutlet UIView *circle;
 
 - (void)setData:(id)data;
 

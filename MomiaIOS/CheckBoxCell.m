@@ -15,7 +15,6 @@
     // Initialization code
 }
 
-
 -(void)setDetailText:(NSString *)detailText{
     self.detailLabel.text = detailText;
 }

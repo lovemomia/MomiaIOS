@@ -7,6 +7,7 @@
 //
 
 #import "RefundTimeLineCell.h"
+#import "Order.h"
 
 @implementation RefundTimeLineCell
 
