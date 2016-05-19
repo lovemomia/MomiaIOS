@@ -113,7 +113,6 @@ class CityListComponent extends React.Component {
       }
 
       console.log(resp);
-      console.log(resp.data.length);
     });
   }
 
@@ -143,7 +142,6 @@ class CityListComponent extends React.Component {
   rowPressed(data) {
     RNCommon.setChoosedCity(data);
     RNCommon.dismissViewControllerAnimated(true);
-    console.log('rowPressed:');
   }
 
 }
