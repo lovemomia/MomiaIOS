@@ -75,6 +75,7 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
     
     NSMutableDictionary *paramDic = [[NSMutableDictionary alloc]init];
     [paramDic setValue:self.ids forKey:@"id"];
+    [paramDic setValue:self.pid forKey:@"pid"];
     [paramDic setValue:[NSString stringWithFormat:@"%ld", (long)self.nextIndex] forKey:@"start"];
     
 
@@ -88,7 +89,7 @@ static NSString * identifierCourseListItemCell = @"CourseListItemCell";
         [paramDic setValue:filter.ids forKey:@"sort"];
     }
 
-    self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/subject/course")
+    self.curOperation = [[HttpService defaultService]GET:URL_APPEND_PATH(@"/subject/course/bookable")
                                               parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[CourseListModel class]
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                      if ([self.list count] == 0) {
