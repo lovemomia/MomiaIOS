@@ -83,7 +83,7 @@ static NSString * identifier = @"CellOrderContact";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
     self.navigationItem.title = @"联系人信息";
 
      self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(onFinishedClick)];

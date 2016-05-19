@@ -8,9 +8,7 @@
 
 #import "JSONModel.h"
 #import "Course.h"
-
-@protocol Course
-@end
+#import "SubjectDetailModel.h"
 
 @interface CourseList : JSONModel
 @property (nonatomic, strong) NSArray<Course> *list;

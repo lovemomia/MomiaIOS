@@ -9,6 +9,6 @@
 #import "MOGroupStyleTableViewController.h"
 
 //退款详情
-@interface RefundDetailViewController : MOGroupStyleTableViewController
+@interface RefundInfoViewController : MOGroupStyleTableViewController
 
 @end
