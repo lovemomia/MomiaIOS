@@ -2398,13 +2398,6 @@
 			path = Common/Views/MCAvatarView;
 			sourceTree = "<group>";
 		};
-		BC38D2141AFE0FD60051C7E9 /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Utility;
-			sourceTree = "<group>";
-		};
 		BC38D2311AFEDFDD0051C7E9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -2850,7 +2843,6 @@
 			isa = PBXGroup;
 			children = (
 				BC8540C41AE2121E005A7C54 /* Constants.h */,
-				BC38D2141AFE0FD60051C7E9 /* Utility */,
 				BC2FAA121AFCB1CB00E2071E /* Services */,
 				BC7708601AFC56F3000068A8 /* Models */,
 				BCA2731B1AE9FA83002E7534 /* Categorys */,

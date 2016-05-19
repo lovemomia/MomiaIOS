@@ -172,7 +172,9 @@
                       JSONModelClass:nil
                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                  
-                                 [self openURL:[NSString stringWithFormat:@"refunddetail?oid=%@",self.oid]];
+                                 [self.navigationController popViewControllerAnimated:NO];
+                                 [[NSNotificationCenter defaultCenter]postNotificationName:@"updateOrderList" object:nil];
+                                 [self openURL:[NSString stringWithFormat:@"refunddetail?oid=%@&source=ApplyRefund",self.oid]];
                              }
      
                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {

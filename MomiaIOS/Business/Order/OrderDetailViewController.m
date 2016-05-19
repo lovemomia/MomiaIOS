@@ -226,6 +226,10 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 5.f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 10.f;
 }
 

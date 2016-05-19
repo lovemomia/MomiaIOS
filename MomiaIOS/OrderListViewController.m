@@ -21,6 +21,7 @@ NS_ENUM(NSInteger,RowType){
 };
 
 @interface OrderListViewController()
+
 @property (nonatomic, assign) NSInteger status;
 @property (nonatomic, strong) NSMutableArray* orderList;
 @property (nonatomic, assign) BOOL isLoading;
@@ -59,6 +60,11 @@ NS_ENUM(NSInteger,RowType){
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc]init];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateOrderList) name:@"updateOrderList" object:nil];
+    [self requestData:0 count:20];
+}
+
+-(void)updateOrderList {
     [self requestData:0 count:20];
 }
 
@@ -136,19 +142,17 @@ NS_ENUM(NSInteger,RowType){
     OrderListItemCell *itemCell;
     if (rowObject.Type == RowTypeHeader) {
         
-        static NSString *CellOrderListItem = @"CellOrderListItemHeader";
-        itemCell = [tableView dequeueReusableCellWithIdentifier:CellOrderListItem];
+        static NSString *CellOrderListItemHeader = @"CellOrderListItemHeader";
+        itemCell = [tableView dequeueReusableCellWithIdentifier:CellOrderListItemHeader];
         if (itemCell == nil) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"OrderListItemCell" owner:self options:nil];
             itemCell = [arr objectAtIndex:0];
-            UIView *view = [itemCell viewWithTag:1005];
-            view.hidden = YES;
         }
         [itemCell setData:order];
     } else if (rowObject.Type ==RowTypeFooter) {
         
-        static NSString *CellOrderListItem = @"CellOrderListItemFooter";
-        itemCell = [tableView dequeueReusableCellWithIdentifier:CellOrderListItem];
+        static NSString *CellOrderListItemFooter = @"CellOrderListItemFooter";
+        itemCell = [tableView dequeueReusableCellWithIdentifier:CellOrderListItemFooter];
         if (itemCell == nil) {
             NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"OrderListItemCell" owner:self options:nil];
             itemCell = [arr objectAtIndex:1];

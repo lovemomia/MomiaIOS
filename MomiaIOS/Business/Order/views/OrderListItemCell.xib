@@ -90,53 +90,39 @@
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8gZ-ny-LaF">
-                        <rect key="frame" x="239" y="8" width="63" height="33"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tft-0X-E1e">
-                                <rect key="frame" x="10" y="2" width="43" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="actionBtnPressed:" destination="keo-D4-O3l" eventType="touchUpInside" id="FBo-lN-Rjt"/>
-                                </connections>
-                            </button>
-                        </subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tft-0X-E1e">
+                        <rect key="frame" x="229" y="10" width="68" height="29"/>
                         <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Tft-0X-E1e" firstAttribute="centerY" secondItem="8gZ-ny-LaF" secondAttribute="centerY" id="DMd-lW-t09"/>
-                            <constraint firstItem="Tft-0X-E1e" firstAttribute="leading" secondItem="8gZ-ny-LaF" secondAttribute="leading" constant="10" id="NcE-EO-WUd"/>
-                            <constraint firstItem="Tft-0X-E1e" firstAttribute="top" secondItem="8gZ-ny-LaF" secondAttribute="top" constant="2" id="RNg-TX-be8"/>
-                            <constraint firstAttribute="trailing" secondItem="Tft-0X-E1e" secondAttribute="trailing" constant="10" id="nFu-gw-6mc"/>
+                            <constraint firstAttribute="height" constant="29" id="0BW-3P-3aL"/>
+                            <constraint firstAttribute="width" constant="68" id="IVi-kn-CUc"/>
                         </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="退款中哈">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                <real key="value" value="3"/>
-                            </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="3"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                <color key="value" red="1" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <real key="value" value="4"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
-                    </view>
+                        <connections>
+                            <action selector="actionBtnPressed:" destination="keo-D4-O3l" eventType="touchUpInside" id="FBo-lN-Rjt"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="8gZ-ny-LaF" firstAttribute="centerY" secondItem="Ujh-OG-tFO" secondAttribute="centerY" id="0km-bT-uFU"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="8gZ-ny-LaF" secondAttribute="trailing" constant="10" id="3F9-mz-zKX"/>
                     <constraint firstItem="STB-gu-3UW" firstAttribute="centerY" secondItem="Ujh-OG-tFO" secondAttribute="centerY" id="3XC-EG-yte"/>
+                    <constraint firstItem="Tft-0X-E1e" firstAttribute="centerY" secondItem="Ujh-OG-tFO" secondAttribute="centerY" id="CWq-dW-ruX"/>
                     <constraint firstItem="YAa-IP-mdi" firstAttribute="leading" secondItem="STB-gu-3UW" secondAttribute="trailing" constant="19" id="Snz-VB-sHn"/>
                     <constraint firstAttribute="leadingMargin" secondItem="STB-gu-3UW" secondAttribute="leading" id="fp5-tu-59m"/>
                     <constraint firstItem="YAa-IP-mdi" firstAttribute="centerY" secondItem="Ujh-OG-tFO" secondAttribute="centerY" id="l3M-wZ-kVD"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Tft-0X-E1e" secondAttribute="trailing" constant="15" id="r4d-jM-pcT"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="actionBtn" destination="Tft-0X-E1e" id="k3b-09-8bl"/>
                 <outlet property="amount" destination="STB-gu-3UW" id="Wf4-eN-yC7"/>
-                <outlet property="backGroundView" destination="8gZ-ny-LaF" id="PWz-Wb-zYh"/>
                 <outlet property="totalFee" destination="YAa-IP-mdi" id="nXg-db-z8K"/>
             </connections>
             <point key="canvasLocation" x="244" y="439.5"/>

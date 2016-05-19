@@ -11,6 +11,7 @@
 #import "RefundTimeLineCell.h"
 #import "OrderDetailModel.h"
 #import "Order.h"
+#import "ApplyRefundViewController.h"
 
 static NSString* RefundTimeLineCellIdentifier = @"RefundTimeLineCellIdentifier";
 static NSString* RefundLableCellIdentifer = @"RefundLableCellIdentifer";
@@ -37,7 +38,6 @@ static NSString* RefundLableCellIdentifer = @"RefundLableCellIdentifer";
     
     [RefundTimeLineCell registerCellFromNibWithTableView:self.tableView withIdentifier:RefundTimeLineCellIdentifier];
     [RefundLabelCell registerCellFromNibWithTableView:self.tableView withIdentifier:RefundLableCellIdentifer];
-    
     [self requestData];
 }
 
@@ -75,7 +75,12 @@ static NSString* RefundLableCellIdentifer = @"RefundLableCellIdentifer";
                 break;
             default:
                 refundLabelCell.refundTextLabel.text = @"退回账户";
-                refundLabelCell.refundDetailTextLabel.text = @"支付账户";
+                if (order.payType.intValue == 1) {
+                    refundLabelCell.refundDetailTextLabel.text = @"支付宝账户";
+                } else if(order.payType.intValue == 2) {
+                    refundLabelCell.refundDetailTextLabel.text = @"微信账户";
+                }
+                
                 break;
         }
         cell = refundLabelCell;
@@ -100,8 +105,12 @@ static NSString* RefundLableCellIdentifer = @"RefundLableCellIdentifer";
                     break;
                 case 3:
                     [refundTimeLineCell.numberLabel setText:@"3"];
-                    [refundTimeLineCell.applyTitle setText:@"申请已提交"];
-                    [refundTimeLineCell.applyDetail setText:@"您的退款申请已成功提交"];
+                    [refundTimeLineCell.applyTitle setText:@"退款成功"];
+                    if (order.payType.intValue == 1) {
+                        [refundTimeLineCell.applyDetail setText:@"支付宝处理成功后，退款会原路返回您的账户，请注意查收。"];
+                    } else if(order.payType.intValue == 2) {
+                        [refundTimeLineCell.applyDetail setText:@"微信支付处理成功后，退款会原路返回您的账户，请注意查收。"];
+                    }
                     [refundTimeLineCell.bottomLine setHidden:YES];
                     break;
             }

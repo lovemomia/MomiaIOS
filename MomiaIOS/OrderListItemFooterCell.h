@@ -14,7 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *amount;
 @property (weak, nonatomic) IBOutlet UILabel *totalFee;
 @property (weak, nonatomic) IBOutlet UIButton *actionBtn;
-@property (weak, nonatomic) IBOutlet UIView *backGroundView;
 
 @property (nonatomic, strong) Order *order;
 

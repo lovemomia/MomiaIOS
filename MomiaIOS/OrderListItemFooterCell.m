@@ -17,18 +17,22 @@
     _amount.text = [NSString stringWithFormat:@"数量: %@",order.count];
     _totalFee.text = [NSString stringWithFormat:@"合计: ￥%@",order.totalFee];
     if ([order.status intValue] == 2) {
+        _actionBtn.hidden = NO;
         [_actionBtn setTitle:@"付款" forState:UIControlStateNormal];
-    } else if(order.status.intValue == 3 ){
+    } else if(order.status.intValue == 3 && order.canRefund.intValue == 1){
+        _actionBtn.hidden = NO;
         [_actionBtn setTitle:@"退款" forState:UIControlStateNormal];
     } else if (order.status.intValue == 5 ){
-        [_actionBtn setTitle:@"退款申请" forState:UIControlStateNormal];
+        _actionBtn.hidden = NO;
+        [_actionBtn setTitle:@"退款中" forState:UIControlStateNormal];
     } else if (order.status.intValue == 6 ) {
+        _actionBtn.hidden = NO;
         [_actionBtn setTitle:@"已退款" forState:UIControlStateNormal];
     } else if (order.status.intValue == 7 ) {
+        _actionBtn.hidden = NO;
         [_actionBtn setTitle:@"申请通过" forState:UIControlStateNormal];
     } else {
         _actionBtn.hidden = YES;
-        _backGroundView.hidden = YES;
     }
 }
 
