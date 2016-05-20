@@ -99,7 +99,7 @@ class CityListComponent extends React.Component {
       utoken: this.props._utoken,
       v: this.props._v
     };
-    HttpService.get('http://i.momia.cn/city?', params, (resp) => {
+    HttpService.get('http://i.momia.cn/city?', null, (resp) => {
       if (resp.errno == 0) {
         this.setState({
           isLoading: false,

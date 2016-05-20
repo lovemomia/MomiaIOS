@@ -19,29 +19,6 @@ class HttpService extends React.Component {
 	 * - get请求 -
 	 *
 	 *url :请求地址
-	 *callback:回调函数
-	 */
-	static get(url, callback) {
-		RNCommon.wrapUrl(url, (error, newUrl) => {
-			if (error) {
-				console.error(error);
-			} else {
-				console.log('Get: ' + newUrl);
-				fetch(newUrl)
-					.then((response) => response.json())
-					.then((responseData) => {
-						callback(responseData);
-					}).catch((error) => {
-						console.warn(error);
-					}).done();
-			}
-		})
-	}
-
-	/**
-	 * - get请求 -
-	 *
-	 *url :请求地址
 	 *params:参数(对象)
 	 *callback:回调函数
 	 */
