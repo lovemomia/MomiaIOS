@@ -20,6 +20,9 @@
 
 @end
 
+@implementation IndexRecommend
+@end
+
 @implementation IndexSubject
 
 + (JSONKeyMapper *)keyMapper {
