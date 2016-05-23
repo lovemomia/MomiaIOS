@@ -11,14 +11,8 @@
 #import "OrderListItemCell.h"
 #import "PostPersonModel.h"
 #import "PostOrderModel.h"
-#import "OrderListItemFooterCell.h"
 
 #define UserOrderPathURL URL_APPEND_PATH(@"/user/order"
-
-NS_ENUM(NSInteger,RowType){
-    RowTypeHeader = 0,
-    RowTypeFooter = 1,
-};
 
 @interface OrderListViewController()
 
@@ -29,6 +23,7 @@ NS_ENUM(NSInteger,RowType){
 @property (nonatomic, strong) NSNumber *nextIndex;
 @property (nonatomic, strong) AFHTTPRequestOperation* curOperation;
 @property (nonatomic, strong) OrderListModel* orderListModel;
+@property (nonatomic, assign) BOOL isRefresh;  //YES:刷新,NO:翻页
 
 @end
 
@@ -63,6 +58,7 @@ NS_ENUM(NSInteger,RowType){
     [super viewDidLoad];
     self.tableView.tableFooterView = [UIView new];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateOrderList) name:@"updateOrderList" object:nil];
+    [OrderListItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:@"OrderListItemCell"];
     [self requestData:YES];
 }
 
@@ -75,19 +71,22 @@ NS_ENUM(NSInteger,RowType){
     if (!orderListModel) {
         return;
     }
-    [self.orderList removeAllObjects];
-    if (orderListModel.data.list.count > 0) {
-        for (Order *order in orderListModel.data.list) {
-            MORowObject *rowHeaderObject = [[MORowObject alloc]init:RowTypeHeader data:order];
-            MORowObject *rowFooterObject = [[MORowObject alloc]init:RowTypeFooter data:order];
-            MOSectionObject *sectionObject = [[MOSectionObject alloc]init:order.status.integerValue data:@[rowHeaderObject,rowFooterObject]];
-            [self.orderList addObject:sectionObject];
+    if (self.isRefresh) { //刷新
+        [self.orderList removeAllObjects];
+        if (orderListModel.data.list.count > 0) {
+            for (Order *order in orderListModel.data.list) {
+                [self.orderList addObject:order];
+            }
         }
+    } else {
+        [self.orderList addObjectsFromArray:orderListModel.data.list];
     }
-    
 }
 
+//refresh YES:刷新 NO:翻页
 - (void)requestData:(BOOL)refresh {
+    
+    self.isRefresh = refresh;
     if(self.curOperation) {
         [self.curOperation pause];
     }
@@ -101,7 +100,7 @@ NS_ENUM(NSInteger,RowType){
         self.isLoading = NO;
         [self.view removeEmptyView];
     }
-    
+    self.isLoading = YES;
     NSString *type = self.status == 2 ? @"le" : @"ge";
     NSDictionary * paramDic = @{@"status":[NSString stringWithFormat:@"%d", (int)self.status],
                                 @"type":type, @"start":[NSString stringWithFormat:@"%@",self.nextIndex]
@@ -110,15 +109,9 @@ NS_ENUM(NSInteger,RowType){
                                               parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[OrderListModel class]
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                      self.isLoading = NO;
-                                                     [self.view removeLoadingBee];
                                                      self.orderListModel = (OrderListModel *)responseObject;
                                                      self.totalCount = self.orderListModel.data.totalCount;
-                                                     if (self.orderListModel.data.nextIndex) {
-                                                         self.nextIndex = self.orderListModel.data.nextIndex;
-                                                     } else {
-                                                         self.nextIndex = [NSNumber numberWithInt:-1];
-                                                     }
-                                                     [self.tableView reloadData];
+                                                     self.nextIndex = self.orderListModel.data.nextIndex;
                                                      if (self.orderListModel.data.totalCount == 0) {
                                                          if (self.status == 2) {
                                                              [self.view showEmptyView:@"您还没有待付款订单哦，\n快去逛一下吧~"];
@@ -129,6 +122,8 @@ NS_ENUM(NSInteger,RowType){
                                                          }
                                                          return;
                                                      }
+                                                     [self.view removeLoadingBee];
+                                                     [self.tableView reloadData];
                                                  }
                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                      [self showDialogWithTitle:nil message:error.message];
@@ -145,82 +140,52 @@ NS_ENUM(NSInteger,RowType){
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.row < self.orderList.count) {
-        MORowObject *rowObject = [self rowInIndexPath:indexPath];;
-        Order *order = rowObject.Data;
+        Order *order = [self.orderList objectAtIndex:indexPath.row];
         [self openURL:[NSString stringWithFormat:@"orderdetail?oid=%@", order.ids]];
     }
-    
+
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if (self.nextIndex && self.nextIndex > 0) {
+        return self.orderList.count + 1;
+    }
     return self.orderList.count;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MORowObject *rowObject = [self rowInIndexPath:indexPath];
-    Order *order = rowObject.Data;
-    OrderListItemCell *itemCell;
-    if (rowObject.Type == RowTypeHeader) {
-        
-        static NSString *CellOrderListItemHeader = @"CellOrderListItemHeader";
-        itemCell = [tableView dequeueReusableCellWithIdentifier:CellOrderListItemHeader];
-        if (itemCell == nil) {
-            NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"OrderListItemCell" owner:self options:nil];
-            itemCell = [arr objectAtIndex:0];
+    
+    UITableViewCell *cell;
+    if(indexPath.row == self.orderList.count) {
+        static NSString * loadIdentifier = @"CellLoading";
+        UITableViewCell * load = [tableView dequeueReusableCellWithIdentifier:loadIdentifier];
+        if(load == nil) {
+            load = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:loadIdentifier];
         }
-        [itemCell setData:order];
-    } else if (rowObject.Type ==RowTypeFooter) {
-        
-        static NSString *CellOrderListItemFooter = @"CellOrderListItemFooter";
-        itemCell = [tableView dequeueReusableCellWithIdentifier:CellOrderListItemFooter];
-        if (itemCell == nil) {
-            NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"OrderListItemCell" owner:self options:nil];
-            itemCell = [arr objectAtIndex:1];
-        }
-        [itemCell setData:order];
-    }
-    itemCell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return itemCell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MORowObject *rowObject = [self rowInIndexPath:indexPath];
-    if (rowObject.Type == RowTypeHeader) {
-        return 96;
-    }
-    return 36;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 50)];
-    if (section == self.orderList.count) {
-        [view showLoadingBee];
+        [load showLoadingBee];
+        cell = load;
         if(!self.isLoading) {
             [self requestData:NO];
             self.isLoading = YES;
         }
-        return view;
+    } else {
+        Order *order = [self.orderList objectAtIndex:indexPath.row];
+        OrderListItemCell *itemCell = [OrderListItemCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:@"OrderListItemCell"];
+        [itemCell setData:order];
+        itemCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell = itemCell;
     }
-    return view;
+    return cell;
 }
 
--(MORowObject *)rowInIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSInteger section = indexPath.section;
-    NSInteger row = indexPath.row;
-    MOSectionObject *sectionObject = self.orderList[section];
-    NSArray* array = sectionObject.Data;
-    MORowObject *rowObject = array[row];
-    return rowObject;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 10.f;
+    return 130;
 }
 
 @end
