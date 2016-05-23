@@ -23,6 +23,8 @@
 @property (nonatomic, strong) NSNumber *nextIndex;
 @property (nonatomic, strong) AFHTTPRequestOperation* curOperation;
 @property (nonatomic, strong) OrderListModel* orderListModel;
+@property (nonatomic, assign) BOOL continueLoading;
+@property (nonatomic, assign) NSInteger currentPage;
 
 @end
 
@@ -57,7 +59,8 @@
     [super viewDidLoad];
     self.tableView.tableFooterView = [UIView new];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateOrderList) name:@"updateOrderList" object:nil];
-    [self.tableView registerNib:[UINib nibWithNibName:@"OrderListItemCell" bundle:nil] forCellReuseIdentifier:@"just_test"];
+    [OrderListItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:@"OrderListItemCell"];
+    self.nextIndex = [NSNumber numberWithInteger:0];
     [self requestData:YES];
 }
 
@@ -79,6 +82,7 @@
     
 }
 
+//refresh YES:刷新 NO:翻页
 - (void)requestData:(BOOL)refresh {
     if(self.curOperation) {
         [self.curOperation pause];
@@ -93,7 +97,6 @@
         self.isLoading = NO;
         [self.view removeEmptyView];
     }
-    
     NSString *type = self.status == 2 ? @"le" : @"ge";
     NSDictionary * paramDic = @{@"status":[NSString stringWithFormat:@"%d", (int)self.status],
                                 @"type":type, @"start":[NSString stringWithFormat:@"%@",self.nextIndex]
@@ -102,13 +105,14 @@
                                               parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[OrderListModel class]
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                      self.isLoading = NO;
+                                                     self.continueLoading = NO;
                                                      [self.view removeLoadingBee];
                                                      self.orderListModel = (OrderListModel *)responseObject;
                                                      self.totalCount = self.orderListModel.data.totalCount;
                                                      if (self.orderListModel.data.nextIndex) {
                                                          self.nextIndex = self.orderListModel.data.nextIndex;
                                                      } else {
-                                                         self.nextIndex = [NSNumber numberWithInt:-1];
+                                                         self.nextIndex = [NSNumber numberWithInt:0];
                                                      }
                                                      [self.tableView reloadData];
                                                      if (self.orderListModel.data.totalCount == 0) {
@@ -140,46 +144,49 @@
         Order *order = [self.orderList objectAtIndex:indexPath.row];
         [self openURL:[NSString stringWithFormat:@"orderdetail?oid=%@", order.ids]];
     }
-    
+
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    
+    if(self.orderList.count && self.orderList.count >= self.currentPage * 4)
+        return self.orderList.count + 1;
+    else
+        return self.orderList.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.orderList.count;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Order *order = [self.orderList objectAtIndex:indexPath.row];
-    OrderListItemCell *itemCell = [self.tableView dequeueReusableCellWithIdentifier:@"just_test" forIndexPath:indexPath];
-    [itemCell setData:order];
-    itemCell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return itemCell;
+    
+    UITableViewCell *cell;
+    if(indexPath.row == self.orderList.count) {
+        static NSString * loadIdentifier = @"CellLoading";
+        UITableViewCell * load = [tableView dequeueReusableCellWithIdentifier:loadIdentifier];
+        if(load == nil) {
+            load = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:loadIdentifier];
+        }
+        [load showLoadingBee];
+        cell = load;
+        if (self.continueLoading) {
+            [self requestData:NO];
+        }
+    } else {
+        Order *order = [self.orderList objectAtIndex:indexPath.row];
+        OrderListItemCell *itemCell = [OrderListItemCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:@"OrderListItemCell"];
+        [itemCell setData:order];
+        itemCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell = itemCell;
+    }
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     return 130;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 50)];
-    if (section == self.orderList.count) {
-        [view showLoadingBee];
-        if(!self.isLoading) {
-            [self requestData:NO];
-            self.isLoading = YES;
-        }
-        return view;
-    }
-    return view;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 10.f;
 }
 
 @end
