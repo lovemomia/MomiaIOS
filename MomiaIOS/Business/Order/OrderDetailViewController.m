@@ -11,7 +11,6 @@
 #import "PostOrderModel.h"
 #import "OrderListItemCell.h"
 #import "CourseSectionTitleCell.h"
-#import "OrderListItemFooterCell.h"
 
 static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
 
@@ -36,7 +35,7 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
     self.navigationItem.title = @"订单详情";
     
     [CourseSectionTitleCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierCourseSectionTitleCell];
-    
+    [OrderListItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:@"OrderListItemCell"];
     [self requestData];
 }
 
@@ -89,12 +88,12 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
     if (self.model) {
         return 2;
     }
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 2;
+        return 1;
     } else {
         return 5;
     }
@@ -103,28 +102,9 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
     if (indexPath.section == 0) {
-        if (indexPath.row == 1) {
-            
-            static NSString *CellOrderListItem = @"CellOrderListItemFooter";
-            cell = [tableView dequeueReusableCellWithIdentifier:CellOrderListItem];
-            if (cell == nil) {
-                NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"OrderListItemCell" owner:self options:nil];
-                OrderListItemFooterCell *itemCell = [arr objectAtIndex:1];
-                [itemCell setData:self.model.data];
-                cell = itemCell;
-            }
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            return cell;
-        }
-        static NSString *Cell_Order_List_Item = @"CellOrderListItem";
-        cell = [tableView dequeueReusableCellWithIdentifier:Cell_Order_List_Item];
-        if (cell == nil) {
-            NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"OrderListItemCell" owner:self options:nil];
-            OrderListItemCell *itemCell = [arr objectAtIndex:0];
-            cell = itemCell;
-        }
-        [(OrderListItemCell *)cell setData:self.model.data];
-        
+        OrderListItemCell *itemCell = [OrderListItemCell cellWithTableView:self.tableView forIndexPath:indexPath withIdentifier:@"OrderListItemCell"];
+        [itemCell setData:self.model.data];
+        cell = itemCell;
     }  else if(indexPath.section == 1 ) {
         if (indexPath.row == 0) {
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellDefault"];
@@ -155,16 +135,11 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return 88;
-    } else {
-        if (indexPath.row == 0) {
-            return [CourseSectionTitleCell heightWithTableView:tableView withIdentifier:identifierCourseSectionTitleCell forIndexPath:indexPath data:nil];
-        } else {
-            return 40;
-        }
+        return 130;
     }
+    return 44;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -173,27 +148,6 @@ static NSString *identifierCourseSectionTitleCell = @"CourseSectionTitleCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 10.f;
-}
-
-- (void)onActionBtnClicked {
-    Order *order = self.model.data;
-    if ([order.status intValue] == 2) {
-        PostOrderModel *po = [PostOrderModel new];
-        
-        PostOrderData *data = [PostOrderData new];
-        data.orderId = [order.ids integerValue];
-        data.count = [order.count integerValue];
-        data.totalFee = [order.totalFee floatValue];
-        
-        po.data = data;
-        po.errNo = 0;
-        po.errMsg = @"";
-        po.timestamp = 0;
-        
-        [self openURL:[NSString stringWithFormat:@"cashpay?pom=%@",
-                       [[po toJSONString] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
-        
-    }
 }
 
 @end
