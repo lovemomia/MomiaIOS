@@ -468,7 +468,7 @@
 		<key>needlogin</key>
 		<true/>
 		<key>controller</key>
-		<string>RefundDetailViewController</string>
+		<string>RefundInfoViewController</string>
 	</dict>
 	<key>applyrefund</key>
 	<dict>

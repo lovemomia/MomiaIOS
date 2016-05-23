@@ -7,7 +7,6 @@
 //
 
 #import "ApplyRefundViewController.h"
-#import "RefundDetailViewController.h"
 #import "CheckBoxCell.h"
 #import "CommonHeaderView.h"
 #import "OrderDetailModel.h"
@@ -33,8 +32,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"申请退款";
-    [self setUpRefundBtn];
-    
     
     [CommonHeaderView registerCellFromNibWithTableView:self.tableView];
     [self.tableView registerNib:[UINib nibWithNibName:@"CheckBoxCell" bundle:nil] forCellReuseIdentifier:@"CheckBoxCell"];
@@ -62,7 +59,7 @@
     button.top = 10;
     [button setTitle:@"确认退款" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(onRefundBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(commitRefund) forControlEvents:UIControlEventTouchUpInside];
     button.backgroundColor = MO_APP_ThemeColor;
     
 }
@@ -99,6 +96,7 @@
                       JSONModelClass:[OrderDetailModel class]
                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                  [self.view removeLoadingBee];
+                                 [self setUpRefundBtn];
                                  self.model = responseObject;
                                  [self.tableView reloadData];
                              }
@@ -113,7 +111,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 40;
 }
-//section 头部
+
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *header;
     header = [CommonHeaderView cellWithTableView:self.tableView];
@@ -174,7 +172,7 @@
                                  
                                  [self.navigationController popViewControllerAnimated:NO];
                                  [[NSNotificationCenter defaultCenter]postNotificationName:@"updateOrderList" object:nil];
-                                 [self openURL:[NSString stringWithFormat:@"refunddetail?oid=%@&source=ApplyRefund",self.oid]];
+                                 [self openURL:[NSString stringWithFormat:@"refunddetail?oid=%@",self.oid]];
                              }
      
                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -189,11 +187,6 @@
         self.selectRefundReasonIndex = indexPath.row;
         [self.tableView reloadData];
     }
-}
-
--(void)onRefundBtnClicked{
-    
-    [self commitRefund];
 }
 
 @end

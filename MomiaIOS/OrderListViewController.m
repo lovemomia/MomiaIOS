@@ -25,6 +25,8 @@ NS_ENUM(NSInteger,RowType){
 @property (nonatomic, assign) NSInteger status;
 @property (nonatomic, strong) NSMutableArray* orderList;
 @property (nonatomic, assign) BOOL isLoading;
+@property (nonatomic, assign) NSInteger totalCount;
+@property (nonatomic, strong) NSNumber *nextIndex;
 @property (nonatomic, strong) AFHTTPRequestOperation* curOperation;
 @property (nonatomic, strong) OrderListModel* orderListModel;
 
@@ -59,13 +61,13 @@ NS_ENUM(NSInteger,RowType){
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.tableFooterView = [[UIView alloc]init];
+    self.tableView.tableFooterView = [UIView new];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateOrderList) name:@"updateOrderList" object:nil];
-    [self requestData:0 count:20];
+    [self requestData:YES];
 }
 
 -(void)updateOrderList {
-    [self requestData:0 count:20];
+    [self requestData:YES];
 }
 
 -(void)setOrderListModel:(OrderListModel *)orderListModel{
@@ -85,7 +87,7 @@ NS_ENUM(NSInteger,RowType){
     
 }
 
-- (void)requestData:(NSInteger)page count:(NSInteger)count {
+- (void)requestData:(BOOL)refresh {
     if(self.curOperation) {
         [self.curOperation pause];
     }
@@ -94,23 +96,46 @@ NS_ENUM(NSInteger,RowType){
         [self.view showLoadingBee];
     }
     
+    if (refresh) {
+        self.nextIndex = [NSNumber numberWithInt:0];
+        self.isLoading = NO;
+        [self.view removeEmptyView];
+    }
+    
     NSString *type = self.status == 2 ? @"le" : @"ge";
     NSDictionary * paramDic = @{@"status":[NSString stringWithFormat:@"%d", (int)self.status],
-                                @"type":type, @"start":[NSString stringWithFormat:@"%d",(int)page],
-                                @"count":[NSNumber numberWithInt:(int)count]};
+                                @"type":type, @"start":[NSString stringWithFormat:@"%@",self.nextIndex]
+                                };
     self.curOperation = [[HttpService defaultService]GET:UserOrderPathURL)
                                               parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[OrderListModel class]
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                     self.isLoading = NO;
                                                      [self.view removeLoadingBee];
                                                      self.orderListModel = (OrderListModel *)responseObject;
+                                                     self.totalCount = self.orderListModel.data.totalCount;
+                                                     if (self.orderListModel.data.nextIndex) {
+                                                         self.nextIndex = self.orderListModel.data.nextIndex;
+                                                     } else {
+                                                         self.nextIndex = [NSNumber numberWithInt:-1];
+                                                     }
                                                      [self.tableView reloadData];
-                                                     self.isLoading = NO;
+                                                     if (self.orderListModel.data.totalCount == 0) {
+                                                         if (self.status == 2) {
+                                                             [self.view showEmptyView:@"您还没有待付款订单哦，\n快去逛一下吧~"];
+                                                         } else if (self.status == 3) {
+                                                             [self.view showEmptyView:@"您还没有已付款订单哦，\n快去逛一下吧~"];
+                                                         } else {
+                                                             [self.view showEmptyView:@"订单列表为空"];
+                                                         }
+                                                         return;
+                                                     }
                                                  }
                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                      [self showDialogWithTitle:nil message:error.message];
                                                      self.isLoading = NO;
                                                  }];
 }
+
 
 - (UITableViewCellSeparatorStyle)tableViewCellSeparatorStyle {
     return UITableViewCellSeparatorStyleSingleLine;
@@ -169,6 +194,19 @@ NS_ENUM(NSInteger,RowType){
         return 96;
     }
     return 36;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 50)];
+    if (section == self.orderList.count) {
+        [view showLoadingBee];
+        if(!self.isLoading) {
+            [self requestData:NO];
+            self.isLoading = YES;
+        }
+        return view;
+    }
+    return view;
 }
 
 -(MORowObject *)rowInIndexPath:(NSIndexPath *)indexPath{

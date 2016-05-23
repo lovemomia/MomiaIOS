@@ -44,8 +44,8 @@
 		00E9566F1CDB200100FD7124 /* CheckBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E9566C1CDB200100FD7124 /* CheckBoxCell.m */; };
 		00E956701CDB200100FD7124 /* CheckBoxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00E9566D1CDB200100FD7124 /* CheckBoxCell.xib */; };
 		00E956711CDB200100FD7124 /* CheckBoxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00E9566D1CDB200100FD7124 /* CheckBoxCell.xib */; };
-		00EFAFB31CC9CF4C0059E444 /* RefundDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EFAFB21CC9CF4C0059E444 /* RefundDetailViewController.m */; };
-		00EFAFB41CC9CF4C0059E444 /* RefundDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EFAFB21CC9CF4C0059E444 /* RefundDetailViewController.m */; };
+		00EFAFB31CC9CF4C0059E444 /* RefundInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EFAFB21CC9CF4C0059E444 /* RefundInfoViewController.m */; };
+		00EFAFB41CC9CF4C0059E444 /* RefundInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EFAFB21CC9CF4C0059E444 /* RefundInfoViewController.m */; };
 		4CA5D72228DAAA226950866E /* libPods-MomiaIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A48F417781FBC604CC6405D0 /* libPods-MomiaIOS.a */; };
 		581F3BAF56DB9B8ABD7DF661 /* libPods-MomiaIOS DEBUG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2153D5D15EE0AABB09D248BD /* libPods-MomiaIOS DEBUG.a */; };
 		5A08C14A1B3911CA00642648 /* ProductDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C1491B3911CA00642648 /* ProductDetailModel.m */; };
@@ -907,8 +907,8 @@
 		00E9566B1CDB200100FD7124 /* CheckBoxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBoxCell.h; sourceTree = "<group>"; };
 		00E9566C1CDB200100FD7124 /* CheckBoxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckBoxCell.m; sourceTree = "<group>"; };
 		00E9566D1CDB200100FD7124 /* CheckBoxCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckBoxCell.xib; sourceTree = "<group>"; };
-		00EFAFB11CC9CF4C0059E444 /* RefundDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefundDetailViewController.h; sourceTree = "<group>"; };
-		00EFAFB21CC9CF4C0059E444 /* RefundDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefundDetailViewController.m; sourceTree = "<group>"; };
+		00EFAFB11CC9CF4C0059E444 /* RefundInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefundInfoViewController.h; sourceTree = "<group>"; };
+		00EFAFB21CC9CF4C0059E444 /* RefundInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefundInfoViewController.m; sourceTree = "<group>"; };
 		2153D5D15EE0AABB09D248BD /* libPods-MomiaIOS DEBUG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MomiaIOS DEBUG.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59DC716E634E10FD34964389 /* Pods-MomiaIOS DEBUG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MomiaIOS DEBUG.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MomiaIOS DEBUG/Pods-MomiaIOS DEBUG.debug.xcconfig"; sourceTree = "<group>"; };
 		5A08C1481B3911CA00642648 /* ProductDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailModel.h; sourceTree = "<group>"; };
@@ -1884,8 +1884,8 @@
 				BC0D44561C0551160007E9ED /* OrderDetailViewController.m */,
 				0035B74E1CC8CE5200F5EAEF /* ApplyRefundViewController.h */,
 				0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */,
-				00EFAFB11CC9CF4C0059E444 /* RefundDetailViewController.h */,
-				00EFAFB21CC9CF4C0059E444 /* RefundDetailViewController.m */,
+				00EFAFB11CC9CF4C0059E444 /* RefundInfoViewController.h */,
+				00EFAFB21CC9CF4C0059E444 /* RefundInfoViewController.m */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -3912,7 +3912,7 @@
 				BC592BC31BD4C55F008AE76A /* BookingSubjectListModel.m in Sources */,
 				5AA9B8251B416CDB00265C67 /* UpdatePersonModel.m in Sources */,
 				BCF74AC41BEB5C8C00138C2C /* ReviewListModel.m in Sources */,
-				00EFAFB31CC9CF4C0059E444 /* RefundDetailViewController.m in Sources */,
+				00EFAFB31CC9CF4C0059E444 /* RefundInfoViewController.m in Sources */,
 				5A1B35F31B12BE2400E1D31B /* SendCommentView.m in Sources */,
 				5A8EF0401B31A4A2003ABAF8 /* NSString+MOAttribuedString.m in Sources */,
 				BC41ABAD1B0C7ABF00A419DA /* UploadImageModel.m in Sources */,
@@ -4095,7 +4095,7 @@
 				BCEAFC621C2A394300CB082D /* AddFeedContentCell.m in Sources */,
 				BCEAFC631C2A394300CB082D /* MOStepperGroup.m in Sources */,
 				BCEAFC641C2A394300CB082D /* MineViewController.m in Sources */,
-				00EFAFB41CC9CF4C0059E444 /* RefundDetailViewController.m in Sources */,
+				00EFAFB41CC9CF4C0059E444 /* RefundInfoViewController.m in Sources */,
 				BCEAFC661C2A394300CB082D /* CommentViewController.m in Sources */,
 				BCEAFC671C2A394300CB082D /* NSURL+MOURL.m in Sources */,
 				BCEAFC681C2A394300CB082D /* ChatLocationPickerViewController.m in Sources */,

@@ -49,6 +49,18 @@
 @property (nonatomic, strong) NSString *subTitle;
 @end
 
+@interface IndexRecommend : JSONModel
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *cover;
+@property (nonatomic, strong) NSString *desc;
+@property (nonatomic, strong) NSString *action;
+@end
+
+
+
+@protocol IndexRecommend
+@end
+
 @protocol IndexBanner
 @end
 
@@ -59,11 +71,9 @@
 @end
 
 @protocol IndexSubject
-
 @end
 
 @protocol IndexTopic
-
 @end
 
 @interface IndexData : JSONModel
@@ -72,6 +82,7 @@
 @property (nonatomic, strong) NSArray<IndexEvent> *events;
 @property (nonatomic, strong) NSArray<IndexSubject> *subjects;
 @property (nonatomic, strong) NSArray<IndexTopic, Optional> *topics;
+@property (nonatomic, strong) NSArray<IndexRecommend> *recommends;
 @property (nonatomic, strong) CourseList *courses;
 @end
 

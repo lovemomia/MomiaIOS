@@ -6,24 +6,23 @@
 //  Copyright © 2016年 Deng Jun. All rights reserved.
 //
 
-#import "RefundDetailViewController.h"
+#import "RefundInfoViewController.h"
 #import "RefundLabelCell.h"
 #import "RefundTimeLineCell.h"
 #import "OrderDetailModel.h"
 #import "Order.h"
-#import "ApplyRefundViewController.h"
 
 static NSString* RefundTimeLineCellIdentifier = @"RefundTimeLineCellIdentifier";
 static NSString* RefundLableCellIdentifer = @"RefundLableCellIdentifer";
 
-@interface RefundDetailViewController ()
+@interface RefundInfoViewController ()
 
 @property (nonatomic, strong) NSNumber *oid;
 @property (nonatomic, strong) OrderDetailModel *model;
 
 @end
 
-@implementation RefundDetailViewController
+@implementation RefundInfoViewController
 
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {

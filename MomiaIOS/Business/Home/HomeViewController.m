@@ -39,6 +39,7 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
     HomeViewCellTypeSubject = 4,
     HomeViewCellTypeTopic = 5,
     HomeViewCellTypeCourse = 6,
+    HomeViewCellTypeRecommand = 7,
 };
 
 @interface CellItem : NSObject
@@ -264,6 +265,9 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
         for (int i = 0; i < model.data.courses.list.count; i++) {
             [self.dataArray addObject:[[CellItem alloc]init:HomeViewCellTypeCourse obj:model.data.courses.list[i]]];
         }
+        for (int i = 0; i < model.data.recommends.count; i++){
+            [self.dataArray addObject:[[CellItem alloc]init:HomeViewCellTypeRecommand obj:model.data.recommends[i]]];
+        }
     }
 }
 
@@ -324,9 +328,11 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
         case HomeViewCellTypeTopic:
             return [HomeTopicCell heightWithTableView:tableView withIdentifier:homeTopicCellIdentifier forIndexPath:indexPath data:item.object];
             break;
-        default:
-            return [HomeCell heightWithTableView:tableView withIdentifier:homeIdentifier forIndexPath:indexPath data:item.object];
+        case HomeViewCellTypeRecommand:
+            return SCREEN_WIDTH * 180 / 320;
             break;
+            default:
+            return [HomeCell heightWithTableView:tableView withIdentifier:homeIdentifier forIndexPath:indexPath data:item.object];
     }
 }
 
@@ -372,6 +378,9 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
         home.data = item.object;
         return home;
 
+    } else if (item.itemType == HomeViewCellTypeRecommand) {
+        HomeSubjectCoverCell *subjectCover = [HomeSubjectCoverCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeSubjectCoverCellIdentifier];
+        return subjectCover;
     }
     
     if (self.isError) {
