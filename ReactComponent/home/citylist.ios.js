@@ -126,7 +126,7 @@ class CityListComponent extends React.Component {
 
   renderRow(rowData, sectionID, rowID) {
     return (
-      <TouchableHighlight onPress={() => this.rowPressed(rowData)}
+      <TouchableHighlight onPress={() => this._rowPressed(rowData)}
         underlayColor='#dddddd'>
       <View>
         <View style={styles.rowContainer}>
@@ -139,7 +139,7 @@ class CityListComponent extends React.Component {
     );
   }
 
-  rowPressed(data) {
+  _rowPressed(data) {
     RNCommon.setChoosedCity(data);
     RNCommon.dismissViewControllerAnimated(true);
   }

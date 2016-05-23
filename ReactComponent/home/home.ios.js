@@ -123,10 +123,10 @@ class HomeComponent extends React.Component {
     }
 
     //event
-    if (data.hasOwnProperty('events') && data.events.length > 0) {
+    if (data.hasOwnProperty('events') && data.events.length == 2) {
       typeList.push({
         type: 2,
-        data: data.events
+        data: data //注意：这里直接把整个data设置进去
       });
     }
 
@@ -144,7 +144,7 @@ class HomeComponent extends React.Component {
         if (data.hasOwnProperty('topics') && i < data.topics.length) {
           typeList.push({
             type: 5,
-            data: data.subjects[i]
+            data: data.topics[i]
           });
         }
       }
@@ -171,18 +171,31 @@ class HomeComponent extends React.Component {
   }
 
   renderRow(rowData, sectionID, rowID) {
+    var rowView;
     if (rowData.type == 1) {
-      return this._renderBannelsView(rowData.data);
+      rowView = this._renderBannelsView(rowData.data);
 
     } else if (rowData.type == 2) {
-      return this._renderEventView(rowData.data);
+      rowView = this._renderEventView(rowData.data);
+
     } else if (rowData.type == 3) {
-      return this._renderSubjectCoverView(rowData.data);
+      rowView = <TouchableHighlight onPress={() => this._rowPressed(rowData)}
+        underlayColor='#dddddd'>{this._renderSubjectCoverView(rowData.data)}</TouchableHighlight>
+
     } else if (rowData.type == 4) {
-      return this._renderSubjectView(rowData.data);
+      rowView = this._renderSubjectView(rowData.data)
+
+    } else if (rowData.type == 5) {
+      rowView = <TouchableHighlight onPress={() => this._rowPressed(rowData)}
+        underlayColor='#dddddd'>{this._renderTopicView(rowData.data)}</TouchableHighlight>
+
+    } else if (rowData.type == 6) {
+      rowView = <TouchableHighlight onPress={() => this._rowPressed(rowData)}
+        underlayColor='#dddddd'>{this._renderRecommendView(rowData.data)}</TouchableHighlight>
     }
-    return <Text style={styles.menu} 
-                  numberOfLines={1}>haha</Text>
+
+    return rowView == null ? <Text style={styles.menu} 
+                  numberOfLines={1}></Text> : rowView
   }
 
   _renderBannelsView(banners) {
@@ -191,16 +204,51 @@ class HomeComponent extends React.Component {
     return <View style={styles.wrapper}><Swiper style={styles.wrapper} height={(Dimensions.get('window').width * 180 / 320)}
     showsButtons={false} autoplay={true} dot={dot} activeDot={activeDot} loop={true}>
         {banners.map(function(val, index){
-          return <Image style={{flex: 1, backgroundColor:'#000000'}} source={{uri:banners[index].cover}}/>
+          return <TouchableHighlight style={{flex:1}} onPress={() => {Linking.openURL(banners[index].action)}} underlayColor='#ffffff'>
+          <Image style={{flex: 1, backgroundColor:'#000000'}} source={{uri:banners[index].cover}}/></TouchableHighlight>
         })}
       </Swiper>
       <View style={styles.separator}/>
-        <View style={styles.footer}/></View>
+      <View style={styles.footer}/></View>
   }
 
-  _renderEventView(events) {
-    return <Text style={styles.menu} 
-                  numberOfLines={1}>haha</Text>
+  _renderEventView(data) {
+    var events = data.events;
+    var eventsTitle = data.eventsTitle;
+    return <View style={styles.subject}>
+        <View style={styles.subject_title}>
+          <Image style={{width: 12, height: 4}} source={{uri:'IconWave'}}/>
+          <Text style={{fontSize: 15, color: '#333333',paddingLeft:5,paddingRight:5}} numberOfLines={1}>{eventsTitle}</Text>
+          <Image style={{width: 12, height: 4}} source={{uri:'IconWave'}}/>
+        </View>
+        <View style={{flexDirection:'row'}}>
+          <TouchableHighlight style={{flex:1}} onPress={() => {Linking.openURL(events[0].action)}} underlayColor='#ffffff'>
+            <View style={{flex:1, padding:10, flexDirection:'row', alignItems:'center'}}>
+              <View style={{flex:1}}>
+                 <Text style={{fontSize: 14, color: '#333333'}} 
+                  numberOfLines={1}>{events[0].title}</Text>
+                 <Text style={{fontSize: 11, color: '#F67531', paddingTop:5}}
+                  numberOfLines={1}>{events[0].desc}</Text>
+              </View>
+              <Image style={{width: 50, height: 50, borderRadius: 25}} source={{uri:events[0].img}}/>
+            </View>
+          </TouchableHighlight>
+          <View style={{width:1, backgroundColor:'#EEEEEE', marginBottom:10}}/>
+          <TouchableHighlight style={{flex:1}} onPress={() => {Linking.openURL(events[1].action)}} underlayColor='#ffffff'>
+            <View style={{flex:1, padding:10, flexDirection:'row', alignItems:'center'}}>
+              <View style={{flex:1}}>
+                 <Text style={{fontSize: 14, color: '#333333'}} 
+                  numberOfLines={1}>{events[1].title}</Text>
+                 <Text style={{fontSize: 11, color: '#00C49D', paddingTop:5}}
+                  numberOfLines={1}>{events[1].desc}</Text>
+              </View>
+              <Image style={{width: 50, height: 50, borderRadius: 25}} source={{uri:events[1].img}}/>
+            </View>
+          </TouchableHighlight>
+        </View>
+        <View style = {styles.separator}/>
+        <View style={styles.footer}/>
+    </View>
   }
 
   _renderSubjectCoverView(subject) {
@@ -212,22 +260,24 @@ class HomeComponent extends React.Component {
   _renderSubjectView(subject) {
     return <View style={styles.subject}>
         <View style={styles.subject_title}>
-            <Image style={{width: 12, height: 4}} source={{uri:'IconWave'}}/>
-            <Text style={{fontSize: 15, color: '#333333',paddingLeft:5,paddingRight:5}} numberOfLines={1}>{subject.coursesTitle}</Text>
-            <Image style={{width: 12, height: 4}} source={{uri:'IconWave'}}/>
+          <Image style={{width: 12, height: 4}} source={{uri:'IconWave'}}/>
+          <Text style={{fontSize: 15, color: '#333333',paddingLeft:5,paddingRight:5}} numberOfLines={1}>{subject.coursesTitle}</Text>
+          <Image style={{width: 12, height: 4}} source={{uri:'IconWave'}}/>
         </View>
         <View style={{flexDirection:'row'}}>
         {
           subject.courses.map(function(val, index){
-        return <View style={{flex:1, alignItems:'center'}}>
+        return <TouchableHighlight style={{flex:1, alignItems:'center'}} 
+        onPress={() => {RNCommon.openUrl('coursedetail?id='+subject.courses[index].id)}} underlayColor='#ffffff'>
+            <View style={{flex:1, alignItems:'center'}}>
                  <Image style={{width: 80, height: 80, borderRadius: 40}} source={{uri:subject.courses[index].cover}}/>
                  <Text style={{fontSize: 14, color: '#333333', paddingTop:10}} 
                   numberOfLines={1}>{subject.courses[index].keyWord}</Text>
-                  <Text style={{fontSize: 12, color: '#FF6633', paddingTop:5}}
+                 <Text style={{fontSize: 12, color: '#FF6633', paddingTop:5}}
                   numberOfLines={1}>{subject.courses[index].age}</Text>
-                  <Text style={{fontSize: 12, color: '#999999', paddingTop:5, paddingBottom:10}}
+                 <Text style={{fontSize: 12, color: '#999999', paddingTop:5, paddingBottom:10}}
                   numberOfLines={1}>{subject.courses[index].feature}</Text>
-            </View>
+            </View></TouchableHighlight>
           })
         }</View>
         <View style = {styles.separator}/>
@@ -235,9 +285,42 @@ class HomeComponent extends React.Component {
     </View>
   }
 
-  rowPressed(data) {
-    RNCommon.setChoosedCity(data);
-    RNCommon.dismissViewControllerAnimated(true);
+  _renderTopicView(topic) {
+    return <View style={styles.subject}>
+        <View style={{paddingTop: 20, paddingBottom: 20, alignItems: 'center', justifyContent: 'center',}}>
+          <Image style={{width: 43, height: 26}} source={{uri:'IconTopic'}}/>
+          <Text style={{fontSize: 15, color: '#333333', paddingTop:10}} numberOfLines={1}>{topic.title}</Text>
+          <View style={{paddingTop: 10, paddingBottom: 10, alignItems: 'center', justifyContent: 'center', flexDirection: 'row'}}>
+          <View style={{width: 30, height: 1, backgroundColor:'#EEEEEE'}}/>
+            <Text style={{fontSize: 13, color: '#999999',paddingLeft:10,paddingRight:10}} numberOfLines={1}>{topic.subTitle}</Text>
+            <View style={{width: 30, height: 1, backgroundColor:'#EEEEEE'}}/>
+          </View>
+          <Image style={{width: 35, height: 33}} source={{uri:'IconSongguo'}}/>
+          <View style={{borderRadius:3, borderWidth:1, marginTop:10}}>
+            <Text style={{fontSize: 13, color: '#333333', padding:3}} numberOfLines={1}>{topic.joined}人在讨论</Text>
+          </View>
+        </View>
+        <View style = {styles.separator}/>
+        <View style={styles.footer}/>
+      </View>
+  }
+
+  _renderRecommendView(recommend) {
+    return <View style={styles.subject_cover}><Image style={{flex:1}} source={{uri:recommend.cover}}/>
+        <View style={styles.separator}/>
+        <View style={styles.footer}/>
+    </View>
+  }
+
+  _rowPressed(rowData) {
+    if (rowData.type == 3) {
+      RNCommon.openUrl('subjectdetail?id=' + rowData.data.id);
+    } else if (rowData.type == 5) {
+      var url = 'http://' + (this.props._debug == '0' ? 'm.sogokids.com' : 'm.momia.cn' + '/discuss/topic?id=' + rowData.data.id);
+      RNCommon.openUrl('web?url=' + encodeURIComponent(url));
+    } else if (rowData.type == 6) {
+      Linking.openURL(rowData.data.action);
+    }
   }
 
 }

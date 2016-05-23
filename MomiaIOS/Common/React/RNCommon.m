@@ -16,13 +16,19 @@
 RCT_EXPORT_MODULE();
 
 #pragma mark -
-#pragma mark Base utils
+#pragma mark 页面操作相关
 
 RCT_EXPORT_METHOD(dismissViewControllerAnimated:(BOOL)flag)
 {
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [delegate.root dismissViewControllerAnimated:YES completion:nil];
-    NSLog(@"dismissViewControllerAnimated");
+}
+
+//通过url调起页面（注意：url不要包含scheme）
+RCT_EXPORT_METHOD(openUrl:(NSString *)url)
+{
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:MOURL_STRING(url)]];
+    NSLog(@"RN openUrl: %@", url);
 }
 
 //设置当前选择城市
@@ -219,6 +225,8 @@ RCT_EXPORT_METHOD(wrapUrl:(NSString *)urlStr callback:(RCTResponseSenderBlock)ca
     if ([[AccountService defaultService] isLogin]) {
         [dic setObject:[AccountService defaultService].account.token forKey:@"_utoken"];
     }
+    //运行环境
+    [dic setObject:MO_DEBUG ? @"1" : @"0" forKey:@"_debug"];
     // app版本
     [dic setObject:MO_APP_VERSION forKey:@"_v"];
     // 终端类型

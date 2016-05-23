@@ -86,7 +86,7 @@ class AboutComponent extends React.Component {
 
   renderRow(rowData, sectionID, rowID) {
     return (
-      <TouchableHighlight onPress={() => this.rowPressed(rowData.index)}
+      <TouchableHighlight onPress={() => this._rowPressed(rowData.index)}
         underlayColor='#dddddd'>
       <View>
         <View style={styles.rowContainer}>
@@ -99,7 +99,7 @@ class AboutComponent extends React.Component {
     );
   }
 
-  rowPressed(index) {
+  _rowPressed(index) {
     if (index == 0) {
       Linking.openURL('https://itunes.apple.com/cn/app/apple-store/id1019473117?mt=8');
     } else if (index == 1) {

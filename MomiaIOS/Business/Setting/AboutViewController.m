@@ -21,16 +21,16 @@
     
     self.navigationItem.title = @"关于我们";
     
-    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/setting/about.ios.bundle?platform=ios"];
-    // For production use, this `NSURL` could instead point to a pre-bundled file on disk: //
-    // NSURL *jsCodeLocation = [[NSBundle mainBundle]            URLForResource:@"main" withExtension:@"jsbundle"]; //
-    // To generate that file, run the curl command and add the output to your main Xcode build target: //
-    // curl http://localhost:8081/index.ios.bundle -o main.jsbundle
-    
-    NSDictionary *props = @{@"version" : MO_APP_VERSION};
-    RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation moduleName: @"AboutComponent" initialProperties:props launchOptions:nil];
-    rootView.frame = self.view.bounds;
-    [self.view addSubview:rootView];
+//    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/setting/about.ios.bundle?platform=ios"];
+//    // For production use, this `NSURL` could instead point to a pre-bundled file on disk: //
+//    // NSURL *jsCodeLocation = [[NSBundle mainBundle]            URLForResource:@"main" withExtension:@"jsbundle"]; //
+//    // To generate that file, run the curl command and add the output to your main Xcode build target: //
+//    // curl http://localhost:8081/index.ios.bundle -o main.jsbundle
+//    
+//    NSDictionary *props = @{@"version" : MO_APP_VERSION};
+//    RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation moduleName: @"AboutComponent" initialProperties:props launchOptions:nil];
+//    rootView.frame = self.view.bounds;
+//    [self.view addSubview:rootView];
 }
 
 - (void)didReceiveMemoryWarning {
