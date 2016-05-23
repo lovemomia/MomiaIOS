@@ -23,8 +23,7 @@
 @property (nonatomic, strong) NSNumber *nextIndex;
 @property (nonatomic, strong) AFHTTPRequestOperation* curOperation;
 @property (nonatomic, strong) OrderListModel* orderListModel;
-@property (nonatomic, assign) BOOL continueLoading;
-@property (nonatomic, assign) NSInteger currentPage;
+@property (nonatomic, assign) BOOL isRefresh;  //YES:刷新,NO:翻页
 
 @end
 
@@ -60,7 +59,6 @@
     self.tableView.tableFooterView = [UIView new];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateOrderList) name:@"updateOrderList" object:nil];
     [OrderListItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:@"OrderListItemCell"];
-    self.nextIndex = [NSNumber numberWithInteger:0];
     [self requestData:YES];
 }
 
@@ -73,17 +71,22 @@
     if (!orderListModel) {
         return;
     }
-    [self.orderList removeAllObjects];
-    if (orderListModel.data.list.count > 0) {
-        for (Order *order in orderListModel.data.list) {
-            [self.orderList addObject:order];
+    if (self.isRefresh) { //刷新
+        [self.orderList removeAllObjects];
+        if (orderListModel.data.list.count > 0) {
+            for (Order *order in orderListModel.data.list) {
+                [self.orderList addObject:order];
+            }
         }
+    } else {
+        [self.orderList addObjectsFromArray:orderListModel.data.list];
     }
-    
 }
 
 //refresh YES:刷新 NO:翻页
 - (void)requestData:(BOOL)refresh {
+    
+    self.isRefresh = refresh;
     if(self.curOperation) {
         [self.curOperation pause];
     }
@@ -97,6 +100,7 @@
         self.isLoading = NO;
         [self.view removeEmptyView];
     }
+    self.isLoading = YES;
     NSString *type = self.status == 2 ? @"le" : @"ge";
     NSDictionary * paramDic = @{@"status":[NSString stringWithFormat:@"%d", (int)self.status],
                                 @"type":type, @"start":[NSString stringWithFormat:@"%@",self.nextIndex]
@@ -105,16 +109,9 @@
                                               parameters:paramDic cacheType:CacheTypeDisable JSONModelClass:[OrderListModel class]
                                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                      self.isLoading = NO;
-                                                     self.continueLoading = NO;
-                                                     [self.view removeLoadingBee];
                                                      self.orderListModel = (OrderListModel *)responseObject;
                                                      self.totalCount = self.orderListModel.data.totalCount;
-                                                     if (self.orderListModel.data.nextIndex) {
-                                                         self.nextIndex = self.orderListModel.data.nextIndex;
-                                                     } else {
-                                                         self.nextIndex = [NSNumber numberWithInt:0];
-                                                     }
-                                                     [self.tableView reloadData];
+                                                     self.nextIndex = self.orderListModel.data.nextIndex;
                                                      if (self.orderListModel.data.totalCount == 0) {
                                                          if (self.status == 2) {
                                                              [self.view showEmptyView:@"您还没有待付款订单哦，\n快去逛一下吧~"];
@@ -125,6 +122,8 @@
                                                          }
                                                          return;
                                                      }
+                                                     [self.view removeLoadingBee];
+                                                     [self.tableView reloadData];
                                                  }
                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                      [self showDialogWithTitle:nil message:error.message];
@@ -149,11 +148,10 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    if(self.orderList.count && self.orderList.count >= self.currentPage * 4)
+    if (self.nextIndex && self.nextIndex > 0) {
         return self.orderList.count + 1;
-    else
-        return self.orderList.count;
+    }
+    return self.orderList.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -171,8 +169,9 @@
         }
         [load showLoadingBee];
         cell = load;
-        if (self.continueLoading) {
+        if(!self.isLoading) {
             [self requestData:NO];
+            self.isLoading = YES;
         }
     } else {
         Order *order = [self.orderList objectAtIndex:indexPath.row];
