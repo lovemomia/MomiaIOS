@@ -139,14 +139,14 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
     
     [[AccountService defaultService] addListener:self];
 
-//    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/home/home.ios.bundle?platform=ios"];
-    // For production use, this `NSURL` could instead point to a pre-bundled file on disk: //
-    NSURL *jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
-    // To generate that file, run the curl command and add the output to your main Xcode build target: //
-    // curl http://localhost:8081/home/home.ios.bundle -o ./ReactComponent/output/main.jsbundle
-    RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"HomeComponent" initialProperties:nil launchOptions:nil];
-    rootView.frame = self.view.bounds;
-    [self.view addSubview:rootView];
+////    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/home/home.ios.bundle?platform=ios"];
+//    // For production use, this `NSURL` could instead point to a pre-bundled file on disk: //
+//    NSURL *jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+//    // To generate that file, run the curl command and add the output to your main Xcode build target: //
+//    // curl http://localhost:8081/home/home.ios.bundle -o ./ReactComponent/output/main.jsbundle
+//    RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"HomeComponent" initialProperties:nil launchOptions:nil];
+//    rootView.frame = self.view.bounds;
+//    [self.view addSubview:rootView];
     
 }
 
@@ -421,6 +421,9 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
         [self openURL:[NSString stringWithFormat:@"coursedetail?id=%@&recommend=1", course.ids]];
         NSDictionary *attributes = @{@"name":course.title, @"index":[NSString stringWithFormat:@"%d", number]};
         [MobClick event:@"Home_List" attributes:attributes];
+    } else if(item.itemType == HomeViewCellTypeRecommand) {
+        IndexRecommend *recommend = item.object;
+//        [[UIApplication sharedApplication]openURL:[];
     } else {
         if(self.isError) {
             self.isError = NO;
