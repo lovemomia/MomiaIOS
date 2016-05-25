@@ -9,6 +9,8 @@
 #import "BookingSubjectListViewController.h"
 #import "BookingSubjectItemCell.h"
 #import "BookingSubjectListModel.h"
+#import "NSString+MOURLEncode.h"
+#import "MJRefreshHelper.h"
 
 static NSString * identifierBookingSubjectItemCell = @"BookingSubjectItemCell";
 
@@ -35,10 +37,23 @@ static NSString * identifierBookingSubjectItemCell = @"BookingSubjectItemCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"预约课程";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"激活VIP卡" style:UIBarButtonItemStylePlain target:self action:@selector(onVIPClick)];
     
     [BookingSubjectItemCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifierBookingSubjectItemCell];
     
+    // 设置下拉刷新
+    self.tableView.mj_header = [MJRefreshHelper createGifHeaderWithRefreshingTarget:self refreshingAction:@selector(requestData)];
+    
     self.list = [NSMutableArray new];
+    [self requestData:YES];
+}
+
+- (void)onVIPClick {
+    NSString *url = MO_DEBUG ? @"http://m.momia.cn/user/vipcard" : @"http://m.sogokids.com/user/vipcard";
+    [self openURL:[NSString stringWithFormat:@"signvip?url=%@", [url URLEncodedString]]];
+}
+
+- (void)requestData {
     [self requestData:YES];
 }
 
@@ -84,6 +99,7 @@ static NSString * identifierBookingSubjectItemCell = @"BookingSubjectItemCell";
                                                      }
                                                      [self.tableView reloadData];
                                                      self.isLoading = NO;
+                                                     [self.tableView.mj_header endRefreshing];
                                                      
                                                  }
                          
@@ -93,6 +109,7 @@ static NSString * identifierBookingSubjectItemCell = @"BookingSubjectItemCell";
                                                      }
                                                      [self showDialogWithTitle:nil message:error.message];
                                                      self.isLoading = NO;
+                                                     [self.tableView.mj_header endRefreshing];
                                                  }];
 }
 

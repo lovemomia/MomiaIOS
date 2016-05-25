@@ -423,6 +423,10 @@
 		BCA273211AE9FB78002E7534 /* NSURL+MOURL.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273201AE9FB78002E7534 /* NSURL+MOURL.m */; };
 		BCA273241AEB166E002E7534 /* MONavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA273231AEB166E002E7534 /* MONavigationController.m */; };
 		BCA273271AEB1EBA002E7534 /* MineInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */; };
+		BCA80BEB1CF30D1E00B3D3E8 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = BCA80BEA1CF30D1E00B3D3E8 /* main.jsbundle */; };
+		BCA80BEC1CF30D1E00B3D3E8 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = BCA80BEA1CF30D1E00B3D3E8 /* main.jsbundle */; };
+		BCA80BEF1CF5453B00B3D3E8 /* SignVIPCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA80BEE1CF5453B00B3D3E8 /* SignVIPCardViewController.m */; };
+		BCA80BF01CF5453B00B3D3E8 /* SignVIPCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA80BEE1CF5453B00B3D3E8 /* SignVIPCardViewController.m */; };
 		BCBB16BD1BF3374900E273AF /* CommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBB16BB1BF3374900E273AF /* CommonTableViewCell.m */; };
 		BCBB16BE1BF3374A00E273AF /* CommonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCBB16BC1BF3374900E273AF /* CommonTableViewCell.xib */; };
 		BCBB16C11BF34B7200E273AF /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBB16C01BF34B7200E273AF /* UserInfoViewController.m */; };
@@ -1541,6 +1545,9 @@
 		BCA273221AEB166E002E7534 /* MONavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MONavigationController.h; path = Common/Base/MONavigationController.h; sourceTree = "<group>"; };
 		BCA273231AEB166E002E7534 /* MONavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MONavigationController.m; path = Common/Base/MONavigationController.m; sourceTree = "<group>"; };
 		BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MineInfoCell.xib; path = Business/Mine/Views/MineInfoCell.xib; sourceTree = "<group>"; };
+		BCA80BEA1CF30D1E00B3D3E8 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = SOURCE_ROOT; };
+		BCA80BED1CF5453B00B3D3E8 /* SignVIPCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignVIPCardViewController.h; path = Business/Mine/SignVIPCardViewController.h; sourceTree = "<group>"; };
+		BCA80BEE1CF5453B00B3D3E8 /* SignVIPCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignVIPCardViewController.m; path = Business/Mine/SignVIPCardViewController.m; sourceTree = "<group>"; };
 		BCBB16BA1BF3374900E273AF /* CommonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonTableViewCell.h; path = Common/Views/CommonTableViewCell.h; sourceTree = "<group>"; };
 		BCBB16BB1BF3374900E273AF /* CommonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonTableViewCell.m; path = Common/Views/CommonTableViewCell.m; sourceTree = "<group>"; };
 		BCBB16BC1BF3374900E273AF /* CommonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommonTableViewCell.xib; path = Common/Views/CommonTableViewCell.xib; sourceTree = "<group>"; };
@@ -2808,6 +2815,7 @@
 		BC85408E1ADF74E9005A7C54 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BCA80BEA1CF30D1E00B3D3E8 /* main.jsbundle */,
 				BC85408F1ADF74E9005A7C54 /* Info.plist */,
 				BCEAFD971C2A394300CB082D /* Debug-Info.plist */,
 				BC8540901ADF74E9005A7C54 /* main.m */,
@@ -3026,6 +3034,8 @@
 				BCBB16C01BF34B7200E273AF /* UserInfoViewController.m */,
 				BC3508F81BFB3A740043D37C /* ShareViewController.h */,
 				BC3508F91BFB3A740043D37C /* ShareViewController.m */,
+				BCA80BED1CF5453B00B3D3E8 /* SignVIPCardViewController.h */,
+				BCA80BEE1CF5453B00B3D3E8 /* SignVIPCardViewController.m */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -3432,6 +3442,7 @@
 				BC77379B1BCFAA1500987B22 /* SkuItemCell.xib in Resources */,
 				BC3509011BFC4CD40043D37C /* ShareViewCell.xib in Resources */,
 				5A83074F1B3291430057412A /* CommonHeaderView.xib in Resources */,
+				BCA80BEB1CF30D1E00B3D3E8 /* main.jsbundle in Resources */,
 				BCF9DD121BDA3BC000D8CDC6 /* BookCourseListItemCell.xib in Resources */,
 				5A8EF0361B31407B003ABAF8 /* HomeCell.xib in Resources */,
 				BCF9DCFE1BD8F12800D8CDC6 /* CourseTeacherListItemCell.xib in Resources */,
@@ -3525,6 +3536,7 @@
 				BCEAFD841C2A394300CB082D /* PayResultViewController.xib in Resources */,
 				BCEAFD851C2A394300CB082D /* ProductCalendarCell.xib in Resources */,
 				BCEAFD861C2A394300CB082D /* SkuItemCell.xib in Resources */,
+				BCA80BEC1CF30D1E00B3D3E8 /* main.jsbundle in Resources */,
 				BCEAFD871C2A394300CB082D /* ShareViewCell.xib in Resources */,
 				BCEAFD881C2A394300CB082D /* CommonHeaderView.xib in Resources */,
 				BCEAFD891C2A394300CB082D /* BookCourseListItemCell.xib in Resources */,
@@ -3884,6 +3896,7 @@
 				5A08C14A1B3911CA00642648 /* ProductDetailModel.m in Sources */,
 				BC7737681BCD096E00987B22 /* Notice.m in Sources */,
 				BC753EDD1BAC07D300D2663C /* FeedZanCell.m in Sources */,
+				BCA80BEF1CF5453B00B3D3E8 /* SignVIPCardViewController.m in Sources */,
 				BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */,
 				BC3504921BD0F865009A24B0 /* Subject.m in Sources */,
 				BC3599EA1BC61F0C002DE863 /* UIImage+MLTint.m in Sources */,
@@ -4237,6 +4250,7 @@
 				BCEAFCF71C2A394300CB082D /* UploadImageModel.m in Sources */,
 				002AF7BF1CC7759D00052BEC /* MOSectionObject.m in Sources */,
 				BCEAFCF81C2A394300CB082D /* TopicListModel.m in Sources */,
+				BCA80BF01CF5453B00B3D3E8 /* SignVIPCardViewController.m in Sources */,
 				BCEAFCF91C2A394300CB082D /* UITableView+FDTemplateLayoutHeader.m in Sources */,
 				BCEAFCFB1C2A394300CB082D /* MLSelectPhotoPickerGroup.m in Sources */,
 				BCEAFCFC1C2A394300CB082D /* ThirdAccountHelper.m in Sources */,

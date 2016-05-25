@@ -479,5 +479,14 @@
 		<key>controller</key>
 		<string>ApplyRefundViewController</string>
 	</dict>
+	<key>signvip</key>
+	<dict>
+		<key>desc</key>
+		<string>兑换vip卡</string>
+		<key>needlogin</key>
+		<true/>
+		<key>controller</key>
+		<string>SignVIPCardViewController</string>
+	</dict>
 </dict>
 </plist>
