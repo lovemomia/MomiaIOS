@@ -64,7 +64,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tft-0X-E1e">
-                        <rect key="frame" x="238" y="93" width="68" height="29"/>
+                        <rect key="frame" x="253" y="93" width="68" height="29"/>
                         <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="29" id="0BW-3P-3aL"/>
@@ -91,7 +91,7 @@
                     <constraint firstItem="YAa-IP-mdi" firstAttribute="centerY" secondItem="STB-gu-3UW" secondAttribute="centerY" id="Rkc-h3-j8W"/>
                     <constraint firstItem="STB-gu-3UW" firstAttribute="leading" secondItem="JtO-sw-qgU" secondAttribute="leading" id="XNt-V7-GRz"/>
                     <constraint firstItem="7iE-kM-8k9" firstAttribute="top" secondItem="JtO-sw-qgU" secondAttribute="top" id="Xy2-Av-65t"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Tft-0X-E1e" secondAttribute="trailing" constant="15" id="dL7-Hf-VdU"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Tft-0X-E1e" secondAttribute="trailing" id="dL7-Hf-VdU"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="7iE-kM-8k9" secondAttribute="trailing" constant="20" id="dXM-lF-OLx"/>
                     <constraint firstAttribute="leadingMargin" secondItem="JtO-sw-qgU" secondAttribute="leading" id="glS-Ja-1Hl"/>
                     <constraint firstItem="GWr-w3-3Pc" firstAttribute="centerY" secondItem="JtO-sw-qgU" secondAttribute="centerY" id="gqK-PJ-Sg2"/>

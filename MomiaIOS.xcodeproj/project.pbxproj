@@ -36,6 +36,10 @@
 		00B59E881CBD4695005565EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
 		00C796841CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
 		00C796851CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
+		00DCB9771CF53EE700215227 /* RecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DCB9751CF53EE700215227 /* RecommendCell.m */; };
+		00DCB9781CF53EE700215227 /* RecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DCB9751CF53EE700215227 /* RecommendCell.m */; };
+		00DCB9791CF53EE700215227 /* RecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00DCB9761CF53EE700215227 /* RecommendCell.xib */; };
+		00DCB97A1CF53EE700215227 /* RecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00DCB9761CF53EE700215227 /* RecommendCell.xib */; };
 		00E3286F1CCA20D30051807A /* UIView+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E3286E1CCA20D30051807A /* UIView+Border.m */; };
 		00E328701CCA20D30051807A /* UIView+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E3286E1CCA20D30051807A /* UIView+Border.m */; };
 		00E9566E1CDB200100FD7124 /* CheckBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E9566C1CDB200100FD7124 /* CheckBoxCell.m */; };
@@ -898,6 +902,9 @@
 		0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyRefundViewController.m; sourceTree = "<group>"; };
 		005E2A741CEB170F00CBF5DD /* RefundText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundText.xib; sourceTree = "<group>"; };
 		00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectDetailHeaders.xib; sourceTree = "<group>"; };
+		00DCB9741CF53EE700215227 /* RecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendCell.h; sourceTree = "<group>"; };
+		00DCB9751CF53EE700215227 /* RecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendCell.m; sourceTree = "<group>"; };
+		00DCB9761CF53EE700215227 /* RecommendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendCell.xib; sourceTree = "<group>"; };
 		00E3286D1CCA20D30051807A /* UIView+Border.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Border.h"; sourceTree = "<group>"; };
 		00E3286E1CCA20D30051807A /* UIView+Border.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Border.m"; sourceTree = "<group>"; };
 		00E9566B1CDB200100FD7124 /* CheckBoxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBoxCell.h; sourceTree = "<group>"; };
@@ -2956,16 +2963,19 @@
 				BC359A4B1BC67B4F002DE863 /* HomeOperateCell.m */,
 				BC80B8351C9FDAC1009559F2 /* HomeEventCell.h */,
 				BC80B8361C9FDAC1009559F2 /* HomeEventCell.m */,
-				BC80B8371C9FDAC1009559F2 /* HomeEventCell.xib */,
 				BC80B83F1CA00E3F009559F2 /* HomeSubjectCoverCell.h */,
 				BC80B8401CA00E3F009559F2 /* HomeSubjectCoverCell.m */,
-				BC80B8411CA00E3F009559F2 /* HomeSubjectCoverCell.xib */,
 				BC80B8441CA00E97009559F2 /* HomeSubjectCoursesCell.h */,
+				BC80B8371C9FDAC1009559F2 /* HomeEventCell.xib */,
 				BC80B8451CA00E97009559F2 /* HomeSubjectCoursesCell.m */,
 				BC80B8461CA00E97009559F2 /* HomeSubjectCoursesCell.xib */,
 				BC80B8491CA127DF009559F2 /* HomeTopicCell.h */,
+				BC80B8411CA00E3F009559F2 /* HomeSubjectCoverCell.xib */,
 				BC80B84A1CA127DF009559F2 /* HomeTopicCell.m */,
 				BC80B84B1CA127DF009559F2 /* HomeTopicCell.xib */,
+				00DCB9741CF53EE700215227 /* RecommendCell.h */,
+				00DCB9751CF53EE700215227 /* RecommendCell.m */,
+				00DCB9761CF53EE700215227 /* RecommendCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3381,6 +3391,7 @@
 				BC592BC81BD4CC81008AE76A /* BookingSubjectItemCell.xib in Resources */,
 				BC1052A51BB394CE00D81C15 /* TopicListCell.xib in Resources */,
 				BC753EDE1BAC07D300D2663C /* FeedZanCell.xib in Resources */,
+				00DCB9791CF53EE700215227 /* RecommendCell.xib in Resources */,
 				BC53A5221CA51B9800532F91 /* SubjectCourseCell.xib in Resources */,
 				BCF74AC91BEB643400138C2C /* ReviewListItemCell.xib in Resources */,
 				5AD5275F1B53C7A300D01E1F /* FeedbackCell.xib in Resources */,
@@ -3480,6 +3491,7 @@
 				BCEAFD531C2A394300CB082D /* FeedUserHeadCell.xib in Resources */,
 				BCEAFD541C2A394300CB082D /* MineInfoCell.xib in Resources */,
 				BCEAFD551C2A394300CB082D /* CashPayBottomCell.xib in Resources */,
+				00DCB97A1CF53EE700215227 /* RecommendCell.xib in Resources */,
 				BCEAFD561C2A394300CB082D /* Images.xcassets in Resources */,
 				BCEAFD571C2A394300CB082D /* BookingSubjectItemCell.xib in Resources */,
 				BCEAFD591C2A394300CB082D /* TopicListCell.xib in Resources */,
@@ -3790,6 +3802,7 @@
 				BCBB16C51BF5898A00E273AF /* UserInfoHeaderView.m in Sources */,
 				5A794F941B4E68C900BB3B7C /* OrderDetailModel.m in Sources */,
 				5A8EF03D1B31619E003ABAF8 /* ProductModel.m in Sources */,
+				00DCB9771CF53EE700215227 /* RecommendCell.m in Sources */,
 				002B66421CB3686C0096EB6E /* ChildListViewController.m in Sources */,
 				BC359A1B1BC61F2A002DE863 /* LJViewPager.m in Sources */,
 				BC79DF7D1C1186180064C02F /* IMGroupModel.m in Sources */,
@@ -4236,6 +4249,7 @@
 				BCEAFCF61C2A394300CB082D /* NSString+MOAttribuedString.m in Sources */,
 				BCEAFCF71C2A394300CB082D /* UploadImageModel.m in Sources */,
 				002AF7BF1CC7759D00052BEC /* MOSectionObject.m in Sources */,
+				00DCB9781CF53EE700215227 /* RecommendCell.m in Sources */,
 				BCEAFCF81C2A394300CB082D /* TopicListModel.m in Sources */,
 				BCEAFCF91C2A394300CB082D /* UITableView+FDTemplateLayoutHeader.m in Sources */,
 				BCEAFCFB1C2A394300CB082D /* MLSelectPhotoPickerGroup.m in Sources */,
