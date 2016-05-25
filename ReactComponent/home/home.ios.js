@@ -1,4 +1,5 @@
 'use strict';
+console.disableYellowBox = true;
 
 var SGStyles = require('../SGStyles');
 var HttpService = require('../HttpService');
@@ -306,10 +307,19 @@ class HomeComponent extends React.Component {
   }
 
   _renderRecommendView(recommend) {
-    return <View style={styles.subject_cover}><Image style={{flex:1}} source={{uri:recommend.cover}}/>
-        <View style={styles.separator}/>
-        <View style={styles.footer}/>
-    </View>
+    return <View style={styles.rowContainer}>
+             <View style={{flex:1, padding:10, flexDirection:'row', alignItems:'center'}}>
+              <Image style={{width: 120, height: 90, borderRadius:3}} source={{uri:recommend.cover}}/>
+              <View style={{flex:1, paddingLeft:10}}>
+                 <Text style={{fontSize: 15, color: '#333333', lineHeight:20}} 
+                  numberOfLines={2}>{recommend.title}</Text>
+                 <Text style={{fontSize: 13, color: '#999999', paddingTop:15}}
+                  numberOfLines={3}>{recommend.desc}</Text>
+              </View>
+             </View>
+             <View style={styles.separator}/>
+        </View>
+
   }
 
   _rowPressed(rowData) {

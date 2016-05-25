@@ -16,7 +16,7 @@ var RNCommon = NativeModules.RNCommon;
 class HttpService extends React.Component {
 
 	/**
-	 * - get请求 -
+	 * - 业务层调用get请求 -
 	 *
 	 *url :请求地址
 	 *params:参数(对象)
@@ -36,6 +36,23 @@ class HttpService extends React.Component {
 					}).catch((error) => {
 						console.warn(error);
 					}).done();
+			}
+		})
+	}
+
+	/**
+	 * - 业务层调用post请求 -
+	 *
+	 *url :请求地址
+	 *params:参数(对象)
+	 *callback:回调函数
+	 */
+	static post(url, params, callback) {
+		RNCommon.wrapParams(params, (error, fullParams) => {
+			if (error) {
+				console.error(error);
+			} else {
+				HttpService.postForm(url, fullParams, callback);
 			}
 		})
 	}
