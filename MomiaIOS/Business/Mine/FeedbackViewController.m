@@ -9,6 +9,7 @@
 #import "FeedbackViewController.h"
 #import "FeedbackCell.h"
 #import "PostPersonModel.h"
+#import "RCTRootView.h"
 
 static NSString * identifier = @"CellFeedbackIdentifier";
 
@@ -171,7 +172,7 @@ static NSString * identifier = @"CellFeedbackIdentifier";
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 0;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -214,9 +215,14 @@ static NSString * identifier = @"CellFeedbackIdentifier";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"意见反馈";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(onFinishClick)];
-    [FeedbackCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifier];
-  
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(onFinishClick)];
+//    [FeedbackCell registerCellFromNibWithTableView:self.tableView withIdentifier:identifier];
+    
+    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/ReactComponent/setting/feedback.ios.bundle?platform=ios"];
+    NSDictionary *props = @{@"version" : MO_APP_VERSION};
+    RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation moduleName: @"FeedBackComponent" initialProperties:props launchOptions:nil];
+    rootView.frame = self.view.bounds;
+    [self.view addSubview:rootView];
 }
 
 
