@@ -21,6 +21,7 @@
 #import "NSString+MOURLEncode.h"
 #import "RCTRootView.h"
 #import "RNCommon.h"
+#import "RecommendCell.h"
 
 static NSString *homeGridIdentifier = @"CellGrid";
 static NSString *homeEventIdentifier = @"CellEvent";
@@ -31,6 +32,7 @@ static NSString *homeLoadingErrorIdentifier = @"CellHomeLoadingError";
 static NSString *homeSubjectCoverCellIdentifier = @"HomeSubjectCoverCell";
 static NSString *homeSubjectCoursesCellIdentifier = @"HomeSubjectCoursesCell";
 static NSString *homeTopicCellIdentifier = @"HomeTopicCell";
+static NSString *homeRecommendCellIdentifier = @"RecommendCell";
 
 typedef NS_ENUM(NSInteger, HomeViewCellType) {
     HomeViewCellTypeBanner = 1,
@@ -128,6 +130,7 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
     [HomeSubjectCoverCell registerCellFromNibWithTableView:self.tableView withIdentifier:homeSubjectCoverCellIdentifier];
     [HomeSubjectCoursesCell registerCellFromNibWithTableView:self.tableView withIdentifier:homeSubjectCoursesCellIdentifier];
     [HomeTopicCell registerCellFromNibWithTableView:self.tableView withIdentifier:homeTopicCellIdentifier];
+    [RecommendCell registerCellFromNibWithTableView:self.tableView withIdentifier:homeRecommendCellIdentifier];
     
     // 设置下拉刷新
     self.tableView.mj_header = [MJRefreshHelper createGifHeaderWithRefreshingTarget:self refreshingAction:@selector(requestData)];
@@ -135,18 +138,15 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
     [self requestData:YES];
     
     [[AccountService defaultService] addListener:self];
-    
-    
 
-    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/home/home.bundle?platform=ios"];
-    // For production use, this `NSURL` could instead point to a pre-bundled file on disk: //
-//    NSURL *jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
-    // To generate that file, run the curl command and add the output to your main Xcode build target: //
-    // curl http://localhost:8081/home/home.ios.bundle -o ./ReactComponent/output/main.jsbundle
-    RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"HomeComponent" initialProperties:nil launchOptions:nil];
-    rootView.frame = self.view.bounds;
-    [self.view addSubview:rootView];
-    
+//    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/home/home.bundle?platform=ios"];
+//    // For production use, this `NSURL` could instead point to a pre-bundled file on disk: //
+////    NSURL *jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+//    // To generate that file, run the curl command and add the output to your main Xcode build target: //
+//    // curl http://localhost:8081/home/home.ios.bundle -o ./ReactComponent/output/main.jsbundle
+//    RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"HomeComponent" initialProperties:nil launchOptions:nil];
+//    rootView.frame = self.view.bounds;
+//    [self.view addSubview:rootView];
 }
 
 - (void)setupTitleChild {
@@ -330,7 +330,7 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
             return [HomeTopicCell heightWithTableView:tableView withIdentifier:homeTopicCellIdentifier forIndexPath:indexPath data:item.object];
             break;
         case HomeViewCellTypeRecommand:
-            return SCREEN_WIDTH * 180 / 320;
+            return 110;
             break;
             default:
             return [HomeCell heightWithTableView:tableView withIdentifier:homeIdentifier forIndexPath:indexPath data:item.object];
@@ -380,8 +380,9 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
         return home;
 
     } else if (item.itemType == HomeViewCellTypeRecommand) {
-        HomeSubjectCoverCell *subjectCover = [HomeSubjectCoverCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeSubjectCoverCellIdentifier];
-        return subjectCover;
+        RecommendCell *recommendCell = [RecommendCell cellWithTableView:tableView forIndexPath:indexPath withIdentifier:homeRecommendCellIdentifier];
+        recommendCell.data = item.object;
+        return recommendCell;
     }
     
     if (self.isError) {
@@ -419,6 +420,9 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
         [self openURL:[NSString stringWithFormat:@"coursedetail?id=%@&recommend=1", course.ids]];
         NSDictionary *attributes = @{@"name":course.title, @"index":[NSString stringWithFormat:@"%d", number]};
         [MobClick event:@"Home_List" attributes:attributes];
+    } else if(item.itemType == HomeViewCellTypeRecommand) {
+        IndexRecommend *recommend = item.object;
+//        [[UIApplication sharedApplication]openURL:[];
     } else {
         if(self.isError) {
             self.isError = NO;
