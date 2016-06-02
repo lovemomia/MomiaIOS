@@ -7,9 +7,12 @@
 'use strict'
 
 import React, {
-	Component,
+	Component
+} from 'react';
+
+import ReactNative, {
 	NativeModules
-} from 'react-native'
+} from 'react-native';
 
 var RNCommon = NativeModules.RNCommon;
 

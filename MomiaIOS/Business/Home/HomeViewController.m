@@ -138,9 +138,9 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
     
     
 
-//    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/home/home.ios.bundle?platform=ios"];
+    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/home/home.bundle?platform=ios"];
     // For production use, this `NSURL` could instead point to a pre-bundled file on disk: //
-    NSURL *jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+//    NSURL *jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
     // To generate that file, run the curl command and add the output to your main Xcode build target: //
     // curl http://localhost:8081/home/home.ios.bundle -o ./ReactComponent/output/main.jsbundle
     RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"HomeComponent" initialProperties:nil launchOptions:nil];

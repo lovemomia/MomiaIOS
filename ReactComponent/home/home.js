@@ -200,17 +200,28 @@ class HomeComponent extends React.Component {
   }
 
   _renderBannelsView(banners) {
-    var dot = <View style={{backgroundColor:'rgba(0,0,0,.2)', width: 5, height: 5,borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}} />;
-    var activeDot = <View style={{backgroundColor: '#00c49d', width: 6, height: 6, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}} />;
-    return <View style={styles.wrapper}><Swiper style={styles.wrapper} height={(Dimensions.get('window').width * 180 / 320)}
+    if (banners.length == 1) {
+      // on Android it's not work when only one item for using Swiper
+      return <View style={{height:(Dimensions.get('window').width * 180 / 320)}}>
+        <TouchableHighlight style={{flex:1}} onPress={() => {Linking.openURL(banners[0].action)}} underlayColor='#ffffff'>
+          <Image style={{flex: 1, backgroundColor:'#000000'}} source={{uri:banners[0].cover}}/></TouchableHighlight>
+        <View style={styles.separator}/>
+        <View style={styles.footer}/>
+      </View>
+
+    } else {
+      var dot = <View style={{backgroundColor:'rgba(0,0,0,.2)', width: 5, height: 5,borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}} />;
+      var activeDot = <View style={{backgroundColor: '#00c49d', width: 6, height: 6, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}} />;
+      return <View style={styles.wrapper}><Swiper style={styles.wrapper} height={(Dimensions.get('window').width * 180 / 320)}
     showsButtons={false} autoplay={true} dot={dot} activeDot={activeDot} loop={true}>
         {banners.map(function(val, index){
-          return <TouchableHighlight style={{flex:1}} onPress={() => {Linking.openURL(banners[index].action)}} underlayColor='#ffffff'>
+        return <TouchableHighlight style={{flex:1}} onPress={() => {Linking.openURL(banners[index].action)}} underlayColor='#ffffff'>
           <Image style={{flex: 1, backgroundColor:'#000000'}} source={{uri:banners[index].cover}}/></TouchableHighlight>
         })}
       </Swiper>
       <View style={styles.separator}/>
       <View style={styles.footer}/></View>
+    }
   }
 
   _renderEventView(data) {
@@ -218,9 +229,9 @@ class HomeComponent extends React.Component {
     var eventsTitle = data.eventsTitle;
     return <View style={styles.subject}>
         <View style={styles.subject_title}>
-          <Image style={{width: 12, height: 4}} source={{uri:'IconWave'}}/>
-          <Text style={{fontSize: 15, color: '#333333',paddingLeft:5,paddingRight:5}} numberOfLines={1}>{eventsTitle}</Text>
-          <Image style={{width: 12, height: 4}} source={{uri:'IconWave'}}/>
+          <Image style={{width: 12, height: 4}} source={require('./img/IconWave.png')}/>
+          <Text style={{fontSize: 15, color: '#333333',paddingLeft:5,paddingRight:5,textAlign:'center'}} numberOfLines={1}>{eventsTitle}</Text>
+          <Image style={{width: 12, height: 4}} source={require('./img/IconWave.png')}/>
         </View>
         <View style={{flexDirection:'row'}}>
           <TouchableHighlight style={{flex:1}} onPress={() => {Linking.openURL(events[0].action)}} underlayColor='#ffffff'>
@@ -261,9 +272,9 @@ class HomeComponent extends React.Component {
   _renderSubjectView(subject) {
     return <View style={styles.subject}>
         <View style={styles.subject_title}>
-          <Image style={{width: 12, height: 4}} source={{uri:'IconWave'}}/>
-          <Text style={{fontSize: 15, color: '#333333',paddingLeft:5,paddingRight:5}} numberOfLines={1}>{subject.coursesTitle}</Text>
-          <Image style={{width: 12, height: 4}} source={{uri:'IconWave'}}/>
+          <Image style={{width: 12, height: 4}} source={require('./img/IconWave.png')}/>
+          <Text style={{fontSize: 15, color: '#333333',paddingLeft:5,paddingRight:5,textAlign:'center'}} numberOfLines={1}>{subject.coursesTitle}</Text>
+          <Image style={{width: 12, height: 4}} source={require('./img/IconWave.png')}/>
         </View>
         <View style={{flexDirection:'row'}}>
         {
@@ -272,11 +283,11 @@ class HomeComponent extends React.Component {
         onPress={() => {RNCommon.openUrl('coursedetail?id='+subject.courses[index].id)}} underlayColor='#ffffff'>
             <View style={{flex:1, alignItems:'center'}}>
                  <Image style={{width: 80, height: 80, borderRadius: 40}} source={{uri:subject.courses[index].cover}}/>
-                 <Text style={{fontSize: 14, color: '#333333', paddingTop:10}} 
+                 <Text style={{fontSize: 14, color: '#333333', marginTop:10,textAlign:'center'}} 
                   numberOfLines={1}>{subject.courses[index].keyWord}</Text>
-                 <Text style={{fontSize: 12, color: '#FF6633', paddingTop:5}}
+                 <Text style={{fontSize: 12, color: '#FF6633', marginTop:5,textAlign:'center'}}
                   numberOfLines={1}>{subject.courses[index].age}</Text>
-                 <Text style={{fontSize: 12, color: '#999999', paddingTop:5, paddingBottom:10}}
+                 <Text style={{fontSize: 12, color: '#999999', marginTop:5, paddingBottom:10,textAlign:'center'}}
                   numberOfLines={1}>{subject.courses[index].feature}</Text>
             </View></TouchableHighlight>
           })
@@ -289,16 +300,16 @@ class HomeComponent extends React.Component {
   _renderTopicView(topic) {
     return <View style={styles.subject}>
         <View style={{paddingTop: 20, paddingBottom: 20, alignItems: 'center', justifyContent: 'center',}}>
-          <Image style={{width: 43, height: 26}} source={{uri:'IconTopic'}}/>
-          <Text style={{fontSize: 15, color: '#333333', paddingTop:10}} numberOfLines={1}>{topic.title}</Text>
+          <Image style={{width: 43, height: 26}} source={require('./img/IconTopic.png')}/>
+          <Text style={{fontSize: 15, color: '#333333', textAlign:'center',marginTop:10}} numberOfLines={1}>{topic.title}</Text>
           <View style={{paddingTop: 10, paddingBottom: 10, alignItems: 'center', justifyContent: 'center', flexDirection: 'row'}}>
           <View style={{width: 30, height: 1, backgroundColor:'#EEEEEE'}}/>
-            <Text style={{fontSize: 13, color: '#999999',paddingLeft:10,paddingRight:10}} numberOfLines={1}>{topic.subTitle}</Text>
+            <Text style={{fontSize: 13, color: '#999999',paddingLeft:10,paddingRight:10,textAlign:'center'}} numberOfLines={1}>{topic.subTitle}</Text>
             <View style={{width: 30, height: 1, backgroundColor:'#EEEEEE'}}/>
           </View>
-          <Image style={{width: 35, height: 33}} source={{uri:'IconSongguo'}}/>
+          <Image style={{width: 35, height: 33}} source={require('./img/IconSongguo.png')}/>
           <View style={{borderRadius:3, borderWidth:1, marginTop:10}}>
-            <Text style={{fontSize: 13, color: '#333333', padding:3}} numberOfLines={1}>{topic.joined}人在讨论</Text>
+            <Text style={{fontSize: 13, color: '#333333', paddingTop:3, paddingLeft:3, paddingRight:3, textAlign:'center'}} numberOfLines={1}>{topic.joined}人在讨论</Text>
           </View>
         </View>
         <View style = {styles.separator}/>
