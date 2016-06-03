@@ -9,6 +9,7 @@
 #import "MORootViewController.h"
 #import "MONavigationController.h"
 #import "HomeViewController.h"
+#import "HomeViewControllerV2.h"
 #import "GroupListViewController.h"
 #import "MineViewController.h"
 #import "UIImage+Color.h"
