@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="65" height="25"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" tag="2002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconLightDownArrow" translatesAutoresizingMaskIntoConstraints="NO" id="HYd-Ii-tJS">
+                    <rect key="frame" x="49" y="9.5" width="11" height="6"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="6" id="QCX-kr-kHl"/>
+                        <constraint firstAttribute="width" constant="11" id="xAl-sN-G6s"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" tag="2001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上海" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyA-it-56a">
+                    <rect key="frame" x="5" y="3" width="39" height="19"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="HYd-Ii-tJS" firstAttribute="leading" secondItem="fyA-it-56a" secondAttribute="trailing" constant="5" id="DIE-Nh-esQ"/>
+                <constraint firstItem="fyA-it-56a" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="3" id="Dvu-R2-uOJ"/>
+                <constraint firstItem="fyA-it-56a" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="FBg-zQ-fCe"/>
+                <constraint firstAttribute="trailing" secondItem="HYd-Ii-tJS" secondAttribute="trailing" constant="5" id="Thc-zI-exu"/>
+                <constraint firstAttribute="bottom" secondItem="fyA-it-56a" secondAttribute="bottom" constant="3" id="bhJ-Zl-Jjw"/>
+                <constraint firstItem="fyA-it-56a" firstAttribute="centerY" secondItem="HYd-Ii-tJS" secondAttribute="centerY" id="fFD-ga-Yf0"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="189.5" y="463.5"/>
+        </view>
+        <view contentMode="scaleToFill" id="9Rw-QV-Fzh">
+            <rect key="frame" x="0.0" y="0.0" width="202" height="47"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" tag="1001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dlh-gW-Krv" customClass="AvatarImageView">
+                    <rect key="frame" x="5" y="6" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="yXw-tg-AfR"/>
+                        <constraint firstAttribute="height" constant="35" id="zJX-tx-1WZ"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" tag="1002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="松果亲子/点击登录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60C-se-N31">
+                    <rect key="frame" x="48" y="0.0" width="154" height="47"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="60C-se-N31" secondAttribute="trailing" id="2WL-vf-UdO"/>
+                <constraint firstItem="dlh-gW-Krv" firstAttribute="centerY" secondItem="9Rw-QV-Fzh" secondAttribute="centerY" id="AUv-6U-lVi"/>
+                <constraint firstItem="dlh-gW-Krv" firstAttribute="leading" secondItem="9Rw-QV-Fzh" secondAttribute="leading" constant="5" id="bRy-KT-Gj0"/>
+                <constraint firstAttribute="bottom" secondItem="60C-se-N31" secondAttribute="bottom" id="eQS-7t-h0Z"/>
+                <constraint firstItem="60C-se-N31" firstAttribute="leading" secondItem="dlh-gW-Krv" secondAttribute="trailing" constant="8" id="h5E-3G-t6Q"/>
+                <constraint firstItem="60C-se-N31" firstAttribute="top" secondItem="9Rw-QV-Fzh" secondAttribute="top" id="t1e-bh-tv4"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-36" y="524.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="IconLightDownArrow" width="11" height="6"/>
+    </resources>
+</document>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoTitleHeaderCell" rowHeight="225" id="KGk-i7-Jjw" customClass="PhotoTitleHeaderCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="225"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="224.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NDp-DU-ouL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="225"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="NDp-DU-ouL" secondAttribute="height" multiplier="320:225" id="mnV-pJ-erH"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="mnV-pJ-erH"/>
+                            </mask>
+                        </variation>
+                    </scrollView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BgPageNum" translatesAutoresizingMaskIntoConstraints="NO" id="YYo-rE-Dqx">
+                        <rect key="frame" x="267" y="10" width="43" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="43" id="Slq-Sa-Ahq"/>
+                            <constraint firstAttribute="height" constant="16" id="axg-ds-vUW"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJk-dn-Ivt">
+                        <rect key="frame" x="267" y="10" width="43" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="43" id="8fq-uC-WLU"/>
+                            <constraint firstAttribute="height" constant="16" id="vIJ-VU-hTO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="NDp-DU-ouL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7VV-oP-Ccx"/>
+                    <constraint firstItem="YYo-rE-Dqx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="KIF-yS-p5A"/>
+                    <constraint firstAttribute="trailing" secondItem="SJk-dn-Ivt" secondAttribute="trailing" constant="10" id="V1W-9L-8Tl"/>
+                    <constraint firstItem="SJk-dn-Ivt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="f3Z-uo-5lp"/>
+                    <constraint firstItem="NDp-DU-ouL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="g13-ey-Dk4"/>
+                    <constraint firstAttribute="trailing" secondItem="YYo-rE-Dqx" secondAttribute="trailing" constant="10" id="quw-sv-IQX"/>
+                    <constraint firstAttribute="bottom" secondItem="NDp-DU-ouL" secondAttribute="bottom" id="sze-k9-f0q"/>
+                    <constraint firstAttribute="trailing" secondItem="NDp-DU-ouL" secondAttribute="trailing" id="t4p-IN-n6d"/>
+                    <constraint firstItem="YYo-rE-Dqx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="tix-j7-R8o"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="YYo-rE-Dqx" secondAttribute="trailing" constant="10" id="zu4-8s-CWS"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="tix-j7-R8o"/>
+                        <exclude reference="zu4-8s-CWS"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="pageLabel" destination="SJk-dn-Ivt" id="Njp-IW-8cq"/>
+                <outlet property="pageLabelBg" destination="YYo-rE-Dqx" id="Vkh-qS-Q5Z"/>
+                <outlet property="scrollView" destination="NDp-DU-ouL" id="bkr-0v-EKX"/>
+            </connections>
+            <point key="canvasLocation" x="289" y="412.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="BgPageNum" width="43" height="16"/>
+    </resources>
+</document>

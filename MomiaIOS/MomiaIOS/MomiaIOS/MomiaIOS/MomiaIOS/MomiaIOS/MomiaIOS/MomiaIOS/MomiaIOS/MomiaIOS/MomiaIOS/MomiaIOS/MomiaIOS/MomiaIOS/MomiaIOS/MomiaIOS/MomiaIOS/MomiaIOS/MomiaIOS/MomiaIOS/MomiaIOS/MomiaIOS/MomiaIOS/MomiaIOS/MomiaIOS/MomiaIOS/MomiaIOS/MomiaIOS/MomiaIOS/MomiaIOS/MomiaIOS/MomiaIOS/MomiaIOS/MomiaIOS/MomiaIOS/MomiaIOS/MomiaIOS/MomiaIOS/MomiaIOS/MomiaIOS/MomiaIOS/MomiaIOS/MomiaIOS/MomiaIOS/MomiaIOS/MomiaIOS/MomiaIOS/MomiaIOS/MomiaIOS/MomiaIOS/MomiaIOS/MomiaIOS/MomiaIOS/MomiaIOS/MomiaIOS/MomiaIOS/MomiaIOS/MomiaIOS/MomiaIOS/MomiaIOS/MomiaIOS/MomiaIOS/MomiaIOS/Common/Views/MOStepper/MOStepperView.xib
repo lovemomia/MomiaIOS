@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MOStepperView">
+            <connections>
+                <outlet property="minusBtn" destination="fM4-NN-VSZ" id="4hb-vo-qFC"/>
+                <outlet property="plusBtn" destination="rlZ-Zt-AZV" id="pct-gZ-f3k"/>
+                <outlet property="titleLabel" destination="hAV-ce-gJz" id="aXh-Ba-biz"/>
+                <outlet property="view" destination="F2Y-EH-XHC" id="VJF-Kz-2c7"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="F2Y-EH-XHC">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="67"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fM4-NN-VSZ">
+                    <rect key="frame" x="0.0" y="0.0" width="99.5" height="67"/>
+                    <state key="normal" image="IconMinusNormal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onMinusClick:" destination="-1" eventType="touchUpInside" id="GfU-zG-62Q"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGK-YH-HKI">
+                    <rect key="frame" x="99" y="0.0" width="1" height="67"/>
+                    <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="8cC-5k-Ycw"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAV-ce-gJz">
+                    <rect key="frame" x="100.5" y="0.0" width="99" height="67"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hky-aK-d29">
+                    <rect key="frame" x="199" y="0.0" width="1" height="67"/>
+                    <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="xfc-5Z-0ec"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlZ-Zt-AZV">
+                    <rect key="frame" x="200" y="0.0" width="99.5" height="67"/>
+                    <state key="normal" image="IconPlusNormal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onPlusClick:" destination="-1" eventType="touchUpInside" id="cgF-Tk-3UV"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="fM4-NN-VSZ" firstAttribute="height" secondItem="rlZ-Zt-AZV" secondAttribute="height" id="08s-c7-RNq"/>
+                <constraint firstItem="fM4-NN-VSZ" firstAttribute="height" secondItem="hAV-ce-gJz" secondAttribute="height" id="2mt-W4-dSE"/>
+                <constraint firstItem="fM4-NN-VSZ" firstAttribute="centerY" secondItem="hAV-ce-gJz" secondAttribute="centerY" id="3Oa-pa-gJp"/>
+                <constraint firstItem="DGK-YH-HKI" firstAttribute="top" secondItem="F2Y-EH-XHC" secondAttribute="top" id="5m9-Kc-BMn"/>
+                <constraint firstItem="fM4-NN-VSZ" firstAttribute="leading" secondItem="F2Y-EH-XHC" secondAttribute="leading" id="7x1-zE-ok5"/>
+                <constraint firstAttribute="bottom" secondItem="DGK-YH-HKI" secondAttribute="bottom" id="Cc8-Xb-zVg"/>
+                <constraint firstItem="fM4-NN-VSZ" firstAttribute="width" secondItem="hAV-ce-gJz" secondAttribute="width" id="HKI-K5-KqP"/>
+                <constraint firstItem="rlZ-Zt-AZV" firstAttribute="leading" secondItem="hAV-ce-gJz" secondAttribute="trailing" constant="1" id="NnP-ch-WVw"/>
+                <constraint firstAttribute="bottom" secondItem="hky-aK-d29" secondAttribute="bottom" id="PZY-sO-1ig"/>
+                <constraint firstItem="hky-aK-d29" firstAttribute="top" secondItem="F2Y-EH-XHC" secondAttribute="top" id="Srk-oA-3pB"/>
+                <constraint firstItem="hky-aK-d29" firstAttribute="leading" secondItem="hAV-ce-gJz" secondAttribute="trailing" id="Y3W-Cw-ai8"/>
+                <constraint firstItem="DGK-YH-HKI" firstAttribute="leading" secondItem="fM4-NN-VSZ" secondAttribute="trailing" id="ZLi-R2-iE1"/>
+                <constraint firstItem="fM4-NN-VSZ" firstAttribute="top" secondItem="F2Y-EH-XHC" secondAttribute="top" id="bUa-QR-v0U"/>
+                <constraint firstItem="fM4-NN-VSZ" firstAttribute="width" secondItem="rlZ-Zt-AZV" secondAttribute="width" id="jOi-fd-MLY"/>
+                <constraint firstAttribute="bottom" secondItem="fM4-NN-VSZ" secondAttribute="bottom" id="nQn-md-KYW"/>
+                <constraint firstItem="fM4-NN-VSZ" firstAttribute="centerY" secondItem="rlZ-Zt-AZV" secondAttribute="centerY" id="qkI-GT-tx8"/>
+                <constraint firstItem="hAV-ce-gJz" firstAttribute="leading" secondItem="fM4-NN-VSZ" secondAttribute="trailing" constant="1" id="sgj-1S-Mnd"/>
+                <constraint firstAttribute="trailing" secondItem="rlZ-Zt-AZV" secondAttribute="trailing" id="xoM-Ew-Wiu"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="94" y="228.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="IconMinusNormal" width="10" height="2"/>
+        <image name="IconPlusNormal" width="10" height="10"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

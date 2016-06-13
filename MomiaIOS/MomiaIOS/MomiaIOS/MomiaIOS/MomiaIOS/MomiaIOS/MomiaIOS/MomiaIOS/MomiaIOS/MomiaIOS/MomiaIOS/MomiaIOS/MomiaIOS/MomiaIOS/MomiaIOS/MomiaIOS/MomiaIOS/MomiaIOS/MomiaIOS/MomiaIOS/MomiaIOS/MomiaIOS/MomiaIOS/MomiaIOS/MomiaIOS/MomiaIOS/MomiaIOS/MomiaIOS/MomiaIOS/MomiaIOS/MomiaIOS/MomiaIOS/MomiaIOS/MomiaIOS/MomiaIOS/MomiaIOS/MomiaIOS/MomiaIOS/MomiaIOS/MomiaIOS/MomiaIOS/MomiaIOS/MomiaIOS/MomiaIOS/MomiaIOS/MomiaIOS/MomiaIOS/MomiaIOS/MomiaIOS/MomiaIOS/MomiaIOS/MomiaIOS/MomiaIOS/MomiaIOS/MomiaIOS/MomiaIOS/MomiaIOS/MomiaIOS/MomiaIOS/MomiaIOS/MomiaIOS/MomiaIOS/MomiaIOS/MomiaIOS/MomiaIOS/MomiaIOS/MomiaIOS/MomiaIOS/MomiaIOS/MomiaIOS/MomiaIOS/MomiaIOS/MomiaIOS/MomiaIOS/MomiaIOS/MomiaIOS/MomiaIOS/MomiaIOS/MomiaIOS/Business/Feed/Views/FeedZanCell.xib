@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedZanCell" id="KGk-i7-Jjw" customClass="FeedZanCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="61.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="144" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFE-3t-AfR">
+                        <rect key="frame" x="277" y="36" width="24.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconZan" translatesAutoresizingMaskIntoConstraints="NO" id="FQz-bN-ZbU">
+                        <rect key="frame" x="282" y="13" width="16" height="16"/>
+                    </imageView>
+                    <view tag="1001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMd-qQ-7os">
+                        <rect key="frame" x="65" y="12" width="204.5" height="38"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="38" id="Qsm-QE-lSq"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBc-45-zH2">
+                        <rect key="frame" x="261" y="0.0" width="59" height="61.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="59" id="Eae-3g-P9j"/>
+                        </constraints>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="onZanClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="MZq-3F-q9x"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="UBc-45-zH2" secondAttribute="trailing" id="Ed3-b8-6qU"/>
+                    <constraint firstAttribute="bottom" secondItem="cMd-qQ-7os" secondAttribute="bottom" constant="12" id="FLJ-Z3-7Qe"/>
+                    <constraint firstAttribute="trailing" secondItem="cMd-qQ-7os" secondAttribute="trailing" constant="12" id="IdH-5N-nLd"/>
+                    <constraint firstItem="rFE-3t-AfR" firstAttribute="leading" secondItem="cMd-qQ-7os" secondAttribute="trailing" constant="8" id="NXW-Hn-EJe"/>
+                    <constraint firstAttribute="trailing" secondItem="rFE-3t-AfR" secondAttribute="trailing" constant="18" id="UHS-ay-WUS"/>
+                    <constraint firstAttribute="bottom" secondItem="rFE-3t-AfR" secondAttribute="bottom" constant="8.5" id="XVB-Ga-av0"/>
+                    <constraint firstItem="cMd-qQ-7os" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="65" id="Z0g-qp-SgC"/>
+                    <constraint firstItem="cMd-qQ-7os" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="fv4-bL-NRV"/>
+                    <constraint firstItem="FQz-bN-ZbU" firstAttribute="centerX" secondItem="rFE-3t-AfR" secondAttribute="centerX" id="i1e-iY-i3V"/>
+                    <constraint firstAttribute="bottom" secondItem="UBc-45-zH2" secondAttribute="bottom" id="lSD-fC-fvi"/>
+                    <constraint firstItem="FQz-bN-ZbU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="lak-Q3-cDL"/>
+                    <constraint firstItem="UBc-45-zH2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="nDE-LT-zAm"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="IdH-5N-nLd"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="avatarsView" destination="cMd-qQ-7os" id="sz1-Pd-ik7"/>
+                <outlet property="zanIcon" destination="FQz-bN-ZbU" id="YLH-5z-5f5"/>
+                <outlet property="zanLabel" destination="rFE-3t-AfR" id="r2Q-bt-M0s"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="IconZan" width="16" height="16"/>
+    </resources>
+</document>

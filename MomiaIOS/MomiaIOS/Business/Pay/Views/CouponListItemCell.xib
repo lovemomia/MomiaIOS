@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CouponListItemCell" rowHeight="134" id="acr-yO-ySt" customClass="CouponListItemCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="134"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="acr-yO-ySt" id="XfW-UZ-uwR">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="133.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BgCouponGreen" translatesAutoresizingMaskIntoConstraints="NO" id="53W-zu-tEh">
+                        <rect key="frame" x="15" y="9" width="289" height="116"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="53W-zu-tEh" secondAttribute="height" multiplier="289:116" id="ABf-Fa-yxP"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用说明：消费满300可用" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebi-oP-RAD">
+                        <rect key="frame" x="29" y="76" width="263" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="11" id="nXo-5e-cJZ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有效期：2015年06月30日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsh-1H-PTi">
+                        <rect key="frame" x="29" y="95" width="263" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="11" id="pbG-Hh-P6G"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4SS-dX-hT5">
+                        <rect key="frame" x="133" y="33.5" width="39.5" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="27" id="DPB-NF-V6I"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="27" id="f0O-9b-rhE"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                        <color key="textColor" red="0.31372549019607843" green="0.81960784313725488" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="f0O-9b-rhE"/>
+                            </mask>
+                        </variation>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="元" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZy-6S-2jd">
+                        <rect key="frame" x="172" y="42" width="15" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="PAU-fr-5oy"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.31372549019607843" green="0.81960784313725488" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconCouponExpired" translatesAutoresizingMaskIntoConstraints="NO" id="Jtp-tb-4Nv">
+                        <rect key="frame" x="254" y="9" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="iKC-t1-T1m"/>
+                            <constraint firstAttribute="width" constant="50" id="mxf-8g-b0S"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="53W-zu-tEh" secondAttribute="trailing" constant="16" id="2kR-Zc-TqW"/>
+                    <constraint firstItem="53W-zu-tEh" firstAttribute="leading" secondItem="XfW-UZ-uwR" secondAttribute="leading" constant="15" id="4UC-e4-bpB"/>
+                    <constraint firstItem="Jtp-tb-4Nv" firstAttribute="top" secondItem="53W-zu-tEh" secondAttribute="top" id="4cl-4G-xpP"/>
+                    <constraint firstItem="4SS-dX-hT5" firstAttribute="centerX" secondItem="XfW-UZ-uwR" secondAttribute="centerX" constant="-8" id="5cA-vP-dTQ"/>
+                    <constraint firstItem="53W-zu-tEh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="XfW-UZ-uwR" secondAttribute="top" constant="9" id="7ly-ln-NLC"/>
+                    <constraint firstAttribute="trailing" secondItem="Vsh-1H-PTi" secondAttribute="trailing" constant="28" id="9EE-6O-JOz"/>
+                    <constraint firstItem="ebi-oP-RAD" firstAttribute="leading" secondItem="XfW-UZ-uwR" secondAttribute="leading" constant="29" id="JjF-nB-wN9"/>
+                    <constraint firstItem="Vsh-1H-PTi" firstAttribute="top" secondItem="ebi-oP-RAD" secondAttribute="bottom" constant="8" id="N7h-fE-HL9"/>
+                    <constraint firstAttribute="bottom" secondItem="Vsh-1H-PTi" secondAttribute="bottom" constant="27.5" id="dbx-Og-Sys"/>
+                    <constraint firstItem="LZy-6S-2jd" firstAttribute="leading" secondItem="4SS-dX-hT5" secondAttribute="trailing" id="evJ-a0-89C"/>
+                    <constraint firstItem="Jtp-tb-4Nv" firstAttribute="trailing" secondItem="53W-zu-tEh" secondAttribute="trailing" id="jZl-nb-Lj9"/>
+                    <constraint firstAttribute="bottom" secondItem="53W-zu-tEh" secondAttribute="bottom" constant="8.5" id="pET-le-npZ"/>
+                    <constraint firstItem="Vsh-1H-PTi" firstAttribute="leading" secondItem="XfW-UZ-uwR" secondAttribute="leading" constant="29" id="vj8-w4-Pik"/>
+                    <constraint firstItem="4SS-dX-hT5" firstAttribute="centerY" secondItem="XfW-UZ-uwR" secondAttribute="centerY" constant="-20" id="vkS-aY-6hX"/>
+                    <constraint firstAttribute="trailing" secondItem="ebi-oP-RAD" secondAttribute="trailing" constant="28" id="wJL-gq-Xw6"/>
+                    <constraint firstItem="LZy-6S-2jd" firstAttribute="centerY" secondItem="XfW-UZ-uwR" secondAttribute="centerY" constant="-16" id="xTe-hy-azY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="backIv" destination="53W-zu-tEh" id="sS2-kh-CVv"/>
+                <outlet property="descLabel" destination="ebi-oP-RAD" id="jgo-tC-GSV"/>
+                <outlet property="discountLabel" destination="4SS-dX-hT5" id="lsN-sP-JXC"/>
+                <outlet property="statusIv" destination="Jtp-tb-4Nv" id="t4a-OK-EEn"/>
+                <outlet property="timeLabel" destination="Vsh-1H-PTi" id="mQn-eC-B2Y"/>
+                <outlet property="yuanLabel" destination="LZy-6S-2jd" id="0Vn-Cr-cb8"/>
+            </connections>
+            <point key="canvasLocation" x="298" y="422"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="BgCouponGreen" width="289" height="116"/>
+        <image name="IconCouponExpired" width="50" height="50"/>
+    </resources>
+</document>

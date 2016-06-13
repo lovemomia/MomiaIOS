@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="PackageHeaderCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推荐组合" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xx4-c7-iMA">
+                        <rect key="frame" x="10" y="13" width="56" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconHot" translatesAutoresizingMaskIntoConstraints="NO" id="btX-kR-vh0">
+                        <rect key="frame" x="71" y="15" width="24" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="cTd-vo-yvH"/>
+                            <constraint firstAttribute="width" constant="24" id="jm4-eK-IUo"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="职业梦想课程包" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKq-Ya-DHD">
+                        <rect key="frame" x="236" y="14.5" width="84" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="1" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconPackage" translatesAutoresizingMaskIntoConstraints="NO" id="ySm-Qe-tOT">
+                        <rect key="frame" x="221" y="15" width="12" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="ObW-YW-McT"/>
+                            <constraint firstAttribute="width" constant="12" id="yWN-YD-9fS"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="WKq-Ya-DHD" firstAttribute="leading" secondItem="ySm-Qe-tOT" secondAttribute="trailing" constant="3" id="0Jn-as-dgY"/>
+                    <constraint firstItem="btX-kR-vh0" firstAttribute="leading" secondItem="xx4-c7-iMA" secondAttribute="trailing" constant="5" id="3bd-zX-pfl"/>
+                    <constraint firstItem="btX-kR-vh0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="PYu-Hc-wlC"/>
+                    <constraint firstItem="WKq-Ya-DHD" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Qhe-3I-abD"/>
+                    <constraint firstAttribute="trailing" secondItem="WKq-Ya-DHD" secondAttribute="trailing" id="UIL-nV-RR4"/>
+                    <constraint firstItem="ySm-Qe-tOT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="b9c-ob-dXQ"/>
+                    <constraint firstItem="xx4-c7-iMA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="e0G-Xx-gJc"/>
+                    <constraint firstItem="xx4-c7-iMA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="umj-Pu-fuf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="packageNameLabel" destination="WKq-Ya-DHD" id="P9J-FS-9mS"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="IconHot" width="24" height="14"/>
+        <image name="IconPackage" width="12" height="11"/>
+    </resources>
+</document>
