@@ -11,6 +11,8 @@
 #import "URLMappingManager.h"
 #import "MORootViewController.h"
 #import "HomeViewController.h"
+#import "HomeViewControllerV2.h"
+#import "WendaHomeViewController.h"
 #import "GroupListViewController.h"
 #import "MineViewController.h"
 
@@ -99,7 +101,7 @@
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithNibName:nil bundle:nil]) {
         // todo
-        if (![self isKindOfClass:[HomeViewController class]] && ![self isKindOfClass:[MineViewController class]] && ![self isKindOfClass:[GroupListViewController class]]) {
+        if (![self isKindOfClass:[WendaHomeViewController class]] && ![self isKindOfClass:[HomeViewControllerV2 class]] && ![self isKindOfClass:[HomeViewController class]] && ![self isKindOfClass:[MineViewController class]] && ![self isKindOfClass:[GroupListViewController class]]) {
             self.hidesBottomBarWhenPushed = YES;
         }
     }
