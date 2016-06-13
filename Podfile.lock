@@ -26,6 +26,9 @@ PODS:
   - Masonry (1.0.0)
   - MBProgressHUD (0.9.2)
   - MJRefresh (3.1.0)
+  - OrigamiEngine (1.0.14):
+    - OrigamiEngine/Core (= 1.0.14)
+  - OrigamiEngine/Core (1.0.14)
   - React/Core (0.25.1)
   - React/RCTImage (0.25.1):
     - React/Core
@@ -54,6 +57,7 @@ DEPENDENCIES:
   - Masonry
   - MBProgressHUD (~> 0.9.1)
   - MJRefresh
+  - OrigamiEngine
   - React/Core (from `./node_modules/react-native`)
   - React/RCTImage (from `./node_modules/react-native`)
   - React/RCTLinkingIOS (from `./node_modules/react-native`)
@@ -78,6 +82,7 @@ SPEC CHECKSUMS:
   Masonry: b529bb169217897b6354d4b56b1fada6d475b13d
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
+  OrigamiEngine: 74b097326260597f1498790795cc2cdd604c199a
   React: b35b2b2e07273da1f7266ab2975e0d1033bd913d
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   THProgressView: 999dc78f748f4cb6d69408f545de4d82ef7f1cec
@@ -85,6 +90,6 @@ SPEC CHECKSUMS:
   UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
   UMengAnalytics-NO-IDFA: 6d02561a00579b2e37718f204eb81347df5d7b8b
 
-PODFILE CHECKSUM: bcb2c5afbe14a81ad74535f47168adf534c62ebc
+PODFILE CHECKSUM: 2210eb185f92de427e8a2ea79e229dfcb9215215
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1
