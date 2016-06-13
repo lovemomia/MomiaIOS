@@ -13,12 +13,13 @@
 #import "GroupListViewController.h"
 #import "MineViewController.h"
 #import "UIImage+Color.h"
+#import "HomeViewController3.h"
 #import <RongIMKit/RongIMKit.h>
 
 @interface MORootViewController ()<UITabBarControllerDelegate> {
     
 }
-@property (nonatomic, strong) HomeViewController *home;
+@property (nonatomic, strong) HomeViewController3 *home;
 @property (nonatomic, strong) GroupListViewController *group;
 @property (nonatomic, strong) MineViewController *mine;
 
@@ -46,7 +47,7 @@
                                                            nil] forState:UIControlStateSelected];
 
         
-        _home = [[HomeViewController alloc]initWithParams:nil];
+        _home = [[HomeViewController3 alloc]initWithParams:nil];
         _home.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"精品课" image:[UIImage imageNamed:@"TabHomeNormal"] selectedImage:[UIImage imageNamed:@"TabHomeSelect"]];
         _home.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -2);
         

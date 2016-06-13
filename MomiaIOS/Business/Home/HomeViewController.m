@@ -410,7 +410,7 @@ typedef NS_ENUM(NSInteger, HomeViewCellType) {
         NSDictionary *attributes = @{@"name":course.title, @"index":[NSString stringWithFormat:@"%d", number]};
         [MobClick event:@"Home_List" attributes:attributes];
     } else if(item.itemType == HomeViewCellTypeRecommand) {
-        IndexRecommend *recommend = item.object;
+//        IndexRecommend *recommend = item.object;
 //        [[UIApplication sharedApplication]openURL:[];
     } else {
         if(self.isError) {
