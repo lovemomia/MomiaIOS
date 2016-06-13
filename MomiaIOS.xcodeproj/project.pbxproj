@@ -463,6 +463,8 @@
 		BCA80BF01CF5453B00B3D3E8 /* SignVIPCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA80BEE1CF5453B00B3D3E8 /* SignVIPCardViewController.m */; };
 		BCA80BF31CF5551400B3D3E8 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = BCA80BF21CF5551400B3D3E8 /* main.jsbundle */; };
 		BCA80BF41CF5551400B3D3E8 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = BCA80BF21CF5551400B3D3E8 /* main.jsbundle */; };
+		BCA80BF71D012BB500B3D3E8 /* HomeViewControllerV2.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA80BF61D012BB500B3D3E8 /* HomeViewControllerV2.m */; };
+		BCA80BF81D012D7A00B3D3E8 /* HomeViewControllerV2.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA80BF61D012BB500B3D3E8 /* HomeViewControllerV2.m */; };
 		BCBB16BD1BF3374900E273AF /* CommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBB16BB1BF3374900E273AF /* CommonTableViewCell.m */; };
 		BCBB16BE1BF3374A00E273AF /* CommonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCBB16BC1BF3374900E273AF /* CommonTableViewCell.xib */; };
 		BCBB16C11BF34B7200E273AF /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBB16C01BF34B7200E273AF /* UserInfoViewController.m */; };
@@ -1607,6 +1609,8 @@
 		BCA80BED1CF5453B00B3D3E8 /* SignVIPCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignVIPCardViewController.h; path = Business/Mine/SignVIPCardViewController.h; sourceTree = "<group>"; };
 		BCA80BEE1CF5453B00B3D3E8 /* SignVIPCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignVIPCardViewController.m; path = Business/Mine/SignVIPCardViewController.m; sourceTree = "<group>"; };
 		BCA80BF21CF5551400B3D3E8 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
+		BCA80BF51D012BB500B3D3E8 /* HomeViewControllerV2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewControllerV2.h; path = Business/Home/HomeViewControllerV2.h; sourceTree = "<group>"; };
+		BCA80BF61D012BB500B3D3E8 /* HomeViewControllerV2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewControllerV2.m; path = Business/Home/HomeViewControllerV2.m; sourceTree = "<group>"; };
 		BCBB16BA1BF3374900E273AF /* CommonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonTableViewCell.h; path = Common/Views/CommonTableViewCell.h; sourceTree = "<group>"; };
 		BCBB16BB1BF3374900E273AF /* CommonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonTableViewCell.m; path = Common/Views/CommonTableViewCell.m; sourceTree = "<group>"; };
 		BCBB16BC1BF3374900E273AF /* CommonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommonTableViewCell.xib; path = Common/Views/CommonTableViewCell.xib; sourceTree = "<group>"; };
@@ -3051,6 +3055,8 @@
 				BC8D3CEB1AE21CF500A2F319 /* Views */,
 				5A18DC481B295C03001458A4 /* HomeViewController.h */,
 				5A18DC491B295C03001458A4 /* HomeViewController.m */,
+				BCA80BF51D012BB500B3D3E8 /* HomeViewControllerV2.h */,
+				BCA80BF61D012BB500B3D3E8 /* HomeViewControllerV2.m */,
 				BCF9ECA81B4171EC00AEBE1E /* CityListViewController.h */,
 				BCF9ECA91B4171EC00AEBE1E /* CityListViewController.m */,
 				5A3C6C791B57AEC1006583FB /* ProductCalendarViewController.h */,
@@ -4018,6 +4024,7 @@
 				BC7708511AFAFD54000068A8 /* MOTableViewController.m in Sources */,
 				BC0D444E1C0465210007E9ED /* SubjectBuyCell.m in Sources */,
 				5AB1BDEA1B4FB7ED004A4511 /* LoadingErrorCell.m in Sources */,
+				BCA80BF71D012BB500B3D3E8 /* HomeViewControllerV2.m in Sources */,
 				BC10529D1BB2580A00D81C15 /* AddFeed.m in Sources */,
 				5A5A2AA41B4412FC000595A9 /* NSString+Predicate.m in Sources */,
 				002AF7BE1CC7759D00052BEC /* MOSectionObject.m in Sources */,
@@ -4159,6 +4166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCA80BF81D012D7A00B3D3E8 /* HomeViewControllerV2.m in Sources */,
 				BC5681121CE9CA7A00DD6D00 /* RNCommon.m in Sources */,
 				BC53A5231CA5250600532F91 /* SubjectCourseCell.m in Sources */,
 				BC53A51D1CA4001500532F91 /* SubjectDiscCell.m in Sources */,
