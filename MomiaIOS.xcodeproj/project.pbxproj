@@ -474,6 +474,8 @@
 		BCA80BF41CF5551400B3D3E8 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = BCA80BF21CF5551400B3D3E8 /* main.jsbundle */; };
 		BCA80BF71D012BB500B3D3E8 /* HomeViewControllerV2.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA80BF61D012BB500B3D3E8 /* HomeViewControllerV2.m */; };
 		BCA80BF81D012D7A00B3D3E8 /* HomeViewControllerV2.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA80BF61D012BB500B3D3E8 /* HomeViewControllerV2.m */; };
+		BCA80BFC1D0EC28000B3D3E8 /* WendaHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA80BFB1D0EC28000B3D3E8 /* WendaHomeViewController.m */; };
+		BCA80BFD1D0EC43F00B3D3E8 /* WendaHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA80BFB1D0EC28000B3D3E8 /* WendaHomeViewController.m */; };
 		BCBB16BD1BF3374900E273AF /* CommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBB16BB1BF3374900E273AF /* CommonTableViewCell.m */; };
 		BCBB16BE1BF3374A00E273AF /* CommonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCBB16BC1BF3374900E273AF /* CommonTableViewCell.xib */; };
 		BCBB16C11BF34B7200E273AF /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBB16C01BF34B7200E273AF /* UserInfoViewController.m */; };
@@ -1629,6 +1631,8 @@
 		BCA80BF21CF5551400B3D3E8 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		BCA80BF51D012BB500B3D3E8 /* HomeViewControllerV2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewControllerV2.h; path = Business/Home/HomeViewControllerV2.h; sourceTree = "<group>"; };
 		BCA80BF61D012BB500B3D3E8 /* HomeViewControllerV2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewControllerV2.m; path = Business/Home/HomeViewControllerV2.m; sourceTree = "<group>"; };
+		BCA80BFA1D0EC28000B3D3E8 /* WendaHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WendaHomeViewController.h; path = Business/Wenda/WendaHomeViewController.h; sourceTree = "<group>"; };
+		BCA80BFB1D0EC28000B3D3E8 /* WendaHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WendaHomeViewController.m; path = Business/Wenda/WendaHomeViewController.m; sourceTree = "<group>"; };
 		BCBB16BA1BF3374900E273AF /* CommonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonTableViewCell.h; path = Common/Views/CommonTableViewCell.h; sourceTree = "<group>"; };
 		BCBB16BB1BF3374900E273AF /* CommonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonTableViewCell.m; path = Common/Views/CommonTableViewCell.m; sourceTree = "<group>"; };
 		BCBB16BC1BF3374900E273AF /* CommonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommonTableViewCell.xib; path = Common/Views/CommonTableViewCell.xib; sourceTree = "<group>"; };
@@ -3056,6 +3060,7 @@
 		BC8540B51ADF8649005A7C54 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				BCA80BF91D0EC23000B3D3E8 /* Wenda */,
 				BC79DF371C0E90800064C02F /* Chat */,
 				BC8540B71ADF881A005A7C54 /* Home */,
 				BCCDC6E61BBA9602007C2F57 /* Course */,
@@ -3339,6 +3344,15 @@
 			);
 			name = "rc-output";
 			path = output;
+			sourceTree = "<group>";
+		};
+		BCA80BF91D0EC23000B3D3E8 /* Wenda */ = {
+			isa = PBXGroup;
+			children = (
+				BCA80BFA1D0EC28000B3D3E8 /* WendaHomeViewController.h */,
+				BCA80BFB1D0EC28000B3D3E8 /* WendaHomeViewController.m */,
+			);
+			name = Wenda;
 			sourceTree = "<group>";
 		};
 		BCCDC6E61BBA9602007C2F57 /* Course */ = {
@@ -4030,6 +4044,7 @@
 				002B66421CB3686C0096EB6E /* ChildListViewController.m in Sources */,
 				BC359A1B1BC61F2A002DE863 /* LJViewPager.m in Sources */,
 				BC79DF7D1C1186180064C02F /* IMGroupModel.m in Sources */,
+				BCA80BFC1D0EC28000B3D3E8 /* WendaHomeViewController.m in Sources */,
 				BC3509081BFDD1830043D37C /* SubjectTabCell.m in Sources */,
 				BC3599FA1BC61F0C002DE863 /* MLSelectPhotoPickerCollectionViewCell.m in Sources */,
 				BC3599BA1BC61ED7002DE863 /* ProductCalendarMonthViewController.m in Sources */,
@@ -4204,6 +4219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCA80BFD1D0EC43F00B3D3E8 /* WendaHomeViewController.m in Sources */,
 				BCA80BF81D012D7A00B3D3E8 /* HomeViewControllerV2.m in Sources */,
 				BC5681121CE9CA7A00DD6D00 /* RNCommon.m in Sources */,
 				BC53A5231CA5250600532F91 /* SubjectCourseCell.m in Sources */,

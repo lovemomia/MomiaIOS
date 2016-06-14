@@ -10,17 +10,17 @@
 #import "MONavigationController.h"
 #import "HomeViewController.h"
 #import "HomeViewControllerV2.h"
-#import "GroupListViewController.h"
+#import "WendaHomeViewController.h"
 #import "MineViewController.h"
 #import "UIImage+Color.h"
-#import "HomeViewController3.h"
 #import <RongIMKit/RongIMKit.h>
 
 @interface MORootViewController ()<UITabBarControllerDelegate> {
     
 }
-@property (nonatomic, strong) HomeViewController3 *home;
-@property (nonatomic, strong) GroupListViewController *group;
+@property (nonatomic, strong) WendaHomeViewController *wdHome;
+@property (nonatomic, strong) HomeViewControllerV2 *home;
+//@property (nonatomic, strong) GroupListViewController *group;
 @property (nonatomic, strong) MineViewController *mine;
 
 @property (nonatomic, strong) UIImageView *dotImage;
@@ -46,26 +46,29 @@
                                                            titleHighlightedColor, NSForegroundColorAttributeName,
                                                            nil] forState:UIControlStateSelected];
 
+        _wdHome = [[WendaHomeViewController alloc]initWithParams:nil];
+        _wdHome.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"问答" image:[UIImage imageNamed:@"TabPlaymateNormal"] selectedImage:[UIImage imageNamed:@"TabPlaymateSelect"]];
+        _wdHome.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -2);
         
-        _home = [[HomeViewController3 alloc]initWithParams:nil];
-        _home.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"精品课" image:[UIImage imageNamed:@"TabHomeNormal"] selectedImage:[UIImage imageNamed:@"TabHomeSelect"]];
+        _home = [[HomeViewControllerV2 alloc]initWithParams:nil];
+        _home.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"学游" image:[UIImage imageNamed:@"TabHomeNormal"] selectedImage:[UIImage imageNamed:@"TabHomeSelect"]];
         _home.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -2);
         
-        _group = [[GroupListViewController alloc]initWithParams:nil];
-        _group.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"群组" image:[UIImage imageNamed:@"TabPlaymateNormal"] selectedImage:[UIImage imageNamed:@"TabPlaymateSelect"]];
-        _group.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -2);
+//        _group = [[GroupListViewController alloc]initWithParams:nil];
+//        _group.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"群组" image:[UIImage imageNamed:@"TabPlaymateNormal"] selectedImage:[UIImage imageNamed:@"TabPlaymateSelect"]];
+//        _group.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -2);
         
         _mine = [[MineViewController alloc]initWithParams:nil];
         _mine.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"我的" image:[UIImage imageNamed:@"TabMineNormal"] selectedImage:[UIImage imageNamed:@"TabMineSelect"]];
         _mine.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -2);
         
         MONavigationController *navHome = [[MONavigationController alloc] initWithRootViewController:_home];
-        MONavigationController *navGroup = [[MONavigationController alloc] initWithRootViewController:_group];
+        MONavigationController *navWenda = [[MONavigationController alloc] initWithRootViewController:_wdHome];
         MONavigationController *navMine = [[MONavigationController alloc] initWithRootViewController:_mine];
         
         self.viewControllers = [NSArray arrayWithObjects:
+                                navWenda,
                                 navHome,
-                                navGroup,
                                 navMine,
                                 nil];
         
