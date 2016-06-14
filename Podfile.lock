@@ -44,6 +44,7 @@ PODS:
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
+  - StreamingKit (0.1.29)
   - THProgressView (1.0)
   - TTTAttributedLabel (1.13.4)
   - UITableView+FDTemplateLayoutCell (1.4)
@@ -65,6 +66,7 @@ DEPENDENCIES:
   - React/RCTText (from `./node_modules/react-native`)
   - React/RCTWebSocket (from `./node_modules/react-native`)
   - SDWebImage
+  - StreamingKit (~> 0.1)
   - THProgressView (~> 1.0)
   - TTTAttributedLabel
   - UITableView+FDTemplateLayoutCell
@@ -85,11 +87,12 @@ SPEC CHECKSUMS:
   OrigamiEngine: 74b097326260597f1498790795cc2cdd604c199a
   React: b35b2b2e07273da1f7266ab2975e0d1033bd913d
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  StreamingKit: c329785aaef3ac142d4ae388345bfe1ed23cfd45
   THProgressView: 999dc78f748f4cb6d69408f545de4d82ef7f1cec
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
   UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
   UMengAnalytics-NO-IDFA: 6d02561a00579b2e37718f204eb81347df5d7b8b
 
-PODFILE CHECKSUM: 2210eb185f92de427e8a2ea79e229dfcb9215215
+PODFILE CHECKSUM: ccffedc9f086456c25ccfe3c0727cc08235532c4
 
 COCOAPODS: 1.0.1

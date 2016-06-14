@@ -15,6 +15,45 @@
 		000E0DCB1CCDEAEF00E77173 /* RefundTimeLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 000E0DC81CCDEAEF00E77173 /* RefundTimeLineCell.m */; };
 		000E0DCC1CCDEAEF00E77173 /* RefundTimeLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 000E0DC91CCDEAEF00E77173 /* RefundTimeLineCell.xib */; };
 		000E0DCD1CCDEAEF00E77173 /* RefundTimeLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 000E0DC91CCDEAEF00E77173 /* RefundTimeLineCell.xib */; };
+		001FEF8B1D0FCEF700A00D7E /* AudioPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FEF8A1D0FCEF700A00D7E /* AudioPlayerManager.m */; };
+		001FEF8C1D0FCEF700A00D7E /* AudioPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FEF8A1D0FCEF700A00D7E /* AudioPlayerManager.m */; };
+		001FEFAF1D0FD74500A00D7E /* amrFileCodec.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FEF8F1D0FD74500A00D7E /* amrFileCodec.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		001FEFB01D0FD74500A00D7E /* amrFileCodec.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FEF8F1D0FD74500A00D7E /* amrFileCodec.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		001FEFB51D0FD74500A00D7E /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEF9C1D0FD74500A00D7E /* libopencore-amrnb.a */; };
+		001FEFB61D0FD74500A00D7E /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEF9C1D0FD74500A00D7E /* libopencore-amrnb.a */; };
+		001FEFB71D0FD74500A00D7E /* libopencore-amrnb.a.arm64 in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEF9D1D0FD74500A00D7E /* libopencore-amrnb.a.arm64 */; };
+		001FEFB81D0FD74500A00D7E /* libopencore-amrnb.a.arm64 in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEF9D1D0FD74500A00D7E /* libopencore-amrnb.a.arm64 */; };
+		001FEFB91D0FD74500A00D7E /* libopencore-amrnb.a.armv7 in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEF9E1D0FD74500A00D7E /* libopencore-amrnb.a.armv7 */; };
+		001FEFBA1D0FD74500A00D7E /* libopencore-amrnb.a.armv7 in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEF9E1D0FD74500A00D7E /* libopencore-amrnb.a.armv7 */; };
+		001FEFBB1D0FD74500A00D7E /* libopencore-amrnb.a.armv7s in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEF9F1D0FD74500A00D7E /* libopencore-amrnb.a.armv7s */; };
+		001FEFBC1D0FD74500A00D7E /* libopencore-amrnb.a.armv7s in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEF9F1D0FD74500A00D7E /* libopencore-amrnb.a.armv7s */; };
+		001FEFBD1D0FD74500A00D7E /* libopencore-amrnb.a.i386 in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEFA01D0FD74500A00D7E /* libopencore-amrnb.a.i386 */; };
+		001FEFBE1D0FD74500A00D7E /* libopencore-amrnb.a.i386 in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEFA01D0FD74500A00D7E /* libopencore-amrnb.a.i386 */; };
+		001FEFBF1D0FD74500A00D7E /* libopencore-amrnb.a.x86_64 in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEFA11D0FD74500A00D7E /* libopencore-amrnb.a.x86_64 */; };
+		001FEFC01D0FD74500A00D7E /* libopencore-amrnb.a.x86_64 in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEFA11D0FD74500A00D7E /* libopencore-amrnb.a.x86_64 */; };
+		001FEFC11D0FD74500A00D7E /* libopencore-amrnb.la in Resources */ = {isa = PBXBuildFile; fileRef = 001FEFA21D0FD74500A00D7E /* libopencore-amrnb.la */; };
+		001FEFC21D0FD74500A00D7E /* libopencore-amrnb.la in Resources */ = {isa = PBXBuildFile; fileRef = 001FEFA21D0FD74500A00D7E /* libopencore-amrnb.la */; };
+		001FEFC31D0FD74500A00D7E /* libopencore-amrwb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEFA31D0FD74500A00D7E /* libopencore-amrwb.a */; };
+		001FEFC41D0FD74500A00D7E /* libopencore-amrwb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEFA31D0FD74500A00D7E /* libopencore-amrwb.a */; };
+		001FEFC51D0FD74500A00D7E /* libopencore-amrwb.a.arm64 in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEFA41D0FD74500A00D7E /* libopencore-amrwb.a.arm64 */; };
+		001FEFC61D0FD74500A00D7E /* libopencore-amrwb.a.arm64 in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEFA41D0FD74500A00D7E /* libopencore-amrwb.a.arm64 */; };
+		001FEFC71D0FD74500A00D7E /* libopencore-amrwb.a.armv7 in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEFA51D0FD74500A00D7E /* libopencore-amrwb.a.armv7 */; };
+		001FEFC81D0FD74500A00D7E /* libopencore-amrwb.a.armv7 in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEFA51D0FD74500A00D7E /* libopencore-amrwb.a.armv7 */; };
+		001FEFC91D0FD74500A00D7E /* libopencore-amrwb.a.armv7s in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEFA61D0FD74500A00D7E /* libopencore-amrwb.a.armv7s */; };
+		001FEFCA1D0FD74500A00D7E /* libopencore-amrwb.a.armv7s in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEFA61D0FD74500A00D7E /* libopencore-amrwb.a.armv7s */; };
+		001FEFCB1D0FD74500A00D7E /* libopencore-amrwb.a.i386 in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEFA71D0FD74500A00D7E /* libopencore-amrwb.a.i386 */; };
+		001FEFCC1D0FD74500A00D7E /* libopencore-amrwb.a.i386 in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEFA71D0FD74500A00D7E /* libopencore-amrwb.a.i386 */; };
+		001FEFCD1D0FD74500A00D7E /* libopencore-amrwb.a.x86_64 in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEFA81D0FD74500A00D7E /* libopencore-amrwb.a.x86_64 */; };
+		001FEFCE1D0FD74500A00D7E /* libopencore-amrwb.a.x86_64 in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEFA81D0FD74500A00D7E /* libopencore-amrwb.a.x86_64 */; };
+		001FEFCF1D0FD74500A00D7E /* libopencore-amrwb.la in Resources */ = {isa = PBXBuildFile; fileRef = 001FEFA91D0FD74500A00D7E /* libopencore-amrwb.la */; };
+		001FEFD01D0FD74500A00D7E /* libopencore-amrwb.la in Resources */ = {isa = PBXBuildFile; fileRef = 001FEFA91D0FD74500A00D7E /* libopencore-amrwb.la */; };
+		001FEFD11D0FD74500A00D7E /* opencore-amrnb.pc in Resources */ = {isa = PBXBuildFile; fileRef = 001FEFAB1D0FD74500A00D7E /* opencore-amrnb.pc */; };
+		001FEFD21D0FD74500A00D7E /* opencore-amrnb.pc in Resources */ = {isa = PBXBuildFile; fileRef = 001FEFAB1D0FD74500A00D7E /* opencore-amrnb.pc */; };
+		001FEFD31D0FD74500A00D7E /* opencore-amrwb.pc in Resources */ = {isa = PBXBuildFile; fileRef = 001FEFAC1D0FD74500A00D7E /* opencore-amrwb.pc */; };
+		001FEFD41D0FD74500A00D7E /* opencore-amrwb.pc in Resources */ = {isa = PBXBuildFile; fileRef = 001FEFAC1D0FD74500A00D7E /* opencore-amrwb.pc */; };
+		001FEFD51D0FD74500A00D7E /* RecordAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FEFAE1D0FD74500A00D7E /* RecordAudio.m */; };
+		001FEFD61D0FD74500A00D7E /* RecordAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FEFAE1D0FD74500A00D7E /* RecordAudio.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		001FEFD81D0FE48E00A00D7E /* Debug-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 001FEFD71D0FE48E00A00D7E /* Debug-Info.plist */; };
 		002AF7BE1CC7759D00052BEC /* MOSectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 002AF7BD1CC7759D00052BEC /* MOSectionObject.m */; };
 		002AF7BF1CC7759D00052BEC /* MOSectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 002AF7BD1CC7759D00052BEC /* MOSectionObject.m */; };
 		002AF7C21CC7769C00052BEC /* MORowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 002AF7C11CC7769C00052BEC /* MORowObject.m */; };
@@ -35,14 +74,6 @@
 		005E2A761CEB170F00CBF5DD /* RefundText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005E2A741CEB170F00CBF5DD /* RefundText.xib */; };
 		0075F2311D0E93E900AC558D /* HomeViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = 0075F2301D0E93E900AC558D /* HomeViewController3.m */; };
 		0075F2321D0E93E900AC558D /* HomeViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = 0075F2301D0E93E900AC558D /* HomeViewController3.m */; };
-		007C460E1D0E8E1600FED152 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 007C45F51D0E8E1600FED152 /* libopencore-amrnb.a */; };
-		007C460F1D0E8E1600FED152 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 007C45F51D0E8E1600FED152 /* libopencore-amrnb.a */; };
-		007C461A1D0E8E1600FED152 /* libopencore-amrnb.la in Resources */ = {isa = PBXBuildFile; fileRef = 007C45FB1D0E8E1600FED152 /* libopencore-amrnb.la */; };
-		007C461B1D0E8E1600FED152 /* libopencore-amrnb.la in Resources */ = {isa = PBXBuildFile; fileRef = 007C45FB1D0E8E1600FED152 /* libopencore-amrnb.la */; };
-		007C461C1D0E8E1600FED152 /* libopencore-amrwb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 007C45FC1D0E8E1600FED152 /* libopencore-amrwb.a */; };
-		007C461D1D0E8E1600FED152 /* libopencore-amrwb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 007C45FC1D0E8E1600FED152 /* libopencore-amrwb.a */; };
-		007C46281D0E8E1600FED152 /* libopencore-amrwb.la in Resources */ = {isa = PBXBuildFile; fileRef = 007C46021D0E8E1600FED152 /* libopencore-amrwb.la */; };
-		007C46291D0E8E1600FED152 /* libopencore-amrwb.la in Resources */ = {isa = PBXBuildFile; fileRef = 007C46021D0E8E1600FED152 /* libopencore-amrwb.la */; };
 		00B59E881CBD4695005565EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
 		00C796841CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
 		00C796851CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
@@ -901,6 +932,33 @@
 		000E0DC71CCDEAEF00E77173 /* RefundTimeLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefundTimeLineCell.h; sourceTree = "<group>"; };
 		000E0DC81CCDEAEF00E77173 /* RefundTimeLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefundTimeLineCell.m; sourceTree = "<group>"; };
 		000E0DC91CCDEAEF00E77173 /* RefundTimeLineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundTimeLineCell.xib; sourceTree = "<group>"; };
+		001FEF891D0FCEF700A00D7E /* AudioPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayerManager.h; sourceTree = "<group>"; };
+		001FEF8A1D0FCEF700A00D7E /* AudioPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerManager.m; sourceTree = "<group>"; };
+		001FEF8E1D0FD74500A00D7E /* amrFileCodec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amrFileCodec.h; sourceTree = "<group>"; };
+		001FEF8F1D0FD74500A00D7E /* amrFileCodec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = amrFileCodec.m; sourceTree = "<group>"; };
+		001FEF961D0FD74500A00D7E /* interf_dec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_dec.h; sourceTree = "<group>"; };
+		001FEF971D0FD74500A00D7E /* interf_enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_enc.h; sourceTree = "<group>"; };
+		001FEF991D0FD74500A00D7E /* dec_if.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dec_if.h; sourceTree = "<group>"; };
+		001FEF9A1D0FD74500A00D7E /* if_rom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = if_rom.h; sourceTree = "<group>"; };
+		001FEF9C1D0FD74500A00D7E /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
+		001FEF9D1D0FD74500A00D7E /* libopencore-amrnb.a.arm64 */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a.arm64"; sourceTree = "<group>"; };
+		001FEF9E1D0FD74500A00D7E /* libopencore-amrnb.a.armv7 */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a.armv7"; sourceTree = "<group>"; };
+		001FEF9F1D0FD74500A00D7E /* libopencore-amrnb.a.armv7s */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a.armv7s"; sourceTree = "<group>"; };
+		001FEFA01D0FD74500A00D7E /* libopencore-amrnb.a.i386 */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a.i386"; sourceTree = "<group>"; };
+		001FEFA11D0FD74500A00D7E /* libopencore-amrnb.a.x86_64 */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a.x86_64"; sourceTree = "<group>"; };
+		001FEFA21D0FD74500A00D7E /* libopencore-amrnb.la */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "libopencore-amrnb.la"; sourceTree = "<group>"; };
+		001FEFA31D0FD74500A00D7E /* libopencore-amrwb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrwb.a"; sourceTree = "<group>"; };
+		001FEFA41D0FD74500A00D7E /* libopencore-amrwb.a.arm64 */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrwb.a.arm64"; sourceTree = "<group>"; };
+		001FEFA51D0FD74500A00D7E /* libopencore-amrwb.a.armv7 */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrwb.a.armv7"; sourceTree = "<group>"; };
+		001FEFA61D0FD74500A00D7E /* libopencore-amrwb.a.armv7s */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrwb.a.armv7s"; sourceTree = "<group>"; };
+		001FEFA71D0FD74500A00D7E /* libopencore-amrwb.a.i386 */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrwb.a.i386"; sourceTree = "<group>"; };
+		001FEFA81D0FD74500A00D7E /* libopencore-amrwb.a.x86_64 */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrwb.a.x86_64"; sourceTree = "<group>"; };
+		001FEFA91D0FD74500A00D7E /* libopencore-amrwb.la */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "libopencore-amrwb.la"; sourceTree = "<group>"; };
+		001FEFAB1D0FD74500A00D7E /* opencore-amrnb.pc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "opencore-amrnb.pc"; sourceTree = "<group>"; };
+		001FEFAC1D0FD74500A00D7E /* opencore-amrwb.pc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "opencore-amrwb.pc"; sourceTree = "<group>"; };
+		001FEFAD1D0FD74500A00D7E /* RecordAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordAudio.h; sourceTree = "<group>"; };
+		001FEFAE1D0FD74500A00D7E /* RecordAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordAudio.m; sourceTree = "<group>"; };
+		001FEFD71D0FE48E00A00D7E /* Debug-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Debug-Info.plist"; sourceTree = "<group>"; };
 		002AF7BC1CC7759D00052BEC /* MOSectionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSectionObject.h; sourceTree = "<group>"; };
 		002AF7BD1CC7759D00052BEC /* MOSectionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSectionObject.m; sourceTree = "<group>"; };
 		002AF7C01CC7769C00052BEC /* MORowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MORowObject.h; sourceTree = "<group>"; };
@@ -919,14 +977,6 @@
 		005E2A741CEB170F00CBF5DD /* RefundText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundText.xib; sourceTree = "<group>"; };
 		0075F22F1D0E93E900AC558D /* HomeViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController3.h; sourceTree = "<group>"; };
 		0075F2301D0E93E900AC558D /* HomeViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController3.m; sourceTree = "<group>"; };
-		007C45EF1D0E8E1600FED152 /* interf_dec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_dec.h; sourceTree = "<group>"; };
-		007C45F01D0E8E1600FED152 /* interf_enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_enc.h; sourceTree = "<group>"; };
-		007C45F21D0E8E1600FED152 /* dec_if.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dec_if.h; sourceTree = "<group>"; };
-		007C45F31D0E8E1600FED152 /* if_rom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = if_rom.h; sourceTree = "<group>"; };
-		007C45F51D0E8E1600FED152 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
-		007C45FB1D0E8E1600FED152 /* libopencore-amrnb.la */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "libopencore-amrnb.la"; sourceTree = "<group>"; };
-		007C45FC1D0E8E1600FED152 /* libopencore-amrwb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrwb.a"; sourceTree = "<group>"; };
-		007C46021D0E8E1600FED152 /* libopencore-amrwb.la */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "libopencore-amrwb.la"; sourceTree = "<group>"; };
 		00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectDetailHeaders.xib; sourceTree = "<group>"; };
 		00DCB9741CF53EE700215227 /* RecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendCell.h; sourceTree = "<group>"; };
 		00DCB9751CF53EE700215227 /* RecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendCell.m; sourceTree = "<group>"; };
@@ -1621,7 +1671,6 @@
 		BCD0BC9F1BF097B800552FFE /* FeedTagListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedTagListModel.m; path = Common/Models/Feed/FeedTagListModel.m; sourceTree = "<group>"; };
 		BCE589591B2AF37C00736923 /* WechatPayDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatPayDelegate.h; sourceTree = "<group>"; };
 		BCEAFD961C2A394300CB082D /* MomiaIOS DEBUG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MomiaIOS DEBUG.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BCEAFD971C2A394300CB082D /* Debug-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Debug-Info.plist"; path = "/Users/dengjun86/develop/workspace_ios/momia/MomiaIOS/Debug-Info.plist"; sourceTree = "<absolute>"; };
 		BCF033971B4F72B0005B71D6 /* AlipayOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlipayOrder.h; path = Common/Models/Pay/AlipayOrder.h; sourceTree = "<group>"; };
 		BCF033981B4F72B0005B71D6 /* AlipayOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlipayOrder.m; path = Common/Models/Pay/AlipayOrder.m; sourceTree = "<group>"; };
 		BCF0339A1B4F77BE005B71D6 /* AlipayOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlipayOrderModel.h; path = Common/Models/Pay/AlipayOrderModel.h; sourceTree = "<group>"; };
@@ -1699,20 +1748,26 @@
 				BC8B9A121C1AD53100EE39A2 /* RongIMLib.framework in Frameworks */,
 				BC77375B1BCB94BB00987B22 /* OpenGLES.framework in Frameworks */,
 				BC79DF551C0EC5B90064C02F /* MapKit.framework in Frameworks */,
+				001FEFBB1D0FD74500A00D7E /* libopencore-amrnb.a.armv7s in Frameworks */,
 				BC79DF531C0EC5B10064C02F /* libz.tbd in Frameworks */,
 				BC79DF511C0EC59D0064C02F /* libxml2.tbd in Frameworks */,
 				BC79DF4F1C0EC5920064C02F /* libstdc++.tbd in Frameworks */,
 				BC79DF4D1C0EC5860064C02F /* libsqlite3.tbd in Frameworks */,
 				BC79DF4B1C0EC5770064C02F /* libc++abi.tbd in Frameworks */,
 				BC79DF491C0EC5650064C02F /* libc++.tbd in Frameworks */,
+				001FEFC91D0FD74500A00D7E /* libopencore-amrwb.a.armv7s in Frameworks */,
 				BC79DF471C0EC4700064C02F /* ImageIO.framework in Frameworks */,
 				BC79DF451C0EC3B90064C02F /* CoreVideo.framework in Frameworks */,
 				BC79DF431C0EC3A20064C02F /* CoreMedia.framework in Frameworks */,
 				BC79DF411C0EC38E0064C02F /* CoreAudio.framework in Frameworks */,
-				007C460E1D0E8E1600FED152 /* libopencore-amrnb.a in Frameworks */,
+				001FEFB51D0FD74500A00D7E /* libopencore-amrnb.a in Frameworks */,
 				BC1CC9F01BA7E4AD001841E7 /* AVFoundation.framework in Frameworks */,
 				BC8B9A0E1C1AD53100EE39A2 /* libopencore-amrnb.a in Frameworks */,
+				001FEFCD1D0FD74500A00D7E /* libopencore-amrwb.a.x86_64 in Frameworks */,
+				001FEFB91D0FD74500A00D7E /* libopencore-amrnb.a.armv7 in Frameworks */,
 				BC79DF3F1C0EC36B0064C02F /* AudioToolbox.framework in Frameworks */,
+				001FEFC71D0FD74500A00D7E /* libopencore-amrwb.a.armv7 in Frameworks */,
+				001FEFCB1D0FD74500A00D7E /* libopencore-amrwb.a.i386 in Frameworks */,
 				BC79DF3D1C0EC3610064C02F /* AssetsLibrary.framework in Frameworks */,
 				BC5CF2F81BB5275B00EC5227 /* AlipaySDK.framework in Frameworks */,
 				BC1CC9EE1BA7E49F001841E7 /* CoreLocation.framework in Frameworks */,
@@ -1723,16 +1778,20 @@
 				BCCDF6701B0B4F7A008BAE12 /* CoreText.framework in Frameworks */,
 				BC38D2911B09B8B30051C7E9 /* Security.framework in Frameworks */,
 				BCCDF65B1B0B1ED5008BAE12 /* libicucore.dylib in Frameworks */,
+				001FEFC51D0FD74500A00D7E /* libopencore-amrwb.a.arm64 in Frameworks */,
 				BCCDF6591B0B1ECC008BAE12 /* CoreTelephony.framework in Frameworks */,
+				001FEFBD1D0FD74500A00D7E /* libopencore-amrnb.a.i386 in Frameworks */,
 				BCCDF6571B0B1EC0008BAE12 /* QuartzCore.framework in Frameworks */,
 				BC5CF2FE1BB53E6400EC5227 /* libWeChatSDK.a in Frameworks */,
+				001FEFB71D0FD74500A00D7E /* libopencore-amrnb.a.arm64 in Frameworks */,
 				BC38D2951B09B8E50051C7E9 /* CFNetwork.framework in Frameworks */,
 				BCCDF66D1B0B4E4C008BAE12 /* libWeiboSDK.a in Frameworks */,
 				BC7737591BCB92A400987B22 /* BaiduMapAPI.framework in Frameworks */,
 				BC8B9A111C1AD53100EE39A2 /* RongIMKit.framework in Frameworks */,
 				BC1CC9EC1BA7E228001841E7 /* libGeTuiSdk-1.2.1.a in Frameworks */,
 				4CA5D72228DAAA226950866E /* libPods-MomiaIOS.a in Frameworks */,
-				007C461C1D0E8E1600FED152 /* libopencore-amrwb.a in Frameworks */,
+				001FEFC31D0FD74500A00D7E /* libopencore-amrwb.a in Frameworks */,
+				001FEFBF1D0FD74500A00D7E /* libopencore-amrnb.a.x86_64 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1750,20 +1809,26 @@
 				BCEAFD1F1C2A394300CB082D /* RongIMLib.framework in Frameworks */,
 				BCEAFD201C2A394300CB082D /* OpenGLES.framework in Frameworks */,
 				BCEAFD211C2A394300CB082D /* MapKit.framework in Frameworks */,
+				001FEFBC1D0FD74500A00D7E /* libopencore-amrnb.a.armv7s in Frameworks */,
 				BCEAFD221C2A394300CB082D /* libz.tbd in Frameworks */,
 				BCEAFD231C2A394300CB082D /* libxml2.tbd in Frameworks */,
 				BCEAFD241C2A394300CB082D /* libstdc++.tbd in Frameworks */,
 				BCEAFD251C2A394300CB082D /* libsqlite3.tbd in Frameworks */,
 				BCEAFD261C2A394300CB082D /* libc++abi.tbd in Frameworks */,
 				BCEAFD271C2A394300CB082D /* libc++.tbd in Frameworks */,
+				001FEFCA1D0FD74500A00D7E /* libopencore-amrwb.a.armv7s in Frameworks */,
 				BCEAFD281C2A394300CB082D /* ImageIO.framework in Frameworks */,
 				BCEAFD291C2A394300CB082D /* CoreVideo.framework in Frameworks */,
 				BCEAFD2A1C2A394300CB082D /* CoreMedia.framework in Frameworks */,
 				BCEAFD2B1C2A394300CB082D /* CoreAudio.framework in Frameworks */,
-				007C460F1D0E8E1600FED152 /* libopencore-amrnb.a in Frameworks */,
+				001FEFB61D0FD74500A00D7E /* libopencore-amrnb.a in Frameworks */,
 				BCEAFD2C1C2A394300CB082D /* AVFoundation.framework in Frameworks */,
 				BCEAFD2D1C2A394300CB082D /* libopencore-amrnb.a in Frameworks */,
+				001FEFCE1D0FD74500A00D7E /* libopencore-amrwb.a.x86_64 in Frameworks */,
+				001FEFBA1D0FD74500A00D7E /* libopencore-amrnb.a.armv7 in Frameworks */,
 				BCEAFD2E1C2A394300CB082D /* AudioToolbox.framework in Frameworks */,
+				001FEFC81D0FD74500A00D7E /* libopencore-amrwb.a.armv7 in Frameworks */,
+				001FEFCC1D0FD74500A00D7E /* libopencore-amrwb.a.i386 in Frameworks */,
 				BCEAFD2F1C2A394300CB082D /* AssetsLibrary.framework in Frameworks */,
 				BCEAFD301C2A394300CB082D /* AlipaySDK.framework in Frameworks */,
 				BCEAFD311C2A394300CB082D /* CoreLocation.framework in Frameworks */,
@@ -1774,75 +1839,112 @@
 				BCEAFD361C2A394300CB082D /* CoreText.framework in Frameworks */,
 				BCEAFD371C2A394300CB082D /* Security.framework in Frameworks */,
 				BCEAFD381C2A394300CB082D /* libicucore.dylib in Frameworks */,
+				001FEFC61D0FD74500A00D7E /* libopencore-amrwb.a.arm64 in Frameworks */,
 				BCEAFD391C2A394300CB082D /* CoreTelephony.framework in Frameworks */,
+				001FEFBE1D0FD74500A00D7E /* libopencore-amrnb.a.i386 in Frameworks */,
 				BCEAFD3A1C2A394300CB082D /* QuartzCore.framework in Frameworks */,
 				BCEAFD3B1C2A394300CB082D /* libWeChatSDK.a in Frameworks */,
+				001FEFB81D0FD74500A00D7E /* libopencore-amrnb.a.arm64 in Frameworks */,
 				BCEAFD3C1C2A394300CB082D /* CFNetwork.framework in Frameworks */,
 				BCEAFD3D1C2A394300CB082D /* libWeiboSDK.a in Frameworks */,
 				BCEAFD3E1C2A394300CB082D /* BaiduMapAPI.framework in Frameworks */,
 				BCEAFD3F1C2A394300CB082D /* RongIMKit.framework in Frameworks */,
 				BCEAFD401C2A394300CB082D /* libGeTuiSdk-1.2.1.a in Frameworks */,
 				581F3BAF56DB9B8ABD7DF661 /* libPods-MomiaIOS DEBUG.a in Frameworks */,
-				007C461D1D0E8E1600FED152 /* libopencore-amrwb.a in Frameworks */,
+				001FEFC41D0FD74500A00D7E /* libopencore-amrwb.a in Frameworks */,
+				001FEFC01D0FD74500A00D7E /* libopencore-amrnb.a.x86_64 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		007C45E51D0E8DE500FED152 /* Lib */ = {
+		001FEF881D0FCEE900A00D7E /* AudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				007C45E61D0E8E1600FED152 /* arm */,
+				001FEF891D0FCEF700A00D7E /* AudioPlayerManager.h */,
+				001FEF8A1D0FCEF700A00D7E /* AudioPlayerManager.m */,
 			);
-			path = Lib;
+			path = AudioPlayer;
 			sourceTree = "<group>";
 		};
-		007C45E61D0E8E1600FED152 /* arm */ = {
+		001FEF8D1D0FD74500A00D7E /* arm */ = {
 			isa = PBXGroup;
 			children = (
-				007C45ED1D0E8E1600FED152 /* include */,
-				007C45F41D0E8E1600FED152 /* lib */,
+				001FEF941D0FD74500A00D7E /* include */,
+				001FEF9B1D0FD74500A00D7E /* lib */,
+				001FEFAD1D0FD74500A00D7E /* RecordAudio.h */,
+				001FEFAE1D0FD74500A00D7E /* RecordAudio.m */,
+				001FEF8E1D0FD74500A00D7E /* amrFileCodec.h */,
+				001FEF8F1D0FD74500A00D7E /* amrFileCodec.m */,
 			);
 			path = arm;
 			sourceTree = "<group>";
 		};
-		007C45ED1D0E8E1600FED152 /* include */ = {
+		001FEF941D0FD74500A00D7E /* include */ = {
 			isa = PBXGroup;
 			children = (
-				007C45EE1D0E8E1600FED152 /* opencore-amrnb */,
-				007C45F11D0E8E1600FED152 /* opencore-amrwb */,
+				001FEF951D0FD74500A00D7E /* opencore-amrnb */,
+				001FEF981D0FD74500A00D7E /* opencore-amrwb */,
 			);
 			path = include;
 			sourceTree = "<group>";
 		};
-		007C45EE1D0E8E1600FED152 /* opencore-amrnb */ = {
+		001FEF951D0FD74500A00D7E /* opencore-amrnb */ = {
 			isa = PBXGroup;
 			children = (
-				007C45EF1D0E8E1600FED152 /* interf_dec.h */,
-				007C45F01D0E8E1600FED152 /* interf_enc.h */,
+				001FEF961D0FD74500A00D7E /* interf_dec.h */,
+				001FEF971D0FD74500A00D7E /* interf_enc.h */,
 			);
 			path = "opencore-amrnb";
 			sourceTree = "<group>";
 		};
-		007C45F11D0E8E1600FED152 /* opencore-amrwb */ = {
+		001FEF981D0FD74500A00D7E /* opencore-amrwb */ = {
 			isa = PBXGroup;
 			children = (
-				007C45F21D0E8E1600FED152 /* dec_if.h */,
-				007C45F31D0E8E1600FED152 /* if_rom.h */,
+				001FEF991D0FD74500A00D7E /* dec_if.h */,
+				001FEF9A1D0FD74500A00D7E /* if_rom.h */,
 			);
 			path = "opencore-amrwb";
 			sourceTree = "<group>";
 		};
-		007C45F41D0E8E1600FED152 /* lib */ = {
+		001FEF9B1D0FD74500A00D7E /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				007C45F51D0E8E1600FED152 /* libopencore-amrnb.a */,
-				007C45FB1D0E8E1600FED152 /* libopencore-amrnb.la */,
-				007C45FC1D0E8E1600FED152 /* libopencore-amrwb.a */,
-				007C46021D0E8E1600FED152 /* libopencore-amrwb.la */,
+				001FEF9C1D0FD74500A00D7E /* libopencore-amrnb.a */,
+				001FEF9D1D0FD74500A00D7E /* libopencore-amrnb.a.arm64 */,
+				001FEF9E1D0FD74500A00D7E /* libopencore-amrnb.a.armv7 */,
+				001FEF9F1D0FD74500A00D7E /* libopencore-amrnb.a.armv7s */,
+				001FEFA01D0FD74500A00D7E /* libopencore-amrnb.a.i386 */,
+				001FEFA11D0FD74500A00D7E /* libopencore-amrnb.a.x86_64 */,
+				001FEFA21D0FD74500A00D7E /* libopencore-amrnb.la */,
+				001FEFA31D0FD74500A00D7E /* libopencore-amrwb.a */,
+				001FEFA41D0FD74500A00D7E /* libopencore-amrwb.a.arm64 */,
+				001FEFA51D0FD74500A00D7E /* libopencore-amrwb.a.armv7 */,
+				001FEFA61D0FD74500A00D7E /* libopencore-amrwb.a.armv7s */,
+				001FEFA71D0FD74500A00D7E /* libopencore-amrwb.a.i386 */,
+				001FEFA81D0FD74500A00D7E /* libopencore-amrwb.a.x86_64 */,
+				001FEFA91D0FD74500A00D7E /* libopencore-amrwb.la */,
+				001FEFAA1D0FD74500A00D7E /* pkgconfig */,
 			);
 			path = lib;
+			sourceTree = "<group>";
+		};
+		001FEFAA1D0FD74500A00D7E /* pkgconfig */ = {
+			isa = PBXGroup;
+			children = (
+				001FEFAB1D0FD74500A00D7E /* opencore-amrnb.pc */,
+				001FEFAC1D0FD74500A00D7E /* opencore-amrwb.pc */,
+			);
+			path = pkgconfig;
+			sourceTree = "<group>";
+		};
+		007C45E51D0E8DE500FED152 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				001FEF8D1D0FD74500A00D7E /* arm */,
+			);
+			path = Lib;
 			sourceTree = "<group>";
 		};
 		26D758803C76A62629C50A39 /* Frameworks */ = {
@@ -2905,9 +3007,9 @@
 		BC85408E1ADF74E9005A7C54 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				001FEFD71D0FE48E00A00D7E /* Debug-Info.plist */,
 				BCA80BF11CF5551400B3D3E8 /* rc-output */,
 				BC85408F1ADF74E9005A7C54 /* Info.plist */,
-				BCEAFD971C2A394300CB082D /* Debug-Info.plist */,
 				BC8540901ADF74E9005A7C54 /* main.m */,
 				BC2FAA0C1AFC8E9600E2071E /* PrefixHeader.pch */,
 			);
@@ -2935,6 +3037,7 @@
 			isa = PBXGroup;
 			children = (
 				BC8540C41AE2121E005A7C54 /* Constants.h */,
+				001FEF881D0FCEE900A00D7E /* AudioPlayer */,
 				007C45E51D0E8DE500FED152 /* Lib */,
 				BC2FAA121AFCB1CB00E2071E /* Services */,
 				BC7708601AFC56F3000068A8 /* Models */,
@@ -3477,7 +3580,7 @@
 				BC80B8481CA00E97009559F2 /* HomeSubjectCoursesCell.xib in Resources */,
 				BC040D141BC8EDB600988AB2 /* CourseListItemCell.xib in Resources */,
 				BC753EDA1BAC07D300D2663C /* FeedUgcCell.xib in Resources */,
-				007C46281D0E8E1600FED152 /* libopencore-amrwb.la in Resources */,
+				001FEFCF1D0FD74500A00D7E /* libopencore-amrwb.la in Resources */,
 				00C796841CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */,
 				5A6806F01B01A9BD00D02A60 /* SettingMsgCell.xib in Resources */,
 				BC753ED41BAC07D300D2663C /* FeedSuggestHeadCell.xib in Resources */,
@@ -3492,6 +3595,8 @@
 				BC8254381B3AB01E00430A6F /* RegisterCell.xib in Resources */,
 				BC7737921BCF91CA00987B22 /* SubjectOrderFillViewController.xib in Resources */,
 				BCF564D71B48E1E7003A2227 /* OrderListItemCell.xib in Resources */,
+				001FEFD11D0FD74500A00D7E /* opencore-amrnb.pc in Resources */,
+				001FEFD31D0FD74500A00D7E /* opencore-amrwb.pc in Resources */,
 				BC753EDC1BAC07D300D2663C /* FeedUserHeadCell.xib in Resources */,
 				BCA273271AEB1EBA002E7534 /* MineInfoCell.xib in Resources */,
 				5A33F19B1B2EA0A4002A8258 /* CashPayBottomCell.xib in Resources */,
@@ -3557,7 +3662,7 @@
 				BCF9DCFE1BD8F12800D8CDC6 /* CourseTeacherListItemCell.xib in Resources */,
 				BC592BE41BD5E33A008AE76A /* BookSkuMoreCell.xib in Resources */,
 				BC77377C1BCE2C0C00987B22 /* CoursePoiCell.xib in Resources */,
-				007C461A1D0E8E1600FED152 /* libopencore-amrnb.la in Resources */,
+				001FEFC11D0FD74500A00D7E /* libopencore-amrnb.la in Resources */,
 				BC0D44471C02FBD50007E9ED /* FeedListItemCell.xib in Resources */,
 				BC9C02B51C1E7A860019A693 /* GroupNoticeView.xib in Resources */,
 				BCCDF66E1B0B4E4C008BAE12 /* WeiboSDK.bundle in Resources */,
@@ -3578,14 +3683,16 @@
 				BC53A5241CA5251D00532F91 /* SubjectCourseCell.xib in Resources */,
 				BC80B8511CA13D33009559F2 /* HomeSubjectCoverCell.xib in Resources */,
 				BC80B8521CA13D33009559F2 /* HomeSubjectCoursesCell.xib in Resources */,
+				001FEFD41D0FD74500A00D7E /* opencore-amrwb.pc in Resources */,
 				BC80B8531CA13D33009559F2 /* HomeTopicCell.xib in Resources */,
 				00E956711CDB200100FD7124 /* CheckBoxCell.xib in Resources */,
 				BC80B83E1CA00A37009559F2 /* HomeEventCell.xib in Resources */,
 				BCEAFD431C2A394300CB082D /* CourseListItemCell.xib in Resources */,
+				001FEFD81D0FE48E00A00D7E /* Debug-Info.plist in Resources */,
 				BCEAFD451C2A394300CB082D /* FeedUgcCell.xib in Resources */,
 				BCEAFD461C2A394300CB082D /* SettingMsgCell.xib in Resources */,
 				BCEAFD471C2A394300CB082D /* FeedSuggestHeadCell.xib in Resources */,
-				007C461B1D0E8E1600FED152 /* libopencore-amrnb.la in Resources */,
+				001FEFC21D0FD74500A00D7E /* libopencore-amrnb.la in Resources */,
 				BCEAFD481C2A394300CB082D /* ico_make.png in Resources */,
 				BCEAFD491C2A394300CB082D /* UserInfoHeaderView.xib in Resources */,
 				BCEAFD4A1C2A394300CB082D /* AlipaySDK.bundle in Resources */,
@@ -3594,6 +3701,7 @@
 				BCEAFD4D1C2A394300CB082D /* GroupMemberItemCell.xib in Resources */,
 				000E0DC61CCDEAD700E77173 /* RefundLabelCell.xib in Resources */,
 				BCEAFD4E1C2A394300CB082D /* PersonLogoCell.xib in Resources */,
+				001FEFD21D0FD74500A00D7E /* opencore-amrnb.pc in Resources */,
 				005E2A761CEB170F00CBF5DD /* RefundText.xib in Resources */,
 				BCEAFD4F1C2A394300CB082D /* CommonTableViewCell.xib in Resources */,
 				BCEAFD501C2A394300CB082D /* RegisterCell.xib in Resources */,
@@ -3654,7 +3762,7 @@
 				BCEAFD891C2A394300CB082D /* BookCourseListItemCell.xib in Resources */,
 				00C796851CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */,
 				BCEAFD8B1C2A394300CB082D /* HomeCell.xib in Resources */,
-				007C46291D0E8E1600FED152 /* libopencore-amrwb.la in Resources */,
+				001FEFD01D0FD74500A00D7E /* libopencore-amrwb.la in Resources */,
 				BCEAFD8C1C2A394300CB082D /* CourseTeacherListItemCell.xib in Resources */,
 				BCEAFD8E1C2A394300CB082D /* BookSkuMoreCell.xib in Resources */,
 				BCEAFD8F1C2A394300CB082D /* CoursePoiCell.xib in Resources */,
@@ -3799,6 +3907,7 @@
 				BC41ABA91B0C715400A419DA /* Environment.m in Sources */,
 				5A456F9A1B2E687700E95756 /* MOTableCell.m in Sources */,
 				BC2C0C961B184EA500E2446E /* AvatarImageView.m in Sources */,
+				001FEFD51D0FD74500A00D7E /* RecordAudio.m in Sources */,
 				BC592BCE1BD4DAB9008AE76A /* JSDropDownMenu.m in Sources */,
 				BC753ED51BAC07D300D2663C /* FeedSuggestUserCell.m in Sources */,
 				BC79DF761C117A510064C02F /* IMTokenModel.m in Sources */,
@@ -3899,6 +4008,7 @@
 				BC3509001BFC4CD40043D37C /* ShareViewCell.m in Sources */,
 				BC6CF5831C3CC469006F314C /* IQKeyboardManager.m in Sources */,
 				0035B7501CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */,
+				001FEFAF1D0FD74500A00D7E /* amrFileCodec.m in Sources */,
 				BC359A491BC679EF002DE863 /* HomeGridCell.m in Sources */,
 				BC9089821B58983300A8D85B /* MyOrderListViewController.m in Sources */,
 				BC592BDE1BD5D8FB008AE76A /* BookSkuItemCell.m in Sources */,
@@ -3934,6 +4044,7 @@
 				BC82542B1B3917AC00430A6F /* MORootViewController.m in Sources */,
 				5ABDA57B1B423FD8003BAE80 /* PostPersonModel.m in Sources */,
 				BC79DF801C118FBA0064C02F /* IMUserGroupListModel.m in Sources */,
+				001FEF8B1D0FCEF700A00D7E /* AudioPlayerManager.m in Sources */,
 				BC82543F1B3C26E400430A6F /* LocationService.m in Sources */,
 				5AABF70F1B281BEF000A9D3F /* ConvertFromXib.m in Sources */,
 				5A33F1921B2E9FC5002A8258 /* CashPayViewController.m in Sources */,
@@ -4318,6 +4429,7 @@
 				BCEAFCC81C2A394300CB082D /* HttpService.m in Sources */,
 				BCEAFCC91C2A394300CB082D /* AccountModel.m in Sources */,
 				BCEAFCCA1C2A394300CB082D /* SkuItemCell.m in Sources */,
+				001FEF8C1D0FCEF700A00D7E /* AudioPlayerManager.m in Sources */,
 				BCEAFCCB1C2A394300CB082D /* OrderListViewController.m in Sources */,
 				BCEAFCCC1C2A394300CB082D /* FeedSuggestHeadCell.m in Sources */,
 				BCEAFCCD1C2A394300CB082D /* MyFavCell.m in Sources */,
@@ -4346,6 +4458,7 @@
 				BCEAFCE21C2A394300CB082D /* Subject.m in Sources */,
 				BCEAFCE31C2A394300CB082D /* UIImage+MLTint.m in Sources */,
 				BCEAFCE41C2A394300CB082D /* CourseTeacherListViewController.m in Sources */,
+				001FEFB01D0FD74500A00D7E /* amrFileCodec.m in Sources */,
 				BCEAFCE51C2A394300CB082D /* HomeViewController.m in Sources */,
 				BCEAFCE61C2A394300CB082D /* FeedUgcCell.m in Sources */,
 				BCEAFCE71C2A394300CB082D /* FeedDetailViewController.m in Sources */,
@@ -4374,6 +4487,7 @@
 				BCEAFCFB1C2A394300CB082D /* MLSelectPhotoPickerGroup.m in Sources */,
 				BCEAFCFC1C2A394300CB082D /* ThirdAccountHelper.m in Sources */,
 				BCEAFCFD1C2A394300CB082D /* MONavigationController.m in Sources */,
+				001FEFD61D0FD74500A00D7E /* RecordAudio.m in Sources */,
 				BCEAFCFE1C2A394300CB082D /* AboutViewController.m in Sources */,
 				BCEAFCFF1C2A394300CB082D /* CourseListModel.m in Sources */,
 				BCEAFD001C2A394300CB082D /* RegisterViewController.m in Sources */,
@@ -4730,7 +4844,7 @@
 					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
 					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Debug-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/MomiaIOS/Debug-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -4814,7 +4928,7 @@
 					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
 					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Debug-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/MomiaIOS/Debug-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (

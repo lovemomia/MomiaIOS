@@ -19,7 +19,7 @@
     [super viewDidLoad];
     
     
-    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://10.1.14.47:8081/audio/AudioAnswer.bundle?platform=ios"];
+    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/audio/AudioAnswer.bundle?platform=ios"];
     RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"AudioAnswerComponent" initialProperties:nil launchOptions:nil];
     rootView.frame = self.view.bounds;
     [self.view addSubview:rootView];

@@ -11,7 +11,9 @@ var {
   TouchableHighlight
 } = ReactNative;
 
-var reactMixin = require('react-timer-mixin');
+const timer = require('react-native-timer');
+
+var AudioPlayerManager = require('NativeModules').AudioPlayerManager;
 
 var styles = ReactNative.StyleSheet.create({
 	container: {
@@ -116,18 +118,11 @@ class AudioAnswerComponent extends React.Component {
       });
 
 	  this.state = {
+	  	seconds: 0,
 	  	isRecord: false,
-	  	dataSource: ds.cloneWithRows([{
-        	id: 0
-      	}, {
-        	id: 1
-      	},{
-      		id: 2
-      	},{
-      		id: 3
-      	},{
-      		id: 4
-      	}])
+	  	dataSource: ds.cloneWithRows([
+	  		{id: 0}, {id: 1},{id: 2},{id: 3},{id: 4}
+	  	])
 	  };
 	}
 
@@ -143,8 +138,6 @@ class AudioAnswerComponent extends React.Component {
 	}
 
 	renderRow(rowData, sectionID, rowID) {
-		console.log(rowID);
-		console.log(this.state.isRecord);
 		if (rowID == 0 ) {
 
 			return (
@@ -176,14 +169,15 @@ class AudioAnswerComponent extends React.Component {
 						<Image style={styles.audioImage} />
 					</TouchableHighlight>
 					<Text style={styles.audioText}> 点击开始录音最多可录120s </Text>
-					<Text> 30'</Text>
+					<Text> { this.state.seconds } ‘</Text>
 				</View>
 			);
 		} else if (rowID == 4 ) {
 
 			return (
 				<View style={styles.buttonBox}>
-					<TouchableHighlight style={styles.buttonLeft}>
+					<TouchableHighlight style={styles.buttonLeft}
+										onPress={this.playAudio}>
 						<Text style={styles.buttonText}>重录</Text>
 					</TouchableHighlight>
 					<TouchableHighlight style={styles.buttonRight}>
@@ -199,16 +193,34 @@ class AudioAnswerComponent extends React.Component {
 		);
 	}
 
-	pressAudioImage = () =>{
-		console.log(this.state.isRecord);
+	pressAudioImage = () => {
+		console.log("press image");
 		if (this.state.isRecord == false ) {
-    		this.setInterval(() => { console.log('test'); }, 5000);
-    		this.state.isRecord = true;
+			this.state.isRecord = true;
+    		timer.setInterval('test', () => {
+    			this.setState({ seconds: this.state.seconds + 1 });
+    			console.log(this.state.seconds);
+    		} , 1000);
+    		this.setState({
+      			dataSource: this.state.dataSource.cloneWithRows([
+      				{id: 0}, {id: 1},{id: 2},{id: 3},{id: 4}]),
+    		});
+    		AudioPlayerManager.startRecord();
+
 		} else {
-			this.clearInterval(this);
+
+			AudioPlayerManager.stopRecord();
+			timer.clearInterval('test');
 			this.state.isRecord = false;
 		}
+	}
 
+	playAudio = () => {
+		AudioPlayerManager.play();
+	}
+
+	//发送语音
+	sendAnswer = () => {
 
 	}
 }
