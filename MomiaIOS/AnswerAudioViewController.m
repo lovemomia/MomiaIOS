@@ -1,23 +1,23 @@
 //
-//  HomeViewController3.m
+//  AnswerAudioViewController.m
 //  MomiaIOS
 //
-//  Created by mosl on 16/6/13.
+//  Created by mosl on 16/6/14.
 //  Copyright © 2016年 Deng Jun. All rights reserved.
 //
 
-#import "HomeViewController3.h"
+#import "AnswerAudioViewController.h"
 #import "RCTRootView.h"
 #import "RNCommon.h"
-@interface HomeViewController3 ()
+
+@interface AnswerAudioViewController ()
 
 @end
 
-@implementation HomeViewController3
+@implementation AnswerAudioViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/audio/AudioAnswer.bundle?platform=ios"];
     RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"AudioAnswerComponent" initialProperties:nil launchOptions:nil];

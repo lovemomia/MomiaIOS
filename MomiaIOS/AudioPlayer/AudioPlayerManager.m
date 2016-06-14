@@ -7,8 +7,8 @@
 //
 
 #import "AudioPlayerManager.h"
-#import "RecordAudio.h"
-#import "STKAudioPlayer.h"
+#import "amrFileCodec.h"
+#import <AVFoundation/AVFoundation.h>
 
 typedef NS_ENUM(NSInteger, PlayType){
     PlayTypeURL = 0,

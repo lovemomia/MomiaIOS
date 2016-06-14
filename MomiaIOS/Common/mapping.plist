@@ -5,7 +5,7 @@
 	<key>home</key>
 	<dict>
 		<key>controller</key>
-		<string>HomeViewController3</string>
+		<string>HomeViewController</string>
 		<key>needlogin</key>
 		<false/>
 		<key>desc</key>

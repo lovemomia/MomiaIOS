@@ -51,9 +51,8 @@
 		001FEFD21D0FD74500A00D7E /* opencore-amrnb.pc in Resources */ = {isa = PBXBuildFile; fileRef = 001FEFAB1D0FD74500A00D7E /* opencore-amrnb.pc */; };
 		001FEFD31D0FD74500A00D7E /* opencore-amrwb.pc in Resources */ = {isa = PBXBuildFile; fileRef = 001FEFAC1D0FD74500A00D7E /* opencore-amrwb.pc */; };
 		001FEFD41D0FD74500A00D7E /* opencore-amrwb.pc in Resources */ = {isa = PBXBuildFile; fileRef = 001FEFAC1D0FD74500A00D7E /* opencore-amrwb.pc */; };
-		001FEFD51D0FD74500A00D7E /* RecordAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FEFAE1D0FD74500A00D7E /* RecordAudio.m */; };
-		001FEFD61D0FD74500A00D7E /* RecordAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FEFAE1D0FD74500A00D7E /* RecordAudio.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		001FEFD81D0FE48E00A00D7E /* Debug-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 001FEFD71D0FE48E00A00D7E /* Debug-Info.plist */; };
+		001FEFEC1D100C9A00A00D7E /* AnswerAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FEFEB1D100C9A00A00D7E /* AnswerAudioViewController.m */; };
+		001FEFED1D100C9A00A00D7E /* AnswerAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FEFEB1D100C9A00A00D7E /* AnswerAudioViewController.m */; };
 		002AF7BE1CC7759D00052BEC /* MOSectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 002AF7BD1CC7759D00052BEC /* MOSectionObject.m */; };
 		002AF7BF1CC7759D00052BEC /* MOSectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 002AF7BD1CC7759D00052BEC /* MOSectionObject.m */; };
 		002AF7C21CC7769C00052BEC /* MORowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 002AF7C11CC7769C00052BEC /* MORowObject.m */; };
@@ -72,8 +71,6 @@
 		0035B7511CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */; };
 		005E2A751CEB170F00CBF5DD /* RefundText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005E2A741CEB170F00CBF5DD /* RefundText.xib */; };
 		005E2A761CEB170F00CBF5DD /* RefundText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005E2A741CEB170F00CBF5DD /* RefundText.xib */; };
-		0075F2311D0E93E900AC558D /* HomeViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = 0075F2301D0E93E900AC558D /* HomeViewController3.m */; };
-		0075F2321D0E93E900AC558D /* HomeViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = 0075F2301D0E93E900AC558D /* HomeViewController3.m */; };
 		00B59E881CBD4695005565EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
 		00C796841CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
 		00C796851CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
@@ -958,9 +955,9 @@
 		001FEFA91D0FD74500A00D7E /* libopencore-amrwb.la */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "libopencore-amrwb.la"; sourceTree = "<group>"; };
 		001FEFAB1D0FD74500A00D7E /* opencore-amrnb.pc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "opencore-amrnb.pc"; sourceTree = "<group>"; };
 		001FEFAC1D0FD74500A00D7E /* opencore-amrwb.pc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "opencore-amrwb.pc"; sourceTree = "<group>"; };
-		001FEFAD1D0FD74500A00D7E /* RecordAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordAudio.h; sourceTree = "<group>"; };
-		001FEFAE1D0FD74500A00D7E /* RecordAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordAudio.m; sourceTree = "<group>"; };
 		001FEFD71D0FE48E00A00D7E /* Debug-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Debug-Info.plist"; sourceTree = "<group>"; };
+		001FEFEA1D100C9A00A00D7E /* AnswerAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerAudioViewController.h; sourceTree = "<group>"; };
+		001FEFEB1D100C9A00A00D7E /* AnswerAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerAudioViewController.m; sourceTree = "<group>"; };
 		002AF7BC1CC7759D00052BEC /* MOSectionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOSectionObject.h; sourceTree = "<group>"; };
 		002AF7BD1CC7759D00052BEC /* MOSectionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOSectionObject.m; sourceTree = "<group>"; };
 		002AF7C01CC7769C00052BEC /* MORowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MORowObject.h; sourceTree = "<group>"; };
@@ -977,8 +974,6 @@
 		0035B74E1CC8CE5200F5EAEF /* ApplyRefundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyRefundViewController.h; sourceTree = "<group>"; };
 		0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyRefundViewController.m; sourceTree = "<group>"; };
 		005E2A741CEB170F00CBF5DD /* RefundText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundText.xib; sourceTree = "<group>"; };
-		0075F22F1D0E93E900AC558D /* HomeViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController3.h; sourceTree = "<group>"; };
-		0075F2301D0E93E900AC558D /* HomeViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController3.m; sourceTree = "<group>"; };
 		00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectDetailHeaders.xib; sourceTree = "<group>"; };
 		00DCB9741CF53EE700215227 /* RecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendCell.h; sourceTree = "<group>"; };
 		00DCB9751CF53EE700215227 /* RecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendCell.m; sourceTree = "<group>"; };
@@ -1877,8 +1872,6 @@
 			children = (
 				001FEF941D0FD74500A00D7E /* include */,
 				001FEF9B1D0FD74500A00D7E /* lib */,
-				001FEFAD1D0FD74500A00D7E /* RecordAudio.h */,
-				001FEFAE1D0FD74500A00D7E /* RecordAudio.m */,
 				001FEF8E1D0FD74500A00D7E /* amrFileCodec.h */,
 				001FEF8F1D0FD74500A00D7E /* amrFileCodec.m */,
 			);
@@ -3093,8 +3086,6 @@
 				5A18DC491B295C03001458A4 /* HomeViewController.m */,
 				BCA80BF51D012BB500B3D3E8 /* HomeViewControllerV2.h */,
 				BCA80BF61D012BB500B3D3E8 /* HomeViewControllerV2.m */,
-				0075F22F1D0E93E900AC558D /* HomeViewController3.h */,
-				0075F2301D0E93E900AC558D /* HomeViewController3.m */,
 				BCF9ECA81B4171EC00AEBE1E /* CityListViewController.h */,
 				BCF9ECA91B4171EC00AEBE1E /* CityListViewController.m */,
 				5A3C6C791B57AEC1006583FB /* ProductCalendarViewController.h */,
@@ -3351,6 +3342,8 @@
 			children = (
 				BCA80BFA1D0EC28000B3D3E8 /* WendaHomeViewController.h */,
 				BCA80BFB1D0EC28000B3D3E8 /* WendaHomeViewController.m */,
+				001FEFEA1D100C9A00A00D7E /* AnswerAudioViewController.h */,
+				001FEFEB1D100C9A00A00D7E /* AnswerAudioViewController.m */,
 			);
 			name = Wenda;
 			sourceTree = "<group>";
@@ -3543,7 +3536,7 @@
 		BC8540831ADF74E9005A7C54 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Deng Jun";
 				TargetAttributes = {
 					BC85408A1ADF74E9005A7C54 = {
@@ -3702,7 +3695,6 @@
 				00E956711CDB200100FD7124 /* CheckBoxCell.xib in Resources */,
 				BC80B83E1CA00A37009559F2 /* HomeEventCell.xib in Resources */,
 				BCEAFD431C2A394300CB082D /* CourseListItemCell.xib in Resources */,
-				001FEFD81D0FE48E00A00D7E /* Debug-Info.plist in Resources */,
 				BCEAFD451C2A394300CB082D /* FeedUgcCell.xib in Resources */,
 				BCEAFD461C2A394300CB082D /* SettingMsgCell.xib in Resources */,
 				BCEAFD471C2A394300CB082D /* FeedSuggestHeadCell.xib in Resources */,
@@ -3921,7 +3913,6 @@
 				BC41ABA91B0C715400A419DA /* Environment.m in Sources */,
 				5A456F9A1B2E687700E95756 /* MOTableCell.m in Sources */,
 				BC2C0C961B184EA500E2446E /* AvatarImageView.m in Sources */,
-				001FEFD51D0FD74500A00D7E /* RecordAudio.m in Sources */,
 				BC592BCE1BD4DAB9008AE76A /* JSDropDownMenu.m in Sources */,
 				BC753ED51BAC07D300D2663C /* FeedSuggestUserCell.m in Sources */,
 				BC79DF761C117A510064C02F /* IMTokenModel.m in Sources */,
@@ -3938,6 +3929,7 @@
 				BCD0BC9D1BF0973600552FFE /* TagListViewController.m in Sources */,
 				BC753ED01BAC07D300D2663C /* FeedContentCell.m in Sources */,
 				BC359A2F1BC61F56002DE863 /* DatePickerSheet.m in Sources */,
+				001FEFEC1D100C9A00A00D7E /* AnswerAudioViewController.m in Sources */,
 				BC3599F21BC61F0C002DE863 /* MLSelectPhotoPickerAssetsViewController.m in Sources */,
 				BCF9ECA71B416C3500AEBE1E /* CityListModel.m in Sources */,
 				5A11C7301B58B49B00B0CDFE /* ProductCalendarModel.m in Sources */,
@@ -3954,7 +3946,6 @@
 				BC7737891BCE4A9E00987B22 /* CoursePriceCell.m in Sources */,
 				BCF9DD071BD8FC2500D8CDC6 /* CourseBookListModel.m in Sources */,
 				002B665D1CB3AFE30096EB6E /* ConfirmBookViewController.m in Sources */,
-				0075F2311D0E93E900AC558D /* HomeViewController3.m in Sources */,
 				5ABDA5B31B42CD4B003BAE80 /* PostOrderModel.m in Sources */,
 				BC592BF61BD65392008AE76A /* BookedCourseListViewController.m in Sources */,
 				BC97DEFC1B4B75A8002B1A00 /* OrderPerson.m in Sources */,
@@ -4284,7 +4275,6 @@
 				BCEAFC231C2A394300CB082D /* AddFeedViewController.m in Sources */,
 				BCEAFC241C2A394300CB082D /* MySuggestModel.m in Sources */,
 				BCEAFC261C2A394300CB082D /* MJRefreshHelper.m in Sources */,
-				0075F2321D0E93E900AC558D /* HomeViewController3.m in Sources */,
 				BCEAFC271C2A394300CB082D /* CourseSectionTitleCell.m in Sources */,
 				BCEAFC281C2A394300CB082D /* CourseListItemCell.m in Sources */,
 				BCEAFC291C2A394300CB082D /* TagListViewController.m in Sources */,
@@ -4482,6 +4472,7 @@
 				BCEAFCE91C2A394300CB082D /* BookingSubjectListViewController.m in Sources */,
 				BCEAFCEA1C2A394300CB082D /* Coupon.m in Sources */,
 				BCEAFCEB1C2A394300CB082D /* Child.m in Sources */,
+				001FEFED1D100C9A00A00D7E /* AnswerAudioViewController.m in Sources */,
 				BCEAFCEC1C2A394300CB082D /* ConfigService.m in Sources */,
 				BCEAFCED1C2A394300CB082D /* OrderPersonModel.m in Sources */,
 				002B664E1CB38ED30096EB6E /* ChildInfoViewController.m in Sources */,
@@ -4503,7 +4494,6 @@
 				BCEAFCFB1C2A394300CB082D /* MLSelectPhotoPickerGroup.m in Sources */,
 				BCEAFCFC1C2A394300CB082D /* ThirdAccountHelper.m in Sources */,
 				BCEAFCFD1C2A394300CB082D /* MONavigationController.m in Sources */,
-				001FEFD61D0FD74500A00D7E /* RecordAudio.m in Sources */,
 				BCEAFCFE1C2A394300CB082D /* AboutViewController.m in Sources */,
 				BCEAFCFF1C2A394300CB082D /* CourseListModel.m in Sources */,
 				BCEAFD001C2A394300CB082D /* RegisterViewController.m in Sources */,

@@ -494,19 +494,6 @@ NSData* EncodePCMToAMR(char* data, int maxLen,int nChannels, int nBitsPerSample)
 	return out;
 }
 
-//http://developer.apple.com/library/mac/#documentation/MusicAudio/Reference/CAFSpec/CAF_spec/CAF_spec.html#//apple_ref/doc/uid/TP40001862-CH210-SW1
-
-//struct CAFFileHeader {
-//    UInt32  mFileType;
-//    UInt16  mFileVersion;
-//    UInt16  mFileFlags;
-//};
-//
-//struct CAFChunkHeader {
-//    UInt32  mChunkType;
-//    SInt64  mChunkSize;
-//};
-
 int SkipCaffHead(char* buf){
     
     if (!buf) {
