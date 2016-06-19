@@ -74,6 +74,14 @@
 		00B59E881CBD4695005565EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
 		00C796841CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
 		00C796851CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
+		00CBCEB71D16EE24001B8353 /* MyQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBCEB61D16EE24001B8353 /* MyQuestionViewController.m */; };
+		00CBCEB81D16EE24001B8353 /* MyQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBCEB61D16EE24001B8353 /* MyQuestionViewController.m */; };
+		00CBCEBB1D16EE3A001B8353 /* MyAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBCEBA1D16EE3A001B8353 /* MyAnswerViewController.m */; };
+		00CBCEBC1D16EE3A001B8353 /* MyAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBCEBA1D16EE3A001B8353 /* MyAnswerViewController.m */; };
+		00CBCEBF1D16EE4E001B8353 /* MyQAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBCEBE1D16EE4E001B8353 /* MyQAViewController.m */; };
+		00CBCEC01D16EE4E001B8353 /* MyQAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBCEBE1D16EE4E001B8353 /* MyQAViewController.m */; };
+		00CBCEC31D16EF32001B8353 /* MyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBCEC21D16EF32001B8353 /* MyAccountViewController.m */; };
+		00CBCEC41D16EF32001B8353 /* MyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBCEC21D16EF32001B8353 /* MyAccountViewController.m */; };
 		00DCB9771CF53EE700215227 /* RecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DCB9751CF53EE700215227 /* RecommendCell.m */; };
 		00DCB9781CF53EE700215227 /* RecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DCB9751CF53EE700215227 /* RecommendCell.m */; };
 		00DCB9791CF53EE700215227 /* RecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00DCB9761CF53EE700215227 /* RecommendCell.xib */; };
@@ -975,6 +983,14 @@
 		0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyRefundViewController.m; sourceTree = "<group>"; };
 		005E2A741CEB170F00CBF5DD /* RefundText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundText.xib; sourceTree = "<group>"; };
 		00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectDetailHeaders.xib; sourceTree = "<group>"; };
+		00CBCEB51D16EE24001B8353 /* MyQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyQuestionViewController.h; sourceTree = "<group>"; };
+		00CBCEB61D16EE24001B8353 /* MyQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyQuestionViewController.m; sourceTree = "<group>"; };
+		00CBCEB91D16EE3A001B8353 /* MyAnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnswerViewController.h; sourceTree = "<group>"; };
+		00CBCEBA1D16EE3A001B8353 /* MyAnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnswerViewController.m; sourceTree = "<group>"; };
+		00CBCEBD1D16EE4E001B8353 /* MyQAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyQAViewController.h; sourceTree = "<group>"; };
+		00CBCEBE1D16EE4E001B8353 /* MyQAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyQAViewController.m; sourceTree = "<group>"; };
+		00CBCEC11D16EF32001B8353 /* MyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAccountViewController.h; sourceTree = "<group>"; };
+		00CBCEC21D16EF32001B8353 /* MyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAccountViewController.m; sourceTree = "<group>"; };
 		00DCB9741CF53EE700215227 /* RecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendCell.h; sourceTree = "<group>"; };
 		00DCB9751CF53EE700215227 /* RecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendCell.m; sourceTree = "<group>"; };
 		00DCB9761CF53EE700215227 /* RecommendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendCell.xib; sourceTree = "<group>"; };
@@ -3233,6 +3249,14 @@
 				BC3508F91BFB3A740043D37C /* ShareViewController.m */,
 				BCA80BED1CF5453B00B3D3E8 /* SignVIPCardViewController.h */,
 				BCA80BEE1CF5453B00B3D3E8 /* SignVIPCardViewController.m */,
+				00CBCEB51D16EE24001B8353 /* MyQuestionViewController.h */,
+				00CBCEB61D16EE24001B8353 /* MyQuestionViewController.m */,
+				00CBCEB91D16EE3A001B8353 /* MyAnswerViewController.h */,
+				00CBCEBA1D16EE3A001B8353 /* MyAnswerViewController.m */,
+				00CBCEBD1D16EE4E001B8353 /* MyQAViewController.h */,
+				00CBCEBE1D16EE4E001B8353 /* MyQAViewController.m */,
+				00CBCEC11D16EF32001B8353 /* MyAccountViewController.h */,
+				00CBCEC21D16EF32001B8353 /* MyAccountViewController.m */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -3912,6 +3936,7 @@
 				BCF9DCFD1BD8F12800D8CDC6 /* CourseTeacherListItemCell.m in Sources */,
 				BC41ABA91B0C715400A419DA /* Environment.m in Sources */,
 				5A456F9A1B2E687700E95756 /* MOTableCell.m in Sources */,
+				00CBCEB71D16EE24001B8353 /* MyQuestionViewController.m in Sources */,
 				BC2C0C961B184EA500E2446E /* AvatarImageView.m in Sources */,
 				BC592BCE1BD4DAB9008AE76A /* JSDropDownMenu.m in Sources */,
 				BC753ED51BAC07D300D2663C /* FeedSuggestUserCell.m in Sources */,
@@ -3938,6 +3963,7 @@
 				BC41ABB91B0F25AB00A419DA /* SugTagsModel.m in Sources */,
 				BC8540941ADF74E9005A7C54 /* AppDelegate.m in Sources */,
 				BC3599FC1BC61F0C002DE863 /* MLSelectPhotoPickerGroupTableViewCell.m in Sources */,
+				00CBCEBB1D16EE3A001B8353 /* MyAnswerViewController.m in Sources */,
 				BC359A3B1BC61F89002DE863 /* SDWebImageManager+MJ.m in Sources */,
 				BC7737711BCDEFE200987B22 /* CourseNoticeCell.m in Sources */,
 				BC6CF5801C3CC469006F314C /* IQUIView+Hierarchy.m in Sources */,
@@ -4074,6 +4100,7 @@
 				002AF7BE1CC7759D00052BEC /* MOSectionObject.m in Sources */,
 				BCF0339C1B4F77BE005B71D6 /* AlipayOrderModel.m in Sources */,
 				BC0D44531C046F120007E9ED /* PackageHeaderCell.m in Sources */,
+				00CBCEBF1D16EE4E001B8353 /* MyQAViewController.m in Sources */,
 				BC359A331BC61F68002DE863 /* MCAvatarView.m in Sources */,
 				BC77377B1BCE2C0C00987B22 /* CoursePoiCell.m in Sources */,
 				BC1CC9FA1BA910AF001841E7 /* FeedListModel.m in Sources */,
@@ -4090,6 +4117,7 @@
 				BC3509041BFC4FBE0043D37C /* CouponShareModel.m in Sources */,
 				BC2E68311BA0129200175E2D /* ConfigModel.m in Sources */,
 				5A9E80D81B4BB2450028AC47 /* PlayFellowModel.m in Sources */,
+				00CBCEC31D16EF32001B8353 /* MyAccountViewController.m in Sources */,
 				BC2C0C681B131ED500E2446E /* AccountService.m in Sources */,
 				BC3599EC1BC61F0C002DE863 /* MLSelectPhotoAssets.m in Sources */,
 				BC3599F41BC61F0C002DE863 /* MLSelectPhotoPickerViewController.m in Sources */,
@@ -4336,6 +4364,7 @@
 				BCEAFC621C2A394300CB082D /* AddFeedContentCell.m in Sources */,
 				BCEAFC631C2A394300CB082D /* MOStepperGroup.m in Sources */,
 				BCEAFC641C2A394300CB082D /* MineViewController.m in Sources */,
+				00CBCEC01D16EE4E001B8353 /* MyQAViewController.m in Sources */,
 				00EFAFB41CC9CF4C0059E444 /* RefundInfoViewController.m in Sources */,
 				BCEAFC661C2A394300CB082D /* CommentViewController.m in Sources */,
 				BCEAFC671C2A394300CB082D /* NSURL+MOURL.m in Sources */,
@@ -4343,6 +4372,7 @@
 				BCEAFC691C2A394300CB082D /* MJPhotoProgressView.m in Sources */,
 				BCEAFC6B1C2A394300CB082D /* ChatPublicViewController.m in Sources */,
 				BCEAFC6C1C2A394300CB082D /* UITextView+Placeholder.m in Sources */,
+				00CBCEC41D16EF32001B8353 /* MyAccountViewController.m in Sources */,
 				BCEAFC6D1C2A394300CB082D /* MOLabel.m in Sources */,
 				002AF7C31CC7769C00052BEC /* MORowObject.m in Sources */,
 				BCEAFC6E1C2A394300CB082D /* LoadingCell.m in Sources */,
@@ -4396,6 +4426,7 @@
 				BCEAFC9E1C2A394300CB082D /* FeedbackCell.m in Sources */,
 				BCEAFC9F1C2A394300CB082D /* MJPhoto.m in Sources */,
 				BCEAFCA01C2A394300CB082D /* LeaderStatusModel.m in Sources */,
+				00CBCEBC1D16EE3A001B8353 /* MyAnswerViewController.m in Sources */,
 				BCEAFCA11C2A394300CB082D /* MJPhotoToolbar.m in Sources */,
 				BCEAFCA21C2A394300CB082D /* BookableCourseListViewController.m in Sources */,
 				BCEAFCA31C2A394300CB082D /* MJPhotoBrowser.m in Sources */,
@@ -4457,6 +4488,7 @@
 				BCEAFCDB1C2A394300CB082D /* FillOrderModel.m in Sources */,
 				BCEAFCDD1C2A394300CB082D /* ProductCalendarWeekendViewController.m in Sources */,
 				00E328701CCA20D30051807A /* UIView+Border.m in Sources */,
+				00CBCEB81D16EE24001B8353 /* MyQuestionViewController.m in Sources */,
 				BCEAFCDE1C2A394300CB082D /* ProductDetailModel.m in Sources */,
 				BCEAFCDF1C2A394300CB082D /* Notice.m in Sources */,
 				BCEAFCE01C2A394300CB082D /* FeedZanCell.m in Sources */,
