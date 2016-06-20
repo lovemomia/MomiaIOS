@@ -16,10 +16,15 @@
 
 @implementation MyAnswerViewController
 
+- (BOOL)isNavDarkStyle {
+    return YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.title = @"我问";
     NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/mine/myanswer.bundle?platform=ios"];
     RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"MyAnswerComponent" initialProperties:nil launchOptions:nil];
     rootView.frame = self.view.bounds;

@@ -16,10 +16,15 @@
 
 @implementation MyAccountViewController
 
+- (BOOL)isNavDarkStyle {
+    return YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.title = @"我的账户";
     NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/mine/myaccount.bundle?platform=ios"];
     RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"MyAccountComponent" initialProperties:nil launchOptions:nil];
     rootView.frame = self.view.bounds;
