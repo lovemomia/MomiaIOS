@@ -55,13 +55,8 @@
 }
 
 - (void)onAccountChange {
-//    [self updateConstrains];
     [self.tableView reloadData];
 }
-
-//-(void)updateConstrains{
-//    
-//}
 
 // 单击设置
 - (void)onSettingClicked {
@@ -77,17 +72,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0 || section == 2) {
-        return 1;
-    } else if (section == 3) {
+    if (section == 1 || section == 2) {
         return 3;
+    } else if (section == 0) {
+        return 1;
     }
     return 2;
 }
 
+//有四个section
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 5;
+    return 4;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -109,29 +105,22 @@
             break;
         case 1:
             if(row == 0) {
-                [self openURL:@"bookingsubjectlist"];
+                [self openURL:@"myquestion"];
                 
                 [MobClick event:@"Mine_Book"];
                 
-            } else {
-               [self openURL:@"bookedcourselist"];
+            } else if (row == 1) {
+               [self openURL:@"myanswer"];
                 
                 [MobClick event:@"Mine_Booked"];
-            }
-            break;
-        case 2:
-            if ([[AccountService defaultService]isLogin]) {
-                [self openURL:[NSString stringWithFormat:@"userinfo?uid=%@&me=1", [AccountService defaultService].account.uid]];
             } else {
-                [[AccountService defaultService] login:self success:^{
-                    [self openURL:[NSString stringWithFormat:@"userinfo?uid=%@&me=1", [AccountService defaultService].account.uid]];
-                }];
+                [self openURL:@"myaccount"];
+                
+                [MobClick event:@"Mine_Account"];
             }
-            
-            [MobClick event:@"Mine_Feed"];
             break;
             
-        case 3:
+        case 2:
             if(row == 0) {
                 [self openURL:@"myorderlist"];
                 
@@ -148,7 +137,7 @@
                 [MobClick event:@"Mine_Gift"];
             }
             break;
-        case 4:
+        case 3:
             if(row == 0) {
                 [self openURL:@"feedback"];
                 
@@ -180,26 +169,26 @@
             if (cell == nil) {
                 NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"MineInfoCell" owner:self options:nil];
                 cell = [arr objectAtIndex:0];
-                if (![[AccountService defaultService].account haveChildren]) { //没有小孩，更新约束
-                    NSArray *constrains = cell.contentView.constraints;
-                    UIView *adultImageView = [cell.contentView viewWithTag:1];
-                    UIView *adultNameView = [cell.contentView viewWithTag:2];
-                    UIView *childNameView = [cell.contentView viewWithTag:3];
-                    
-                    [childNameView removeFromSuperview]; //移除小孩名字Label
-                    for (NSLayoutConstraint* constraint in constrains) {
-                        NSLog(@"%@",constraint);
-                        if (constraint.firstItem == adultNameView || constraint.secondItem == adultNameView) {
-                            [cell.contentView removeConstraint:constraint];
-                        }
-                        NSLayoutConstraint *centerConstraint = [NSLayoutConstraint constraintWithItem:adultNameView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:adultNameView.superview attribute:NSLayoutAttributeCenterY multiplier:1.0f constant:0];
-                        [cell.contentView addConstraint:centerConstraint]; //增加居中约束
-                        
-                        NSLayoutConstraint *trailingConstraint = [NSLayoutConstraint constraintWithItem:adultNameView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:adultImageView attribute:NSLayoutAttributeTrailing multiplier:1.0f constant:10];
-                        [cell.contentView addConstraint:trailingConstraint]; //增加左边间距
-                    }
-                    
-                }
+//                if (![[AccountService defaultService].account haveChildren]) { //没有小孩，更新约束
+//                    NSArray *constrains = cell.contentView.constraints;
+//                    UIView *adultImageView = [cell.contentView viewWithTag:1];
+//                    UIView *adultNameView = [cell.contentView viewWithTag:2];
+//                    UIView *childNameView = [cell.contentView viewWithTag:3];
+//                    
+//                    [childNameView removeFromSuperview]; //移除小孩名字Label
+////                    for (NSLayoutConstraint* constraint in constrains) {
+////                        NSLog(@"%@",constraint);
+////                        if (constraint.firstItem == adultNameView || constraint.secondItem == adultNameView) {
+////                            [cell.contentView removeConstraint:constraint];
+////                        }
+////                        NSLayoutConstraint *centerConstraint = [NSLayoutConstraint constraintWithItem:adultNameView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:adultNameView.superview attribute:NSLayoutAttributeCenterY multiplier:1.0f constant:0];
+////                        [cell.contentView addConstraint:centerConstraint]; //增加居中约束
+////                        
+////                        NSLayoutConstraint *trailingConstraint = [NSLayoutConstraint constraintWithItem:adultNameView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:adultImageView attribute:NSLayoutAttributeTrailing multiplier:1.0f constant:10];
+////                        [cell.contentView addConstraint:trailingConstraint]; //增加左边间距
+////                    }
+//                    
+//                }
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             }
             
@@ -244,20 +233,17 @@
         switch (section) {
             case 1:
                 if (row == 0) {
-                    commonCell.titleLabel.text = @"预约课程";
+                    commonCell.titleLabel.text = @"我问";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconBooking"];
+                } else if (row == 1 ) {
+                    commonCell.titleLabel.text = @"我答";
+                    commonCell.iconIv.image = [UIImage imageNamed:@"IconBooked"];
                 } else {
-                    commonCell.titleLabel.text = @"已选课程";
+                    commonCell.titleLabel.text = @"我的账户";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconBooked"];
                 }
                 break;
-                
             case 2:
-                commonCell.titleLabel.text = @"我的评价";
-                commonCell.iconIv.image = [UIImage imageNamed:@"IconFeed"];
-                break;
-                
-            case 3:
                 if (row == 0) {
                     commonCell.titleLabel.text = @"我的订单";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconOrder"];
@@ -277,7 +263,7 @@
                 }
                 break;
                 
-            case 4:
+            case 3:
                 if (row == 0) {
                     commonCell.titleLabel.text = @"意见反馈";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconFeedback"];

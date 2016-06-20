@@ -7,6 +7,8 @@
 //
 
 #import "MyAccountViewController.h"
+#import "RCTRootView.h"
+#import "RNCommon.h"
 
 @interface MyAccountViewController ()
 
@@ -17,21 +19,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/mine/myaccount.bundle?platform=ios"];
+    RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"MyAccountComponent" initialProperties:nil launchOptions:nil];
+    rootView.frame = self.view.bounds;
+    [self.view addSubview:rootView];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

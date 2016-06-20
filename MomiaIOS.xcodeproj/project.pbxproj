@@ -3249,14 +3249,6 @@
 				BC3508F91BFB3A740043D37C /* ShareViewController.m */,
 				BCA80BED1CF5453B00B3D3E8 /* SignVIPCardViewController.h */,
 				BCA80BEE1CF5453B00B3D3E8 /* SignVIPCardViewController.m */,
-				00CBCEB51D16EE24001B8353 /* MyQuestionViewController.h */,
-				00CBCEB61D16EE24001B8353 /* MyQuestionViewController.m */,
-				00CBCEB91D16EE3A001B8353 /* MyAnswerViewController.h */,
-				00CBCEBA1D16EE3A001B8353 /* MyAnswerViewController.m */,
-				00CBCEBD1D16EE4E001B8353 /* MyQAViewController.h */,
-				00CBCEBE1D16EE4E001B8353 /* MyQAViewController.m */,
-				00CBCEC11D16EF32001B8353 /* MyAccountViewController.h */,
-				00CBCEC21D16EF32001B8353 /* MyAccountViewController.m */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -3364,6 +3356,14 @@
 		BCA80BF91D0EC23000B3D3E8 /* Wenda */ = {
 			isa = PBXGroup;
 			children = (
+				00CBCEB51D16EE24001B8353 /* MyQuestionViewController.h */,
+				00CBCEB61D16EE24001B8353 /* MyQuestionViewController.m */,
+				00CBCEB91D16EE3A001B8353 /* MyAnswerViewController.h */,
+				00CBCEBA1D16EE3A001B8353 /* MyAnswerViewController.m */,
+				00CBCEBD1D16EE4E001B8353 /* MyQAViewController.h */,
+				00CBCEBE1D16EE4E001B8353 /* MyQAViewController.m */,
+				00CBCEC11D16EF32001B8353 /* MyAccountViewController.h */,
+				00CBCEC21D16EF32001B8353 /* MyAccountViewController.m */,
 				BCA80BFA1D0EC28000B3D3E8 /* WendaHomeViewController.h */,
 				BCA80BFB1D0EC28000B3D3E8 /* WendaHomeViewController.m */,
 				001FEFEA1D100C9A00A00D7E /* AnswerAudioViewController.h */,
