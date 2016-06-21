@@ -280,6 +280,12 @@
 		BC3D0B991B6F3F2C004C7B81 /* LeaderStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0B981B6F3F2C004C7B81 /* LeaderStatusModel.m */; };
 		BC3D0BA71B6F77AF004C7B81 /* LeaderProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0BA61B6F77AF004C7B81 /* LeaderProductModel.m */; };
 		BC3D0BB01B70B361004C7B81 /* LeaderSkuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0BAF1B70B361004C7B81 /* LeaderSkuModel.m */; };
+		BC3DFCCC1D12B7B1001F09CC /* WendaQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3DFCCB1D12B7B1001F09CC /* WendaQuestionViewController.m */; };
+		BC3DFCCF1D18D4CD001F09CC /* WendaCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3DFCCE1D18D4CD001F09CC /* WendaCourseListViewController.m */; };
+		BC3DFCD01D19288E001F09CC /* WendaQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3DFCCB1D12B7B1001F09CC /* WendaQuestionViewController.m */; };
+		BC3DFCD11D19288E001F09CC /* WendaCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3DFCCE1D18D4CD001F09CC /* WendaCourseListViewController.m */; };
+		BC3DFCD41D19346F001F09CC /* WendaQuestionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3DFCD31D19346F001F09CC /* WendaQuestionListViewController.m */; };
+		BC3DFCD51D19347A001F09CC /* WendaQuestionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3DFCD31D19346F001F09CC /* WendaQuestionListViewController.m */; };
 		BC41ABA91B0C715400A419DA /* Environment.m in Sources */ = {isa = PBXBuildFile; fileRef = BC41ABA81B0C715400A419DA /* Environment.m */; };
 		BC41ABAD1B0C7ABF00A419DA /* UploadImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC41ABAC1B0C7ABF00A419DA /* UploadImageModel.m */; };
 		BC41ABB91B0F25AB00A419DA /* SugTagsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC41ABB81B0F25AB00A419DA /* SugTagsModel.m */; };
@@ -1349,6 +1355,12 @@
 		BC3D0BA61B6F77AF004C7B81 /* LeaderProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaderProductModel.m; path = Common/Models/Leader/LeaderProductModel.m; sourceTree = "<group>"; };
 		BC3D0BAE1B70B361004C7B81 /* LeaderSkuModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeaderSkuModel.h; path = Common/Models/Leader/LeaderSkuModel.h; sourceTree = "<group>"; };
 		BC3D0BAF1B70B361004C7B81 /* LeaderSkuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaderSkuModel.m; path = Common/Models/Leader/LeaderSkuModel.m; sourceTree = "<group>"; };
+		BC3DFCCA1D12B7B1001F09CC /* WendaQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WendaQuestionViewController.h; path = Business/Wenda/WendaQuestionViewController.h; sourceTree = "<group>"; };
+		BC3DFCCB1D12B7B1001F09CC /* WendaQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WendaQuestionViewController.m; path = Business/Wenda/WendaQuestionViewController.m; sourceTree = "<group>"; };
+		BC3DFCCD1D18D4CD001F09CC /* WendaCourseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WendaCourseListViewController.h; path = Business/Wenda/WendaCourseListViewController.h; sourceTree = "<group>"; };
+		BC3DFCCE1D18D4CD001F09CC /* WendaCourseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WendaCourseListViewController.m; path = Business/Wenda/WendaCourseListViewController.m; sourceTree = "<group>"; };
+		BC3DFCD21D19346F001F09CC /* WendaQuestionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WendaQuestionListViewController.h; path = Business/Wenda/WendaQuestionListViewController.h; sourceTree = "<group>"; };
+		BC3DFCD31D19346F001F09CC /* WendaQuestionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WendaQuestionListViewController.m; path = Business/Wenda/WendaQuestionListViewController.m; sourceTree = "<group>"; };
 		BC41ABA71B0C715400A419DA /* Environment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Environment.h; path = Common/Base/Environment.h; sourceTree = "<group>"; };
 		BC41ABA81B0C715400A419DA /* Environment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Environment.m; path = Common/Base/Environment.m; sourceTree = "<group>"; };
 		BC41ABAB1B0C7ABF00A419DA /* UploadImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadImageModel.h; path = Common/Models/Mine/UploadImageModel.h; sourceTree = "<group>"; };
@@ -3372,6 +3384,12 @@
 				00CBCEC21D16EF32001B8353 /* MyAccountViewController.m */,
 				BCA80BFA1D0EC28000B3D3E8 /* WendaHomeViewController.h */,
 				BCA80BFB1D0EC28000B3D3E8 /* WendaHomeViewController.m */,
+				BC3DFCCA1D12B7B1001F09CC /* WendaQuestionViewController.h */,
+				BC3DFCCB1D12B7B1001F09CC /* WendaQuestionViewController.m */,
+				BC3DFCCD1D18D4CD001F09CC /* WendaCourseListViewController.h */,
+				BC3DFCCE1D18D4CD001F09CC /* WendaCourseListViewController.m */,
+				BC3DFCD21D19346F001F09CC /* WendaQuestionListViewController.h */,
+				BC3DFCD31D19346F001F09CC /* WendaQuestionListViewController.m */,
 				001FEFEA1D100C9A00A00D7E /* AnswerAudioViewController.h */,
 				001FEFEB1D100C9A00A00D7E /* AnswerAudioViewController.m */,
 			);
@@ -4044,6 +4062,7 @@
 				BC359A401BC648BF002DE863 /* PhotoTitleHeaderCell.m in Sources */,
 				BC3509001BFC4CD40043D37C /* ShareViewCell.m in Sources */,
 				BC6CF5831C3CC469006F314C /* IQKeyboardManager.m in Sources */,
+				BC3DFCCF1D18D4CD001F09CC /* WendaCourseListViewController.m in Sources */,
 				0035B7501CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */,
 				001FEFAF1D0FD74500A00D7E /* amrFileCodec.m in Sources */,
 				BC359A491BC679EF002DE863 /* HomeGridCell.m in Sources */,
@@ -4227,6 +4246,8 @@
 				BC9B6C871CA910CB00A46A44 /* InsetsLabel.m in Sources */,
 				BC79DF8A1C15931C0064C02F /* GroupMemberItemCell.m in Sources */,
 				BC753ECE1BAC07D300D2663C /* FeedCommentCell.m in Sources */,
+				BC3DFCD41D19346F001F09CC /* WendaQuestionListViewController.m in Sources */,
+				BC3DFCCC1D12B7B1001F09CC /* WendaQuestionViewController.m in Sources */,
 				5AC9FFCD1B17298C00C769EF /* FeedbackViewController.m in Sources */,
 				BCF9DD011BD8F15000D8CDC6 /* CourseTeacherListModel.m in Sources */,
 				BC8B9A011C1AB61300EE39A2 /* ChatUserFeedPhotoCell.m in Sources */,
@@ -4245,6 +4266,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC3DFCD51D19347A001F09CC /* WendaQuestionListViewController.m in Sources */,
+				BC3DFCD01D19288E001F09CC /* WendaQuestionViewController.m in Sources */,
+				BC3DFCD11D19288E001F09CC /* WendaCourseListViewController.m in Sources */,
 				BCA80BFD1D0EC43F00B3D3E8 /* WendaHomeViewController.m in Sources */,
 				BCA80BF81D012D7A00B3D3E8 /* HomeViewControllerV2.m in Sources */,
 				BC5681121CE9CA7A00DD6D00 /* RNCommon.m in Sources */,
