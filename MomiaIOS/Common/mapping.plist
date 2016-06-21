@@ -488,6 +488,7 @@
 		<key>controller</key>
 		<string>SignVIPCardViewController</string>
 	</dict>
+<<<<<<< HEAD
 	<key>wdquestiondetail</key>
 	<dict>
 		<key>desc</key>
@@ -514,6 +515,41 @@
 		<false/>
 		<key>controller</key>
 		<string>WendaQuestionListViewController</string>
+	<key>myaccount</key>
+	<dict>
+		<key>desc</key>
+		<string>我的账户</string>
+		<key>needlogin</key>
+		<true/>
+		<key>controller</key>
+		<string>MyAccountViewController</string>
+	</dict>
+	<key>myqadetail</key>
+	<dict>
+		<key>desc</key>
+		<string>我的问答详情</string>
+		<key>needlogin</key>
+		<true/>
+		<key>controller</key>
+		<string>MyQAViewController</string>
+	</dict>
+	<key>myquestion</key>
+	<dict>
+		<key>desc</key>
+		<string>我的问题</string>
+		<key>needlogin</key>
+		<true/>
+		<key>controller</key>
+		<string>MyQuestionViewController</string>
+	</dict>
+	<key>myanswer</key>
+	<dict>
+		<key>desc</key>
+		<string>我的回答</string>
+		<key>needlogin</key>
+		<true/>
+		<key>controller</key>
+		<string>MyAnswerViewController</string>
 	</dict>
 </dict>
 </plist>

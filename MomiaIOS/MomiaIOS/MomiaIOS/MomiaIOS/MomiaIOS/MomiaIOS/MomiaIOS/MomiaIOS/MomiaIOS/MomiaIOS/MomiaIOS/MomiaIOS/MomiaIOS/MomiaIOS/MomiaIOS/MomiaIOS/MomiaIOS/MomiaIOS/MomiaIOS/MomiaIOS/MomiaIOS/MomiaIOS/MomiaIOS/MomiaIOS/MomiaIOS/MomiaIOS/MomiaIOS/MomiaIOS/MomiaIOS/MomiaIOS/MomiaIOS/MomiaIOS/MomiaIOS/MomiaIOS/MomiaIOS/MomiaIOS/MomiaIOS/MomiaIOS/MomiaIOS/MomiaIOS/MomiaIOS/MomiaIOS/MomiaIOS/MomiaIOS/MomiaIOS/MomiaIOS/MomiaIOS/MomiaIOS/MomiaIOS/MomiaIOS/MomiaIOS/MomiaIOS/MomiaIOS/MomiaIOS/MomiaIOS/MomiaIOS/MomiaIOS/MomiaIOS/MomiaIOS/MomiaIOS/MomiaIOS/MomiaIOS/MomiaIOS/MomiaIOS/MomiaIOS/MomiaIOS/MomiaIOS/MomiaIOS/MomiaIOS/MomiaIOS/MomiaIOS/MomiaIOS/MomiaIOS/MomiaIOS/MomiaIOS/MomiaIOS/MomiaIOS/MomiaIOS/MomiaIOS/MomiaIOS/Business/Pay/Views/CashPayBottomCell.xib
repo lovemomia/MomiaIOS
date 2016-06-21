@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="79" id="KGk-i7-Jjw" customClass="CashPayBottomCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付宝" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXH-Xy-KxJ">
+                        <rect key="frame" x="65" y="13" width="196" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付宝账号支付，银行卡支付" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWa-nZ-RLb">
+                        <rect key="frame" x="65" y="31" width="196" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6uo-vA-0iQ">
+                        <rect key="frame" x="100" y="29" width="125" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="YXX-Iu-KDu"/>
+                            <constraint firstAttribute="width" constant="125" id="Z7I-Xs-5CY"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconAlipay" translatesAutoresizingMaskIntoConstraints="NO" id="K0A-l8-B3c">
+                        <rect key="frame" x="15" y="10" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="gT1-Eb-ZVe"/>
+                            <constraint firstAttribute="height" constant="40" id="seC-tw-zJh"/>
+                        </constraints>
+                    </imageView>
+                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qxb-Ql-sKX">
+                        <rect key="frame" x="269" y="7" width="1" height="45"/>
+                        <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="EJd-HE-unV"/>
+                            <constraint firstAttribute="width" constant="1" id="LdA-Du-6lK"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLM-f0-epk">
+                        <rect key="frame" x="280" y="17" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="Eqx-OH-JCk"/>
+                            <constraint firstAttribute="height" constant="25" id="QuX-nd-UCl"/>
+                        </constraints>
+                        <state key="normal" image="IconChecked">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="fXH-Xy-KxJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="2Va-3Y-eP0"/>
+                    <constraint firstItem="fXH-Xy-KxJ" firstAttribute="leading" secondItem="K0A-l8-B3c" secondAttribute="trailing" constant="10" id="2qv-3f-keZ"/>
+                    <constraint firstItem="Qxb-Ql-sKX" firstAttribute="leading" secondItem="xWa-nZ-RLb" secondAttribute="trailing" constant="8" id="3EI-YH-XKM"/>
+                    <constraint firstItem="fXH-Xy-KxJ" firstAttribute="leading" secondItem="K0A-l8-B3c" secondAttribute="trailing" constant="10" id="5l6-Xs-hcW"/>
+                    <constraint firstItem="K0A-l8-B3c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="7ka-cU-HNp"/>
+                    <constraint firstAttribute="trailing" secondItem="hLM-f0-epk" secondAttribute="trailing" constant="15" id="9MF-1g-soq"/>
+                    <constraint firstItem="Qxb-Ql-sKX" firstAttribute="leading" secondItem="fXH-Xy-KxJ" secondAttribute="trailing" constant="8" id="HRq-iW-Uf7"/>
+                    <constraint firstItem="xWa-nZ-RLb" firstAttribute="leading" secondItem="K0A-l8-B3c" secondAttribute="trailing" constant="10" id="I7R-cX-RHJ"/>
+                    <constraint firstAttribute="centerY" secondItem="Qxb-Ql-sKX" secondAttribute="centerY" id="Ien-WA-R3y"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="K0A-l8-B3c" secondAttribute="bottom" constant="1" id="WFe-iN-Lab"/>
+                    <constraint firstAttribute="centerY" secondItem="K0A-l8-B3c" secondAttribute="centerY" id="acI-wg-9PR"/>
+                    <constraint firstItem="fXH-Xy-KxJ" firstAttribute="leading" secondItem="xWa-nZ-RLb" secondAttribute="leading" id="axj-9K-khI"/>
+                    <constraint firstAttribute="bottom" secondItem="xWa-nZ-RLb" secondAttribute="bottom" constant="13" id="b7C-aB-hvZ"/>
+                    <constraint firstAttribute="centerY" secondItem="hLM-f0-epk" secondAttribute="centerY" id="cpf-YK-pft"/>
+                    <constraint firstItem="6uo-vA-0iQ" firstAttribute="top" secondItem="fXH-Xy-KxJ" secondAttribute="bottom" constant="2" id="eZh-em-set"/>
+                    <constraint firstItem="K0A-l8-B3c" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="gbq-5U-fkY"/>
+                    <constraint firstAttribute="centerY" secondItem="6uo-vA-0iQ" secondAttribute="centerY" id="kPV-9b-uhh"/>
+                    <constraint firstItem="6uo-vA-0iQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="92" id="nIe-Hc-uRR"/>
+                    <constraint firstItem="hLM-f0-epk" firstAttribute="leading" secondItem="Qxb-Ql-sKX" secondAttribute="trailing" constant="11" id="pY3-5d-ya1"/>
+                    <constraint firstItem="K0A-l8-B3c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="rXm-lj-zzg"/>
+                    <constraint firstItem="hLM-f0-epk" firstAttribute="leading" secondItem="Qxb-Ql-sKX" secondAttribute="trailing" constant="10" id="wSX-6z-vph"/>
+                    <constraint firstItem="xWa-nZ-RLb" firstAttribute="top" secondItem="6uo-vA-0iQ" secondAttribute="bottom" constant="2" id="zcc-Ac-CSa"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="7ka-cU-HNp"/>
+                        <exclude reference="WFe-iN-Lab"/>
+                        <exclude reference="gbq-5U-fkY"/>
+                        <exclude reference="5l6-Xs-hcW"/>
+                        <exclude reference="axj-9K-khI"/>
+                        <exclude reference="zcc-Ac-CSa"/>
+                        <exclude reference="eZh-em-set"/>
+                        <exclude reference="pY3-5d-ya1"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="descLabel" destination="xWa-nZ-RLb" id="tew-SJ-xye"/>
+                <outlet property="payImgView" destination="K0A-l8-B3c" id="EaX-6y-bbB"/>
+                <outlet property="payLabel" destination="fXH-Xy-KxJ" id="wS6-Ad-0K5"/>
+                <outlet property="selectBtn" destination="hLM-f0-epk" id="yNx-Nc-mqt"/>
+            </connections>
+            <point key="canvasLocation" x="-35.5" y="195.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="IconAlipay" width="48" height="48"/>
+        <image name="IconChecked" width="25" height="25"/>
+    </resources>
+</document>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="AddReviewRatingCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="老师" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMy-pn-GHK">
+                        <rect key="frame" x="10" y="10" width="28" height="23.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ig8-9S-xQl" customClass="EDStarRating">
+                        <rect key="frame" x="48" y="10" width="180" height="23.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="180" id="jbP-2b-fdF"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="HMy-pn-GHK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="BfG-Fh-tgx"/>
+                    <constraint firstAttribute="bottom" secondItem="HMy-pn-GHK" secondAttribute="bottom" constant="10" id="Kfo-gZ-yi8"/>
+                    <constraint firstItem="ig8-9S-xQl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ZV8-v9-ecB"/>
+                    <constraint firstItem="ig8-9S-xQl" firstAttribute="leading" secondItem="HMy-pn-GHK" secondAttribute="trailing" constant="10" id="drv-1Q-nmZ"/>
+                    <constraint firstItem="HMy-pn-GHK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="epy-TP-g6u"/>
+                    <constraint firstAttribute="trailing" secondItem="ig8-9S-xQl" secondAttribute="trailing" constant="22" id="s7w-pr-w3M"/>
+                    <constraint firstAttribute="bottom" secondItem="ig8-9S-xQl" secondAttribute="bottom" constant="10" id="v2L-em-qGF"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="s7w-pr-w3M"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="ratingView" destination="ig8-9S-xQl" id="nlp-8H-SiK"/>
+                <outlet property="titleLabel" destination="HMy-pn-GHK" id="CGv-Fa-eK1"/>
+            </connections>
+            <point key="canvasLocation" x="264" y="362"/>
+        </tableViewCell>
+    </objects>
+</document>

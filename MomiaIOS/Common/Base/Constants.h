@@ -133,3 +133,5 @@
 #define kRCIMAppKey          @"e5t4ouvptfowa"
 #define kRCIMAppKey_QA       @"0vnjpoadnwp2z" //测试环境
 
+#define LPN_AUDIO_STREAM_URL @"http://stream.lumpen.fm:7416/;stream/1"
+#define LPN_AUDIO_BUFFER_SEC 20

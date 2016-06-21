@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="GroupMemberItemCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="64.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ucr-CB-sp9" customClass="AvatarImageView">
+                        <rect key="frame" x="10" y="10" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="Ujj-T5-cog"/>
+                            <constraint firstAttribute="height" constant="45" id="dB0-Kq-72y"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="多多妈妈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mff-ud-n1q">
+                        <rect key="frame" x="65" y="23" width="245" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Ucr-CB-sp9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="5D0-Cx-9A2"/>
+                    <constraint firstItem="Mff-ud-n1q" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="KIj-lo-TRS"/>
+                    <constraint firstItem="Mff-ud-n1q" firstAttribute="leading" secondItem="Ucr-CB-sp9" secondAttribute="trailing" constant="10" id="SVS-1I-E1k"/>
+                    <constraint firstAttribute="trailing" secondItem="Mff-ud-n1q" secondAttribute="trailing" constant="10" id="VAt-I2-DG8"/>
+                    <constraint firstItem="Ucr-CB-sp9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Wtb-9C-0AB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="avatarIv" destination="Ucr-CB-sp9" id="YtS-db-VvF"/>
+                <outlet property="nameLabel" destination="Mff-ud-n1q" id="cbM-lO-HsP"/>
+            </connections>
+            <point key="canvasLocation" x="318" y="379.5"/>
+        </tableViewCell>
+    </objects>
+</document>
