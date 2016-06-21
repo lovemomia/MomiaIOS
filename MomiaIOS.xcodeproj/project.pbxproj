@@ -71,6 +71,8 @@
 		0035B7511CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */; };
 		005E2A751CEB170F00CBF5DD /* RefundText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005E2A741CEB170F00CBF5DD /* RefundText.xib */; };
 		005E2A761CEB170F00CBF5DD /* RefundText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005E2A741CEB170F00CBF5DD /* RefundText.xib */; };
+		009AC52B1D19183E00314A02 /* AskQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009AC52A1D19183E00314A02 /* AskQuestionViewController.m */; };
+		009AC52C1D19183E00314A02 /* AskQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009AC52A1D19183E00314A02 /* AskQuestionViewController.m */; };
 		00B59E881CBD4695005565EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
 		00C796841CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
 		00C796851CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
@@ -982,6 +984,8 @@
 		0035B74E1CC8CE5200F5EAEF /* ApplyRefundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyRefundViewController.h; sourceTree = "<group>"; };
 		0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyRefundViewController.m; sourceTree = "<group>"; };
 		005E2A741CEB170F00CBF5DD /* RefundText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundText.xib; sourceTree = "<group>"; };
+		009AC5291D19183E00314A02 /* AskQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskQuestionViewController.h; sourceTree = "<group>"; };
+		009AC52A1D19183E00314A02 /* AskQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskQuestionViewController.m; sourceTree = "<group>"; };
 		00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectDetailHeaders.xib; sourceTree = "<group>"; };
 		00CBCEB51D16EE24001B8353 /* MyQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyQuestionViewController.h; sourceTree = "<group>"; };
 		00CBCEB61D16EE24001B8353 /* MyQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyQuestionViewController.m; sourceTree = "<group>"; };
@@ -3357,6 +3361,8 @@
 			isa = PBXGroup;
 			children = (
 				00CBCEB51D16EE24001B8353 /* MyQuestionViewController.h */,
+				009AC5291D19183E00314A02 /* AskQuestionViewController.h */,
+				009AC52A1D19183E00314A02 /* AskQuestionViewController.m */,
 				00CBCEB61D16EE24001B8353 /* MyQuestionViewController.m */,
 				00CBCEB91D16EE3A001B8353 /* MyAnswerViewController.h */,
 				00CBCEBA1D16EE3A001B8353 /* MyAnswerViewController.m */,
@@ -4116,6 +4122,7 @@
 				BCF74ACC1BEC98ED00138C2C /* ReviewListViewController.m in Sources */,
 				BC3509041BFC4FBE0043D37C /* CouponShareModel.m in Sources */,
 				BC2E68311BA0129200175E2D /* ConfigModel.m in Sources */,
+				009AC52B1D19183E00314A02 /* AskQuestionViewController.m in Sources */,
 				5A9E80D81B4BB2450028AC47 /* PlayFellowModel.m in Sources */,
 				00CBCEC31D16EF32001B8353 /* MyAccountViewController.m in Sources */,
 				BC2C0C681B131ED500E2446E /* AccountService.m in Sources */,
@@ -4404,6 +4411,7 @@
 				BCEAFC871C2A394300CB082D /* SubjectTabCell.m in Sources */,
 				BCEAFC881C2A394300CB082D /* MLSelectPhotoPickerCollectionViewCell.m in Sources */,
 				BCEAFC891C2A394300CB082D /* ProductCalendarMonthViewController.m in Sources */,
+				009AC52C1D19183E00314A02 /* AskQuestionViewController.m in Sources */,
 				BCEAFC8A1C2A394300CB082D /* SGAlertMenu.m in Sources */,
 				BCEAFC8B1C2A394300CB082D /* MLSelectPhotoPickerBrowserPhotoView.m in Sources */,
 				BCEAFC8C1C2A394300CB082D /* MOTagLabel.m in Sources */,

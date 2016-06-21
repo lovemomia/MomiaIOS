@@ -524,5 +524,14 @@
 		<key>controller</key>
 		<string>MyAnswerViewController</string>
 	</dict>
+	<key>askquestion</key>
+	<dict>
+		<key>desc</key>
+		<string>提问</string>
+		<key>needlogin</key>
+		<true/>
+		<key>controller</key>
+		<string>AskQuestionViewController</string>
+	</dict>
 </dict>
 </plist>

@@ -23,6 +23,21 @@
     // Do any additional setup after loading the view.
     
     self.navigationItem.title = @"松果课堂";
+    
+    
+    UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button1 setTitle:@"提问" forState:UIControlStateNormal];
+    button1.frame = CGRectMake(0, 200, SCREEN_WIDTH, 48);
+    button1.backgroundColor = [UIColor greenColor];
+    [button1 addTarget:self action:@selector(toAskQuestionViewController) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button1];
+}
+
+
+-(void)toAskQuestionViewController{
+    
+    
+    [self openURL:@"askquestion"];
 }
 
 - (void)didReceiveMemoryWarning {
