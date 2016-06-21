@@ -504,7 +504,7 @@
 		<key>needlogin</key>
 		<true/>
 		<key>controller</key>
-		<string>MyQADetailViewController</string>
+		<string>MyQAViewController</string>
 	</dict>
 	<key>myquestion</key>
 	<dict>

@@ -8,6 +8,7 @@ var {
 	View,
 	ListView,
 	Image,
+	TouchableHighlight,
 } = ReactNative;
 
 //样式
@@ -72,6 +73,9 @@ var ds = new ListView.DataSource({
 	rowHasChanged: (r1, r2) => r1 !== r2
 });
 
+//获取到我问的ViewController
+var MyQuestionViewController = require('NativeModules').MyQuestionViewController;
+
 class MyQuestionComponent extends React.Component {
 
 	//构造函数
@@ -99,6 +103,9 @@ class MyQuestionComponent extends React.Component {
 	//渲染rowItem View
 	renderRow(rowData, sectionID, rowID) {
 		return (
+			<TouchableHighlight onPress={() => {
+          		this.onPressRowItem(rowID);
+        	}}>
 			<View style={styles.rowContainer}>
 				<View style={styles.contentContainer}>
 					<View style={styles.headContainer}>
@@ -121,7 +128,18 @@ class MyQuestionComponent extends React.Component {
 				</View>
 				<View style={styles.seperator}/>
 			</View>
+			</TouchableHighlight>
 		);
+	}
+
+	onPressRowItem(rowID) {
+		console.log("Press Row");
+
+		MyQuestionViewController.toQADetailViewController();
+	}
+
+	highlightRow(sectionID, rowID) {
+		console.log("highlightRow");
 	}
 }
 

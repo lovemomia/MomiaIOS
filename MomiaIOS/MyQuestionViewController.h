@@ -7,7 +7,8 @@
 //
 
 #import "MOViewController.h"
+#import "RCTBridgeModule.h"
 
-@interface MyQuestionViewController : MOViewController
+@interface MyQuestionViewController : MOViewController<RCTBridgeModule>
 
 @end

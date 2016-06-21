@@ -192,7 +192,7 @@ class AudioAnswerComponent extends React.Component {
 			</View>
 		);
 	}
-
+	
 	pressAudioImage = () => {
 		console.log("press image");
 		if (this.state.isRecord == false ) {
