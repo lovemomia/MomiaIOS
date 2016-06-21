@@ -488,5 +488,32 @@
 		<key>controller</key>
 		<string>SignVIPCardViewController</string>
 	</dict>
+	<key>wdquestiondetail</key>
+	<dict>
+		<key>desc</key>
+		<string>问题详情（问专家）</string>
+		<key>needlogin</key>
+		<false/>
+		<key>controller</key>
+		<string>WendaQuestionViewController</string>
+	</dict>
+	<key>wdcourselist</key>
+	<dict>
+		<key>desc</key>
+		<string>微课列表</string>
+		<key>needlogin</key>
+		<false/>
+		<key>controller</key>
+		<string>WendaCourseListViewController</string>
+	</dict>
+	<key>wdquestionlist</key>
+	<dict>
+		<key>desc</key>
+		<string>问题列表</string>
+		<key>needlogin</key>
+		<false/>
+		<key>controller</key>
+		<string>WendaQuestionListViewController</string>
+	</dict>
 </dict>
 </plist>

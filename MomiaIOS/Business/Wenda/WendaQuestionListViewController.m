@@ -1,37 +1,33 @@
 //
-//  WendaHomeViewController.m
+//  WendaQuestionListViewController.m
 //  MomiaIOS
 //
-//  Created by Deng Jun on 16/6/13.
+//  Created by Deng Jun on 16/6/21.
 //  Copyright © 2016年 Deng Jun. All rights reserved.
 //
 
-#import "WendaHomeViewController.h"
+#import "WendaQuestionListViewController.h"
 #import "RCTRootView.h"
 #import "RNCommon.h"
 
-@interface WendaHomeViewController ()
+@interface WendaQuestionListViewController ()
 
 @end
 
-@implementation WendaHomeViewController
-
-- (BOOL)isNavDarkStyle {
-    return true;
-}
+@implementation WendaQuestionListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.title = @"松果课堂";
+    self.navigationItem.title = @"问题列表";
     
-    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/wenda/wdhome.bundle?platform=ios"];
+    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/wenda/wdquestionlist.bundle?platform=ios"];
     // For production use, this `NSURL` could instead point to a pre-bundled file on disk: //
     //    NSURL *jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
     // To generate that file, run the curl command and add the output to your main Xcode build target: //
     // curl http://localhost:8081/home/home.ios.bundle -o ./ReactComponent/output/main.jsbundle
-    RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"WDHomeComponent" initialProperties:nil launchOptions:nil];
+    RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"WDQuestionListComponent" initialProperties:nil launchOptions:nil];
     rootView.frame = self.view.bounds;
     [self.view addSubview:rootView];
 }
