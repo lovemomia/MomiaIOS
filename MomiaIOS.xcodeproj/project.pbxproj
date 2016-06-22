@@ -67,6 +67,8 @@
 		002B664E1CB38ED30096EB6E /* ChildInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B664C1CB38ED30096EB6E /* ChildInfoViewController.m */; };
 		002B665D1CB3AFE30096EB6E /* ConfirmBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */; };
 		002B665E1CB3AFE30096EB6E /* ConfirmBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */; };
+		003324261D1A36C30060307B /* WendaCourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003324251D1A36C30060307B /* WendaCourseDetailViewController.m */; };
+		003324271D1A36C30060307B /* WendaCourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003324251D1A36C30060307B /* WendaCourseDetailViewController.m */; };
 		0035B7501CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */; };
 		0035B7511CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */; };
 		005E2A751CEB170F00CBF5DD /* RefundText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005E2A741CEB170F00CBF5DD /* RefundText.xib */; };
@@ -987,6 +989,8 @@
 		002B664C1CB38ED30096EB6E /* ChildInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildInfoViewController.m; sourceTree = "<group>"; };
 		002B665B1CB3AFE30096EB6E /* ConfirmBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmBookViewController.h; sourceTree = "<group>"; };
 		002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmBookViewController.m; sourceTree = "<group>"; };
+		003324241D1A36C30060307B /* WendaCourseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WendaCourseDetailViewController.h; sourceTree = "<group>"; };
+		003324251D1A36C30060307B /* WendaCourseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WendaCourseDetailViewController.m; sourceTree = "<group>"; };
 		0035B74E1CC8CE5200F5EAEF /* ApplyRefundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyRefundViewController.h; sourceTree = "<group>"; };
 		0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyRefundViewController.m; sourceTree = "<group>"; };
 		005E2A741CEB170F00CBF5DD /* RefundText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundText.xib; sourceTree = "<group>"; };
@@ -3392,6 +3396,8 @@
 				BC3DFCD31D19346F001F09CC /* WendaQuestionListViewController.m */,
 				001FEFEA1D100C9A00A00D7E /* AnswerAudioViewController.h */,
 				001FEFEB1D100C9A00A00D7E /* AnswerAudioViewController.m */,
+				003324241D1A36C30060307B /* WendaCourseDetailViewController.h */,
+				003324251D1A36C30060307B /* WendaCourseDetailViewController.m */,
 			);
 			name = Wenda;
 			sourceTree = "<group>";
@@ -4042,6 +4048,7 @@
 				BC1CC9F71BA90A9A001841E7 /* Feed.m in Sources */,
 				BC1052991BB24E4A00D81C15 /* AddFeedContentCell.m in Sources */,
 				5AE4F86B1B3D645E005879B7 /* MOStepperGroup.m in Sources */,
+				003324261D1A36C30060307B /* WendaCourseDetailViewController.m in Sources */,
 				BCA272FD1AE8A2C7002E7534 /* MineViewController.m in Sources */,
 				BC6CF57E1C3CC469006F314C /* IQNSArray+Sort.m in Sources */,
 				5A1B35EF1B12BD0500E1D31B /* CommentViewController.m in Sources */,
@@ -4492,6 +4499,7 @@
 				BCEAFCC11C2A394300CB082D /* ShareViewController.m in Sources */,
 				BCEAFCC21C2A394300CB082D /* MLSelectPhotoPickerGroupViewController.m in Sources */,
 				BCEAFCC31C2A394300CB082D /* SubjectDetailViewController.m in Sources */,
+				003324271D1A36C30060307B /* WendaCourseDetailViewController.m in Sources */,
 				BCEAFCC41C2A394300CB082D /* FavouriteModel.m in Sources */,
 				BCEAFCC51C2A394300CB082D /* CouponListViewController.m in Sources */,
 				BCEAFCC61C2A394300CB082D /* SGActionView.m in Sources */,

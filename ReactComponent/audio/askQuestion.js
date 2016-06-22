@@ -8,7 +8,8 @@ var {
 	Text,
 	ListView,
 	Image,
-	TextInput
+	TextInput,
+	TouchableHighlight
 } = ReactNative;
 
 var CheckBox = require('react-native-checkbox');
@@ -33,7 +34,7 @@ var AskQuestionComponent = React.createClass({
 		return {
 			loading: true,
 			dataSource: ds.cloneWithRows([
-				{id:1},{id:2},{id: 3},{id: 4}
+				{id:1},{id:2},{id: 3},{id: 4},{id: 5}
 			]),
 		};
 	},
@@ -85,6 +86,21 @@ var AskQuestionComponent = React.createClass({
   						onChange={(checked) => console.log('I am checked', checked)}
 					/>
 					<Text style={{flex: 1}}>公开提问，答案每被人偷听一次，你将从中分成0.5元</Text>
+				</View>
+			);
+		} else if (rowID == 3) {
+			return (
+				<View style={{marginTop: 30,padding: 10,alignItems: 'center'}}>
+					<Text style={{fontSize: 25,color: '#FF6634'}}>￥9.9元</Text>
+				</View>
+			);
+		} else if (rowID == 4) {
+			return (
+				<View style={{flex: 1,padding: 20}}>
+					<TouchableHighlight 
+						style={{backgroundColor: '#FF6634', borderRadius: 5,height: 48,alignItems:'center',justifyContent: 'center'}}>
+						<Text style={{color: 'white'}}>提交</Text>
+					</TouchableHighlight>
 				</View>
 			);
 		}

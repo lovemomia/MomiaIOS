@@ -514,7 +514,7 @@
 		<false/>
 		<key>controller</key>
 		<string>WendaQuestionListViewController</string>
-    </dict>
+	</dict>
 	<key>myaccount</key>
 	<dict>
 		<key>desc</key>
@@ -559,6 +559,15 @@
 		<true/>
 		<key>controller</key>
 		<string>AskQuestionViewController</string>
+	</dict>
+	<key>wdcoursedetail</key>
+	<dict>
+		<key>desc</key>
+		<string>微课详情</string>
+		<key>needlogin</key>
+		<false/>
+		<key>controller</key>
+		<string>WendaCourseDetailViewController</string>
 	</dict>
 </dict>
 </plist>
