@@ -1,6 +1,7 @@
 'use strict';
 console.disableYellowBox = true;
 
+var Common = require('../Common');
 var SGStyles = require('../SGStyles');
 var HttpService = require('../HttpService');
 var Swiper = require('react-native-swiper')
@@ -75,7 +76,7 @@ class WDCourseListComponent extends React.Component {
   }
 
   componentDidMount() {
-    HttpService.get('http://i.momia.cn/v1/wd_courses?', {
+    HttpService.get(Common.domain() + '/v1/wd_courses?', {
       start: 0,
       wid: 0
     }, (resp) => {
@@ -93,7 +94,7 @@ class WDCourseListComponent extends React.Component {
   }
 
   _loadNextPage() {
-    HttpService.get('http://i.momia.cn/v1/wd_courses?', {
+    HttpService.get(Common.domain() + '/v1/wd_courses?', {
       start: this.state.nextStart,
       wid: 0
     }, (resp) => {
@@ -129,7 +130,7 @@ class WDCourseListComponent extends React.Component {
       }
     }
 
-    if (data.hasOwnProperty('nextIndex') && data.nextIndex > 0) {
+    if (data.hasOwnProperty('nextIndex') && data.nextIndex > 0 && typeList.length >= 20) {
       hasNextPage = true;
       nextStart = data.nextIndex;
       //header
@@ -161,7 +162,7 @@ class WDCourseListComponent extends React.Component {
   }
 
   _renderLoading() {
-    // this._loadNextPage();
+    this._loadNextPage();
     return <View style={[SGStyles.container, styles.loadingCell]}><ActivityIndicatorIOS
       hidden='true'
       size='small'/></View>
