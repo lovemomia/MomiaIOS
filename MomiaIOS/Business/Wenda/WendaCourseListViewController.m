@@ -12,9 +12,18 @@
 
 @interface WendaCourseListViewController ()
 
+@property (nonatomic, strong) NSString *wid;
+
 @end
 
 @implementation WendaCourseListViewController
+
+- (instancetype)initWithParams:(NSDictionary *)params {
+    if (self = [super initWithParams:params]) {
+        self.wid = [params objectForKey:@"wid"];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,7 +36,7 @@
     //    NSURL *jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
     // To generate that file, run the curl command and add the output to your main Xcode build target: //
     // curl http://localhost:8081/home/home.ios.bundle -o ./ReactComponent/output/main.jsbundle
-    RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"WDCourseListComponent" initialProperties:nil launchOptions:nil];
+    RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"WDCourseListComponent" initialProperties:@{@"wid" : (self.wid ? self.wid : @"0")} launchOptions:nil];
     rootView.frame = self.view.bounds; 
     [self.view addSubview:rootView];
 }
