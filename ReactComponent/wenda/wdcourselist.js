@@ -78,7 +78,7 @@ class WDCourseListComponent extends React.Component {
   componentDidMount() {
     HttpService.get(Common.domain() + '/v1/wd_courses?', {
       start: 0,
-      wid: 0
+      wid: this.props.wid,
     }, (resp) => {
       if (resp.errno == 0) {
         this._handlerResponse(resp.data);
@@ -96,7 +96,7 @@ class WDCourseListComponent extends React.Component {
   _loadNextPage() {
     HttpService.get(Common.domain() + '/v1/wd_courses?', {
       start: this.state.nextStart,
-      wid: 0
+      wid: this.props.wid
     }, (resp) => {
       if (resp.errno == 0) {
         this._handlerResponse(resp.data);
