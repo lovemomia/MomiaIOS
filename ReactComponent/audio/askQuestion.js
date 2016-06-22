@@ -15,7 +15,13 @@ var {
 var CheckBox = require('react-native-checkbox');
 
 var styles = ReactNative.StyleSheet.create({
-
+	multiline: {
+		height:80,
+		fontSize: 14,
+		backgroundColor:'white',
+    	padding: 4,
+    	color: 'black',
+  },
 });
 
 var ds = new ListView.DataSource({
@@ -33,6 +39,7 @@ var AskQuestionComponent = React.createClass({
 	getInitialState: function() {
 		return {
 			loading: true,
+			textCount: 10,
 			dataSource: ds.cloneWithRows([
 				{id:1},{id:2},{id: 3},{id: 4},{id: 5}
 			]),
@@ -69,11 +76,18 @@ var AskQuestionComponent = React.createClass({
 			return (
 				<View style={{marginTop: 10}}>
 					<View style={{height: 120, backgroundColor: 'white'}}>
-						<TextInput />
+						<TextInput style={styles.multiline}
+									placeholder='向方菁老师提问，等TA语音回答，若超过48小时未回答，将按支付路径全额退款'
+									multiline = {true}
+									maxLength={200}
+        							ref= "comment"
+        							autoFocus={true}
+        							placeholderTextColor="#999999"
+        							onChangeText={(text) => this.textChanged({text})}/>
 					</View>
 					<View style={{flexDirection: 'row', backgroundColor: 'white'}}>
 						<View style={{flex: 1}} />
-						<Text>0/140</Text>
+						<Text>{this.state.textCount}/140</Text>
 					</View>
 				</View>
 			);
@@ -104,6 +118,14 @@ var AskQuestionComponent = React.createClass({
 				</View>
 			);
 		}
+	},
+
+	textChanged: function(text) {
+
+		 this.setState({
+              textCount: text.text.length,
+         });
+
 	}
 });
 

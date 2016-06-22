@@ -35,7 +35,7 @@ var WendaCourseDetailComponent = React.createClass({
 	getInitialState: function() {
 		return {
 			dataSource: ds.cloneWithRows([
-				{id: 0},{id: 1},{id: 2},{id: 3},{id: 4},{id: 5},{id: 6},{id: 7}
+				{id: 0},{id: 1},{id: 2},{id: 3},{id: 4},{id: 5},{id: 6},{id: 7},{id: 8},{id: 9},{id: 10},{id: 11},{id: 12}
 			]) 
 		};
 	},
@@ -51,8 +51,9 @@ var WendaCourseDetailComponent = React.createClass({
 				</View>
 				<TouchableHighlight 
 					style={{height: 48, backgroundColor: '#FF6634', justifyContent: 'center',alignItems: 'center'}}
-					onPress={() => this._pressAskExpretButton()} >
-					<Text>向专家提问</Text>
+					onPress={() => this._pressAskExpretButton()}
+					underlayColor="#FF6634" >
+					<Text style={{color: 'white'}}>向专家提问</Text>
 				</TouchableHighlight>
 			</View>
 		);
@@ -75,6 +76,12 @@ var WendaCourseDetailComponent = React.createClass({
 			return this._renderExpertImageWithName();
 		} else if(rowID == 7) {
 			return this._renderExpertIntrText();
+		} else if(rowID == 8){
+			return this._renderMoreWDCourseHeader();
+		} else if(rowID == 12) {
+			return this._renderWDCourseMoreButton();
+		}else{
+			return this._renderWDCourseRowItem();
 		}
 		return (
 			<View>
@@ -111,10 +118,10 @@ var WendaCourseDetailComponent = React.createClass({
 	_renderReAskQuHeader: function() {
 
 		return (
-			<View style={{padding: 10,backgroundColor: 'white',marginTop: 10}}>
-				<View style={{flexDirection: 'row'}}>
+			<View style={{paddingLeft: 10,paddingRight: 10,paddingTop: 5,paddingBottom: 5,backgroundColor: 'white',marginTop: 10}}>
+				<View style={{flexDirection: 'row',alignItems: 'center'}}>
 					<Image style={{height: 20,width: 20,backgroundColor: 'green'}} />
-					<Text>互动问答</Text>
+					<Text style={{color: '#00c49d',marginLeft: 8}}>互动问答</Text>
 				</View>
 				<View style={{height: 1,backgroundColor: '#f1f1f1',marginTop: 4}} />
 			</View>
@@ -125,22 +132,22 @@ var WendaCourseDetailComponent = React.createClass({
 	_renderReAskQuRowItem: function() {
 
 		return (
-			<View style={{padding: 10,backgroundColor: 'white'}}>
+			<View style={{paddingLeft: 10,paddingRight: 10,paddingTop: 5,paddingBottom: 5,backgroundColor: 'white'}}>
 				<View>
 					<Text>6岁男孩，父母抚养，遇到某些没遇到过的数学题，会直接说我不会做，这个主要是提高自信心吗？</Text>
 				</View>
-				<View>
-					<Text>韩丽娟 | 北师大副教授，儿童教育专家</Text>
+				<View style={{marginTop: 8}}>
+					<Text style={{color: '#999999',fontSize: 12}}>韩丽娟 | 北师大副教授，儿童教育专家</Text>
 				</View>
-				<View style={{flexDirection: 'row',alignItems: 'center'}}>
+				<View style={{flexDirection: 'row',alignItems: 'center',marginTop: 8}}>
 					<Image style={{width: 40,height: 40,backgroundColor:'green',borderRadius: 20}} />
 					<View style={{flexDirection: 'row',flex: 1,alignItems: 'center'}}>
-						<Image style={{width: 120,height: 40,backgroundColor: 'green',marginLeft: 10}} />
-						<Text> 60 '</Text>
+						<Image style={{width: 120,height: 40,backgroundColor: '#9DDF59',marginLeft: 10}} />
+						<Text style={{color: '#999999'}}> 60 '</Text>
 					</View>
-					<Text>22人听过</Text>
+					<Text style={{color: '#FF6634'}}>22人听过</Text>
 				</View>
-				<View style={{height: 1,backgroundColor: '#f1f1f1',marginTop: 6}} />
+				<View style={{height: 1,backgroundColor: '#f1f1f1',marginTop: 10}} />
 			</View>
 		);
 	},
@@ -150,7 +157,7 @@ var WendaCourseDetailComponent = React.createClass({
 
 		return (
 			<View style={{height: 48,justifyContent: 'center',alignItems: 'center',backgroundColor: 'white'}}>
-				<TouchableHighlight style={{borderRadius: 4,borderWidth: 2,borderColor: 'black',padding: 5}}>
+				<TouchableHighlight style={{borderRadius: 4,borderWidth: 1,borderColor: 'gray',padding: 5}}>
 						<Text>查看更多</Text>
 				</TouchableHighlight>
 			</View>
@@ -162,9 +169,9 @@ var WendaCourseDetailComponent = React.createClass({
 
 		return (
 			<View style={{padding: 10,backgroundColor: 'white',marginTop: 10}}>
-				<View style={{flexDirection: 'row'}}>
+				<View style={{flexDirection: 'row',alignItems: 'center'}}>
 					<Image style={{height: 20,width: 20,backgroundColor: 'green'}} />
-					<Text>专家介绍</Text>
+					<Text style={{color: '#00c49d',marginLeft: 8}}>专家简介</Text>
 				</View>
 				<View style={{height: 1,backgroundColor: '#f1f1f1',marginTop: 4}} />
 			</View>
@@ -197,9 +204,9 @@ var WendaCourseDetailComponent = React.createClass({
 
 		return (
 			<View style={{padding: 10,backgroundColor: 'white',marginTop: 10}}>
-				<View style={{flexDirection: 'row'}}>
+				<View style={{flexDirection: 'row',alignItems: 'center'}}>
 					<Image style={{height: 20,width: 20,backgroundColor: 'green'}} />
-					<Text>更多微课</Text>
+					<Text style={{color: '#00c49d',marginLeft: 8}}>更多微课</Text>
 				</View>
 				<View style={{height: 1,backgroundColor: '#f1f1f1',marginTop: 4}} />
 			</View>
@@ -207,7 +214,40 @@ var WendaCourseDetailComponent = React.createClass({
 	},
 
 	//渲染微课Item
-	_renderWD
+	_renderWDCourseRowItem: function() {
+		return (
+			<View style={{padding: 10,backgroundColor: 'white'}}>
+				<View style={{flexDirection: 'row',alignItems: 'center'}}>
+					<View>
+						<Image style={{width: 40,height: 40, backgroundColor: 'red'}}/>
+					</View>
+					<View style={{marginLeft: 10,flex: 1}}>
+						<Text>在孩子教育过程中，如何做到零吼叫？</Text>
+						<View style={{flexDirection: 'row'}}>
+							<Image style={{width: 20,height: 20, backgroundColor: 'red'}}/>
+							<Text>20000次</Text>
+							<Image style={{width: 20,height: 20, backgroundColor: 'red'}}/>
+							<Text> 20分钟</Text>
+						</View>
+						<Text>2016年五月一日</Text>
+					</View>
+				</View>
+				<View style={{height: 1,backgroundColor:'#f1f1f1',marginTop: 10}} />
+			</View>
+		);
+	},
+
+	//渲染微课查看更多
+	_renderWDCourseMoreButton: function() {
+		return (
+			<View style={{height: 48,justifyContent: 'center',alignItems: 'center',backgroundColor: 'white'}}>
+				<TouchableHighlight style={{borderRadius: 4,borderWidth: 1,borderColor: 'gray',padding: 5}}>
+						<Text>查看更多</Text>
+				</TouchableHighlight>
+			</View>
+	 	);
+	},
+
 	_pressRowItem: function(rowData) {
 
 	},

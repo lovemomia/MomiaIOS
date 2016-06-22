@@ -3530,7 +3530,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC8540AE1ADF74E9005A7C54 /* Build configuration list for PBXNativeTarget "MomiaIOS" */;
 			buildPhases = (
-				F087248621AB8EE978883D44 /* 📦 Check Pods Manifest.lock */,
+				F087248621AB8EE978883D44 /* [CP] Check Pods Manifest.lock */,
 				E0E606A63FA804C7861CD66E /* [CP] Check Pods Manifest.lock */,
 				BC8540871ADF74E9005A7C54 /* Sources */,
 				BC8540881ADF74E9005A7C54 /* Frameworks */,
@@ -3571,7 +3571,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BCEAFD931C2A394300CB082D /* Build configuration list for PBXNativeTarget "MomiaIOS DEBUG" */;
 			buildPhases = (
-				7B3BE048355FE2A89099D02C /* 📦 Check Pods Manifest.lock */,
+				7B3BE048355FE2A89099D02C /* [CP] Check Pods Manifest.lock */,
 				D97B20613E752F1596C3FA12 /* [CP] Check Pods Manifest.lock */,
 				BCEAFBFB1C2A394300CB082D /* Sources */,
 				BCEAFD1E1C2A394300CB082D /* Frameworks */,
@@ -3871,14 +3871,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MomiaIOS/Pods-MomiaIOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7B3BE048355FE2A89099D02C /* 📦 Check Pods Manifest.lock */ = {
+		7B3BE048355FE2A89099D02C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4006,14 +4006,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MomiaIOS DEBUG/Pods-MomiaIOS DEBUG-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F087248621AB8EE978883D44 /* 📦 Check Pods Manifest.lock */ = {
+		F087248621AB8EE978883D44 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
