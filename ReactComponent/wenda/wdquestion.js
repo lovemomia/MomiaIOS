@@ -5,6 +5,7 @@
 'use strict';
 console.disableYellowBox = true;
 
+var Common = require('../Common');
 var SGStyles = require('../SGStyles');
 var HttpService = require('../HttpService');
 var Swiper = require('react-native-swiper')
@@ -101,7 +102,7 @@ class WDQuestionComponent extends React.Component {
   }
 
   componentDidMount() {
-    HttpService.get('http://i.momia.cn/v1/wd_home?', {
+    HttpService.get(Common.domain() + '/v1/wd_home?', {
       start: 0
     }, (resp) => {
       if (resp.errno == 0) {

@@ -1,6 +1,7 @@
 'use strict';
 console.disableYellowBox = true;
 
+var Common = require('../Common');
 var SGStyles = require('../SGStyles');
 var HttpService = require('../HttpService');
 var Swiper = require('react-native-swiper')
@@ -95,7 +96,7 @@ class HomeComponent extends React.Component {
   }
 
   componentDidMount() {
-    HttpService.get('http://i.momia.cn/v3/index?', {
+    HttpService.get(Common.domain() + '/v3/index?', {
       start: 0
     }, (resp) => {
       if (resp.errno == 0) {
