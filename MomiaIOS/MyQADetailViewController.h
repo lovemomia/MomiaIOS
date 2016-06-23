@@ -8,6 +8,6 @@
 
 #import "MOViewController.h"
 
-@interface MyQAViewController : MOViewController
+@interface MyQADetailViewController : MOViewController
 
 @end

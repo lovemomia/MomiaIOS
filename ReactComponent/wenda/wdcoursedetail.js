@@ -93,24 +93,28 @@ var WendaCourseDetailComponent = React.createClass({
 	_renderHeaderView: function(data) {
 
 		return (
+			<TouchableHighlight
+				onPress={() => this._pressRowItem()}
+				underlayColor = '#f1f1f1'>
 			<View style={{padding: 10,marginTop: 10,backgroundColor: 'white'}}>
 				<View style={{flexDirection: 'row',alignItems: 'center'}}>
 					<View>
 						<Image style={{width: 40,height: 40, backgroundColor: 'red'}}/>
 					</View>
 					<View style={{marginLeft: 10,flex: 1}}>
-						<Text>在孩子教育过程中，如何做到零吼叫？</Text>
-						<View style={{flexDirection: 'row'}}>
+						<Text style={{fontSize: 13}}>在孩子教育过程中，如何做到零吼叫？</Text>
+						<View style={{flexDirection: 'row',alignItems: 'center'}}>
 							<Image style={{width: 20,height: 20, backgroundColor: 'red'}}/>
-							<Text>20000次</Text>
+							<Text style={{fontSize: 11, color: '#999999'}}>20000次</Text>
 							<Image style={{width: 20,height: 20, backgroundColor: 'red'}}/>
-							<Text> 20分钟</Text>
+							<Text style={{fontSize: 11, color: '#999999'}}> 20分钟</Text>
 						</View>
-						<Text>2016年五月一日</Text>
+						<Text style={{fontSize: 11, color: '#999999'}}>2016年5月1日</Text>
 					</View>
 					<Image style={{width: 10,height: 10,backgroundColor: 'green'}}/>
 				</View>
 			</View>
+			</TouchableHighlight>
 		);
 	},
 
@@ -249,7 +253,7 @@ var WendaCourseDetailComponent = React.createClass({
 	},
 
 	_pressRowItem: function(rowData) {
-
+		RNCommon.openUrl('wdcourseintro');
 	},
 
 	_pressAskExpretButton: function() {

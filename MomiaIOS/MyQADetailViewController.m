@@ -6,15 +6,15 @@
 //  Copyright © 2016年 Deng Jun. All rights reserved.
 //
 
-#import "MyQAViewController.h"
+#import "MyQADetailViewController.h"
 #import "RCTRootView.h"
 #import "RNCommon.h"
 
-@interface MyQAViewController ()
+@interface MyQADetailViewController ()
 
 @end
 
-@implementation MyQAViewController
+@implementation MyQADetailViewController
 
 - (BOOL)isNavDarkStyle {
     return YES;

@@ -569,5 +569,14 @@
 		<key>controller</key>
 		<string>WendaCourseDetailViewController</string>
 	</dict>
+	<key>wdcourseintro</key>
+	<dict>
+		<key>desc</key>
+		<string>微课介绍</string>
+		<key>needlogin</key>
+		<false/>
+		<key>controller</key>
+		<string>WendaCourseIntroViewController</string>
+	</dict>
 </dict>
 </plist>

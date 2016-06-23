@@ -71,6 +71,8 @@
 		003324271D1A36C30060307B /* WendaCourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003324251D1A36C30060307B /* WendaCourseDetailViewController.m */; };
 		0035B7501CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */; };
 		0035B7511CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */; };
+		0048A1881D1B82E300DA39D7 /* WendaCourseIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0048A1871D1B82E300DA39D7 /* WendaCourseIntroViewController.m */; };
+		0048A1891D1B82E300DA39D7 /* WendaCourseIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0048A1871D1B82E300DA39D7 /* WendaCourseIntroViewController.m */; };
 		005E2A751CEB170F00CBF5DD /* RefundText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005E2A741CEB170F00CBF5DD /* RefundText.xib */; };
 		005E2A761CEB170F00CBF5DD /* RefundText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005E2A741CEB170F00CBF5DD /* RefundText.xib */; };
 		009AC52B1D19183E00314A02 /* AskQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009AC52A1D19183E00314A02 /* AskQuestionViewController.m */; };
@@ -82,8 +84,8 @@
 		00CBCEB81D16EE24001B8353 /* MyQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBCEB61D16EE24001B8353 /* MyQuestionViewController.m */; };
 		00CBCEBB1D16EE3A001B8353 /* MyAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBCEBA1D16EE3A001B8353 /* MyAnswerViewController.m */; };
 		00CBCEBC1D16EE3A001B8353 /* MyAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBCEBA1D16EE3A001B8353 /* MyAnswerViewController.m */; };
-		00CBCEBF1D16EE4E001B8353 /* MyQAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBCEBE1D16EE4E001B8353 /* MyQAViewController.m */; };
-		00CBCEC01D16EE4E001B8353 /* MyQAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBCEBE1D16EE4E001B8353 /* MyQAViewController.m */; };
+		00CBCEBF1D16EE4E001B8353 /* MyQADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBCEBE1D16EE4E001B8353 /* MyQADetailViewController.m */; };
+		00CBCEC01D16EE4E001B8353 /* MyQADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBCEBE1D16EE4E001B8353 /* MyQADetailViewController.m */; };
 		00CBCEC31D16EF32001B8353 /* MyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBCEC21D16EF32001B8353 /* MyAccountViewController.m */; };
 		00CBCEC41D16EF32001B8353 /* MyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBCEC21D16EF32001B8353 /* MyAccountViewController.m */; };
 		00DCB9771CF53EE700215227 /* RecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DCB9751CF53EE700215227 /* RecommendCell.m */; };
@@ -993,6 +995,8 @@
 		003324251D1A36C30060307B /* WendaCourseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WendaCourseDetailViewController.m; sourceTree = "<group>"; };
 		0035B74E1CC8CE5200F5EAEF /* ApplyRefundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyRefundViewController.h; sourceTree = "<group>"; };
 		0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyRefundViewController.m; sourceTree = "<group>"; };
+		0048A1861D1B82E300DA39D7 /* WendaCourseIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WendaCourseIntroViewController.h; sourceTree = "<group>"; };
+		0048A1871D1B82E300DA39D7 /* WendaCourseIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WendaCourseIntroViewController.m; sourceTree = "<group>"; };
 		005E2A741CEB170F00CBF5DD /* RefundText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundText.xib; sourceTree = "<group>"; };
 		009AC5291D19183E00314A02 /* AskQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskQuestionViewController.h; sourceTree = "<group>"; };
 		009AC52A1D19183E00314A02 /* AskQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskQuestionViewController.m; sourceTree = "<group>"; };
@@ -1001,8 +1005,8 @@
 		00CBCEB61D16EE24001B8353 /* MyQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyQuestionViewController.m; sourceTree = "<group>"; };
 		00CBCEB91D16EE3A001B8353 /* MyAnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnswerViewController.h; sourceTree = "<group>"; };
 		00CBCEBA1D16EE3A001B8353 /* MyAnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnswerViewController.m; sourceTree = "<group>"; };
-		00CBCEBD1D16EE4E001B8353 /* MyQAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyQAViewController.h; sourceTree = "<group>"; };
-		00CBCEBE1D16EE4E001B8353 /* MyQAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyQAViewController.m; sourceTree = "<group>"; };
+		00CBCEBD1D16EE4E001B8353 /* MyQADetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyQADetailViewController.h; sourceTree = "<group>"; };
+		00CBCEBE1D16EE4E001B8353 /* MyQADetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyQADetailViewController.m; sourceTree = "<group>"; };
 		00CBCEC11D16EF32001B8353 /* MyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAccountViewController.h; sourceTree = "<group>"; };
 		00CBCEC21D16EF32001B8353 /* MyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAccountViewController.m; sourceTree = "<group>"; };
 		00DCB9741CF53EE700215227 /* RecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendCell.h; sourceTree = "<group>"; };
@@ -3377,13 +3381,13 @@
 			isa = PBXGroup;
 			children = (
 				00CBCEB51D16EE24001B8353 /* MyQuestionViewController.h */,
-				009AC5291D19183E00314A02 /* AskQuestionViewController.h */,
 				009AC52A1D19183E00314A02 /* AskQuestionViewController.m */,
+				009AC5291D19183E00314A02 /* AskQuestionViewController.h */,
 				00CBCEB61D16EE24001B8353 /* MyQuestionViewController.m */,
 				00CBCEB91D16EE3A001B8353 /* MyAnswerViewController.h */,
 				00CBCEBA1D16EE3A001B8353 /* MyAnswerViewController.m */,
-				00CBCEBD1D16EE4E001B8353 /* MyQAViewController.h */,
-				00CBCEBE1D16EE4E001B8353 /* MyQAViewController.m */,
+				00CBCEBD1D16EE4E001B8353 /* MyQADetailViewController.h */,
+				00CBCEBE1D16EE4E001B8353 /* MyQADetailViewController.m */,
 				00CBCEC11D16EF32001B8353 /* MyAccountViewController.h */,
 				00CBCEC21D16EF32001B8353 /* MyAccountViewController.m */,
 				BCA80BFA1D0EC28000B3D3E8 /* WendaHomeViewController.h */,
@@ -3398,6 +3402,8 @@
 				001FEFEB1D100C9A00A00D7E /* AnswerAudioViewController.m */,
 				003324241D1A36C30060307B /* WendaCourseDetailViewController.h */,
 				003324251D1A36C30060307B /* WendaCourseDetailViewController.m */,
+				0048A1861D1B82E300DA39D7 /* WendaCourseIntroViewController.h */,
+				0048A1871D1B82E300DA39D7 /* WendaCourseIntroViewController.m */,
 			);
 			name = Wenda;
 			sourceTree = "<group>";
@@ -4068,6 +4074,7 @@
 				BC753ED51BAC07D300D2663C /* FeedSuggestUserCell.m in Sources */,
 				BC79DF761C117A510064C02F /* IMTokenModel.m in Sources */,
 				BC3599F91BC61F0C002DE863 /* MLSelectPhotoPickerCollectionView.m in Sources */,
+				0048A1881D1B82E300DA39D7 /* WendaCourseIntroViewController.m in Sources */,
 				BC2C0C641B130CDB00E2446E /* Account.m in Sources */,
 				BC6CF5821C3CC469006F314C /* IQUIWindow+Hierarchy.m in Sources */,
 				BC359A1A1BC61F2A002DE863 /* LJTabBar.m in Sources */,
@@ -4228,7 +4235,7 @@
 				002AF7BE1CC7759D00052BEC /* MOSectionObject.m in Sources */,
 				BCF0339C1B4F77BE005B71D6 /* AlipayOrderModel.m in Sources */,
 				BC0D44531C046F120007E9ED /* PackageHeaderCell.m in Sources */,
-				00CBCEBF1D16EE4E001B8353 /* MyQAViewController.m in Sources */,
+				00CBCEBF1D16EE4E001B8353 /* MyQADetailViewController.m in Sources */,
 				BC359A331BC61F68002DE863 /* MCAvatarView.m in Sources */,
 				BC77377B1BCE2C0C00987B22 /* CoursePoiCell.m in Sources */,
 				BC1CC9FA1BA910AF001841E7 /* FeedListModel.m in Sources */,
@@ -4431,6 +4438,7 @@
 				BCEAFC1D1C2A394300CB082D /* FeedSuggestUserCell.m in Sources */,
 				BCEAFC1E1C2A394300CB082D /* IMTokenModel.m in Sources */,
 				BCEAFC1F1C2A394300CB082D /* MLSelectPhotoPickerCollectionView.m in Sources */,
+				0048A1891D1B82E300DA39D7 /* WendaCourseIntroViewController.m in Sources */,
 				BCEAFC201C2A394300CB082D /* Account.m in Sources */,
 				BCEAFC211C2A394300CB082D /* LJTabBar.m in Sources */,
 				BCEAFC221C2A394300CB082D /* FeedListViewController.m in Sources */,
@@ -4498,7 +4506,7 @@
 				BCEAFC621C2A394300CB082D /* AddFeedContentCell.m in Sources */,
 				BCEAFC631C2A394300CB082D /* MOStepperGroup.m in Sources */,
 				BCEAFC641C2A394300CB082D /* MineViewController.m in Sources */,
-				00CBCEC01D16EE4E001B8353 /* MyQAViewController.m in Sources */,
+				00CBCEC01D16EE4E001B8353 /* MyQADetailViewController.m in Sources */,
 				00EFAFB41CC9CF4C0059E444 /* RefundInfoViewController.m in Sources */,
 				BCEAFC661C2A394300CB082D /* CommentViewController.m in Sources */,
 				BCEAFC671C2A394300CB082D /* NSURL+MOURL.m in Sources */,
