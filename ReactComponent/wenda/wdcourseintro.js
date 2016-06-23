@@ -29,7 +29,6 @@ var WendaCourseIntroComponent = React.createClass({
 
 	componentDidMount: function() {
 
-		console.log("============================");
 		 HttpService.get(Common.domain() + '/v1/wd_course?', {
      	 	wid: 1,
     	}, (resp) => {
@@ -41,7 +40,7 @@ var WendaCourseIntroComponent = React.createClass({
           		isLoading: false
         	});
      	}
-      		// console.log(resp.data);
+      		console.log(resp.data);
     	});
 	},
 
@@ -66,7 +65,6 @@ var WendaCourseIntroComponent = React.createClass({
 
 	_handlerResponse: function(data) {
 
-		// console.log("hello");
 		let list = new Array();
 
 		list.push({
@@ -90,12 +88,10 @@ var WendaCourseIntroComponent = React.createClass({
       		dataSource: this.state.dataSource.cloneWithRows(list),
       		wdcourse: data.wdcourse,
     	});
-    	// console.log(list);
 	},
 
 	_renderRow: function(rowData,sectionID,rowID) {
 
-		// console.log('-----' + rowData);
 		if (rowData.type == 1) {
 			return this._renderCourse();
 		} else if (rowData.type == 2) {
@@ -111,7 +107,7 @@ var WendaCourseIntroComponent = React.createClass({
 		data = this.state.wdcourse;
 		return (
 			<TouchableHighlight
-				onPress={() => this._pressRowItem()}
+				onPress={() => {console.log("press")}}
 				underlayColor = '#f1f1f1'>
 			<View style={{padding: 10,marginTop: 10,backgroundColor: 'white'}}>
 				<View style={{flexDirection: 'row',alignItems: 'center'}}>

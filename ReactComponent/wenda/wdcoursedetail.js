@@ -153,6 +153,7 @@ var WendaCourseDetailComponent = React.createClass({
       	this.setState({
       		isLoading: false,
       		dataSource: this.state.dataSource.cloneWithRows(typeList),
+      		wdcourse: data.wdcourse,
     	});
       	console.log(typeList);
 	},
@@ -311,8 +312,7 @@ var WendaCourseDetailComponent = React.createClass({
 	},
 
 	_pressAskExpretButton: function() {
-
-		RNCommon.openUrl('askquestion');
+		RNCommon.openUrl('askquestion?wid=' +this.state.wdcourse.id);
 	},
 
 });
