@@ -134,8 +134,10 @@ var AskExpertComponent = React.createClass({
 	_renderRow: function(rowData,sectionID,rowID) {
 
 		if (rowData.type == 1) {
+
 			return this._renderQuestionView(rowData.data);
 		} else if(rowData.type == 2) {
+
 			return this._renderSection(rowData.data);
 		} else if(rowData.type == 3) {
 
@@ -147,6 +149,7 @@ var AskExpertComponent = React.createClass({
 		return (<View />);
 	},
 
+	//渲染专家
 	_renderExpert: function(data) {
 		console.log(data);
 		return (
@@ -172,7 +175,7 @@ var AskExpertComponent = React.createClass({
 		return (
 			<View style={{paddingLeft: 10,paddingRight: 10,paddingTop: 5,paddingBottom: 5,backgroundColor: 'white',marginTop: 10}}>
 				<View style={{flexDirection: 'row',alignItems: 'center'}}>
-					<Image style={{height: 20,width: 20,backgroundColor: 'green'}}
+					<Image style={{height: 20,width: 20}}
 						   source={image} />
 					<Text style={{color: '#00c49d',marginLeft: 8}}>{data.text}</Text>
 				</View>
@@ -181,6 +184,7 @@ var AskExpertComponent = React.createClass({
 		);
 	},
 
+	//渲染课程
 	_renderCourse: function(data) {
 
 		return (
@@ -190,7 +194,7 @@ var AskExpertComponent = React.createClass({
 			<View style={{padding: 10,backgroundColor: 'white'}}>
 				<View style={{flexDirection: 'row',alignItems: 'center'}}>
 					<View>
-						<Image style={{width: 50,height: 50, backgroundColor: 'red'}}
+						<Image style={{width: 50,height: 50}}
 							   source={{uri: data.cover}}/>
 					</View>
 					<View style={{marginLeft: 10,flex: 1}}>
@@ -212,28 +216,27 @@ var AskExpertComponent = React.createClass({
 	},
 
 	_renderQuestionView: function(data) {
-    return <View><View style={{backgroundColor:'white', padding:10,marginTop: 15}}>
-            <Text style={{fontSize: 15, color: '#333333'}} numberOfLines={1}>{data.content}</Text>
-            <Text style={{fontSize: 13, color: '#999999',paddingTop:5}} numberOfLines={1}>{data.expert.name} | {data.expert.intro}</Text>
-            <View style={{flexDirection:'row', paddingTop:10, alignItems:'center'}}>
-              <Image style={{width: 30, height: 30, borderRadius: 15, marginRight: 5}} source={{uri:data.expert.cover}}/>
-              <Image style={{width: 200, height: 30, borderRadius: 15, marginLeft: 10, backgroundColor:'#00c49d', justifyContent: 'center',alignItems: 'center'}}>
-                <Text style={{fontSize: 13, color: 'white'}} numberOfLines={1}>1元偷听</Text>
-              </Image>
-              <Text style={{fontSize: 13, color: '#999999',paddingLeft:5}} numberOfLines={1}>60“</Text>
-            </View>
-        </View>
-        <View style={styles.separator}/>
-        </View>
+
+    return <View>
+    			<View style={{backgroundColor:'white', padding:10,marginTop: 15}}>
+            		<Text style={{fontSize: 15, color: '#333333'}} numberOfLines={1}>{data.content}</Text>
+            		<Text style={{fontSize: 13, color: '#999999',paddingTop:5}} numberOfLines={1}>{data.expert.name} | {data.expert.intro}</Text>
+            		<View style={{flexDirection:'row', paddingTop:10, alignItems:'center'}}>
+              			<Image style={{width: 30, height: 30, borderRadius: 15, marginRight: 5}} source={{uri:data.expert.cover}}/>
+              			<Image style={{width: 200, height: 30, borderRadius: 15, marginLeft: 10, backgroundColor:'#00c49d', justifyContent: 'center',alignItems: 'center'}}>
+                			<Text style={{fontSize: 13, color: 'white'}} numberOfLines={1}>1元偷听</Text>
+              			</Image>
+              			<Text style={{fontSize: 13, color: '#999999',paddingLeft:5}} numberOfLines={1}>60“</Text>
+            		</View>
+        		</View>
+        		<View style={styles.separator}/>
+        	</View>
     },
 
+    //问专家
     _pressAskExpretButton: function() {
     	RNCommon.openUrl('askquestion?wid=' +this.state.wdcourse.id);
     },
-
-	_pressEvent: function() {
-
-	},
 
 });
 
