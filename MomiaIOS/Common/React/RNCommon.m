@@ -37,6 +37,14 @@ RCT_EXPORT_METHOD(setChoosedCity:(NSDictionary *)city)
     [CityManager shareManager].choosedCity = [[City alloc]initWithDictionary:city error:nil];
 }
 
+RCT_EXPORT_METHOD(isLogin:(RCTResponseSenderBlock)callback)
+{
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+    NSString *isLogin = [[AccountService defaultService] isLogin] ? @"true" : @"false";
+    [dic setObject:isLogin forKey:@"isLogin"];
+    callback(@[[NSNull null], dic]);
+}
+
 #pragma mark -
 #pragma mark  网络请求utils
 

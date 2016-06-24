@@ -41,14 +41,22 @@
 }
 
 - (void)onCancelClicked {
-    self.loginCancelBlock();
+    if(self.loginCancelBlock) {
+        self.loginCancelBlock();
+    } else {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 
 - (void)onRegisterClicked {
      RegisterViewController *viewController = [[RegisterViewController alloc]initWithParams:nil];
     
     viewController.registerSuccessBlock = ^(){
-        self.loginSuccessBlock();
+        if(self.loginSuccessBlock) {
+            self.loginSuccessBlock();
+        } else {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
     };
     [self.navigationController pushViewController:viewController animated:YES];
 }
@@ -57,7 +65,11 @@
     ForgetPasswordViewController *viewController = [[ForgetPasswordViewController alloc]initWithParams:nil];
     
     viewController.resetPasswordSuccessBlock = ^(){
-        self.loginSuccessBlock();
+        if(self.loginSuccessBlock) {
+            self.loginSuccessBlock();
+        } else {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
     };
     [self.navigationController pushViewController:viewController animated:YES];
 }
@@ -141,7 +153,11 @@
                                  [MBProgressHUD hideHUDForView:self.view animated:NO];
                                  AccountModel *result = responseObject;
                                  [AccountService defaultService].account = result.data;
-                                 self.loginSuccessBlock();
+                                 if(self.loginSuccessBlock) {
+                                     self.loginSuccessBlock();
+                                 } else {
+                                     [self.navigationController popToRootViewControllerAnimated:YES];
+                                 }
                              }
                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                  [MBProgressHUD hideHUDForView:self.view animated:YES];

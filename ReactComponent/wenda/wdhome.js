@@ -5,6 +5,7 @@ var Common = require('../Common');
 var SGStyles = require('../SGStyles');
 var HttpService = require('../HttpService');
 var Swiper = require('react-native-swiper')
+var LoadingEffect = require('react-native-loading-effect');
 
 var React = require('react');
 var {
@@ -25,11 +26,18 @@ var {
 } = ReactNative;
 
 var RNCommon = NativeModules.RNCommon;
+var WendaPayManager = NativeModules.WendaPayManager;
 
 var styles = ReactNative.StyleSheet.create({
   loadingContainer: {
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  floatView: {
+    position: 'absolute',
+    top: (Dimensions.get('window').height) / 2 - 100,
+    left: Dimensions.get('window').width / 2 - 40,
+
   },
   footer: {
     height: 10,
@@ -60,18 +68,47 @@ class WDHomeComponent extends React.Component {
     this.state = {
       //用来存放列表数据（{type:'列表类型[1=banner, 2=header, 3=course, 4=question, 5=more]', data:'数据'}）
       dataSource: ds.cloneWithRows([new Array()]),
-      isLoading: true
+      isLoading: true,
+      isLoadingDialogVisible: false,
     };
   }
 
   render() {
-    return this.state.isLoading ? (<View style={[SGStyles.container, styles.loadingContainer]}><ActivityIndicatorIOS
+    if (this.state.isLoading) {
+      return <View style={[SGStyles.container, styles.loadingContainer]}><ActivityIndicatorIOS
       hidden='true'
-      size='small'/></View>) : <View style={SGStyles.container}>
+      size='small'/></View>;
+    } else if (this.state.isLoadingDialogVisible) {
+      return <View style={SGStyles.container}>
       <ListView 
       dataSource={this.state.dataSource}
-      renderRow={this.renderRow.bind(this)}/>
+      renderRow={this.renderRow.bind(this)}>
+      </ListView>
+      <View style={[SGStyles.container, styles.floatView]}>
+        <LoadingEffect isVisible='true' text='加载中...'/>
       </View>
+      </View>
+
+    } else {
+      return <View style={SGStyles.container}>
+      <ListView 
+      dataSource={this.state.dataSource}
+      renderRow={this.renderRow.bind(this)}>
+      </ListView>
+      </View>
+    }
+  }
+
+  _showLoadingEffect() {
+    this.setState({
+      isLoadingDialogVisible: true
+    });
+  }
+
+  _dismissLoadingEffect() {
+    this.setState({
+      isLoadingDialogVisible: false
+    });
   }
 
   componentDidMount() {
@@ -268,7 +305,23 @@ class WDHomeComponent extends React.Component {
     if (rowData.type == 3) { //微课
       RNCommon.openUrl('wdcoursedetail?id=' + rowData.data.id);
     } else if (rowData.type == 4) { //问专家
-      RNCommon.openUrl('wdquestiondetail?id=' + rowData.data.id);
+      // RNCommon.openUrl('wdquestiondetail?id=' + rowData.data.id);
+      // WendaPayManager.pay({
+      //   start: 0
+      // }, (error, fullParams) => {
+
+      // });
+      RNCommon.isLogin((error, dic) => {
+        if (error) {
+          console.error(error);
+        } else if (dic.isLogin === 'true') {
+          this._requestQuestion(rowData.data.id);
+
+        } else {
+          RNCommon.openUrl('login');
+        }
+      });
+
     } else if (rowData.type == 5) { //更多
       if (rowData.data === '听微课') {
         RNCommon.openUrl('wdcourselist'); //微课列表
@@ -276,6 +329,22 @@ class WDHomeComponent extends React.Component {
         RNCommon.openUrl('wdquestionlist'); //问题列表
       }
     }
+  }
+
+  _requestQuestion(questionId) {
+    this._showLoadingEffect();
+    HttpService.get(Common.domain() + '/v1/wd_hJoin?', {
+      questionId: questionId
+    }, (resp) => {
+      if (resp.errno == 0) {
+        //判断结果是否可以直接播放了
+
+      } else {
+        // request failed
+
+      }
+      this._dismissLoadingEffect();
+    });
   }
 
 }
