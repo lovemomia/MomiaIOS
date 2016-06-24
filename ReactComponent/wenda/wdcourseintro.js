@@ -107,26 +107,33 @@ var WendaCourseIntroComponent = React.createClass({
 		data = this.state.wdcourse;
 		return (
 			<TouchableHighlight
-				onPress={() => {console.log("press")}}
+				onPress={() => {}}
 				underlayColor = '#f1f1f1'>
 			<View style={{padding: 10,marginTop: 10,backgroundColor: 'white'}}>
 				<View style={{flexDirection: 'row',alignItems: 'center'}}>
 					<View>
-						<Image style={{width: 40,height: 40, backgroundColor: 'red'}}
-							   source={{uri: data.cover}}/>
+						<TouchableHighlight
+					    	onPress={() => this.playCourse()}
+					    	underlayColor = '#f1f1f1' >
+							<Image style={{width: 50,height: 50, alignItems: 'center',justifyContent: 'center'}}
+							   	   source={{uri: data.cover}}>
+							   	   <Image style={{width: 30,height: 30}}
+							   		  	  source={require('../common/image/play.png')} />
+					    	</Image>
+					    </TouchableHighlight>
 					</View>
 					<View style={{marginLeft: 10,flex: 1}}>
 						<Text style={{fontSize: 13}}>{data.title}</Text>
-						<View style={{flexDirection: 'row',alignItems: 'center'}}>
-							<Image style={{width: 20,height: 20, backgroundColor: 'red'}}
-								   />
+						<View style={{flexDirection: 'row',alignItems: 'center',marginTop: 5}}>
+							<Image style={{width: 15,height: 15}}
+								   source={require('../common/image/count.png')}/>
 							<Text style={{fontSize: 11, color: '#999999'}}>{data.count}次</Text>
-							<Image style={{width: 20,height: 20, backgroundColor: 'red'}}/>
+							<Image style={{width: 15,height: 15,marginLeft: 10}}
+								   source={require('../common/image/time.png')}/>
 							<Text style={{fontSize: 11, color: '#999999'}}> {data.mins}分钟</Text>
 						</View>
-						<Text style={{fontSize: 11, color: '#999999'}}>{data.startTime}</Text>
+						<Text style={{fontSize: 11, color: '#999999',marginTop: 5}}>{data.startTime}</Text>
 					</View>
-					<Image style={{width: 10,height: 10,backgroundColor: 'green'}}/>
 				</View>
 			</View>
 			</TouchableHighlight>
@@ -157,6 +164,11 @@ var WendaCourseIntroComponent = React.createClass({
 
 	},
 
+	playCourse: function() {
+
+		console.log('start play audio');
+	},
+	
 });
 
 AppRegistry.registerComponent('WendaCourseIntroComponent',() => WendaCourseIntroComponent);

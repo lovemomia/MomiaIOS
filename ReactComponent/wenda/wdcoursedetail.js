@@ -27,7 +27,8 @@ var RNCommon = NativeModules.RNCommon;
 var styles = ReactNative.StyleSheet.create({
 	separator: {
     	height: 0.5,
-    	backgroundColor: '#dddddd'
+    	backgroundColor: '#dddddd',
+    	marginLeft: 10
   },
 });
 
@@ -105,8 +106,7 @@ var WendaCourseDetailComponent = React.createClass({
 
       		typeList.push({
       			type: 2,
-      			data: '互动问答',
-      			icon: 'icon'
+      			data: {text: '互动问答',image: 'question'}
       		});
       		for (var i = 0; i < data.questions.length; i++) {
       			typeList.push({
@@ -124,8 +124,7 @@ var WendaCourseDetailComponent = React.createClass({
       	//专家简介 Section
       	typeList.push({
       		type: 2,
-      		data: '专家简介',
-      		icon: 'icon'
+      		data: {text:'专家简介',image: 'expert'}
       	});
 
       	typeList.push({
@@ -137,8 +136,7 @@ var WendaCourseDetailComponent = React.createClass({
       	if (data.wdcourses) {
       		typeList.push({
       			type: 2,
-      			data: '更多微课',
-      			icon: 'icon'
+      			data: {text:'更多微课',image:'course'}
       		});
 
       		for (var i = 0; i < data.wdcourses.list.length; i++) {
@@ -181,7 +179,12 @@ var WendaCourseDetailComponent = React.createClass({
 			return this._renderExpert(rowData.data);
 		} else if (rowData.type == 5) {
 
-			return this._renderCourseView(rowData.data);
+			return (
+				<View>
+				  {Common.courseCell(rowData.data,() => {RNCommon.openUrl('wdcoursedetail?id=' + rowData.data.id);})}
+				  <View style={styles.separator}/>
+				</View>
+			);
 		}
 		return (
 			<View>
@@ -199,79 +202,53 @@ var WendaCourseDetailComponent = React.createClass({
 			<View style={{padding: 10,marginTop: 10,backgroundColor: 'white'}}>
 				<View style={{flexDirection: 'row',alignItems: 'center'}}>
 					<View>
-						<Image style={{width: 40,height: 40, backgroundColor: 'red'}}
-							   source={{uri: data.cover}}/>
+					    <TouchableHighlight
+					    	onPress={() => this.playCourse()}
+					    	underlayColor = '#f1f1f1' >
+							<Image style={{width: 50,height: 50, alignItems: 'center',justifyContent: 'center'}}
+							   	   source={{uri: data.cover}}>
+							   	   <Image style={{width: 30,height: 30}}
+							   		  	  source={require('../common/image/play.png')} />
+					    	</Image>
+					    </TouchableHighlight>
 					</View>
 					<View style={{marginLeft: 10,flex: 1}}>
 						<Text style={{fontSize: 13}}>{data.title}</Text>
-						<View style={{flexDirection: 'row',alignItems: 'center'}}>
-							<Image style={{width: 20,height: 20, backgroundColor: 'red'}}
-								   />
+						<View style={{flexDirection: 'row',alignItems: 'center',marginTop: 5}}>
+							<Image style={{width: 15,height: 15}}
+								   source={require('../common/image/count.png')}/>
 							<Text style={{fontSize: 11, color: '#999999'}}>{data.count}次</Text>
-							<Image style={{width: 20,height: 20, backgroundColor: 'red'}}/>
+							<Image style={{width: 15,height: 15,marginLeft: 10}}
+								   source={require('../common/image/time.png')}/>
 							<Text style={{fontSize: 11, color: '#999999'}}> {data.mins}分钟</Text>
 						</View>
-						<Text style={{fontSize: 11, color: '#999999'}}>{data.startTime}</Text>
+						<Text style={{fontSize: 11, color: '#999999',marginTop: 5}}>{data.startTime}</Text>
 					</View>
-					<Image style={{width: 10,height: 10,backgroundColor: 'green'}}/>
+					<Image style={{width: 20,height: 20}}
+						   source={require('../common/image/arrow.png')} />
 				</View>
 			</View>
 			</TouchableHighlight>
 		);
 	},
 
-	_renderCourseView: function(data) {
-    return <View><View style={{flex:1,flexDirection:'row',backgroundColor:'white'}}>
-        <View style={{alignItems:'center',padding:10}}>
-          <Image style={{width: 50, height: 50, borderRadius: 25}} source={{uri:data.expert.cover}}/>
-          <Text style={{fontSize: 13, color: '#333333',paddingTop:5}} numberOfLines={1}>{data.expert.name}</Text>
-        </View>
-        <View style={{paddingTop:10, paddingBottom:10, paddingRight:10}}>
-          <Text style={{fontSize: 15, color: '#333333'}} numberOfLines={1}>{data.title}</Text>
-          <Text style={{flex:1, fontSize: 13, color: '#999999',paddingTop:5}} numberOfLines={1}>{data.subhead}</Text>
-          <View style={{flexDirection:'row', justifyContent: 'flex-end'}}>
-              <Text style={{fontSize: 13, color: '#999999',paddingRight:10}} numberOfLines={1}>20000次</Text>
-              <Text style={{fontSize: 13, color: '#999999'}} numberOfLines={1}>50分钟</Text></View>
-        </View>
-      </View>
-      <View style={styles.separator}/>
-      </View>
-    },
-
-	//渲染微课Item
-	_renderWDCourseRowItem: function(data) {
-		return (
-			<View style={{padding: 10,backgroundColor: 'white'}}>
-				<View style={{flexDirection: 'row',alignItems: 'center'}}>
-					<View>
-						<Image style={{width: 40,height: 40, backgroundColor: 'red'}}
-							   source={{uri: data.cover}}/>
-					</View>
-					<View style={{marginLeft: 10,flex: 1}}>
-						<Text>{data.title}</Text>
-						<View style={{flexDirection: 'row',alignItems: 'center'}}>
-							<Image style={{width: 20,height: 20, backgroundColor: 'red'}}/>
-							<Text style={{fontSize: 11, color: '#999999'}}>{data.count}次</Text>
-							<Image style={{width: 20,height: 20, backgroundColor: 'red'}}/>
-							<Text style={{fontSize: 11, color: '#999999'}}> {data.mins}分钟</Text>
-						</View>
-						<Text style={{fontSize: 11, color: '#999999'}}>{data.startTime}</Text>
-					</View>
-				</View>
-				<View style={{height: 1,backgroundColor:'#f1f1f1',marginTop: 10}} />
-			</View>
-		);
- 	},
-
-
 	//渲染Section
 	_renderSection: function(data) {
 
+		var image = '';
+		if ( data.image == 'expert') {
+			image = require('../common/image/expert.png');
+		} else if (data.image == 'question') {
+			image = require('../common/image/question.png');
+		} else {
+			image = require('../common/image/course.png');
+		}
 		return (
 			<View style={{paddingLeft: 10,paddingRight: 10,paddingTop: 5,paddingBottom: 5,backgroundColor: 'white',marginTop: 10}}>
 				<View style={{flexDirection: 'row',alignItems: 'center'}}>
-					<Image style={{height: 20,width: 20,backgroundColor: 'green'}} />
-					<Text style={{color: '#00c49d',marginLeft: 8}}>{data}</Text>
+					<Image style={{height: 20,width: 20}}
+						   source={image} />
+					<Text style={{color: '#00c49d',marginLeft: 8}}>{data.text}</Text>
 				</View>
 				<View style={{height: 1,backgroundColor: '#f1f1f1',marginTop: 4}} />
 			</View>
@@ -279,44 +256,28 @@ var WendaCourseDetailComponent = React.createClass({
 	},
 
 	_renderQuestionView: function(data) {
-    return <View><View style={{backgroundColor:'white', padding:10}}>
-            <Text style={{fontSize: 15, color: '#333333'}} numberOfLines={1}>{data.content}</Text>
-            <Text style={{fontSize: 13, color: '#999999',paddingTop:5}} numberOfLines={1}>{data.expert.name} | {data.expert.intro}</Text>
-            <View style={{flexDirection:'row', paddingTop:10, alignItems:'center'}}>
-              <Image style={{width: 30, height: 30, borderRadius: 15, marginRight: 5}} source={{uri:data.expert.cover}}/>
-              <Image style={{width: 200, height: 30, borderRadius: 15, marginLeft: 10, backgroundColor:'#00c49d', justifyContent: 'center',alignItems: 'center'}}>
-                <Text style={{fontSize: 13, color: 'white'}} numberOfLines={1}>1元偷听</Text>
-              </Image>
-              <Text style={{fontSize: 13, color: '#999999',paddingLeft:5}} numberOfLines={1}>60“</Text>
-            </View>
-        </View>
-        <View style={styles.separator}/>
-        </View>
-    },
-	//渲染互动问答Row
-	_renderReAskQuRowItem: function(data) {
 
-		return (
-			<View style={{paddingLeft: 10,paddingRight: 10,paddingTop: 5,paddingBottom: 5,backgroundColor: 'white'}}>
-				<View>
-					<Text>{data.content}</Text>
-				</View>
-				<View style={{marginTop: 8}}>
-					<Text style={{color: '#999999',fontSize: 12}}>{data.expert.name} | {data.expert.intro}</Text>
-				</View>
-				<View style={{flexDirection: 'row',alignItems: 'center',marginTop: 8}}>
-					<Image style={{width: 40,height: 40,backgroundColor:'green',borderRadius: 20}}
-						   source={{uri:data.expert.cover}} />
-					<View style={{flexDirection: 'row',flex: 1,alignItems: 'center'}}>
-						<Image style={{width: 120,height: 40,backgroundColor: '#9DDF59',marginLeft: 10}} />
-						<Text style={{color: '#999999'}}> {data.mins} '</Text>
-					</View>
-					<Text style={{color: '#FF6634'}}>{data.count}人听过</Text>
-				</View>
-				<View style={{height: 1,backgroundColor: '#f1f1f1',marginTop: 10}} />
-			</View>
-		);
-	},
+    return (
+    	<TouchableHighlight 
+    		onPress={() => this.goToQuestionDetail(data)}
+    		underlayColor = '#f1f1f1'>
+    		<View>
+    			<View style={{backgroundColor:'white', padding:10}}>
+            		<Text style={{fontSize: 15, color: '#333333'}} numberOfLines={1}>{data.content}</Text>
+            		<Text style={{fontSize: 13, color: '#999999',paddingTop:5}} numberOfLines={1}>{data.expert.name} | {data.expert.intro}</Text>
+            		<View style={{flexDirection:'row', paddingTop:10, alignItems:'center'}}>
+              			<Image style={{width: 30, height: 30, borderRadius: 15, marginRight: 5}} source={{uri:data.expert.cover}}/>
+              				<Image style={{width: 200, height: 30, borderRadius: 15, marginLeft: 10, backgroundColor:'#9DDF59', justifyContent: 'center',alignItems: 'center'}}>
+                				<Text style={{fontSize: 13, color: 'white'}} numberOfLines={1}>1元偷听</Text>
+              				</Image>
+              			<Text style={{fontSize: 13, color: '#999999',paddingLeft:5}} numberOfLines={1}>60“</Text>
+            		</View>
+        		</View>
+        		<View style={styles.separator}/>
+        	</View>
+        </TouchableHighlight>
+     );
+    },
 
 	//渲染专家简介
 	_renderExpert: function(data) {
@@ -356,6 +317,7 @@ var WendaCourseDetailComponent = React.createClass({
 			RNCommon.openUrl('wdcourselist');
 		}
 	},
+
 	_pressRowItem: function(rowData) {
 		RNCommon.openUrl('wdcourseintro');
 	},
@@ -363,6 +325,16 @@ var WendaCourseDetailComponent = React.createClass({
 	_pressAskExpretButton: function() {
 		RNCommon.openUrl('askquestion?wid=' +this.state.wdcourse.id);
 	},
+
+	goToQuestionDetail: function(data) {
+
+		RNCommon.openUrl('wdquestiondetail?wid=1');
+	},
+
+	playCourse: function() {
+
+		console.log('start play audio');
+	}
 
 });
 

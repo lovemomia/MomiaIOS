@@ -139,7 +139,7 @@ var AskExpertComponent = React.createClass({
 			return this._renderSection(rowData.data);
 		} else if(rowData.type == 3) {
 
-			return this._renderCourse(rowData.data);
+			return Common.courseCell(rowData.data,() => {console.log("onclick")});
 		} else if (rowData.type == 4) {
 
 			return this._renderExpert(rowData.data);

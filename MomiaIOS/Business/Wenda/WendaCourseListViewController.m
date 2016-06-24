@@ -18,12 +18,17 @@
 
 @implementation WendaCourseListViewController
 
+- (BOOL)isNavDarkStyle {
+    return YES;
+}
+
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
         self.wid = [params objectForKey:@"wid"];
     }
     return self;
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
