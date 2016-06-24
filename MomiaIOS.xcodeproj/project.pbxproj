@@ -357,6 +357,8 @@
 		BC6CF5A91C3CF03C006F314C /* IQTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5761C3CC469006F314C /* IQTitleBarButtonItem.m */; };
 		BC6CF5AB1C3CF03C006F314C /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF5781C3CC469006F314C /* IQToolbar.m */; };
 		BC6CF5AD1C3CF03C006F314C /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6CF57A1C3CC469006F314C /* IQUIView+IQKeyboardToolbar.m */; };
+		BC6F40E51D1CDCF80098E73A /* WendaPayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6F40E41D1CDCF80098E73A /* WendaPayManager.m */; };
+		BC6F40E61D1CDD070098E73A /* WendaPayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6F40E41D1CDCF80098E73A /* WendaPayManager.m */; };
 		BC753EAB1BAAD15900D2663C /* FeedDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC753EAA1BAAD15900D2663C /* FeedDetailModel.m */; };
 		BC753ECC1BAC07D300D2663C /* FeedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC753EAE1BAC07D300D2663C /* FeedDetailViewController.m */; };
 		BC753ECD1BAC07D300D2663C /* FeedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC753EB01BAC07D300D2663C /* FeedListViewController.m */; };
@@ -426,6 +428,8 @@
 		BC79DF861C15910C0064C02F /* ChatGroupMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF851C15910C0064C02F /* ChatGroupMemberViewController.m */; };
 		BC79DF8A1C15931C0064C02F /* GroupMemberItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC79DF881C15931C0064C02F /* GroupMemberItemCell.m */; };
 		BC79DF8B1C15931C0064C02F /* GroupMemberItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC79DF891C15931C0064C02F /* GroupMemberItemCell.xib */; };
+		BC7A52C51D1CE8C700CA4393 /* WendaPayAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7A52C41D1CE8C700CA4393 /* WendaPayAlertView.xib */; };
+		BC7A52C61D1D201500CA4393 /* WendaPayAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7A52C41D1CE8C700CA4393 /* WendaPayAlertView.xib */; };
 		BC7CBADE1B662E590047211D /* MOTagLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBADD1B662E590047211D /* MOTagLabel.m */; };
 		BC7CBAF91B6868930047211D /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC7CBAF71B6868930047211D /* AboutViewController.m */; };
 		BC7CBAFC1B68698A0047211D /* AboutHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7CBAFB1B68698A0047211D /* AboutHeaderView.xib */; };
@@ -1464,6 +1468,8 @@
 		BC6CF57A1C3CC469006F314C /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
 		BC6CF57B1C3CC469006F314C /* KeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardManager.h; sourceTree = "<group>"; };
 		BC6CF57D1C3CC469006F314C /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		BC6F40E31D1CDCF80098E73A /* WendaPayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WendaPayManager.h; path = Business/Wenda/WendaPayManager.h; sourceTree = "<group>"; };
+		BC6F40E41D1CDCF80098E73A /* WendaPayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WendaPayManager.m; path = Business/Wenda/WendaPayManager.m; sourceTree = "<group>"; };
 		BC753EA91BAAD15900D2663C /* FeedDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedDetailModel.h; path = Common/Models/Feed/FeedDetailModel.h; sourceTree = "<group>"; };
 		BC753EAA1BAAD15900D2663C /* FeedDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedDetailModel.m; path = Common/Models/Feed/FeedDetailModel.m; sourceTree = "<group>"; };
 		BC753EAD1BAC07D300D2663C /* FeedDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedDetailViewController.h; sourceTree = "<group>"; };
@@ -1574,6 +1580,7 @@
 		BC79DF871C15931C0064C02F /* GroupMemberItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupMemberItemCell.h; path = Business/Chat/Views/GroupMemberItemCell.h; sourceTree = "<group>"; };
 		BC79DF881C15931C0064C02F /* GroupMemberItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupMemberItemCell.m; path = Business/Chat/Views/GroupMemberItemCell.m; sourceTree = "<group>"; };
 		BC79DF891C15931C0064C02F /* GroupMemberItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GroupMemberItemCell.xib; path = Business/Chat/Views/GroupMemberItemCell.xib; sourceTree = "<group>"; };
+		BC7A52C41D1CE8C700CA4393 /* WendaPayAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WendaPayAlertView.xib; path = Business/Wenda/Views/WendaPayAlertView.xib; sourceTree = "<group>"; };
 		BC7CBADC1B662E590047211D /* MOTagLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOTagLabel.h; path = Common/Views/MOTagLabel.h; sourceTree = "<group>"; };
 		BC7CBADD1B662E590047211D /* MOTagLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOTagLabel.m; path = Common/Views/MOTagLabel.m; sourceTree = "<group>"; };
 		BC7CBAF61B6868930047211D /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Business/Setting/AboutViewController.h; sourceTree = "<group>"; };
@@ -2990,6 +2997,14 @@
 			name = Chat;
 			sourceTree = "<group>";
 		};
+		BC7A52C31D1CE8A200CA4393 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BC7A52C41D1CE8C700CA4393 /* WendaPayAlertView.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		BC8254341B3AA04900430A6F /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -3384,6 +3399,7 @@
 		BCA80BF91D0EC23000B3D3E8 /* Wenda */ = {
 			isa = PBXGroup;
 			children = (
+				BC7A52C31D1CE8A200CA4393 /* Views */,
 				00CBCEB51D16EE24001B8353 /* MyQuestionViewController.h */,
 				009AC52A1D19183E00314A02 /* AskQuestionViewController.m */,
 				009AC5291D19183E00314A02 /* AskQuestionViewController.h */,
@@ -3408,6 +3424,8 @@
 				003324251D1A36C30060307B /* WendaCourseDetailViewController.m */,
 				0048A1861D1B82E300DA39D7 /* WendaCourseIntroViewController.h */,
 				0048A1871D1B82E300DA39D7 /* WendaCourseIntroViewController.m */,
+				BC6F40E31D1CDCF80098E73A /* WendaPayManager.h */,
+				BC6F40E41D1CDCF80098E73A /* WendaPayManager.m */,
 				009BB2E61D1CF77100C620CB /* AskExpertViewController.h */,
 				009BB2E71D1CF77A00C620CB /* AskExpertViewController.m */,
 			);
@@ -3542,6 +3560,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC8540AE1ADF74E9005A7C54 /* Build configuration list for PBXNativeTarget "MomiaIOS" */;
 			buildPhases = (
+				14F3F33E5FFFA54367E9923B /* 📦 Check Pods Manifest.lock */,
 				F087248621AB8EE978883D44 /* [CP] Check Pods Manifest.lock */,
 				E0E606A63FA804C7861CD66E /* [CP] Check Pods Manifest.lock */,
 				BC8540871ADF74E9005A7C54 /* Sources */,
@@ -3583,6 +3602,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BCEAFD931C2A394300CB082D /* Build configuration list for PBXNativeTarget "MomiaIOS DEBUG" */;
 			buildPhases = (
+				1A8A96606BF9295DBC2D2BB2 /* 📦 Check Pods Manifest.lock */,
 				7B3BE048355FE2A89099D02C /* [CP] Check Pods Manifest.lock */,
 				D97B20613E752F1596C3FA12 /* [CP] Check Pods Manifest.lock */,
 				BCEAFBFB1C2A394300CB082D /* Sources */,
@@ -3732,6 +3752,7 @@
 				BC753ED61BAC07D300D2663C /* FeedSuggestUserCell.xib in Resources */,
 				BC97DF1C1B4E1DF0002B1A00 /* PayResultViewController.xib in Resources */,
 				5A3C6C731B579F1C006583FB /* ProductCalendarCell.xib in Resources */,
+				BC7A52C51D1CE8C700CA4393 /* WendaPayAlertView.xib in Resources */,
 				BC77379B1BCFAA1500987B22 /* SkuItemCell.xib in Resources */,
 				BC3509011BFC4CD40043D37C /* ShareViewCell.xib in Resources */,
 				5A83074F1B3291430057412A /* CommonHeaderView.xib in Resources */,
@@ -3759,6 +3780,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC7A52C61D1D201500CA4393 /* WendaPayAlertView.xib in Resources */,
 				BC53A5241CA5251D00532F91 /* SubjectCourseCell.xib in Resources */,
 				BC80B8511CA13D33009559F2 /* HomeSubjectCoverCell.xib in Resources */,
 				BC80B8521CA13D33009559F2 /* HomeSubjectCoursesCell.xib in Resources */,
@@ -3853,6 +3875,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		14F3F33E5FFFA54367E9923B /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1A8A96606BF9295DBC2D2BB2 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		2A2B35806DE4393FDA17A130 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -4217,6 +4269,7 @@
 				BC3D0BB01B70B361004C7B81 /* LeaderSkuModel.m in Sources */,
 				BC82542B1B3917AC00430A6F /* MORootViewController.m in Sources */,
 				5ABDA57B1B423FD8003BAE80 /* PostPersonModel.m in Sources */,
+				BC6F40E51D1CDCF80098E73A /* WendaPayManager.m in Sources */,
 				BC79DF801C118FBA0064C02F /* IMUserGroupListModel.m in Sources */,
 				001FEF8B1D0FCEF700A00D7E /* AudioPlayerManager.m in Sources */,
 				BC82543F1B3C26E400430A6F /* LocationService.m in Sources */,
@@ -4383,6 +4436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC6F40E61D1CDD070098E73A /* WendaPayManager.m in Sources */,
 				BC3DFCD51D19347A001F09CC /* WendaQuestionListViewController.m in Sources */,
 				BC3DFCD01D19288E001F09CC /* WendaQuestionViewController.m in Sources */,
 				BC3DFCD11D19288E001F09CC /* WendaCourseListViewController.m in Sources */,
