@@ -97,6 +97,7 @@ var AskQuestionComponent = React.createClass({
 
 	_renderRow: function(rowData,sectionID,rowID) {
 
+		let placeholder = '向' + this.state.expert.name+'老师提问，等TA语音回答，若超过48小时未回答，将按支付路径全额退款';
 		console.log(this.state.expert.name);
 		if (rowID == 0) {
 			return (
@@ -117,7 +118,7 @@ var AskQuestionComponent = React.createClass({
 				<View style={{marginTop: 10}}>
 					<View style={{height: 120, backgroundColor: 'white'}}>
 						<TextInput style={styles.multiline}
-									placeholder='向{this.state.expert.name}老师提问，等TA语音回答，若超过48小时未回答，将按支付路径全额退款'
+									placeholder={placeholder}
 									multiline = {true}
 									maxLength={200}
         							ref= "comment"

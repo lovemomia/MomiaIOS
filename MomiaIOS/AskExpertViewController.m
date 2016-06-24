@@ -24,7 +24,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
     self.title = @"问专家";
     NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/wenda/askexpert.bundle?platform=ios"];
     RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"AskExpertComponent" initialProperties:nil launchOptions:nil];

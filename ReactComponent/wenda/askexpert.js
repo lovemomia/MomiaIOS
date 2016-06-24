@@ -1,3 +1,9 @@
+/*
+ * 问专家
+ * mosl
+ *
+ */
+
 'use script';
 
 var ReactNative = require('react-native');
@@ -10,12 +16,16 @@ var {
 	AppRegistry,
 	TouchableHighlight,
 	Image,
+	NativeModules,
 } = ReactNative;
 
 
 var Common = require('../Common');
 var SGStyles = require('../SGStyles');
 var HttpService = require('../HttpService');
+
+
+var RNCommon = NativeModules.RNCommon;
 
 var ds = new ListView.DataSource({
 	rowHasChanged: (r1,r2) => r1!==r2
@@ -63,7 +73,7 @@ var AskExpertComponent = React.createClass({
 
 			list.push({
 				type: 2,
-				data: {text: '相关微课'}
+				data: {text: '相关微课',image: 'course'} //1.微课 2.专家
 			});
 			list.push({
 				type: 3,
@@ -74,7 +84,7 @@ var AskExpertComponent = React.createClass({
 
 			list.push({
 				type: 2,
-				data: {text: '专家简介'}
+				data: {text: '专家简介',image: 'expert'}
 			});
 			list.push({
 				type:4,
@@ -85,6 +95,7 @@ var AskExpertComponent = React.createClass({
 		this.setState({
 			isLoading: false,
 			dataSource: this.state.dataSource.cloneWithRows(list),
+			wdcourse: data.course,
 		});
 	},
 
@@ -94,15 +105,27 @@ var AskExpertComponent = React.createClass({
 				new Array()
 			]),
 			isLoading: true,
+			wdcourse: ''
 		};
 	},
 
 	render: function() {
+
+		if (this.state.isLoading) {
+			return Common.loading();
+		}
 		return (
-			<View>
+			<View style={{flex: 1,backgroundColor: '#f1f1f1'}}>
 				<ListView
+					style={{flex: 1}}
 					dataSource={this.state.dataSource}
 					renderRow={this._renderRow} />
+				<TouchableHighlight 
+					style={{height: 48, backgroundColor: '#FF6634', justifyContent: 'center',alignItems: 'center'}}
+					onPress={() => this._pressAskExpretButton()}
+					underlayColor="#FF6634" >
+					<Text style={{color: 'white'}}>向专家提问</Text>
+				</TouchableHighlight>
 			</View>
 		);
 	},
@@ -116,7 +139,7 @@ var AskExpertComponent = React.createClass({
 			return this._renderSection(rowData.data);
 		} else if(rowData.type == 3) {
 
-			return this._renderCourseView(rowData.data);
+			return this._renderCourse(rowData.data);
 		} else if (rowData.type == 4) {
 
 			return this._renderExpert(rowData.data);
@@ -128,9 +151,9 @@ var AskExpertComponent = React.createClass({
 		console.log(data);
 		return (
 			<View style={{alignItems: 'center',backgroundColor: 'white'}}>
-				<Image style={{width: 120,height: 120, backgroundColor: 'green'}}
+				<Image style={{width: 80,height: 80, backgroundColor: 'green',marginTop: 10}}
 				        source={{uri:data.cover}}/>
-				<Text>{data.name}</Text>
+				<Text style={{marginTop: 10}}>{data.name}</Text>
 				<View style={{padding: 10,backgroundColor: 'white'}}>
 				<Text>{data.intro}</Text>
 			</View>
@@ -140,11 +163,17 @@ var AskExpertComponent = React.createClass({
 
 	//渲染Section
 	_renderSection: function(data) {
-
+		var image = '';
+		if (data.image == 'expert') {
+			image = require('../common/image/expert.png');
+		} else {
+			image = require('../common/image/course.png');
+		}
 		return (
 			<View style={{paddingLeft: 10,paddingRight: 10,paddingTop: 5,paddingBottom: 5,backgroundColor: 'white',marginTop: 10}}>
 				<View style={{flexDirection: 'row',alignItems: 'center'}}>
-					<Image style={{height: 20,width: 20,backgroundColor: 'green'}} />
+					<Image style={{height: 20,width: 20,backgroundColor: 'green'}}
+						   source={image} />
 					<Text style={{color: '#00c49d',marginLeft: 8}}>{data.text}</Text>
 				</View>
 				<View style={{height: 1,backgroundColor: '#f1f1f1',marginTop: 4}} />
@@ -152,28 +181,38 @@ var AskExpertComponent = React.createClass({
 		);
 	},
 
-	_renderCourseView: function(data) {
+	_renderCourse: function(data) {
 
-		console.log(data);
-    	return <View><View style={{flex:1,flexDirection:'row',backgroundColor:'white'}}>
-        	<View style={{alignItems:'center',padding:10}}>
-          		<Image style={{width: 50, height: 50, borderRadius: 25}} source={{uri:data.expert.cover}}/>
-          	<Text style={{fontSize: 13, color: '#333333',paddingTop:5}} numberOfLines={1}>{data.expert.name}</Text>
-        </View>
-        <View style={{paddingTop:10, paddingBottom:10, paddingRight:10}}>
-          <Text style={{fontSize: 15, color: '#333333'}} numberOfLines={1}>{data.title}</Text>
-          <Text style={{flex:1, fontSize: 13, color: '#999999',paddingTop:5}} numberOfLines={1}>{data.subhead}</Text>
-          <View style={{flexDirection:'row', justifyContent: 'flex-end'}}>
-              <Text style={{fontSize: 13, color: '#999999',paddingRight:10}} numberOfLines={1}>20000次</Text>
-              <Text style={{fontSize: 13, color: '#999999'}} numberOfLines={1}>50分钟</Text></View>
-        </View>
-      </View>
-      <View style={styles.separator}/>
-      </View>
-    },
+		return (
+			<TouchableHighlight
+				onPress={() => {}}
+				underlayColor = '#f1f1f1'>
+			<View style={{padding: 10,backgroundColor: 'white'}}>
+				<View style={{flexDirection: 'row',alignItems: 'center'}}>
+					<View>
+						<Image style={{width: 50,height: 50, backgroundColor: 'red'}}
+							   source={{uri: data.cover}}/>
+					</View>
+					<View style={{marginLeft: 10,flex: 1}}>
+						<Text style={{fontSize: 13}}>{data.title}</Text>
+						<View style={{flexDirection: 'row',alignItems: 'center',marginTop: 5}}>
+							<Image style={{width: 15,height: 15}}
+								   source={require('../common/image/count.png')}/>
+							<Text style={{fontSize: 11, color: '#999999'}}>{data.count}次</Text>
+							<Image style={{width: 15,height: 15,marginLeft: 10}}
+								   source={require('../common/image/time.png')}/>
+							<Text style={{fontSize: 11, color: '#999999'}}> {data.mins}分钟</Text>
+						</View>
+						<Text style={{fontSize: 11, color: '#999999',marginTop: 5}}>{data.startTime}</Text>
+					</View>
+				</View>
+			</View>
+			</TouchableHighlight>
+		);
+	},
 
 	_renderQuestionView: function(data) {
-    return <View><View style={{backgroundColor:'white', padding:10}}>
+    return <View><View style={{backgroundColor:'white', padding:10,marginTop: 15}}>
             <Text style={{fontSize: 15, color: '#333333'}} numberOfLines={1}>{data.content}</Text>
             <Text style={{fontSize: 13, color: '#999999',paddingTop:5}} numberOfLines={1}>{data.expert.name} | {data.expert.intro}</Text>
             <View style={{flexDirection:'row', paddingTop:10, alignItems:'center'}}>
@@ -186,6 +225,10 @@ var AskExpertComponent = React.createClass({
         </View>
         <View style={styles.separator}/>
         </View>
+    },
+
+    _pressAskExpretButton: function() {
+    	RNCommon.openUrl('askquestion?wid=' +this.state.wdcourse.id);
     },
 
 	_pressEvent: function() {
