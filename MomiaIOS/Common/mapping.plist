@@ -495,7 +495,7 @@
 		<key>needlogin</key>
 		<false/>
 		<key>controller</key>
-		<string>WendaQuestionViewController</string>
+		<string>AskExpertViewController</string>
 	</dict>
 	<key>wdcourselist</key>
 	<dict>

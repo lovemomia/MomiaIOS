@@ -3,6 +3,10 @@
 var React = require('react');
 var ReactNative = require('react-native');
 
+var Common = require('../Common');
+var SGStyles = require('../SGStyles');
+var HttpService = require('../HttpService');
+
 var {
 	View,
 	Text,
@@ -36,17 +40,51 @@ var AskQuestionComponent = React.createClass({
 		};
 	},
 
+	componentDidMount: function() {
+
+		 HttpService.get(Common.domain() + '/v1/wd_course?', {
+     	 	wid: this.props.wid,
+    	}, (resp) => {
+      		if (resp.errno == 0) {
+        		this._handlerResponse(resp.data);
+     	 	} else {
+        		// request failed
+        		this.setState({
+          		isLoading: true
+        	});
+     	}
+    	});
+	},
+
 	getInitialState: function() {
 		return {
-			loading: true,
+			isLoading: true,
 			textCount: 10,
 			dataSource: ds.cloneWithRows([
-				{id:1},{id:2},{id: 3},{id: 4},{id: 5}
+				new Array()
 			]),
+			expert: {}
 		};
 	},
 
+	_handlerResponse: function(data) {
+
+		this.setState({
+      		isLoading: false,
+      		dataSource: this.state.dataSource.cloneWithRows([
+      			{id:1},{id:2},{id: 3},{id: 4},{id: 5}
+      		]),
+      		wdcourse: data.wdcourse,
+      		expert: data.wdcourse.expert,
+    	});
+
+	},
+
 	render: function() {
+
+		if (this.state.loading) {
+			return Common.loading();
+		}
 		return (
 			<View style={{flex: 1,backgroundColor: '#f1f1f1'}} >
 				<ListView
@@ -59,15 +97,18 @@ var AskQuestionComponent = React.createClass({
 
 	_renderRow: function(rowData,sectionID,rowID) {
 
+		let placeholder = '向' + this.state.expert.name+'老师提问，等TA语音回答，若超过48小时未回答，将按支付路径全额退款';
+		console.log(this.state.expert.name);
 		if (rowID == 0) {
 			return (
 				<View style={{padding: 10, marginTop: 10, flexDirection: 'row',alignItems: 'center',backgroundColor: 'white'}}>
 					<View>
-						<Image style={{width: 68,height: 68, borderRadius: 34, backgroundColor: 'green'}} />
+						<Image style={{width: 68,height: 68, borderRadius: 34}}
+							    source={{uri: this.state.expert.cover}}/>
 					</View>
 					<View style={{flex: 1, padding: 10}}>
-						<Text>方菁</Text>
-						<Text>美国宾夕法尼亚大学访问者，教育专家</Text>
+						<Text>{this.state.expert.name}</Text>
+						<Text>{this.state.expert.intro}</Text>
 						<Text>已回答20次</Text>
 					</View>
 				</View>
@@ -77,7 +118,7 @@ var AskQuestionComponent = React.createClass({
 				<View style={{marginTop: 10}}>
 					<View style={{height: 120, backgroundColor: 'white'}}>
 						<TextInput style={styles.multiline}
-									placeholder='向方菁老师提问，等TA语音回答，若超过48小时未回答，将按支付路径全额退款'
+									placeholder={placeholder}
 									multiline = {true}
 									maxLength={200}
         							ref= "comment"

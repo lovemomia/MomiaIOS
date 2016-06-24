@@ -9,8 +9,11 @@
 #import "AskQuestionViewController.h"
 #import "RCTRootView.h"
 #import "RNCommon.h"
+#import "AccountService.h"
 
 @interface AskQuestionViewController ()
+
+@property (nonatomic,strong) NSNumber *wid;
 
 @end
 
@@ -21,13 +24,27 @@
     return YES;
 }
 
+- (instancetype)initWithParams:(NSDictionary *)params {
+    if (self = [super initWithParams:params]) {
+        [self decoderParams:params];
+    }
+    return self;
+}
+
+-(void)decoderParams:(NSDictionary *)params{
+    self.wid = [params objectForKey:@"wid"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.title = @"提问";
+    
+    NSDictionary *props = @{@"wid" : self.wid,@"uid": [AccountService defaultService].account.uid};
+    
     NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/audio/askQuestion.bundle?platform=ios"];
-    RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"AskQuestionComponent" initialProperties:nil launchOptions:nil];
+    RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"AskQuestionComponent" initialProperties:props launchOptions:nil];
     rootView.frame = self.view.bounds;
     [self.view addSubview:rootView];
 }

@@ -3,6 +3,10 @@
 var React = require('react');
 var ReactNative = require('react-native');
 
+var Common = require('../Common');
+var SGStyles = require('../SGStyles');
+var HttpService = require('../HttpService');
+
 var {
 	Text,
 	View,
@@ -10,7 +14,8 @@ var {
 	ListView,
 	AppRegistry,
 	NativeModules,
-	TouchableHighlight
+	TouchableHighlight,
+
 } = ReactNative;
 
 var ds = new ListView.DataSource({
@@ -20,10 +25,32 @@ var ds = new ListView.DataSource({
 var RNCommon = NativeModules.RNCommon;
 
 var styles = ReactNative.StyleSheet.create({
-
+	separator: {
+    	height: 0.5,
+    	backgroundColor: '#dddddd',
+    	marginLeft: 10
+  },
 });
 
 var WendaCourseDetailComponent = React.createClass({
+
+	componentDidMount: function() {
+
+		 HttpService.get(Common.domain() + '/v1/wd_courseDetails?', {
+     	 	start: 0,
+     	 	wid: 1,
+    	}, (resp) => {
+      		if (resp.errno == 0) {
+        		this._handlerResponse(resp.data);
+     	 	} else {
+        		// request failed
+        		this.setState({
+          		isLoading: false
+        	});
+     	}
+      		console.log(resp.data);
+    	});
+	},
 
 	getDefaultProps: function() {
 		return {
@@ -31,16 +58,22 @@ var WendaCourseDetailComponent = React.createClass({
 		};
 	},
 
-
 	getInitialState: function() {
 		return {
+			//typeList [1:课程，2，section头部，3，Question Cell ，4，expert Cell， 5，more course item ，6，more],data:数据
 			dataSource: ds.cloneWithRows([
-				{id: 0},{id: 1},{id: 2},{id: 3},{id: 4},{id: 5},{id: 6},{id: 7},{id: 8},{id: 9},{id: 10},{id: 11},{id: 12}
-			]) 
+				new Array()
+			]),
+			isLoading: true
 		};
 	},
 
 	render: function() {
+
+		if (this.state.isLoading) {
+
+			return Common.loading();
+		}
 		return (
 			<View style={{flex: 1,backgroundColor: '#f1f1f1'}}>
 				<View style={{flex: 1}}>
@@ -59,29 +92,99 @@ var WendaCourseDetailComponent = React.createClass({
 		);
 	},
 
+	_handlerResponse: function(data) {
+		var typeList = new Array();
+
+      	if (data.wdcourse) {
+      		typeList.push({
+      			type: 1,
+      			data: data.wdcourse,
+      		});
+      	}
+      	//互动问答
+      	if (data.questions) {
+
+      		typeList.push({
+      			type: 2,
+      			data: {text: '互动问答',image: 'question'}
+      		});
+      		for (var i = 0; i < data.questions.length; i++) {
+      			typeList.push({
+      				type: 3,
+      				data: data.questions[i],
+      			});
+      		}
+
+      		typeList.push({
+      			type: 6,
+      			data: {text: '查看更多',dataType: 1}, //1,互动问答， 2, 更多微课
+      		});
+      	}
+
+      	//专家简介 Section
+      	typeList.push({
+      		type: 2,
+      		data: {text:'专家简介',image: 'expert'}
+      	});
+
+      	typeList.push({
+      		type: 4,
+      		data: data.wdcourse
+      	});
+
+      	//更多微课
+      	if (data.wdcourses) {
+      		typeList.push({
+      			type: 2,
+      			data: {text:'更多微课',image:'course'}
+      		});
+
+      		for (var i = 0; i < data.wdcourses.list.length; i++) {
+      			typeList.push({
+      				type: 5,
+      				data: data.wdcourses.list[i],
+      			});
+      		}
+
+      		typeList.push({
+      			type: 6,
+      			data: {text: '查看更多',dataType: 2},
+      		});
+      	}
+
+      	this.setState({
+      		isLoading: false,
+      		dataSource: this.state.dataSource.cloneWithRows(typeList),
+      		wdcourse: data.wdcourse,
+    	});
+      	console.log(typeList);
+	},
+
 	_renderRow: function(rowData,sectionID,rowID) {
 
-		if (rowID == 0) {
+		if (rowData.type == 1) { //课程
 
-			return this._renderHeaderView();
-		} else if( rowID ==1 ) {
-			return this._renderReAskQuHeader();
-		} else if (rowID == 2|| rowID == 3) {
-			return this._renderReAskQuRowItem();
-		} else if (rowID == 4) {
-			return this._renderReAskQuTailer();
-		} else if(rowID == 5) {
-			return this._renderExpertIntrHeader();
-		} else if(rowID == 6) {
-			return this._renderExpertImageWithName();
-		} else if(rowID == 7) {
-			return this._renderExpertIntrText();
-		} else if(rowID == 8){
-			return this._renderMoreWDCourseHeader();
-		} else if(rowID == 12) {
-			return this._renderWDCourseMoreButton();
-		}else{
-			return this._renderWDCourseRowItem();
+			return this._renderCourse(rowData.data);
+		} else if (rowData.type == 2) {
+
+			return this._renderSection(rowData.data);
+		} else if (rowData.type == 3) {
+
+			return this._renderQuestionView(rowData.data);
+		} else if (rowData.type == 6) {
+
+			return this._renderMore(rowData.data);
+		} else if (rowData.type == 4) {
+
+			return this._renderExpert(rowData.data);
+		} else if (rowData.type == 5) {
+
+			return (
+				<View>
+				  {Common.courseCell(rowData.data,() => {RNCommon.openUrl('wdcoursedetail?id=' + rowData.data.id);})}
+				  <View style={styles.separator}/>
+				</View>
+			);
 		}
 		return (
 			<View>
@@ -90,7 +193,7 @@ var WendaCourseDetailComponent = React.createClass({
 		);
 	},
 
-	_renderHeaderView: function(data) {
+	_renderCourse: function(data) {
 
 		return (
 			<TouchableHighlight
@@ -99,157 +202,120 @@ var WendaCourseDetailComponent = React.createClass({
 			<View style={{padding: 10,marginTop: 10,backgroundColor: 'white'}}>
 				<View style={{flexDirection: 'row',alignItems: 'center'}}>
 					<View>
-						<Image style={{width: 40,height: 40, backgroundColor: 'red'}}/>
+					    <TouchableHighlight
+					    	onPress={() => this.playCourse()}
+					    	underlayColor = '#f1f1f1' >
+							<Image style={{width: 50,height: 50, alignItems: 'center',justifyContent: 'center'}}
+							   	   source={{uri: data.cover}}>
+							   	   <Image style={{width: 30,height: 30}}
+							   		  	  source={require('../common/image/play.png')} />
+					    	</Image>
+					    </TouchableHighlight>
 					</View>
 					<View style={{marginLeft: 10,flex: 1}}>
-						<Text style={{fontSize: 13}}>在孩子教育过程中，如何做到零吼叫？</Text>
-						<View style={{flexDirection: 'row',alignItems: 'center'}}>
-							<Image style={{width: 20,height: 20, backgroundColor: 'red'}}/>
-							<Text style={{fontSize: 11, color: '#999999'}}>20000次</Text>
-							<Image style={{width: 20,height: 20, backgroundColor: 'red'}}/>
-							<Text style={{fontSize: 11, color: '#999999'}}> 20分钟</Text>
+						<Text style={{fontSize: 13}}>{data.title}</Text>
+						<View style={{flexDirection: 'row',alignItems: 'center',marginTop: 5}}>
+							<Image style={{width: 15,height: 15}}
+								   source={require('../common/image/count.png')}/>
+							<Text style={{fontSize: 11, color: '#999999'}}>{data.count}次</Text>
+							<Image style={{width: 15,height: 15,marginLeft: 10}}
+								   source={require('../common/image/time.png')}/>
+							<Text style={{fontSize: 11, color: '#999999'}}> {data.mins}分钟</Text>
 						</View>
-						<Text style={{fontSize: 11, color: '#999999'}}>2016年5月1日</Text>
+						<Text style={{fontSize: 11, color: '#999999',marginTop: 5}}>{data.startTime}</Text>
 					</View>
-					<Image style={{width: 10,height: 10,backgroundColor: 'green'}}/>
+					<Image style={{width: 20,height: 20}}
+						   source={require('../common/image/arrow.png')} />
 				</View>
 			</View>
 			</TouchableHighlight>
 		);
 	},
 
-	//渲染互动问答的头部
-	_renderReAskQuHeader: function() {
+	//渲染Section
+	_renderSection: function(data) {
 
+		var image = '';
+		if ( data.image == 'expert') {
+			image = require('../common/image/expert.png');
+		} else if (data.image == 'question') {
+			image = require('../common/image/question.png');
+		} else {
+			image = require('../common/image/course.png');
+		}
 		return (
 			<View style={{paddingLeft: 10,paddingRight: 10,paddingTop: 5,paddingBottom: 5,backgroundColor: 'white',marginTop: 10}}>
 				<View style={{flexDirection: 'row',alignItems: 'center'}}>
-					<Image style={{height: 20,width: 20,backgroundColor: 'green'}} />
-					<Text style={{color: '#00c49d',marginLeft: 8}}>互动问答</Text>
+					<Image style={{height: 20,width: 20}}
+						   source={image} />
+					<Text style={{color: '#00c49d',marginLeft: 8}}>{data.text}</Text>
 				</View>
 				<View style={{height: 1,backgroundColor: '#f1f1f1',marginTop: 4}} />
 			</View>
 		);
 	},
 
-	//渲染互动问答RowItem
-	_renderReAskQuRowItem: function() {
+	_renderQuestionView: function(data) {
 
-		return (
-			<View style={{paddingLeft: 10,paddingRight: 10,paddingTop: 5,paddingBottom: 5,backgroundColor: 'white'}}>
-				<View>
-					<Text>6岁男孩，父母抚养，遇到某些没遇到过的数学题，会直接说我不会做，这个主要是提高自信心吗？</Text>
-				</View>
-				<View style={{marginTop: 8}}>
-					<Text style={{color: '#999999',fontSize: 12}}>韩丽娟 | 北师大副教授，儿童教育专家</Text>
-				</View>
-				<View style={{flexDirection: 'row',alignItems: 'center',marginTop: 8}}>
-					<Image style={{width: 40,height: 40,backgroundColor:'green',borderRadius: 20}} />
-					<View style={{flexDirection: 'row',flex: 1,alignItems: 'center'}}>
-						<Image style={{width: 120,height: 40,backgroundColor: '#9DDF59',marginLeft: 10}} />
-						<Text style={{color: '#999999'}}> 60 '</Text>
-					</View>
-					<Text style={{color: '#FF6634'}}>22人听过</Text>
-				</View>
-				<View style={{height: 1,backgroundColor: '#f1f1f1',marginTop: 10}} />
-			</View>
-		);
-	},
+    return (
+    	<TouchableHighlight 
+    		onPress={() => this.goToQuestionDetail(data)}
+    		underlayColor = '#f1f1f1'>
+    		<View>
+    			<View style={{backgroundColor:'white', padding:10}}>
+            		<Text style={{fontSize: 15, color: '#333333'}} numberOfLines={1}>{data.content}</Text>
+            		<Text style={{fontSize: 13, color: '#999999',paddingTop:5}} numberOfLines={1}>{data.expert.name} | {data.expert.intro}</Text>
+            		<View style={{flexDirection:'row', paddingTop:10, alignItems:'center'}}>
+              			<Image style={{width: 30, height: 30, borderRadius: 15, marginRight: 5}} source={{uri:data.expert.cover}}/>
+              				<Image style={{width: 200, height: 30, borderRadius: 15, marginLeft: 10, backgroundColor:'#9DDF59', justifyContent: 'center',alignItems: 'center'}}>
+                				<Text style={{fontSize: 13, color: 'white'}} numberOfLines={1}>1元偷听</Text>
+              				</Image>
+              			<Text style={{fontSize: 13, color: '#999999',paddingLeft:5}} numberOfLines={1}>60“</Text>
+            		</View>
+        		</View>
+        		<View style={styles.separator}/>
+        	</View>
+        </TouchableHighlight>
+     );
+    },
 
-	//渲染互动问答的尾部
-	_renderReAskQuTailer: function() {
-
-		return (
-			<View style={{height: 48,justifyContent: 'center',alignItems: 'center',backgroundColor: 'white'}}>
-				<TouchableHighlight style={{borderRadius: 4,borderWidth: 1,borderColor: 'gray',padding: 5}}>
-						<Text>查看更多</Text>
-				</TouchableHighlight>
-			</View>
-		);
-	},
-
-	//渲染专家介绍的头部
-	_renderExpertIntrHeader: function() {
-
-		return (
-			<View style={{padding: 10,backgroundColor: 'white',marginTop: 10}}>
-				<View style={{flexDirection: 'row',alignItems: 'center'}}>
-					<Image style={{height: 20,width: 20,backgroundColor: 'green'}} />
-					<Text style={{color: '#00c49d',marginLeft: 8}}>专家简介</Text>
-				</View>
-				<View style={{height: 1,backgroundColor: '#f1f1f1',marginTop: 4}} />
-			</View>
-		);
-	},
-
-	//渲染专家介绍的头像和名字
-	_renderExpertImageWithName: function() {
+	//渲染专家简介
+	_renderExpert: function(data) {
 
 		return (
 			<View style={{alignItems: 'center',backgroundColor: 'white'}}>
-				<Image style={{width: 120,height: 120, backgroundColor: 'green'}} />
-				<Text>方菁</Text>
+				<Image style={{width: 120,height: 120, backgroundColor: 'green'}}
+				       source={{uri:data.expert.cover}} />
+				<Text>{data.expert.name}</Text>
+				<View style={{padding: 10,backgroundColor: 'white'}}>
+				<Text>{data.expert.intro}</Text>
+			</View>
 			</View>
 	    );
 	},
 
-	//渲染专家介绍的头像和名字
-	_renderExpertIntrText: function() {
-
-		return (
-			<View style={{padding: 10,backgroundColor: 'white'}}>
-				<Text>1970 年毕业于上海第一医学院医疗系。毕业后留校任中山医院内科住院医师、主治医师、副教授、教授，1986 年开始从事内科重症监护工作。1989 ～ 1990 获 WHO 奖学金赴澳大利亚进修急救医学。2000年任中山医院全科医学科主任，2001年当选为中华医学会全科医学分会委员,兼任复旦大学上海医学院全科医学系主任、硕士研究生导师。临床经验丰富，擅长内科疾病的诊断治疗，尤其是急症、危重病人的诊治。多年来开展各项科研工作，发表论文30余篇。主编《心脏病人的家庭康复》、《休克的基础和临床》等书，目前正在编写《脑卒中病人的家庭康复》</Text>
-			</View>
-		);
-	},
-
-	//渲染更多微课头部
-	_renderMoreWDCourseHeader: function() {
-
-		return (
-			<View style={{padding: 10,backgroundColor: 'white',marginTop: 10}}>
-				<View style={{flexDirection: 'row',alignItems: 'center'}}>
-					<Image style={{height: 20,width: 20,backgroundColor: 'green'}} />
-					<Text style={{color: '#00c49d',marginLeft: 8}}>更多微课</Text>
-				</View>
-				<View style={{height: 1,backgroundColor: '#f1f1f1',marginTop: 4}} />
-			</View>
-		);
-	},
-
-	//渲染微课Item
-	_renderWDCourseRowItem: function() {
-		return (
-			<View style={{padding: 10,backgroundColor: 'white'}}>
-				<View style={{flexDirection: 'row',alignItems: 'center'}}>
-					<View>
-						<Image style={{width: 40,height: 40, backgroundColor: 'red'}}/>
-					</View>
-					<View style={{marginLeft: 10,flex: 1}}>
-						<Text>在孩子教育过程中，如何做到零吼叫？</Text>
-						<View style={{flexDirection: 'row'}}>
-							<Image style={{width: 20,height: 20, backgroundColor: 'red'}}/>
-							<Text>20000次</Text>
-							<Image style={{width: 20,height: 20, backgroundColor: 'red'}}/>
-							<Text> 20分钟</Text>
-						</View>
-						<Text>2016年五月一日</Text>
-					</View>
-				</View>
-				<View style={{height: 1,backgroundColor:'#f1f1f1',marginTop: 10}} />
-			</View>
-		);
-	},
-
-	//渲染微课查看更多
-	_renderWDCourseMoreButton: function() {
+	//渲染查看更多
+	_renderMore: function(data) {
 		return (
 			<View style={{height: 48,justifyContent: 'center',alignItems: 'center',backgroundColor: 'white'}}>
-				<TouchableHighlight style={{borderRadius: 4,borderWidth: 1,borderColor: 'gray',padding: 5}}>
-						<Text>查看更多</Text>
+				<TouchableHighlight style={{borderRadius: 4,borderWidth: 1,borderColor: 'gray',padding: 5}}
+									onPress={() => this._lookMore(data.dataType) }
+									underlayColor='white'>
+						<Text>{data.text}</Text>
 				</TouchableHighlight>
 			</View>
 	 	);
+	},
+
+	_lookMore: function(dataType) {
+
+		if (dataType == 1) { //互动问答，转向问题列表
+
+			RNCommon.openUrl('wdquestionlist?wid=1');
+		} else { //转向更多微课的列表
+
+			RNCommon.openUrl('wdcourselist');
+		}
 	},
 
 	_pressRowItem: function(rowData) {
@@ -257,9 +323,18 @@ var WendaCourseDetailComponent = React.createClass({
 	},
 
 	_pressAskExpretButton: function() {
-
-		RNCommon.openUrl('askquestion');
+		RNCommon.openUrl('askquestion?wid=' +this.state.wdcourse.id);
 	},
+
+	goToQuestionDetail: function(data) {
+
+		RNCommon.openUrl('wdquestiondetail?wid=1');
+	},
+
+	playCourse: function() {
+
+		console.log('start play audio');
+	}
 
 });
 

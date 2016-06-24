@@ -16,6 +16,10 @@
 
 @implementation WendaQuestionListViewController
 
+- (BOOL)isNavDarkStyle {
+    return YES;
+}
+
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super initWithParams:params]) {
         self.wid = [params objectForKey:@"wid"];
