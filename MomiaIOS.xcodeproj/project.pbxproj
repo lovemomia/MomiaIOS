@@ -77,6 +77,8 @@
 		005E2A761CEB170F00CBF5DD /* RefundText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005E2A741CEB170F00CBF5DD /* RefundText.xib */; };
 		009AC52B1D19183E00314A02 /* AskQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009AC52A1D19183E00314A02 /* AskQuestionViewController.m */; };
 		009AC52C1D19183E00314A02 /* AskQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009AC52A1D19183E00314A02 /* AskQuestionViewController.m */; };
+		009BB2E81D1CF77A00C620CB /* AskExpertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009BB2E71D1CF77A00C620CB /* AskExpertViewController.m */; };
+		009BB2E91D1CF77A00C620CB /* AskExpertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009BB2E71D1CF77A00C620CB /* AskExpertViewController.m */; };
 		00B59E881CBD4695005565EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
 		00C796841CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
 		00C796851CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
@@ -1000,6 +1002,8 @@
 		005E2A741CEB170F00CBF5DD /* RefundText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundText.xib; sourceTree = "<group>"; };
 		009AC5291D19183E00314A02 /* AskQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskQuestionViewController.h; sourceTree = "<group>"; };
 		009AC52A1D19183E00314A02 /* AskQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskQuestionViewController.m; sourceTree = "<group>"; };
+		009BB2E61D1CF77100C620CB /* AskExpertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskExpertViewController.h; sourceTree = "<group>"; };
+		009BB2E71D1CF77A00C620CB /* AskExpertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskExpertViewController.m; sourceTree = "<group>"; };
 		00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectDetailHeaders.xib; sourceTree = "<group>"; };
 		00CBCEB51D16EE24001B8353 /* MyQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyQuestionViewController.h; sourceTree = "<group>"; };
 		00CBCEB61D16EE24001B8353 /* MyQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyQuestionViewController.m; sourceTree = "<group>"; };
@@ -3404,6 +3408,8 @@
 				003324251D1A36C30060307B /* WendaCourseDetailViewController.m */,
 				0048A1861D1B82E300DA39D7 /* WendaCourseIntroViewController.h */,
 				0048A1871D1B82E300DA39D7 /* WendaCourseIntroViewController.m */,
+				009BB2E61D1CF77100C620CB /* AskExpertViewController.h */,
+				009BB2E71D1CF77A00C620CB /* AskExpertViewController.m */,
 			);
 			name = Wenda;
 			sourceTree = "<group>";
@@ -4052,6 +4058,7 @@
 				BCA273161AE9F6F0002E7534 /* URLMappingManager.m in Sources */,
 				BC2C0C801B14659400E2446E /* MyStatusViewController.m in Sources */,
 				BC3599ED1BC61F0C002DE863 /* MLSelectPhotoPickerBrowserPhoto.m in Sources */,
+				009BB2E81D1CF77A00C620CB /* AskExpertViewController.m in Sources */,
 				BCD0BCA01BF097B800552FFE /* FeedTagListModel.m in Sources */,
 				5A5A2A9F1B43EED4000595A9 /* OrderContactCell.m in Sources */,
 				BC592BC01BD4977A008AE76A /* BookViewController.m in Sources */,
@@ -4482,6 +4489,7 @@
 				BCEAFC4A1C2A394300CB082D /* MONetworkPhotoView.m in Sources */,
 				BCEAFC4B1C2A394300CB082D /* CommonTableViewCell.m in Sources */,
 				BCEAFC4C1C2A394300CB082D /* SGBaseMenu.m in Sources */,
+				009BB2E91D1CF77A00C620CB /* AskExpertViewController.m in Sources */,
 				BCEAFC4D1C2A394300CB082D /* CourseBookCell.m in Sources */,
 				BCEAFC4E1C2A394300CB082D /* MOViewController.m in Sources */,
 				BCEAFC4F1C2A394300CB082D /* BookSkuDateTitleCell.m in Sources */,
