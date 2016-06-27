@@ -25,8 +25,13 @@ RCT_EXPORT_METHOD(pay:(NSDictionary *)order callback:(RCTResponseSenderBlock)cal
 //        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 200, 100)];
 //        [view setBackgroundColor:[UIColor redColor]];
         NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"WendaPayAlertView" owner:self options:nil];
-        UIView *view = array[0];
-        [alertView setContainerView:view];
+        
+        if([[NSString stringWithFormat:@"%@", [order objectForKey:@"use"]] isEqualToString:@"0"]) {
+            [alertView setContainerView:array[1]];
+        } else {
+            [alertView setContainerView:array[0]];
+        }
+        
         [alertView setButtonTitles:@[@"取消"]];
         [alertView setUseMotionEffects:TRUE];
         [alertView show];

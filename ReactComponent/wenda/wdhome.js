@@ -74,29 +74,17 @@ class WDHomeComponent extends React.Component {
   }
 
   render() {
-    if (this.state.isLoading) {
-      return <View style={[SGStyles.container, styles.loadingContainer]}><ActivityIndicatorIOS
+    return this.state.isLoading ? <View style={[SGStyles.container, styles.loadingContainer]}><ActivityIndicatorIOS
       hidden='true'
-      size='small'/></View>;
-    } else if (this.state.isLoadingDialogVisible) {
-      return <View style={SGStyles.container}>
+      size='small'/></View> : (<View style={SGStyles.container}>
       <ListView 
       dataSource={this.state.dataSource}
       renderRow={this.renderRow.bind(this)}>
       </ListView>
       <View style={[SGStyles.container, styles.floatView]}>
-        <LoadingEffect isVisible='true' text='加载中...'/>
+        <LoadingEffect isVisible={this.state.isLoadingDialogVisible} text='加载中...'/>
       </View>
-      </View>
-
-    } else {
-      return <View style={SGStyles.container}>
-      <ListView 
-      dataSource={this.state.dataSource}
-      renderRow={this.renderRow.bind(this)}>
-      </ListView>
-      </View>
-    }
+      </View>);
   }
 
   _showLoadingEffect() {
@@ -280,9 +268,11 @@ class WDHomeComponent extends React.Component {
             <Text style={{fontSize: 13, color: '#999999',paddingTop:5}} numberOfLines={1}>{data.expert.name} | {data.expert.intro}</Text>
             <View style={{flexDirection:'row', paddingTop:10, alignItems:'center'}}>
               <Image style={{width: 30, height: 30, borderRadius: 15, marginRight: 5}} source={{uri:data.expert.cover}}/>
-              <Image style={{width: 200, height: 30, borderRadius: 15, marginLeft: 10, backgroundColor:'#00c49d', justifyContent: 'center',alignItems: 'center'}}>
-                <Text style={{fontSize: 13, color: 'white'}} numberOfLines={1}>1元偷听</Text>
-              </Image>
+              <TouchableHighlight onPress={() => this._answerPressed(data)}>
+                <Image style={{width: 200, height: 30, borderRadius: 15, marginLeft: 10, backgroundColor:'#00c49d', justifyContent: 'center',alignItems: 'center'}}>
+                  <Text style={{fontSize: 13, color: 'white'}} numberOfLines={1}>1元偷听</Text>
+                </Image>
+              </TouchableHighlight>
               <Text style={{fontSize: 13, color: '#999999',paddingLeft:5}} numberOfLines={1}>60“</Text>
             </View>
         </View>
@@ -305,23 +295,7 @@ class WDHomeComponent extends React.Component {
     if (rowData.type == 3) { //微课
       RNCommon.openUrl('wdcoursedetail?id=' + rowData.data.id);
     } else if (rowData.type == 4) { //问专家
-      // RNCommon.openUrl('wdquestiondetail?id=' + rowData.data.id);
-      // WendaPayManager.pay({
-      //   start: 0
-      // }, (error, fullParams) => {
-
-      // });
-      RNCommon.isLogin((error, dic) => {
-        if (error) {
-          console.error(error);
-        } else if (dic.isLogin === 'true') {
-          this._requestQuestion(rowData.data.id);
-
-        } else {
-          RNCommon.openUrl('login');
-        }
-      });
-
+      RNCommon.openUrl('wdquestiondetail?id=' + rowData.data.id);
     } else if (rowData.type == 5) { //更多
       if (rowData.data === '听微课') {
         RNCommon.openUrl('wdcourselist'); //微课列表
@@ -331,19 +305,42 @@ class WDHomeComponent extends React.Component {
     }
   }
 
+  _answerPressed(question) {
+    RNCommon.isLogin((error, dic) => {
+      if (error) {
+        console.error(error);
+      } else if (dic.isLogin === 'true') {
+        this._requestQuestion(question.id);
+
+      } else {
+        RNCommon.openUrl('login');
+      }
+    });
+  }
+
   _requestQuestion(questionId) {
     this._showLoadingEffect();
     HttpService.get(Common.domain() + '/v1/wd_hJoin?', {
-      questionId: questionId
+      qid: questionId
     }, (resp) => {
+      this._dismissLoadingEffect();
       if (resp.errno == 0) {
         //判断结果是否可以直接播放了
+        if (resp.data.hasOwnProperty('question')) {
+          //TODO 直接播放
+
+
+        } else {
+          //支付订单
+          WendaPayManager.pay(resp.data.order, (error, payResult) => {
+
+          });
+        }
 
       } else {
         // request failed
 
       }
-      this._dismissLoadingEffect();
     });
   }
 
