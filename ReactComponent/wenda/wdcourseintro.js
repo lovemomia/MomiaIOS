@@ -107,7 +107,6 @@ var WendaCourseIntroComponent = React.createClass({
 		data = this.state.wdcourse;
 		return (
 			<TouchableHighlight
-				onPress={() => {}}
 				underlayColor = '#f1f1f1'>
 			<View style={{padding: 10,marginTop: 10,backgroundColor: 'white'}}>
 				<View style={{flexDirection: 'row',alignItems: 'center'}}>
@@ -158,15 +157,6 @@ var WendaCourseIntroComponent = React.createClass({
 				<Text>{data.desc}</Text>
 			</View>
 		);
-	},
-
-	_pressRow: function(rowData,sectionID,rowID) {
-
-	},
-
-	playCourse: function() {
-
-		console.log('start play audio');
 	},
 	
 });
