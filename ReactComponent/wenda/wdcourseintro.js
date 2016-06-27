@@ -15,6 +15,7 @@ var {
 	Image,
 	AppRegistry,
 	StyleSheet,
+	RefreshControl
 } = ReactNative;
 
 var styles = StyleSheet.create({
@@ -48,7 +49,8 @@ var WendaCourseIntroComponent = React.createClass({
 		return {
 			dataSource: ds.cloneWithRows([new Array()]),
 			isLoading: true,
-			wdcourse: []
+			wdcourse: [],
+			refreshing: false
 		};
 	},
 
@@ -58,7 +60,13 @@ var WendaCourseIntroComponent = React.createClass({
 			<View style={{backgroundColor: '#f1f1f1', flex: 1}}>
 				<ListView
 					dataSource={this.state.dataSource}
-					renderRow={this._renderRow} />
+					renderRow={this._renderRow}
+					refreshControl={
+						<RefreshControl
+            			  refreshing={this.state.refreshing}
+            			  onRefresh={this._onRefresh()}
+            			/>} 
+            	/>
 			</View>
 		);
 	},
@@ -93,12 +101,16 @@ var WendaCourseIntroComponent = React.createClass({
 	_renderRow: function(rowData,sectionID,rowID) {
 
 		if (rowData.type == 1) {
+
 			return this._renderCourse();
 		} else if (rowData.type == 2) {
+
 			return this._renderText();
 		} else if (rowData.type == 3) {
+
 			return this._renderImage();
 		} else {
+
 			return this._renderText();
 		}
 	},
@@ -112,7 +124,7 @@ var WendaCourseIntroComponent = React.createClass({
 				<View style={{flexDirection: 'row',alignItems: 'center'}}>
 					<View>
 						<TouchableHighlight
-					    	onPress={() => this.playCourse()}
+					    	onPress={() => this._playCourse()}
 					    	underlayColor = '#f1f1f1' >
 							<Image style={{width: 50,height: 50, alignItems: 'center',justifyContent: 'center'}}
 							   	   source={{uri: data.cover}}>
@@ -158,6 +170,15 @@ var WendaCourseIntroComponent = React.createClass({
 			</View>
 		);
 	},
+
+	_playCourse: function() {
+
+		console.log("play.....");
+	},
+
+	_onRefresh: function() {
+
+	}
 	
 });
 

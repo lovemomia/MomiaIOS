@@ -318,7 +318,7 @@ var WendaCourseDetailComponent = React.createClass({
 			RNCommon.openUrl('wdquestionlist?wid=1');
 		} else { //转向更多微课的列表
 
-			RNCommon.openUrl('wdcourselist');
+			RNCommon.openUrl('wdcourselist?wid=1');
 		}
 	},
 

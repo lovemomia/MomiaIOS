@@ -311,6 +311,7 @@ class WDHomeComponent extends React.Component {
       // }, (error, fullParams) => {
 
       // });
+      RNCommon.openUrl('wdcoursedetail?id=' + rowData.data.id)
       RNCommon.isLogin((error, dic) => {
         if (error) {
           console.error(error);

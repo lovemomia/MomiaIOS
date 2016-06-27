@@ -1,7 +1,6 @@
 /*
  * 问专家
  * mosl
- *
  */
 
 'use script';

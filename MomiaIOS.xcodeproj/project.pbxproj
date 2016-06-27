@@ -3093,7 +3093,6 @@
 			isa = PBXGroup;
 			children = (
 				BC8540C41AE2121E005A7C54 /* Constants.h */,
-				001FEF881D0FCEE900A00D7E /* AudioPlayer */,
 				007C45E51D0E8DE500FED152 /* Lib */,
 				BC2FAA121AFCB1CB00E2071E /* Services */,
 				BC7708601AFC56F3000068A8 /* Models */,
@@ -3399,6 +3398,7 @@
 		BCA80BF91D0EC23000B3D3E8 /* Wenda */ = {
 			isa = PBXGroup;
 			children = (
+				001FEF881D0FCEE900A00D7E /* AudioPlayer */,
 				BC7A52C31D1CE8A200CA4393 /* Views */,
 				00CBCEB51D16EE24001B8353 /* MyQuestionViewController.h */,
 				009AC52A1D19183E00314A02 /* AskQuestionViewController.m */,
