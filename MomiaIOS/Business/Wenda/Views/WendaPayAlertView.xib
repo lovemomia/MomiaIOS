@@ -69,5 +69,56 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="263" y="187"/>
         </view>
+        <view contentMode="scaleToFill" id="dce-Ik-swj">
+            <rect key="frame" x="0.0" y="0.0" width="338" height="103"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="微信支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UYi-hi-p5C">
+                    <rect key="frame" x="8" y="15" width="322" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付宝支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aip-xE-3ff">
+                    <rect key="frame" x="8" y="70" width="322" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSd-xt-zyW">
+                    <rect key="frame" x="0.0" y="54" width="338" height="1"/>
+                    <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="vrv-s3-NE3"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="aip-xE-3ff" firstAttribute="top" secondItem="HSd-xt-zyW" secondAttribute="bottom" constant="15" id="0a3-s0-dfS"/>
+                <constraint firstAttribute="bottom" secondItem="aip-xE-3ff" secondAttribute="bottom" constant="15" id="5is-Oy-6Jl"/>
+                <constraint firstItem="UYi-hi-p5C" firstAttribute="top" secondItem="dce-Ik-swj" secondAttribute="top" constant="15" id="9Ja-8x-saJ"/>
+                <constraint firstItem="UYi-hi-p5C" firstAttribute="centerX" secondItem="dce-Ik-swj" secondAttribute="centerX" id="Dy9-Vq-2IS"/>
+                <constraint firstAttribute="trailing" secondItem="aip-xE-3ff" secondAttribute="trailing" constant="8" id="K8W-YR-DHP"/>
+                <constraint firstItem="UYi-hi-p5C" firstAttribute="centerY" secondItem="dce-Ik-swj" secondAttribute="centerY" id="N4e-Sw-og2"/>
+                <constraint firstAttribute="trailing" secondItem="UYi-hi-p5C" secondAttribute="trailing" constant="8" id="ZHd-2V-yXo"/>
+                <constraint firstItem="aip-xE-3ff" firstAttribute="leading" secondItem="dce-Ik-swj" secondAttribute="leading" constant="8" id="eJS-r4-VsG"/>
+                <constraint firstItem="UYi-hi-p5C" firstAttribute="leading" secondItem="dce-Ik-swj" secondAttribute="leading" constant="8" id="kVx-eE-SYu"/>
+                <constraint firstItem="HSd-xt-zyW" firstAttribute="leading" secondItem="dce-Ik-swj" secondAttribute="leading" id="mAp-0T-RIG"/>
+                <constraint firstAttribute="trailing" secondItem="HSd-xt-zyW" secondAttribute="trailing" id="ot3-wA-GcA"/>
+                <constraint firstItem="HSd-xt-zyW" firstAttribute="top" secondItem="UYi-hi-p5C" secondAttribute="bottom" constant="15" id="vec-S5-ueb"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Dy9-Vq-2IS"/>
+                    <exclude reference="N4e-Sw-og2"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="263" y="429.5"/>
+        </view>
     </objects>
 </document>
