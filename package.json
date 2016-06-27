@@ -1,0 +1,35 @@
+{
+  "name": "momiaios",
+  "version": "1.0.0",
+  "description": "ios",
+  "main": "index.js",
+  "dependencies": {
+    "react": "0.14.8",
+    "react-native": "0.25.1",
+    "react-native-checkbox": "1.0.13",
+    "react-native-loading-effect": "1.0.5",
+    "react-native-swiper": "1.4.5",
+    "react-native-timer": "1.1.2",
+    "react-timer-mixin": "0.13.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "(JS_DIR=`pwd`/ReactComponent; cd node_modules/react-native; npm run start -- --root $JS_DIR)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lovemomia/MomiaIOS.git"
+  },
+  "keywords": [
+    "ios",
+    "reactnative",
+    "momiaios"
+  ],
+  "author": "momia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lovemomia/MomiaIOS/issues"
+  },
+  "homepage": "https://github.com/lovemomia/MomiaIOS#readme"
+}
