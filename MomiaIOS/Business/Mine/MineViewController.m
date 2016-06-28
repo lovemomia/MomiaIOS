@@ -114,7 +114,7 @@
                 
                 [MobClick event:@"Mine_Booked"];
             } else {
-                [self openURL:@"myaccount"];
+                [self openURL:@"myasset"];
                 
                 [MobClick event:@"Mine_Account"];
             }

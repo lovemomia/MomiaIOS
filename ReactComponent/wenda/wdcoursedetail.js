@@ -303,7 +303,7 @@ var WendaCourseDetailComponent = React.createClass({
 
 		return (
 			<View style={{alignItems: 'center',backgroundColor: 'white'}}>
-				<Image style={{width: 120,height: 120, backgroundColor: 'green'}}
+				<Image style={{width: 120,height: 120}}
 				       source={{uri:data.expert.cover}} />
 				<Text>{data.expert.name}</Text>
 				<View style={{padding: 10,backgroundColor: 'white'}}>

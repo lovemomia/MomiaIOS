@@ -24,9 +24,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    NSNumber *uid = [AccountService defaultService].account.uid;
+    NSDictionary *dict = @{@"utoken":uid};
     self.title = @"我问";
+    
     NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/mine/myquestion.bundle?platform=ios"];
-    RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"MyQuestionComponent" initialProperties:nil launchOptions:nil];
+    RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"MyQuestionComponent" initialProperties:dict launchOptions:nil];
     rootView.frame = self.view.bounds;
     [self.view addSubview:rootView];
 }

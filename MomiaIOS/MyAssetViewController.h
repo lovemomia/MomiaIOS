@@ -8,6 +8,6 @@
 
 #import "MOViewController.h"
 
-@interface MyAccountViewController : MOViewController
+@interface MyAssetViewController : MOViewController
 
 @end

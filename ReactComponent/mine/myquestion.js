@@ -1,3 +1,8 @@
+/* 
+ * 我的问题列表
+ * mosl
+ */
+
 'use script';
 
 var React = require('react');
@@ -9,7 +14,14 @@ var {
 	ListView,
 	Image,
 	TouchableHighlight,
+	NativeModules
 } = ReactNative;
+
+var RNCommon = NativeModules.RNCommon;
+
+var Common = require('../Common');
+var SGStyles = require('../SGStyles');
+var HttpService = require('../HttpService');
 
 //样式
 var styles = ReactNative.StyleSheet.create({
@@ -78,15 +90,38 @@ var MyQuestionViewController = require('NativeModules').MyQuestionViewController
 
 class MyQuestionComponent extends React.Component {
 
+	componentDidMount() {
+
+		 HttpService.get(Common.domain() + '/v1/wd_myQuestion?', {
+     	 	utoken: this.props.utoken,
+     	 	start: 0
+    	}, (resp) => {
+      		if (resp.errno == 0) {
+        		this._handlerResponse(resp.data);
+     	 	} else {
+        		// request failed
+        		this.setState({
+          		isLoading: false
+        	});
+     	}
+      		console.log(resp.data);
+    	});
+	}
+
 	//构造函数
 	constructor(props) {
 	  super(props);
 	
 	  this.state = {
+	  	isLoading: true,
 	  	dataSource: ds.cloneWithRows([
 	  		{id: 0}, {id: 1},{id: 2},{id: 3},{id: 4}
 	  	]) 
 	  };
+	}
+
+	_handlerResponse() {
+
 	}
 
 	//渲染视图
@@ -103,9 +138,10 @@ class MyQuestionComponent extends React.Component {
 	//渲染rowItem View
 	renderRow(rowData, sectionID, rowID) {
 		return (
-			<TouchableHighlight onPress={() => {
-          		this.onPressRowItem(rowID);
-        	}}>
+			<TouchableHighlight 
+				onPress={() => {
+          		this.onPressRowItem(rowID);}}
+          		underlayColor="#f1f1f1">
 			<View style={styles.rowContainer}>
 				<View style={styles.contentContainer}>
 					<View style={styles.headContainer}>
@@ -134,8 +170,7 @@ class MyQuestionComponent extends React.Component {
 
 	onPressRowItem(rowID) {
 		console.log("Press Row");
-
-		MyQuestionViewController.toQADetailViewController();
+		RNCommon.openUrl('wdquestiondetail?wid=1');
 	}
 
 	highlightRow(sectionID, rowID) {

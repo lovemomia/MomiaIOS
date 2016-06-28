@@ -515,14 +515,14 @@
 		<key>controller</key>
 		<string>WendaQuestionListViewController</string>
 	</dict>
-	<key>myaccount</key>
+	<key>myasset</key>
 	<dict>
 		<key>desc</key>
-		<string>我的账户</string>
+		<string>我的资产</string>
 		<key>needlogin</key>
 		<true/>
 		<key>controller</key>
-		<string>MyAccountViewController</string>
+		<string>MyAssetViewController</string>
 	</dict>
 	<key>myqadetail</key>
 	<dict>

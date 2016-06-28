@@ -6,15 +6,15 @@
 //  Copyright © 2016年 Deng Jun. All rights reserved.
 //
 
-#import "MyAccountViewController.h"
+#import "MyAssetViewController.h"
 #import "RCTRootView.h"
 #import "RNCommon.h"
 
-@interface MyAccountViewController ()
+@interface MyAssetViewController ()
 
 @end
 
-@implementation MyAccountViewController
+@implementation MyAssetViewController
 
 - (BOOL)isNavDarkStyle {
     return YES;
@@ -24,9 +24,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    NSDictionary *props = @{@"utoken": [AccountService defaultService].account.token};
+    
     self.title = @"我的账户";
-    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/mine/myaccount.bundle?platform=ios"];
-    RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"MyAccountComponent" initialProperties:nil launchOptions:nil];
+    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/mine/myasset.bundle?platform=ios"];
+    RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"MyAssetComponent" initialProperties:props launchOptions:nil];
     rootView.frame = self.view.bounds;
     [self.view addSubview:rootView];
     

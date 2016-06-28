@@ -1,6 +1,5 @@
 //
 // 问专家页面
-//
 
 'use strict';
 console.disableYellowBox = true;

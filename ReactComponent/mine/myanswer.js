@@ -22,14 +22,12 @@ var styles = ReactNative.StyleSheet.create({
 	viewpagerHeadLeftText: {
 		flex: 0.5,
 		alignItems: 'center',
-		justifyContent: 'center',
-		backgroundColor: 'green'
+		justifyContent: 'center'
 	},
 	viewpagerHeadRightText: {
 		flex: 0.5,
 		alignItems: 'center',
-		justifyContent: 'center',
-		backgroundColor: 'red'
+		justifyContent: 'center'
 	},
 	viewpager: {
 		flex: 1,
@@ -122,16 +120,25 @@ var MyAnswerComponent = React.createClass({
 		return (
 			<View style={styles.container} >
 				<View style={styles.viewpagerHead} >
+					<View style={{flex: 0.5}}>
 					<TouchableHighlight 
 						style={styles.viewpagerHeadLeftText}
-						onPress={this._leftPagePressed}>
+						onPress={this._leftPagePressed}
+						underlayColor= '#999999'>
 						<Text>待回答</Text>
 					</TouchableHighlight>
+					<View style={{backgroundColor: '#999999',height: 1}} />
+					</View>
+					<View style={{backgroundColor: '#999999',width: 1,height: 45}} />
+					<View style={{flex: 0.5}}>
 					<TouchableHighlight 
 						style={styles.viewpagerHeadRightText}
-						onPress={this._rightPagePressed}>
+						onPress={this._rightPagePressed}
+						underlayColor= '#999999'>
 						<Text>全部</Text>
 					</TouchableHighlight>
+					<View style={{backgroundColor: '#999999',height: 1}} />
+					</View>
 				</View>
 				<ViewPager
 					style={styles.viewpager}

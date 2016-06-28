@@ -10,6 +10,7 @@
     "react-native-loading-effect": "1.0.5",
     "react-native-swiper": "1.4.5",
     "react-native-timer": "1.1.2",
+    "react-native-viewpager": "0.2.11",
     "react-timer-mixin": "0.13.3"
   },
   "devDependencies": {},

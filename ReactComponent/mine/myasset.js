@@ -9,6 +9,11 @@ var {
 	ListView,
 } = ReactNative;
 
+
+var Common = require('../Common');
+var SGStyles = require('../SGStyles');
+var HttpService = require('../HttpService');
+
 var styles = ReactNative.StyleSheet.create({
 	container: {
 		flex: 1,
@@ -17,12 +22,10 @@ var styles = ReactNative.StyleSheet.create({
 	},
 	headContainer: {
 		flex: 1,
-		alignItems: 'center',
-		backgroundColor: 'red'
+		alignItems: 'center'
 	},
 	cc: {
 		flexDirection: 'row',
-		backgroundColor: 'green'
 	},
 	totalFee: {
 		marginTop: 20
@@ -36,15 +39,46 @@ var ds = new ListView.DataSource({
 	rowHasChanged: (r1, r2) => r1 !== r2
 });
 
-class MyAccountComponent extends React.Component {
+class MyAssetComponent extends React.Component {
+
+	componentDidMount() {
+
+		 HttpService.get(Common.domain() + '/v1/wd_myAsset?', {
+     	 	utoken: this.props.utoken,
+    	}, (resp) => {
+      		if (resp.errno == 0) {
+        		this._handlerResponse(resp.data);
+     	 	} else {
+        		// request failed
+        		this.setState({
+          		isLoading: false
+        	});
+     	}
+      		console.log(resp.data);
+    	});
+	}
+
+	_handlerResponse(data) {
+
+		this.setState({
+			isLoading: false,
+			dataSource: ds.cloneWithRows([
+	  		{id: 1},{id: 2},{id: 3}
+	  	    ]),
+	  	    asset: data,
+
+		})
+	}
 
 	constructor(props) {
 	  super(props);
 	
 	  this.state = {
+	  	isLoading: true,
 	  	dataSource: ds.cloneWithRows([
 	  		{id: 1},{id: 2},{id: 3}
-	  	])
+	  	]),
+	  	asset: {number: 100}
 	  };
 	}
 
@@ -65,7 +99,7 @@ class MyAccountComponent extends React.Component {
 				<View style={styles.headContainer}>
 					<View style={styles.cc}>
 						<Text>账户余额 : ￥</Text>
-						<Text>10000</Text>
+						<Text>{this.state.asset.number}</Text>
 					</View>
 				</View>
 			);
@@ -86,4 +120,4 @@ class MyAccountComponent extends React.Component {
 }
 
 //注册组件
-ReactNative.AppRegistry.registerComponent('MyAccountComponent', () => MyAccountComponent);
+ReactNative.AppRegistry.registerComponent('MyAssetComponent', () => MyAssetComponent);
