@@ -151,6 +151,7 @@ var WendaCourseIntroComponent = React.createClass({
 	},
 
 	_renderImage: function() {
+		
 		data = this.state.wdcourse;
 		return (
 			<View style={{padding: 10}}>

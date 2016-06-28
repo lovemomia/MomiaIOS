@@ -104,7 +104,7 @@ class MyAssetComponent extends React.Component {
 				<View style={styles.headContainer}>
 					<View style={styles.cc}>
 						<Text>账户余额 : ￥</Text>
-						<Text>{this.state.asset.number}</Text>
+						<Text style={{color: 'red'}}>{this.state.asset.number}</Text>
 					</View>
 				</View>
 			);

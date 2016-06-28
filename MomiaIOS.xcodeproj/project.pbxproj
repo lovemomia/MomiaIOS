@@ -2009,9 +2009,9 @@
 			isa = PBXGroup;
 			children = (
 				00CBCEB51D16EE24001B8353 /* MyQuestionViewController.h */,
+				00CBCEB61D16EE24001B8353 /* MyQuestionViewController.m */,
 				009AC52A1D19183E00314A02 /* AskQuestionViewController.m */,
 				009AC5291D19183E00314A02 /* AskQuestionViewController.h */,
-				00CBCEB61D16EE24001B8353 /* MyQuestionViewController.m */,
 				00CBCEB91D16EE3A001B8353 /* MyAnswerViewController.h */,
 				00CBCEBA1D16EE3A001B8353 /* MyAnswerViewController.m */,
 				00CBCEBD1D16EE4E001B8353 /* MyQADetailViewController.h */,

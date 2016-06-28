@@ -9,6 +9,6 @@
 #ifndef WendaConstant_h
 #define WendaConstant_h
 
-#define RNHost @"10.1.14.46"
+#define RNHost @"192.168.1.105"
 
 #endif /* WendaConstant_h */

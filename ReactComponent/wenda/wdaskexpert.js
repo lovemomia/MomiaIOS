@@ -23,7 +23,6 @@ var Common = require('../Common');
 var SGStyles = require('../SGStyles');
 var HttpService = require('../HttpService');
 
-
 var RNCommon = NativeModules.RNCommon;
 var WendaPayManager = NativeModules.WendaPayManager;
 
@@ -229,6 +228,7 @@ var AskExpertComponent = React.createClass({
       }
     });
     },
+    
     //问专家
     _pressAskExpretButton: function() {
     	RNCommon.openUrl('askquestion?wid=' +this.state.wdcourse.id);
