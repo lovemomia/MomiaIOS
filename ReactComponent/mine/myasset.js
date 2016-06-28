@@ -63,7 +63,7 @@ class MyAssetComponent extends React.Component {
 		this.setState({
 			isLoading: false,
 			dataSource: ds.cloneWithRows([
-	  		{id: 1},{id: 2},{id: 3}
+	  		{id: 0},{id: 2},{id: 3}
 	  	    ]),
 	  	    asset: data,
 
@@ -76,13 +76,18 @@ class MyAssetComponent extends React.Component {
 	  this.state = {
 	  	isLoading: true,
 	  	dataSource: ds.cloneWithRows([
-	  		{id: 1},{id: 2},{id: 3}
+	  		new Array()
 	  	]),
-	  	asset: {number: 100}
+	  	asset: {number: 0}
 	  };
 	}
 
 	render() {
+
+		if (this.state.isLoading) {
+
+			return Common.loading();
+		}
 		return (
 			<View style={styles.container}>
 				<ListView

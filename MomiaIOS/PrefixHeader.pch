@@ -7,6 +7,7 @@
 //
 
 #import "Constants.h"
+#import "WendaConstant.h"
 
 #import "UITextView+Placeholder.h"
 #import "UIView+Frame.h"

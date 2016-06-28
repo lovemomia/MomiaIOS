@@ -91,14 +91,12 @@ var WendaCourseDetailComponent = React.createClass({
 		}
 		return (
 			<View style={{flex: 1,backgroundColor: '#f1f1f1'}}>
-				<View style={{flex: 1}}>
 				<ListView
 					style={{flex: 1}}
 					dataSource={this.state.dataSource}
 					renderRow={this._renderRow} />
-				</View>
 				<TouchableHighlight 
-					style={{height: 48, backgroundColor: '#FF6634', justifyContent: 'center',alignItems: 'center'}}
+					style={{height: 48, backgroundColor: '#FF6634',justifyContent: 'center',alignItems: 'center'}}
 					onPress={() => this._pressAskExpretButton()}
 					underlayColor="#FF6634" >
 					<Text style={{color: 'white'}}>向专家提问</Text>

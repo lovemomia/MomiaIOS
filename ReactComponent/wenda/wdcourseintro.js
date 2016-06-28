@@ -56,16 +56,15 @@ var WendaCourseIntroComponent = React.createClass({
 
 
 	render: function() {
+
+		if (this.state.isLoading) {
+			return Common.loading();
+		}
 		return (
 			<View style={{backgroundColor: '#f1f1f1', flex: 1}}>
 				<ListView
 					dataSource={this.state.dataSource}
 					renderRow={this._renderRow}
-					refreshControl={
-						<RefreshControl
-            			  refreshing={this.state.refreshing}
-            			  onRefresh={this._onRefresh()}
-            			/>} 
             	/>
 			</View>
 		);
@@ -174,10 +173,6 @@ var WendaCourseIntroComponent = React.createClass({
 	_playCourse: function() {
 
 		console.log("play.....");
-	},
-
-	_onRefresh: function() {
-
 	}
 	
 });

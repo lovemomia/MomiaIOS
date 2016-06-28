@@ -184,37 +184,6 @@ var AskExpertComponent = React.createClass({
 		);
 	},
 
-	//渲染课程
-	_renderCourse: function(data) {
-
-		return (
-			<TouchableHighlight
-				onPress={() => {this._pressCourse(data)}}
-				underlayColor = '#f1f1f1'>
-			<View style={{padding: 10,backgroundColor: 'white'}}>
-				<View style={{flexDirection: 'row',alignItems: 'center'}}>
-					<View>
-						<Image style={{width: 50,height: 50}}
-							   source={{uri: data.cover}}/>
-					</View>
-					<View style={{marginLeft: 10,flex: 1}}>
-						<Text style={{fontSize: 13}}>{data.title}</Text>
-						<View style={{flexDirection: 'row',alignItems: 'center',marginTop: 5}}>
-							<Image style={{width: 15,height: 15}}
-								   source={require('../common/image/count.png')}/>
-							<Text style={{fontSize: 11, color: '#999999'}}>{data.count}次</Text>
-							<Image style={{width: 15,height: 15,marginLeft: 10}}
-								   source={require('../common/image/time.png')}/>
-							<Text style={{fontSize: 11, color: '#999999'}}> {data.mins}分钟</Text>
-						</View>
-						<Text style={{fontSize: 11, color: '#999999',marginTop: 5}}>{data.startTime}</Text>
-					</View>
-				</View>
-			</View>
-			</TouchableHighlight>
-		);
-	},
-
 	_renderQuestionView: function(data) {
 
     return <View>

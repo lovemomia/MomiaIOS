@@ -27,7 +27,7 @@
     NSDictionary *dict = @{@"utoken":uid};
     self.title = @"我问";
     
-    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/mine/myquestion.bundle?platform=ios"];
+    NSURL *jsCodeLocation = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:8081/mine/myquestion.bundle?platform=ios",RNHost]];
     RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"MyQuestionComponent" initialProperties:dict launchOptions:nil];
     rootView.frame = self.view.bounds;
     [self.view addSubview:rootView];

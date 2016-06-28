@@ -122,10 +122,17 @@ class MyQuestionComponent extends React.Component {
 
 	_handlerResponse() {
 
+		this.setState({
+			isLoading: false
+		});
 	}
 
 	//渲染视图
 	render() {
+
+		if (this.state.isLoading) {
+			return Common.loading();
+		}
 		return (
 			<View>
 				<ListView

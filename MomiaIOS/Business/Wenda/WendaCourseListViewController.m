@@ -36,7 +36,7 @@
     
     self.navigationItem.title = @"微课列表";
     
-    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/wenda/wdcourselist.bundle?platform=ios"];
+    NSURL *jsCodeLocation = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:8081/wenda/wdcourselist.bundle?platform=ios",RNHost]];
     // For production use, this `NSURL` could instead point to a pre-bundled file on disk: //
     //    NSURL *jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
     // To generate that file, run the curl command and add the output to your main Xcode build target: //

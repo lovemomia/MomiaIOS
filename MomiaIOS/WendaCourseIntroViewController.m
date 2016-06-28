@@ -26,7 +26,7 @@
     // Do any additional setup after loading the view.
     
     self.title = @"微课堂";
-    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/wenda/wdcourseintro.bundle?platform=ios"];
+    NSURL *jsCodeLocation = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:8081/wenda/wdcourseintro.bundle?platform=ios",RNHost]];
     RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"WendaCourseIntroComponent" initialProperties:nil launchOptions:nil];
     rootView.frame = self.view.bounds;
     [self.view addSubview:rootView];
