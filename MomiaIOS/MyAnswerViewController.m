@@ -22,7 +22,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     self.title = @"我问";
     NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/mine/myanswer.bundle?platform=ios"];

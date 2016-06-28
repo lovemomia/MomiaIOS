@@ -9,6 +9,6 @@
 #import "MOViewController.h"
 #import "RCTBridgeModule.h"
 
-@interface MyQuestionViewController : MOViewController<RCTBridgeModule>
+@interface MyQuestionViewController : MOViewController
 
 @end

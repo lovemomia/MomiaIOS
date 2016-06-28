@@ -141,7 +141,7 @@ var AskExpertComponent = React.createClass({
 			return this._renderSection(rowData.data);
 		} else if(rowData.type == 3) {
 
-			return Common.courseCell(rowData.data,() => {console.log("onclick")});
+			return Common.courseCell(rowData.data,() => {this._pressCourse({id: 1})});
 		} else if (rowData.type == 4) {
 
 			return this._renderExpert(rowData.data);
@@ -226,7 +226,7 @@ var AskExpertComponent = React.createClass({
               			<TouchableHighlight
             				onPress={() => {this._requestQuestion(data.id)}}
             				underlayColor='#FFFFFF' >
-              			<Image style={{width: 200, height: 30, borderRadius: 15, marginLeft: 10, backgroundColor:'#00c49d', justifyContent: 'center',alignItems: 'center'}}>
+              			<Image style={{width: 200, height: 30, borderRadius: 15, marginLeft: 10, backgroundColor:'#9DDF59', justifyContent: 'center',alignItems: 'center'}}>
                 			<Text style={{fontSize: 13, color: 'white'}} numberOfLines={1}>1元偷听</Text>
               			</Image>
               			</TouchableHighlight>

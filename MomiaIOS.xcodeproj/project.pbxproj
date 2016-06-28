@@ -286,9 +286,7 @@
 		BC3D0B991B6F3F2C004C7B81 /* LeaderStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0B981B6F3F2C004C7B81 /* LeaderStatusModel.m */; };
 		BC3D0BA71B6F77AF004C7B81 /* LeaderProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0BA61B6F77AF004C7B81 /* LeaderProductModel.m */; };
 		BC3D0BB01B70B361004C7B81 /* LeaderSkuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3D0BAF1B70B361004C7B81 /* LeaderSkuModel.m */; };
-		BC3DFCCC1D12B7B1001F09CC /* WendaQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3DFCCB1D12B7B1001F09CC /* WendaQuestionViewController.m */; };
 		BC3DFCCF1D18D4CD001F09CC /* WendaCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3DFCCE1D18D4CD001F09CC /* WendaCourseListViewController.m */; };
-		BC3DFCD01D19288E001F09CC /* WendaQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3DFCCB1D12B7B1001F09CC /* WendaQuestionViewController.m */; };
 		BC3DFCD11D19288E001F09CC /* WendaCourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3DFCCE1D18D4CD001F09CC /* WendaCourseListViewController.m */; };
 		BC3DFCD41D19346F001F09CC /* WendaQuestionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3DFCD31D19346F001F09CC /* WendaQuestionListViewController.m */; };
 		BC3DFCD51D19347A001F09CC /* WendaQuestionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3DFCD31D19346F001F09CC /* WendaQuestionListViewController.m */; };
@@ -1371,8 +1369,6 @@
 		BC3D0BA61B6F77AF004C7B81 /* LeaderProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaderProductModel.m; path = Common/Models/Leader/LeaderProductModel.m; sourceTree = "<group>"; };
 		BC3D0BAE1B70B361004C7B81 /* LeaderSkuModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeaderSkuModel.h; path = Common/Models/Leader/LeaderSkuModel.h; sourceTree = "<group>"; };
 		BC3D0BAF1B70B361004C7B81 /* LeaderSkuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaderSkuModel.m; path = Common/Models/Leader/LeaderSkuModel.m; sourceTree = "<group>"; };
-		BC3DFCCA1D12B7B1001F09CC /* WendaQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WendaQuestionViewController.h; path = Business/Wenda/WendaQuestionViewController.h; sourceTree = "<group>"; };
-		BC3DFCCB1D12B7B1001F09CC /* WendaQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WendaQuestionViewController.m; path = Business/Wenda/WendaQuestionViewController.m; sourceTree = "<group>"; };
 		BC3DFCCD1D18D4CD001F09CC /* WendaCourseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WendaCourseListViewController.h; path = Business/Wenda/WendaCourseListViewController.h; sourceTree = "<group>"; };
 		BC3DFCCE1D18D4CD001F09CC /* WendaCourseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WendaCourseListViewController.m; path = Business/Wenda/WendaCourseListViewController.m; sourceTree = "<group>"; };
 		BC3DFCD21D19346F001F09CC /* WendaQuestionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WendaQuestionListViewController.h; path = Business/Wenda/WendaQuestionListViewController.h; sourceTree = "<group>"; };
@@ -1468,8 +1464,8 @@
 		BC6CF57A1C3CC469006F314C /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
 		BC6CF57B1C3CC469006F314C /* KeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardManager.h; sourceTree = "<group>"; };
 		BC6CF57D1C3CC469006F314C /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
-		BC6F40E31D1CDCF80098E73A /* WendaPayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WendaPayManager.h; path = Business/Wenda/WendaPayManager.h; sourceTree = "<group>"; };
-		BC6F40E41D1CDCF80098E73A /* WendaPayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WendaPayManager.m; path = Business/Wenda/WendaPayManager.m; sourceTree = "<group>"; };
+		BC6F40E31D1CDCF80098E73A /* WendaPayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WendaPayManager.h; path = ../Business/Wenda/WendaPayManager.h; sourceTree = "<group>"; };
+		BC6F40E41D1CDCF80098E73A /* WendaPayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WendaPayManager.m; path = ../Business/Wenda/WendaPayManager.m; sourceTree = "<group>"; };
 		BC753EA91BAAD15900D2663C /* FeedDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedDetailModel.h; path = Common/Models/Feed/FeedDetailModel.h; sourceTree = "<group>"; };
 		BC753EAA1BAAD15900D2663C /* FeedDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedDetailModel.m; path = Common/Models/Feed/FeedDetailModel.m; sourceTree = "<group>"; };
 		BC753EAD1BAC07D300D2663C /* FeedDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedDetailViewController.h; sourceTree = "<group>"; };
@@ -1993,6 +1989,15 @@
 				001FEF8D1D0FD74500A00D7E /* arm */,
 			);
 			path = Lib;
+			sourceTree = "<group>";
+		};
+		00A82E461D226A620083681F /* WendaPay */ = {
+			isa = PBXGroup;
+			children = (
+				BC6F40E31D1CDCF80098E73A /* WendaPayManager.h */,
+				BC6F40E41D1CDCF80098E73A /* WendaPayManager.m */,
+			);
+			path = WendaPay;
 			sourceTree = "<group>";
 		};
 		26D758803C76A62629C50A39 /* Frameworks */ = {
@@ -3398,6 +3403,7 @@
 		BCA80BF91D0EC23000B3D3E8 /* Wenda */ = {
 			isa = PBXGroup;
 			children = (
+				00A82E461D226A620083681F /* WendaPay */,
 				001FEF881D0FCEE900A00D7E /* AudioPlayer */,
 				BC7A52C31D1CE8A200CA4393 /* Views */,
 				00CBCEB51D16EE24001B8353 /* MyQuestionViewController.h */,
@@ -3412,8 +3418,6 @@
 				00CBCEC21D16EF32001B8353 /* MyAssetViewController.m */,
 				BCA80BFA1D0EC28000B3D3E8 /* WendaHomeViewController.h */,
 				BCA80BFB1D0EC28000B3D3E8 /* WendaHomeViewController.m */,
-				BC3DFCCA1D12B7B1001F09CC /* WendaQuestionViewController.h */,
-				BC3DFCCB1D12B7B1001F09CC /* WendaQuestionViewController.m */,
 				BC3DFCCD1D18D4CD001F09CC /* WendaCourseListViewController.h */,
 				BC3DFCCE1D18D4CD001F09CC /* WendaCourseListViewController.m */,
 				BC3DFCD21D19346F001F09CC /* WendaQuestionListViewController.h */,
@@ -3424,8 +3428,6 @@
 				003324251D1A36C30060307B /* WendaCourseDetailViewController.m */,
 				0048A1861D1B82E300DA39D7 /* WendaCourseIntroViewController.h */,
 				0048A1871D1B82E300DA39D7 /* WendaCourseIntroViewController.m */,
-				BC6F40E31D1CDCF80098E73A /* WendaPayManager.h */,
-				BC6F40E41D1CDCF80098E73A /* WendaPayManager.m */,
 				009BB2E61D1CF77100C620CB /* AskExpertViewController.h */,
 				009BB2E71D1CF77A00C620CB /* AskExpertViewController.m */,
 			);
@@ -4417,7 +4419,6 @@
 				BC79DF8A1C15931C0064C02F /* GroupMemberItemCell.m in Sources */,
 				BC753ECE1BAC07D300D2663C /* FeedCommentCell.m in Sources */,
 				BC3DFCD41D19346F001F09CC /* WendaQuestionListViewController.m in Sources */,
-				BC3DFCCC1D12B7B1001F09CC /* WendaQuestionViewController.m in Sources */,
 				5AC9FFCD1B17298C00C769EF /* FeedbackViewController.m in Sources */,
 				BCF9DD011BD8F15000D8CDC6 /* CourseTeacherListModel.m in Sources */,
 				BC8B9A011C1AB61300EE39A2 /* ChatUserFeedPhotoCell.m in Sources */,
@@ -4438,7 +4439,6 @@
 			files = (
 				BC6F40E61D1CDD070098E73A /* WendaPayManager.m in Sources */,
 				BC3DFCD51D19347A001F09CC /* WendaQuestionListViewController.m in Sources */,
-				BC3DFCD01D19288E001F09CC /* WendaQuestionViewController.m in Sources */,
 				BC3DFCD11D19288E001F09CC /* WendaCourseListViewController.m in Sources */,
 				BCA80BFD1D0EC43F00B3D3E8 /* WendaHomeViewController.m in Sources */,
 				BCA80BF81D012D7A00B3D3E8 /* HomeViewControllerV2.m in Sources */,

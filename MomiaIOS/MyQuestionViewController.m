@@ -22,7 +22,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     NSNumber *uid = [AccountService defaultService].account.uid;
     NSDictionary *dict = @{@"utoken":uid};
@@ -40,12 +39,5 @@
 }
 
 
-RCT_EXPORT_MODULE()
-
-RCT_EXPORT_METHOD(toQADetailViewController) {
-    
-    NSLog(@"sdfsdsd");
-    [self openURL:@"myqadetail"];
-}
 
 @end

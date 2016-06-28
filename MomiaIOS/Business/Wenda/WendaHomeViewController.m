@@ -44,13 +44,6 @@
     
 }
 
-
--(void)toAskQuestionViewController{
-    
-    
-    [self openURL:@"askquestion"];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
