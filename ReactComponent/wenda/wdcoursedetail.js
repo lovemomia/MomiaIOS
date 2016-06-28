@@ -6,6 +6,7 @@ var ReactNative = require('react-native');
 var Common = require('../Common');
 var SGStyles = require('../SGStyles');
 var HttpService = require('../HttpService');
+var LoadingEffect = require('react-native-loading-effect');
 
 var {
 	Text,
@@ -23,6 +24,7 @@ var ds = new ListView.DataSource({
 });
 
 var RNCommon = NativeModules.RNCommon;
+var WendaPayManager = NativeModules.WendaPayManager;
 
 var styles = ReactNative.StyleSheet.create({
 	separator: {
@@ -64,9 +66,22 @@ var WendaCourseDetailComponent = React.createClass({
 			dataSource: ds.cloneWithRows([
 				new Array()
 			]),
-			isLoading: true
+			isLoading: true,
+			isLoadingDialogVisible: false
 		};
 	},
+
+	 _showLoadingEffect: function() {
+    this.setState({
+      isLoadingDialogVisible: true
+    });
+    },
+
+  _dismissLoadingEffect: function() {
+    this.setState({
+      isLoadingDialogVisible: false
+    });
+    },
 
 	render: function() {
 
@@ -268,7 +283,7 @@ var WendaCourseDetailComponent = React.createClass({
             		<View style={{flexDirection:'row', paddingTop:10, alignItems:'center'}}>
               			<Image style={{width: 30, height: 30, borderRadius: 15, marginRight: 5}} source={{uri:data.expert.cover}}/>
               			<TouchableHighlight
-            				onPress={() => {console.log('hello')}}
+            				onPress={() => {this._requestQuestion(data.id)}}
             				underlayColor='#FFFFFF' >
               				<Image style={{width: 200, height: 30, borderRadius: 15, marginLeft: 10, backgroundColor:'#9DDF59', justifyContent: 'center',alignItems: 'center'}}>
                 				<Text style={{fontSize: 13, color: 'white'}} numberOfLines={1}>1元偷听</Text>
@@ -310,6 +325,32 @@ var WendaCourseDetailComponent = React.createClass({
 			</View>
 	 	);
 	},
+
+	 _requestQuestion(questionId) {
+    this._showLoadingEffect();
+    HttpService.get(Common.domain() + '/v1/wd_hJoin?', {
+      qid: questionId
+    }, (resp) => {
+      this._dismissLoadingEffect();
+      if (resp.errno == 0) {
+        //判断结果是否可以直接播放了
+        if (resp.data.hasOwnProperty('question')) {
+          //TODO 直接播放
+
+
+        } else {
+          //支付订单
+          WendaPayManager.pay(resp.data.order, (error, payResult) => {
+
+          });
+        }
+
+      } else {
+        // request failed
+
+      }
+    });
+    },
 
 	_lookMore: function(dataType) {
 

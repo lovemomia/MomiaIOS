@@ -76,7 +76,7 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   React:
-    :path: "./node_modules/react-native"
+    :path: ./node_modules/react-native
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
@@ -90,7 +90,6 @@ SPEC CHECKSUMS:
   OrigamiEngine: 74b097326260597f1498790795cc2cdd604c199a
   React: b35b2b2e07273da1f7266ab2975e0d1033bd913d
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
-
   StreamingKit: c329785aaef3ac142d4ae388345bfe1ed23cfd45
   THProgressView: 999dc78f748f4cb6d69408f545de4d82ef7f1cec
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
@@ -99,4 +98,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 641ae4a7b063cf0f18dd81ce81f3e8cb2026e1ca
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1
