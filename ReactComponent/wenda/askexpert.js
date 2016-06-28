@@ -189,7 +189,7 @@ var AskExpertComponent = React.createClass({
 
 		return (
 			<TouchableHighlight
-				onPress={() => {}}
+				onPress={() => {this._pressCourse(data)}}
 				underlayColor = '#f1f1f1'>
 			<View style={{padding: 10,backgroundColor: 'white'}}>
 				<View style={{flexDirection: 'row',alignItems: 'center'}}>
@@ -265,6 +265,10 @@ var AskExpertComponent = React.createClass({
     	RNCommon.openUrl('askquestion?wid=' +this.state.wdcourse.id);
     },
 
+    _pressCourse: function(data) {
+    	RNCommon.openUrl('wdcoursedetail?id=' + data.id);
+    }
+    
 });
 
 AppRegistry.registerComponent('AskExpertComponent', () => AskExpertComponent);
