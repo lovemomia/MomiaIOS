@@ -285,7 +285,7 @@ class WDHomeComponent extends React.Component {
     return <View style={{height:44, backgroundColor:'white'}}>
         <View style={{flex:1, alignItems: 'center', justifyContent: 'center'}}>
           <View style={{borderRadius:3, borderWidth:1}}>
-            <Text style={{fontSize: 13, color: '#333333', paddingTop:3, paddingLeft:3, paddingRight:3, paddingBottom:3}} numberOfLines={1}>查看更多</Text>
+            <Text style={{fontSize: 14, color: '#333333', padding: 5}} numberOfLines={1}>查看更多</Text>
           </View>
         </View>
         <View style={styles.separator}/>
@@ -294,9 +294,9 @@ class WDHomeComponent extends React.Component {
 
   _rowPressed(rowData) {
     if (rowData.type == 3) { //微课
-      RNCommon.openUrl('wdcoursedetail?id=' + rowData.data.id);
+      RNCommon.openUrl('wdcoursedetail?wid=' + rowData.data.id);
     } else if (rowData.type == 4) { //问专家
-      RNCommon.openUrl('wdquestiondetail?id=' + rowData.data.id);
+      RNCommon.openUrl('wdquestiondetail?qid=' + rowData.data.id);
     } else if (rowData.type == 5) { //更多
       if (rowData.data === '听微课') {
         RNCommon.openUrl('wdcourselist'); //微课列表

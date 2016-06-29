@@ -58,8 +58,9 @@ var AskQuestionComponent = React.createClass({
 
 	getInitialState: function() {
 		return {
+			text: '',
 			isLoading: true,
-			textCount: 10,
+			textCount: 0,
 			dataSource: ds.cloneWithRows([
 				{id:1}
 			]),
@@ -127,7 +128,7 @@ var AskQuestionComponent = React.createClass({
 					</View>
 					<View style={{flexDirection: 'row', backgroundColor: 'white'}}>
 						<View style={{flex: 1}} />
-						<Text>{this.state.textCount}/140</Text>
+						<Text style={{color: 'gray'}}>{this.state.textCount}/140</Text>
 					</View>
 				</View>
 			);
@@ -162,6 +163,7 @@ var AskQuestionComponent = React.createClass({
 
 		 this.setState({
               textCount: text.text.length,
+              text: text.text
          });
 
 	},
@@ -169,10 +171,14 @@ var AskQuestionComponent = React.createClass({
 	//提交问题
 	_submit: function() {
 
+		//检查问题内容是否为空
+		if (this.state.textCount == 0) {
+			return;
+		}
 		HttpService.get(Common.domain() + '/v1/wd_qJoin?', {
-     	 	courseId: 1,
+     	 	courseId: this.props.wid,
      	 	utoken: this.props.utoken,
-     	 	content: '我是来测试的，不要打我'
+     	 	content: this.state.text
     	}, (resp) => {
       		if (resp.errno == 0) {
         		//this._handleSubmitResponse(resp.data);

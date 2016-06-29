@@ -30,6 +30,7 @@ var {
 } = ReactNative;
 
 var RNCommon = NativeModules.RNCommon;
+let WendaPayManager = NativeModules.WendaPayManager;
 
 var styles = ReactNative.StyleSheet.create({
   loadingCell: {
@@ -179,9 +180,13 @@ class WDQuestionListComponent extends React.Component {
             <Text style={{fontSize: 13, color: '#999999',paddingTop:5}} numberOfLines={1}>{data.expert.name} | {data.expert.intro}</Text>
             <View style={{flexDirection:'row', paddingTop:10, alignItems:'center'}}>
               <Image style={{width: 30, height: 30, borderRadius: 15, marginRight: 5}} source={{uri:data.expert.cover}}/>
+              <TouchableHighlight
+                onPress={() => this._pressAnswer(data)}
+                underlayColor = 'white' >
               <Image style={{width: 200, height: 30, borderRadius: 15, marginLeft: 10, backgroundColor:'#00c49d', justifyContent: 'center',alignItems: 'center'}}>
                 <Text style={{fontSize: 13, color: 'white'}} numberOfLines={1}>1元偷听</Text>
               </Image>
+              </TouchableHighlight>
               <Text style={{fontSize: 13, color: '#999999',paddingLeft:5}} numberOfLines={1}>60“</Text>
             </View>
         </View>
@@ -190,8 +195,50 @@ class WDQuestionListComponent extends React.Component {
   }
 
   _rowPressed(rowData) {
-    RNCommon.openUrl('wdquestiondetail?id=' + rowData.data.id);
+    RNCommon.openUrl('wdquestiondetail?qid=' + rowData.data.id);
   }
+
+
+  //点击偷听
+  _pressAnswer(question) {
+
+    RNCommon.isLogin((error, dic) => {
+          if (error) {
+            console.error(error);
+          } else if (dic.isLogin === 'true') {
+
+            this._requestQuestion(question.id);
+          } else {
+            RNCommon.openUrl('login');
+          }
+      });
+  }
+
+  _requestQuestion(questionId) {
+
+      HttpService.get(Common.domain() + '/v1/wd_hJoin?', {
+          qid: questionId
+      }, (resp) => {
+
+          if (resp.errno == 0) {
+            //判断结果是否可以直接播放了
+            if (resp.data.hasOwnProperty('question')) {
+              //TODO 直接播放
+
+
+            } else {
+                //支付订单
+                WendaPayManager.pay(resp.data.order, (error, payResult) => {
+
+              });
+          }
+
+      } else {
+        // request failed
+
+      }
+      });
+    }
 
 }
 

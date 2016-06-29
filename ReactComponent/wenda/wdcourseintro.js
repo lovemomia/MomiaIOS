@@ -31,7 +31,7 @@ var WendaCourseIntroComponent = React.createClass({
 	componentDidMount: function() {
 
 		 HttpService.get(Common.domain() + '/v1/wd_course?', {
-     	 	wid: 1,
+     	 	wid: this.props.wid,
     	}, (resp) => {
       		if (resp.errno == 0) {
         		this._handlerResponse(resp.data);

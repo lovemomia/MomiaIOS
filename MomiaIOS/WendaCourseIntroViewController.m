@@ -12,6 +12,8 @@
 
 @interface WendaCourseIntroViewController ()
 
+@property (nonatomic, strong) NSNumber *wid;
+
 @end
 
 @implementation WendaCourseIntroViewController
@@ -21,13 +23,28 @@
     return YES;
 }
 
+- (instancetype)initWithParams:(NSDictionary *)params {
+    if (self = [super initWithParams:params]) {
+        [self decoderParams:params];
+    }
+    return self;
+}
+
+//解析参数
+-(void)decoderParams:(NSDictionary *)params{
+    self.wid = [params objectForKey:@"wid"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.title = @"微课堂";
+    
+    NSDictionary *props = @{@"wid": self.wid};
+    
     NSURL *jsCodeLocation = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:8081/wenda/wdcourseintro.bundle?platform=ios",RNHost]];
-    RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"WendaCourseIntroComponent" initialProperties:nil launchOptions:nil];
+    RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"WendaCourseIntroComponent" initialProperties:props launchOptions:nil];
     rootView.frame = self.view.bounds;
     [self.view addSubview:rootView];
     

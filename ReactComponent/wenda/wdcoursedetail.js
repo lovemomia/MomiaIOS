@@ -40,7 +40,7 @@ var WendaCourseDetailComponent = React.createClass({
 
 		 HttpService.get(Common.domain() + '/v1/wd_courseDetails?', {
      	 	start: 0,
-     	 	wid: 1,
+     	 	wid: this.props.wid,
     	}, (resp) => {
       		if (resp.errno == 0) {
         		this._handlerResponse(resp.data);
@@ -194,7 +194,7 @@ var WendaCourseDetailComponent = React.createClass({
 
 			return (
 				<View>
-				  {Common.courseCell(rowData.data,() => {RNCommon.openUrl('wdcoursedetail?id=' + rowData.data.id);})}
+				  {Common.courseCell(rowData.data,() => {RNCommon.openUrl('wdcoursedetail?wid=' + rowData.data.id);})}
 				  <View style={styles.separator}/>
 				</View>
 			);
@@ -339,29 +339,29 @@ var WendaCourseDetailComponent = React.createClass({
 
 	 _requestQuestion(questionId) {
 
-    this._showLoadingEffect();
-    HttpService.get(Common.domain() + '/v1/wd_hJoin?', {
-      qid: questionId
-    }, (resp) => {
-      this._dismissLoadingEffect();
-      if (resp.errno == 0) {
-        //判断结果是否可以直接播放了
-        if (resp.data.hasOwnProperty('question')) {
-          //TODO 直接播放
+    	this._showLoadingEffect();
+    	HttpService.get(Common.domain() + '/v1/wd_hJoin?', {
+      		qid: questionId
+    	}, (resp) => {
+      		this._dismissLoadingEffect();
+      		if (resp.errno == 0) {
+        		//判断结果是否可以直接播放了
+        		if (resp.data.hasOwnProperty('question')) {
+          		//TODO 直接播放
 
 
-        } else {
-          //支付订单
-          WendaPayManager.pay(resp.data.order, (error, payResult) => {
+        		} else {
+          			//支付订单
+          			WendaPayManager.pay(resp.data.order, (error, payResult) => {
 
-          });
-        }
+          		});
+        	}
 
       } else {
         // request failed
 
       }
-    });
+    	});
     },
 
 	_lookMore: function(dataType) {
@@ -376,7 +376,7 @@ var WendaCourseDetailComponent = React.createClass({
 	},
 
 	_pressRowItem: function(rowData) {
-		RNCommon.openUrl('wdcourseintro');
+		RNCommon.openUrl('wdcourseintro?wid=' + this.state.wdcourse.id);
 	},
 
 	_pressAskExpretButton: function() {

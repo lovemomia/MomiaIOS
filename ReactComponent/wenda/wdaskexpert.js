@@ -44,7 +44,7 @@ var AskExpertComponent = React.createClass({
 	componentDidMount: function() {
 
 		HttpService.get(Common.domain() + '/v1/wd_qExpert?', {
-     	 	qid: 1,
+     	 	qid: this.props.qid,
     	}, (resp) => {
       		if (resp.errno == 0) {
         		this._handlerResponse(resp.data);

@@ -171,7 +171,7 @@ class WDCourseListComponent extends React.Component {
   _renderCourseView(data) {
     return <View><View style={{flex:1,flexDirection:'row',backgroundColor:'white'}}>
         <View style={{alignItems:'center',padding:10}}>
-          <Image style={{width: 50, height: 50, borderRadius: 25}} source={{uri:data.expert.cover}}/>
+          <Image style={{width: 50, height: 50}} source={{uri:data.expert.cover}}/>
           <Text style={{fontSize: 13, color: '#333333',paddingTop:5}} numberOfLines={1}>{data.expert.name}</Text>
         </View>
         <View style={{paddingTop:10, paddingBottom:10, paddingRight:10}}>

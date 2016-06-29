@@ -50,6 +50,7 @@ var styles = ReactNative.StyleSheet.create({
 		alignItems: 'center',
 	},
 	rightContainer: {
+		marginLeft: 10,
 		flexDirection: 'row',
 		alignItems: 'center',
 	},
@@ -115,15 +116,21 @@ class MyQuestionComponent extends React.Component {
 	  this.state = {
 	  	isLoading: true,
 	  	dataSource: ds.cloneWithRows([
-	  		{id: 0}, {id: 1},{id: 2},{id: 3},{id: 4}
+	  		{id: 0}
 	  	]) 
 	  };
 	}
 
-	_handlerResponse() {
+	_handlerResponse(data) {
 
+		let list = new Array();
+
+		for (var i = 0; i < data.list.length; i++ ) {
+			list.push(data.list[i]);
+		}
 		this.setState({
-			isLoading: false
+			isLoading: false,
+			dataSource: ds.cloneWithRows(list),
 		});
 	}
 
@@ -134,7 +141,7 @@ class MyQuestionComponent extends React.Component {
 			return Common.loading();
 		}
 		return (
-			<View>
+			<View style={{flex: 1}}>
 				<ListView
 					dataSource={this.state.dataSource}
 					renderRow = {this.renderRow.bind(this)} />
@@ -147,14 +154,15 @@ class MyQuestionComponent extends React.Component {
 		return (
 			<TouchableHighlight 
 				onPress={() => {
-          		this.onPressRowItem(rowID);}}
+          		this.onPressRowItem(rowData.id);}}
           		underlayColor="#f1f1f1">
 			<View style={styles.rowContainer}>
 				<View style={styles.contentContainer}>
 					<View style={styles.headContainer}>
 						<View style={styles.leftContainer}>
-							<Image style={styles.image} />
-							<Text>乌鸡国国王</Text>
+							<Image style={styles.image}
+								   source={{uri:rowData.expert.cover}} />
+							<Text>{rowData.expert.name}</Text>
 						</View>
 						<View style={styles.rightContainer}>
 							<Text style={styles.money}>￥2</Text>
@@ -162,11 +170,11 @@ class MyQuestionComponent extends React.Component {
 						</View>
 					</View>
 					<View style={styles.middleContainer}>
-						<Text>创业历程如何</Text>
+						<Text>{rowData.content}</Text>
 					</View>
 					<View style={styles.tailContainer}>
-						<Text style={styles.time}>13天前</Text>
-						<Text>100个人偷偷听</Text>
+						<Text style={styles.time}>{rowData.addTime}</Text>
+						<Text>{rowData.count}个人偷偷听</Text>
 					</View>
 				</View>
 				<View style={styles.seperator}/>
@@ -177,7 +185,7 @@ class MyQuestionComponent extends React.Component {
 
 	onPressRowItem(rowID) {
 		console.log("Press Row");
-		RNCommon.openUrl('wdquestiondetail?wid=1');
+		RNCommon.openUrl('wdquestiondetail?qid=' + rowID);
 	}
 
 	highlightRow(sectionID, rowID) {

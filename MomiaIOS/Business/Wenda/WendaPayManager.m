@@ -133,12 +133,33 @@ RCT_EXPORT_METHOD(pay:(NSDictionary *)order callback:(RCTResponseSenderBlock)cal
      
                               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                   
+                                  NSLog(@"------fail");
                               }];
 }
 
 //余额支付
 - (void)remainPay {
     
+    NSMutableDictionary * params = [[NSMutableDictionary alloc]initWithDictionary:@{@"type":@"APP",
+                                                                                    @"oid":[self.order objectForKey:@"id"]}];
+    [[HttpService defaultService]POST:URL_HTTPS_APPEND_PATH(@"/v1/prepay/wd_asset")
+                           parameters:params JSONModelClass:[AlipayOrderModel class]
+                              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                  
+                                  //前往支付
+                                  if ([responseObject isKindOfClass:[AlipayOrderModel class]]) {
+                                      PayTool *payTool = [PayTool new];
+                                      [payTool startAlipay:((AlipayOrderModel *)responseObject).data payResult:^(BOOL success){
+                                          //支付成功回调
+                                          
+                                      }] ;
+                                  }
+                              }
+     
+                              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                  
+                                  NSLog(@"------fail");
+                              }];
 }
 
 -(void)onPayResp:(NSNotification*)notify {
