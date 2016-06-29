@@ -125,6 +125,8 @@ static NSString * cashPayBottomIdentifier = @"CellCashPayBottom";
         if (self.coupon) {
             [params setValue:[NSString stringWithFormat:@"%@", self.coupon.ids] forKey:@"coupon"];
         }
+        
+        NSLog(@"---%@",params);
         [[HttpService defaultService]POST:URL_HTTPS_APPEND_PATH(@"/payment/prepay/weixin")
                                parameters:params JSONModelClass:[WechatPayModel class]
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {

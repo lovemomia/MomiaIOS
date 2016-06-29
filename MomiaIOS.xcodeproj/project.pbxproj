@@ -92,6 +92,8 @@
 		00CBCEC01D16EE4E001B8353 /* MyQADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBCEBE1D16EE4E001B8353 /* MyQADetailViewController.m */; };
 		00CBCEC31D16EF32001B8353 /* MyAssetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBCEC21D16EF32001B8353 /* MyAssetViewController.m */; };
 		00CBCEC41D16EF32001B8353 /* MyAssetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBCEC21D16EF32001B8353 /* MyAssetViewController.m */; };
+		00D9CED11D236B9E00CC91FD /* KSCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D9CED01D236B9E00CC91FD /* KSCrash.framework */; };
+		00D9CED21D236B9E00CC91FD /* KSCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D9CED01D236B9E00CC91FD /* KSCrash.framework */; };
 		00DCB9771CF53EE700215227 /* RecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DCB9751CF53EE700215227 /* RecommendCell.m */; };
 		00DCB9781CF53EE700215227 /* RecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DCB9751CF53EE700215227 /* RecommendCell.m */; };
 		00DCB9791CF53EE700215227 /* RecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00DCB9761CF53EE700215227 /* RecommendCell.xib */; };
@@ -1020,6 +1022,7 @@
 		00CBCEBE1D16EE4E001B8353 /* MyQADetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyQADetailViewController.m; path = ../MyQADetailViewController.m; sourceTree = "<group>"; };
 		00CBCEC11D16EF32001B8353 /* MyAssetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyAssetViewController.h; path = ../MyAssetViewController.h; sourceTree = "<group>"; };
 		00CBCEC21D16EF32001B8353 /* MyAssetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyAssetViewController.m; path = ../MyAssetViewController.m; sourceTree = "<group>"; };
+		00D9CED01D236B9E00CC91FD /* KSCrash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KSCrash.framework; path = MomiaIOS/Lib/KSCrash.framework; sourceTree = "<group>"; };
 		00DCB9741CF53EE700215227 /* RecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendCell.h; sourceTree = "<group>"; };
 		00DCB9751CF53EE700215227 /* RecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendCell.m; sourceTree = "<group>"; };
 		00DCB9761CF53EE700215227 /* RecommendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendCell.xib; sourceTree = "<group>"; };
@@ -1808,6 +1811,7 @@
 				BC79DF491C0EC5650064C02F /* libc++.tbd in Frameworks */,
 				001FEFC91D0FD74500A00D7E /* libopencore-amrwb.a.armv7s in Frameworks */,
 				BC79DF471C0EC4700064C02F /* ImageIO.framework in Frameworks */,
+				00D9CED11D236B9E00CC91FD /* KSCrash.framework in Frameworks */,
 				BC79DF451C0EC3B90064C02F /* CoreVideo.framework in Frameworks */,
 				BC79DF431C0EC3A20064C02F /* CoreMedia.framework in Frameworks */,
 				BC79DF411C0EC38E0064C02F /* CoreAudio.framework in Frameworks */,
@@ -1869,6 +1873,7 @@
 				BCEAFD271C2A394300CB082D /* libc++.tbd in Frameworks */,
 				001FEFCA1D0FD74500A00D7E /* libopencore-amrwb.a.armv7s in Frameworks */,
 				BCEAFD281C2A394300CB082D /* ImageIO.framework in Frameworks */,
+				00D9CED21D236B9E00CC91FD /* KSCrash.framework in Frameworks */,
 				BCEAFD291C2A394300CB082D /* CoreVideo.framework in Frameworks */,
 				BCEAFD2A1C2A394300CB082D /* CoreMedia.framework in Frameworks */,
 				BCEAFD2B1C2A394300CB082D /* CoreAudio.framework in Frameworks */,
@@ -2041,6 +2046,7 @@
 		26D758803C76A62629C50A39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				00D9CED01D236B9E00CC91FD /* KSCrash.framework */,
 				BC79DF541C0EC5B90064C02F /* MapKit.framework */,
 				BC79DF521C0EC5B10064C02F /* libz.tbd */,
 				BC79DF501C0EC59D0064C02F /* libxml2.tbd */,
@@ -3143,7 +3149,6 @@
 				BCA273171AE9F90C002E7534 /* Utils */,
 				BC2C0C541B13095A00E2446E /* Views */,
 				BC8540BA1ADF8976005A7C54 /* Base */,
-				BC56810E1CE9C8AF00DD6D00 /* React */,
 				BCA2730F1AE9D79F002E7534 /* mapping.plist */,
 				BCA273141AE9F6F0002E7534 /* URLMappingManager.h */,
 				BCA273151AE9F6F0002E7534 /* URLMappingManager.m */,
@@ -3441,6 +3446,7 @@
 		BCA80BF91D0EC23000B3D3E8 /* Wenda */ = {
 			isa = PBXGroup;
 			children = (
+				BC56810E1CE9C8AF00DD6D00 /* React */,
 				00A82E4B1D2280690083681F /* Controller */,
 				00A82E461D226A620083681F /* WendaPay */,
 				001FEF881D0FCEE900A00D7E /* AudioPlayer */,
@@ -4908,6 +4914,7 @@
 					"$(PROJECT_DIR)/ThirdParty/BaiduMap",
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
+					"$(PROJECT_DIR)/MomiaIOS/Lib",
 				);
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -4981,6 +4988,7 @@
 					"$(PROJECT_DIR)/ThirdParty/BaiduMap",
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
+					"$(PROJECT_DIR)/MomiaIOS/Lib",
 				);
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -5091,6 +5099,7 @@
 					"$(PROJECT_DIR)/ThirdParty/BaiduMap",
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
+					"$(PROJECT_DIR)/MomiaIOS/Lib",
 				);
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -5175,6 +5184,7 @@
 					"$(PROJECT_DIR)/ThirdParty/BaiduMap",
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
+					"$(PROJECT_DIR)/MomiaIOS/Lib",
 				);
 				GCC_PREFIX_HEADER = MomiaIOS/PrefixHeader.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (

@@ -13,10 +13,13 @@ var {
 	ListView,
 	Image,
 	TextInput,
-	TouchableHighlight
+	TouchableHighlight,
+	NativeModules
 } = ReactNative;
 
 var CheckBox = require('react-native-checkbox');
+
+var WendaPayManager = NativeModules.WendaPayManager;
 
 var styles = ReactNative.StyleSheet.create({
 	multiline: {
@@ -48,11 +51,8 @@ var AskQuestionComponent = React.createClass({
       		if (resp.errno == 0) {
         		this._handlerResponse(resp.data);
      	 	} else {
-        		// request failed
-        		this.setState({
-          		isLoading: true
-        	});
-     	}
+        		// 请求失败
+     		}
     	});
 	},
 
@@ -61,7 +61,7 @@ var AskQuestionComponent = React.createClass({
 			isLoading: true,
 			textCount: 10,
 			dataSource: ds.cloneWithRows([
-				new Array()
+				{id:1}
 			]),
 			expert: {}
 		};
@@ -71,18 +71,18 @@ var AskQuestionComponent = React.createClass({
 
 		this.setState({
       		isLoading: false,
+      		wdcourse: data.wdcourse,
+      		expert: data.wdcourse.expert,
       		dataSource: this.state.dataSource.cloneWithRows([
       			{id:1},{id:2},{id: 3},{id: 4},{id: 5}
       		]),
-      		wdcourse: data.wdcourse,
-      		expert: data.wdcourse.expert,
     	});
 
 	},
 
 	render: function() {
 
-		if (this.state.loading) {
+		if (this.state.isLoading) {
 			return Common.loading();
 		}
 		return (
@@ -98,7 +98,6 @@ var AskQuestionComponent = React.createClass({
 	_renderRow: function(rowData,sectionID,rowID) {
 
 		let placeholder = '向' + this.state.expert.name+'老师提问，等TA语音回答，若超过48小时未回答，将按支付路径全额退款';
-		console.log(this.state.expert.name);
 		if (rowID == 0) {
 			return (
 				<View style={{padding: 10, marginTop: 10, flexDirection: 'row',alignItems: 'center',backgroundColor: 'white'}}>
@@ -135,25 +134,23 @@ var AskQuestionComponent = React.createClass({
 		} else if (rowID == 2 ) {
 			return (
 				<View style={{padding: 10,flexDirection:'row',alignItems: 'center'}}>
-					<CheckBox
-						label=''
-  						checked={true}
-  						onChange={(checked) => console.log('I am checked', checked)}
-					/>
-					<Text style={{flex: 1}}>公开提问，答案每被人偷听一次，你将从中分成0.5元</Text>
+					<Image source={require('../common/image/check.png')} style={{width: 30,height: 30}}/>
+					<Text style={{flex: 1,color: 'gray', fontSize: 13}}>公开提问，答案每被人偷听一次，你将从中分成0.5元</Text>
 				</View>
 			);
 		} else if (rowID == 3) {
 			return (
 				<View style={{marginTop: 30,padding: 10,alignItems: 'center'}}>
-					<Text style={{fontSize: 25,color: '#FF6634'}}>￥9.9元</Text>
+					<Text style={{fontSize: 25,color: '#FF6634'}}>￥ {this.state.wdcourse.price}元</Text>
 				</View>
 			);
 		} else if (rowID == 4) {
 			return (
 				<View style={{flex: 1,padding: 20}}>
 					<TouchableHighlight 
-						style={{backgroundColor: '#FF6634', borderRadius: 5,height: 48,alignItems:'center',justifyContent: 'center'}}>
+						style={{backgroundColor: '#FF6634', borderRadius: 5,height: 48,alignItems:'center',justifyContent: 'center'}}
+						onPress={() => this._submit()}
+						underlayColor="#FF6634">
 						<Text style={{color: 'white'}}>提交</Text>
 					</TouchableHighlight>
 				</View>
@@ -166,6 +163,34 @@ var AskQuestionComponent = React.createClass({
 		 this.setState({
               textCount: text.text.length,
          });
+
+	},
+
+	//提交问题
+	_submit: function() {
+
+		HttpService.get(Common.domain() + '/v1/wd_qJoin?', {
+     	 	courseId: 1,
+     	 	utoken: this.props.utoken,
+     	 	content: '我是来测试的，不要打我'
+    	}, (resp) => {
+      		if (resp.errno == 0) {
+        		//this._handleSubmitResponse(resp.data);
+
+            //支付
+          	WendaPayManager.pay(resp.data, (error, payResult) => {
+
+          	});
+
+     	 	} else {
+        		// request failed
+     		}
+      		console.log(resp.data);
+    	});
+	},
+
+
+	_handleSubmitResponse: function(data) {
 
 	}
 });

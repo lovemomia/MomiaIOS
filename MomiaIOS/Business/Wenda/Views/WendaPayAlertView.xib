@@ -11,56 +11,38 @@
             <rect key="frame" x="0.0" y="0.0" width="338" height="148"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="余额支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLA-1Z-ISo">
-                    <rect key="frame" x="8" y="15" width="322" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mc-Cw-ztY">
-                    <rect key="frame" x="8" y="65" width="322" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付宝支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uld-Yt-ELd">
-                    <rect key="frame" x="8" y="115" width="322" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DEd-Mw-GHn">
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DEd-Mw-GHn">
                     <rect key="frame" x="0.0" y="46" width="338" height="1"/>
                     <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="Atx-WQ-6FB"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PaY-Ef-z4Q">
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PaY-Ef-z4Q">
                     <rect key="frame" x="0.0" y="99" width="338" height="1"/>
                     <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="b1Y-Lp-zPD"/>
                     </constraints>
                 </view>
+                <button opaque="NO" tag="1000" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhS-o4-2Pr">
+                    <rect key="frame" x="8" y="8" width="322" height="30"/>
+                    <state key="normal" title="余额支付"/>
+                </button>
+                <button opaque="NO" tag="1001" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHh-JK-76i">
+                    <rect key="frame" x="8" y="59" width="322" height="30"/>
+                    <state key="normal" title="微信支付"/>
+                </button>
+                <button opaque="NO" tag="1002" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmM-bc-mS3">
+                    <rect key="frame" x="8" y="110" width="322" height="30"/>
+                    <state key="normal" title="支付宝支付"/>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="DEd-Mw-GHn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="54G-yA-bf3"/>
-                <constraint firstItem="9mc-Cw-ztY" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="6n4-6m-MZz"/>
-                <constraint firstItem="9mc-Cw-ztY" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="7UB-Ah-uAH"/>
                 <constraint firstItem="PaY-Ef-z4Q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="9lF-dt-0qK"/>
                 <constraint firstAttribute="trailing" secondItem="PaY-Ef-z4Q" secondAttribute="trailing" id="Bdc-YU-VpH"/>
                 <constraint firstAttribute="trailing" secondItem="DEd-Mw-GHn" secondAttribute="trailing" id="FKj-8P-Onm"/>
-                <constraint firstAttribute="trailing" secondItem="fLA-1Z-ISo" secondAttribute="trailing" constant="8" id="IAj-cz-JCm"/>
-                <constraint firstAttribute="trailing" secondItem="Uld-Yt-ELd" secondAttribute="trailing" constant="8" id="JTP-Tr-4Ne"/>
-                <constraint firstItem="Uld-Yt-ELd" firstAttribute="top" secondItem="PaY-Ef-z4Q" secondAttribute="bottom" constant="15" id="K8X-cW-Z9M"/>
-                <constraint firstAttribute="trailing" secondItem="9mc-Cw-ztY" secondAttribute="trailing" constant="8" id="Rlc-Jx-JT8"/>
-                <constraint firstItem="Uld-Yt-ELd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="UE1-ac-sGZ"/>
-                <constraint firstItem="DEd-Mw-GHn" firstAttribute="top" secondItem="fLA-1Z-ISo" secondAttribute="bottom" constant="13" id="W93-DO-LAx"/>
-                <constraint firstItem="9mc-Cw-ztY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="X8F-hT-V3m"/>
-                <constraint firstItem="fLA-1Z-ISo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="grV-GM-a1c"/>
-                <constraint firstItem="fLA-1Z-ISo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="j9f-hU-3lP"/>
-                <constraint firstAttribute="bottom" secondItem="Uld-Yt-ELd" secondAttribute="bottom" constant="15" id="kqT-lz-5HE"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
@@ -73,51 +55,31 @@
             <rect key="frame" x="0.0" y="0.0" width="338" height="103"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="微信支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UYi-hi-p5C">
-                    <rect key="frame" x="8" y="15" width="322" height="24"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付宝支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aip-xE-3ff">
-                    <rect key="frame" x="8" y="70" width="322" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSd-xt-zyW">
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HSd-xt-zyW">
                     <rect key="frame" x="0.0" y="54" width="338" height="1"/>
                     <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="vrv-s3-NE3"/>
                     </constraints>
                 </view>
+                <button opaque="NO" tag="1000" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="di0-oS-kI2">
+                    <rect key="frame" x="8" y="16" width="316" height="30"/>
+                    <state key="normal" title="微信支付"/>
+                </button>
+                <button opaque="NO" tag="1001" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vyH-00-Me7">
+                    <rect key="frame" x="8" y="65" width="316" height="30"/>
+                    <state key="normal" title="支付宝支付"/>
+                </button>
             </subviews>
             <constraints>
-                <constraint firstItem="aip-xE-3ff" firstAttribute="top" secondItem="HSd-xt-zyW" secondAttribute="bottom" constant="15" id="0a3-s0-dfS"/>
-                <constraint firstAttribute="bottom" secondItem="aip-xE-3ff" secondAttribute="bottom" constant="15" id="5is-Oy-6Jl"/>
-                <constraint firstItem="UYi-hi-p5C" firstAttribute="top" secondItem="dce-Ik-swj" secondAttribute="top" constant="15" id="9Ja-8x-saJ"/>
-                <constraint firstItem="UYi-hi-p5C" firstAttribute="centerX" secondItem="dce-Ik-swj" secondAttribute="centerX" id="Dy9-Vq-2IS"/>
-                <constraint firstAttribute="trailing" secondItem="aip-xE-3ff" secondAttribute="trailing" constant="8" id="K8W-YR-DHP"/>
-                <constraint firstItem="UYi-hi-p5C" firstAttribute="centerY" secondItem="dce-Ik-swj" secondAttribute="centerY" id="N4e-Sw-og2"/>
-                <constraint firstAttribute="trailing" secondItem="UYi-hi-p5C" secondAttribute="trailing" constant="8" id="ZHd-2V-yXo"/>
-                <constraint firstItem="aip-xE-3ff" firstAttribute="leading" secondItem="dce-Ik-swj" secondAttribute="leading" constant="8" id="eJS-r4-VsG"/>
-                <constraint firstItem="UYi-hi-p5C" firstAttribute="leading" secondItem="dce-Ik-swj" secondAttribute="leading" constant="8" id="kVx-eE-SYu"/>
                 <constraint firstItem="HSd-xt-zyW" firstAttribute="leading" secondItem="dce-Ik-swj" secondAttribute="leading" id="mAp-0T-RIG"/>
                 <constraint firstAttribute="trailing" secondItem="HSd-xt-zyW" secondAttribute="trailing" id="ot3-wA-GcA"/>
-                <constraint firstItem="HSd-xt-zyW" firstAttribute="top" secondItem="UYi-hi-p5C" secondAttribute="bottom" constant="15" id="vec-S5-ueb"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="Dy9-Vq-2IS"/>
-                    <exclude reference="N4e-Sw-og2"/>
-                </mask>
-            </variation>
             <point key="canvasLocation" x="263" y="429.5"/>
         </view>
     </objects>

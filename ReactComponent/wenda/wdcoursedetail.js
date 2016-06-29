@@ -281,7 +281,7 @@ var WendaCourseDetailComponent = React.createClass({
             		<View style={{flexDirection:'row', paddingTop:10, alignItems:'center'}}>
               			<Image style={{width: 30, height: 30, borderRadius: 15, marginRight: 5}} source={{uri:data.expert.cover}}/>
               			<TouchableHighlight
-            				onPress={() => {this._requestQuestion(data.id)}}
+            				onPress={() => {this._answerPressed(data)}}
             				underlayColor='#FFFFFF' >
               				<Image style={{width: 200, height: 30, borderRadius: 15, marginLeft: 10, backgroundColor:'#9DDF59', justifyContent: 'center',alignItems: 'center'}}>
                 				<Text style={{fontSize: 13, color: 'white'}} numberOfLines={1}>1元偷听</Text>
@@ -324,7 +324,21 @@ var WendaCourseDetailComponent = React.createClass({
 	 	);
 	},
 
+	_answerPressed: function(question) {
+    	RNCommon.isLogin((error, dic) => {
+      		if (error) {
+        		console.error(error);
+      		} else if (dic.isLogin === 'true') {
+
+        		this._requestQuestion(question.id);
+      		} else {
+        		RNCommon.openUrl('login');
+      		}
+   	 	});
+  	},
+
 	 _requestQuestion(questionId) {
+
     this._showLoadingEffect();
     HttpService.get(Common.domain() + '/v1/wd_hJoin?', {
       qid: questionId

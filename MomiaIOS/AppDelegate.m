@@ -14,6 +14,7 @@
 #import "GeTuiSdk.h"
 #import <RongIMKit/RongIMKit.h>
 #import "IQKeyboardManager.h"
+#import <KSCrash/KSCrashInstallationStandard.h>
 
 #import "IMTokenModel.h"
 #import "IMUserModel.h"
@@ -117,6 +118,11 @@
                 NSLog(@"refresh imtoken failed");
             }];
         }
+        
+        KSCrashInstallationStandard* installation = [KSCrashInstallationStandard sharedInstance];
+        installation.url = [NSURL URLWithString:@"https://collector.bughd.com/kscrash?key=a0e688965e763048c4a08e6359a813e3"];
+        [installation install];
+        [installation sendAllReportsWithCompletion:nil];
     }
     
     /**
