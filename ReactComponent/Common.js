@@ -1,3 +1,8 @@
+/*
+ *   公共部分
+ *
+ */		   
+
 'use strict';
 
 import React, {

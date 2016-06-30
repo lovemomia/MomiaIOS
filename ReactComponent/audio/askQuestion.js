@@ -173,7 +173,6 @@ var AskQuestionComponent = React.createClass({
      	 	content: this.state.text
     	}, (resp) => {
       		if (resp.errno == 0) {
-        		//this._handleSubmitResponse(resp.data);
             //支付
           	WendaPayManager.pay(resp.data, (error, payResult) => {
 
