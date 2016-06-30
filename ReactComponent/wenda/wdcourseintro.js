@@ -50,7 +50,7 @@ var WendaCourseIntroComponent = React.createClass({
 			dataSource: ds.cloneWithRows([new Array()]),
 			isLoading: true,
 			wdcourse: [],
-			refreshing: false
+			isRefreshing: false
 		};
 	},
 
@@ -65,9 +65,29 @@ var WendaCourseIntroComponent = React.createClass({
 				<ListView
 					dataSource={this.state.dataSource}
 					renderRow={this._renderRow}
+					refreshControl={
+        				<RefreshControl
+            				refreshing={this.state.isRefreshing}
+            				onRefresh={()=>this._onRefresh()} />}
             	/>
 			</View>
 		);
+	},
+
+	_onRefresh: function() {
+
+		console.log("log");
+		this.setState({isRefreshing: true});
+		HttpService.get(Common.domain() + '/v1/wd_course?', {
+     	 	wid: this.props.wid,
+    	}, (resp) => {
+      		if (resp.errno == 0) {
+        		this._handlerResponse(resp.data);
+     	 	} else {
+        		// request failed
+     	}
+      		console.log(resp.data);
+    	});
 	},
 
 	_handlerResponse: function(data) {
@@ -94,6 +114,7 @@ var WendaCourseIntroComponent = React.createClass({
       		isLoading: false,
       		dataSource: this.state.dataSource.cloneWithRows(list),
       		wdcourse: data.wdcourse,
+      		isRefreshing: false
     	});
 	},
 

@@ -16,7 +16,7 @@ var {
 	AppRegistry,
 	NativeModules,
 	TouchableHighlight,
-
+	RefreshControl
 } = ReactNative;
 
 var ds = new ListView.DataSource({
@@ -67,7 +67,8 @@ var WendaCourseDetailComponent = React.createClass({
 				new Array()
 			]),
 			isLoading: true,
-			isLoadingDialogVisible: false
+			isLoadingDialogVisible: false,
+			isRefreshing: false, //控制下拉刷新
 		};
 	},
 
@@ -94,7 +95,12 @@ var WendaCourseDetailComponent = React.createClass({
 				<ListView
 					style={{flex: 1}}
 					dataSource={this.state.dataSource}
-					renderRow={this._renderRow} />
+					renderRow={this._renderRow}
+					refreshControl={
+        				<RefreshControl
+            				refreshing={this.state.isRefreshing}
+            				onRefresh={() => this._onRefresh()} />}
+				/>
 				<TouchableHighlight 
 					style={{height: 48, backgroundColor: '#FF6634',justifyContent: 'center',alignItems: 'center'}}
 					onPress={() => this._pressAskExpretButton()}
@@ -103,6 +109,25 @@ var WendaCourseDetailComponent = React.createClass({
 				</TouchableHighlight>
 			</View>
 		);
+	},
+
+	_onRefresh: function() {
+		this.setState({isRefreshing: true});
+
+		HttpService.get(Common.domain() + '/v1/wd_courseDetails?', {
+     	 	start: 0,
+     	 	wid: this.props.wid,
+    	}, (resp) => {
+      		if (resp.errno == 0) {
+        		this._handlerResponse(resp.data);
+     	 	} else {
+        		// request failed
+        		this.setState({
+          		isLoading: false
+        	});
+     	}
+      		console.log(resp.data);
+    	});
 	},
 
 	_handlerResponse: function(data) {
@@ -117,10 +142,15 @@ var WendaCourseDetailComponent = React.createClass({
       	//互动问答
       	if (data.questions) {
 
-      		typeList.push({
-      			type: 2,
-      			data: {text: '互动问答',image: 'question'}
-      		});
+      		//如果问题个数为零，不显示section头部
+      		if ( data.questions.length != 0) {
+
+      			typeList.push({
+      				type: 2,
+      				data: {text: '互动问答',image: 'question'}
+      			});
+      		} 
+
       		for (var i = 0; i < data.questions.length; i++) {
       			typeList.push({
       				type: 3,
@@ -128,10 +158,13 @@ var WendaCourseDetailComponent = React.createClass({
       			});
       		}
 
-      		typeList.push({
-      			type: 6,
-      			data: {text: '查看更多',dataType: 1}, //1,互动问答， 2, 更多微课
-      		});
+      		//这里判断问题个数，大于两个等于两个显示查看更多，否则不显示
+      		if ( data.questions.length >= 2) {
+      			typeList.push({
+      				type: 6,
+      				data: {text: '查看更多',dataType: 1}, //1,互动问答， 2, 更多微课
+      			});
+      		}
       	}
 
       	//专家简介 Section
@@ -147,10 +180,15 @@ var WendaCourseDetailComponent = React.createClass({
 
       	//更多微课
       	if (data.wdcourses) {
-      		typeList.push({
-      			type: 2,
-      			data: {text:'更多微课',image:'course'}
-      		});
+
+      		//如果微课个数等于0则不显示section
+      		if (data.wdcourses.length !=0 ) {
+      			typeList.push({
+      				type: 2,
+      				data: {text:'更多微课',image:'course'}
+      			});	
+      		}
+      		
 
       		for (var i = 0; i < data.wdcourses.list.length; i++) {
       			typeList.push({
@@ -159,16 +197,20 @@ var WendaCourseDetailComponent = React.createClass({
       			});
       		}
 
-      		typeList.push({
+      		//这里判断微课个数，大于两个等于两个显示查看更多，否则不显示
+      		if (data.wdcourses.length >= 2) {
+      			typeList.push({
       			type: 6,
       			data: {text: '查看更多',dataType: 2},
       		});
+      		}
       	}
 
       	this.setState({
       		isLoading: false,
       		dataSource: this.state.dataSource.cloneWithRows(typeList),
       		wdcourse: data.wdcourse,
+      		isRefreshing: false
     	});
       	console.log(typeList);
 	},

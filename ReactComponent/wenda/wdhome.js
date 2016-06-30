@@ -22,7 +22,8 @@ var {
   Linking,
   ActivityIndicatorIOS,
   NativeModules,
-  Dimensions
+  Dimensions,
+  RefreshControl
 } = ReactNative;
 
 var RNCommon = NativeModules.RNCommon;
@@ -60,6 +61,8 @@ var styles = ReactNative.StyleSheet.create({
 });
 
 class WDHomeComponent extends React.Component {
+
+
   constructor(props) {
     super(props);
     var ds = new ListView.DataSource({
@@ -70,6 +73,7 @@ class WDHomeComponent extends React.Component {
       dataSource: ds.cloneWithRows([new Array()]),
       isLoading: true,
       isLoadingDialogVisible: false,
+      isRefreshing: false, //控制下拉刷新
     };
   }
 
@@ -79,8 +83,12 @@ class WDHomeComponent extends React.Component {
       size='small'/></View> : (<View style={SGStyles.container}>
       <ListView 
       dataSource={this.state.dataSource}
-      renderRow={this.renderRow.bind(this)}>
-      </ListView>
+      renderRow={this.renderRow.bind(this)}
+      refreshControl={
+        <RefreshControl
+            refreshing={this.state.isRefreshing}
+            onRefresh={() => this._onRefresh()} />}
+      />
       <View style={[SGStyles.container, styles.floatView]}>
         <LoadingEffect isVisible={this.state.isLoadingDialogVisible} text='加载中...'/>
       </View>
@@ -177,6 +185,7 @@ class WDHomeComponent extends React.Component {
     this.setState({
       isLoading: false,
       dataSource: this.state.dataSource.cloneWithRows(typeList),
+      isRefreshing: false
     });
   }
 
@@ -290,6 +299,27 @@ class WDHomeComponent extends React.Component {
         </View>
         <View style={styles.separator}/>
       </View>
+  }
+
+  //刷新操作
+  _onRefresh() {
+
+    this.setState({isRefreshing: true});
+    HttpService.get(Common.domain() + '/v1/wd_home?', {
+      start: 0
+    }, (resp) => {
+      if (resp.errno == 0) {
+        this._handlerResponse(resp.data);
+      } else {
+        // request failed
+        this.setState({
+          isLoading: false
+        });
+      }
+
+      console.log(resp);
+    });
+
   }
 
   _rowPressed(rowData) {

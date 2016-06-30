@@ -187,7 +187,7 @@ class WDCourseListComponent extends React.Component {
   }
 
   _rowPressed(rowData) {
-    RNCommon.openUrl('wdcoursedetail?id=' + rowData.data.id);
+    RNCommon.openUrl('wdcoursedetail?wid=' + rowData.data.id);
   }
 
 }

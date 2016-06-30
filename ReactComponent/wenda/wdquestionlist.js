@@ -176,8 +176,8 @@ class WDQuestionListComponent extends React.Component {
 
   _renderQuestionView(data) {
     return <View><View style={{backgroundColor:'white', padding:10}}>
-            <Text style={{fontSize: 15, color: '#333333'}} numberOfLines={1}>{data.content}</Text>
-            <Text style={{fontSize: 13, color: '#999999',paddingTop:5}} numberOfLines={1}>{data.expert.name} | {data.expert.intro}</Text>
+            <Text style={{fontSize: 15, color: '#333333'}} numberOfLines={3}>{data.content}</Text>
+            <Text style={{fontSize: 13, color: '#999999',paddingTop:5}} numberOfLines={2}>{data.expert.name} | {data.expert.intro}</Text>
             <View style={{flexDirection:'row', paddingTop:10, alignItems:'center'}}>
               <Image style={{width: 30, height: 30, borderRadius: 15, marginRight: 5}} source={{uri:data.expert.cover}}/>
               <TouchableHighlight

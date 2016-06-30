@@ -14,7 +14,8 @@ var {
 	ListView,
 	Image,
 	TouchableHighlight,
-	NativeModules
+	NativeModules,
+	RefreshControl
 } = ReactNative;
 
 var RNCommon = NativeModules.RNCommon;
@@ -131,6 +132,7 @@ class MyQuestionComponent extends React.Component {
 		this.setState({
 			isLoading: false,
 			dataSource: ds.cloneWithRows(list),
+			isRefreshing: false
 		});
 	}
 
@@ -144,9 +146,37 @@ class MyQuestionComponent extends React.Component {
 			<View style={{flex: 1}}>
 				<ListView
 					dataSource={this.state.dataSource}
-					renderRow = {this.renderRow.bind(this)} />
+					renderRow = {this.renderRow.bind(this)} 
+					refreshControl={
+        				<RefreshControl
+            				refreshing={this.state.isRefreshing}
+            				onRefresh={() => this._onRefresh()} />}
+				/>
 			</View>
 		);
+	}
+
+	_onRefresh() {
+
+		//设置刷新状态
+		this.setState({isRefreshing: true});
+
+		//获取数据
+		HttpService.get(Common.domain() + '/v1/wd_myQuestion?', {
+     	 	utoken: this.props.utoken,
+     	 	start: 0
+    	}, (resp) => {
+      		if (resp.errno == 0) {
+        		this._handlerResponse(resp.data);
+     	 	} else {
+        		// request failed
+        		this.setState({
+          		isLoading: false
+        	});
+     	}
+      		console.log(resp.data);
+    	});
+
 	}
 
 	//渲染rowItem View
@@ -166,7 +196,7 @@ class MyQuestionComponent extends React.Component {
 						</View>
 						<View style={styles.rightContainer}>
 							<Text style={styles.money}>￥2</Text>
-							<Text style={styles.status}>已过期</Text>
+							<Text style={styles.status}>{rowData.answer == true ? '已回答' : '未回答'}</Text>
 						</View>
 					</View>
 					<View style={styles.middleContainer}>

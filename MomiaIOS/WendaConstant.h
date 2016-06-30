@@ -9,6 +9,8 @@
 #ifndef WendaConstant_h
 #define WendaConstant_h
 
+#import <Foundation/Foundation.h>
+
 #define RNHost @"10.1.13.130"
 
 #endif /* WendaConstant_h */

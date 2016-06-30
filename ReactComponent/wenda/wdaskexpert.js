@@ -153,7 +153,7 @@ var AskExpertComponent = React.createClass({
 		console.log(data);
 		return (
 			<View style={{alignItems: 'center',backgroundColor: 'white'}}>
-				<Image style={{width: 80,height: 80, backgroundColor: 'green',marginTop: 10}}
+				<Image style={{width: 120,height: 120, backgroundColor: 'green',marginTop: 10}}
 				        source={{uri:data.cover}}/>
 				<Text style={{marginTop: 10}}>{data.name}</Text>
 				<View style={{padding: 10,backgroundColor: 'white'}}>
@@ -187,12 +187,12 @@ var AskExpertComponent = React.createClass({
 
     return <View>
     			<View style={{backgroundColor:'white', padding:10,marginTop: 15}}>
-            		<Text style={{fontSize: 15, color: '#333333'}} numberOfLines={1}>{data.content}</Text>
+            		<Text style={{fontSize: 15, color: '#333333'}} numberOfLines={3}>{data.content}</Text>
             		<Text style={{fontSize: 13, color: '#999999',paddingTop:5}} numberOfLines={1}>{data.expert.name} | {data.expert.intro}</Text>
             		<View style={{flexDirection:'row', paddingTop:10, alignItems:'center'}}>
               			<Image style={{width: 30, height: 30, borderRadius: 15, marginRight: 5}} source={{uri:data.expert.cover}}/>
               			<TouchableHighlight
-            				onPress={() => {this._requestQuestion(data.id)}}
+            				onPress={() => {this._answerPressed(data)}}
             				underlayColor='#FFFFFF' >
               			<Image style={{width: 200, height: 30, borderRadius: 15, marginLeft: 10, backgroundColor:'#9DDF59', justifyContent: 'center',alignItems: 'center'}}>
                 			<Text style={{fontSize: 13, color: 'white'}} numberOfLines={1}>1元偷听</Text>
@@ -205,7 +205,21 @@ var AskExpertComponent = React.createClass({
         	</View>
     },
 
+    _answerPressed: function(question) {
+    	RNCommon.isLogin((error, dic) => {
+      		if (error) {
+        		console.error(error);
+      		} else if (dic.isLogin === 'true') {
+
+        		this._requestQuestion(question.id);
+      		} else {
+        		RNCommon.openUrl('login');
+      		}
+   	 	});
+  	},
+
     _requestQuestion(questionId) {
+
    		HttpService.get(Common.domain() + '/v1/wd_hJoin?', {
       		qid: questionId
     	}, (resp) => {

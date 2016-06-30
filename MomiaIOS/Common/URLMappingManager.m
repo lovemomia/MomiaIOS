@@ -53,15 +53,41 @@ NSString * const pageKeyDesc          = @"desc";
 }
 
 - (BOOL)openURL:(NSURL *)url byNav:(UINavigationController *)nav {
+    
     NSDictionary *pageDic = [self parsePageWithURL:url];
     if (pageDic == nil) {
         NSLog(@"URLMapping fail (not found page with url:%@", url);
         return NO;
     }
     
+    
+    if (!([[url absoluteString] rangeOfString:@"login"].location == NSNotFound)){
+        
+        UIViewController *currentController = [nav.viewControllers objectAtIndex:[nav.viewControllers count] - 1];
+        LoginViewController *controller = [[LoginViewController alloc]initWithParams:nil];
+        
+        controller.loginSuccessBlock = ^(){
+            [currentController dismissViewControllerAnimated:YES completion:nil];
+        };
+        controller.loginFailBlock = ^(NSInteger code, NSString* message){
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+        };
+        controller.loginCancelBlock = ^(){
+            [currentController dismissViewControllerAnimated:YES completion:nil];
+        };
+        
+        MONavigationController *navController = [[MONavigationController alloc]initWithRootViewController:controller];
+        [currentController presentViewController:navController animated:YES completion:nil];
+        
+        NSLog(@"present view controller");
+        
+        return YES;
+    }
     // 判断是否需要登录
     BOOL needLogin = [[pageDic objectForKey:pageKeyNeedLogin] boolValue];
     if (needLogin && ![[AccountService defaultService] isLogin]) {
+
         UIViewController *currentController = [nav.viewControllers objectAtIndex:[nav.viewControllers count] - 1];
         LoginViewController *controller = [[LoginViewController alloc]initWithParams:nil];
         
@@ -82,7 +108,9 @@ NSString * const pageKeyDesc          = @"desc";
         MONavigationController *navController = [[MONavigationController alloc]initWithRootViewController:controller];
         [currentController presentViewController:navController animated:YES completion:nil];
         
+        NSLog(@"present view controller");
     } else{
+        NSLog(@"--- this is else");
         NSDictionary *params = [url queryDictionary];
         UIViewController *controller = [[NSClassFromString(pageDic[pageKeyController]) alloc]initWithParams:params];
         if (controller == nil) {
