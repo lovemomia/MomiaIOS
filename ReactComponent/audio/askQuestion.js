@@ -17,8 +17,6 @@ var {
 	NativeModules
 } = ReactNative;
 
-var CheckBox = require('react-native-checkbox');
-
 var WendaPayManager = NativeModules.WendaPayManager;
 
 var styles = ReactNative.StyleSheet.create({
@@ -36,12 +34,6 @@ var ds = new ListView.DataSource({
 });
 
 var AskQuestionComponent = React.createClass({
-
-	getDefaultProps: function() {
-		return {
-			
-		};
-	},
 
 	componentDidMount: function() {
 
@@ -182,7 +174,6 @@ var AskQuestionComponent = React.createClass({
     	}, (resp) => {
       		if (resp.errno == 0) {
         		//this._handleSubmitResponse(resp.data);
-
             //支付
           	WendaPayManager.pay(resp.data, (error, payResult) => {
 

@@ -87,4 +87,17 @@ typedef enum {
                                        fileName:(NSString *)fileName
                                         handler:(BlockMOUploadImageHandler)handler;
 
+/**
+ *  封装的语音上传请求
+ *
+ *  @param path             本地图片地址
+ *  @param fileName         文件名
+ *  @param handler          回调
+ *
+ *  @return 已发送的request 可以为nil
+ */
+- (NSURLSessionUploadTask *)uploadAudioWithFilePath:(NSString *)path
+                                           fileName:(NSString *)fileName
+                                            handler:(BlockMOUploadImageHandler)handler;
+
 @end

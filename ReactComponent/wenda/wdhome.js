@@ -136,14 +136,15 @@ class WDHomeComponent extends React.Component {
       });
     }
 
-    //header
+    //courses
+    if (data.hasOwnProperty('wdcourses') && data.wdcourses.length > 0) {
+
+      //header
     typeList.push({
       type: 2,
       data: '听微课'
     });
 
-    //courses
-    if (data.hasOwnProperty('wdcourses') && data.wdcourses.length > 0) {
       for (var i = 0; i < data.wdcourses.length; i++) {
         typeList.push({
           type: 3,
@@ -159,14 +160,15 @@ class WDHomeComponent extends React.Component {
       }
     }
 
-    //header
+    //questions
+    if (data.hasOwnProperty('questions') && data.questions.length > 0) {
+
+        //header
     typeList.push({
       type: 2,
       data: '问专家'
     });
-
-    //questions
-    if (data.hasOwnProperty('questions') && data.questions.length > 0) {
+    
       for (var i = 0; i < data.questions.length; i++) {
         typeList.push({
           type: 4,
@@ -343,7 +345,7 @@ class WDHomeComponent extends React.Component {
     if (rowData.type == 3) { //微课
       RNCommon.openUrl('wdcoursedetail?wid=' + rowData.data.id);
     } else if (rowData.type == 4) { //问专家
-      RNCommon.openUrl('wdquestiondetail?qid=' + rowData.data.id);
+      RNCommon.openUrl('answeraudio?qid=' + rowData.data.id);
     } else if (rowData.type == 5) { //更多
       if (rowData.data === '听微课') {
         RNCommon.openUrl('wdcourselist'); //微课列表

@@ -223,6 +223,36 @@
     return uploadTask;
 }
 
+//上传语音
+- (NSURLSessionUploadTask *)uploadAudioWithFilePath:(NSString *)path
+                                           fileName:(NSString *)fileName
+                                            handler:(BlockMOUploadImageHandler)handler {
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:[NSString stringWithFormat:@"%@%@", MO_IMAGE_API_DOMAIN, @"/upload/audio"] parameters:[self basicParamsWithParams:nil] constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileURL:[NSURL fileURLWithPath:path] name:@"file" fileName:fileName mimeType:@"image/jpeg" error:nil];
+    } error:nil];
+    
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    NSProgress *progress = nil;
+    
+    BlockMOUploadImageHandler blockHandler = ^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            handler(response, responseObject, error);
+            NSLog(@"http (Upload Image) fail: %@", error);
+            
+        } else {
+            id result = [[UploadImageModel alloc]initWithDictionary:responseObject error:nil];
+            handler(response, result, error);
+            
+            NSLog(@"http (Upload Image) success: %@", responseObject);
+        }
+    };
+    
+    NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithStreamedRequest:request progress:&progress completionHandler:blockHandler];
+    
+    [uploadTask resume];
+    return uploadTask;
+}
+
 - (NSMutableDictionary *)basicParamsWithParams:(NSDictionary *)params {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
     if (params) {

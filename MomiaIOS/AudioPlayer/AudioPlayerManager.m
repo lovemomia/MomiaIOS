@@ -10,11 +10,6 @@
 #import "amrFileCodec.h"
 #import <AVFoundation/AVFoundation.h>
 
-typedef NS_ENUM(NSInteger, PlayType){
-    PlayTypeURL = 0,
-    PlayTypePATH = 1
-};
-
 @interface AudioPlayerManager() <AVAudioRecorderDelegate>
 
 @property (nonatomic, strong) NSData *audioData;
@@ -31,6 +26,7 @@ static double endRecordTime=0;
 
 RCT_EXPORT_MODULE()
 
+//开始录音
 RCT_EXPORT_METHOD(startRecord) {
     
     startRecordTime = [NSDate timeIntervalSinceReferenceDate];
@@ -52,6 +48,7 @@ RCT_EXPORT_METHOD(startRecord) {
     [self.recorder record];
 }
 
+//停止录音
 RCT_EXPORT_METHOD(stopRecord) {
     
     NSURL *url = [[NSURL alloc]initWithString:self.recorder.url.absoluteString];
@@ -69,6 +66,7 @@ RCT_EXPORT_METHOD(stopRecord) {
     }
 }
 
+//播放语音
 RCT_EXPORT_METHOD(play) {
     
     NSData *outData = DecodeAMRToWAVE(self.audioData);
@@ -79,11 +77,33 @@ RCT_EXPORT_METHOD(play) {
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir = [dirPaths objectAtIndex:0];
     NSString *databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:@"temp.wav"]];
+    
+    NSLog(@"===%@",databasePath);
     [outData writeToFile:databasePath atomically:YES];
     
     NSURL *localPath = [[NSURL alloc]initFileURLWithPath:databasePath];
     self.player = [[AVPlayer alloc]initWithURL:localPath];
     [self.player play];
+}
+
+//上传语音
+RCT_EXPORT_METHOD(uploadAudioFile) {
+    
+    NSLog(@"hello upload");
+    
+    NSString *docsDir;
+    NSArray *dirPaths;
+    
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = [dirPaths objectAtIndex:0];
+    NSString *databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:@"88.amr"]];
+    
+    NSLog(@"===%@",databasePath);
+    
+    [[HttpService defaultService] uploadAudioWithFilePath:databasePath fileName:@"audioFile" handler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        
+        
+    }];
 }
 
 @end

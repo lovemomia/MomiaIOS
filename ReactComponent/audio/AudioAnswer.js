@@ -1,3 +1,8 @@
+/*
+  专家回答问题的页面
+  mosl
+ */
+
 'use strict';
 
 var React = require('react');
@@ -13,7 +18,13 @@ var {
 
 const timer = require('react-native-timer');
 
+//语音播放录制管理
 var AudioPlayerManager = require('NativeModules').AudioPlayerManager;
+
+var Common = require('../Common');
+var SGStyles = require('../SGStyles');
+var HttpService = require('../HttpService');
+var LoadingEffect = require('react-native-loading-effect');
 
 var styles = ReactNative.StyleSheet.create({
 	container: {
@@ -176,19 +187,22 @@ class AudioAnswerComponent extends React.Component {
 			return (
 				<View style={styles.buttonBox}>
 					<TouchableHighlight style={styles.buttonLeft}
-										onPress={this.playAudio}>
+										onPress={() => this._sendAnswer()}
+					>
 						<Text style={styles.buttonText}>重录</Text>
 					</TouchableHighlight>
-					<TouchableHighlight style={styles.buttonRight}>
+					<TouchableHighlight 
+						style={styles.buttonRight}
+						onPress={() => this._submitAnswer()}
+						underlayColor='gray'
+					>
 						<Text style={styles.buttonText}>确认发送</Text>
 					</TouchableHighlight>
 				</View>
 			);
 		}
 		return (
-			<View>
-				<Text>Hello Row </Text>
-			</View>
+			<View />
 		);
 	}
 	
@@ -219,11 +233,13 @@ class AudioAnswerComponent extends React.Component {
 	}
 
 	//发送语音
-	sendAnswer = () => {
+	_sendAnswer = () => {
+
+		AudioPlayerManager.uploadAudioFile();
 
 	}
 
-	_answerQuestion() {
+	_submitAnswer() {
 
 		HttpService.get(Common.domain() + '/v1/wd_qAnswer?', {
      	 	questionId: this.props.qid,
