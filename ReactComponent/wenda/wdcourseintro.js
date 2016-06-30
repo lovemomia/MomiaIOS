@@ -176,7 +176,7 @@ var WendaCourseIntroComponent = React.createClass({
 		data = this.state.wdcourse;
 		return (
 			<View style={{padding: 10}}>
-				<Image style={{height: 120,backgroundColor: 'green'}}
+				<Image style={{height: 120}}
 					   source={{uri:data.cover}} />
 			</View>
 		);

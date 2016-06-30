@@ -578,5 +578,14 @@
 		<key>controller</key>
 		<string>WendaCourseIntroViewController</string>
 	</dict>
+	<key>answeraudio</key>
+	<dict>
+		<key>desc</key>
+		<string>专家回答页</string>
+		<key>needlogin</key>
+		<true/>
+		<key>controller</key>
+		<string>AnswerAudioViewController</string>
+	</dict>
 </dict>
 </plist>

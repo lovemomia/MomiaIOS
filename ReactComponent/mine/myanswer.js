@@ -9,7 +9,15 @@ var {
 	Text,
 	Image,
 	TouchableHighlight,
+	NativeModules
 } = ReactNative;
+
+var Common = require('../Common');
+var SGStyles = require('../SGStyles');
+var HttpService = require('../HttpService');
+var LoadingEffect = require('react-native-loading-effect');
+
+let RNCommon = NativeModules.RNCommon;
 
 var styles = ReactNative.StyleSheet.create({
 	container: {
@@ -103,20 +111,90 @@ var MyAnswerComponent = React.createClass({
     	description: 'MyAnswerComponent View'
 	},
 
+	componentDidMount: function() {
+
+		 HttpService.get(Common.domain() + '/v1/wd_myAnswer?', {
+     	 	utoken:this.props.utoken,
+     	 	start: 0
+    	}, (resp) => {
+      		if (resp.errno == 0) {
+        		this._handlerResponse(resp.data);
+     	 	} else {
+        		// request failed
+        		this.setState({
+          		isLoading: false
+        	});
+     	}
+      		console.log(resp.data);
+    	});
+	},
+
+	_handlerResponse: function(data) {
+
+		let needAnswerList = new Array();
+		let allAnswerList = new Array();
+
+		if (data.nullAnswer) {
+
+			for (var i = 0; i < data.nullAnswer.list.length ; i++){
+				needAnswerList.push(
+					data.nullAnswer.list[i]
+				);
+			}
+		}
+
+
+		if (data.allAnswer) {
+
+			for (var i = 0 ; i < data.allAnswer.list.length; i++ ){
+				allAnswerList.push(
+					data.allAnswer.list[i]
+				);
+			}
+		}
+
+
+		let needAnswerDataSource = DS.cloneWithRows(
+				needAnswerList
+			);
+
+		let allAnswerDataSource = DS.cloneWithRows(
+				allAnswerList
+			);
+
+		this.setState({
+			isLoading: false,
+			viewpagerDataSource: PagerDataSource.cloneWithPages([
+				needAnswerDataSource,allAnswerDataSource
+			])
+		});
+	},
+
 	//初始化 State
 	getInitialState: function() {
+
+		let needAnswerDataSource = DS.cloneWithRows([
+				new Array()
+			]);
+
+		let allAnswerDataSource = DS.cloneWithRows([
+				new Array()
+			]);
+
 		return {
-			dataSource: DS.cloneWithRows([
-				{id: 1},{id: 2},{id: 3},{id: 4}
-			]),
 			viewpagerDataSource: PagerDataSource.cloneWithPages([
-				{id: 1},{id: 2}
+				needAnswerDataSource,allAnswerDataSource
 			])
 		};
 	},
 
 	//渲染视图
 	render: function() {
+
+		if (this.state.isLoading) {
+
+			return Common.loading();
+		}
 		return (
 			<View style={styles.container} >
 				<View style={styles.viewpagerHead} >
@@ -153,8 +231,12 @@ var MyAnswerComponent = React.createClass({
 	},
 
 	//渲染row
-	_renderRow: function(rowData: string, sectionID: number, rowID: number) {
+	_renderRow: function(rowData, sectionID, rowID) {
+
 		return (
+			<TouchableHighlight
+				onPress={() => this._pressQuestionView(rowData)}
+				underlayColor='white' >
 			<View style={styles.rowContainer}>
 				<View style={styles.contentContainer}>
 					<View style={styles.headContainer}>
@@ -168,16 +250,32 @@ var MyAnswerComponent = React.createClass({
 						</View>
 					</View>
 					<View style={styles.middleContainer}>
-						<Text>创业历程如何</Text>
+						<Text>{rowData.content}</Text>
 					</View>
 					<View style={styles.tailContainer}>
-						<Text style={styles.time}>13天前</Text>
+						<Text style={styles.time}>{rowData.addTime}</Text>
 						<Text>100个人偷偷听</Text>
 					</View>
 				</View>
 				<View style={styles.seperator} />
 			</View>
+			</TouchableHighlight>
 		);
+	},
+
+	_pressQuestionView: function(data) {
+
+		//未回答
+		if (data.status == 1) {
+			//跳到回答页面
+
+			RNCommon.openUrl('answeraudio?qid=' + data.id);
+
+			console.log('open url');
+		} else { //已回答
+			//跳转到问答详情
+			
+		}
 	},
 
 	//渲染 Page
@@ -185,7 +283,7 @@ var MyAnswerComponent = React.createClass({
 		return (
 			<View style={styles.container}>
 				<ListView
-					dataSource={this.state.dataSource}
+					dataSource={data}
 					renderRow = {this._renderRow} />
 			</View>
 		);
@@ -206,13 +304,10 @@ var MyAnswerComponent = React.createClass({
 
 	_leftPagePressed: function() {
 		console.log("left page onclick");
-		// ViewPager.goToPage(0,true);
-		console.log(ViewPager);
 	},
 
 	_rightPagePressed: function() {
 		console.log("right page onclick");
-		// ViewPager.goToPage(1,true);
 	},
 
 });

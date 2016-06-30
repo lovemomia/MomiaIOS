@@ -18,7 +18,6 @@ var {
 	NativeModules,
 } = ReactNative;
 
-
 var Common = require('../Common');
 var SGStyles = require('../SGStyles');
 var HttpService = require('../HttpService');
@@ -249,7 +248,7 @@ var AskExpertComponent = React.createClass({
     },
 
     _pressCourse: function(data) {
-    	RNCommon.openUrl('wdcoursedetail?id=' + data.id);
+    	RNCommon.openUrl('wdcoursedetail?wid=' + data.id);
     }
     
 });

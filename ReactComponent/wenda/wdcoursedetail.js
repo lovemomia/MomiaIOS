@@ -342,10 +342,10 @@ var WendaCourseDetailComponent = React.createClass({
 	_renderExpert: function(data) {
 
 		return (
-			<View style={{alignItems: 'center',backgroundColor: 'white'}}>
+			<View style={{alignItems: 'center',backgroundColor: 'white',paddingTop: 20}}>
 				<Image style={{width: 120,height: 120}}
 				       source={{uri:data.expert.cover}} />
-				<Text>{data.expert.name}</Text>
+				<Text style={{marginTop: 10}}>{data.expert.name}</Text>
 				<View style={{padding: 10,backgroundColor: 'white'}}>
 				<Text>{data.expert.intro}</Text>
 			</View>
@@ -427,7 +427,7 @@ var WendaCourseDetailComponent = React.createClass({
 
 	goToQuestionDetail: function(data) {
 
-		RNCommon.openUrl('wdquestiondetail?wid=1');
+		RNCommon.openUrl('wdquestiondetail?qid=' + data.id);
 	},
 
 	playCourse: function() {

@@ -49,7 +49,6 @@ var styles = ReactNative.StyleSheet.create({
 		marginLeft: 10,
 		marginRight: 10,
 		alignItems: 'center',
-		backgroundColor: 'green'
 	},
 	audioBox: {
 		alignItems:'center',
@@ -221,6 +220,29 @@ class AudioAnswerComponent extends React.Component {
 
 	//发送语音
 	sendAnswer = () => {
+
+	}
+
+	_answerQuestion() {
+
+		HttpService.get(Common.domain() + '/v1/wd_qAnswer?', {
+     	 	questionId: this.props.qid,
+     	 	mins: 30,
+     	 	answer: 'http://www.baidu.ccom'
+    	}, (resp) => {
+      		if (resp.errno == 0) {
+        		this._handlerResponse(resp.data);
+     	 	} else {
+        		// request failed
+        		this.setState({
+          		isLoading: false
+        	});
+     	}
+      		console.log(resp.data);
+    	});
+	}
+
+	_handlerResponse(data) {
 
 	}
 }

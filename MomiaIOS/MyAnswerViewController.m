@@ -12,6 +12,8 @@
 
 @interface MyAnswerViewController ()
 
+@property (nonatomic, strong) NSString *utoken;
+
 @end
 
 @implementation MyAnswerViewController
@@ -20,12 +22,28 @@
     return YES;
 }
 
+- (instancetype)initWithParams:(NSDictionary *)params {
+    if (self = [super initWithParams:params]) {
+        [self decoderParams:params];
+    }
+    return self;
+}
+
+//解析参数
+-(void)decoderParams:(NSDictionary *)params{
+    self.utoken = [params objectForKey:@"utoken"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"我问";
+    self.title = @"我答";
+    
+    self.utoken = [AccountService defaultService].account.token;
+    NSDictionary *props = @{@"utoken": self.utoken};
+    
     NSURL *jsCodeLocation = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:8081/mine/myanswer.bundle?platform=ios",RNHost]];
-    RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"MyAnswerComponent" initialProperties:nil launchOptions:nil];
+    RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"MyAnswerComponent" initialProperties:props launchOptions:nil];
     rootView.frame = self.view.bounds;
     [self.view addSubview:rootView];
 }

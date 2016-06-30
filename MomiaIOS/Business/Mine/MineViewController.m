@@ -77,7 +77,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 1 || section == 2) {
+    if (section == 1 && [AccountService defaultService].account.role.integerValue == 9) {
+        return 3;
+    } else if(section == 1 && [AccountService defaultService].account.role.integerValue == 1){
+        return 2;
+    }else if (section == 2) {
         return 3;
     } else if (section == 0) {
         return 1;
@@ -114,7 +118,7 @@
                 
                 [MobClick event:@"Mine_Book"];
                 
-            } else if (row == 1) {
+            } else if (row == 1 && [AccountService defaultService].account.role.integerValue == 9 ) {
                [self openURL:@"myanswer"];
                 
                 [MobClick event:@"Mine_Booked"];
@@ -174,26 +178,6 @@
             if (cell == nil) {
                 NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"MineInfoCell" owner:self options:nil];
                 cell = [arr objectAtIndex:0];
-//                if (![[AccountService defaultService].account haveChildren]) { //没有小孩，更新约束
-//                    NSArray *constrains = cell.contentView.constraints;
-//                    UIView *adultImageView = [cell.contentView viewWithTag:1];
-//                    UIView *adultNameView = [cell.contentView viewWithTag:2];
-//                    UIView *childNameView = [cell.contentView viewWithTag:3];
-//                    
-//                    [childNameView removeFromSuperview]; //移除小孩名字Label
-////                    for (NSLayoutConstraint* constraint in constrains) {
-////                        NSLog(@"%@",constraint);
-////                        if (constraint.firstItem == adultNameView || constraint.secondItem == adultNameView) {
-////                            [cell.contentView removeConstraint:constraint];
-////                        }
-////                        NSLayoutConstraint *centerConstraint = [NSLayoutConstraint constraintWithItem:adultNameView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:adultNameView.superview attribute:NSLayoutAttributeCenterY multiplier:1.0f constant:0];
-////                        [cell.contentView addConstraint:centerConstraint]; //增加居中约束
-////                        
-////                        NSLayoutConstraint *trailingConstraint = [NSLayoutConstraint constraintWithItem:adultNameView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:adultImageView attribute:NSLayoutAttributeTrailing multiplier:1.0f constant:10];
-////                        [cell.contentView addConstraint:trailingConstraint]; //增加左边间距
-////                    }
-//                    
-//                }
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             }
             
@@ -240,7 +224,7 @@
                 if (row == 0) {
                     commonCell.titleLabel.text = @"我问";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconBooking"];
-                } else if (row == 1 ) {
+                } else if (row == 1 && [AccountService defaultService].account.role.integerValue == 9) {
                     commonCell.titleLabel.text = @"我答";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconBooked"];
                 } else {
