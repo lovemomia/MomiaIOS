@@ -87,9 +87,6 @@ var ds = new ListView.DataSource({
 	rowHasChanged: (r1, r2) => r1 !== r2
 });
 
-//获取到我问的ViewController
-var MyQuestionViewController = require('NativeModules').MyQuestionViewController;
-
 class MyQuestionComponent extends React.Component {
 
 	componentDidMount() {
@@ -213,9 +210,8 @@ class MyQuestionComponent extends React.Component {
 		);
 	}
 
-	onPressRowItem(rowID) {
-		console.log("Press Row");
-		RNCommon.openUrl('wdquestiondetail?qid=' + rowID);
+	onPressRowItem(qid) {
+		RNCommon.openUrl('myqadetail?qid=' + qid);
 	}
 
 	highlightRow(sectionID, rowID) {

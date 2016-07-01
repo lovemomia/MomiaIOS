@@ -51,7 +51,6 @@ var styles = ReactNative.StyleSheet.create({
 		height: 44,
 		width: 44,
 		borderRadius: 22,
-		backgroundColor: 'green',
 	},
 	headContainer: {
 		flexDirection: 'row',
@@ -241,11 +240,12 @@ var MyAnswerComponent = React.createClass({
 				<View style={styles.contentContainer}>
 					<View style={styles.headContainer}>
 						<View style={styles.leftContainer}>
-							<Image style={styles.image} />
-							<Text>乌鸡国国王</Text>
+							<Image style={styles.image}
+							       source={{uri: rowData.userAvatar}} />
+							<Text>{rowData.userName}</Text>
 						</View>
 						<View style={styles.rightContainer}>
-							<Text style={styles.money}>￥2</Text>
+							<Text style={styles.money}>￥{rowData.price}</Text>
 							<Text style={styles.status}>已过期</Text>
 						</View>
 					</View>
@@ -254,7 +254,7 @@ var MyAnswerComponent = React.createClass({
 					</View>
 					<View style={styles.tailContainer}>
 						<Text style={styles.time}>{rowData.addTime}</Text>
-						<Text>100个人偷偷听</Text>
+						<Text>{rowData.count}个人偷偷听</Text>
 					</View>
 				</View>
 				<View style={styles.seperator} />
@@ -269,7 +269,7 @@ var MyAnswerComponent = React.createClass({
 		if (data.status == 1) {
 			//跳到回答页面
 
-			RNCommon.openUrl('answeraudio?qid=' + data.id);
+			RNCommon.openUrl('myqadetail?qid=' + data.id);
 
 			console.log('open url');
 		} else { //已回答

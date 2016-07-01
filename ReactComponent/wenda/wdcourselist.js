@@ -168,22 +168,30 @@ class WDCourseListComponent extends React.Component {
       size='small'/></View>
   }
 
-  _renderCourseView(data) {
-    return <View><View style={{flex:1,flexDirection:'row',backgroundColor:'white'}}>
-        <View style={{alignItems:'center',padding:10}}>
-          <Image style={{width: 50, height: 50}} source={{uri:data.expert.cover}}/>
-          <Text style={{fontSize: 13, color: '#333333',paddingTop:5}} numberOfLines={1}>{data.expert.name}</Text>
-        </View>
-        <View style={{paddingTop:10, paddingBottom:10, paddingRight:10}}>
-          <Text style={{fontSize: 15, color: '#333333'}} numberOfLines={1}>{data.title}</Text>
-          <Text style={{flex:1, fontSize: 13, color: '#999999',paddingTop:5}} numberOfLines={1}>{data.subhead}</Text>
-          <View style={{flexDirection:'row', justifyContent: 'flex-end'}}>
-              <Text style={{fontSize: 13, color: '#999999',paddingRight:10}} numberOfLines={1}>20000次</Text>
-              <Text style={{fontSize: 13, color: '#999999'}} numberOfLines={1}>50分钟</Text></View>
-        </View>
-      </View>
-      <View style={styles.separator}/>
-      </View>
+ _renderCourseView(data) {
+    return (<View>
+              <View style={{backgroundColor:'white',paddingBottom: 10}}>
+              <View style={{flex:1,flexDirection:'row',backgroundColor:'white',justifyContent: 'center',alignItems: 'center'}}>
+                  <View style={{alignItems:'center',padding: 10}}>
+                    <Image style={{width: 50, height: 50, borderRadius: 25}} source={{uri:data.expert.cover}}/>
+                  </View>
+                  <View style={{flex: 1,paddingTop: 10,paddingRight: 10,paddingBottom: 10}}>
+                    <Text style={{fontSize: 16, color: '#333333'}} numberOfLines={2}>{data.title}</Text>
+                    <Text style={{fontSize: 13, color: '#999999',marginRight: 10,marginTop: 5}} numberOfLines={2}>{data.subhead}</Text>
+                  </View>
+              </View>
+              <View style={{flexDirection:'row',paddingLeft: 20, alignItems:'center',justifyContent: 'center'}}>
+                    <Text style={{fontSize: 13, color: '#333333'}} numberOfLines={1}>{data.expert.name}</Text>
+                    <View style={{flexDirection: 'row',flex: 1}}>
+                      <Image style={{width: 15,height: 15,marginLeft: 20}} source={require('../common/image/count.png')} />
+                      <Text style={{fontSize: 13, color: '#999999',marginLeft: 4}} numberOfLines={1}>{data.count}次</Text>
+                      <Image style={{width: 15,height: 15,marginLeft: 10}} source={require('../common/image/time.png')} />
+                      <Text style={{fontSize: 13, color: '#999999',marginLeft: 4}} numberOfLines={1}>{data.mins}分钟</Text></View>
+                    </View>
+              </View>
+              <View style={styles.separator}/>
+            </View>);
+
   }
 
   _rowPressed(rowData) {

@@ -33,6 +33,8 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleMsg"] style:UIBarButtonItemStylePlain target:self action:@selector(onTitleBtnClick)];
     
     [[AccountService defaultService] addListener:self];
+    
+    //获取我的问题，答案
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -74,19 +76,18 @@
 }
 
 #pragma mark - tableview delegate & datasource
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 1 && [AccountService defaultService].account.role.integerValue == 9) {
         return 3;
-    } else if(section == 1 && [AccountService defaultService].account.role.integerValue == 1){
+    } else if(section == 1){
         return 2;
     }else if (section == 2) {
         return 3;
     } else if (section == 0) {
         return 1;
     }
-    return 2;
+    return 3;
 }
 
 //有四个section

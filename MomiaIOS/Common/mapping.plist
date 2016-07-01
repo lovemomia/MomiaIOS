@@ -531,7 +531,7 @@
 		<key>needlogin</key>
 		<true/>
 		<key>controller</key>
-		<string>MyQAViewController</string>
+		<string>MyQADetailViewController</string>
 	</dict>
 	<key>myquestion</key>
 	<dict>

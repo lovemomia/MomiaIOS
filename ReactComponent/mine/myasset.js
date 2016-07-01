@@ -9,7 +9,6 @@ var {
 	ListView,
 } = ReactNative;
 
-
 var Common = require('../Common');
 var SGStyles = require('../SGStyles');
 var HttpService = require('../HttpService');

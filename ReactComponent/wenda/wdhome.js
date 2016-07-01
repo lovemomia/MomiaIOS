@@ -345,7 +345,7 @@ class WDHomeComponent extends React.Component {
     if (rowData.type == 3) { //微课
       RNCommon.openUrl('wdcoursedetail?wid=' + rowData.data.id);
     } else if (rowData.type == 4) { //问专家
-      RNCommon.openUrl('answeraudio?qid=' + rowData.data.id);
+      RNCommon.openUrl('wdquestiondetail?qid=' + rowData.data.id);
     } else if (rowData.type == 5) { //更多
       if (rowData.data === '听微课') {
         RNCommon.openUrl('wdcourselist'); //微课列表

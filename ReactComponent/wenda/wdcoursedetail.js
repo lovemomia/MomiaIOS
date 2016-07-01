@@ -242,9 +242,7 @@ var WendaCourseDetailComponent = React.createClass({
 			);
 		}
 		return (
-			<View>
-				<Text>Hello CourseComponent!</Text>
-			</View>
+			<View />
 		);
 	},
 
@@ -356,13 +354,13 @@ var WendaCourseDetailComponent = React.createClass({
 	//渲染查看更多
 	_renderMore: function(data) {
 		return (
-			<View style={{height: 48,justifyContent: 'center',alignItems: 'center',backgroundColor: 'white'}}>
-				<TouchableHighlight style={{borderRadius: 4,borderWidth: 1,borderColor: 'gray',padding: 5}}
+			<TouchableHighlight style={{height: 48,justifyContent: 'center',alignItems: 'center',backgroundColor: 'white'}}
 									onPress={() => this._lookMore(data.dataType) }
 									underlayColor='white'>
+				<View style={{borderRadius: 4,borderWidth: 1,borderColor: 'gray',padding: 5}}>
 						<Text>{data.text}</Text>
-				</TouchableHighlight>
-			</View>
+				</View>
+			</TouchableHighlight>
 	 	);
 	},
 
@@ -426,7 +424,7 @@ var WendaCourseDetailComponent = React.createClass({
 	},
 
 	goToQuestionDetail: function(data) {
-
+		//问专家
 		RNCommon.openUrl('wdquestiondetail?qid=' + data.id);
 	},
 

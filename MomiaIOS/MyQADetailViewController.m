@@ -12,6 +12,8 @@
 
 @interface MyQADetailViewController ()
 
+@property (nonatomic, strong) NSNumber *qid;
+
 @end
 
 @implementation MyQADetailViewController
@@ -20,12 +22,26 @@
     return YES;
 }
 
+- (instancetype)initWithParams:(NSDictionary *)params {
+    if (self = [super initWithParams:params]) {
+        [self decoderParams:params];
+    }
+    return self;
+}
+
+//解析参数
+-(void)decoderParams:(NSDictionary *)params{
+    self.qid = [params objectForKey:@"qid"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = @"问答详情";
+    
+    NSDictionary *props = @{@"qid": self.qid};
     NSURL *jsCodeLocation = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:8081/mine/myqadetail.bundle?platform=ios",RNHost]];
-    RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"MyQADetailComponent" initialProperties:nil launchOptions:nil];
+    RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"MyQADetailComponent" initialProperties:props launchOptions:nil];
     rootView.frame = self.view.bounds;
     [self.view addSubview:rootView];
 }
