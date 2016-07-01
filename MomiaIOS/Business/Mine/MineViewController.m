@@ -13,6 +13,8 @@
 #import "ChatListViewController.h"
 #import <RongIMKit/RongIMKit.h>
 #import "NSString+MOURLEncode.h"
+#import "HttpService.h"
+#import "MyWendaData.h"
 
 @interface MineViewController ()
 
@@ -34,7 +36,23 @@
     
     [[AccountService defaultService] addListener:self];
     
-    //获取我的问题，答案
+    //获取我的问题，未回答问题，我的问题的个数
+    
+    [self fetchMyData];
+}
+
+//获取我的问答数据，并显示
+-(void)fetchMyData {
+    
+    NSDictionary *params = @{@"utoken": [AccountService defaultService].account.token};
+    NSString * urlPath = [NSString stringWithFormat:@"/v1/wd_myCenter?utoken=%@",[AccountService defaultService].account.token];
+    [[HttpService defaultService]GET:URL_APPEND_PATH(urlPath) parameters:params cacheType:CacheTypeDisable JSONModelClass:[MyWendaData class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"----%@",responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"----");
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -144,7 +144,7 @@ var MyQADetailComponent = React.createClass({
 							</View>
 							<Text style={{fontSize: 13, color: 'gray'}} numberOfLines={2}>{this.state.expert.intro}</Text>
 						</View>
-						<Image style={{width: 5, height: 5,backgroundColor: 'green'}} />
+						<Image style={{width: 15, height: 15,}} source={require('../common/image/arrow.png')} />
 					</View>
 				</View>
 				</TouchableHighlight>

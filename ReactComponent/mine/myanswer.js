@@ -120,10 +120,7 @@ var MyAnswerComponent = React.createClass({
         		this._handlerResponse(resp.data);
      	 	} else {
         		// request failed
-        		this.setState({
-          		isLoading: false
-        	});
-     	}
+     		}
       		console.log(resp.data);
     	});
 	},
@@ -183,7 +180,8 @@ var MyAnswerComponent = React.createClass({
 		return {
 			viewpagerDataSource: PagerDataSource.cloneWithPages([
 				needAnswerDataSource,allAnswerDataSource
-			])
+			]),
+			isLoading: true
 		};
 	},
 
@@ -232,6 +230,10 @@ var MyAnswerComponent = React.createClass({
 	//渲染row
 	_renderRow: function(rowData, sectionID, rowID) {
 
+		//这里，如果数据为空的话返回的是一个空数组
+		if (rowData instanceof Array) {
+			return <View />
+		}
 		return (
 			<TouchableHighlight
 				onPress={() => this._pressQuestionView(rowData)}

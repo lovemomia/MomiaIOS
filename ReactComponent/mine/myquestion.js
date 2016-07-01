@@ -99,10 +99,7 @@ class MyQuestionComponent extends React.Component {
         		this._handlerResponse(resp.data);
      	 	} else {
         		// request failed
-        		this.setState({
-          		isLoading: false
-        	});
-     	}
+     		}
       		console.log(resp.data);
     	});
 	}
@@ -181,7 +178,7 @@ class MyQuestionComponent extends React.Component {
 		return (
 			<TouchableHighlight 
 				onPress={() => {
-          		this.onPressRowItem(rowData.id);}}
+          		this.onPressRowItem(rowData);}}
           		underlayColor="#f1f1f1">
 			<View style={styles.rowContainer}>
 				<View style={styles.contentContainer}>
@@ -192,8 +189,8 @@ class MyQuestionComponent extends React.Component {
 							<Text>{rowData.expert.name}</Text>
 						</View>
 						<View style={styles.rightContainer}>
-							<Text style={styles.money}>￥2</Text>
-							<Text style={styles.status}>{rowData.answer == true ? '已回答' : '未回答'}</Text>
+							<Text style={styles.money}>￥{rowData.price}</Text>
+							<Text style={styles.status}>{rowData.isAnswer == true ? '已回答' : '未回答'}</Text>
 						</View>
 					</View>
 					<View style={styles.middleContainer}>
@@ -210,12 +207,14 @@ class MyQuestionComponent extends React.Component {
 		);
 	}
 
-	onPressRowItem(qid) {
-		RNCommon.openUrl('myqadetail?qid=' + qid);
-	}
+	onPressRowItem(question) {
 
-	highlightRow(sectionID, rowID) {
-		console.log("highlightRow");
+		//判断问题是否已回答  问题的状态，1: 未回答  3: 已回答  4: 已过期
+
+		if (question.isAnswer) {
+
+		}
+		RNCommon.openUrl('myqadetail?qid=' + qid);
 	}
 }
 
