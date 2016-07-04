@@ -271,7 +271,7 @@ var MyAnswerComponent = React.createClass({
 		if (data.status == 1) {
 			//跳到回答页面
 
-			RNCommon.openUrl('myqadetail?qid=' + data.id);
+			RNCommon.openUrl('answeraudio?qid=' + data.id);
 
 			console.log('open url');
 		} else { //已回答

@@ -224,26 +224,32 @@
 }
 
 //上传语音
+/*
+ *  这里记录一个问题，文件fileName需要文件后缀
+ *
+ */
+
 - (NSURLSessionUploadTask *)uploadAudioWithFilePath:(NSString *)path
                                            fileName:(NSString *)fileName
                                             handler:(BlockMOUploadImageHandler)handler {
     NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:[NSString stringWithFormat:@"%@%@", MO_IMAGE_API_DOMAIN, @"/upload/audio"] parameters:[self basicParamsWithParams:nil] constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFileURL:[NSURL fileURLWithPath:path] name:@"file" fileName:fileName mimeType:@"image/jpeg" error:nil];
+        [formData appendPartWithFileURL:[NSURL fileURLWithPath:path] name:@"file" fileName:fileName mimeType:@"audio/amr" error:nil];
     } error:nil];
     
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     NSProgress *progress = nil;
     
+    NSLog(@"request log ----%@",request);
     BlockMOUploadImageHandler blockHandler = ^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
             handler(response, responseObject, error);
-            NSLog(@"http (Upload Image) fail: %@", error);
+            NSLog(@"http (Upload Audio) fail: %@", error);
             
         } else {
             id result = [[UploadImageModel alloc]initWithDictionary:responseObject error:nil];
             handler(response, result, error);
             
-            NSLog(@"http (Upload Image) success: %@", responseObject);
+            NSLog(@"http (Upload Audio) success: %@", responseObject);
         }
     };
     
@@ -323,7 +329,7 @@
  *  @param dictionary 参数字典
  *
  *  @return 请求的sign字段
- */
+ **/
 - (NSString *)doSignWithParameters:(NSDictionary *)dictionary {
     
     // 签名

@@ -17,7 +17,7 @@
 
 @end
 
-@interface MyWendaData : JSONModel
+@interface MyWendaData : BaseModel
 
 @property (nonatomic, strong) MineData *data;
 

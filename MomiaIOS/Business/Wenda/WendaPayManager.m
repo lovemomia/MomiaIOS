@@ -127,6 +127,8 @@ RCT_EXPORT_METHOD(pay:(NSDictionary *)order callback:(RCTResponseSenderBlock)cal
                                       [payTool startAlipay:((AlipayOrderModel *)responseObject).data payResult:^(BOOL success){
                                           //支付成功回调
                                           
+                                          //发送广播，支付成功
+                                          [[NSNotificationCenter defaultCenter]postNotificationName:@"pay_success" object:nil userInfo:nil];
                                       }] ;
                                   }
                               }

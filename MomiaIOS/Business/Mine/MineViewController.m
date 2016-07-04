@@ -18,6 +18,11 @@
 
 @interface MineViewController ()
 
+@property (nonatomic, strong) NSString *utoken; //token
+@property (nonatomic, strong) NSNumber *role; //角色
+
+@property (nonatomic, strong) MyWendaData *wendaData;
+
 @end
 
 @implementation MineViewController
@@ -36,22 +41,29 @@
     
     [[AccountService defaultService] addListener:self];
     
-    //获取我的问题，未回答问题，我的问题的个数
-    
-    [self fetchMyData];
+    //登录状态
+    if ([[AccountService defaultService] isLogin]){
+        self.utoken = [AccountService defaultService].account.token;
+        self.role = [AccountService defaultService].account.role;
+        //获取我的问题，未回答问题，我的问题的个数
+        [self fetchMyData];
+    }
 }
 
 //获取我的问答数据，并显示
 -(void)fetchMyData {
     
-    NSDictionary *params = @{@"utoken": [AccountService defaultService].account.token};
-    NSString * urlPath = [NSString stringWithFormat:@"/v1/wd_myCenter?utoken=%@",[AccountService defaultService].account.token];
-    [[HttpService defaultService]GET:URL_APPEND_PATH(urlPath) parameters:params cacheType:CacheTypeDisable JSONModelClass:[MyWendaData class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSDictionary *params = @{@"utoken": self.utoken};
+    NSString * urlPath = [NSString stringWithFormat:@"/v1/wd_centre"];
+    [[HttpService defaultService]GET:URL_APPEND_PATH(urlPath) parameters:params cacheType:CacheTypeDisable JSONModelClass:[MyWendaData class] success:^(AFHTTPRequestOperation *operation, MyWendaData *responseObject) {
         
-        NSLog(@"----%@",responseObject);
+        self.wendaData = responseObject;
+        NSLog(@"%@----",responseObject.errMsg);
+        
+         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        NSLog(@"----");
+        NSLog(@"----fail----");
     }];
 }
 
@@ -79,7 +91,21 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"onMineDotChanged" object:nil];
 }
 
+//账户发生改变
 - (void)onAccountChange {
+    
+    if ([[AccountService defaultService] isLogin]){
+        self.utoken = [AccountService defaultService].account.token;
+        self.role = [AccountService defaultService].account.role;
+    } else {
+        self.utoken = nil;
+        self.role = nil;
+    }
+    
+    //获取我的问题，未回答问题，我的问题的个数
+    if(self.utoken != nil) {
+        [self fetchMyData];
+    }
     [self.tableView reloadData];
 }
 
@@ -96,9 +122,11 @@
 #pragma mark - tableview delegate & datasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 1 && [AccountService defaultService].account.role.integerValue == 9) {
+    if (section == 1 && self.utoken == nil) { //未登录
         return 3;
-    } else if(section == 1){
+    }else if (section == 1 && self.role.integerValue == 9) { //专家
+        return 3;
+    } else if(section == 1 && self.role.integerValue == 1){ //普通用户
         return 2;
     }else if (section == 2) {
         return 3;
@@ -137,7 +165,7 @@
                 
                 [MobClick event:@"Mine_Book"];
                 
-            } else if (row == 1 && [AccountService defaultService].account.role.integerValue == 9 ) {
+            } else if (row == 1 && self.role.integerValue == 9 ) {
                [self openURL:@"myanswer"];
                 
                 [MobClick event:@"Mine_Booked"];
@@ -243,12 +271,27 @@
                 if (row == 0) {
                     commonCell.titleLabel.text = @"我问";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconBooking"];
+                    
+                    if (self.wendaData) {
+                        commonCell.subTitleLabel.textColor = [UIColor redColor];
+                        commonCell.subTitleLabel.text = [NSString stringWithFormat:@"%@",self.wendaData.data.questionNumber];
+                    }
                 } else if (row == 1 && [AccountService defaultService].account.role.integerValue == 9) {
                     commonCell.titleLabel.text = @"我答";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconBooked"];
+                    
+                    if (self.wendaData) {
+                        commonCell.subTitleLabel.textColor = [UIColor redColor];
+                        commonCell.subTitleLabel.text = [NSString stringWithFormat:@"%@",self.wendaData.data.answerNumber];
+                    }
                 } else {
                     commonCell.titleLabel.text = @"我的账户";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconBooked"];
+                    
+                    if (self.wendaData) {
+                        commonCell.subTitleLabel.textColor = [UIColor redColor];
+                        commonCell.subTitleLabel.text = [NSString stringWithFormat:@"%@",self.wendaData.data.assetNumber];
+                    }
                 }
                 break;
             case 2:

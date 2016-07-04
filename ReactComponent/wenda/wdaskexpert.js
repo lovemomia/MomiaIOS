@@ -152,7 +152,7 @@ var AskExpertComponent = React.createClass({
 		console.log(data);
 		return (
 			<View style={{alignItems: 'center',backgroundColor: 'white'}}>
-				<Image style={{width: 120,height: 120, backgroundColor: 'green',marginTop: 10}}
+				<Image style={{width: 120,height: 120,marginTop: 10}}
 				        source={{uri:data.cover}}/>
 				<Text style={{marginTop: 10}}>{data.name}</Text>
 				<View style={{padding: 10,backgroundColor: 'white'}}>

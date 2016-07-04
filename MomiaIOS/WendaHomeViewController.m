@@ -12,6 +12,8 @@
 
 @interface WendaHomeViewController ()
 
+@property (nonatomic, strong)RCTRootView *rootView;
+
 @end
 
 @implementation WendaHomeViewController
@@ -38,9 +40,9 @@
     //    NSURL *jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
     // To generate that file, run the curl command and add the output to your main Xcode build target: //
     // curl http://localhost:8081/home/home.ios.bundle -o ./ReactComponent/output/main.jsbundle
-    RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"WDHomeComponent" initialProperties:nil launchOptions:nil];
-    rootView.frame = self.view.bounds;
-    [self.view addSubview:rootView];
+    self.rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"WDHomeComponent" initialProperties:nil launchOptions:nil];
+    self.rootView.frame = self.view.bounds;
+    [self.view addSubview:self.rootView];
     
 }
 

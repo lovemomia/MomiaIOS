@@ -8,6 +8,8 @@
 
 #import "AudioPlayerManager.h"
 #import "amrFileCodec.h"
+#import "UploadImageModel.h"
+
 #import <AVFoundation/AVFoundation.h>
 
 @interface AudioPlayerManager() <AVAudioRecorderDelegate>
@@ -66,6 +68,13 @@ RCT_EXPORT_METHOD(stopRecord) {
     }
 }
 
+//重新录音
+RCT_EXPORT_METHOD(reRecord:(RCTResponseSenderBlock)callback) {
+    
+    
+    callback(@[[NSNull null],@"success"]);
+}
+
 //播放语音
 RCT_EXPORT_METHOD(play) {
     
@@ -87,7 +96,7 @@ RCT_EXPORT_METHOD(play) {
 }
 
 //上传语音
-RCT_EXPORT_METHOD(uploadAudioFile) {
+RCT_EXPORT_METHOD(uploadAudioFile:(RCTResponseSenderBlock)callback) {
     
     NSLog(@"hello upload");
     
@@ -98,11 +107,12 @@ RCT_EXPORT_METHOD(uploadAudioFile) {
     docsDir = [dirPaths objectAtIndex:0];
     NSString *databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:@"88.amr"]];
     
-    NSLog(@"===%@",databasePath);
+    NSLog(@"%@",databasePath);
     
-    [[HttpService defaultService] uploadAudioWithFilePath:databasePath fileName:@"audioFile" handler:^(NSURLResponse *response, id responseObject, NSError *error) {
+    [[HttpService defaultService] uploadAudioWithFilePath:databasePath fileName:@"audioFile.amr" handler:^(NSURLResponse *response, id responseObject, NSError *error) {
         
-        
+        UploadImageModel *model = responseObject;
+        callback(@[[NSNull null],model.data.path]);
     }];
 }
 

@@ -89,10 +89,7 @@ class WDQuestionListComponent extends React.Component {
       if (resp.errno == 0) {
         this._handlerResponse(resp.data);
       } else {
-        // request failed
-        this.setState({
-          isLoading: false
-        });
+
       }
 
       console.log(resp);
@@ -183,7 +180,7 @@ class WDQuestionListComponent extends React.Component {
               <TouchableHighlight
                 onPress={() => this._pressAnswer(data)}
                 underlayColor = 'white' >
-              <Image style={{width: 200, height: 30, borderRadius: 15, marginLeft: 10, backgroundColor:'#00c49d', justifyContent: 'center',alignItems: 'center'}}>
+              <Image style={{width: 200, height: 30, borderRadius: 15, marginLeft: 10, backgroundColor:'#9DDF59', justifyContent: 'center',alignItems: 'center'}}>
                 <Text style={{fontSize: 13, color: 'white'}} numberOfLines={1}>1元偷听</Text>
               </Image>
               </TouchableHighlight>
@@ -202,11 +199,12 @@ class WDQuestionListComponent extends React.Component {
   //点击偷听
   _pressAnswer(question) {
 
+    //是否登录，如果未登录需要登录
     RNCommon.isLogin((error, dic) => {
           if (error) {
             console.error(error);
           } else if (dic.isLogin === 'true') {
-
+            //请求问题
             this._requestQuestion(question.id);
           } else {
             RNCommon.openUrl('login');

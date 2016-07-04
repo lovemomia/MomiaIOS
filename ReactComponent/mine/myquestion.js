@@ -214,7 +214,7 @@ class MyQuestionComponent extends React.Component {
 		if (question.isAnswer) {
 
 		}
-		RNCommon.openUrl('myqadetail?qid=' + qid);
+		RNCommon.openUrl('myqadetail?qid=' + question.id);
 	}
 }
 

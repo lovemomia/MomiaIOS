@@ -428,7 +428,22 @@ var WendaCourseDetailComponent = React.createClass({
 		RNCommon.openUrl('wdquestiondetail?qid=' + data.id);
 	},
 
+	//播放微课，这里要先请求下统计api，统计收听次数
 	playCourse: function() {
+
+		HttpService.get(Common.domain() + '/v1/wd_tCourseCount', {
+			
+    	}, (resp) => {
+      		if (resp.errno == 0) {
+        		this._handlerResponse(resp.data);
+     	 	} else {
+        		// request failed
+        		this.setState({
+          		isLoading: false
+        	});
+     	}
+      		console.log(resp.data);
+    	});
 
 		console.log('start play audio');
 	}

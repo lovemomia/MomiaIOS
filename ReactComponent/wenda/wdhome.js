@@ -23,11 +23,14 @@ var {
   ActivityIndicatorIOS,
   NativeModules,
   Dimensions,
-  RefreshControl
+  RefreshControl,
+  PushNotificationIOS
 } = ReactNative;
 
 var RNCommon = NativeModules.RNCommon;
 var WendaPayManager = NativeModules.WendaPayManager;
+
+var GlobalEventEmitter = require('react-native-global-event-emitter');
 
 var styles = ReactNative.StyleSheet.create({
   loadingContainer: {
@@ -62,7 +65,6 @@ var styles = ReactNative.StyleSheet.create({
 
 class WDHomeComponent extends React.Component {
 
-
   constructor(props) {
     super(props);
     var ds = new ListView.DataSource({
@@ -95,18 +97,6 @@ class WDHomeComponent extends React.Component {
       </View>);
   }
 
-  _showLoadingEffect() {
-    this.setState({
-      isLoadingDialogVisible: true
-    });
-  }
-
-  _dismissLoadingEffect() {
-    this.setState({
-      isLoadingDialogVisible: false
-    });
-  }
-
   componentDidMount() {
     HttpService.get(Common.domain() + '/v1/wd_home?', {
       start: 0
@@ -119,9 +109,21 @@ class WDHomeComponent extends React.Component {
           isLoading: false
         });
       }
-
       console.log(resp);
     });
+
+    GlobalEventEmitter.addListener('pay_success', (data) => {
+      console.log('pay success');
+    });
+  }
+
+  componentWillUnmount() {
+
+  }
+
+  _onNotification(notification) {
+
+    console.log('收到通知');
   }
 
   //将网络请求数据解析成列表数据
@@ -369,11 +371,9 @@ class WDHomeComponent extends React.Component {
   }
 
   _requestQuestion(questionId) {
-    this._showLoadingEffect();
     HttpService.get(Common.domain() + '/v1/wd_hJoin?', {
       qid: questionId
     }, (resp) => {
-      this._dismissLoadingEffect();
       if (resp.errno == 0) {
         //判断结果是否可以直接播放了
         if (resp.data.hasOwnProperty('question')) {

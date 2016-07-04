@@ -106,6 +106,8 @@
 		00DE81171D251654004E4D44 /* WendaQuestionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DE80FF1D251654004E4D44 /* WendaQuestionListViewController.m */; };
 		00DE811A1D251707004E4D44 /* AnswerAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DE81191D251707004E4D44 /* AnswerAudioViewController.m */; };
 		00DE811B1D251707004E4D44 /* AnswerAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DE81191D251707004E4D44 /* AnswerAudioViewController.m */; };
+		00DEEF191D2A9AE4009D9BA3 /* RNTGlobalEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DEEF181D2A9AE4009D9BA3 /* RNTGlobalEventEmitter.m */; };
+		00DEEF1A1D2A9AE4009D9BA3 /* RNTGlobalEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DEEF181D2A9AE4009D9BA3 /* RNTGlobalEventEmitter.m */; };
 		00E3286F1CCA20D30051807A /* UIView+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E3286E1CCA20D30051807A /* UIView+Border.m */; };
 		00E328701CCA20D30051807A /* UIView+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E3286E1CCA20D30051807A /* UIView+Border.m */; };
 		00E9566E1CDB200100FD7124 /* CheckBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E9566C1CDB200100FD7124 /* CheckBoxCell.m */; };
@@ -1036,6 +1038,8 @@
 		00DE80FF1D251654004E4D44 /* WendaQuestionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WendaQuestionListViewController.m; sourceTree = "<group>"; };
 		00DE81181D251707004E4D44 /* AnswerAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerAudioViewController.h; sourceTree = "<group>"; };
 		00DE81191D251707004E4D44 /* AnswerAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerAudioViewController.m; sourceTree = "<group>"; };
+		00DEEF171D2A9AE4009D9BA3 /* RNTGlobalEventEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNTGlobalEventEmitter.h; sourceTree = "<group>"; };
+		00DEEF181D2A9AE4009D9BA3 /* RNTGlobalEventEmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNTGlobalEventEmitter.m; sourceTree = "<group>"; };
 		00E3286D1CCA20D30051807A /* UIView+Border.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Border.h"; sourceTree = "<group>"; };
 		00E3286E1CCA20D30051807A /* UIView+Border.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Border.m"; sourceTree = "<group>"; };
 		00E9566B1CDB200100FD7124 /* CheckBoxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBoxCell.h; sourceTree = "<group>"; };
@@ -2021,6 +2025,48 @@
 				00D129A41D26574C00C278C9 /* MyWendaData.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		00DEEF151D2A51EB009D9BA3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				00DE81181D251707004E4D44 /* AnswerAudioViewController.h */,
+				00DE81191D251707004E4D44 /* AnswerAudioViewController.m */,
+				00DE80E81D251654004E4D44 /* AskExpertViewController.h */,
+				00DE80E91D251654004E4D44 /* AskExpertViewController.m */,
+				00DE80EA1D251654004E4D44 /* AskQuestionViewController.h */,
+				00DE80EB1D251654004E4D44 /* AskQuestionViewController.m */,
+				00DE80EC1D251654004E4D44 /* ExpertViewController.h */,
+				00DE80ED1D251654004E4D44 /* ExpertViewController.m */,
+				00DE80EE1D251654004E4D44 /* MyAnswerViewController.h */,
+				00DE80EF1D251654004E4D44 /* MyAnswerViewController.m */,
+				00DE80F01D251654004E4D44 /* MyAssetViewController.h */,
+				00DE80F11D251654004E4D44 /* MyAssetViewController.m */,
+				00DE80F21D251654004E4D44 /* MyQADetailViewController.h */,
+				00DE80F31D251654004E4D44 /* MyQADetailViewController.m */,
+				00DE80F41D251654004E4D44 /* MyQuestionViewController.h */,
+				00DE80F51D251654004E4D44 /* MyQuestionViewController.m */,
+				00DE80F61D251654004E4D44 /* WendaCourseDetailViewController.h */,
+				00DE80F71D251654004E4D44 /* WendaCourseDetailViewController.m */,
+				00DE80F81D251654004E4D44 /* WendaCourseIntroViewController.h */,
+				00DE80F91D251654004E4D44 /* WendaCourseIntroViewController.m */,
+				00DE80FA1D251654004E4D44 /* WendaCourseListViewController.h */,
+				00DE80FB1D251654004E4D44 /* WendaCourseListViewController.m */,
+				00DE80FC1D251654004E4D44 /* WendaHomeViewController.h */,
+				00DE80FD1D251654004E4D44 /* WendaHomeViewController.m */,
+				00DE80FE1D251654004E4D44 /* WendaQuestionListViewController.h */,
+				00DE80FF1D251654004E4D44 /* WendaQuestionListViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		00DEEF161D2A9AD7009D9BA3 /* NativeModules */ = {
+			isa = PBXGroup;
+			children = (
+				00DEEF171D2A9AE4009D9BA3 /* RNTGlobalEventEmitter.h */,
+				00DEEF181D2A9AE4009D9BA3 /* RNTGlobalEventEmitter.m */,
+			);
+			name = NativeModules;
 			sourceTree = "<group>";
 		};
 		26D758803C76A62629C50A39 /* Frameworks */ = {
@@ -3426,33 +3472,9 @@
 		BCA80BF91D0EC23000B3D3E8 /* Wenda */ = {
 			isa = PBXGroup;
 			children = (
+				00DEEF161D2A9AD7009D9BA3 /* NativeModules */,
+				00DEEF151D2A51EB009D9BA3 /* Controller */,
 				00D129A21D26571700C278C9 /* Model */,
-				00DE81181D251707004E4D44 /* AnswerAudioViewController.h */,
-				00DE81191D251707004E4D44 /* AnswerAudioViewController.m */,
-				00DE80E81D251654004E4D44 /* AskExpertViewController.h */,
-				00DE80E91D251654004E4D44 /* AskExpertViewController.m */,
-				00DE80EA1D251654004E4D44 /* AskQuestionViewController.h */,
-				00DE80EB1D251654004E4D44 /* AskQuestionViewController.m */,
-				00DE80EC1D251654004E4D44 /* ExpertViewController.h */,
-				00DE80ED1D251654004E4D44 /* ExpertViewController.m */,
-				00DE80EE1D251654004E4D44 /* MyAnswerViewController.h */,
-				00DE80EF1D251654004E4D44 /* MyAnswerViewController.m */,
-				00DE80F01D251654004E4D44 /* MyAssetViewController.h */,
-				00DE80F11D251654004E4D44 /* MyAssetViewController.m */,
-				00DE80F21D251654004E4D44 /* MyQADetailViewController.h */,
-				00DE80F31D251654004E4D44 /* MyQADetailViewController.m */,
-				00DE80F41D251654004E4D44 /* MyQuestionViewController.h */,
-				00DE80F51D251654004E4D44 /* MyQuestionViewController.m */,
-				00DE80F61D251654004E4D44 /* WendaCourseDetailViewController.h */,
-				00DE80F71D251654004E4D44 /* WendaCourseDetailViewController.m */,
-				00DE80F81D251654004E4D44 /* WendaCourseIntroViewController.h */,
-				00DE80F91D251654004E4D44 /* WendaCourseIntroViewController.m */,
-				00DE80FA1D251654004E4D44 /* WendaCourseListViewController.h */,
-				00DE80FB1D251654004E4D44 /* WendaCourseListViewController.m */,
-				00DE80FC1D251654004E4D44 /* WendaHomeViewController.h */,
-				00DE80FD1D251654004E4D44 /* WendaHomeViewController.m */,
-				00DE80FE1D251654004E4D44 /* WendaQuestionListViewController.h */,
-				00DE80FF1D251654004E4D44 /* WendaQuestionListViewController.m */,
 				BC56810E1CE9C8AF00DD6D00 /* React */,
 				00A82E461D226A620083681F /* WendaPay */,
 				001FEF881D0FCEE900A00D7E /* AudioPlayer */,
@@ -4363,6 +4385,7 @@
 				BC6CF57F1C3CC469006F314C /* IQUITextFieldView+Additions.m in Sources */,
 				BC66D3C51B60FBBE00A5BFC6 /* MyFavCell.m in Sources */,
 				BC6CF5891C3CC469006F314C /* IQUIView+IQKeyboardToolbar.m in Sources */,
+				00DEEF191D2A9AE4009D9BA3 /* RNTGlobalEventEmitter.m in Sources */,
 				BC0D44461C02FBD50007E9ED /* FeedListItemCell.m in Sources */,
 				BC1052A01BB2B33700D81C15 /* TopicListViewController.m in Sources */,
 				BC0D44411C02C2850007E9ED /* CourseTitleCell.m in Sources */,
@@ -4694,6 +4717,7 @@
 				BCEAFCC11C2A394300CB082D /* ShareViewController.m in Sources */,
 				BCEAFCC21C2A394300CB082D /* MLSelectPhotoPickerGroupViewController.m in Sources */,
 				BCEAFCC31C2A394300CB082D /* SubjectDetailViewController.m in Sources */,
+				00DEEF1A1D2A9AE4009D9BA3 /* RNTGlobalEventEmitter.m in Sources */,
 				BCEAFCC41C2A394300CB082D /* FavouriteModel.m in Sources */,
 				BCEAFCC51C2A394300CB082D /* CouponListViewController.m in Sources */,
 				BCEAFCC61C2A394300CB082D /* SGActionView.m in Sources */,
@@ -4976,7 +5000,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.youxing.DuoLa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2c138978-9025-4759-8941-7d5dac3d851f";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
@@ -5050,7 +5074,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.youxing.DuoLa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2c138978-9025-4759-8941-7d5dac3d851f";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;

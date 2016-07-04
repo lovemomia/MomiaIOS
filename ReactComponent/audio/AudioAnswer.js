@@ -18,6 +18,8 @@ var {
 
 const timer = require('react-native-timer');
 
+var LoadingEffect = require('react-native-loading-effect');
+
 //语音播放录制管理
 var AudioPlayerManager = require('NativeModules').AudioPlayerManager;
 
@@ -28,7 +30,8 @@ var LoadingEffect = require('react-native-loading-effect');
 
 var styles = ReactNative.StyleSheet.create({
 	container: {
-		flex: 1
+		flex: 1,
+		backgroundColor: '#f1f1f1'
 	},
 	headContainer: {
 		flexDirection: 'row',
@@ -40,18 +43,10 @@ var styles = ReactNative.StyleSheet.create({
 	headImage: {
 		height: 44,
 		width: 44,
-		borderRadius: 22,
-		backgroundColor: 'green'
+		borderRadius: 22
 	},
 	headText: {
 		marginLeft: 10
-	},
-	questionContainer: {
-		height: 60,
-		padding: 10,
-		marginLeft: 10,
-		marginRight: 10,
-		alignItems: 'center'
 	},
 	titleContainer: {
 		flexDirection: 'row',
@@ -74,8 +69,7 @@ var styles = ReactNative.StyleSheet.create({
 		flex: 1,
 		height: 120,
 		width: 120,
-		alignItems: 'center',
-		backgroundColor: 'red'
+		alignItems: 'center'
 	},
 	audioTitle: {
 		fontSize: 17
@@ -119,24 +113,47 @@ var styles = ReactNative.StyleSheet.create({
 	}
 });
 
+let ds = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2
+});
+
 class AudioAnswerComponent extends React.Component {
 
 	constructor(props) {
 	  super(props);
-	  var ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2
-      });
-
+	 
 	  this.state = {
+	  	isLoadingDialogVisible:false,
+	  	isLoading: true,
 	  	seconds: 0,
 	  	isRecord: false,
+	  	question: '',
 	  	dataSource: ds.cloneWithRows([
-	  		{id: 0}, {id: 1},{id: 2},{id: 3},{id: 4}
+	  		new Array()
 	  	])
 	  };
 	}
 
+	componentDidMount() {
+
+		 HttpService.get(Common.domain() + '/v1/wd_qExpert?', {
+     	 	qid:this.props.qid
+    	}, (resp) => {
+      		if (resp.errno == 0) {
+
+        		this._handlerResponse(1,resp.data);
+     	 	} else {
+
+     		}
+      		console.log(resp.data);
+    	});
+	}
+
 	render() {
+
+		if (this.state.isLoading) {
+			return Common.loading();
+		}
 
 		return (
 			<View style={styles.container}>
@@ -144,30 +161,44 @@ class AudioAnswerComponent extends React.Component {
 					dataSource = {this.state.dataSource}
 					renderRow = {this.renderRow.bind(this)} />
 			</View>
-		);
+			<View style={[SGStyles.container, styles.floatView]}>
+				<LoadingEffect isVisible={this.state.isLoadingDialogVisible} text='加载中...'/>
+      		</View>
+        );
 	}
+
+	_showLoadingEffect() {
+    	this.setState({
+      		isLoadingDialogVisible: true
+    	});
+ 	}
+
+  _dismissLoadingEffect() {
+    	this.setState({
+      		isLoadingDialogVisible: false
+    	});
+  	}
 
 	renderRow(rowData, sectionID, rowID) {
 		if (rowID == 0 ) {
 
 			return (
 				<View style={styles.headContainer } >
-					<Image style = {styles.headImage } />
-					<Text style={styles.headText}>松果麻麻</Text>
+					<Image style = {styles.headImage }
+						   source={{uri: this.state.question.userAvatar}} />
+					<Text style={styles.headText}>{this.state.question.userName}</Text>
 				</View>
 			);
 		} else if (rowID == 1 ) {
 
 			return (
-				<View style = {styles.questionContainer } >
-					<Text>孩子4岁，好奇心特别强，每次参加比赛只要输了，就不开心发脾气，请问怎么办？</Text>
-				</View>
+				<Text style={{marginLeft: 10,marginRight: 10,backgroundColor: 'white',padding: 10}}>{this.state.question.content}</Text>
 			);
 		} else if (rowID == 2 ) {
 
 			return (
 				<View style = {styles.titleContainer } >
-					<Text>公开提问，公开回答，答案被人偷听一次，你就赚0.5元. </Text>
+					<Text style={{fontSize: 11,color: '#999999'}}>公开提问，公开回答，答案被人偷听一次，你就赚0.5元. </Text>
 				</View>
 			);
 		} else if (rowID == 3 ) {
@@ -176,7 +207,8 @@ class AudioAnswerComponent extends React.Component {
 				<View style = {styles.audioBox}>
 					<Text style={styles.audioTitle}> 语音回答 </Text>
 					<TouchableHighlight onPress={this.pressAudioImage}>
-						<Image style={styles.audioImage} />
+						<Image style={styles.audioImage}
+								source={require('../common/image/audio.png')} />
 					</TouchableHighlight>
 					<Text style={styles.audioText}> 点击开始录音最多可录120s </Text>
 					<Text> { this.state.seconds } ‘</Text>
@@ -187,13 +219,13 @@ class AudioAnswerComponent extends React.Component {
 			return (
 				<View style={styles.buttonBox}>
 					<TouchableHighlight style={styles.buttonLeft}
-										onPress={() => this._sendAnswer()}
+										onPress={() => this._reRecord()}
 					>
 						<Text style={styles.buttonText}>重录</Text>
 					</TouchableHighlight>
 					<TouchableHighlight 
 						style={styles.buttonRight}
-						onPress={() => this._submitAnswer()}
+						onPress={() => this._submit()}
 						underlayColor='gray'
 					>
 						<Text style={styles.buttonText}>确认发送</Text>
@@ -232,34 +264,55 @@ class AudioAnswerComponent extends React.Component {
 		AudioPlayerManager.play();
 	}
 
-	//发送语音
-	_sendAnswer = () => {
-
-		AudioPlayerManager.uploadAudioFile();
-
+	//重录
+	_reRecord = () => {
+		AudioPlayerManager.reRecord((error,msg) => {
+			console.log(msg);
+		});
 	}
 
-	_submitAnswer() {
+	//提交答案
+	_submit() {
+		this._showLoadingEffect();
+		//第一步，上传文件
+		AudioPlayerManager.uploadAudioFile((error,filePath)=> {
+			console.log(filePath);
+			this._submitAnswer(filePath);
+		});
+	}
 
+	_submitAnswer(url) {
+
+		//提交答案
 		HttpService.get(Common.domain() + '/v1/wd_qAnswer?', {
      	 	questionId: this.props.qid,
      	 	mins: 30,
-     	 	answer: 'http://www.baidu.ccom'
+     	 	answer: url
     	}, (resp) => {
       		if (resp.errno == 0) {
-        		this._handlerResponse(resp.data);
+        		this._handlerResponse(2,resp.data);
      	 	} else {
-        		// request failed
-        		this.setState({
-          		isLoading: false
-        	});
-     	}
+
+     		}
       		console.log(resp.data);
     	});
 	}
 
-	_handlerResponse(data) {
+	_handlerResponse(type,data) {
 
+		if (type == 1) { // 初始时返回的数据处理
+
+			this.setState({
+				isLoading: false,
+				question:data.question,
+				dataSource: ds.cloneWithRows([
+	  				{id: 0}, {id: 1},{id: 2},{id: 3},{id: 4}
+	  			])
+			})
+		} else if (type == 2) { //提交以后返回的数据处理
+
+			this._showLoadingEffect();
+		}
 	}
 }
 
