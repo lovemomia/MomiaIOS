@@ -4,7 +4,6 @@
 //
 //  Created by Deng Jun on 15/4/23.
 //  Copyright (c) 2015年 Deng Jun. All rights reserved.
-//
 
 #import "MineViewController.h"
 #import "FeedbackViewController.h"
@@ -40,7 +39,6 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleMsg"] style:UIBarButtonItemStylePlain target:self action:@selector(onTitleBtnClick)];
     
     [[AccountService defaultService] addListener:self];
-    
     //登录状态
     if ([[AccountService defaultService] isLogin]){
         self.utoken = [AccountService defaultService].account.token;
@@ -60,10 +58,12 @@
         self.wendaData = responseObject;
         NSLog(@"%@----",responseObject.errMsg);
         
-         [self.tableView reloadData];
+        [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         NSLog(@"----fail----");
+        
+        [self.tableView reloadData];
     }];
 }
 
@@ -74,7 +74,6 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
 }
 
 - (void)onTitleBtnClick {
@@ -106,7 +105,6 @@
     if(self.utoken != nil) {
         [self fetchMyData];
     }
-    [self.tableView reloadData];
 }
 
 // 单击设置
@@ -133,7 +131,7 @@
     } else if (section == 0) {
         return 1;
     }
-    return 3;
+    return 2;
 }
 
 //有四个section
@@ -284,7 +282,17 @@
                         commonCell.subTitleLabel.textColor = [UIColor redColor];
                         commonCell.subTitleLabel.text = [NSString stringWithFormat:@"%@",self.wendaData.data.answerNumber];
                     }
-                } else {
+                } else if (row == 1 && self.utoken == nil ){ //未登录
+                    
+                    commonCell.titleLabel.text = @"我答";
+                    commonCell.iconIv.image = [UIImage imageNamed:@"IconBooked"];
+                    
+                    if (self.wendaData) {
+                        commonCell.subTitleLabel.textColor = [UIColor redColor];
+                        commonCell.subTitleLabel.text = [NSString stringWithFormat:@"%@",self.wendaData.data.answerNumber];
+                    }
+                    
+                }else {
                     commonCell.titleLabel.text = @"我的账户";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconBooked"];
                     

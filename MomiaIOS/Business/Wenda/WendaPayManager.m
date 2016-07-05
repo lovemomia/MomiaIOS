@@ -19,6 +19,8 @@
 @property (nonatomic, strong) NSDictionary *order;
 @property (nonatomic, assign) id<WechatPayDelegate> delegate;
 
+@property (nonatomic, strong) CustomIOSAlertView *alertView;
+
 @end
 
 @implementation WendaPayManager
@@ -30,6 +32,31 @@ RCT_EXPORT_METHOD(pay:(NSDictionary *)order callback:(RCTResponseSenderBlock)cal
     [self showPayAlert:order];
 }
 
+RCT_EXPORT_METHOD(dismissPayAlert:(NSString *)alertMsg callback:(RCTResponseSenderBlock)callback){
+    
+    dispatch_async(dispatch_get_main_queue(), ^(void){
+        
+        if (self.alertView != nil) {
+            [self.alertView close];
+        }
+        
+        self.alertView = [[CustomIOSAlertView alloc] init];
+        
+        NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"WendaPayAlertView" owner:self options:nil];
+        UIView *containerView = array[2];
+        
+        [self.alertView setContainerView:containerView];
+        
+        UILabel *label = [containerView viewWithTag:1000];
+        label.text = alertMsg;
+        
+        [self.alertView setButtonTitles:@[@"好的"]];
+        [self.alertView setUseMotionEffects:TRUE];
+        [self.alertView show];
+        
+    });
+}
+
 - (void)showPayAlert:(NSDictionary *)order {
     
     self.delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -37,14 +64,14 @@ RCT_EXPORT_METHOD(pay:(NSDictionary *)order callback:(RCTResponseSenderBlock)cal
     
     NSLog(@"----%@",self.order);
     dispatch_async(dispatch_get_main_queue(), ^(void){
-        CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] init];
+        self.alertView = [[CustomIOSAlertView alloc] init];
         NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"WendaPayAlertView" owner:self options:nil];
         
         if([[NSString stringWithFormat:@"%@", [order objectForKey:@"use"]] isEqualToString:@"0"]) {
             
             UIView *containerView = array[1];
             
-            [alertView setContainerView:containerView];
+            [self.alertView setContainerView:containerView];
             
             UIButton *weiXinView = [containerView viewWithTag:1000];
             [weiXinView addTarget:self action:@selector(tapweixin) forControlEvents:UIControlEventTouchUpInside];
@@ -69,20 +96,20 @@ RCT_EXPORT_METHOD(pay:(NSDictionary *)order callback:(RCTResponseSenderBlock)cal
             UIButton *zhifubaoButton = [containerView viewWithTag:1002];
             [zhifubaoButton addTarget:self action:@selector(tapZhifubao) forControlEvents:UIControlEventTouchUpInside];
             
-            [alertView setContainerView:array[0]];
+            [self.alertView setContainerView:array[0]];
             
             
         }
         
-        [alertView setOnButtonTouchUpInside:^(CustomIOSAlertView *alertView, int buttonIndex) {
+        [self.alertView setOnButtonTouchUpInside:^(CustomIOSAlertView *alertView, int buttonIndex) {
             
             NSLog(@"-----%d",buttonIndex);
         }];
         
         
-        [alertView setButtonTitles:@[@"取消"]];
-        [alertView setUseMotionEffects:TRUE];
-        [alertView show];
+        [self.alertView setButtonTitles:@[@"取消"]];
+        [self.alertView setUseMotionEffects:TRUE];
+        [self.alertView show];
     });
 }
 
@@ -128,7 +155,7 @@ RCT_EXPORT_METHOD(pay:(NSDictionary *)order callback:(RCTResponseSenderBlock)cal
                                           //支付成功回调
                                           
                                           //发送广播，支付成功
-                                          [[NSNotificationCenter defaultCenter]postNotificationName:@"pay_success" object:nil userInfo:nil];
+                                          [[NSNotificationCenter defaultCenter]postNotificationName:@"paySuccess" object:nil userInfo:nil];
                                       }] ;
                                   }
                               }
@@ -163,6 +190,7 @@ RCT_EXPORT_METHOD(pay:(NSDictionary *)order callback:(RCTResponseSenderBlock)cal
                                   NSLog(@"------fail");
                               }];
 }
+
 
 -(void)onPayResp:(NSNotification*)notify {
     

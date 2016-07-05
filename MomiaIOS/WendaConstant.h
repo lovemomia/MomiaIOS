@@ -11,6 +11,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define RNHost @"10.1.13.130"
+#define RNHost @"localhost"
 
 #endif /* WendaConstant_h */

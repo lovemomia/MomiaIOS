@@ -25,6 +25,7 @@ var styles = ReactNative.StyleSheet.create({
 	},
 	cc: {
 		flexDirection: 'row',
+		marginTop: 20
 	},
 	totalFee: {
 		marginTop: 20
@@ -62,7 +63,7 @@ class MyAssetComponent extends React.Component {
 		this.setState({
 			isLoading: false,
 			dataSource: ds.cloneWithRows([
-	  		{id: 0},{id: 2},{id: 3}
+	  		{id: 0},{id: 2}
 	  	    ]),
 	  	    asset: data,
 
@@ -102,21 +103,15 @@ class MyAssetComponent extends React.Component {
 			return (
 				<View style={styles.headContainer}>
 					<View style={styles.cc}>
-						<Text>账户余额 : ￥</Text>
-						<Text style={{color: 'red'}}>{this.state.asset.number}</Text>
+						<Text style={{fontSize: 15}}>账户余额 : ￥</Text>
+						<Text style={{color: 'red',fontSize: 15}}>{this.state.asset.number}</Text>
 					</View>
 				</View>
 			);
-		} else if(rowID == 1) {
-			return (
-				<View style={styles.totalFee}>
-					<Text>您总共回答了100个问题，累计收入10000元</Text>
-				</View>
-			);
-		} 
+		}
 		return (
 			<View style={styles.shuoming}>
-				<Text>提现说明：自动体现功能正在开发中，当前如需体现，可以添加松果亲子客服微信sogokids01</Text>
+				<Text style={{color: 'gray',fontSize: 15}}>提现说明：自动体现功能正在开发中，当前如需体现，可以添加松果亲子客服微信sogokids01</Text>
 			</View>
 		);
 	}

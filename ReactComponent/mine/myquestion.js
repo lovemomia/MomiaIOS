@@ -140,11 +140,7 @@ class MyQuestionComponent extends React.Component {
 			<View style={{flex: 1}}>
 				<ListView
 					dataSource={this.state.dataSource}
-					renderRow = {this.renderRow.bind(this)} 
-					refreshControl={
-        				<RefreshControl
-            				refreshing={this.state.isRefreshing}
-            				onRefresh={() => this._onRefresh()} />}
+					renderRow = {this.renderRow.bind(this)}
 				/>
 			</View>
 		);
@@ -186,11 +182,11 @@ class MyQuestionComponent extends React.Component {
 						<View style={styles.leftContainer}>
 							<Image style={styles.image}
 								   source={{uri:rowData.expert.cover}} />
-							<Text>{rowData.expert.name}</Text>
+							<Text style={{marginLeft: 10}}>{rowData.expert.name}</Text>
 						</View>
 						<View style={styles.rightContainer}>
 							<Text style={styles.money}>￥{rowData.price}</Text>
-							<Text style={styles.status}>{rowData.isAnswer == true ? '已回答' : '未回答'}</Text>
+							<Text style={styles.status}>{rowData.status == 3 ? '已回答' : '未回答'}</Text>
 						</View>
 					</View>
 					<View style={styles.middleContainer}>
@@ -210,10 +206,6 @@ class MyQuestionComponent extends React.Component {
 	onPressRowItem(question) {
 
 		//判断问题是否已回答  问题的状态，1: 未回答  3: 已回答  4: 已过期
-
-		if (question.isAnswer) {
-
-		}
 		RNCommon.openUrl('myqadetail?qid=' + question.id);
 	}
 }

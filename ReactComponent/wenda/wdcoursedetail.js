@@ -26,6 +26,8 @@ var ds = new ListView.DataSource({
 var RNCommon = NativeModules.RNCommon;
 var WendaPayManager = NativeModules.WendaPayManager;
 
+const RNStreamingKitManager = NativeModules.RNStreamingKitManager;
+
 var styles = ReactNative.StyleSheet.create({
 	separator: {
     	height: 0.5,
@@ -73,9 +75,9 @@ var WendaCourseDetailComponent = React.createClass({
 	},
 
 	 _showLoadingEffect: function() {
-    this.setState({
-      isLoadingDialogVisible: true
-    });
+    	this.setState({
+      	isLoadingDialogVisible: true
+    	});
     },
 
   _dismissLoadingEffect: function() {
@@ -96,12 +98,8 @@ var WendaCourseDetailComponent = React.createClass({
 					style={{flex: 1}}
 					dataSource={this.state.dataSource}
 					renderRow={this._renderRow}
-					refreshControl={
-        				<RefreshControl
-            				refreshing={this.state.isRefreshing}
-            				onRefresh={() => this._onRefresh()} />}
 				/>
-				<TouchableHighlight 
+				<TouchableHighlight
 					style={{height: 48, backgroundColor: '#FF6634',justifyContent: 'center',alignItems: 'center'}}
 					onPress={() => this._pressAskExpretButton()}
 					underlayColor="#FF6634" >
@@ -254,17 +252,17 @@ var WendaCourseDetailComponent = React.createClass({
 				underlayColor = '#f1f1f1'>
 			<View style={{padding: 10,marginTop: 10,backgroundColor: 'white'}}>
 				<View style={{flexDirection: 'row',alignItems: 'center'}}>
+				<TouchableHighlight
+					    	onPress={() => this.playCourse(data)}
+					    	underlayColor = 'black' >
 					<View>
-					    <TouchableHighlight
-					    	onPress={() => this.playCourse()}
-					    	underlayColor = '#f1f1f1' >
 							<Image style={{width: 50,height: 50, alignItems: 'center',justifyContent: 'center'}}
 							   	   source={{uri: data.cover}}>
 							   	   <Image style={{width: 30,height: 30}}
 							   		  	  source={require('../common/image/play.png')} />
 					    	</Image>
-					    </TouchableHighlight>
 					</View>
+					</TouchableHighlight>
 					<View style={{marginLeft: 10,flex: 1}}>
 						<Text style={{fontSize: 13}}>{data.title}</Text>
 						<View style={{flexDirection: 'row',alignItems: 'center',marginTop: 5}}>
@@ -429,23 +427,28 @@ var WendaCourseDetailComponent = React.createClass({
 	},
 
 	//播放微课，这里要先请求下统计api，统计收听次数
-	playCourse: function() {
+	playCourse: function(course) {
 
-		HttpService.get(Common.domain() + '/v1/wd_tCourseCount', {
-			
+		console.log('play');
+		HttpService.get(Common.domain() + '/v1/wd_tCourseCount?', {
+			wid: this.props.wid,
     	}, (resp) => {
       		if (resp.errno == 0) {
-        		this._handlerResponse(resp.data);
+      			//不管结果
      	 	} else {
-        		// request failed
-        		this.setState({
-          		isLoading: false
-        	});
-     	}
+
+     		}
       		console.log(resp.data);
     	});
 
 		console.log('start play audio');
+
+		//判断微课内容
+		if (course.content != ''){
+			console.log(course.content);
+			var url = course.content.slice(0);
+			RNStreamingKitManager.play(url);
+		}
 	}
 
 });

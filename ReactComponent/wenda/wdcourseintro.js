@@ -15,7 +15,8 @@ var {
 	Image,
 	AppRegistry,
 	StyleSheet,
-	RefreshControl
+	RefreshControl,
+	NativeModules
 } = ReactNative;
 
 var styles = StyleSheet.create({
@@ -25,6 +26,8 @@ var styles = StyleSheet.create({
 var ds = new ListView.DataSource({
 	rowHasChanged: (r1,r2) => r1!==r2
 });
+
+const RNStreamingKitManager = NativeModules.RNStreamingKitManager;
 
 var WendaCourseIntroComponent = React.createClass({
 
@@ -65,10 +68,6 @@ var WendaCourseIntroComponent = React.createClass({
 				<ListView
 					dataSource={this.state.dataSource}
 					renderRow={this._renderRow}
-					refreshControl={
-        				<RefreshControl
-            				refreshing={this.state.isRefreshing}
-            				onRefresh={()=>this._onRefresh()} />}
             	/>
 			</View>
 		);
@@ -84,7 +83,7 @@ var WendaCourseIntroComponent = React.createClass({
       		if (resp.errno == 0) {
         		this._handlerResponse(resp.data);
      	 	} else {
-        		// request failed
+        		//request failed
      	}
       		console.log(resp.data);
     	});
@@ -144,7 +143,7 @@ var WendaCourseIntroComponent = React.createClass({
 				<View style={{flexDirection: 'row',alignItems: 'center'}}>
 					<View>
 						<TouchableHighlight
-					    	onPress={() => this._playCourse()}
+					    	onPress={() => this._playCourse(data)}
 					    	underlayColor = '#f1f1f1' >
 							<Image style={{width: 50,height: 50, alignItems: 'center',justifyContent: 'center'}}
 							   	   source={{uri: data.cover}}>
@@ -192,9 +191,26 @@ var WendaCourseIntroComponent = React.createClass({
 		);
 	},
 
-	_playCourse: function() {
+	_playCourse: function(course) {
 
-		console.log("play.....");
+		HttpService.get(Common.domain() + '/v1/wd_tCourseCount', {
+			cid: this.props.wid
+    	}, (resp) => {
+      		if (resp.errno == 0) {
+      			//不管结果
+     	 	} else {
+
+     		}
+      		console.log(resp.data);
+    	});
+
+		console.log('start play audio');
+
+		//判断微课内容
+		if (course.content != ''){
+			console.log(course.content);
+			RNStreamingKitManager.play(course.content);
+		}
 	}
 	
 });

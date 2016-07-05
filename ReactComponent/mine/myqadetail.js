@@ -18,6 +18,9 @@ var {
 } = ReactNative;
 
 var RNCommon = NativeModules.RNCommon;
+const RNStreamingKitManager = NativeModules.RNStreamingKitManager;
+
+var GlobalEventEmitter = require('react-native-global-event-emitter');
 
 var styles = ReactNative.StyleSheet.create({
 	loadingContainer: {
@@ -55,7 +58,22 @@ var MyQADetailComponent = React.createClass({
      	}
       		console.log(resp.data);
     	});
+
+		 GlobalEventEmitter.addListener('stopAudio', (data) => {
+
+      		console.log("收到通知，停止语音");
+      		RNStreamingKitManager.stop();
+    	});
 	},
+
+	componentWillUnmount: function() {
+    	console.log("goodbye cruel world!")
+    	RNStreamingKitManager.stop();
+    	if(this.state.isPlay) { //组件卸载，停止播放语音
+    		console.log('stop in unmount');
+    		RNStreamingKitManager.stop();
+    	}
+    },
 
 	_handlerResponse: function(data) {
 
@@ -66,6 +84,7 @@ var MyQADetailComponent = React.createClass({
 			dataSource: ds.cloneWithRows([
 				{id: 1},{id: 2}
 			]),
+			isPlay: false,
 		});
 	},
 	
@@ -105,8 +124,8 @@ var MyQADetailComponent = React.createClass({
 						<View style={{flexDirection: 'row', alignItems: 'center'}}>
 							<Image style={{height: 48, width: 48, borderRadius: 24}}
 								source={{uri: this.state.question.userAvatar}} />
-							<Text style={{flex: 1}}>{this.state.question.userName}</Text>
-							<Text>{this.state.question.price}</Text>
+							<Text style={{flex: 1,marginLeft: 10}}>{this.state.question.userName}</Text>
+							<Text style={{marginRight: 10,color: 'red'}}>{this.state.question.price} ￥</Text>
 						</View>
 						<View style={{marginTop: 10}}>
 							<Text numberOfLines={2}>{this.state.question.content}</Text>
@@ -140,9 +159,8 @@ var MyQADetailComponent = React.createClass({
 						<View style={{flex: 1,padding: 10}}>
 							<View style={{flexDirection: 'row',flex: 1}}>
 								<Text>{this.state.expert.name}</Text>
-								<Text numberOfLines={2}>1人收听</Text>
 							</View>
-							<Text style={{fontSize: 13, color: 'gray'}} numberOfLines={2}>{this.state.expert.intro}</Text>
+							<Text style={{fontSize: 13, color: 'gray',marginTop: 5}} numberOfLines={2}>{this.state.expert.intro}</Text>
 						</View>
 						<Image style={{width: 15, height: 15,}} source={require('../common/image/arrow.png')} />
 					</View>
@@ -157,12 +175,62 @@ var MyQADetailComponent = React.createClass({
 
 	},
 
+	//点击播放按钮，播放
 	_answerPressed: function() {
+
+		if (this.state.isPlay) {
+			console.log("stop....");
+			RNStreamingKitManager.stop();
+
+			this.setState({
+          		isPlay: false,
+          	});
+
+			return;
+		}
+		//判断登录
+		RNCommon.isLogin((error, dic) => {
+      		if (error) {
+        		console.error(error);
+      		} else if (dic.isLogin === 'true') {
+        		this._requestQuestion(this.state.question.id);
+
+      		} else {
+        		RNCommon.openUrl('login');
+      		}
+    	});
 
 	},
 
-	_pressExpertCell: function() {
+	_requestQuestion: function(questionId) {
+		//偷听接口
+    	HttpService.get(Common.domain() + '/v1/wd_hJoin?', {
+      		qid: questionId
+    	}, (resp) => {
+      		if (resp.errno == 0) {
+        	//判断结果是否可以直接播放了
+        	if (resp.data.hasOwnProperty('question')) {
+          	//TODO 直接播放
+          	this.setState({
+          		isPlay: true,
+          	});
+          	RNStreamingKitManager.play('http://195.154.217.103:8175/stream');
+        	} else {
+         	 //支付订单
+          	WendaPayManager.pay(resp.data.order, (error, payResult) => {
 
+          		//支付回调接口
+          	});
+        }
+
+      } else {
+        // 请求失败
+
+      }
+    });
+  },
+
+	_pressExpertCell: function() {
 		//问专家
 		RNCommon.openUrl('wdquestiondetail?qid=' + this.props.qid);
 	},

@@ -65,6 +65,8 @@
 		002B665E1CB3AFE30096EB6E /* ConfirmBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */; };
 		0035B7501CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */; };
 		0035B7511CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */; };
+		00363D851D2C528600165516 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 00363D841D2C528600165516 /* main.jsbundle */; };
+		00363D861D2C528600165516 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 00363D841D2C528600165516 /* main.jsbundle */; };
 		005704631D2B5412007221A1 /* AudioPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 005704601D2B5412007221A1 /* AudioPlayerManager.m */; };
 		005704641D2B5413007221A1 /* AudioPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 005704601D2B5412007221A1 /* AudioPlayerManager.m */; };
 		005704651D2B5413007221A1 /* AudioRecorderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 005704621D2B5412007221A1 /* AudioRecorderManager.m */; };
@@ -507,8 +509,6 @@
 		BCA273271AEB1EBA002E7534 /* MineInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */; };
 		BCA80BEF1CF5453B00B3D3E8 /* SignVIPCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA80BEE1CF5453B00B3D3E8 /* SignVIPCardViewController.m */; };
 		BCA80BF01CF5453B00B3D3E8 /* SignVIPCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA80BEE1CF5453B00B3D3E8 /* SignVIPCardViewController.m */; };
-		BCA80BF31CF5551400B3D3E8 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = BCA80BF21CF5551400B3D3E8 /* main.jsbundle */; };
-		BCA80BF41CF5551400B3D3E8 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = BCA80BF21CF5551400B3D3E8 /* main.jsbundle */; };
 		BCA80BF71D012BB500B3D3E8 /* HomeViewControllerV2.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA80BF61D012BB500B3D3E8 /* HomeViewControllerV2.m */; };
 		BCA80BF81D012D7A00B3D3E8 /* HomeViewControllerV2.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA80BF61D012BB500B3D3E8 /* HomeViewControllerV2.m */; };
 		BCBB16BD1BF3374900E273AF /* CommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBB16BB1BF3374900E273AF /* CommonTableViewCell.m */; };
@@ -1037,6 +1037,7 @@
 		002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmBookViewController.m; sourceTree = "<group>"; };
 		0035B74E1CC8CE5200F5EAEF /* ApplyRefundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyRefundViewController.h; sourceTree = "<group>"; };
 		0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyRefundViewController.m; sourceTree = "<group>"; };
+		00363D841D2C528600165516 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		0057045F1D2B5412007221A1 /* AudioPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayerManager.h; sourceTree = "<group>"; };
 		005704601D2B5412007221A1 /* AudioPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerManager.m; sourceTree = "<group>"; };
 		005704611D2B5412007221A1 /* AudioRecorderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioRecorderManager.h; sourceTree = "<group>"; };
@@ -1732,7 +1733,6 @@
 		BCA273261AEB1EBA002E7534 /* MineInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MineInfoCell.xib; path = Business/Mine/Views/MineInfoCell.xib; sourceTree = "<group>"; };
 		BCA80BED1CF5453B00B3D3E8 /* SignVIPCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignVIPCardViewController.h; path = Business/Mine/SignVIPCardViewController.h; sourceTree = "<group>"; };
 		BCA80BEE1CF5453B00B3D3E8 /* SignVIPCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignVIPCardViewController.m; path = Business/Mine/SignVIPCardViewController.m; sourceTree = "<group>"; };
-		BCA80BF21CF5551400B3D3E8 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		BCA80BF51D012BB500B3D3E8 /* HomeViewControllerV2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewControllerV2.h; path = Business/Home/HomeViewControllerV2.h; sourceTree = "<group>"; };
 		BCA80BF61D012BB500B3D3E8 /* HomeViewControllerV2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewControllerV2.m; path = Business/Home/HomeViewControllerV2.m; sourceTree = "<group>"; };
 		BCBB16BA1BF3374900E273AF /* CommonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonTableViewCell.h; path = Common/Views/CommonTableViewCell.h; sourceTree = "<group>"; };
@@ -3223,7 +3223,6 @@
 			isa = PBXGroup;
 			children = (
 				001FEFD71D0FE48E00A00D7E /* Debug-Info.plist */,
-				BCA80BF11CF5551400B3D3E8 /* rc-output */,
 				BC85408F1ADF74E9005A7C54 /* Info.plist */,
 				BC8540901ADF74E9005A7C54 /* main.m */,
 				BC2FAA0C1AFC8E9600E2071E /* PrefixHeader.pch */,
@@ -3290,6 +3289,7 @@
 		BC8540B61ADF86CD005A7C54 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				00363D841D2C528600165516 /* main.jsbundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -3542,15 +3542,6 @@
 				BC36B19B1C293FB700013E9A /* UserTimelineCell.xib */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		BCA80BF11CF5551400B3D3E8 /* rc-output */ = {
-			isa = PBXGroup;
-			children = (
-				BCA80BF21CF5551400B3D3E8 /* main.jsbundle */,
-			);
-			name = "rc-output";
-			path = output;
 			sourceTree = "<group>";
 		};
 		BCA80BF91D0EC23000B3D3E8 /* Wenda */ = {
@@ -3913,6 +3904,7 @@
 				BCF74ABB1BE8982400138C2C /* AddReviewRatingCell.xib in Resources */,
 				BC8B9A101C1AD53100EE39A2 /* RongCloud.bundle in Resources */,
 				BC77378A1BCE4A9E00987B22 /* CoursePriceCell.xib in Resources */,
+				00363D851D2C528600165516 /* main.jsbundle in Resources */,
 				BC80B8431CA00E3F009559F2 /* HomeSubjectCoverCell.xib in Resources */,
 				BC0D44541C046F120007E9ED /* PackageHeaderCell.xib in Resources */,
 				00E956701CDB200100FD7124 /* CheckBoxCell.xib in Resources */,
@@ -3936,7 +3928,6 @@
 				BC77379B1BCFAA1500987B22 /* SkuItemCell.xib in Resources */,
 				BC3509011BFC4CD40043D37C /* ShareViewCell.xib in Resources */,
 				5A83074F1B3291430057412A /* CommonHeaderView.xib in Resources */,
-				BCA80BF31CF5551400B3D3E8 /* main.jsbundle in Resources */,
 				BCF9DD121BDA3BC000D8CDC6 /* BookCourseListItemCell.xib in Resources */,
 				5A8EF0361B31407B003ABAF8 /* HomeCell.xib in Resources */,
 				BCF9DCFE1BD8F12800D8CDC6 /* CourseTeacherListItemCell.xib in Resources */,
@@ -4023,6 +4014,7 @@
 				BCEAFD771C2A394300CB082D /* CashPayTopHeaderView.xib in Resources */,
 				BCEAFD781C2A394300CB082D /* MOStepperView.xib in Resources */,
 				BCEAFD791C2A394300CB082D /* LoginCell.xib in Resources */,
+				00363D861D2C528600165516 /* main.jsbundle in Resources */,
 				BCEAFD7A1C2A394300CB082D /* FeedMoreCell.xib in Resources */,
 				BCEAFD7B1C2A394300CB082D /* LoadingErrorCell.xib in Resources */,
 				BCEAFD7C1C2A394300CB082D /* TitleView.xib in Resources */,
@@ -4036,7 +4028,6 @@
 				BCEAFD841C2A394300CB082D /* PayResultViewController.xib in Resources */,
 				BCEAFD851C2A394300CB082D /* ProductCalendarCell.xib in Resources */,
 				BCEAFD861C2A394300CB082D /* SkuItemCell.xib in Resources */,
-				BCA80BF41CF5551400B3D3E8 /* main.jsbundle in Resources */,
 				BCEAFD871C2A394300CB082D /* ShareViewCell.xib in Resources */,
 				BCEAFD881C2A394300CB082D /* CommonHeaderView.xib in Resources */,
 				BCEAFD891C2A394300CB082D /* BookCourseListItemCell.xib in Resources */,
@@ -5139,7 +5130,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.youxing.DuoLa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2c138978-9025-4759-8941-7d5dac3d851f";
+				PROVISIONING_PROFILE = "56eb242e-6f71-4313-996d-051d61876cb7";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
@@ -5220,7 +5211,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.youxing.DuoLa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2c138978-9025-4759-8941-7d5dac3d851f";
+				PROVISIONING_PROFILE = "56eb242e-6f71-4313-996d-051d61876cb7";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;

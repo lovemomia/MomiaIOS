@@ -19,6 +19,8 @@ var {
 
 var WendaPayManager = NativeModules.WendaPayManager;
 
+var GlobalEventEmitter = require('react-native-global-event-emitter');
+
 var styles = ReactNative.StyleSheet.create({
 	multiline: {
 		height:80,
@@ -45,6 +47,16 @@ var AskQuestionComponent = React.createClass({
      	 	} else {
         		// 请求失败
      		}
+    	});
+
+		//这里需要接收一个通知，付钱成功的广播
+		GlobalEventEmitter.addListener('paySuccess', (data) => {
+			console.log("收到通知，付款成功");
+
+			WendaPayManager.dismissPayAlert('付款成功，等待专家回答！',() => {
+				
+			});
+
     	});
 	},
 
@@ -101,7 +113,6 @@ var AskQuestionComponent = React.createClass({
 					<View style={{flex: 1, padding: 10}}>
 						<Text>{this.state.expert.name}</Text>
 						<Text>{this.state.expert.intro}</Text>
-						<Text>已回答20次</Text>
 					</View>
 				</View>
 			);
@@ -117,10 +128,6 @@ var AskQuestionComponent = React.createClass({
         							autoFocus={true}
         							placeholderTextColor="#999999"
         							onChangeText={(text) => this.textChanged({text})}/>
-					</View>
-					<View style={{flexDirection: 'row', backgroundColor: 'white'}}>
-						<View style={{flex: 1}} />
-						<Text style={{color: 'gray'}}>{this.state.textCount}/140</Text>
 					</View>
 				</View>
 			);
@@ -151,13 +158,12 @@ var AskQuestionComponent = React.createClass({
 		}
 	},
 
+	//改变text内容
 	textChanged: function(text) {
 
-		 this.setState({
-              textCount: text.text.length,
-              text: text.text
-         });
-
+		this.setState({
+			textCount: text.length
+		});
 	},
 
 	//提交问题

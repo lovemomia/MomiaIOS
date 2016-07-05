@@ -116,6 +116,12 @@ class WDHomeComponent extends React.Component {
     GlobalEventEmitter.addListener('pay_success', (data) => {
       console.log('pay success');
     });
+
+    GlobalEventEmitter.addListener('stopAudio', (data) => {
+
+      console.log("收到通知，停止语音");
+      RNStreamingKitManager.stop();
+    });
   }
 
   componentWillUnmount() {
@@ -305,7 +311,7 @@ class WDHomeComponent extends React.Component {
                   <Text style={{fontSize: 13, color: 'white'}} numberOfLines={1}>1元偷听</Text>
                 </Image>
               </TouchableHighlight>
-              <Text style={{fontSize: 13, color: '#999999',paddingLeft:5}} numberOfLines={1}>60“</Text>
+              <Text style={{fontSize: 13, color: '#999999',paddingLeft:5}} numberOfLines={1}>{data.mins}“</Text>
             </View>
         </View>
         <View style={styles.separator}/>
@@ -379,7 +385,7 @@ class WDHomeComponent extends React.Component {
         //判断结果是否可以直接播放了
         if (resp.data.hasOwnProperty('question')) {
           //TODO 直接播放
-          RNStreamingKitManager.play('http://o6y686hwm.bkt.clouddn.com/helloaac.aac');
+          RNStreamingKitManager.play('http://195.154.217.103:8175/stream');
         } else {
           //支付订单
           WendaPayManager.pay(resp.data.order, (error, payResult) => {
@@ -396,5 +402,4 @@ class WDHomeComponent extends React.Component {
 
 }
 
-
-ReactNative.AppRegistry.registerComponent('WDHomeComponent', () => WDHomeComponent);
+module.exports = WDHomeComponent;

@@ -226,8 +226,7 @@ var AskExpertComponent = React.createClass({
         //判断结果是否可以直接播放了
         if (resp.data.hasOwnProperty('question')) {
           //TODO 直接播放
-
-
+          
         } else {
           //支付订单
           WendaPayManager.pay(resp.data.order, (error, payResult) => {

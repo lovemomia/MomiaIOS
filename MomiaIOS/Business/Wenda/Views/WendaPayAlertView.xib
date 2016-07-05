@@ -80,7 +80,29 @@
             <nil key="simulatedBottomBarMetrics"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="263" y="429.5"/>
+            <point key="canvasLocation" x="263" y="378.5"/>
+        </view>
+        <view contentMode="scaleToFill" id="My3-7J-mea">
+            <rect key="frame" x="0.0" y="0.0" width="344" height="126"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVI-bJ-6VC">
+                    <rect key="frame" x="154" y="53" width="36.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="PVI-bJ-6VC" firstAttribute="centerY" secondItem="My3-7J-mea" secondAttribute="centerY" id="VpS-lc-vVl"/>
+                <constraint firstItem="PVI-bJ-6VC" firstAttribute="centerX" secondItem="My3-7J-mea" secondAttribute="centerX" id="XHg-7A-aV3"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="266" y="593"/>
         </view>
     </objects>
 </document>
