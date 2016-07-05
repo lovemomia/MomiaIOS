@@ -15,8 +15,6 @@
 		000E0DCB1CCDEAEF00E77173 /* RefundTimeLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 000E0DC81CCDEAEF00E77173 /* RefundTimeLineCell.m */; };
 		000E0DCC1CCDEAEF00E77173 /* RefundTimeLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 000E0DC91CCDEAEF00E77173 /* RefundTimeLineCell.xib */; };
 		000E0DCD1CCDEAEF00E77173 /* RefundTimeLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 000E0DC91CCDEAEF00E77173 /* RefundTimeLineCell.xib */; };
-		001FEF8B1D0FCEF700A00D7E /* AudioPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FEF8A1D0FCEF700A00D7E /* AudioPlayerManager.m */; };
-		001FEF8C1D0FCEF700A00D7E /* AudioPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FEF8A1D0FCEF700A00D7E /* AudioPlayerManager.m */; };
 		001FEFAF1D0FD74500A00D7E /* amrFileCodec.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FEF8F1D0FD74500A00D7E /* amrFileCodec.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		001FEFB01D0FD74500A00D7E /* amrFileCodec.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FEF8F1D0FD74500A00D7E /* amrFileCodec.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		001FEFB51D0FD74500A00D7E /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 001FEF9C1D0FD74500A00D7E /* libopencore-amrnb.a */; };
@@ -67,6 +65,12 @@
 		002B665E1CB3AFE30096EB6E /* ConfirmBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */; };
 		0035B7501CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */; };
 		0035B7511CC8CE5200F5EAEF /* ApplyRefundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */; };
+		005704631D2B5412007221A1 /* AudioPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 005704601D2B5412007221A1 /* AudioPlayerManager.m */; };
+		005704641D2B5413007221A1 /* AudioPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 005704601D2B5412007221A1 /* AudioPlayerManager.m */; };
+		005704651D2B5413007221A1 /* AudioRecorderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 005704621D2B5412007221A1 /* AudioRecorderManager.m */; };
+		005704661D2B5413007221A1 /* AudioRecorderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 005704621D2B5412007221A1 /* AudioRecorderManager.m */; };
+		005704691D2B5C93007221A1 /* RNStreamingKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 005704681D2B5C93007221A1 /* RNStreamingKitManager.m */; };
+		0057046A1D2B5C93007221A1 /* RNStreamingKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 005704681D2B5C93007221A1 /* RNStreamingKitManager.m */; };
 		005E2A751CEB170F00CBF5DD /* RefundText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005E2A741CEB170F00CBF5DD /* RefundText.xib */; };
 		005E2A761CEB170F00CBF5DD /* RefundText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005E2A741CEB170F00CBF5DD /* RefundText.xib */; };
 		00B59E881CBD4695005565EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
@@ -116,6 +120,7 @@
 		00E956711CDB200100FD7124 /* CheckBoxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00E9566D1CDB200100FD7124 /* CheckBoxCell.xib */; };
 		00EFAFB31CC9CF4C0059E444 /* RefundInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EFAFB21CC9CF4C0059E444 /* RefundInfoViewController.m */; };
 		00EFAFB41CC9CF4C0059E444 /* RefundInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EFAFB21CC9CF4C0059E444 /* RefundInfoViewController.m */; };
+		3D2A1E6E87974C9C8750125D /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2C17A705C0F4580849C83B5 /* libRCTActionSheet.a */; };
 		4CA5D72228DAAA226950866E /* libPods-MomiaIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A48F417781FBC604CC6405D0 /* libPods-MomiaIOS.a */; };
 		581F3BAF56DB9B8ABD7DF661 /* libPods-MomiaIOS DEBUG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2153D5D15EE0AABB09D248BD /* libPods-MomiaIOS DEBUG.a */; };
 		5A08C14A1B3911CA00642648 /* ProductDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08C1491B3911CA00642648 /* ProductDetailModel.m */; };
@@ -177,6 +182,7 @@
 		5AE4F8681B3D642B005879B7 /* MOStepperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AE4F8661B3D642B005879B7 /* MOStepperView.xib */; };
 		5AE4F86B1B3D645E005879B7 /* MOStepperGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE4F86A1B3D645E005879B7 /* MOStepperGroup.m */; };
 		5AEB188A1B1865F90098FD5F /* MySuggestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEB18891B1865F90098FD5F /* MySuggestModel.m */; };
+		BA685F2FD812440BB8F96E88 /* libStreamingKitMac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB3A37B8F7C74F34A9BD3F24 /* libStreamingKitMac.a */; };
 		BC040D091BC8ABA900988AB2 /* CourseTagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC040D081BC8ABA900988AB2 /* CourseTagsCell.m */; };
 		BC040D0C1BC8BB5500988AB2 /* CourseDiscCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC040D0B1BC8BB5500988AB2 /* CourseDiscCell.m */; };
 		BC040D0F1BC8E62F00988AB2 /* CourseSectionTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC040D0E1BC8E62F00988AB2 /* CourseSectionTitleCell.m */; };
@@ -944,9 +950,39 @@
 		BCFC2C331AF9C09400164BC2 /* MOWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFC2C321AF9C09400164BC2 /* MOWebViewController.m */; };
 		BCFC2C371AF9C6B800164BC2 /* ActivityWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFC2C361AF9C6B800164BC2 /* ActivityWebViewController.m */; };
 		BCFC9E971BD890FC003D9EA3 /* ico_make.png in Resources */ = {isa = PBXBuildFile; fileRef = BCFC9E961BD890FC003D9EA3 /* ico_make.png */; };
+		EE8F3C0BC2AB42D2A157BE3F /* libRNAudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E18620EDDFD43D594D5DF42 /* libRNAudio.a */; };
+		EFE1B0FA767641C199B18B48 /* libStreamingKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E17930B8478C47D1BF681988 /* libStreamingKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0057043A1D2B4F20007221A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B6720D766AA0428FACCAD068 /* RNAudio.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 42F559BA1CFC90C400DC3F84;
+			remoteInfo = RNAudio;
+		};
+		005704551D2B4F26007221A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F693CD15967E40ADA4F27AAF /* RNStreamingKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A2C73D441CB2E12700DED436;
+			remoteInfo = RNStreamingKit;
+		};
+		0057045B1D2B4F26007221A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 80F078B8E69849F1AF372E28 /* RNTGlobalEventEmitter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 13B07F961A680F5B00A75B9A;
+			remoteInfo = RNTGlobalEventEmitter;
+		};
+		0057045D1D2B4F26007221A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 80F078B8E69849F1AF372E28 /* RNTGlobalEventEmitter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 00E356EE1AD99517003FC87E;
+			remoteInfo = RNTGlobalEventEmitterTests;
+		};
 		BC8540A51ADF74E9005A7C54 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BC8540831ADF74E9005A7C54 /* Project object */;
@@ -963,8 +999,6 @@
 		000E0DC71CCDEAEF00E77173 /* RefundTimeLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefundTimeLineCell.h; sourceTree = "<group>"; };
 		000E0DC81CCDEAEF00E77173 /* RefundTimeLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefundTimeLineCell.m; sourceTree = "<group>"; };
 		000E0DC91CCDEAEF00E77173 /* RefundTimeLineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundTimeLineCell.xib; sourceTree = "<group>"; };
-		001FEF891D0FCEF700A00D7E /* AudioPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayerManager.h; sourceTree = "<group>"; };
-		001FEF8A1D0FCEF700A00D7E /* AudioPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerManager.m; sourceTree = "<group>"; };
 		001FEF8E1D0FD74500A00D7E /* amrFileCodec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amrFileCodec.h; sourceTree = "<group>"; };
 		001FEF8F1D0FD74500A00D7E /* amrFileCodec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = amrFileCodec.m; sourceTree = "<group>"; };
 		001FEF961D0FD74500A00D7E /* interf_dec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_dec.h; sourceTree = "<group>"; };
@@ -1003,6 +1037,12 @@
 		002B665C1CB3AFE30096EB6E /* ConfirmBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmBookViewController.m; sourceTree = "<group>"; };
 		0035B74E1CC8CE5200F5EAEF /* ApplyRefundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyRefundViewController.h; sourceTree = "<group>"; };
 		0035B74F1CC8CE5200F5EAEF /* ApplyRefundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyRefundViewController.m; sourceTree = "<group>"; };
+		0057045F1D2B5412007221A1 /* AudioPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayerManager.h; sourceTree = "<group>"; };
+		005704601D2B5412007221A1 /* AudioPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerManager.m; sourceTree = "<group>"; };
+		005704611D2B5412007221A1 /* AudioRecorderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioRecorderManager.h; sourceTree = "<group>"; };
+		005704621D2B5412007221A1 /* AudioRecorderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioRecorderManager.m; sourceTree = "<group>"; };
+		005704671D2B5C93007221A1 /* RNStreamingKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNStreamingKitManager.h; sourceTree = "<group>"; };
+		005704681D2B5C93007221A1 /* RNStreamingKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNStreamingKitManager.m; sourceTree = "<group>"; };
 		005E2A741CEB170F00CBF5DD /* RefundText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundText.xib; sourceTree = "<group>"; };
 		00A82E4C1D2280A10083681F /* WendaConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WendaConstant.h; sourceTree = "<group>"; };
 		00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectDetailHeaders.xib; sourceTree = "<group>"; };
@@ -1153,9 +1193,13 @@
 		5AE4F86A1B3D645E005879B7 /* MOStepperGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MOStepperGroup.m; path = Common/Views/MOStepper/MOStepperGroup.m; sourceTree = "<group>"; };
 		5AEB18881B1865F90098FD5F /* MySuggestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySuggestModel.h; path = Common/Models/MySuggest/MySuggestModel.h; sourceTree = "<group>"; };
 		5AEB18891B1865F90098FD5F /* MySuggestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySuggestModel.m; path = Common/Models/MySuggest/MySuggestModel.m; sourceTree = "<group>"; };
+		80F078B8E69849F1AF372E28 /* RNTGlobalEventEmitter.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNTGlobalEventEmitter.xcodeproj; path = "node_modules/react-native-global-event-emitter/iOS/RNTGlobalEventEmitter.xcodeproj"; sourceTree = "<group>"; };
+		8E18620EDDFD43D594D5DF42 /* libRNAudio.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNAudio.a; sourceTree = "<group>"; };
 		9EC599971F6456CF4810ADED /* Pods-MomiaIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MomiaIOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MomiaIOS/Pods-MomiaIOS.release.xcconfig"; sourceTree = "<group>"; };
+		A2C17A705C0F4580849C83B5 /* libRCTActionSheet.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTActionSheet.a; sourceTree = "<group>"; };
 		A48F417781FBC604CC6405D0 /* libPods-MomiaIOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MomiaIOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB1F4A4CFB21EB624277BD71 /* Pods-MomiaIOS DEBUG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MomiaIOS DEBUG.release.xcconfig"; path = "Pods/Target Support Files/Pods-MomiaIOS DEBUG/Pods-MomiaIOS DEBUG.release.xcconfig"; sourceTree = "<group>"; };
+		B6720D766AA0428FACCAD068 /* RNAudio.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNAudio.xcodeproj; path = "node_modules/react-native-audio/ios/RNAudio.xcodeproj"; sourceTree = "<group>"; };
 		BC040D071BC8ABA900988AB2 /* CourseTagsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseTagsCell.h; path = Business/Course/Views/CourseTagsCell.h; sourceTree = "<group>"; };
 		BC040D081BC8ABA900988AB2 /* CourseTagsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseTagsCell.m; path = Business/Course/Views/CourseTagsCell.m; sourceTree = "<group>"; };
 		BC040D0A1BC8BB5500988AB2 /* CourseDiscCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseDiscCell.h; path = Business/Course/Views/CourseDiscCell.h; sourceTree = "<group>"; };
@@ -1799,7 +1843,10 @@
 		BCFC2C351AF9C6B800164BC2 /* ActivityWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityWebViewController.h; path = Business/Web/ActivityWebViewController.h; sourceTree = "<group>"; };
 		BCFC2C361AF9C6B800164BC2 /* ActivityWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityWebViewController.m; path = Business/Web/ActivityWebViewController.m; sourceTree = "<group>"; };
 		BCFC9E961BD890FC003D9EA3 /* ico_make.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_make.png; sourceTree = "<group>"; };
+		DB3A37B8F7C74F34A9BD3F24 /* libStreamingKitMac.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libStreamingKitMac.a; sourceTree = "<group>"; };
+		E17930B8478C47D1BF681988 /* libStreamingKit.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libStreamingKit.a; sourceTree = "<group>"; };
 		EAC1023B0650D69FB9873227 /* Pods-MomiaIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MomiaIOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MomiaIOS/Pods-MomiaIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		F693CD15967E40ADA4F27AAF /* RNStreamingKit.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNStreamingKit.xcodeproj; path = "node_modules/react-native-streamingkit/RNStreamingKit.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1855,6 +1902,10 @@
 				4CA5D72228DAAA226950866E /* libPods-MomiaIOS.a in Frameworks */,
 				001FEFC31D0FD74500A00D7E /* libopencore-amrwb.a in Frameworks */,
 				001FEFBF1D0FD74500A00D7E /* libopencore-amrnb.a.x86_64 in Frameworks */,
+				EE8F3C0BC2AB42D2A157BE3F /* libRNAudio.a in Frameworks */,
+				3D2A1E6E87974C9C8750125D /* libRCTActionSheet.a in Frameworks */,
+				EFE1B0FA767641C199B18B48 /* libStreamingKit.a in Frameworks */,
+				BA685F2FD812440BB8F96E88 /* libStreamingKitMac.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1923,15 +1974,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		001FEF881D0FCEE900A00D7E /* AudioPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				001FEF891D0FCEF700A00D7E /* AudioPlayerManager.h */,
-				001FEF8A1D0FCEF700A00D7E /* AudioPlayerManager.m */,
-			);
-			path = AudioPlayer;
-			sourceTree = "<group>";
-		};
 		001FEF8D1D0FD74500A00D7E /* arm */ = {
 			isa = PBXGroup;
 			children = (
@@ -2001,6 +2043,31 @@
 			path = pkgconfig;
 			sourceTree = "<group>";
 		};
+		005704371D2B4F20007221A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0057043B1D2B4F20007221A1 /* libRNAudio.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		005704511D2B4F26007221A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				005704561D2B4F26007221A1 /* libRNStreamingKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		005704571D2B4F26007221A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0057045C1D2B4F26007221A1 /* RNTGlobalEventEmitter.app */,
+				0057045E1D2B4F26007221A1 /* RNTGlobalEventEmitterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		007C45E51D0E8DE500FED152 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -2063,6 +2130,12 @@
 		00DEEF161D2A9AD7009D9BA3 /* NativeModules */ = {
 			isa = PBXGroup;
 			children = (
+				005704671D2B5C93007221A1 /* RNStreamingKitManager.h */,
+				005704681D2B5C93007221A1 /* RNStreamingKitManager.m */,
+				0057045F1D2B5412007221A1 /* AudioPlayerManager.h */,
+				005704601D2B5412007221A1 /* AudioPlayerManager.m */,
+				005704611D2B5412007221A1 /* AudioRecorderManager.h */,
+				005704621D2B5412007221A1 /* AudioRecorderManager.m */,
 				00DEEF171D2A9AE4009D9BA3 /* RNTGlobalEventEmitter.h */,
 				00DEEF181D2A9AE4009D9BA3 /* RNTGlobalEventEmitter.m */,
 			);
@@ -2336,6 +2409,16 @@
 				9EC599971F6456CF4810ADED /* Pods-MomiaIOS.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		99A2B5516A034D67B59C4AEA /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				B6720D766AA0428FACCAD068 /* RNAudio.xcodeproj */,
+				80F078B8E69849F1AF372E28 /* RNTGlobalEventEmitter.xcodeproj */,
+				F693CD15967E40ADA4F27AAF /* RNStreamingKit.xcodeproj */,
+			);
+			name = Libraries;
 			sourceTree = "<group>";
 		};
 		BC0EC2951B5E1F2F00D9A82F /* Cache */ = {
@@ -3108,6 +3191,7 @@
 				26D758803C76A62629C50A39 /* Frameworks */,
 				BCCDF6601B0B4E3F008BAE12 /* ThirdParty */,
 				7EB435BBA6F256DDDC097CAF /* Pods */,
+				99A2B5516A034D67B59C4AEA /* Libraries */,
 			);
 			sourceTree = "<group>";
 		};
@@ -3477,7 +3561,6 @@
 				00D129A21D26571700C278C9 /* Model */,
 				BC56810E1CE9C8AF00DD6D00 /* React */,
 				00A82E461D226A620083681F /* WendaPay */,
-				001FEF881D0FCEE900A00D7E /* AudioPlayer */,
 				BC7A52C31D1CE8A200CA4393 /* Views */,
 				00A82E4C1D2280A10083681F /* WendaConstant.h */,
 			);
@@ -3680,7 +3763,7 @@
 		BC8540831ADF74E9005A7C54 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 730;
 				ORGANIZATIONNAME = "Deng Jun";
 				TargetAttributes = {
 					BC85408A1ADF74E9005A7C54 = {
@@ -3714,6 +3797,20 @@
 			mainGroup = BC8540821ADF74E9005A7C54;
 			productRefGroup = BC85408C1ADF74E9005A7C54 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 005704371D2B4F20007221A1 /* Products */;
+					ProjectRef = B6720D766AA0428FACCAD068 /* RNAudio.xcodeproj */;
+				},
+				{
+					ProductGroup = 005704511D2B4F26007221A1 /* Products */;
+					ProjectRef = F693CD15967E40ADA4F27AAF /* RNStreamingKit.xcodeproj */;
+				},
+				{
+					ProductGroup = 005704571D2B4F26007221A1 /* Products */;
+					ProjectRef = 80F078B8E69849F1AF372E28 /* RNTGlobalEventEmitter.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				BC85408A1ADF74E9005A7C54 /* MomiaIOS */,
@@ -3722,6 +3819,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		0057043B1D2B4F20007221A1 /* libRNAudio.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNAudio.a;
+			remoteRef = 0057043A1D2B4F20007221A1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		005704561D2B4F26007221A1 /* libRNStreamingKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNStreamingKit.a;
+			remoteRef = 005704551D2B4F26007221A1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0057045C1D2B4F26007221A1 /* RNTGlobalEventEmitter.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = RNTGlobalEventEmitter.app;
+			remoteRef = 0057045B1D2B4F26007221A1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0057045E1D2B4F26007221A1 /* RNTGlobalEventEmitterTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RNTGlobalEventEmitterTests.xctest;
+			remoteRef = 0057045D1D2B4F26007221A1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		BC8540891ADF74E9005A7C54 /* Resources */ = {
@@ -4244,6 +4372,7 @@
 				BC8254331B3A76F500430A6F /* CustomDarkButton.m in Sources */,
 				BCBB16C11BF34B7200E273AF /* UserInfoViewController.m in Sources */,
 				BC040D091BC8ABA900988AB2 /* CourseTagsCell.m in Sources */,
+				005704651D2B5413007221A1 /* AudioRecorderManager.m in Sources */,
 				BCF9ECA01B4161EE00AEBE1E /* CityManager.m in Sources */,
 				BCF033991B4F72B0005B71D6 /* AlipayOrder.m in Sources */,
 				BC3599F61BC61F0C002DE863 /* MLSelectPhotoPickerBrowserPhotoImageView.m in Sources */,
@@ -4325,7 +4454,6 @@
 				5ABDA57B1B423FD8003BAE80 /* PostPersonModel.m in Sources */,
 				BC6F40E51D1CDCF80098E73A /* WendaPayManager.m in Sources */,
 				BC79DF801C118FBA0064C02F /* IMUserGroupListModel.m in Sources */,
-				001FEF8B1D0FCEF700A00D7E /* AudioPlayerManager.m in Sources */,
 				BC82543F1B3C26E400430A6F /* LocationService.m in Sources */,
 				5AABF70F1B281BEF000A9D3F /* ConvertFromXib.m in Sources */,
 				5A33F1921B2E9FC5002A8258 /* CashPayViewController.m in Sources */,
@@ -4415,12 +4543,14 @@
 				00DE81081D251654004E4D44 /* MyAssetViewController.m in Sources */,
 				BCF9DCF91BD8F0E200D8CDC6 /* CourseTeacherListViewController.m in Sources */,
 				5A18DC4B1B295C03001458A4 /* HomeViewController.m in Sources */,
+				005704691D2B5C93007221A1 /* RNStreamingKitManager.m in Sources */,
 				BC753ED91BAC07D300D2663C /* FeedUgcCell.m in Sources */,
 				BC753ECC1BAC07D300D2663C /* FeedDetailViewController.m in Sources */,
 				BC2C0C8F1B18075D00E2446E /* UIImage+Color.m in Sources */,
 				BC592BBA1BD489DE008AE76A /* BookingSubjectListViewController.m in Sources */,
 				BC0BD6FA1B5516DB00B95B3A /* Coupon.m in Sources */,
 				BCF564CF1B4632A1003A2227 /* Child.m in Sources */,
+				005704631D2B5412007221A1 /* AudioPlayerManager.m in Sources */,
 				BC3D0B951B6F0190004C7B81 /* ConfigService.m in Sources */,
 				5AB444821B41479800FBADD4 /* OrderPersonModel.m in Sources */,
 				5AE4F8671B3D642B005879B7 /* MOStepperView.m in Sources */,
@@ -4509,6 +4639,7 @@
 				BC6CF5A31C3CF03C006F314C /* IQKeyboardReturnKeyHandler.m in Sources */,
 				BC6CF5A51C3CF03C006F314C /* IQTextView.m in Sources */,
 				BC6CF5A71C3CF03C006F314C /* IQBarButtonItem.m in Sources */,
+				005704641D2B5413007221A1 /* AudioPlayerManager.m in Sources */,
 				BC6CF5A91C3CF03C006F314C /* IQTitleBarButtonItem.m in Sources */,
 				BC6CF5AB1C3CF03C006F314C /* IQToolbar.m in Sources */,
 				BC6CF5AD1C3CF03C006F314C /* IQUIView+IQKeyboardToolbar.m in Sources */,
@@ -4613,6 +4744,7 @@
 				BCEAFC5A1C2A394300CB082D /* CouponListItemCell.m in Sources */,
 				BCEAFC5B1C2A394300CB082D /* UIScrollView+AllowScreenEdgePanGestureRecognizer.m in Sources */,
 				BCEAFC5C1C2A394300CB082D /* CourseDetailModel.m in Sources */,
+				005704661D2B5413007221A1 /* AudioRecorderManager.m in Sources */,
 				002B66481CB36D100096EB6E /* ChildListCell.m in Sources */,
 				BCEAFC5D1C2A394300CB082D /* SettingViewController.m in Sources */,
 				BCEAFC5E1C2A394300CB082D /* MLSelectPhotoNavigationViewController.m in Sources */,
@@ -4724,7 +4856,6 @@
 				BCEAFCC81C2A394300CB082D /* HttpService.m in Sources */,
 				BCEAFCC91C2A394300CB082D /* AccountModel.m in Sources */,
 				BCEAFCCA1C2A394300CB082D /* SkuItemCell.m in Sources */,
-				001FEF8C1D0FCEF700A00D7E /* AudioPlayerManager.m in Sources */,
 				BCEAFCCB1C2A394300CB082D /* OrderListViewController.m in Sources */,
 				BCEAFCCC1C2A394300CB082D /* FeedSuggestHeadCell.m in Sources */,
 				BCEAFCCD1C2A394300CB082D /* MyFavCell.m in Sources */,
@@ -4820,6 +4951,7 @@
 				BCEAFD1B1C2A394300CB082D /* FeedbackViewController.m in Sources */,
 				BCEAFD1C1C2A394300CB082D /* CourseTeacherListModel.m in Sources */,
 				BCEAFD1D1C2A394300CB082D /* ChatUserFeedPhotoCell.m in Sources */,
+				0057046A1D2B5C93007221A1 /* RNStreamingKitManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4961,6 +5093,9 @@
 					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
 					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
 					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"$(SRCROOT)/node_modules/react-native-audio/ios",
+					"$(SRCROOT)/node_modules/react-native-global-event-emitter/**",
+					"$(SRCROOT)/node_modules/react-native-streamingkit/RNStreamingKit/**",
 				);
 				INFOPLIST_FILE = MomiaIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -4973,6 +5108,10 @@
 					"$(PROJECT_DIR)/ThirdParty/WeChatSDK_1.6",
 					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
 					"$(PROJECT_DIR)/MomiaIOS/Lib/arm/lib",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -5035,6 +5174,9 @@
 					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
 					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
 					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"$(SRCROOT)/node_modules/react-native-audio/ios",
+					"$(SRCROOT)/node_modules/react-native-global-event-emitter/**",
+					"$(SRCROOT)/node_modules/react-native-streamingkit/RNStreamingKit/**",
 				);
 				INFOPLIST_FILE = MomiaIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -5047,6 +5189,10 @@
 					"$(PROJECT_DIR)/ThirdParty/WeChatSDK_1.6",
 					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
 					"$(PROJECT_DIR)/MomiaIOS/Lib/arm/lib",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
@@ -5092,6 +5238,13 @@
 				);
 				INFOPLIST_FILE = MomiaIOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.youxing.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -5108,6 +5261,13 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MomiaIOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.youxing.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -5146,6 +5306,9 @@
 					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
 					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
 					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"$(SRCROOT)/node_modules/react-native-audio/ios",
+					"$(SRCROOT)/node_modules/react-native-global-event-emitter/**",
+					"$(SRCROOT)/node_modules/react-native-streamingkit/RNStreamingKit/**",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/MomiaIOS/Debug-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -5158,6 +5321,10 @@
 					"$(PROJECT_DIR)/ThirdParty/WeChatSDK_1.6",
 					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
 					"$(PROJECT_DIR)/MomiaIOS/Lib/arm/lib",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -5231,6 +5398,9 @@
 					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
 					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
 					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"$(SRCROOT)/node_modules/react-native-audio/ios",
+					"$(SRCROOT)/node_modules/react-native-global-event-emitter/**",
+					"$(SRCROOT)/node_modules/react-native-streamingkit/RNStreamingKit/**",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/MomiaIOS/Debug-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -5243,6 +5413,10 @@
 					"$(PROJECT_DIR)/ThirdParty/WeChatSDK_1.6",
 					"$(PROJECT_DIR)/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable",
 					"$(PROJECT_DIR)/MomiaIOS/Lib/arm/lib",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (

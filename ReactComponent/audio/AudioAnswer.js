@@ -20,6 +20,9 @@ const timer = require('react-native-timer');
 
 var LoadingEffect = require('react-native-loading-effect');
 
+import {AudioRecorder, AudioUtils} from 'react-native-audio';
+let audioPath = AudioUtils.DocumentDirectoryPath + '/test.aac';
+
 //语音播放录制管理
 var AudioPlayerManager = require('NativeModules').AudioPlayerManager;
 
@@ -147,6 +150,20 @@ class AudioAnswerComponent extends React.Component {
      		}
       		console.log(resp.data);
     	});
+
+		 /*
+		  *   设置录音压缩率，质量,
+		  *   SampleRate: 压缩率
+		  *   Channels: 频道
+		  *
+		  */
+		 console.log(audioPath);
+		 AudioRecorder.prepareRecordingAtPath(audioPath, {
+  			SampleRate: 22050,
+  			Channels: 1,
+  			AudioQuality: "Low",
+  			AudioEncoding: "aac"
+		});
 	}
 
 	render() {
@@ -161,9 +178,6 @@ class AudioAnswerComponent extends React.Component {
 					dataSource = {this.state.dataSource}
 					renderRow = {this.renderRow.bind(this)} />
 			</View>
-			<View style={[SGStyles.container, styles.floatView]}>
-				<LoadingEffect isVisible={this.state.isLoadingDialogVisible} text='加载中...'/>
-      		</View>
         );
 	}
 
@@ -239,23 +253,25 @@ class AudioAnswerComponent extends React.Component {
 	}
 	
 	pressAudioImage = () => {
-		console.log("press image");
+
 		if (this.state.isRecord == false ) {
 			this.state.isRecord = true;
-    		timer.setInterval('test', () => {
-    			this.setState({ seconds: this.state.seconds + 1 });
-    			console.log(this.state.seconds);
-    		} , 1000);
-    		this.setState({
-      			dataSource: this.state.dataSource.cloneWithRows([
-      				{id: 0}, {id: 1},{id: 2},{id: 3},{id: 4}]),
-    		});
-    		AudioPlayerManager.startRecord();
+    		// timer.setInterval('test', () => {
+    		// 	this.setState({ seconds: this.state.seconds + 1 });
+    		// 	console.log(this.state.seconds);
+    		// } , 1000);
+    		// this.setState({
+      // 			dataSource: this.state.dataSource.cloneWithRows([
+      // 				{id: 0}, {id: 1},{id: 2},{id: 3},{id: 4}]),
+    		// });
+    		//AudioPlayerManager.startRecord();
 
+    		AudioRecorder.startRecording();
 		} else {
 
-			AudioPlayerManager.stopRecord();
-			timer.clearInterval('test');
+			// AudioPlayerManager.stopRecord();
+			AudioRecorder.stopRecording();
+			// timer.clearInterval('test');
 			this.state.isRecord = false;
 		}
 	}
@@ -298,6 +314,7 @@ class AudioAnswerComponent extends React.Component {
     	});
 	}
 
+	//处理返回的数据
 	_handlerResponse(type,data) {
 
 		if (type == 1) { // 初始时返回的数据处理

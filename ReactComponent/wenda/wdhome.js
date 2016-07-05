@@ -29,6 +29,7 @@ var {
 
 var RNCommon = NativeModules.RNCommon;
 var WendaPayManager = NativeModules.WendaPayManager;
+const RNStreamingKitManager = NativeModules.RNStreamingKitManager;
 
 var GlobalEventEmitter = require('react-native-global-event-emitter');
 
@@ -378,8 +379,7 @@ class WDHomeComponent extends React.Component {
         //判断结果是否可以直接播放了
         if (resp.data.hasOwnProperty('question')) {
           //TODO 直接播放
-
-
+          RNStreamingKitManager.play('http://o6y686hwm.bkt.clouddn.com/helloaac.aac');
         } else {
           //支付订单
           WendaPayManager.pay(resp.data.order, (error, payResult) => {
