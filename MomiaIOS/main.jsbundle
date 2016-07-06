@@ -1415,6 +1415,7 @@ var WendaPayManager=NativeModules.WendaPayManager;
 var RNStreamingKitManager=NativeModules.RNStreamingKitManager;
 
 var GlobalEventEmitter=require(551 /* react-native-global-event-emitter */);
+var Toast=require(568 /* ../toast.js */);
 
 var styles=ReactNative.StyleSheet.create({
 loadingContainer:{
@@ -1459,20 +1460,21 @@ _this.state={
 dataSource:ds.cloneWithRows([new Array()]),
 isLoading:true,
 isLoadingDialogVisible:false,
-isRefreshing:false};return _this;}babelHelpers.createClass(WDHomeComponent,[{key:'render',value:function render()
+isRefreshing:false,
+order:''};return _this;}babelHelpers.createClass(WDHomeComponent,[{key:'render',value:function render()
 
 
 
 {
-return this.state.isLoading?React.createElement(View,{style:[SGStyles.container,styles.loadingContainer],__source:{fileName:_jsxFileName,lineNumber:85}},React.createElement(ActivityIndicatorIOS,{
+return this.state.isLoading?React.createElement(View,{style:[SGStyles.container,styles.loadingContainer],__source:{fileName:_jsxFileName,lineNumber:87}},React.createElement(ActivityIndicatorIOS,{
 hidden:'true',
-size:'small',__source:{fileName:_jsxFileName,lineNumber:85}})):React.createElement(View,{style:SGStyles.container,__source:{fileName:_jsxFileName,lineNumber:87}},
+size:'small',__source:{fileName:_jsxFileName,lineNumber:87}})):React.createElement(View,{style:SGStyles.container,__source:{fileName:_jsxFileName,lineNumber:89}},
 React.createElement(ListView,{
 dataSource:this.state.dataSource,
-renderRow:this.renderRow.bind(this),__source:{fileName:_jsxFileName,lineNumber:88}}),
+renderRow:this.renderRow.bind(this),__source:{fileName:_jsxFileName,lineNumber:90}}),
 
-React.createElement(View,{style:[SGStyles.container,styles.floatView],__source:{fileName:_jsxFileName,lineNumber:92}},
-React.createElement(LoadingEffect,{isVisible:this.state.isLoadingDialogVisible,text:'加载中...',__source:{fileName:_jsxFileName,lineNumber:93}})));}},{key:'componentDidMount',value:function componentDidMount()
+React.createElement(View,{style:[SGStyles.container,styles.floatView],__source:{fileName:_jsxFileName,lineNumber:94}},
+React.createElement(LoadingEffect,{isVisible:this.state.isLoadingDialogVisible,text:'加载中...',__source:{fileName:_jsxFileName,lineNumber:95}})));}},{key:'componentDidMount',value:function componentDidMount()
 
 
 
@@ -1492,8 +1494,15 @@ isLoading:false});}
 console.log(resp);});
 
 
-GlobalEventEmitter.addListener('pay_success',function(data){
-console.log('pay success');});
+
+GlobalEventEmitter.addListener('paySuccess',function(data){
+console.log("收到通知，付款成功"+data.oid);
+console.log('-----'+_this2.state.order.id);
+if(data.oid==_this2.state.order.id){
+WendaPayManager.dismissPayAlert('付款成功，可以点击偷听啦！',function(){});}});
+
+
+
 
 
 GlobalEventEmitter.addListener('stopAudio',function(data){
@@ -1580,7 +1589,7 @@ isRefreshing:false});}},{key:'renderSectionHeader',value:function renderSectionH
 
 
 {
-return React.createElement(View,{style:styles.footer,__source:{fileName:_jsxFileName,lineNumber:201}});}},{key:'renderRow',value:function renderRow(
+return React.createElement(View,{style:styles.footer,__source:{fileName:_jsxFileName,lineNumber:210}});}},{key:'renderRow',value:function renderRow(
 
 
 rowData,sectionID,rowID){var _this3=this;
@@ -1593,42 +1602,42 @@ rowView=this._renderHeaderView(rowData.data);}else
 
 if(rowData.type==3){
 rowView=React.createElement(TouchableHighlight,{onPress:function onPress(){return _this3._rowPressed(rowData);},
-underlayColor:'#dddddd',__source:{fileName:_jsxFileName,lineNumber:213}},this._renderCourseView(rowData.data));}else
+underlayColor:'#dddddd',__source:{fileName:_jsxFileName,lineNumber:222}},this._renderCourseView(rowData.data));}else
 
 if(rowData.type==4){
 rowView=React.createElement(TouchableHighlight,{onPress:function onPress(){return _this3._rowPressed(rowData);},
-underlayColor:'#dddddd',__source:{fileName:_jsxFileName,lineNumber:217}},this._renderQuestionView(rowData.data));}else
+underlayColor:'#dddddd',__source:{fileName:_jsxFileName,lineNumber:226}},this._renderQuestionView(rowData.data));}else
 
 if(rowData.type==5){
 rowView=React.createElement(TouchableHighlight,{onPress:function onPress(){return _this3._rowPressed(rowData);},
-underlayColor:'#dddddd',__source:{fileName:_jsxFileName,lineNumber:221}},this._renderMoreView());}
+underlayColor:'#dddddd',__source:{fileName:_jsxFileName,lineNumber:230}},this._renderMoreView());}
 
 
 
 return rowView==null?React.createElement(Text,{style:styles.menu,
-numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:226}}):rowView;}},{key:'_renderBannelsView',value:function _renderBannelsView(
+numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:235}}):rowView;}},{key:'_renderBannelsView',value:function _renderBannelsView(
 
 
 banners){
 if(banners.length==1){
 
-return React.createElement(View,{style:{height:Dimensions.get('window').width*180/320},__source:{fileName:_jsxFileName,lineNumber:233}},
-React.createElement(TouchableHighlight,{style:{flex:1},onPress:function onPress(){Linking.openURL(banners[0].action);},underlayColor:'#ffffff',__source:{fileName:_jsxFileName,lineNumber:234}},
-React.createElement(Image,{style:{flex:1,backgroundColor:'#000000'},source:{uri:banners[0].cover},__source:{fileName:_jsxFileName,lineNumber:235}})),
-React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName,lineNumber:236}}));}else
+return React.createElement(View,{style:{height:Dimensions.get('window').width*180/320},__source:{fileName:_jsxFileName,lineNumber:242}},
+React.createElement(TouchableHighlight,{style:{flex:1},onPress:function onPress(){Linking.openURL(banners[0].action);},underlayColor:'#ffffff',__source:{fileName:_jsxFileName,lineNumber:243}},
+React.createElement(Image,{style:{flex:1,backgroundColor:'#000000'},source:{uri:banners[0].cover},__source:{fileName:_jsxFileName,lineNumber:244}})),
+React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName,lineNumber:245}}));}else
 
 
 {
-var dot=React.createElement(View,{style:{backgroundColor:'rgba(0,0,0,.2)',width:5,height:5,borderRadius:4,marginLeft:3,marginRight:3,marginTop:3,marginBottom:3},__source:{fileName:_jsxFileName,lineNumber:240}});
-var activeDot=React.createElement(View,{style:{backgroundColor:'#00c49d',width:6,height:6,borderRadius:4,marginLeft:3,marginRight:3,marginTop:3,marginBottom:3},__source:{fileName:_jsxFileName,lineNumber:241}});
-return React.createElement(View,{style:styles.wrapper,__source:{fileName:_jsxFileName,lineNumber:242}},React.createElement(Swiper,{style:styles.wrapper,height:Dimensions.get('window').width*180/320,
-showsButtons:false,autoplay:true,dot:dot,activeDot:activeDot,loop:true,__source:{fileName:_jsxFileName,lineNumber:242}},
+var dot=React.createElement(View,{style:{backgroundColor:'rgba(0,0,0,.2)',width:5,height:5,borderRadius:4,marginLeft:3,marginRight:3,marginTop:3,marginBottom:3},__source:{fileName:_jsxFileName,lineNumber:249}});
+var activeDot=React.createElement(View,{style:{backgroundColor:'#00c49d',width:6,height:6,borderRadius:4,marginLeft:3,marginRight:3,marginTop:3,marginBottom:3},__source:{fileName:_jsxFileName,lineNumber:250}});
+return React.createElement(View,{style:styles.wrapper,__source:{fileName:_jsxFileName,lineNumber:251}},React.createElement(Swiper,{style:styles.wrapper,height:Dimensions.get('window').width*180/320,
+showsButtons:false,autoplay:true,dot:dot,activeDot:activeDot,loop:true,__source:{fileName:_jsxFileName,lineNumber:251}},
 banners.map(function(val,index){
-return React.createElement(TouchableHighlight,{style:{flex:1},onPress:function onPress(){Linking.openURL(banners[index].action);},underlayColor:'#ffffff',__source:{fileName:_jsxFileName,lineNumber:245}},
-React.createElement(Image,{style:{flex:1,backgroundColor:'white'},source:{uri:banners[index].cover},__source:{fileName:_jsxFileName,lineNumber:246}}));})),
+return React.createElement(TouchableHighlight,{style:{flex:1},onPress:function onPress(){Linking.openURL(banners[index].action);},underlayColor:'#ffffff',__source:{fileName:_jsxFileName,lineNumber:254}},
+React.createElement(Image,{style:{flex:1,backgroundColor:'white'},source:{uri:banners[index].cover},__source:{fileName:_jsxFileName,lineNumber:255}}));})),
 
 
-React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName,lineNumber:249}}));}}},{key:'_renderHeaderView',value:function _renderHeaderView(
+React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName,lineNumber:258}}));}}},{key:'_renderHeaderView',value:function _renderHeaderView(
 
 
 
@@ -1642,69 +1651,69 @@ image=require(578 /* image!listen */);}else
 image=require(580 /* image!question */);}
 
 
-return React.createElement(View,{style:{height:44,backgroundColor:'white'},__source:{fileName:_jsxFileName,lineNumber:263}},
-React.createElement(View,{style:styles.footer,__source:{fileName:_jsxFileName,lineNumber:264}}),
-React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName,lineNumber:265}}),
-React.createElement(View,{style:{flex:1,alignItems:'center',justifyContent:'center',flexDirection:'row',paddingLeft:10},__source:{fileName:_jsxFileName,lineNumber:266}},
-React.createElement(Image,{style:{width:20,height:20},source:image,__source:{fileName:_jsxFileName,lineNumber:267}}),
-React.createElement(Text,{style:{fontSize:15,color:'#00c49d',paddingLeft:5,paddingRight:5,textAlign:'left',flex:1},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:268}},data)),
-React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName,lineNumber:269}}));}},{key:'_renderCourseView',value:function _renderCourseView(
+return React.createElement(View,{style:{height:44,backgroundColor:'white'},__source:{fileName:_jsxFileName,lineNumber:272}},
+React.createElement(View,{style:styles.footer,__source:{fileName:_jsxFileName,lineNumber:273}}),
+React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName,lineNumber:274}}),
+React.createElement(View,{style:{flex:1,alignItems:'center',justifyContent:'center',flexDirection:'row',paddingLeft:10},__source:{fileName:_jsxFileName,lineNumber:275}},
+React.createElement(Image,{style:{width:20,height:20},source:image,__source:{fileName:_jsxFileName,lineNumber:276}}),
+React.createElement(Text,{style:{fontSize:15,color:'#00c49d',paddingLeft:5,paddingRight:5,textAlign:'left',flex:1},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:277}},data)),
+React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName,lineNumber:278}}));}},{key:'_renderCourseView',value:function _renderCourseView(
 
 
 
 data){
-return React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:274}},
-React.createElement(View,{style:{backgroundColor:'white',paddingBottom:10},__source:{fileName:_jsxFileName,lineNumber:275}},
-React.createElement(View,{style:{flex:1,flexDirection:'row',backgroundColor:'white',justifyContent:'center',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:276}},
-React.createElement(View,{style:{alignItems:'center',padding:10},__source:{fileName:_jsxFileName,lineNumber:277}},
-React.createElement(Image,{style:{width:50,height:50,borderRadius:25},source:{uri:data.expert.cover},__source:{fileName:_jsxFileName,lineNumber:278}})),
+return React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:283}},
+React.createElement(View,{style:{backgroundColor:'white',paddingBottom:10},__source:{fileName:_jsxFileName,lineNumber:284}},
+React.createElement(View,{style:{flex:1,flexDirection:'row',backgroundColor:'white',justifyContent:'center',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:285}},
+React.createElement(View,{style:{alignItems:'center',padding:10},__source:{fileName:_jsxFileName,lineNumber:286}},
+React.createElement(Image,{style:{width:50,height:50,borderRadius:25},source:{uri:data.expert.cover},__source:{fileName:_jsxFileName,lineNumber:287}})),
 
-React.createElement(View,{style:{flex:1,paddingTop:10,paddingRight:10,paddingBottom:10},__source:{fileName:_jsxFileName,lineNumber:280}},
-React.createElement(Text,{style:{fontSize:16,color:'#333333'},numberOfLines:2,__source:{fileName:_jsxFileName,lineNumber:281}},data.title),
-React.createElement(Text,{style:{fontSize:13,color:'#999999',marginRight:10,marginTop:5},numberOfLines:2,__source:{fileName:_jsxFileName,lineNumber:282}},data.subhead))),
-
-
-React.createElement(View,{style:{flexDirection:'row',paddingLeft:20,alignItems:'center',justifyContent:'center'},__source:{fileName:_jsxFileName,lineNumber:285}},
-React.createElement(Text,{style:{fontSize:13,color:'#333333'},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:286}},data.expert.name),
-React.createElement(View,{style:{flexDirection:'row',flex:1},__source:{fileName:_jsxFileName,lineNumber:287}},
-React.createElement(Image,{style:{width:15,height:15,marginLeft:20},source:require(574 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:288}}),
-React.createElement(Text,{style:{fontSize:13,color:'#999999',marginLeft:4},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:289}},data.count,'次'),
-React.createElement(Image,{style:{width:15,height:15,marginLeft:10},source:require(575 /* image!time */),__source:{fileName:_jsxFileName,lineNumber:290}}),
-React.createElement(Text,{style:{fontSize:13,color:'#999999',marginLeft:4},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:291}},data.mins,'分钟')))),
+React.createElement(View,{style:{flex:1,paddingTop:10,paddingRight:10,paddingBottom:10},__source:{fileName:_jsxFileName,lineNumber:289}},
+React.createElement(Text,{style:{fontSize:16,color:'#333333'},numberOfLines:2,__source:{fileName:_jsxFileName,lineNumber:290}},data.title),
+React.createElement(Text,{style:{fontSize:13,color:'#999999',marginRight:10,marginTop:5},numberOfLines:2,__source:{fileName:_jsxFileName,lineNumber:291}},data.subhead))),
 
 
-React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName,lineNumber:294}}));}},{key:'_renderQuestionView',value:function _renderQuestionView(
+React.createElement(View,{style:{flexDirection:'row',paddingLeft:20,alignItems:'center',justifyContent:'center'},__source:{fileName:_jsxFileName,lineNumber:294}},
+React.createElement(Text,{style:{fontSize:13,color:'#333333'},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:295}},data.expert.name),
+React.createElement(View,{style:{flexDirection:'row',flex:1},__source:{fileName:_jsxFileName,lineNumber:296}},
+React.createElement(Image,{style:{width:15,height:15,marginLeft:20},source:require(574 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:297}}),
+React.createElement(Text,{style:{fontSize:13,color:'#999999',marginLeft:4},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:298}},data.count,'次'),
+React.createElement(Image,{style:{width:15,height:15,marginLeft:10},source:require(575 /* image!time */),__source:{fileName:_jsxFileName,lineNumber:299}}),
+React.createElement(Text,{style:{fontSize:13,color:'#999999',marginLeft:4},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:300}},data.mins,'分钟')))),
+
+
+React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName,lineNumber:303}}));}},{key:'_renderQuestionView',value:function _renderQuestionView(
 
 
 
 
 data){var _this4=this;
-return React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:300}},React.createElement(View,{style:{backgroundColor:'white',padding:10},__source:{fileName:_jsxFileName,lineNumber:300}},
-React.createElement(Text,{style:{fontSize:15,color:'#333333'},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:301}},data.content),
-React.createElement(Text,{style:{fontSize:13,color:'#999999',paddingTop:5},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:302}},data.expert.name,' | ',data.expert.intro),
-React.createElement(View,{style:{flexDirection:'row',paddingTop:10,alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:303}},
-React.createElement(Image,{style:{width:30,height:30,borderRadius:15,marginRight:5},source:{uri:data.expert.cover},__source:{fileName:_jsxFileName,lineNumber:304}}),
+return React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:309}},React.createElement(View,{style:{backgroundColor:'white',padding:10},__source:{fileName:_jsxFileName,lineNumber:309}},
+React.createElement(Text,{style:{fontSize:15,color:'#333333'},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:310}},data.content),
+React.createElement(Text,{style:{fontSize:13,color:'#999999',paddingTop:5},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:311}},data.expert.name,' | ',data.expert.intro),
+React.createElement(View,{style:{flexDirection:'row',paddingTop:10,alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:312}},
+React.createElement(Image,{style:{width:30,height:30,borderRadius:15,marginRight:5},source:{uri:data.expert.cover},__source:{fileName:_jsxFileName,lineNumber:313}}),
 React.createElement(TouchableHighlight,{onPress:function onPress(){return _this4._answerPressed(data);},
-underlayColor:'white',__source:{fileName:_jsxFileName,lineNumber:305}},
-React.createElement(Image,{style:{width:200,height:30,borderRadius:15,marginLeft:10,backgroundColor:'#9DDF59',justifyContent:'center',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:307}},
-React.createElement(Text,{style:{fontSize:13,color:'white'},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:308}},'1元偷听'))),
+underlayColor:'white',__source:{fileName:_jsxFileName,lineNumber:314}},
+React.createElement(Image,{style:{width:200,height:30,borderRadius:15,marginLeft:10,backgroundColor:'#9DDF59',justifyContent:'center',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:316}},
+React.createElement(Text,{style:{fontSize:13,color:'white'},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:317}},'1元偷听'))),
 
 
-React.createElement(Text,{style:{fontSize:13,color:'#999999',paddingLeft:5},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:311}},data.mins,'“'))),
+React.createElement(Text,{style:{fontSize:13,color:'#999999',paddingLeft:5},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:320}},data.mins,'“'))),
 
 
-React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName,lineNumber:314}}));}},{key:'_renderMoreView',value:function _renderMoreView()
+React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName,lineNumber:323}}));}},{key:'_renderMoreView',value:function _renderMoreView()
 
 
 
 {
-return React.createElement(View,{style:{height:44,backgroundColor:'white'},__source:{fileName:_jsxFileName,lineNumber:319}},
-React.createElement(View,{style:{flex:1,alignItems:'center',justifyContent:'center'},__source:{fileName:_jsxFileName,lineNumber:320}},
-React.createElement(View,{style:{borderRadius:3,borderWidth:1},__source:{fileName:_jsxFileName,lineNumber:321}},
-React.createElement(Text,{style:{fontSize:14,color:'#333333',padding:5},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:322}},'查看更多'))),
+return React.createElement(View,{style:{height:44,backgroundColor:'white'},__source:{fileName:_jsxFileName,lineNumber:328}},
+React.createElement(View,{style:{flex:1,alignItems:'center',justifyContent:'center'},__source:{fileName:_jsxFileName,lineNumber:329}},
+React.createElement(View,{style:{borderRadius:3,borderWidth:1},__source:{fileName:_jsxFileName,lineNumber:330}},
+React.createElement(Text,{style:{fontSize:14,color:'#333333',padding:5},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:331}},'查看更多'))),
 
 
-React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName,lineNumber:325}}));}},{key:'_onRefresh',value:function _onRefresh()
+React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName,lineNumber:334}}));}},{key:'_onRefresh',value:function _onRefresh()
 
 
 
@@ -1756,7 +1765,7 @@ RNCommon.openUrl('login');}});}},{key:'_requestQuestion',value:function _request
 
 
 
-questionId){
+questionId){var _this7=this;
 HttpService.get(Common.domain()+'/v1/wd_hJoin?',{
 qid:questionId},
 function(resp){
@@ -1767,12 +1776,21 @@ if(resp.data.hasOwnProperty('question')){
 var question=resp.data.question;
 
 if(question.answer!=''){
+Toast.showShortCenter("开始播放");
 RNStreamingKitManager.play(question.answer);}}else
 
 {
 
-WendaPayManager.pay(resp.data.order,function(error,payResult){});}}else
+_this7.setState({
+order:resp.data.order});
 
+console.log('hello');
+console.log(_this7.state.order.id);
+console.log('end');
+WendaPayManager.pay(resp.data.order,function(error,payResult){
+
+
+console.log('success');});}}else
 
 
 
@@ -71092,6 +71110,105 @@ DeviceMotion.UIKeyboardNotifications=RNTGlobalEventEmitter.UIKeyboardNotificatio
 
 module.exports=DeviceMotion;
 });
+__d(568 /* momiaios/ReactComponent/toast.js */, function(global, require, module, exports) {'use strict';
+
+var React=require(43 /* react-native */);var
+
+NativeModules=
+React.NativeModules;
+
+var RNToast=NativeModules.RNToast;
+var Toast={};
+
+var optionsBuilder=function optionsBuilder(){
+
+
+var message=null;
+var duration="short";
+var position="center";
+var addPixelsY=0;
+
+return{
+withMessage:function withMessage(m){
+message=m;
+return this;},
+
+
+withDuration:function withDuration(d){
+duration=d;
+return this;},
+
+
+withPosition:function withPosition(p){
+position=p;
+return this;},
+
+
+withAddPixelsY:function withAddPixelsY(y){
+addPixelsY=y;
+return this;},
+
+
+build:function build(){
+return{
+message:message,
+duration:duration,
+position:position,
+addPixelsY:addPixelsY};}};};
+
+
+
+
+
+
+var showWithOptions=function showWithOptions(options){
+RNToast.show(options);};
+
+
+var showToast=function showToast(message,duration,position){
+showWithOptions(
+optionsBuilder().
+withMessage(message).
+withDuration(duration).
+withPosition(position).
+build());};
+
+
+
+Toast.showShortTop=function(message){
+showToast(message,"short","top");};
+
+
+Toast.showShortCenter=function(message){
+showToast(message,"short","center");};
+
+
+Toast.showShortBottom=function(message){
+showToast(message,"short","bottom");};
+
+
+Toast.showLongTop=function(message){
+showToast(message,"long","top");};
+
+
+Toast.showLongCenter=function(message){
+showToast(message,"long","center");};
+
+
+Toast.showLongBottom=function(message){
+showToast(message,"long","bottom");};
+
+
+Toast.show=function(message){
+showToast(message,"short","bottom");};
+
+
+Toast.hide=function(){
+RNToast.hide();};
+
+
+module.exports=Toast;
+});
 __d(578 /* image!listen */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/listen.imageset/listen.png","uri":"listen","width":192,"height":190,"deprecated":true};
 });
 __d(580 /* image!question */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/question.imageset/question.png","uri":"question","width":198,"height":196,"deprecated":true};
@@ -71406,11 +71523,22 @@ borderRadius:4,
 backgroundColor:'gray'},
 
 buttonRight:{
+flex:0.5,
+justifyContent:'center',
+flexDirection:'row',
+height:45,
+marginLeft:20,
+alignItems:'center',
+borderRadius:4,
+backgroundColor:'gray'},
+
+button:{
 flex:1,
 justifyContent:'center',
 flexDirection:'row',
 height:45,
 marginLeft:20,
+marginRight:20,
 alignItems:'center',
 borderRadius:4,
 backgroundColor:'gray'},
@@ -71557,6 +71685,14 @@ props));_this.
 
 
 
+
+
+
+
+
+
+
+
 pressAudioImage=function(){
 
 if(_this.state.isRecord==false){
@@ -71571,24 +71707,34 @@ _this.state.isRecord=true;
 
 
 
-_reactNativeAudio.AudioRecorder.startRecording();}else
-{
-
-
-_reactNativeAudio.AudioRecorder.stopRecording();
-
-_this.state.isRecord=false;}};_this.
+_reactNativeAudio.AudioRecorder.startRecording();}};_this.
 
 
 
-playAudio=function(){
-AudioPlayerManager.play();};_this.
+playAudio=function(){};_this.
+
 
 
 
 _reRecord=function(){
-AudioPlayerManager.reRecord(function(error,msg){
-console.log(msg);});};_this.state={isLoadingDialogVisible:false,isLoading:true,seconds:0,isRecord:false,question:'',dataSource:ds.cloneWithRows([new Array()])};return _this;}babelHelpers.createClass(AudioAnswerComponent,[{key:'componentDidMount',value:function componentDidMount(){var _this2=this;HttpService.get(Common.domain()+'/v1/wd_qExpert?',{qid:this.props.qid},function(resp){if(resp.errno==0){_this2._handlerResponse(1,resp.data);}else{}console.log(resp.data);});console.log(audioPath);_reactNativeAudio.AudioRecorder.prepareRecordingAtPath(audioPath,{SampleRate:22050,Channels:1,AudioQuality:"Low",AudioEncoding:"aac"});}},{key:'render',value:function render(){if(this.state.isLoading){return Common.loading();}return React.createElement(View,{style:styles.container,__source:{fileName:_jsxFileName,lineNumber:178}},React.createElement(ListView,{dataSource:this.state.dataSource,renderRow:this.renderRow.bind(this),__source:{fileName:_jsxFileName,lineNumber:179}}));}},{key:'_showLoadingEffect',value:function _showLoadingEffect(){this.setState({isLoadingDialogVisible:true});}},{key:'_dismissLoadingEffect',value:function _dismissLoadingEffect(){this.setState({isLoadingDialogVisible:false});}},{key:'renderRow',value:function renderRow(rowData,sectionID,rowID){var _this3=this;if(rowID==0){return React.createElement(View,{style:styles.headContainer,__source:{fileName:_jsxFileName,lineNumber:202}},React.createElement(Image,{style:styles.headImage,source:{uri:this.state.question.userAvatar},__source:{fileName:_jsxFileName,lineNumber:203}}),React.createElement(Text,{style:styles.headText,__source:{fileName:_jsxFileName,lineNumber:205}},this.state.question.userName));}else if(rowID==1){return React.createElement(Text,{style:{marginLeft:10,marginRight:10,backgroundColor:'white',padding:10},__source:{fileName:_jsxFileName,lineNumber:211}},this.state.question.content);}else if(rowID==2){return React.createElement(View,{style:styles.titleContainer,__source:{fileName:_jsxFileName,lineNumber:216}},React.createElement(Text,{style:{fontSize:11,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:217}},'公开提问，公开回答，答案被人偷听一次，你就赚0.5元. '));}else if(rowID==3){return React.createElement(View,{style:styles.audioBox,__source:{fileName:_jsxFileName,lineNumber:223}},React.createElement(Text,{style:styles.audioTitle,__source:{fileName:_jsxFileName,lineNumber:224}},' 语音回答 '),React.createElement(TouchableHighlight,{onPress:this.pressAudioImage,__source:{fileName:_jsxFileName,lineNumber:225}},React.createElement(Image,{style:styles.audioImage,source:require(581 /* image!audio */),__source:{fileName:_jsxFileName,lineNumber:226}})),React.createElement(Text,{style:styles.audioText,__source:{fileName:_jsxFileName,lineNumber:229}},' 点击开始录音最多可录120s '),React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:230}},' ',this.state.seconds,' ‘'));}else if(rowID==4){return React.createElement(View,{style:styles.buttonBox,__source:{fileName:_jsxFileName,lineNumber:236}},React.createElement(TouchableHighlight,{style:styles.buttonLeft,onPress:function onPress(){return _this3._reRecord();},__source:{fileName:_jsxFileName,lineNumber:237}},React.createElement(Text,{style:styles.buttonText,__source:{fileName:_jsxFileName,lineNumber:240}},'重录')),React.createElement(TouchableHighlight,{style:styles.buttonRight,onPress:function onPress(){return _this3._submit();},underlayColor:'gray',__source:{fileName:_jsxFileName,lineNumber:242}},React.createElement(Text,{style:styles.buttonText,__source:{fileName:_jsxFileName,lineNumber:247}},'确认发送')));}return React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:253}});}},{key:'_submit',value:function _submit()
+
+
+
+
+if(_this.state.isRecord){
+_reactNativeAudio.AudioRecorder.stopRecording();
+_reactNativeAudio.AudioRecorder.startRecording();}else
+{
+_reactNativeAudio.AudioRecorder.startRecording();}};_this.
+
+
+
+
+_stopRecord=function(){
+
+_reactNativeAudio.AudioRecorder.stopRecording();
+_this.setState({
+isRecord:false});};_this.state={isLoadingDialogVisible:false,isLoading:true,seconds:0,isRecord:false,question:'',dataSource:ds.cloneWithRows([new Array()])};return _this;}babelHelpers.createClass(AudioAnswerComponent,[{key:'componentDidMount',value:function componentDidMount(){var _this2=this;HttpService.get(Common.domain()+'/v1/wd_qExpert?',{qid:this.props.qid},function(resp){if(resp.errno==0){_this2._handlerResponse(1,resp.data);}else{}console.log(resp.data);});console.log(audioPath);_reactNativeAudio.AudioRecorder.prepareRecordingAtPath(audioPath,{SampleRate:22050,Channels:1,AudioQuality:"Low",AudioEncoding:"aac"});}},{key:'render',value:function render(){if(this.state.isLoading){return Common.loading();}return React.createElement(View,{style:styles.container,__source:{fileName:_jsxFileName,lineNumber:189}},React.createElement(ListView,{dataSource:this.state.dataSource,renderRow:this.renderRow.bind(this),__source:{fileName:_jsxFileName,lineNumber:190}}));}},{key:'_showLoadingEffect',value:function _showLoadingEffect(){this.setState({isLoadingDialogVisible:true});}},{key:'_dismissLoadingEffect',value:function _dismissLoadingEffect(){this.setState({isLoadingDialogVisible:false});}},{key:'renderRow',value:function renderRow(rowData,sectionID,rowID){var _this3=this;if(rowID==0){return React.createElement(View,{style:styles.headContainer,__source:{fileName:_jsxFileName,lineNumber:213}},React.createElement(Image,{style:styles.headImage,source:{uri:this.state.question.userAvatar},__source:{fileName:_jsxFileName,lineNumber:214}}),React.createElement(Text,{style:styles.headText,__source:{fileName:_jsxFileName,lineNumber:216}},this.state.question.userName));}else if(rowID==1){return React.createElement(Text,{style:{marginLeft:10,marginRight:10,backgroundColor:'white',padding:10},__source:{fileName:_jsxFileName,lineNumber:222}},this.state.question.content);}else if(rowID==2){return React.createElement(View,{style:styles.titleContainer,__source:{fileName:_jsxFileName,lineNumber:227}},React.createElement(Text,{style:{fontSize:11,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:228}},'公开提问，公开回答，答案被人偷听一次，你就赚0.5元. '));}else if(rowID==3){return React.createElement(View,{style:styles.audioBox,__source:{fileName:_jsxFileName,lineNumber:234}},React.createElement(Text,{style:styles.audioTitle,__source:{fileName:_jsxFileName,lineNumber:235}},' 语音回答 '),React.createElement(TouchableHighlight,{onPress:this.pressAudioImage,__source:{fileName:_jsxFileName,lineNumber:236}},React.createElement(Image,{style:styles.audioImage,source:require(581 /* image!audio */),__source:{fileName:_jsxFileName,lineNumber:237}})),React.createElement(Text,{style:styles.audioText,__source:{fileName:_jsxFileName,lineNumber:240}},' 点击开始录音最多可录120s '),React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:241}},' ',this.state.seconds,' ‘'));}else if(rowID==4){return React.createElement(View,{style:styles.buttonBox,__source:{fileName:_jsxFileName,lineNumber:247}},React.createElement(TouchableHighlight,{style:styles.buttonLeft,onPress:function onPress(){return _this3._reRecord();},underlayColor:'gray',__source:{fileName:_jsxFileName,lineNumber:248}},React.createElement(Text,{style:styles.buttonText,__source:{fileName:_jsxFileName,lineNumber:252}},'重录')),React.createElement(TouchableHighlight,{style:styles.buttonRight,onPress:function onPress(){return _this3._stopRecord();},underlayColor:'gray',__source:{fileName:_jsxFileName,lineNumber:254}},React.createElement(Text,{style:styles.buttonText,__source:{fileName:_jsxFileName,lineNumber:259}},'停止')));}return React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:265}},React.createElement(TouchableHighlight,{style:styles.button,onPress:function onPress(){return _this3._submit();},underlayColor:'gray',__source:{fileName:_jsxFileName,lineNumber:266}},React.createElement(Text,{style:styles.buttonText,__source:{fileName:_jsxFileName,lineNumber:270}},'确认发送')));}},{key:'_submit',value:function _submit()
 
 
 
@@ -71634,11 +71780,10 @@ this.setState({
 isLoading:false,
 question:data.question,
 dataSource:ds.cloneWithRows([
-{id:0},{id:1},{id:2},{id:3},{id:4}])});}else
+{id:0},{id:1},{id:2},{id:3},{id:4},{id:5}])});}else
 
 
 if(type==2){}}}]);return AudioAnswerComponent;}(React.Component);
-
 
 
 
@@ -72504,7 +72649,8 @@ var RNCommon=NativeModules.RNCommon;
 
 var styles=ReactNative.StyleSheet.create({
 container:{
-flex:1},
+flex:1,
+backgroundColor:'#f1f1f1'},
 
 viewpagerHead:{
 flexDirection:'row',
@@ -72524,7 +72670,9 @@ viewpager:{
 flex:1},
 
 rowContainer:{
-flexDirection:'column'},
+flexDirection:'column',
+backgroundColor:'white',
+marginTop:10},
 
 contentContainer:{
 padding:10,
@@ -72616,8 +72764,10 @@ var allAnswerList=new Array();
 if(data.nullAnswer){
 
 for(var i=0;i<data.nullAnswer.list.length;i++){
-needAnswerList.push(
-data.nullAnswer.list[i]);}}
+needAnswerList.push({
+data:data.nullAnswer.list[i],
+type:1});}}
+
 
 
 
@@ -72626,25 +72776,41 @@ data.nullAnswer.list[i]);}}
 if(data.allAnswer){
 
 for(var i=0;i<data.allAnswer.list.length;i++){
-allAnswerList.push(
-data.allAnswer.list[i]);}}
+allAnswerList.push({
+
+data:data.allAnswer.list[i],
+type:1});}}
 
 
 
+
+
+if(needAnswerList.length==0){
+needAnswerList.push({
+type:0,
+data:'没有需要回答的问题'});}
+
+
+
+if(allAnswerList.length==0){
+allAnswerList.push({
+type:0,
+data:'没有回答过的问题'});}
 
 
 var needAnswerDataSource=DS.cloneWithRows(
 needAnswerList);
 
-
 var allAnswerDataSource=DS.cloneWithRows(
 allAnswerList);
+
 
 
 this.setState({
 isLoading:false,
 needAnswerDataSource:needAnswerDataSource,
-allAnswerDataSource:allAnswerDataSource});},
+allAnswerDataSource:allAnswerDataSource,
+index:0});},
 
 
 
@@ -72680,76 +72846,71 @@ return Common.loading();}
 
 return(
 
-React.createElement(View,{style:styles.container,__source:{fileName:_jsxFileName,lineNumber:201}},
+React.createElement(View,{style:styles.container,__source:{fileName:_jsxFileName,lineNumber:222}},
 
 React.createElement(View,{style:styles.viewpagerHead,
-ref:function ref(component){return _this2.head=component;},__source:{fileName:_jsxFileName,lineNumber:203}},
+ref:function ref(component){return _this2.head=component;},__source:{fileName:_jsxFileName,lineNumber:224}},
 React.createElement(View,{style:{flex:0.5},
-backgroundColor:this.state.Index==1?'black':'white',__source:{fileName:_jsxFileName,lineNumber:205}},
+backgroundColor:this.state.Index==1?'black':'white',__source:{fileName:_jsxFileName,lineNumber:226}},
 React.createElement(TouchableHighlight,{
 style:styles.viewpagerHeadLeftText,
 onPress:this._leftPagePressed,
-underlayColor:'#999999',__source:{fileName:_jsxFileName,lineNumber:207}},
+underlayColor:'#999999',__source:{fileName:_jsxFileName,lineNumber:228}},
 
-React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:212}},'待回答')),
+React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:233}},'待回答')),
 
-React.createElement(View,{style:{backgroundColor:'#999999',height:1},__source:{fileName:_jsxFileName,lineNumber:214}})),
+React.createElement(View,{style:{backgroundColor:'#999999',height:1},__source:{fileName:_jsxFileName,lineNumber:235}})),
 
-React.createElement(View,{style:{backgroundColor:'#999999',width:1,height:45},__source:{fileName:_jsxFileName,lineNumber:216}}),
+React.createElement(View,{style:{backgroundColor:'#999999',width:1,height:45},__source:{fileName:_jsxFileName,lineNumber:237}}),
 React.createElement(View,{style:{flex:0.5},
-backgroundColor:this.state.Index==1?'black':'white',__source:{fileName:_jsxFileName,lineNumber:217}},
+backgroundColor:this.state.Index==1?'black':'white',__source:{fileName:_jsxFileName,lineNumber:238}},
 React.createElement(TouchableHighlight,{
 style:styles.viewpagerHeadRightText,
 onPress:this._rightPagePressed,
-underlayColor:'#999999',__source:{fileName:_jsxFileName,lineNumber:219}},
+underlayColor:'#999999',__source:{fileName:_jsxFileName,lineNumber:240}},
 
-React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:224}},'全部')),
+React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:245}},'全部')),
 
-React.createElement(View,{style:{backgroundColor:'#999999',height:1},__source:{fileName:_jsxFileName,lineNumber:226}}))),
+React.createElement(View,{style:{backgroundColor:'#999999',height:1},__source:{fileName:_jsxFileName,lineNumber:247}}))),
 
 
 React.createElement(Swiper,{style:{flex:1},
 loop:false,
-ref:function ref(component){return _this2.swiper=component;},__source:{fileName:_jsxFileName,lineNumber:229}},
+ref:function ref(component){return _this2.swiper=component;},__source:{fileName:_jsxFileName,lineNumber:250}},
 React.createElement(ListView,{
 style:{flex:1},
 dataSource:this.state.needAnswerDataSource,
-renderRow:this._renderRow,__source:{fileName:_jsxFileName,lineNumber:232}}),
+renderRow:this._renderRow,__source:{fileName:_jsxFileName,lineNumber:253}}),
 
 React.createElement(ListView,{
 style:{flex:1},
 dataSource:this.state.allAnswerDataSource,
-renderRow:this._renderRow,__source:{fileName:_jsxFileName,lineNumber:237}}),
-
-React.createElement(ListView,{
-style:{flex:1},
-dataSource:this.state.allAnswerDataSource,
-renderRow:this._renderRow,__source:{fileName:_jsxFileName,lineNumber:242}}))));
+renderRow:this._renderRow,__source:{fileName:_jsxFileName,lineNumber:258}}))));
 
 
 
 
 return(
-React.createElement(View,{style:styles.container,__source:{fileName:_jsxFileName,lineNumber:251}},
-React.createElement(View,{style:styles.viewpagerHead,__source:{fileName:_jsxFileName,lineNumber:252}},
-React.createElement(View,{style:{flex:0.5},__source:{fileName:_jsxFileName,lineNumber:253}},
+React.createElement(View,{style:styles.container,__source:{fileName:_jsxFileName,lineNumber:267}},
+React.createElement(View,{style:styles.viewpagerHead,__source:{fileName:_jsxFileName,lineNumber:268}},
+React.createElement(View,{style:{flex:0.5},__source:{fileName:_jsxFileName,lineNumber:269}},
 React.createElement(TouchableHighlight,{
 style:styles.viewpagerHeadLeftText,
 onPress:this._leftPagePressed,
-underlayColor:'#999999',__source:{fileName:_jsxFileName,lineNumber:254}},
-React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:258}},'待回答')),
+underlayColor:'#999999',__source:{fileName:_jsxFileName,lineNumber:270}},
+React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:274}},'待回答')),
 
-React.createElement(View,{style:{backgroundColor:'#999999',height:1},__source:{fileName:_jsxFileName,lineNumber:260}})),
+React.createElement(View,{style:{backgroundColor:'#999999',height:1},__source:{fileName:_jsxFileName,lineNumber:276}})),
 
-React.createElement(View,{style:{backgroundColor:'#999999',width:1,height:45},__source:{fileName:_jsxFileName,lineNumber:262}}),
-React.createElement(View,{style:{flex:0.5},__source:{fileName:_jsxFileName,lineNumber:263}},
+React.createElement(View,{style:{backgroundColor:'#999999',width:1,height:45},__source:{fileName:_jsxFileName,lineNumber:278}}),
+React.createElement(View,{style:{flex:0.5},__source:{fileName:_jsxFileName,lineNumber:279}},
 React.createElement(TouchableHighlight,{
 style:styles.viewpagerHeadRightText,
 onPress:this._rightPagePressed,
-underlayColor:'#999999',__source:{fileName:_jsxFileName,lineNumber:264}},
-React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:268}},'全部')),
+underlayColor:'#999999',__source:{fileName:_jsxFileName,lineNumber:280}},
+React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:284}},'全部')),
 
-React.createElement(View,{style:{backgroundColor:'#999999',height:1},__source:{fileName:_jsxFileName,lineNumber:270}}))),
+React.createElement(View,{style:{backgroundColor:'#999999',height:1},__source:{fileName:_jsxFileName,lineNumber:286}}))),
 
 
 React.createElement(ViewPager,{
@@ -72759,7 +72920,7 @@ dataSource:this.state.viewpagerDataSource,
 renderPage:this._renderPage,
 renderPageIndicator:this._renderPageIndicator,
 isLoop:false,
-autoPlay:false,__source:{fileName:_jsxFileName,lineNumber:273}})));},
+autoPlay:false,__source:{fileName:_jsxFileName,lineNumber:289}})));},
 
 
 
@@ -72769,7 +72930,19 @@ _renderRow:function _renderRow(rowData,sectionID,rowID){var _this3=this;
 
 
 if(rowData instanceof Array){
-return React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:290}});}
+return React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:306}});}
+
+
+var type=rowData.type;
+var data=rowData.data;
+
+if(type==0){
+
+return(
+React.createElement(View,{style:{flex:1,alignItems:'center',marginTop:40},__source:{fileName:_jsxFileName,lineNumber:315}},
+React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:316}},data)));}
+
+
 
 var status='';
 if(rowData.status==1){
@@ -72782,30 +72955,29 @@ status='已过期';}
 console.log(status);
 return(
 React.createElement(TouchableHighlight,{
-onPress:function onPress(){return _this3._pressQuestionView(rowData);},
-underlayColor:'white',__source:{fileName:_jsxFileName,lineNumber:302}},
-React.createElement(View,{style:styles.rowContainer,__source:{fileName:_jsxFileName,lineNumber:305}},
-React.createElement(View,{style:styles.contentContainer,__source:{fileName:_jsxFileName,lineNumber:306}},
-React.createElement(View,{style:styles.headContainer,__source:{fileName:_jsxFileName,lineNumber:307}},
-React.createElement(View,{style:styles.leftContainer,__source:{fileName:_jsxFileName,lineNumber:308}},
+onPress:function onPress(){return _this3._pressQuestionView(data);},
+underlayColor:'#f1f1f1',__source:{fileName:_jsxFileName,lineNumber:330}},
+React.createElement(View,{style:styles.rowContainer,__source:{fileName:_jsxFileName,lineNumber:333}},
+React.createElement(View,{style:styles.contentContainer,__source:{fileName:_jsxFileName,lineNumber:334}},
+React.createElement(View,{style:styles.headContainer,__source:{fileName:_jsxFileName,lineNumber:335}},
+React.createElement(View,{style:styles.leftContainer,__source:{fileName:_jsxFileName,lineNumber:336}},
 React.createElement(Image,{style:styles.image,
-source:{uri:rowData.userAvatar},__source:{fileName:_jsxFileName,lineNumber:309}}),
-React.createElement(Text,{style:{marginLeft:10},__source:{fileName:_jsxFileName,lineNumber:311}},rowData.userName)),
+source:{uri:data.userAvatar},__source:{fileName:_jsxFileName,lineNumber:337}}),
+React.createElement(Text,{style:{marginLeft:10},__source:{fileName:_jsxFileName,lineNumber:339}},data.userName)),
 
-React.createElement(View,{style:styles.rightContainer,__source:{fileName:_jsxFileName,lineNumber:313}},
-React.createElement(Text,{style:styles.money,__source:{fileName:_jsxFileName,lineNumber:314}},'￥',rowData.price),
-React.createElement(Text,{style:styles.status,__source:{fileName:_jsxFileName,lineNumber:315}},status))),
-
-
-React.createElement(View,{style:styles.middleContainer,__source:{fileName:_jsxFileName,lineNumber:318}},
-React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:319}},rowData.content)),
-
-React.createElement(View,{style:styles.tailContainer,__source:{fileName:_jsxFileName,lineNumber:321}},
-React.createElement(Text,{style:styles.time,__source:{fileName:_jsxFileName,lineNumber:322}},rowData.addTime),
-React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:323}},rowData.count,'个人偷偷听'))),
+React.createElement(View,{style:styles.rightContainer,__source:{fileName:_jsxFileName,lineNumber:341}},
+React.createElement(Text,{style:styles.money,__source:{fileName:_jsxFileName,lineNumber:342}},'￥',data.price),
+React.createElement(Text,{style:styles.status,__source:{fileName:_jsxFileName,lineNumber:343}},status))),
 
 
-React.createElement(View,{style:styles.seperator,__source:{fileName:_jsxFileName,lineNumber:326}}))));},
+React.createElement(View,{style:styles.middleContainer,__source:{fileName:_jsxFileName,lineNumber:346}},
+React.createElement(Text,{style:{flex:1},__source:{fileName:_jsxFileName,lineNumber:347}},data.content)),
+
+React.createElement(View,{style:styles.tailContainer,__source:{fileName:_jsxFileName,lineNumber:349}},
+React.createElement(Text,{style:styles.time,__source:{fileName:_jsxFileName,lineNumber:350}},data.addTime),
+React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:351}},rowData.count,'个人偷偷听'))))));},
+
+
 
 
 
@@ -72829,10 +73001,10 @@ RNCommon.openUrl('myqadetail?qid='+data.id);}},
 
 _renderPage:function _renderPage(data,pageID){
 return(
-React.createElement(View,{style:styles.container,__source:{fileName:_jsxFileName,lineNumber:350}},
+React.createElement(View,{style:styles.container,__source:{fileName:_jsxFileName,lineNumber:377}},
 React.createElement(ListView,{
 dataSource:data,
-renderRow:this._renderRow,__source:{fileName:_jsxFileName,lineNumber:351}})));},
+renderRow:this._renderRow,__source:{fileName:_jsxFileName,lineNumber:378}})));},
 
 
 
@@ -72841,7 +73013,7 @@ renderRow:this._renderRow,__source:{fileName:_jsxFileName,lineNumber:351}})));},
 _renderPageIndicator:function _renderPageIndicator(){
 
 return(
-React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:362}}));},
+React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:389}}));},
 
 
 
@@ -72852,18 +73024,25 @@ _pressRow:function _pressRow(rowID){},
 
 _leftPagePressed:function _leftPagePressed(){
 console.log("left page onclick");
-this.swiper.scrollIndex(0);
 
-this.state.Index=0;},
+if(this.state.index==0)return;
+this.swiper.scrollIndex(0);
+this.setState({
+index:0});},
+
+
 
 
 
 
 _rightPagePressed:function _rightPagePressed(){
 console.log("right page onclick");
-this.swiper.scrollBy(1);
+if(this.state.index==1)return;
+this.swiper.scrollIndex(1);
+this.setState({
+index:1});}});
 
-this.state.Index=1;}});
+
 
 
 
@@ -73245,7 +73424,7 @@ position:diff}});},
 
 
 scrollIndex:function scrollIndex(index){var _this5=this;
-console.log(index);
+console.log(index+'----'+this.state.index);
 if(this.state.isScrolling||this.state.total<2)return;
 var state=this.state;
 var diff=(this.props.loop?1:0)+index;
@@ -74213,6 +74392,7 @@ var RNCommon=NativeModules.RNCommon;
 var RNStreamingKitManager=NativeModules.RNStreamingKitManager;
 
 var GlobalEventEmitter=require(551 /* react-native-global-event-emitter */);
+var Toast=require(568 /* ../toast.js */);
 
 var styles=ReactNative.StyleSheet.create({
 loadingContainer:{
@@ -74298,10 +74478,10 @@ if(this.state.loading){
 return this._renderLoadingView();}
 
 return(
-React.createElement(View,{style:{flex:1,backgroundColor:'#f1f1f1'},__source:{fileName:_jsxFileName,lineNumber:109}},
+React.createElement(View,{style:{flex:1,backgroundColor:'#f1f1f1'},__source:{fileName:_jsxFileName,lineNumber:110}},
 React.createElement(ListView,{
 dataSource:this.state.dataSource,
-renderRow:this._renderRow,__source:{fileName:_jsxFileName,lineNumber:110}})));},
+renderRow:this._renderRow,__source:{fileName:_jsxFileName,lineNumber:111}})));},
 
 
 
@@ -74311,30 +74491,30 @@ _renderRow:function _renderRow(rowData,sectionID,rowID){var _this2=this;
 
 if(rowID==0){
 return(
-React.createElement(View,{style:{backgroundColor:'white',marginTop:10},__source:{fileName:_jsxFileName,lineNumber:122}},
-React.createElement(View,{style:{padding:10},__source:{fileName:_jsxFileName,lineNumber:123}},
-React.createElement(View,{style:{flexDirection:'row',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:124}},
+React.createElement(View,{style:{backgroundColor:'white',marginTop:10},__source:{fileName:_jsxFileName,lineNumber:123}},
+React.createElement(View,{style:{padding:10},__source:{fileName:_jsxFileName,lineNumber:124}},
+React.createElement(View,{style:{flexDirection:'row',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:125}},
 React.createElement(Image,{style:{height:48,width:48,borderRadius:24},
-source:{uri:this.state.question.userAvatar},__source:{fileName:_jsxFileName,lineNumber:125}}),
-React.createElement(Text,{style:{flex:1,marginLeft:10},__source:{fileName:_jsxFileName,lineNumber:127}},this.state.question.userName),
-React.createElement(Text,{style:{marginRight:10,color:'red'},__source:{fileName:_jsxFileName,lineNumber:128}},this.state.question.price,' ￥')),
+source:{uri:this.state.question.userAvatar},__source:{fileName:_jsxFileName,lineNumber:126}}),
+React.createElement(Text,{style:{flex:1,marginLeft:10},__source:{fileName:_jsxFileName,lineNumber:128}},this.state.question.userName),
+React.createElement(Text,{style:{marginRight:10,color:'red'},__source:{fileName:_jsxFileName,lineNumber:129}},this.state.question.price,' ￥')),
 
-React.createElement(View,{style:{marginTop:10},__source:{fileName:_jsxFileName,lineNumber:130}},
-React.createElement(Text,{numberOfLines:2,__source:{fileName:_jsxFileName,lineNumber:131}},this.state.question.content)),
+React.createElement(View,{style:{marginTop:10},__source:{fileName:_jsxFileName,lineNumber:131}},
+React.createElement(Text,{numberOfLines:2,__source:{fileName:_jsxFileName,lineNumber:132}},this.state.question.content)),
 
-React.createElement(View,{style:{flexDirection:'row',padding:10,alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:133}},
-React.createElement(Image,{style:{width:30,height:30,borderRadius:15,marginRight:5},source:{uri:this.state.expert.cover},__source:{fileName:_jsxFileName,lineNumber:134}}),
+React.createElement(View,{style:{flexDirection:'row',padding:10,alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:134}},
+React.createElement(Image,{style:{width:30,height:30,borderRadius:15,marginRight:5},source:{uri:this.state.expert.cover},__source:{fileName:_jsxFileName,lineNumber:135}}),
 React.createElement(TouchableHighlight,{onPress:function onPress(){return _this2._answerPressed();},
-underlayColor:'white',__source:{fileName:_jsxFileName,lineNumber:135}},
-React.createElement(Image,{style:{width:200,height:30,borderRadius:15,marginLeft:10,backgroundColor:'#9DDF59',justifyContent:'center',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:137}},
-React.createElement(Text,{style:{fontSize:13,color:'white'},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:138}},'点击播放'))),
+underlayColor:'white',__source:{fileName:_jsxFileName,lineNumber:136}},
+React.createElement(Image,{style:{width:200,height:30,borderRadius:15,marginLeft:10,backgroundColor:'#9DDF59',justifyContent:'center',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:138}},
+React.createElement(Text,{style:{fontSize:13,color:'white'},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:139}},'点击播放'))),
 
 
-React.createElement(Text,{style:{fontSize:13,color:'#999999',paddingLeft:5},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:141}},'60“')),
+React.createElement(Text,{style:{fontSize:13,color:'#999999',paddingLeft:5},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:142}},'60“')),
 
-React.createElement(View,{style:{flexDirection:'row'},__source:{fileName:_jsxFileName,lineNumber:143}},
-React.createElement(Text,{style:{flex:1},__source:{fileName:_jsxFileName,lineNumber:144}},this.state.question.addTime),
-React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:145}},'公开回答，问答双方可见')))));}else
+React.createElement(View,{style:{flexDirection:'row'},__source:{fileName:_jsxFileName,lineNumber:144}},
+React.createElement(Text,{style:{flex:1},__source:{fileName:_jsxFileName,lineNumber:145}},this.state.question.addTime),
+React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:146}},'公开回答，问答双方可见')))));}else
 
 
 
@@ -74343,18 +74523,18 @@ if(rowID==1){
 return(
 React.createElement(TouchableHighlight,{
 onPress:function onPress(){return _this2._pressExpertCell();},
-underlayColor:'#f1f1f1',__source:{fileName:_jsxFileName,lineNumber:152}},
-React.createElement(View,{style:{backgroundColor:'white',marginTop:10,justifyContent:'center'},__source:{fileName:_jsxFileName,lineNumber:155}},
-React.createElement(View,{style:{padding:10,flexDirection:'row',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:156}},
+underlayColor:'#f1f1f1',__source:{fileName:_jsxFileName,lineNumber:153}},
+React.createElement(View,{style:{backgroundColor:'white',marginTop:10,justifyContent:'center'},__source:{fileName:_jsxFileName,lineNumber:156}},
+React.createElement(View,{style:{padding:10,flexDirection:'row',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:157}},
 React.createElement(Image,{style:{width:50,height:50,borderRadius:25},
-source:{uri:this.state.expert.cover},__source:{fileName:_jsxFileName,lineNumber:157}}),
-React.createElement(View,{style:{flex:1,padding:10},__source:{fileName:_jsxFileName,lineNumber:159}},
-React.createElement(View,{style:{flexDirection:'row',flex:1},__source:{fileName:_jsxFileName,lineNumber:160}},
-React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:161}},this.state.expert.name)),
+source:{uri:this.state.expert.cover},__source:{fileName:_jsxFileName,lineNumber:158}}),
+React.createElement(View,{style:{flex:1,padding:10},__source:{fileName:_jsxFileName,lineNumber:160}},
+React.createElement(View,{style:{flexDirection:'row',flex:1},__source:{fileName:_jsxFileName,lineNumber:161}},
+React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:162}},this.state.expert.name)),
 
-React.createElement(Text,{style:{fontSize:13,color:'gray',marginTop:5},numberOfLines:2,__source:{fileName:_jsxFileName,lineNumber:163}},this.state.expert.intro)),
+React.createElement(Text,{style:{fontSize:13,color:'gray',marginTop:5},numberOfLines:2,__source:{fileName:_jsxFileName,lineNumber:164}},this.state.expert.intro)),
 
-React.createElement(Image,{style:{width:15,height:15},source:require(585 /* image!arrow */),__source:{fileName:_jsxFileName,lineNumber:165}})))));}},
+React.createElement(Image,{style:{width:15,height:15},source:require(585 /* image!arrow */),__source:{fileName:_jsxFileName,lineNumber:166}})))));}},
 
 
 
@@ -74401,6 +74581,8 @@ qid:questionId},
 function(resp){
 if(resp.errno==0){
 
+
+Toast.showShortCenter("开始播放");
 if(resp.data.hasOwnProperty('question')){
 
 _this4.setState({
@@ -74430,10 +74612,10 @@ RNCommon.openUrl('wdquestiondetail?qid='+this.props.qid);},
 
 _renderLoadingView:function _renderLoadingView(){
 return(
-React.createElement(View,{style:[SGStyles.container,styles.loadingContainer],__source:{fileName:_jsxFileName,lineNumber:241}},
+React.createElement(View,{style:[SGStyles.container,styles.loadingContainer],__source:{fileName:_jsxFileName,lineNumber:244}},
 React.createElement(ActivityIndicatorIOS,{
 hidden:'true',
-size:'small',__source:{fileName:_jsxFileName,lineNumber:242}})));}});
+size:'small',__source:{fileName:_jsxFileName,lineNumber:245}})));}});
 
 
 
@@ -74473,10 +74655,13 @@ var HttpService=require(548 /* ../HttpService */);
 
 var styles=ReactNative.StyleSheet.create({
 container:{
-flex:1},
+flex:1,
+backgroundColor:'#f1f1f1'},
 
 rowContainer:{
-flexDirection:'column'},
+flexDirection:'column',
+backgroundColor:'white',
+marginTop:10},
 
 contentContainer:{
 padding:10,
@@ -74583,10 +74768,10 @@ if(this.state.isLoading){
 return Common.loading();}
 
 return(
-React.createElement(View,{style:{flex:1},__source:{fileName:_jsxFileName,lineNumber:140}},
+React.createElement(View,{style:{flex:1,backgroundColor:'#f1f1f1'},__source:{fileName:_jsxFileName,lineNumber:143}},
 React.createElement(ListView,{
 dataSource:this.state.dataSource,
-renderRow:this.renderRow.bind(this),__source:{fileName:_jsxFileName,lineNumber:141}})));}},{key:'_onRefresh',value:function _onRefresh()
+renderRow:this.renderRow.bind(this),__source:{fileName:_jsxFileName,lineNumber:144}})));}},{key:'_onRefresh',value:function _onRefresh()
 
 
 
@@ -74621,29 +74806,29 @@ return(
 React.createElement(TouchableHighlight,{
 onPress:function onPress(){
 _this4.onPressRowItem(rowData);},
-underlayColor:'#f1f1f1',__source:{fileName:_jsxFileName,lineNumber:175}},
-React.createElement(View,{style:styles.rowContainer,__source:{fileName:_jsxFileName,lineNumber:179}},
-React.createElement(View,{style:styles.contentContainer,__source:{fileName:_jsxFileName,lineNumber:180}},
-React.createElement(View,{style:styles.headContainer,__source:{fileName:_jsxFileName,lineNumber:181}},
-React.createElement(View,{style:styles.leftContainer,__source:{fileName:_jsxFileName,lineNumber:182}},
+underlayColor:'#f1f1f1',__source:{fileName:_jsxFileName,lineNumber:178}},
+
+React.createElement(View,{style:styles.rowContainer,__source:{fileName:_jsxFileName,lineNumber:183}},
+React.createElement(View,{style:styles.contentContainer,__source:{fileName:_jsxFileName,lineNumber:184}},
+React.createElement(View,{style:styles.headContainer,__source:{fileName:_jsxFileName,lineNumber:185}},
+React.createElement(View,{style:styles.leftContainer,__source:{fileName:_jsxFileName,lineNumber:186}},
 React.createElement(Image,{style:styles.image,
-source:{uri:rowData.expert.cover},__source:{fileName:_jsxFileName,lineNumber:183}}),
-React.createElement(Text,{style:{marginLeft:10},__source:{fileName:_jsxFileName,lineNumber:185}},rowData.expert.name)),
+source:{uri:rowData.expert.cover},__source:{fileName:_jsxFileName,lineNumber:187}}),
+React.createElement(Text,{style:{marginLeft:10},__source:{fileName:_jsxFileName,lineNumber:189}},rowData.expert.name)),
 
-React.createElement(View,{style:styles.rightContainer,__source:{fileName:_jsxFileName,lineNumber:187}},
-React.createElement(Text,{style:styles.money,__source:{fileName:_jsxFileName,lineNumber:188}},'￥',rowData.price),
-React.createElement(Text,{style:styles.status,__source:{fileName:_jsxFileName,lineNumber:189}},rowData.status==3?'已回答':'未回答'))),
-
-
-React.createElement(View,{style:styles.middleContainer,__source:{fileName:_jsxFileName,lineNumber:192}},
-React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:193}},rowData.content)),
-
-React.createElement(View,{style:styles.tailContainer,__source:{fileName:_jsxFileName,lineNumber:195}},
-React.createElement(Text,{style:styles.time,__source:{fileName:_jsxFileName,lineNumber:196}},rowData.addTime),
-React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:197}},rowData.count,'个人偷偷听'))),
+React.createElement(View,{style:styles.rightContainer,__source:{fileName:_jsxFileName,lineNumber:191}},
+React.createElement(Text,{style:styles.money,__source:{fileName:_jsxFileName,lineNumber:192}},'￥',rowData.price),
+React.createElement(Text,{style:styles.status,__source:{fileName:_jsxFileName,lineNumber:193}},rowData.status==3?'已回答':'未回答'))),
 
 
-React.createElement(View,{style:styles.seperator,__source:{fileName:_jsxFileName,lineNumber:200}}))));}},{key:'onPressRowItem',value:function onPressRowItem(
+React.createElement(View,{style:styles.middleContainer,__source:{fileName:_jsxFileName,lineNumber:196}},
+React.createElement(Text,{numberOfLines:3,style:{flex:1},__source:{fileName:_jsxFileName,lineNumber:197}},rowData.content)),
+
+React.createElement(View,{style:styles.tailContainer,__source:{fileName:_jsxFileName,lineNumber:199}},
+React.createElement(Text,{style:styles.time,__source:{fileName:_jsxFileName,lineNumber:200}},rowData.addTime),
+React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:201}},rowData.count,'个人偷偷听'))))));}},{key:'onPressRowItem',value:function onPressRowItem(
+
+
 
 
 
@@ -74940,6 +75125,7 @@ var RNCommon=NativeModules.RNCommon;
 var WendaPayManager=NativeModules.WendaPayManager;
 var RNStreamingKitManager=NativeModules.RNStreamingKitManager;
 
+var GlobalEventEmitter=require(551 /* react-native-global-event-emitter */);
 var Toast=require(568 /* ../toast.js */);
 
 var ds=new ListView.DataSource({
@@ -74970,8 +75156,13 @@ _this.setState({
 isLoading:false});}
 
 
-console.log(resp.data);});},
+console.log(resp.data);});
 
+
+GlobalEventEmitter.addListener('stopAudio',function(data){
+
+console.log("收到通知，停止语音");
+RNStreamingKitManager.stop();});},
 
 
 
@@ -75030,16 +75221,16 @@ if(this.state.isLoading){
 return Common.loading();}
 
 return(
-React.createElement(View,{style:{flex:1,backgroundColor:'#f1f1f1'},__source:{fileName:_jsxFileName,lineNumber:119}},
+React.createElement(View,{style:{flex:1,backgroundColor:'#f1f1f1'},__source:{fileName:_jsxFileName,lineNumber:125}},
 React.createElement(ListView,{
 style:{flex:1},
 dataSource:this.state.dataSource,
-renderRow:this._renderRow,__source:{fileName:_jsxFileName,lineNumber:120}}),
+renderRow:this._renderRow,__source:{fileName:_jsxFileName,lineNumber:126}}),
 React.createElement(TouchableHighlight,{
 style:{height:48,backgroundColor:'#FF6634',justifyContent:'center',alignItems:'center'},
 onPress:function onPress(){return _this2._pressAskExpretButton();},
-underlayColor:'#FF6634',__source:{fileName:_jsxFileName,lineNumber:124}},
-React.createElement(Text,{style:{color:'white'},__source:{fileName:_jsxFileName,lineNumber:128}},'向专家提问'))));},
+underlayColor:'#FF6634',__source:{fileName:_jsxFileName,lineNumber:130}},
+React.createElement(Text,{style:{color:'white'},__source:{fileName:_jsxFileName,lineNumber:134}},'向专家提问'))));},
 
 
 
@@ -75061,19 +75252,19 @@ if(rowData.type==4){
 
 return this._renderExpert(rowData.data);}
 
-return React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:150}});},
+return React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:156}});},
 
 
 
 _renderExpert:function _renderExpert(data){
 console.log(data);
 return(
-React.createElement(View,{style:{alignItems:'center',backgroundColor:'white'},__source:{fileName:_jsxFileName,lineNumber:157}},
+React.createElement(View,{style:{alignItems:'center',backgroundColor:'white'},__source:{fileName:_jsxFileName,lineNumber:163}},
 React.createElement(Image,{style:{width:120,height:120,marginTop:10},
-source:{uri:data.cover},__source:{fileName:_jsxFileName,lineNumber:158}}),
-React.createElement(Text,{style:{marginTop:10},__source:{fileName:_jsxFileName,lineNumber:160}},data.name),
-React.createElement(View,{style:{padding:10,backgroundColor:'white'},__source:{fileName:_jsxFileName,lineNumber:161}},
-React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:162}},data.intro))));},
+source:{uri:data.cover},__source:{fileName:_jsxFileName,lineNumber:164}}),
+React.createElement(Text,{style:{marginTop:10},__source:{fileName:_jsxFileName,lineNumber:166}},data.name),
+React.createElement(View,{style:{padding:10,backgroundColor:'white'},__source:{fileName:_jsxFileName,lineNumber:167}},
+React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:168}},data.intro))));},
 
 
 
@@ -75088,36 +75279,36 @@ image=require(586 /* image!expert */);}else
 image=require(587 /* image!course */);}
 
 return(
-React.createElement(View,{style:{paddingLeft:10,paddingRight:10,paddingTop:5,paddingBottom:5,backgroundColor:'white',marginTop:10},__source:{fileName:_jsxFileName,lineNumber:177}},
-React.createElement(View,{style:{flexDirection:'row',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:178}},
+React.createElement(View,{style:{paddingLeft:10,paddingRight:10,paddingTop:5,paddingBottom:5,backgroundColor:'white',marginTop:10},__source:{fileName:_jsxFileName,lineNumber:183}},
+React.createElement(View,{style:{flexDirection:'row',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:184}},
 React.createElement(Image,{style:{height:20,width:20},
-source:image,__source:{fileName:_jsxFileName,lineNumber:179}}),
-React.createElement(Text,{style:{color:'#00c49d',marginLeft:8},__source:{fileName:_jsxFileName,lineNumber:181}},data.text)),
+source:image,__source:{fileName:_jsxFileName,lineNumber:185}}),
+React.createElement(Text,{style:{color:'#00c49d',marginLeft:8},__source:{fileName:_jsxFileName,lineNumber:187}},data.text)),
 
-React.createElement(View,{style:{height:1,backgroundColor:'#f1f1f1',marginTop:4},__source:{fileName:_jsxFileName,lineNumber:183}})));},
+React.createElement(View,{style:{height:1,backgroundColor:'#f1f1f1',marginTop:4},__source:{fileName:_jsxFileName,lineNumber:189}})));},
 
 
 
 
 _renderQuestionView:function _renderQuestionView(data){var _this4=this;
 
-return React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:190}},
-React.createElement(View,{style:{backgroundColor:'white',padding:10,marginTop:15},__source:{fileName:_jsxFileName,lineNumber:191}},
-React.createElement(Text,{style:{fontSize:15,color:'#333333'},numberOfLines:3,__source:{fileName:_jsxFileName,lineNumber:192}},data.content),
-React.createElement(Text,{style:{fontSize:13,color:'#999999',paddingTop:5},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:193}},data.expert.name,' | ',data.expert.intro),
-React.createElement(View,{style:{flexDirection:'row',paddingTop:10,alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:194}},
-React.createElement(Image,{style:{width:30,height:30,borderRadius:15,marginRight:5},source:{uri:data.expert.cover},__source:{fileName:_jsxFileName,lineNumber:195}}),
+return React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:196}},
+React.createElement(View,{style:{backgroundColor:'white',padding:10,marginTop:15},__source:{fileName:_jsxFileName,lineNumber:197}},
+React.createElement(Text,{style:{fontSize:15,color:'#333333'},numberOfLines:3,__source:{fileName:_jsxFileName,lineNumber:198}},data.content),
+React.createElement(Text,{style:{fontSize:13,color:'#999999',paddingTop:5},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:199}},data.expert.name,' | ',data.expert.intro),
+React.createElement(View,{style:{flexDirection:'row',paddingTop:10,alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:200}},
+React.createElement(Image,{style:{width:30,height:30,borderRadius:15,marginRight:5},source:{uri:data.expert.cover},__source:{fileName:_jsxFileName,lineNumber:201}}),
 React.createElement(TouchableHighlight,{
 onPress:function onPress(){_this4._answerPressed(data);},
-underlayColor:'#FFFFFF',__source:{fileName:_jsxFileName,lineNumber:196}},
-React.createElement(Image,{style:{width:200,height:30,borderRadius:15,marginLeft:10,backgroundColor:'#9DDF59',justifyContent:'center',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:199}},
-React.createElement(Text,{style:{fontSize:13,color:'white'},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:200}},'1元偷听'))),
+underlayColor:'#FFFFFF',__source:{fileName:_jsxFileName,lineNumber:202}},
+React.createElement(Image,{style:{width:200,height:30,borderRadius:15,marginLeft:10,backgroundColor:'#9DDF59',justifyContent:'center',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:205}},
+React.createElement(Text,{style:{fontSize:13,color:'white'},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:206}},'1元偷听'))),
 
 
-React.createElement(Text,{style:{fontSize:13,color:'#999999',paddingLeft:5},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:203}},'60“'))),
+React.createElement(Text,{style:{fontSize:13,color:'#999999',paddingLeft:5},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:209}},data.mins,'“'))),
 
 
-React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName,lineNumber:206}}));},
+React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName,lineNumber:212}}));},
 
 
 
@@ -75144,7 +75335,7 @@ if(resp.errno==0){
 if(resp.data.hasOwnProperty('question')){
 
 console.log('开始播放了......');
-Toast.showLongCenter("开始播放");
+Toast.showShortCenter("开始播放");
 RNStreamingKitManager.play(resp.data.question.answer);}else
 {
 
@@ -75172,105 +75363,6 @@ RNCommon.openUrl('wdcoursedetail?wid='+data.id);}});
 
 
 module.exports=AskExpertComponent;
-});
-__d(568 /* momiaios/ReactComponent/toast.js */, function(global, require, module, exports) {'use strict';
-
-var React=require(43 /* react-native */);var
-
-NativeModules=
-React.NativeModules;
-
-var RNToast=NativeModules.RNToast;
-var Toast={};
-
-var optionsBuilder=function optionsBuilder(){
-
-
-var message=null;
-var duration="short";
-var position="center";
-var addPixelsY=0;
-
-return{
-withMessage:function withMessage(m){
-message=m;
-return this;},
-
-
-withDuration:function withDuration(d){
-duration=d;
-return this;},
-
-
-withPosition:function withPosition(p){
-position=p;
-return this;},
-
-
-withAddPixelsY:function withAddPixelsY(y){
-addPixelsY=y;
-return this;},
-
-
-build:function build(){
-return{
-message:message,
-duration:duration,
-position:position,
-addPixelsY:addPixelsY};}};};
-
-
-
-
-
-
-var showWithOptions=function showWithOptions(options){
-RNToast.show(options);};
-
-
-var showToast=function showToast(message,duration,position){
-showWithOptions(
-optionsBuilder().
-withMessage(message).
-withDuration(duration).
-withPosition(position).
-build());};
-
-
-
-Toast.showShortTop=function(message){
-showToast(message,"short","top");};
-
-
-Toast.showShortCenter=function(message){
-showToast(message,"short","center");};
-
-
-Toast.showShortBottom=function(message){
-showToast(message,"short","bottom");};
-
-
-Toast.showLongTop=function(message){
-showToast(message,"long","top");};
-
-
-Toast.showLongCenter=function(message){
-showToast(message,"long","center");};
-
-
-Toast.showLongBottom=function(message){
-showToast(message,"long","bottom");};
-
-
-Toast.show=function(message){
-showToast(message,"short","bottom");};
-
-
-Toast.hide=function(){
-RNToast.hide();};
-
-
-module.exports=Toast;
 });
 __d(586 /* image!expert */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/expert.imageset/expert.png","uri":"expert","width":198,"height":200,"deprecated":true};
 });
@@ -75305,6 +75397,8 @@ var RNCommon=NativeModules.RNCommon;
 var WendaPayManager=NativeModules.WendaPayManager;
 
 var RNStreamingKitManager=NativeModules.RNStreamingKitManager;
+var GlobalEventEmitter=require(551 /* react-native-global-event-emitter */);
+var Toast=require(568 /* ../toast.js */);
 
 var styles=ReactNative.StyleSheet.create({
 separator:{
@@ -75330,7 +75424,13 @@ _this.setState({
 isLoading:false});}
 
 
-console.log(resp.data);});},
+console.log(resp.data);});
+
+
+GlobalEventEmitter.addListener('stopAudio',function(data){
+
+console.log("收到通知，停止语音");
+RNStreamingKitManager.stop();});},
 
 
 
@@ -75371,17 +75471,17 @@ if(this.state.isLoading){
 return Common.loading();}
 
 return(
-React.createElement(View,{style:{flex:1,backgroundColor:'#f1f1f1'},__source:{fileName:_jsxFileName,lineNumber:96}},
+React.createElement(View,{style:{flex:1,backgroundColor:'#f1f1f1'},__source:{fileName:_jsxFileName,lineNumber:104}},
 React.createElement(ListView,{
 style:{flex:1},
 dataSource:this.state.dataSource,
-renderRow:this._renderRow,__source:{fileName:_jsxFileName,lineNumber:97}}),
+renderRow:this._renderRow,__source:{fileName:_jsxFileName,lineNumber:105}}),
 
 React.createElement(TouchableHighlight,{
 style:{height:48,backgroundColor:'#FF6634',justifyContent:'center',alignItems:'center'},
 onPress:function onPress(){return _this2._pressAskExpretButton();},
-underlayColor:'#FF6634',__source:{fileName:_jsxFileName,lineNumber:102}},
-React.createElement(Text,{style:{color:'white'},__source:{fileName:_jsxFileName,lineNumber:106}},'向专家提问'))));},
+underlayColor:'#FF6634',__source:{fileName:_jsxFileName,lineNumber:110}},
+React.createElement(Text,{style:{color:'white'},__source:{fileName:_jsxFileName,lineNumber:114}},'向专家提问'))));},
 
 
 
@@ -75511,14 +75611,14 @@ return this._renderExpert(rowData.data);}else
 if(rowData.type==5){
 
 return(
-React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:236}},
+React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:244}},
 Common.courseCell(rowData.data,function(){RNCommon.openUrl('wdcoursedetail?wid='+rowData.data.id);}),
-React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName,lineNumber:238}})));}
+React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName,lineNumber:246}})));}
 
 
 
 return(
-React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:243}}));},
+React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:251}}));},
 
 
 
@@ -75527,34 +75627,34 @@ _renderCourse:function _renderCourse(data){var _this4=this;
 return(
 React.createElement(TouchableHighlight,{
 onPress:function onPress(){return _this4._pressRowItem();},
-underlayColor:'#f1f1f1',__source:{fileName:_jsxFileName,lineNumber:250}},
-React.createElement(View,{style:{padding:10,marginTop:10,backgroundColor:'white'},__source:{fileName:_jsxFileName,lineNumber:253}},
-React.createElement(View,{style:{flexDirection:'row',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:254}},
+underlayColor:'#f1f1f1',__source:{fileName:_jsxFileName,lineNumber:258}},
+React.createElement(View,{style:{padding:10,marginTop:10,backgroundColor:'white'},__source:{fileName:_jsxFileName,lineNumber:261}},
+React.createElement(View,{style:{flexDirection:'row',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:262}},
 React.createElement(TouchableHighlight,{
 onPress:function onPress(){return _this4.playCourse(data);},
-underlayColor:'black',__source:{fileName:_jsxFileName,lineNumber:255}},
-React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:258}},
+underlayColor:'black',__source:{fileName:_jsxFileName,lineNumber:263}},
+React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:266}},
 React.createElement(Image,{style:{width:50,height:50,alignItems:'center',justifyContent:'center'},
-source:{uri:data.cover},__source:{fileName:_jsxFileName,lineNumber:259}},
+source:{uri:data.cover},__source:{fileName:_jsxFileName,lineNumber:267}},
 React.createElement(Image,{style:{width:30,height:30},
-source:require(577 /* image!play */),__source:{fileName:_jsxFileName,lineNumber:261}})))),
+source:require(577 /* image!play */),__source:{fileName:_jsxFileName,lineNumber:269}})))),
 
 
 
-React.createElement(View,{style:{marginLeft:10,flex:1},__source:{fileName:_jsxFileName,lineNumber:266}},
-React.createElement(Text,{style:{fontSize:13},__source:{fileName:_jsxFileName,lineNumber:267}},data.title),
-React.createElement(View,{style:{flexDirection:'row',alignItems:'center',marginTop:5},__source:{fileName:_jsxFileName,lineNumber:268}},
+React.createElement(View,{style:{marginLeft:10,flex:1},__source:{fileName:_jsxFileName,lineNumber:274}},
+React.createElement(Text,{style:{fontSize:13},__source:{fileName:_jsxFileName,lineNumber:275}},data.title),
+React.createElement(View,{style:{flexDirection:'row',alignItems:'center',marginTop:5},__source:{fileName:_jsxFileName,lineNumber:276}},
 React.createElement(Image,{style:{width:15,height:15},
-source:require(574 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:269}}),
-React.createElement(Text,{style:{fontSize:11,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:271}},data.count,'次'),
+source:require(574 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:277}}),
+React.createElement(Text,{style:{fontSize:11,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:279}},data.count,'次'),
 React.createElement(Image,{style:{width:15,height:15,marginLeft:10},
-source:require(575 /* image!time */),__source:{fileName:_jsxFileName,lineNumber:272}}),
-React.createElement(Text,{style:{fontSize:11,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:274}},' ',data.mins,'分钟')),
+source:require(575 /* image!time */),__source:{fileName:_jsxFileName,lineNumber:280}}),
+React.createElement(Text,{style:{fontSize:11,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:282}},' ',data.mins,'分钟')),
 
-React.createElement(Text,{style:{fontSize:11,color:'#999999',marginTop:5},__source:{fileName:_jsxFileName,lineNumber:276}},data.startTime)),
+React.createElement(Text,{style:{fontSize:11,color:'#999999',marginTop:5},__source:{fileName:_jsxFileName,lineNumber:284}},data.startTime)),
 
 React.createElement(Image,{style:{width:20,height:20},
-source:require(585 /* image!arrow */),__source:{fileName:_jsxFileName,lineNumber:278}})))));},
+source:require(585 /* image!arrow */),__source:{fileName:_jsxFileName,lineNumber:286}})))));},
 
 
 
@@ -75573,13 +75673,13 @@ image=require(580 /* image!question */);}else
 image=require(587 /* image!course */);}
 
 return(
-React.createElement(View,{style:{paddingLeft:10,paddingRight:10,paddingTop:5,paddingBottom:5,backgroundColor:'white',marginTop:10},__source:{fileName:_jsxFileName,lineNumber:298}},
-React.createElement(View,{style:{flexDirection:'row',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:299}},
+React.createElement(View,{style:{paddingLeft:10,paddingRight:10,paddingTop:5,paddingBottom:5,backgroundColor:'white',marginTop:10},__source:{fileName:_jsxFileName,lineNumber:306}},
+React.createElement(View,{style:{flexDirection:'row',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:307}},
 React.createElement(Image,{style:{height:20,width:20},
-source:image,__source:{fileName:_jsxFileName,lineNumber:300}}),
-React.createElement(Text,{style:{color:'#00c49d',marginLeft:8},__source:{fileName:_jsxFileName,lineNumber:302}},data.text)),
+source:image,__source:{fileName:_jsxFileName,lineNumber:308}}),
+React.createElement(Text,{style:{color:'#00c49d',marginLeft:8},__source:{fileName:_jsxFileName,lineNumber:310}},data.text)),
 
-React.createElement(View,{style:{height:1,backgroundColor:'#f1f1f1',marginTop:4},__source:{fileName:_jsxFileName,lineNumber:304}})));},
+React.createElement(View,{style:{height:1,backgroundColor:'#f1f1f1',marginTop:4},__source:{fileName:_jsxFileName,lineNumber:312}})));},
 
 
 
@@ -75589,24 +75689,24 @@ _renderQuestionView:function _renderQuestionView(data){var _this5=this;
 return(
 React.createElement(TouchableHighlight,{
 onPress:function onPress(){return _this5.goToQuestionDetail(data);},
-underlayColor:'#f1f1f1',__source:{fileName:_jsxFileName,lineNumber:312}},
-React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:315}},
-React.createElement(View,{style:{backgroundColor:'white',padding:10},__source:{fileName:_jsxFileName,lineNumber:316}},
-React.createElement(Text,{style:{fontSize:15,color:'#333333'},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:317}},data.content),
-React.createElement(Text,{style:{fontSize:13,color:'#999999',paddingTop:5},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:318}},data.expert.name,' | ',data.expert.intro),
-React.createElement(View,{style:{flexDirection:'row',paddingTop:10,alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:319}},
-React.createElement(Image,{style:{width:30,height:30,borderRadius:15,marginRight:5},source:{uri:data.expert.cover},__source:{fileName:_jsxFileName,lineNumber:320}}),
+underlayColor:'#f1f1f1',__source:{fileName:_jsxFileName,lineNumber:320}},
+React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:323}},
+React.createElement(View,{style:{backgroundColor:'white',padding:10},__source:{fileName:_jsxFileName,lineNumber:324}},
+React.createElement(Text,{style:{fontSize:15,color:'#333333'},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:325}},data.content),
+React.createElement(Text,{style:{fontSize:13,color:'#999999',paddingTop:5},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:326}},data.expert.name,' | ',data.expert.intro),
+React.createElement(View,{style:{flexDirection:'row',paddingTop:10,alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:327}},
+React.createElement(Image,{style:{width:30,height:30,borderRadius:15,marginRight:5},source:{uri:data.expert.cover},__source:{fileName:_jsxFileName,lineNumber:328}}),
 React.createElement(TouchableHighlight,{
 onPress:function onPress(){_this5._answerPressed(data);},
-underlayColor:'#FFFFFF',__source:{fileName:_jsxFileName,lineNumber:321}},
-React.createElement(Image,{style:{width:200,height:30,borderRadius:15,marginLeft:10,backgroundColor:'#9DDF59',justifyContent:'center',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:324}},
-React.createElement(Text,{style:{fontSize:13,color:'white'},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:325}},'1元偷听'))),
+underlayColor:'#FFFFFF',__source:{fileName:_jsxFileName,lineNumber:329}},
+React.createElement(Image,{style:{width:200,height:30,borderRadius:15,marginLeft:10,backgroundColor:'#9DDF59',justifyContent:'center',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:332}},
+React.createElement(Text,{style:{fontSize:13,color:'white'},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:333}},'1元偷听'))),
 
 
-React.createElement(Text,{style:{fontSize:13,color:'#999999',paddingLeft:5},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:328}},'60“'))),
+React.createElement(Text,{style:{fontSize:13,color:'#999999',paddingLeft:5},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:336}},'60“'))),
 
 
-React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName,lineNumber:331}}))));},
+React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName,lineNumber:339}}))));},
 
 
 
@@ -75616,12 +75716,12 @@ React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName
 _renderExpert:function _renderExpert(data){
 
 return(
-React.createElement(View,{style:{alignItems:'center',backgroundColor:'white',paddingTop:20},__source:{fileName:_jsxFileName,lineNumber:341}},
+React.createElement(View,{style:{alignItems:'center',backgroundColor:'white',paddingTop:20},__source:{fileName:_jsxFileName,lineNumber:349}},
 React.createElement(Image,{style:{width:120,height:120},
-source:{uri:data.expert.cover},__source:{fileName:_jsxFileName,lineNumber:342}}),
-React.createElement(Text,{style:{marginTop:10},__source:{fileName:_jsxFileName,lineNumber:344}},data.expert.name),
-React.createElement(View,{style:{padding:10,backgroundColor:'white'},__source:{fileName:_jsxFileName,lineNumber:345}},
-React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:346}},data.expert.intro))));},
+source:{uri:data.expert.cover},__source:{fileName:_jsxFileName,lineNumber:350}}),
+React.createElement(Text,{style:{marginTop:10},__source:{fileName:_jsxFileName,lineNumber:352}},data.expert.name),
+React.createElement(View,{style:{padding:10,backgroundColor:'white'},__source:{fileName:_jsxFileName,lineNumber:353}},
+React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:354}},data.expert.intro))));},
 
 
 
@@ -75632,9 +75732,9 @@ _renderMore:function _renderMore(data){var _this6=this;
 return(
 React.createElement(TouchableHighlight,{style:{height:48,justifyContent:'center',alignItems:'center',backgroundColor:'white'},
 onPress:function onPress(){return _this6._lookMore(data.dataType);},
-underlayColor:'white',__source:{fileName:_jsxFileName,lineNumber:355}},
-React.createElement(View,{style:{borderRadius:4,borderWidth:1,borderColor:'gray',padding:5},__source:{fileName:_jsxFileName,lineNumber:358}},
-React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:359}},data.text))));},
+underlayColor:'white',__source:{fileName:_jsxFileName,lineNumber:363}},
+React.createElement(View,{style:{borderRadius:4,borderWidth:1,borderColor:'gray',padding:5},__source:{fileName:_jsxFileName,lineNumber:366}},
+React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:367}},data.text))));},
 
 
 
@@ -75668,6 +75768,7 @@ if(resp.data.hasOwnProperty('question')){
 var question=resp.data.question;
 
 if(question.answer!=''){
+Toast.showShortCenter("开始播放");
 RNStreamingKitManager.play(question.answer);}}else
 
 
@@ -76194,7 +76295,7 @@ ReactNative.Text;var ListView=ReactNative.ListView;var View=ReactNative.View;var
 var RNCommon=NativeModules.RNCommon;
 var WendaPayManager=NativeModules.WendaPayManager;
 var RNStreamingKitManager=NativeModules.RNStreamingKitManager;
-
+var GlobalEventEmitter=require(551 /* react-native-global-event-emitter */);
 var styles=ReactNative.StyleSheet.create({
 loadingCell:{
 alignItems:'center',
@@ -76232,15 +76333,16 @@ _this.state={
 dataSource:ds.cloneWithRows([new Array()]),
 isLoading:true,
 hasNextPage:false,
-nextStart:0};return _this;}babelHelpers.createClass(WDQuestionListComponent,[{key:'render',value:function render()
+nextStart:0,
+order:''};return _this;}babelHelpers.createClass(WDQuestionListComponent,[{key:'render',value:function render()
 
 
 
 {
-return React.createElement(View,{style:SGStyles.container,__source:{fileName:_jsxFileName,lineNumber:78}},
+return React.createElement(View,{style:SGStyles.container,__source:{fileName:_jsxFileName,lineNumber:79}},
 React.createElement(ListView,{
 dataSource:this.state.dataSource,
-renderRow:this.renderRow.bind(this),__source:{fileName:_jsxFileName,lineNumber:79}}));}},{key:'componentDidMount',value:function componentDidMount()
+renderRow:this.renderRow.bind(this),__source:{fileName:_jsxFileName,lineNumber:80}}));}},{key:'componentDidMount',value:function componentDidMount()
 
 
 
@@ -76255,7 +76357,25 @@ _this2._handlerResponse(resp.data);}else
 
 
 
-console.log(resp);});}},{key:'_loadNextPage',value:function _loadNextPage()
+console.log(resp);});
+
+
+
+GlobalEventEmitter.addListener('paySuccess',function(data){
+console.log("收到通知，付款成功"+data.oid);
+console.log('-----'+_this2.state.order.id);
+if(data.oid==_this2.state.order.id){
+WendaPayManager.dismissPayAlert('付款成功，可以点击偷听啦！',function(){});}});
+
+
+
+
+
+
+GlobalEventEmitter.addListener('stopAudio',function(data){
+
+console.log("收到通知，停止语音");
+RNStreamingKitManager.stop();});}},{key:'_loadNextPage',value:function _loadNextPage()
 
 
 
@@ -76317,40 +76437,40 @@ rowData,sectionID,rowID){var _this4=this;
 var rowView;
 if(rowData.type==1){
 rowView=React.createElement(TouchableHighlight,{onPress:function onPress(){return _this4._rowPressed(rowData);},
-underlayColor:'#dddddd',__source:{fileName:_jsxFileName,lineNumber:157}},this._renderQuestionView(rowData.data));}else
+underlayColor:'#dddddd',__source:{fileName:_jsxFileName,lineNumber:176}},this._renderQuestionView(rowData.data));}else
 
 if(rowData.type==2){
 rowView=this._renderLoading();}
 
 
 return rowView==null?React.createElement(Text,{style:styles.menu,
-numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:164}}):rowView;}},{key:'_renderLoading',value:function _renderLoading()
+numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:183}}):rowView;}},{key:'_renderLoading',value:function _renderLoading()
 
 
 {
 this._loadNextPage();
-return React.createElement(View,{style:[SGStyles.container,styles.loadingCell],__source:{fileName:_jsxFileName,lineNumber:170}},React.createElement(ActivityIndicatorIOS,{
+return React.createElement(View,{style:[SGStyles.container,styles.loadingCell],__source:{fileName:_jsxFileName,lineNumber:189}},React.createElement(ActivityIndicatorIOS,{
 hidden:'true',
-size:'small',__source:{fileName:_jsxFileName,lineNumber:170}}));}},{key:'_renderQuestionView',value:function _renderQuestionView(
+size:'small',__source:{fileName:_jsxFileName,lineNumber:189}}));}},{key:'_renderQuestionView',value:function _renderQuestionView(
 
 
 data){var _this5=this;
-return React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:176}},React.createElement(View,{style:{backgroundColor:'white',padding:10},__source:{fileName:_jsxFileName,lineNumber:176}},
-React.createElement(Text,{style:{fontSize:15,color:'#333333'},numberOfLines:3,__source:{fileName:_jsxFileName,lineNumber:177}},data.content),
-React.createElement(Text,{style:{fontSize:13,color:'#999999',paddingTop:5},numberOfLines:2,__source:{fileName:_jsxFileName,lineNumber:178}},data.expert.name,' | ',data.expert.intro),
-React.createElement(View,{style:{flexDirection:'row',paddingTop:10,alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:179}},
-React.createElement(Image,{style:{width:30,height:30,borderRadius:15,marginRight:5},source:{uri:data.expert.cover},__source:{fileName:_jsxFileName,lineNumber:180}}),
+return React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:195}},React.createElement(View,{style:{backgroundColor:'white',padding:10},__source:{fileName:_jsxFileName,lineNumber:195}},
+React.createElement(Text,{style:{fontSize:15,color:'#333333'},numberOfLines:3,__source:{fileName:_jsxFileName,lineNumber:196}},data.content),
+React.createElement(Text,{style:{fontSize:13,color:'#999999',paddingTop:5},numberOfLines:2,__source:{fileName:_jsxFileName,lineNumber:197}},data.expert.name,' | ',data.expert.intro),
+React.createElement(View,{style:{flexDirection:'row',paddingTop:10,alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:198}},
+React.createElement(Image,{style:{width:30,height:30,borderRadius:15,marginRight:5},source:{uri:data.expert.cover},__source:{fileName:_jsxFileName,lineNumber:199}}),
 React.createElement(TouchableHighlight,{
 onPress:function onPress(){return _this5._pressAnswer(data);},
-underlayColor:'white',__source:{fileName:_jsxFileName,lineNumber:181}},
-React.createElement(Image,{style:{width:200,height:30,borderRadius:15,marginLeft:10,backgroundColor:'#9DDF59',justifyContent:'center',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:184}},
-React.createElement(Text,{style:{fontSize:13,color:'white'},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:185}},'1元偷听'))),
+underlayColor:'white',__source:{fileName:_jsxFileName,lineNumber:200}},
+React.createElement(Image,{style:{width:200,height:30,borderRadius:15,marginLeft:10,backgroundColor:'#9DDF59',justifyContent:'center',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:203}},
+React.createElement(Text,{style:{fontSize:13,color:'white'},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:204}},'1元偷听'))),
 
 
-React.createElement(Text,{style:{fontSize:13,color:'#999999',paddingLeft:5},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:188}},'60“'))),
+React.createElement(Text,{style:{fontSize:13,color:'#999999',paddingLeft:5},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:207}},'60“'))),
 
 
-React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName,lineNumber:191}}));}},{key:'_rowPressed',value:function _rowPressed(
+React.createElement(View,{style:styles.separator,__source:{fileName:_jsxFileName,lineNumber:210}}));}},{key:'_rowPressed',value:function _rowPressed(
 
 
 
@@ -76375,7 +76495,7 @@ RNCommon.openUrl('login');}});}},{key:'_requestQuestion',value:function _request
 
 
 
-questionId){
+questionId){var _this7=this;
 
 HttpService.get(Common.domain()+'/v1/wd_hJoin?',{
 qid:questionId},
@@ -76385,7 +76505,6 @@ if(resp.errno==0){
 
 if(resp.data.hasOwnProperty('question')){
 
-
 var question=resp.data.question;
 
 if(question.answer!=''){
@@ -76393,6 +76512,13 @@ RNStreamingKitManager.play(question.answer);}}else
 
 {
 
+
+_this7.setState({
+order:resp.data.order});
+
+console.log('hello');
+console.log(_this7.state.order.id);
+console.log('end');
 WendaPayManager.pay(resp.data.order,function(error,payResult){});}}else
 
 
