@@ -370,7 +370,7 @@ module.exports = React.createClass({
    * @param  {number} index offset index
    */
   scrollIndex(index) {
-    console.log(index);
+    console.log(index + '----' + this.state.index);
     if (this.state.isScrolling || this.state.total < 2) return
     let state = this.state
     let diff = (this.props.loop ? 1 : 0) + index

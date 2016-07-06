@@ -57,7 +57,7 @@ RCT_EXPORT_METHOD(dismissPayAlert:(NSString *)alertMsg callback:(RCTResponseSend
     });
 }
 
-- (void)showPayAlert:(NSDictionary *)order {
+- (void)showPayAlert:(NSDictionary *)order{
     
     self.delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.order = order;
@@ -131,6 +131,8 @@ RCT_EXPORT_METHOD(dismissPayAlert:(NSString *)alertMsg callback:(RCTResponseSend
                                   if ([responseObject isKindOfClass:[WechatPayModel class]]) {
                                       [self.delegate sendPay:((WechatPayModel *)responseObject).data];
                                       [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onPayResp:) name:@"payResp" object:nil];
+                                      
+    
                                   }
                               }
      
@@ -153,9 +155,8 @@ RCT_EXPORT_METHOD(dismissPayAlert:(NSString *)alertMsg callback:(RCTResponseSend
                                       PayTool *payTool = [PayTool new];
                                       [payTool startAlipay:((AlipayOrderModel *)responseObject).data payResult:^(BOOL success){
                                           //支付成功回调
-                                          
                                           //发送广播，支付成功
-                                          [[NSNotificationCenter defaultCenter]postNotificationName:@"paySuccess" object:nil userInfo:nil];
+                                          [[NSNotificationCenter defaultCenter]postNotificationName:@"paySuccess" object:nil userInfo:@{@"oid":[self.order objectForKey:@"id"]}];
                                       }] ;
                                   }
                               }

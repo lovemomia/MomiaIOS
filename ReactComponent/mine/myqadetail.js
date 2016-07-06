@@ -21,6 +21,7 @@ var RNCommon = NativeModules.RNCommon;
 const RNStreamingKitManager = NativeModules.RNStreamingKitManager;
 
 var GlobalEventEmitter = require('react-native-global-event-emitter');
+var Toast = require('../toast.js');
 
 var styles = ReactNative.StyleSheet.create({
 	loadingContainer: {
@@ -209,6 +210,8 @@ var MyQADetailComponent = React.createClass({
     	}, (resp) => {
       		if (resp.errno == 0) {
         	//判断结果是否可以直接播放了
+
+        	Toast.showShortCenter("开始播放");
         	if (resp.data.hasOwnProperty('question')) {
           	//TODO 直接播放
           	this.setState({

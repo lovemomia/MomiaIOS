@@ -73,8 +73,6 @@
 		0057046A1D2B5C93007221A1 /* RNStreamingKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 005704681D2B5C93007221A1 /* RNStreamingKitManager.m */; };
 		005E2A751CEB170F00CBF5DD /* RefundText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005E2A741CEB170F00CBF5DD /* RefundText.xib */; };
 		005E2A761CEB170F00CBF5DD /* RefundText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 005E2A741CEB170F00CBF5DD /* RefundText.xib */; };
-		00A5A8BF1D2CA16900D9D9B5 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 00A5A8BE1D2CA16900D9D9B5 /* main.jsbundle */; };
-		00A5A8C01D2CA16900D9D9B5 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 00A5A8BE1D2CA16900D9D9B5 /* main.jsbundle */; };
 		00A5A8C31D2CABFA00D9D9B5 /* WaitExpertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A5A8C21D2CABFA00D9D9B5 /* WaitExpertViewController.m */; };
 		00A5A8C41D2CABFA00D9D9B5 /* WaitExpertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A5A8C21D2CABFA00D9D9B5 /* WaitExpertViewController.m */; };
 		00A5A8C71D2CB39F00D9D9B5 /* CustomAlertViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A5A8C61D2CB39F00D9D9B5 /* CustomAlertViewManager.m */; };
@@ -83,6 +81,8 @@
 		00A5A8CE1D2CD56A00D9D9B5 /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A5A8CB1D2CD56A00D9D9B5 /* Toast+UIView.m */; };
 		00A5A8CF1D2CD56A00D9D9B5 /* RNToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A5A8CC1D2CD56A00D9D9B5 /* RNToast.m */; };
 		00A5A8D01D2CD56A00D9D9B5 /* RNToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A5A8CC1D2CD56A00D9D9B5 /* RNToast.m */; };
+		00A5A8D31D2CDBE100D9D9B5 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 00A5A8D21D2CDBE100D9D9B5 /* main.jsbundle */; };
+		00A5A8D41D2CDBE100D9D9B5 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 00A5A8D21D2CDBE100D9D9B5 /* main.jsbundle */; };
 		00B59E881CBD4695005565EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2C0C501B1303BA00E2446E /* LoginViewController.m */; };
 		00C796841CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
 		00C796851CC0863000EFF5F6 /* SubjectDetailHeaders.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */; };
@@ -1050,7 +1050,6 @@
 		005704671D2B5C93007221A1 /* RNStreamingKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNStreamingKitManager.h; sourceTree = "<group>"; };
 		005704681D2B5C93007221A1 /* RNStreamingKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNStreamingKitManager.m; sourceTree = "<group>"; };
 		005E2A741CEB170F00CBF5DD /* RefundText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundText.xib; sourceTree = "<group>"; };
-		00A5A8BE1D2CA16900D9D9B5 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00A5A8C11D2CABFA00D9D9B5 /* WaitExpertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitExpertViewController.h; sourceTree = "<group>"; };
 		00A5A8C21D2CABFA00D9D9B5 /* WaitExpertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitExpertViewController.m; sourceTree = "<group>"; };
 		00A5A8C51D2CB39F00D9D9B5 /* CustomAlertViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertViewManager.h; sourceTree = "<group>"; };
@@ -1059,6 +1058,7 @@
 		00A5A8CB1D2CD56A00D9D9B5 /* Toast+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Toast+UIView.m"; sourceTree = "<group>"; };
 		00A5A8CC1D2CD56A00D9D9B5 /* RNToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNToast.m; sourceTree = "<group>"; };
 		00A5A8D11D2CD8C200D9D9B5 /* RNToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNToast.h; sourceTree = "<group>"; };
+		00A5A8D21D2CDBE100D9D9B5 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00A82E4C1D2280A10083681F /* WendaConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WendaConstant.h; sourceTree = "<group>"; };
 		00C796831CC0863000EFF5F6 /* SubjectDetailHeaders.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectDetailHeaders.xib; sourceTree = "<group>"; };
 		00D129A31D26574C00C278C9 /* MyWendaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWendaData.h; sourceTree = "<group>"; };
@@ -3315,7 +3315,7 @@
 		BC8540B61ADF86CD005A7C54 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				00A5A8BE1D2CA16900D9D9B5 /* main.jsbundle */,
+				00A5A8D21D2CDBE100D9D9B5 /* main.jsbundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -3930,7 +3930,7 @@
 				BCF74ABB1BE8982400138C2C /* AddReviewRatingCell.xib in Resources */,
 				BC8B9A101C1AD53100EE39A2 /* RongCloud.bundle in Resources */,
 				BC77378A1BCE4A9E00987B22 /* CoursePriceCell.xib in Resources */,
-				00A5A8BF1D2CA16900D9D9B5 /* main.jsbundle in Resources */,
+				00A5A8D31D2CDBE100D9D9B5 /* main.jsbundle in Resources */,
 				BC80B8431CA00E3F009559F2 /* HomeSubjectCoverCell.xib in Resources */,
 				BC0D44541C046F120007E9ED /* PackageHeaderCell.xib in Resources */,
 				00E956701CDB200100FD7124 /* CheckBoxCell.xib in Resources */,
@@ -4040,7 +4040,7 @@
 				BCEAFD771C2A394300CB082D /* CashPayTopHeaderView.xib in Resources */,
 				BCEAFD781C2A394300CB082D /* MOStepperView.xib in Resources */,
 				BCEAFD791C2A394300CB082D /* LoginCell.xib in Resources */,
-				00A5A8C01D2CA16900D9D9B5 /* main.jsbundle in Resources */,
+				00A5A8D41D2CDBE100D9D9B5 /* main.jsbundle in Resources */,
 				BCEAFD7A1C2A394300CB082D /* FeedMoreCell.xib in Resources */,
 				BCEAFD7B1C2A394300CB082D /* LoadingErrorCell.xib in Resources */,
 				BCEAFD7C1C2A394300CB082D /* TitleView.xib in Resources */,

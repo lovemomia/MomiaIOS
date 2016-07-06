@@ -26,6 +26,7 @@ var RNCommon = NativeModules.RNCommon;
 var WendaPayManager = NativeModules.WendaPayManager;
 const RNStreamingKitManager = NativeModules.RNStreamingKitManager;
 
+var GlobalEventEmitter = require('react-native-global-event-emitter');
 var Toast = require('../toast.js');
 
 var ds = new ListView.DataSource({
@@ -59,6 +60,11 @@ var AskExpertComponent = React.createClass({
       		console.log(resp.data);
     	});
 
+    	GlobalEventEmitter.addListener('stopAudio', (data) => {
+
+      		console.log("收到通知，停止语音");
+      		RNStreamingKitManager.stop();
+    	});
 	},
 
 	_handlerResponse: function(data) {
@@ -200,7 +206,7 @@ var AskExpertComponent = React.createClass({
                 			<Text style={{fontSize: 13, color: 'white'}} numberOfLines={1}>1元偷听</Text>
               			</Image>
               			</TouchableHighlight>
-              			<Text style={{fontSize: 13, color: '#999999',paddingLeft:5}} numberOfLines={1}>60“</Text>
+              			<Text style={{fontSize: 13, color: '#999999',paddingLeft:5}} numberOfLines={1}>{data.mins}“</Text>
             		</View>
         		</View>
         		<View style={styles.separator}/>
@@ -230,7 +236,7 @@ var AskExpertComponent = React.createClass({
         if (resp.data.hasOwnProperty('question')) {
           //TODO 直接播放
           console.log('开始播放了......');
-          Toast.showLongCenter("开始播放");
+          Toast.showShortCenter("开始播放");
           RNStreamingKitManager.play(resp.data.question.answer);
         } else {
           //支付订单

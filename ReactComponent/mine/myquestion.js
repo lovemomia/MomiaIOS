@@ -28,9 +28,12 @@ var HttpService = require('../HttpService');
 var styles = ReactNative.StyleSheet.create({
 	container: {
 		flex: 1,
+		backgroundColor: '#f1f1f1'
 	},
 	rowContainer: {
 		flexDirection: 'column',
+		backgroundColor: 'white',
+		marginTop: 10
 	},
 	contentContainer: {
 		padding: 10,
@@ -58,7 +61,7 @@ var styles = ReactNative.StyleSheet.create({
 	middleContainer: {
 		flexDirection: 'row',
 		alignItems: 'center',
-		marginTop: 10
+		marginTop: 10,
 	},
 	tailContainer: {
 		marginTop: 10,
@@ -137,7 +140,7 @@ class MyQuestionComponent extends React.Component {
 			return Common.loading();
 		}
 		return (
-			<View style={{flex: 1}}>
+			<View style={{flex: 1,backgroundColor: '#f1f1f1'}}>
 				<ListView
 					dataSource={this.state.dataSource}
 					renderRow = {this.renderRow.bind(this)}
@@ -175,7 +178,8 @@ class MyQuestionComponent extends React.Component {
 			<TouchableHighlight 
 				onPress={() => {
           		this.onPressRowItem(rowData);}}
-          		underlayColor="#f1f1f1">
+          		underlayColor="#f1f1f1"
+          		>
 			<View style={styles.rowContainer}>
 				<View style={styles.contentContainer}>
 					<View style={styles.headContainer}>
@@ -190,14 +194,13 @@ class MyQuestionComponent extends React.Component {
 						</View>
 					</View>
 					<View style={styles.middleContainer}>
-						<Text>{rowData.content}</Text>
+						<Text numberOfLines={3} style={{flex: 1}}>{rowData.content}</Text>
 					</View>
 					<View style={styles.tailContainer}>
 						<Text style={styles.time}>{rowData.addTime}</Text>
 						<Text>{rowData.count}个人偷偷听</Text>
 					</View>
 				</View>
-				<View style={styles.seperator}/>
 			</View>
 			</TouchableHighlight>
 		);

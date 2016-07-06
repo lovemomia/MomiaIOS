@@ -103,11 +103,22 @@ var styles = ReactNative.StyleSheet.create({
 		backgroundColor: 'gray'
 	},
 	buttonRight: {
+		flex: 0.5,
+		justifyContent: 'center',
+		flexDirection: 'row',
+		height: 45,
+		marginLeft: 20,
+		alignItems: 'center',
+		borderRadius: 4,
+		backgroundColor: 'gray'
+	},
+	button: {
 		flex: 1,
 		justifyContent: 'center',
 		flexDirection: 'row',
 		height: 45,
 		marginLeft: 20,
+		marginRight: 20,
 		alignItems: 'center',
 		borderRadius: 4,
 		backgroundColor: 'gray'
@@ -236,22 +247,30 @@ class AudioAnswerComponent extends React.Component {
 				<View style={styles.buttonBox}>
 					<TouchableHighlight style={styles.buttonLeft}
 										onPress={() => this._reRecord()}
+										underlayColor='gray'
 					>
 						<Text style={styles.buttonText}>重录</Text>
 					</TouchableHighlight>
 					<TouchableHighlight 
 						style={styles.buttonRight}
-						onPress={() => this._submit()}
+						onPress={() => this._stopRecord()}
 						underlayColor='gray'
 					>
-						<Text style={styles.buttonText}>确认发送</Text>
+						<Text style={styles.buttonText}>停止</Text>
 					</TouchableHighlight>
 				</View>
 			);
 		}
 		return (
-			<View />
-		);
+				<View>
+					<TouchableHighlight style={styles.button}
+										onPress={() => this._submit()}
+										underlayColor='gray'
+					>
+						<Text style={styles.buttonText}>确认发送</Text>
+					</TouchableHighlight>
+				</View>
+			);
 	}
 	
 	pressAudioImage = () => {
@@ -269,23 +288,33 @@ class AudioAnswerComponent extends React.Component {
     		//AudioPlayerManager.startRecord();
 
     		AudioRecorder.startRecording();
-		} else {
-
-			// AudioPlayerManager.stopRecord();
-			AudioRecorder.stopRecording();
-			// timer.clearInterval('test');
-			this.state.isRecord = false;
-		}
+		} 
 	}
 
 	playAudio = () => {
-		AudioPlayerManager.play();
+		// AudioPlayerManager.play();
 	}
 
 	//重录
 	_reRecord = () => {
-		AudioPlayerManager.reRecord((error,msg) => {
-			console.log(msg);
+		// AudioPlayerManager.reRecord((error,msg) => {
+		// 	console.log(msg);
+		// });
+
+		if(this.state.isRecord) { //true
+			AudioRecorder.stopRecording();
+		    AudioRecorder.startRecording();
+		} else { //false
+			AudioRecorder.startRecording();
+		}
+	}
+
+	//停止
+	_stopRecord = () => {
+
+		AudioRecorder.stopRecording();
+		this.setState({
+			isRecord: false
 		});
 	}
 
@@ -331,12 +360,11 @@ class AudioAnswerComponent extends React.Component {
 				isLoading: false,
 				question:data.question,
 				dataSource: ds.cloneWithRows([
-	  				{id: 0}, {id: 1},{id: 2},{id: 3},{id: 4}
+	  				{id: 0}, {id: 1},{id: 2},{id: 3},{id: 4},{id: 5}
 	  			])
 			})
 		} else if (type == 2) { //提交以后返回的数据处理
 
-			// this._showLoadingEffect();
 		}
 	}
 }

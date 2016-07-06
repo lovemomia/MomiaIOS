@@ -233,7 +233,7 @@
                                            fileName:(NSString *)fileName
                                             handler:(BlockMOUploadImageHandler)handler {
     NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:[NSString stringWithFormat:@"%@%@", MO_IMAGE_API_DOMAIN, @"/upload/audio"] parameters:[self basicParamsWithParams:nil] constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFileURL:[NSURL fileURLWithPath:path] name:@"file" fileName:fileName mimeType:@"audio/amr" error:nil];
+        [formData appendPartWithFileURL:[NSURL fileURLWithPath:path] name:@"file" fileName:fileName mimeType:@"audio/aac" error:nil];
     } error:nil];
     
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];

@@ -284,7 +284,7 @@
                     commonCell.titleLabel.text = @"我问";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconBooking"];
                     
-                    if (self.wendaData) {
+                    if (self.wendaData && self.utoken) {
                         commonCell.subTitleLabel.textColor = [UIColor redColor];
                         commonCell.subTitleLabel.text = [NSString stringWithFormat:@"%@",self.wendaData.data.questionNumber];
                     }
@@ -292,7 +292,7 @@
                     commonCell.titleLabel.text = @"我答";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconBooked"];
                     
-                    if (self.wendaData) {
+                    if (self.wendaData && self.utoken) {
                         commonCell.subTitleLabel.textColor = [UIColor redColor];
                         commonCell.subTitleLabel.text = [NSString stringWithFormat:@"%@",self.wendaData.data.answerNumber];
                     }
@@ -301,7 +301,7 @@
                     commonCell.titleLabel.text = @"我答";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconBooked"];
                     
-                    if (self.wendaData) {
+                    if (self.wendaData && self.utoken) {
                         commonCell.subTitleLabel.textColor = [UIColor redColor];
                         commonCell.subTitleLabel.text = [NSString stringWithFormat:@"%@",self.wendaData.data.answerNumber];
                     }

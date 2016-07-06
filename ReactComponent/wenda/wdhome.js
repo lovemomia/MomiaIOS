@@ -33,6 +33,7 @@ var WendaPayManager = NativeModules.WendaPayManager;
 const RNStreamingKitManager = NativeModules.RNStreamingKitManager;
 
 var GlobalEventEmitter = require('react-native-global-event-emitter');
+var Toast = require('../toast.js');
 
 var styles = ReactNative.StyleSheet.create({
   loadingContainer: {
@@ -78,6 +79,7 @@ class WDHomeComponent extends React.Component {
       isLoading: true,
       isLoadingDialogVisible: false,
       isRefreshing: false, //控制下拉刷新
+      order: ''
     };
   }
 
@@ -110,10 +112,17 @@ class WDHomeComponent extends React.Component {
       console.log(resp);
     });
 
-    GlobalEventEmitter.addListener('pay_success', (data) => {
-      console.log('pay success');
-    });
+    //这里需要接收一个通知，付钱成功的广播
+    GlobalEventEmitter.addListener('paySuccess', (data) => {
+      console.log("收到通知，付款成功" + data.oid);
+      console.log('-----' + this.state.order.id);
+      if (data.oid == this.state.order.id) {
+        WendaPayManager.dismissPayAlert('付款成功，可以点击偷听啦！',() => {
+        
+        });
+      }
 
+      });
     GlobalEventEmitter.addListener('stopAudio', (data) => {
 
       console.log("收到通知，停止语音");
@@ -385,12 +394,21 @@ class WDHomeComponent extends React.Component {
           let question = resp.data.question;
 
           if (question.answer != '') {
+            Toast.showShortCenter("开始播放");
             RNStreamingKitManager.play(question.answer);
           }
         } else {
           //支付订单
+          this.setState({
+            order: resp.data.order
+          });
+          console.log('hello');
+          console.log(this.state.order.id);
+          console.log('end');
           WendaPayManager.pay(resp.data.order, (error, payResult) => {
+            //支付结果
 
+             console.log('success');
           });
         }
 

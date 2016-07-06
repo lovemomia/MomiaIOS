@@ -23,10 +23,11 @@ let RNCommon = NativeModules.RNCommon;
 var styles = ReactNative.StyleSheet.create({
 	container: {
 		flex: 1,
+		backgroundColor: '#f1f1f1',
 	},
 	viewpagerHead:{
 		flexDirection: 'row',
-		height: 45
+		height: 45,
 	},
 	viewpagerHeadLeftText: {
 		flex: 0.5,
@@ -43,6 +44,8 @@ var styles = ReactNative.StyleSheet.create({
 	},
 	rowContainer: {
 		flexDirection: 'column',
+		backgroundColor: 'white',
+		marginTop: 10
 	},
 	contentContainer: {
 		padding: 10,
@@ -134,8 +137,10 @@ var MyAnswerComponent = React.createClass({
 		if (data.nullAnswer) {
 
 			for (var i = 0; i < data.nullAnswer.list.length ; i++){
-				needAnswerList.push(
-					data.nullAnswer.list[i]
+				needAnswerList.push({
+					data:data.nullAnswer.list[i],
+					type: 1
+				}
 				);
 			}
 		}
@@ -144,25 +149,41 @@ var MyAnswerComponent = React.createClass({
 		if (data.allAnswer) {
 
 			for (var i = 0 ; i < data.allAnswer.list.length; i++ ){
-				allAnswerList.push(
-					data.allAnswer.list[i]
+				allAnswerList.push({
+
+					data: data.allAnswer.list[i],
+					type: 1
+				}
 				);
 			}
 		}
 
+		if (needAnswerList.length == 0) {
+			needAnswerList.push({
+				type: 0,//没数据
+				data: '没有需要回答的问题'
+			});
+		} 
 
+		if (allAnswerList.length == 0) {
+			allAnswerList.push({
+				type: 0,
+				data: '没有回答过的问题'
+			});
+		}
 		let needAnswerDataSource = DS.cloneWithRows(
 				needAnswerList
-			);
-
+			);	
 		let allAnswerDataSource = DS.cloneWithRows(
 				allAnswerList
 			);
 
+
 		this.setState({
 			isLoading: false,
 			needAnswerDataSource: needAnswerDataSource,
-			allAnswerDataSource: allAnswerDataSource
+			allAnswerDataSource: allAnswerDataSource,
+			index: 0
 		});
 	},
 
@@ -239,11 +260,6 @@ var MyAnswerComponent = React.createClass({
 						dataSource={this.state.allAnswerDataSource}
 						renderRow={this._renderRow}
 					/>
-					<ListView
-						style={{flex: 1}}
-						dataSource={this.state.allAnswerDataSource}
-						renderRow={this._renderRow}
-					/>
 				</Swiper>
 			</View>
 		);
@@ -289,6 +305,18 @@ var MyAnswerComponent = React.createClass({
 		if (rowData instanceof Array) {
 			return <View />
 		}
+
+		let type = rowData.type;
+		let data = rowData.data;
+
+		if (type == 0) {
+
+			return (
+				<View style={{flex: 1,alignItems: 'center',marginTop: 40}}>
+					<Text>{data}</Text>
+				</View>
+		    );
+		}
 		var status = '';
 		if (rowData.status == 1) {
 			stauts = '未回答';
@@ -300,30 +328,29 @@ var MyAnswerComponent = React.createClass({
 		console.log(status);
 		return (
 			<TouchableHighlight
-				onPress={() => this._pressQuestionView(rowData)}
-				underlayColor='white' >
+				onPress={() => this._pressQuestionView(data)}
+				underlayColor='#f1f1f1' >
 			<View style={styles.rowContainer}>
 				<View style={styles.contentContainer}>
 					<View style={styles.headContainer}>
 						<View style={styles.leftContainer}>
 							<Image style={styles.image}
-							       source={{uri: rowData.userAvatar}} />
-							<Text style={{marginLeft: 10}}>{rowData.userName}</Text>
+							       source={{uri: data.userAvatar}} />
+							<Text style={{marginLeft: 10}}>{data.userName}</Text>
 						</View>
 						<View style={styles.rightContainer}>
-							<Text style={styles.money}>￥{rowData.price}</Text>
+							<Text style={styles.money}>￥{data.price}</Text>
 							<Text style={styles.status}>{status}</Text>
 						</View>
 					</View>
 					<View style={styles.middleContainer}>
-						<Text>{rowData.content}</Text>
+						<Text style={{flex: 1}}>{data.content}</Text>
 					</View>
 					<View style={styles.tailContainer}>
-						<Text style={styles.time}>{rowData.addTime}</Text>
+						<Text style={styles.time}>{data.addTime}</Text>
 						<Text>{rowData.count}个人偷偷听</Text>
 					</View>
 				</View>
-				<View style={styles.seperator} />
 			</View>
 			</TouchableHighlight>
 		);
@@ -370,18 +397,25 @@ var MyAnswerComponent = React.createClass({
 
 	_leftPagePressed: function() {
 		console.log("left page onclick");
-		this.swiper.scrollIndex(0);
 
-		this.state.Index = 0;
+		if(this.state.index == 0) return;
+		this.swiper.scrollIndex(0);
+		this.setState({
+			index: 0
+		});
+		// this.state.Index = 0;
 
 		// this.head.shouldComponentUpdate();
 	},
 
 	_rightPagePressed: function() {
 		console.log("right page onclick");
-		this.swiper.scrollBy(1);
-
-		this.state.Index = 1;
+		if(this.state.index == 1) return;
+		this.swiper.scrollIndex(1);
+		this.setState({
+			index: 1
+		});
+		// this.state.Index = 1;
 
 		// this.head.shouldComponentUpdate();
 	},

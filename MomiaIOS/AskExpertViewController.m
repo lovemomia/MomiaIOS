@@ -55,6 +55,13 @@
     [self.view addSubview:rootView];
 }
 
+//页面消失，得处理一些东西[语音播放停止]
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    //停止语音
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"stopAudio" object:nil];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

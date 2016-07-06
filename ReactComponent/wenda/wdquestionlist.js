@@ -32,7 +32,7 @@ var {
 var RNCommon = NativeModules.RNCommon;
 let WendaPayManager = NativeModules.WendaPayManager;
 const RNStreamingKitManager = NativeModules.RNStreamingKitManager;
-
+var GlobalEventEmitter = require('react-native-global-event-emitter');
 var styles = ReactNative.StyleSheet.create({
   loadingCell: {
     alignItems: 'center',
@@ -70,7 +70,8 @@ class WDQuestionListComponent extends React.Component {
       dataSource: ds.cloneWithRows([new Array()]),
       isLoading: true,
       hasNextPage: false,
-      nextStart: 0
+      nextStart: 0,
+      order: ''
     };
   }
 
@@ -94,6 +95,24 @@ class WDQuestionListComponent extends React.Component {
       }
 
       console.log(resp);
+    });
+
+    //这里需要接收一个通知，付钱成功的广播
+    GlobalEventEmitter.addListener('paySuccess', (data) => {
+      console.log("收到通知，付款成功" + data.oid);
+      console.log('-----' + this.state.order.id);
+      if (data.oid == this.state.order.id) {
+        WendaPayManager.dismissPayAlert('付款成功，可以点击偷听啦！',() => {
+        
+        });
+      }
+
+      });
+    
+    GlobalEventEmitter.addListener('stopAudio', (data) => {
+
+      console.log("收到通知，停止语音");
+      RNStreamingKitManager.stop();
     });
   }
 
@@ -223,7 +242,6 @@ class WDQuestionListComponent extends React.Component {
             //判断结果是否可以直接播放了
             if (resp.data.hasOwnProperty('question')) {
               //TODO 直接播放
-
               let question = resp.data.question;
 
               if (question.answer != '') {
@@ -231,6 +249,13 @@ class WDQuestionListComponent extends React.Component {
               }
             } else {
                 //支付订单
+
+                 this.setState({
+                    order: resp.data.order
+                 });
+                 console.log('hello');
+                 console.log(this.state.order.id);
+                 console.log('end');
                 WendaPayManager.pay(resp.data.order, (error, payResult) => {
 
               });

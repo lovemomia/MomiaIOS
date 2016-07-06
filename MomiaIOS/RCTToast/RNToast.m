@@ -6,7 +6,7 @@
 
 @implementation RNToast
 
-RCT_EXPORT_MODULE(Toast)
+RCT_EXPORT_MODULE(RNToast)
 
 
 RCT_EXPORT_METHOD(show:(NSDictionary *)options) {

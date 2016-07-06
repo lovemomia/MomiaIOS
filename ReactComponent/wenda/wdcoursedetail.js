@@ -27,6 +27,8 @@ var RNCommon = NativeModules.RNCommon;
 var WendaPayManager = NativeModules.WendaPayManager;
 
 const RNStreamingKitManager = NativeModules.RNStreamingKitManager;
+var GlobalEventEmitter = require('react-native-global-event-emitter');
+var Toast = require('../toast.js');
 
 var styles = ReactNative.StyleSheet.create({
 	separator: {
@@ -53,6 +55,12 @@ var WendaCourseDetailComponent = React.createClass({
         	});
      	}
       		console.log(resp.data);
+    	});
+
+		 GlobalEventEmitter.addListener('stopAudio', (data) => {
+
+      		console.log("收到通知，停止语音");
+      		RNStreamingKitManager.stop();
     	});
 	},
 
@@ -390,6 +398,7 @@ var WendaCourseDetailComponent = React.createClass({
           		let question = resp.data.question;
 
               	if (question.answer != '') {
+              		Toast.showShortCenter("开始播放");
                   RNStreamingKitManager.play(question.answer);
               	}
 
