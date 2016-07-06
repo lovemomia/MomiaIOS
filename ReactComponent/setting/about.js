@@ -110,5 +110,4 @@ class AboutComponent extends React.Component {
 
 }
 
-
-ReactNative.AppRegistry.registerComponent('AboutComponent', () => AboutComponent);
+module.exports = AboutComponent;

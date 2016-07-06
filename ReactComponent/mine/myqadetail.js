@@ -162,7 +162,7 @@ var MyQADetailComponent = React.createClass({
 							</View>
 							<Text style={{fontSize: 13, color: 'gray',marginTop: 5}} numberOfLines={2}>{this.state.expert.intro}</Text>
 						</View>
-						<Image style={{width: 15, height: 15,}} source={require('../common/image/arrow.png')} />
+						<Image style={{width: 15, height: 15,}} source={require('image!arrow')} />
 					</View>
 				</View>
 				</TouchableHighlight>
@@ -214,7 +214,7 @@ var MyQADetailComponent = React.createClass({
           	this.setState({
           		isPlay: true,
           	});
-          	RNStreamingKitManager.play('http://195.154.217.103:8175/stream');
+          	RNStreamingKitManager.play(resp.data.question.answer);
         	} else {
          	 //支付订单
           	WendaPayManager.pay(resp.data.order, (error, payResult) => {
@@ -248,5 +248,4 @@ var MyQADetailComponent = React.createClass({
 
 });
 
-//注册组件
-ReactNative.AppRegistry.registerComponent('MyQADetailComponent', () => MyQADetailComponent);
+module.exports = MyQADetailComponent;

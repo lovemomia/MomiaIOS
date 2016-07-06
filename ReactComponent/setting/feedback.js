@@ -130,4 +130,4 @@ class FeedBackComponent extends React.Component{
   }
 }
 
-ReactNative.AppRegistry.registerComponent('FeedBackComponent', () => FeedBackComponent);
+module.exports = FeedBackComponent;

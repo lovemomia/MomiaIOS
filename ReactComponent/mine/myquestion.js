@@ -206,9 +206,14 @@ class MyQuestionComponent extends React.Component {
 	onPressRowItem(question) {
 
 		//判断问题是否已回答  问题的状态，1: 未回答  3: 已回答  4: 已过期
-		RNCommon.openUrl('myqadetail?qid=' + question.id);
+
+		if (question.status == 1) {
+			RNCommon.openUrl('waitanswer');
+		} else if (question.status == 3) {
+			RNCommon.openUrl('myqadetail?qid=' + question.id);
+		}
 	}
 }
 
-//注册组件
-ReactNative.AppRegistry.registerComponent('MyQuestionComponent', () => MyQuestionComponent);
+
+module.exports = MyQuestionComponent;

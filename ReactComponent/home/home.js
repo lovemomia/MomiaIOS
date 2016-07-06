@@ -205,7 +205,7 @@ class HomeComponent extends React.Component {
       // on Android it's not work when only one item for using Swiper
       return <View style={{height:(Dimensions.get('window').width * 180 / 320)}}>
         <TouchableHighlight style={{flex:1}} onPress={() => {Linking.openURL(banners[0].action)}} underlayColor='#ffffff'>
-          <Image style={{flex: 1, backgroundColor:'#000000'}} source={{uri:banners[0].cover}}/></TouchableHighlight>
+          <Image style={{flex: 1, backgroundColor:'white'}} source={{uri:banners[0].cover}}/></TouchableHighlight>
         <View style={styles.separator}/>
         <View style={styles.footer}/>
       </View>
@@ -347,5 +347,4 @@ class HomeComponent extends React.Component {
 
 }
 
-
-ReactNative.AppRegistry.registerComponent('HomeComponent', () => HomeComponent);
+module.exports = HomeComponent; 

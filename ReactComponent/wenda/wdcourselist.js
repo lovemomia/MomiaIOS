@@ -1,4 +1,3 @@
-'use strict';
 console.disableYellowBox = true;
 
 var Common = require('../Common');
@@ -183,9 +182,9 @@ class WDCourseListComponent extends React.Component {
               <View style={{flexDirection:'row',paddingLeft: 20, alignItems:'center',justifyContent: 'center'}}>
                     <Text style={{fontSize: 13, color: '#333333'}} numberOfLines={1}>{data.expert.name}</Text>
                     <View style={{flexDirection: 'row',flex: 1}}>
-                      <Image style={{width: 15,height: 15,marginLeft: 20}} source={require('../common/image/count.png')} />
+                      <Image style={{width: 15,height: 15,marginLeft: 20}} source={require('image!count')} />
                       <Text style={{fontSize: 13, color: '#999999',marginLeft: 4}} numberOfLines={1}>{data.count}次</Text>
-                      <Image style={{width: 15,height: 15,marginLeft: 10}} source={require('../common/image/time.png')} />
+                      <Image style={{width: 15,height: 15,marginLeft: 10}} source={require('image!time')} />
                       <Text style={{fontSize: 13, color: '#999999',marginLeft: 4}} numberOfLines={1}>{data.mins}分钟</Text></View>
                     </View>
               </View>
@@ -200,5 +199,4 @@ class WDCourseListComponent extends React.Component {
 
 }
 
-
-ReactNative.AppRegistry.registerComponent('WDCourseListComponent', () => WDCourseListComponent);
+module.exports = WDCourseListComponent;

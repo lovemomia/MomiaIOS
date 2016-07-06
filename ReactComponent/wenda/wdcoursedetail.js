@@ -259,7 +259,7 @@ var WendaCourseDetailComponent = React.createClass({
 							<Image style={{width: 50,height: 50, alignItems: 'center',justifyContent: 'center'}}
 							   	   source={{uri: data.cover}}>
 							   	   <Image style={{width: 30,height: 30}}
-							   		  	  source={require('../common/image/play.png')} />
+							   		  	  source={require('image!play')} />
 					    	</Image>
 					</View>
 					</TouchableHighlight>
@@ -267,16 +267,16 @@ var WendaCourseDetailComponent = React.createClass({
 						<Text style={{fontSize: 13}}>{data.title}</Text>
 						<View style={{flexDirection: 'row',alignItems: 'center',marginTop: 5}}>
 							<Image style={{width: 15,height: 15}}
-								   source={require('../common/image/count.png')}/>
+								   source={require('image!count')}/>
 							<Text style={{fontSize: 11, color: '#999999'}}>{data.count}次</Text>
 							<Image style={{width: 15,height: 15,marginLeft: 10}}
-								   source={require('../common/image/time.png')}/>
+								   source={require('image!time')}/>
 							<Text style={{fontSize: 11, color: '#999999'}}> {data.mins}分钟</Text>
 						</View>
 						<Text style={{fontSize: 11, color: '#999999',marginTop: 5}}>{data.startTime}</Text>
 					</View>
 					<Image style={{width: 20,height: 20}}
-						   source={require('../common/image/arrow.png')} />
+						   source={require('image!arrow')} />
 				</View>
 			</View>
 			</TouchableHighlight>
@@ -288,11 +288,11 @@ var WendaCourseDetailComponent = React.createClass({
 
 		var image = '';
 		if ( data.image == 'expert') {
-			image = require('../common/image/expert.png');
+			image = require('image!expert');
 		} else if (data.image == 'question') {
-			image = require('../common/image/question.png');
+			image = require('image!question');
 		} else {
-			image = require('../common/image/course.png');
+			image = require('image!course');
 		}
 		return (
 			<View style={{paddingLeft: 10,paddingRight: 10,paddingTop: 5,paddingBottom: 5,backgroundColor: 'white',marginTop: 10}}>
@@ -387,6 +387,11 @@ var WendaCourseDetailComponent = React.createClass({
         		if (resp.data.hasOwnProperty('question')) {
           		//TODO 直接播放
 
+          		let question = resp.data.question;
+
+              	if (question.answer != '') {
+                  RNStreamingKitManager.play(question.answer);
+              	}
 
         		} else {
           			//支付订单
@@ -453,4 +458,5 @@ var WendaCourseDetailComponent = React.createClass({
 
 });
 
-AppRegistry.registerComponent('WendaCourseDetailComponent', () => WendaCourseDetailComponent);
+module.exports = WendaCourseDetailComponent;
+ 

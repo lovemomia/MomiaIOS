@@ -1,3 +1,5 @@
+
+
 'use script';
 
 var React = require('react');
@@ -118,5 +120,4 @@ class MyAssetComponent extends React.Component {
 
 }
 
-//注册组件
-ReactNative.AppRegistry.registerComponent('MyAssetComponent', () => MyAssetComponent);
+module.exports = MyAssetComponent;

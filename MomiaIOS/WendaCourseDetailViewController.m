@@ -41,7 +41,16 @@
     self.title = @"微课堂";
     
     NSDictionary *props = @{@"wid": self.wid};
-    NSURL *jsCodeLocation = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:8081/wenda/wdcoursedetail.bundle?platform=ios",RNHost]];
+//    NSURL *jsCodeLocation = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:8081/wenda/wdcoursedetail.bundle?platform=ios",RNHost]];
+//     NSURL *jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+    
+    NSURL *jsCodeLocation = nil;
+    if ( MO_DEBUG == 0 || MO_DEBUG == 3) { //release 版本
+        jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+    } else {
+        jsCodeLocation = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:8081/index.ios.bundle?platform=ios",RNHost]];
+    }
+    
     RCTRootView *rootView = [RNCommon createRCTViewWithBundleURL:jsCodeLocation moduleName:@"WendaCourseDetailComponent" initialProperties:props launchOptions:nil];
     rootView.frame = self.view.bounds;
     [self.view addSubview:rootView];

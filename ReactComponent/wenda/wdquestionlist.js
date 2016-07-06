@@ -31,6 +31,7 @@ var {
 
 var RNCommon = NativeModules.RNCommon;
 let WendaPayManager = NativeModules.WendaPayManager;
+const RNStreamingKitManager = NativeModules.RNStreamingKitManager;
 
 var styles = ReactNative.StyleSheet.create({
   loadingCell: {
@@ -223,7 +224,11 @@ class WDQuestionListComponent extends React.Component {
             if (resp.data.hasOwnProperty('question')) {
               //TODO 直接播放
 
+              let question = resp.data.question;
 
+              if (question.answer != '') {
+                  RNStreamingKitManager.play(question.answer);
+              }
             } else {
                 //支付订单
                 WendaPayManager.pay(resp.data.order, (error, payResult) => {
@@ -240,5 +245,4 @@ class WDQuestionListComponent extends React.Component {
 
 }
 
-
-ReactNative.AppRegistry.registerComponent('WDQuestionListComponent', () => WDQuestionListComponent);
+module.exports = WDQuestionListComponent

@@ -78,6 +78,11 @@
     [self save];
 }
 
+- (void)setRole:(NSNumber<Optional> *)role {
+    _role = role;
+    [self save];
+}
+
 - (Child *)getBigChild {
     if (self.bigChild == nil) {
         NSArray *children = [self children];

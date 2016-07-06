@@ -43,15 +43,18 @@
         ac = [NSKeyedUnarchiver unarchiveObjectWithData: myEncodedObject];
         _account = ac;
     }
+    NSLog(@"%@",[_account toJSONString]);
     return _account;
 }
 
 - (void)setAccount:(Account *)account {
     if (account == nil) {
+        //移除账户
         NSUserDefaults *myDefault =[NSUserDefaults standardUserDefaults];
         [myDefault removeObjectForKey:@"account"];
         
     } else {
+        //重新保存账户
         account.token = self.account.token;
         [account save];
     }

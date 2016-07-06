@@ -1,10 +1,11 @@
+
 'use strict';
 console.disableYellowBox = true;
 
 var Common = require('../Common');
 var SGStyles = require('../SGStyles');
 var HttpService = require('../HttpService');
-var Swiper = require('react-native-swiper')
+var Swiper = require('react-native-swiper');
 var LoadingEffect = require('react-native-loading-effect');
 
 var React = require('react');
@@ -87,10 +88,6 @@ class WDHomeComponent extends React.Component {
       <ListView 
       dataSource={this.state.dataSource}
       renderRow={this.renderRow.bind(this)}
-      refreshControl={
-        <RefreshControl
-            refreshing={this.state.isRefreshing}
-            onRefresh={() => this._onRefresh()} />}
       />
       <View style={[SGStyles.container, styles.floatView]}>
         <LoadingEffect isVisible={this.state.isLoadingDialogVisible} text='加载中...'/>
@@ -246,7 +243,7 @@ class WDHomeComponent extends React.Component {
     showsButtons={false} autoplay={true} dot={dot} activeDot={activeDot} loop={true}>
         {banners.map(function(val, index){
         return <TouchableHighlight style={{flex:1}} onPress={() => {Linking.openURL(banners[index].action)}} underlayColor='#ffffff'>
-          <Image style={{flex: 1, backgroundColor:'#000000'}} source={{uri:banners[index].cover}}/></TouchableHighlight>
+          <Image style={{flex: 1, backgroundColor:'white'}} source={{uri:banners[index].cover}}/></TouchableHighlight>
         })}
       </Swiper>
       <View style={styles.separator}/>
@@ -258,9 +255,9 @@ class WDHomeComponent extends React.Component {
 
     var image = '';
     if ( data == '听微课') {
-      image = require('../common/image/listen.png');
+      image = require('image!listen');
     } else {
-      image = require('../common/image/question.png');
+      image = require('image!question');
     }
 
     return <View style={{height:44, backgroundColor:'white'}}>
@@ -288,9 +285,9 @@ class WDHomeComponent extends React.Component {
               <View style={{flexDirection:'row',paddingLeft: 20, alignItems:'center',justifyContent: 'center'}}>
                     <Text style={{fontSize: 13, color: '#333333'}} numberOfLines={1}>{data.expert.name}</Text>
                     <View style={{flexDirection: 'row',flex: 1}}>
-                      <Image style={{width: 15,height: 15,marginLeft: 20}} source={require('../common/image/count.png')} />
+                      <Image style={{width: 15,height: 15,marginLeft: 20}} source={require('image!count')} />
                       <Text style={{fontSize: 13, color: '#999999',marginLeft: 4}} numberOfLines={1}>{data.count}次</Text>
-                      <Image style={{width: 15,height: 15,marginLeft: 10}} source={require('../common/image/time.png')} />
+                      <Image style={{width: 15,height: 15,marginLeft: 10}} source={require('image!time')} />
                       <Text style={{fontSize: 13, color: '#999999',marginLeft: 4}} numberOfLines={1}>{data.mins}分钟</Text></View>
                     </View>
               </View>
@@ -385,7 +382,11 @@ class WDHomeComponent extends React.Component {
         //判断结果是否可以直接播放了
         if (resp.data.hasOwnProperty('question')) {
           //TODO 直接播放
-          RNStreamingKitManager.play('http://195.154.217.103:8175/stream');
+          let question = resp.data.question;
+
+          if (question.answer != '') {
+            RNStreamingKitManager.play(question.answer);
+          }
         } else {
           //支付订单
           WendaPayManager.pay(resp.data.order, (error, payResult) => {
@@ -397,6 +398,7 @@ class WDHomeComponent extends React.Component {
         // request failed
 
       }
+      console.log(resp.data);
     });
   }
 

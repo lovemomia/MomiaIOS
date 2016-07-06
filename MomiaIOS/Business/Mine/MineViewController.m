@@ -22,8 +22,12 @@
 
 @property (nonatomic, strong) MyWendaData *wendaData;
 
+@property (nonatomic, strong) Account *account;
 @end
 
+/**
+ *   我的里面存在三种状态： 1，未登录  2，专家  3, 普通用户
+ **/
 @implementation MineViewController
 
 - (BOOL)isNavDarkStyle {
@@ -39,13 +43,21 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleMsg"] style:UIBarButtonItemStylePlain target:self action:@selector(onTitleBtnClick)];
     
     [[AccountService defaultService] addListener:self];
+    
+    
     //登录状态
     if ([[AccountService defaultService] isLogin]){
-        self.utoken = [AccountService defaultService].account.token;
-        self.role = [AccountService defaultService].account.role;
         //获取我的问题，未回答问题，我的问题的个数
+        
+        self.account = [AccountService defaultService].account;
+        
+        self.utoken = self.account.token;
+        self.role = self.account.role;
+        
         [self fetchMyData];
     }
+    
+     NSLog(@"=_=");
 }
 
 //获取我的问答数据，并显示
@@ -94,8 +106,11 @@
 - (void)onAccountChange {
     
     if ([[AccountService defaultService] isLogin]){
-        self.utoken = [AccountService defaultService].account.token;
-        self.role = [AccountService defaultService].account.role;
+        
+        self.account = [AccountService defaultService].account;
+        
+        self.utoken = self.account.token;
+        self.role = self.account.role;
     } else {
         self.utoken = nil;
         self.role = nil;
@@ -120,6 +135,7 @@
 #pragma mark - tableview delegate & datasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"%@-----%@",self.utoken,self.role);
     if (section == 1 && self.utoken == nil) { //未登录
         return 3;
     }else if (section == 1 && self.role.integerValue == 9) { //专家
@@ -226,20 +242,18 @@
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             }
             
-            Account *account = [AccountService defaultService].account;
-            
             UIImageView *userPic = (UIImageView *)[cell viewWithTag:1];
-            if (account.avatar) {
-                [userPic sd_setImageWithURL:[NSURL URLWithString:account.avatar]];
+            if (self.account.avatar) {
+                [userPic sd_setImageWithURL:[NSURL URLWithString:self.account.avatar]];
             }
             
             UILabel *titleLabel = (UILabel *)[cell viewWithTag:2];
-            titleLabel.text = account.nickName;
+            titleLabel.text = self.account.nickName;
             
             UILabel *subTitleLabel = (UILabel *)[cell viewWithTag:3];
             
-            if ([account getBigChild]) {
-                subTitleLabel.text = [NSString stringWithFormat:@"%@", [account ageWithDateOfBirth]];
+            if ([self.account getBigChild]) {
+                subTitleLabel.text = [NSString stringWithFormat:@"%@", [self.account ageWithDateOfBirth]];
             }
             
         } else {
@@ -274,7 +288,7 @@
                         commonCell.subTitleLabel.textColor = [UIColor redColor];
                         commonCell.subTitleLabel.text = [NSString stringWithFormat:@"%@",self.wendaData.data.questionNumber];
                     }
-                } else if (row == 1 && [AccountService defaultService].account.role.integerValue == 9) {
+                } else if (row == 1 && self.utoken != nil && self.role.integerValue == 9) {
                     commonCell.titleLabel.text = @"我答";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconBooked"];
                     
@@ -346,10 +360,6 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 0.1;
-}
-
-- (void)shareToFriend {
-    
 }
 
 

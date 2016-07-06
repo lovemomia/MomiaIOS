@@ -4,6 +4,7 @@
   "description": "ios",
   "main": "index.js",
   "dependencies": {
+    "@remobile/react-native-toast": "^1.0.4",
     "react": "0.14.8",
     "react-native": "0.25.1",
     "react-native-audio": "^1.2.1",
@@ -11,7 +12,7 @@
     "react-native-global-event-emitter": "^0.2.0",
     "react-native-loading-effect": "1.0.5",
     "react-native-streamingkit": "^1.0.18",
-    "react-native-swiper": "1.4.5",
+    "react-native-swiper": "1.4.6",
     "react-native-timer": "1.1.2",
     "react-native-viewpager": "0.2.11",
     "react-timer-mixin": "0.13.3"

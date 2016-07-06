@@ -134,7 +134,7 @@ var AskQuestionComponent = React.createClass({
 		} else if (rowID == 2 ) {
 			return (
 				<View style={{padding: 10,flexDirection:'row',alignItems: 'center'}}>
-					<Image source={require('../common/image/check.png')} style={{width: 30,height: 30}}/>
+					<Image source={require('image!check')} style={{width: 30,height: 30}}/>
 					<Text style={{flex: 1,color: 'gray', fontSize: 13}}>公开提问，答案每被人偷听一次，你将从中分成0.5元</Text>
 				</View>
 			);
@@ -162,7 +162,8 @@ var AskQuestionComponent = React.createClass({
 	textChanged: function(text) {
 
 		this.setState({
-			textCount: text.length
+			textCount: text.length,
+			text: text.text
 		});
 	},
 
@@ -173,6 +174,7 @@ var AskQuestionComponent = React.createClass({
 		if (this.state.textCount == 0) {
 			return;
 		}
+		console.log(this.state.text);
 		HttpService.get(Common.domain() + '/v1/wd_qJoin?', {
      	 	courseId: this.props.wid,
      	 	utoken: this.props.utoken,
@@ -197,4 +199,4 @@ var AskQuestionComponent = React.createClass({
 	}
 });
 
-ReactNative.AppRegistry.registerComponent('AskQuestionComponent', () => AskQuestionComponent);
+module.exports = AskQuestionComponent;

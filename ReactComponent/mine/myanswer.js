@@ -16,6 +16,7 @@ var Common = require('../Common');
 var SGStyles = require('../SGStyles');
 var HttpService = require('../HttpService');
 var LoadingEffect = require('react-native-loading-effect');
+var Swiper = require('../swiper.js');
 
 let RNCommon = NativeModules.RNCommon;
 
@@ -160,9 +161,8 @@ var MyAnswerComponent = React.createClass({
 
 		this.setState({
 			isLoading: false,
-			viewpagerDataSource: PagerDataSource.cloneWithPages([
-				needAnswerDataSource,allAnswerDataSource
-			])
+			needAnswerDataSource: needAnswerDataSource,
+			allAnswerDataSource: allAnswerDataSource
 		});
 	},
 
@@ -181,7 +181,10 @@ var MyAnswerComponent = React.createClass({
 			viewpagerDataSource: PagerDataSource.cloneWithPages([
 				needAnswerDataSource,allAnswerDataSource
 			]),
-			isLoading: true
+			isLoading: true,
+			needAnswerDataSource: needAnswerDataSource,
+			allAnswerDataSource: allAnswerDataSource,
+			Index: 0
 		};
 	},
 
@@ -192,6 +195,58 @@ var MyAnswerComponent = React.createClass({
 
 			return Common.loading();
 		}
+
+		return (
+
+			<View style={styles.container}
+				   >
+				<View style={styles.viewpagerHead}
+				      ref={component => this.head = component} >
+					<View style={{flex: 0.5}}
+					      backgroundColor={this.state.Index == 1? 'black': 'white'}>
+					<TouchableHighlight 
+						style={styles.viewpagerHeadLeftText}
+						onPress={this._leftPagePressed}
+						underlayColor= '#999999'
+						>
+						<Text>待回答</Text>
+					</TouchableHighlight>
+					<View style={{backgroundColor: '#999999',height: 1}} />
+					</View>
+					<View style={{backgroundColor: '#999999',width: 1,height: 45}} />
+					<View style={{flex: 0.5}}
+					      backgroundColor={this.state.Index == 1? 'black': 'white'}>
+					<TouchableHighlight 
+						style={styles.viewpagerHeadRightText}
+						onPress={this._rightPagePressed}
+						underlayColor= '#999999'
+						>
+						<Text>全部</Text>
+					</TouchableHighlight>
+					<View style={{backgroundColor: '#999999',height: 1}} />
+					</View>
+				</View>
+				<Swiper style={{flex: 1}}
+						loop={false}
+						ref={component => this.swiper = component} >
+					<ListView
+						style={{flex: 1}}
+						dataSource={this.state.needAnswerDataSource}
+						renderRow={this._renderRow}
+					/>
+					<ListView
+						style={{flex: 1}}
+						dataSource={this.state.allAnswerDataSource}
+						renderRow={this._renderRow}
+					/>
+					<ListView
+						style={{flex: 1}}
+						dataSource={this.state.allAnswerDataSource}
+						renderRow={this._renderRow}
+					/>
+				</Swiper>
+			</View>
+		);
 		return (
 			<View style={styles.container} >
 				<View style={styles.viewpagerHead} >
@@ -234,6 +289,15 @@ var MyAnswerComponent = React.createClass({
 		if (rowData instanceof Array) {
 			return <View />
 		}
+		var status = '';
+		if (rowData.status == 1) {
+			stauts = '未回答';
+		} else if (rowData.status == 3) {
+			status = '已回答';
+		} else {
+			status = '已过期';
+		}
+		console.log(status);
 		return (
 			<TouchableHighlight
 				onPress={() => this._pressQuestionView(rowData)}
@@ -244,11 +308,11 @@ var MyAnswerComponent = React.createClass({
 						<View style={styles.leftContainer}>
 							<Image style={styles.image}
 							       source={{uri: rowData.userAvatar}} />
-							<Text>{rowData.userName}</Text>
+							<Text style={{marginLeft: 10}}>{rowData.userName}</Text>
 						</View>
 						<View style={styles.rightContainer}>
 							<Text style={styles.money}>￥{rowData.price}</Text>
-							<Text style={styles.status}>已过期</Text>
+							<Text style={styles.status}>{status}</Text>
 						</View>
 					</View>
 					<View style={styles.middleContainer}>
@@ -276,7 +340,7 @@ var MyAnswerComponent = React.createClass({
 			console.log('open url');
 		} else { //已回答
 			//跳转到问答详情
-			
+			RNCommon.openUrl('myqadetail?qid=' + data.id);
 		}
 	},
 
@@ -306,14 +370,24 @@ var MyAnswerComponent = React.createClass({
 
 	_leftPagePressed: function() {
 		console.log("left page onclick");
+		this.swiper.scrollIndex(0);
+
+		this.state.Index = 0;
+
+		// this.head.shouldComponentUpdate();
 	},
 
 	_rightPagePressed: function() {
 		console.log("right page onclick");
+		this.swiper.scrollBy(1);
+
+		this.state.Index = 1;
+
+		// this.head.shouldComponentUpdate();
 	},
 
 });
 
 //注册组件
-ReactNative.AppRegistry.registerComponent('MyAnswerComponent', () => MyAnswerComponent);
+module.exports = MyAnswerComponent;
 

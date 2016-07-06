@@ -148,7 +148,7 @@ var WendaCourseIntroComponent = React.createClass({
 							<Image style={{width: 50,height: 50, alignItems: 'center',justifyContent: 'center'}}
 							   	   source={{uri: data.cover}}>
 							   	   <Image style={{width: 30,height: 30}}
-							   		  	  source={require('../common/image/play.png')} />
+							   		  	  source={require('image!play')} />
 					    	</Image>
 					    </TouchableHighlight>
 					</View>
@@ -156,10 +156,10 @@ var WendaCourseIntroComponent = React.createClass({
 						<Text style={{fontSize: 13}}>{data.title}</Text>
 						<View style={{flexDirection: 'row',alignItems: 'center',marginTop: 5}}>
 							<Image style={{width: 15,height: 15}}
-								   source={require('../common/image/count.png')}/>
+								   source={require('image!count')}/>
 							<Text style={{fontSize: 11, color: '#999999'}}>{data.count}次</Text>
 							<Image style={{width: 15,height: 15,marginLeft: 10}}
-								   source={require('../common/image/time.png')}/>
+								   source={require('image!time')}/>
 							<Text style={{fontSize: 11, color: '#999999'}}> {data.mins}分钟</Text>
 						</View>
 						<Text style={{fontSize: 11, color: '#999999',marginTop: 5}}>{data.startTime}</Text>
@@ -215,4 +215,4 @@ var WendaCourseIntroComponent = React.createClass({
 	
 });
 
-AppRegistry.registerComponent('WendaCourseIntroComponent',() => WendaCourseIntroComponent);
+module.exports = WendaCourseIntroComponent;

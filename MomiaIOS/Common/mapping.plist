@@ -587,5 +587,14 @@
 		<key>controller</key>
 		<string>AnswerAudioViewController</string>
 	</dict>
+	<key>waitanswer</key>
+	<dict>
+		<key>desc</key>
+		<string>等待页</string>
+		<key>needlogin</key>
+		<false/>
+		<key>controller</key>
+		<string>WaitExpertViewController</string>
+	</dict>
 </dict>
 </plist>

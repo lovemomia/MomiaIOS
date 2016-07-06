@@ -13,7 +13,8 @@ var {
   ListView,
   View,
   Image,
-  TouchableHighlight
+  TouchableHighlight,
+  NativeModules
 } = ReactNative;
 
 const timer = require('react-native-timer');
@@ -26,6 +27,7 @@ let audioPath = AudioUtils.DocumentDirectoryPath + '/test.aac';
 //语音播放录制管理
 var AudioPlayerManager = require('NativeModules').AudioPlayerManager;
 
+var CustomAlertViewManager = NativeModules.CustomAlertViewManager;
 var Common = require('../Common');
 var SGStyles = require('../SGStyles');
 var HttpService = require('../HttpService');
@@ -222,7 +224,7 @@ class AudioAnswerComponent extends React.Component {
 					<Text style={styles.audioTitle}> 语音回答 </Text>
 					<TouchableHighlight onPress={this.pressAudioImage}>
 						<Image style={styles.audioImage}
-								source={require('../common/image/audio.png')} />
+								source={require('image!audio')} />
 					</TouchableHighlight>
 					<Text style={styles.audioText}> 点击开始录音最多可录120s </Text>
 					<Text> { this.state.seconds } ‘</Text>
@@ -306,7 +308,13 @@ class AudioAnswerComponent extends React.Component {
      	 	answer: url
     	}, (resp) => {
       		if (resp.errno == 0) {
-        		this._handlerResponse(2,resp.data);
+        		// this._handlerResponse(2,resp.data);
+
+        		CustomAlertViewManager.show('回答成功,感谢您的回答！',() => {
+
+        			//
+        		});
+
      	 	} else {
 
      		}
@@ -328,9 +336,9 @@ class AudioAnswerComponent extends React.Component {
 			})
 		} else if (type == 2) { //提交以后返回的数据处理
 
-			this._showLoadingEffect();
+			// this._showLoadingEffect();
 		}
 	}
 }
 
-ReactNative.AppRegistry.registerComponent('AudioAnswerComponent', () => AudioAnswerComponent);
+module.exports = AudioAnswerComponent;

@@ -24,6 +24,9 @@ var HttpService = require('../HttpService');
 
 var RNCommon = NativeModules.RNCommon;
 var WendaPayManager = NativeModules.WendaPayManager;
+const RNStreamingKitManager = NativeModules.RNStreamingKitManager;
+
+var Toast = require('../toast.js');
 
 var ds = new ListView.DataSource({
 	rowHasChanged: (r1,r2) => r1!==r2
@@ -166,9 +169,9 @@ var AskExpertComponent = React.createClass({
 	_renderSection: function(data) {
 		var image = '';
 		if (data.image == 'expert') {
-			image = require('../common/image/expert.png');
+			image = require('image!expert');
 		} else {
-			image = require('../common/image/course.png');
+			image = require('image!course');
 		}
 		return (
 			<View style={{paddingLeft: 10,paddingRight: 10,paddingTop: 5,paddingBottom: 5,backgroundColor: 'white',marginTop: 10}}>
@@ -226,7 +229,9 @@ var AskExpertComponent = React.createClass({
         //判断结果是否可以直接播放了
         if (resp.data.hasOwnProperty('question')) {
           //TODO 直接播放
-          
+          console.log('开始播放了......');
+          Toast.showLongCenter("开始播放");
+          RNStreamingKitManager.play(resp.data.question.answer);
         } else {
           //支付订单
           WendaPayManager.pay(resp.data.order, (error, payResult) => {
@@ -252,4 +257,4 @@ var AskExpertComponent = React.createClass({
     
 });
 
-AppRegistry.registerComponent('AskExpertComponent', () => AskExpertComponent);
+module.exports = AskExpertComponent; 
