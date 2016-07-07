@@ -1330,16 +1330,16 @@ return Array.from(arr);}};
 __d(0 /* momiaios/ReactComponent/index.ios.js */, function(global, require, module, exports) {'use strict';
 
 var WDHomeComponent=require(11 /* ./wenda/wdhome.js */);
-var AskQuestionComponent=require(552 /* ./audio/askquestion.js */);
-var AudioAnswerComponent=require(553 /* ./audio/audioanswer.js */);
-var HomeComponent=require(556 /* ./home/home.js */);
-var MyAnswerComponent=require(557 /* ./mine/myanswer.js */);
-var MyAssetComponent=require(562 /* ./mine/myasset.js */);
-var MyQADetailComponent=require(563 /* ./mine/myqadetail.js */);
-var MyQuestionComponent=require(564 /* ./mine/myquestion.js */);
-var AboutComponent=require(565 /* ./setting/about.js */);
-var FeedBackComponent=require(566 /* ./setting/feedback.js */);
-var AskExpertComponent=require(567 /* ./wenda/wdaskexpert.js */);
+var AskQuestionComponent=require(553 /* ./audio/askquestion.js */);
+var AudioAnswerComponent=require(554 /* ./audio/audioanswer.js */);
+var HomeComponent=require(557 /* ./home/home.js */);
+var MyAnswerComponent=require(558 /* ./mine/myanswer.js */);
+var MyAssetComponent=require(563 /* ./mine/myasset.js */);
+var MyQADetailComponent=require(564 /* ./mine/myqadetail.js */);
+var MyQuestionComponent=require(565 /* ./mine/myquestion.js */);
+var AboutComponent=require(566 /* ./setting/about.js */);
+var FeedBackComponent=require(567 /* ./setting/feedback.js */);
+var AskExpertComponent=require(568 /* ./wenda/wdaskexpert.js */);
 var WendaCourseDetailComponent=require(569 /* ./wenda/wdcoursedetail.js */);
 var WendaCourseIntroComponent=require(570 /* ./wenda/wdcourseintro.js */);
 var WDCourseListComponent=require(571 /* ./wenda/wdcourselist.js */);
@@ -1415,7 +1415,7 @@ var WendaPayManager=NativeModules.WendaPayManager;
 var RNStreamingKitManager=NativeModules.RNStreamingKitManager;
 
 var GlobalEventEmitter=require(551 /* react-native-global-event-emitter */);
-var Toast=require(568 /* ../toast.js */);
+var Toast=require(552 /* ../toast.js */);
 
 var styles=ReactNative.StyleSheet.create({
 loadingContainer:{
@@ -1676,7 +1676,7 @@ React.createElement(Text,{style:{fontSize:13,color:'#999999',marginRight:10,marg
 React.createElement(View,{style:{flexDirection:'row',paddingLeft:20,alignItems:'center',justifyContent:'center'},__source:{fileName:_jsxFileName,lineNumber:294}},
 React.createElement(Text,{style:{fontSize:13,color:'#333333'},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:295}},data.expert.name),
 React.createElement(View,{style:{flexDirection:'row',flex:1},__source:{fileName:_jsxFileName,lineNumber:296}},
-React.createElement(Image,{style:{width:15,height:15,marginLeft:20},source:require(574 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:297}}),
+React.createElement(Image,{style:{width:15,height:15,marginLeft:20},source:require(576 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:297}}),
 React.createElement(Text,{style:{fontSize:13,color:'#999999',marginLeft:4},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:298}},data.count,'次'),
 React.createElement(Image,{style:{width:15,height:15,marginLeft:10},source:require(575 /* image!time */),__source:{fileName:_jsxFileName,lineNumber:299}}),
 React.createElement(Text,{style:{fontSize:13,color:'#999999',marginLeft:4},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:300}},data.mins,'分钟')))),
@@ -1870,14 +1870,14 @@ _react2.default.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:6
 _react2.default.createElement(Image,{style:{width:50,height:50,alignItems:'center',justifyContent:'center'},
 source:{uri:data.cover},__source:{fileName:_jsxFileName,lineNumber:62}},
 _react2.default.createElement(Image,{style:{width:30,height:30},
-source:require(577 /* image!play */),__source:{fileName:_jsxFileName,lineNumber:64}}))),
+source:require(574 /* image!play */),__source:{fileName:_jsxFileName,lineNumber:64}}))),
 
 
 _react2.default.createElement(View,{style:{marginLeft:10,flex:1},__source:{fileName:_jsxFileName,lineNumber:68}},
 _react2.default.createElement(Text,{style:{fontSize:13},__source:{fileName:_jsxFileName,lineNumber:69}},data.title),
 _react2.default.createElement(View,{style:{flexDirection:'row',alignItems:'center',marginTop:5},__source:{fileName:_jsxFileName,lineNumber:70}},
 _react2.default.createElement(Image,{style:{width:15,height:15},
-source:require(574 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:71}}),
+source:require(576 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:71}}),
 _react2.default.createElement(Text,{style:{fontSize:11,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:73}},data.count,'次'),
 _react2.default.createElement(Image,{style:{width:15,height:15,marginLeft:10},
 source:require(575 /* image!time */),__source:{fileName:_jsxFileName,lineNumber:74}}),
@@ -66751,7 +66751,7 @@ ReactNative.Image;var Platform=ReactNative.Platform;var StyleSheet=ReactNative.S
 
 var NavigationHeaderBackButton=function NavigationHeaderBackButton(props){return(
 React.createElement(TouchableOpacity,{style:styles.buttonContainer,onPress:function onPress(){return props.onNavigate(NavigationRootContainer.getBackAction());},__source:{fileName:_jsxFileName,lineNumber:36}},
-React.createElement(Image,{style:styles.button,source:require(576 /* ./assets/back-icon.png */),__source:{fileName:_jsxFileName,lineNumber:37}})));};
+React.createElement(Image,{style:styles.button,source:require(577 /* ./assets/back-icon.png */),__source:{fileName:_jsxFileName,lineNumber:37}})));};
 
 
 
@@ -66776,7 +66776,7 @@ resizeMode:'contain'}});
 
 module.exports=NavigationContainer.create(NavigationHeaderBackButton);
 });
-__d(576 /* react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon.png */, function(global, require, module, exports) {module.exports = require(351 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"fileSystemLocation":"/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets","httpServerLocation":"/assets/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets","width":24,"height":24,"scales":[1,1.5,2,3,4],"files":["/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon@1x.ios.png","/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon@1.5x.ios.png","/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon@2x.ios.png","/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon@3x.ios.png","/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon@4x.ios.png"],"hash":"5d76747e8e143454cb02b011a071adc3","name":"back-icon","type":"png"});
+__d(577 /* react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon.png */, function(global, require, module, exports) {module.exports = require(351 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"fileSystemLocation":"/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets","httpServerLocation":"/assets/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets","width":24,"height":24,"scales":[1,1.5,2,3,4],"files":["/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon@1x.ios.png","/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon@1.5x.ios.png","/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon@2x.ios.png","/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon@3x.ios.png","/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon@4x.ios.png"],"hash":"5d76747e8e143454cb02b011a071adc3","name":"back-icon","type":"png"});
 });
 __d(520 /* NavigationHeaderStyleInterpolator */, function(global, require, module, exports) {'use strict';
 
@@ -70197,9 +70197,9 @@ backgroundColor:'#f1f1f1'}});
 
 module.exports=SGStyles;
 });
-__d(577 /* image!play */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/play.imageset/play.png","uri":"play","width":128,"height":112,"deprecated":true};
+__d(574 /* image!play */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/play.imageset/play.png","uri":"play","width":128,"height":112,"deprecated":true};
 });
-__d(574 /* image!count */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/count.imageset/count.png","uri":"count","width":128,"height":112,"deprecated":true};
+__d(576 /* image!count */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/count.imageset/count.png","uri":"count","width":128,"height":112,"deprecated":true};
 });
 __d(575 /* image!time */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/time.imageset/time.png","uri":"time","width":122,"height":108,"deprecated":true};
 });
@@ -71110,7 +71110,7 @@ DeviceMotion.UIKeyboardNotifications=RNTGlobalEventEmitter.UIKeyboardNotificatio
 
 module.exports=DeviceMotion;
 });
-__d(568 /* momiaios/ReactComponent/toast.js */, function(global, require, module, exports) {'use strict';
+__d(552 /* momiaios/ReactComponent/toast.js */, function(global, require, module, exports) {'use strict';
 
 var React=require(43 /* react-native */);var
 
@@ -71213,7 +71213,7 @@ __d(578 /* image!listen */, function(global, require, module, exports) {module.e
 });
 __d(580 /* image!question */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/question.imageset/question.png","uri":"question","width":198,"height":196,"deprecated":true};
 });
-__d(552 /* momiaios/ReactComponent/audio/askquestion.js */, function(global, require, module, exports) {'use script';var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/audio/askquestion.js';
+__d(553 /* momiaios/ReactComponent/audio/askquestion.js */, function(global, require, module, exports) {'use script';var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/audio/askquestion.js';
 
 var React=require(13 /* react */);
 var ReactNative=require(43 /* react-native */);
@@ -71418,7 +71418,7 @@ module.exports=AskQuestionComponent;
 });
 __d(579 /* image!check */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/check.imageset/check.png","uri":"check","width":84,"height":76,"deprecated":true};
 });
-__d(553 /* momiaios/ReactComponent/audio/audioanswer.js */, function(global, require, module, exports) {'use strict';var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/audio/audioanswer.js';
+__d(554 /* momiaios/ReactComponent/audio/audioanswer.js */, function(global, require, module, exports) {'use strict';var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/audio/audioanswer.js';
 
 
 
@@ -71441,7 +71441,7 @@ __d(553 /* momiaios/ReactComponent/audio/audioanswer.js */, function(global, req
 
 
 
-var _reactNativeAudio=require(554 /* react-native-audio */);var React=require(13 /* react */);var ReactNative=require(43 /* react-native */);var Text=ReactNative.Text;var ListView=ReactNative.ListView;var View=ReactNative.View;var Image=ReactNative.Image;var TouchableHighlight=ReactNative.TouchableHighlight;var NativeModules=ReactNative.NativeModules;var timer=require(555 /* react-native-timer */);var LoadingEffect=require(550 /* react-native-loading-effect */);
+var _reactNativeAudio=require(555 /* react-native-audio */);var React=require(13 /* react */);var ReactNative=require(43 /* react-native */);var Text=ReactNative.Text;var ListView=ReactNative.ListView;var View=ReactNative.View;var Image=ReactNative.Image;var TouchableHighlight=ReactNative.TouchableHighlight;var NativeModules=ReactNative.NativeModules;var timer=require(556 /* react-native-timer */);var LoadingEffect=require(550 /* react-native-loading-effect */);
 var audioPath=_reactNativeAudio.AudioUtils.DocumentDirectoryPath+'/test.aac';
 
 
@@ -71734,7 +71734,7 @@ _stopRecord=function(){
 
 _reactNativeAudio.AudioRecorder.stopRecording();
 _this.setState({
-isRecord:false});};_this.state={isLoadingDialogVisible:false,isLoading:true,seconds:0,isRecord:false,question:'',dataSource:ds.cloneWithRows([new Array()])};return _this;}babelHelpers.createClass(AudioAnswerComponent,[{key:'componentDidMount',value:function componentDidMount(){var _this2=this;HttpService.get(Common.domain()+'/v1/wd_qExpert?',{qid:this.props.qid},function(resp){if(resp.errno==0){_this2._handlerResponse(1,resp.data);}else{}console.log(resp.data);});console.log(audioPath);_reactNativeAudio.AudioRecorder.prepareRecordingAtPath(audioPath,{SampleRate:22050,Channels:1,AudioQuality:"Low",AudioEncoding:"aac"});}},{key:'render',value:function render(){if(this.state.isLoading){return Common.loading();}return React.createElement(View,{style:styles.container,__source:{fileName:_jsxFileName,lineNumber:189}},React.createElement(ListView,{dataSource:this.state.dataSource,renderRow:this.renderRow.bind(this),__source:{fileName:_jsxFileName,lineNumber:190}}));}},{key:'_showLoadingEffect',value:function _showLoadingEffect(){this.setState({isLoadingDialogVisible:true});}},{key:'_dismissLoadingEffect',value:function _dismissLoadingEffect(){this.setState({isLoadingDialogVisible:false});}},{key:'renderRow',value:function renderRow(rowData,sectionID,rowID){var _this3=this;if(rowID==0){return React.createElement(View,{style:styles.headContainer,__source:{fileName:_jsxFileName,lineNumber:213}},React.createElement(Image,{style:styles.headImage,source:{uri:this.state.question.userAvatar},__source:{fileName:_jsxFileName,lineNumber:214}}),React.createElement(Text,{style:styles.headText,__source:{fileName:_jsxFileName,lineNumber:216}},this.state.question.userName));}else if(rowID==1){return React.createElement(Text,{style:{marginLeft:10,marginRight:10,backgroundColor:'white',padding:10},__source:{fileName:_jsxFileName,lineNumber:222}},this.state.question.content);}else if(rowID==2){return React.createElement(View,{style:styles.titleContainer,__source:{fileName:_jsxFileName,lineNumber:227}},React.createElement(Text,{style:{fontSize:11,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:228}},'公开提问，公开回答，答案被人偷听一次，你就赚0.5元. '));}else if(rowID==3){return React.createElement(View,{style:styles.audioBox,__source:{fileName:_jsxFileName,lineNumber:234}},React.createElement(Text,{style:styles.audioTitle,__source:{fileName:_jsxFileName,lineNumber:235}},' 语音回答 '),React.createElement(TouchableHighlight,{onPress:this.pressAudioImage,__source:{fileName:_jsxFileName,lineNumber:236}},React.createElement(Image,{style:styles.audioImage,source:require(581 /* image!audio */),__source:{fileName:_jsxFileName,lineNumber:237}})),React.createElement(Text,{style:styles.audioText,__source:{fileName:_jsxFileName,lineNumber:240}},' 点击开始录音最多可录120s '),React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:241}},' ',this.state.seconds,' ‘'));}else if(rowID==4){return React.createElement(View,{style:styles.buttonBox,__source:{fileName:_jsxFileName,lineNumber:247}},React.createElement(TouchableHighlight,{style:styles.buttonLeft,onPress:function onPress(){return _this3._reRecord();},underlayColor:'gray',__source:{fileName:_jsxFileName,lineNumber:248}},React.createElement(Text,{style:styles.buttonText,__source:{fileName:_jsxFileName,lineNumber:252}},'重录')),React.createElement(TouchableHighlight,{style:styles.buttonRight,onPress:function onPress(){return _this3._stopRecord();},underlayColor:'gray',__source:{fileName:_jsxFileName,lineNumber:254}},React.createElement(Text,{style:styles.buttonText,__source:{fileName:_jsxFileName,lineNumber:259}},'停止')));}return React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:265}},React.createElement(TouchableHighlight,{style:styles.button,onPress:function onPress(){return _this3._submit();},underlayColor:'gray',__source:{fileName:_jsxFileName,lineNumber:266}},React.createElement(Text,{style:styles.buttonText,__source:{fileName:_jsxFileName,lineNumber:270}},'确认发送')));}},{key:'_submit',value:function _submit()
+isRecord:false});};_this.state={isLoadingDialogVisible:false,isLoading:true,seconds:0,isRecord:false,question:'',dataSource:ds.cloneWithRows([new Array()])};return _this;}babelHelpers.createClass(AudioAnswerComponent,[{key:'componentDidMount',value:function componentDidMount(){var _this2=this;HttpService.get(Common.domain()+'/v1/wd_qExpert?',{qid:this.props.qid},function(resp){if(resp.errno==0){_this2._handlerResponse(1,resp.data);}else{}console.log(resp.data);});console.log(audioPath);_reactNativeAudio.AudioRecorder.prepareRecordingAtPath(audioPath,{SampleRate:22050,Channels:1,AudioQuality:"Low",AudioEncoding:"aac"});}},{key:'render',value:function render(){if(this.state.isLoading){return Common.loading();}return React.createElement(View,{style:styles.container,__source:{fileName:_jsxFileName,lineNumber:189}},React.createElement(ListView,{dataSource:this.state.dataSource,renderRow:this.renderRow.bind(this),__source:{fileName:_jsxFileName,lineNumber:190}}));}},{key:'_showLoadingEffect',value:function _showLoadingEffect(){this.setState({isLoadingDialogVisible:true});}},{key:'_dismissLoadingEffect',value:function _dismissLoadingEffect(){this.setState({isLoadingDialogVisible:false});}},{key:'renderRow',value:function renderRow(rowData,sectionID,rowID){var _this3=this;if(rowID==0){return React.createElement(View,{style:styles.headContainer,__source:{fileName:_jsxFileName,lineNumber:213}},React.createElement(Image,{style:styles.headImage,source:{uri:this.state.question.userAvatar},__source:{fileName:_jsxFileName,lineNumber:214}}),React.createElement(Text,{style:styles.headText,__source:{fileName:_jsxFileName,lineNumber:216}},this.state.question.userName));}else if(rowID==1){return React.createElement(Text,{style:{marginLeft:10,marginRight:10,backgroundColor:'white',padding:10},__source:{fileName:_jsxFileName,lineNumber:222}},this.state.question.content);}else if(rowID==2){return React.createElement(View,{style:styles.titleContainer,__source:{fileName:_jsxFileName,lineNumber:227}},React.createElement(Text,{style:{fontSize:11,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:228}},'公开提问，公开回答，答案被人偷听一次，你就赚0.5元. '));}else if(rowID==3){return React.createElement(View,{style:styles.audioBox,__source:{fileName:_jsxFileName,lineNumber:234}},React.createElement(Text,{style:styles.audioTitle,__source:{fileName:_jsxFileName,lineNumber:235}},' 语音回答 '),React.createElement(TouchableHighlight,{onPress:this.pressAudioImage,__source:{fileName:_jsxFileName,lineNumber:236}},React.createElement(Image,{style:styles.audioImage,source:require(582 /* image!audio */),__source:{fileName:_jsxFileName,lineNumber:237}})),React.createElement(Text,{style:styles.audioText,__source:{fileName:_jsxFileName,lineNumber:240}},' 点击开始录音最多可录120s '),React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:241}},' ',this.state.seconds,' ‘'));}else if(rowID==4){return React.createElement(View,{style:styles.buttonBox,__source:{fileName:_jsxFileName,lineNumber:247}},React.createElement(TouchableHighlight,{style:styles.buttonLeft,onPress:function onPress(){return _this3._reRecord();},underlayColor:'gray',__source:{fileName:_jsxFileName,lineNumber:248}},React.createElement(Text,{style:styles.buttonText,__source:{fileName:_jsxFileName,lineNumber:252}},'重录')),React.createElement(TouchableHighlight,{style:styles.buttonRight,onPress:function onPress(){return _this3._stopRecord();},underlayColor:'gray',__source:{fileName:_jsxFileName,lineNumber:254}},React.createElement(Text,{style:styles.buttonText,__source:{fileName:_jsxFileName,lineNumber:259}},'停止')));}return React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:265}},React.createElement(TouchableHighlight,{style:styles.button,onPress:function onPress(){return _this3._submit();},underlayColor:'gray',__source:{fileName:_jsxFileName,lineNumber:266}},React.createElement(Text,{style:styles.buttonText,__source:{fileName:_jsxFileName,lineNumber:270}},'确认发送')));}},{key:'_submit',value:function _submit()
 
 
 
@@ -71791,7 +71791,7 @@ if(type==2){}}}]);return AudioAnswerComponent;}(React.Component);
 
 module.exports=AudioAnswerComponent;
 });
-__d(554 /* react-native-audio/Audio.ios.js */, function(global, require, module, exports) {'use strict';
+__d(555 /* react-native-audio/Audio.ios.js */, function(global, require, module, exports) {'use strict';
 
 
 
@@ -71938,7 +71938,7 @@ LibraryDirectoryPath:AudioPlayerManager.NSLibraryDirectoryPath};
 
 module.exports={AudioPlayer:AudioPlayer,AudioRecorder:AudioRecorder,AudioUtils:AudioUtils};
 });
-__d(555 /* react-native-timer/lib/index.js */, function(global, require, module, exports) {'use strict';
+__d(556 /* react-native-timer/lib/index.js */, function(global, require, module, exports) {'use strict';
 
 var _typeof=typeof Symbol==="function"&&typeof(typeof Symbol==="function"?Symbol.iterator:"@@iterator")==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol?"symbol":typeof obj;};
 
@@ -72266,9 +72266,9 @@ return Timer;}();
 
 module.exports=new Timer();
 });
-__d(581 /* image!audio */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/audio.imageset/audio.png","uri":"audio","width":178,"height":224,"deprecated":true};
+__d(582 /* image!audio */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/audio.imageset/audio.png","uri":"audio","width":178,"height":224,"deprecated":true};
 });
-__d(556 /* momiaios/ReactComponent/home/home.js */, function(global, require, module, exports) {'use strict';var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/home/home.js';
+__d(557 /* momiaios/ReactComponent/home/home.js */, function(global, require, module, exports) {'use strict';var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/home/home.js';
 console.disableYellowBox=true;
 
 var Common=require(12 /* ../Common */);
@@ -72500,9 +72500,9 @@ var events=data.events;
 var eventsTitle=data.eventsTitle;
 return React.createElement(View,{style:styles.subject,__source:{fileName:_jsxFileName,lineNumber:231}},
 React.createElement(View,{style:styles.subject_title,__source:{fileName:_jsxFileName,lineNumber:232}},
-React.createElement(Image,{style:{width:12,height:4},source:require(582 /* ./img/IconWave.png */),__source:{fileName:_jsxFileName,lineNumber:233}}),
+React.createElement(Image,{style:{width:12,height:4},source:require(581 /* ./img/IconWave.png */),__source:{fileName:_jsxFileName,lineNumber:233}}),
 React.createElement(Text,{style:{fontSize:15,color:'#333333',paddingLeft:5,paddingRight:5,textAlign:'center'},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:234}},eventsTitle),
-React.createElement(Image,{style:{width:12,height:4},source:require(582 /* ./img/IconWave.png */),__source:{fileName:_jsxFileName,lineNumber:235}})),
+React.createElement(Image,{style:{width:12,height:4},source:require(581 /* ./img/IconWave.png */),__source:{fileName:_jsxFileName,lineNumber:235}})),
 
 React.createElement(View,{style:{flexDirection:'row'},__source:{fileName:_jsxFileName,lineNumber:237}},
 React.createElement(TouchableHighlight,{style:{flex:1},onPress:function onPress(){Linking.openURL(events[0].action);},underlayColor:'#ffffff',__source:{fileName:_jsxFileName,lineNumber:238}},
@@ -72543,9 +72543,9 @@ React.createElement(View,{style:styles.footer,__source:{fileName:_jsxFileName,li
 subject){
 return React.createElement(View,{style:styles.subject,__source:{fileName:_jsxFileName,lineNumber:274}},
 React.createElement(View,{style:styles.subject_title,__source:{fileName:_jsxFileName,lineNumber:275}},
-React.createElement(Image,{style:{width:12,height:4},source:require(582 /* ./img/IconWave.png */),__source:{fileName:_jsxFileName,lineNumber:276}}),
+React.createElement(Image,{style:{width:12,height:4},source:require(581 /* ./img/IconWave.png */),__source:{fileName:_jsxFileName,lineNumber:276}}),
 React.createElement(Text,{style:{fontSize:15,color:'#333333',paddingLeft:5,paddingRight:5,textAlign:'center'},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:277}},subject.coursesTitle),
-React.createElement(Image,{style:{width:12,height:4},source:require(582 /* ./img/IconWave.png */),__source:{fileName:_jsxFileName,lineNumber:278}})),
+React.createElement(Image,{style:{width:12,height:4},source:require(581 /* ./img/IconWave.png */),__source:{fileName:_jsxFileName,lineNumber:278}})),
 
 React.createElement(View,{style:{flexDirection:'row'},__source:{fileName:_jsxFileName,lineNumber:280}},
 
@@ -72619,13 +72619,13 @@ Linking.openURL(rowData.data.action);}}}]);return HomeComponent;}(React.Componen
 
 module.exports=HomeComponent;
 });
-__d(582 /* momiaios/ReactComponent/home/img/IconWave.png */, function(global, require, module, exports) {module.exports = require(351 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"fileSystemLocation":"/Users/mosl/Code/MomiaIOS/ReactComponent/home/img","httpServerLocation":"/assets/ReactComponent/home/img","width":12,"height":3.6666666666666665,"scales":[2,3],"files":["/Users/mosl/Code/MomiaIOS/ReactComponent/home/img/IconWave@2x.png","/Users/mosl/Code/MomiaIOS/ReactComponent/home/img/IconWave@3x.png"],"hash":"9b2de67f4ef8bbf65d7dade0da7c5090","name":"IconWave","type":"png"});
+__d(581 /* momiaios/ReactComponent/home/img/IconWave.png */, function(global, require, module, exports) {module.exports = require(351 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"fileSystemLocation":"/Users/mosl/Code/MomiaIOS/ReactComponent/home/img","httpServerLocation":"/assets/ReactComponent/home/img","width":12,"height":3.6666666666666665,"scales":[2,3],"files":["/Users/mosl/Code/MomiaIOS/ReactComponent/home/img/IconWave@2x.png","/Users/mosl/Code/MomiaIOS/ReactComponent/home/img/IconWave@3x.png"],"hash":"9b2de67f4ef8bbf65d7dade0da7c5090","name":"IconWave","type":"png"});
 });
 __d(583 /* momiaios/ReactComponent/home/img/IconTopic.png */, function(global, require, module, exports) {module.exports = require(351 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"fileSystemLocation":"/Users/mosl/Code/MomiaIOS/ReactComponent/home/img","httpServerLocation":"/assets/ReactComponent/home/img","width":43,"height":26.333333333333332,"scales":[2,3],"files":["/Users/mosl/Code/MomiaIOS/ReactComponent/home/img/IconTopic@2x.png","/Users/mosl/Code/MomiaIOS/ReactComponent/home/img/IconTopic@3x.png"],"hash":"9b2de67f4ef8bbf65d7dade0da7c5090","name":"IconTopic","type":"png"});
 });
 __d(584 /* momiaios/ReactComponent/home/img/IconSongguo.png */, function(global, require, module, exports) {module.exports = require(351 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"fileSystemLocation":"/Users/mosl/Code/MomiaIOS/ReactComponent/home/img","httpServerLocation":"/assets/ReactComponent/home/img","width":28.333333333333332,"height":26,"scales":[2,3],"files":["/Users/mosl/Code/MomiaIOS/ReactComponent/home/img/IconSongguo@2x.png","/Users/mosl/Code/MomiaIOS/ReactComponent/home/img/IconSongguo@3x.png"],"hash":"9b2de67f4ef8bbf65d7dade0da7c5090","name":"IconSongguo","type":"png"});
 });
-__d(557 /* momiaios/ReactComponent/mine/myanswer.js */, function(global, require, module, exports) {'use script';var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/mine/myanswer.js';
+__d(558 /* momiaios/ReactComponent/mine/myanswer.js */, function(global, require, module, exports) {'use script';var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/mine/myanswer.js';
 
 var React=require(13 /* react */);
 var ReactNative=require(43 /* react-native */);var
@@ -72643,7 +72643,7 @@ var Common=require(12 /* ../Common */);
 var SGStyles=require(547 /* ../SGStyles */);
 var HttpService=require(548 /* ../HttpService */);
 var LoadingEffect=require(550 /* react-native-loading-effect */);
-var Swiper=require(558 /* ../swiper.js */);
+var Swiper=require(559 /* ../swiper.js */);
 
 var RNCommon=NativeModules.RNCommon;
 
@@ -72727,7 +72727,7 @@ var DS=new ListView.DataSource({
 rowHasChanged:function rowHasChanged(r1,r2){return r1!==r2;}});
 
 
-var ViewPager=require(559 /* react-native-viewpager */);
+var ViewPager=require(560 /* react-native-viewpager */);
 
 var PagerDataSource=new ViewPager.DataSource({
 pageHasChanged:function pageHasChanged(p1,p2){return p1!==p2;}});
@@ -73052,7 +73052,7 @@ index:1});}});
 
 module.exports=MyAnswerComponent;
 });
-__d(558 /* momiaios/ReactComponent/swiper.js */, function(global, require, module, exports) {var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/swiper.js';
+__d(559 /* momiaios/ReactComponent/swiper.js */, function(global, require, module, exports) {var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/swiper.js';
 
 
 
@@ -73659,7 +73659,7 @@ this.renderPagination()),
 this.renderTitle(),
 this.props.showsButtons&&this.renderButtons()));}});
 });
-__d(559 /* react-native-viewpager/ViewPager.js */, function(global, require, module, exports) {'use strict';var _jsxFileName='/Users/mosl/Code/MomiaIOS/node_modules/react-native-viewpager/ViewPager.js';
+__d(560 /* react-native-viewpager/ViewPager.js */, function(global, require, module, exports) {'use strict';var _jsxFileName='/Users/mosl/Code/MomiaIOS/node_modules/react-native-viewpager/ViewPager.js';
 
 var React=require(13 /* react */);var
 PropTypes=React.PropTypes;
@@ -73678,9 +73678,9 @@ ReactNative.Dimensions;var Text=ReactNative.Text;var View=ReactNative.View;var T
 var StaticRenderer=require(376 /* react-native/Libraries/Components/StaticRenderer */);
 var TimerMixin=require(377 /* react-timer-mixin */);
 
-var DefaultViewPageIndicator=require(560 /* ./DefaultViewPageIndicator */);
+var DefaultViewPageIndicator=require(561 /* ./DefaultViewPageIndicator */);
 var deviceWidth=Dimensions.get('window').width;
-var ViewPagerDataSource=require(561 /* ./ViewPagerDataSource */);
+var ViewPagerDataSource=require(562 /* ./ViewPagerDataSource */);
 
 var ViewPager=React.createClass({displayName:'ViewPager',
 mixins:[TimerMixin],
@@ -74006,7 +74006,7 @@ backgroundColor:'transparent'}});
 
 module.exports=ViewPager;
 });
-__d(560 /* react-native-viewpager/DefaultViewPageIndicator.js */, function(global, require, module, exports) {'use strict';var _jsxFileName='/Users/mosl/Code/MomiaIOS/node_modules/react-native-viewpager/DefaultViewPageIndicator.js';
+__d(561 /* react-native-viewpager/DefaultViewPageIndicator.js */, function(global, require, module, exports) {'use strict';var _jsxFileName='/Users/mosl/Code/MomiaIOS/node_modules/react-native-viewpager/DefaultViewPageIndicator.js';
 
 var React=require(13 /* react */);
 var ReactNative=require(43 /* react-native */);var
@@ -74112,7 +74112,7 @@ React.createElement(Animated.View,{style:[styles.curDot,{left:left}],__source:{f
 
 module.exports=DefaultViewPageIndicator;
 });
-__d(561 /* react-native-viewpager/ViewPagerDataSource.js */, function(global, require, module, exports) {'use strict';
+__d(562 /* react-native-viewpager/ViewPagerDataSource.js */, function(global, require, module, exports) {'use strict';
 
 
 
@@ -74245,7 +74245,7 @@ return result;}
 
 module.exports=ViewPagerDataSource;
 });
-__d(562 /* momiaios/ReactComponent/mine/myasset.js */, function(global, require, module, exports) {'use script';var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/mine/myasset.js';
+__d(563 /* momiaios/ReactComponent/mine/myasset.js */, function(global, require, module, exports) {'use script';var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/mine/myasset.js';
 
 
 
@@ -74369,7 +74369,7 @@ React.createElement(Text,{style:{color:'gray',fontSize:15},__source:{fileName:_j
 
 module.exports=MyAssetComponent;
 });
-__d(563 /* momiaios/ReactComponent/mine/myqadetail.js */, function(global, require, module, exports) {'use script';var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/mine/myqadetail.js';
+__d(564 /* momiaios/ReactComponent/mine/myqadetail.js */, function(global, require, module, exports) {'use script';var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/mine/myqadetail.js';
 
 var React=require(13 /* react */);
 var ReactNative=require(43 /* react-native */);
@@ -74392,7 +74392,7 @@ var RNCommon=NativeModules.RNCommon;
 var RNStreamingKitManager=NativeModules.RNStreamingKitManager;
 
 var GlobalEventEmitter=require(551 /* react-native-global-event-emitter */);
-var Toast=require(568 /* ../toast.js */);
+var Toast=require(552 /* ../toast.js */);
 
 var styles=ReactNative.StyleSheet.create({
 loadingContainer:{
@@ -74626,7 +74626,7 @@ module.exports=MyQADetailComponent;
 });
 __d(585 /* image!arrow */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/ThirdParty/Rong_Cloud_iOS_SDK_v2_4_0_stable/RongCloud.bundle/arrow.png","uri":"arrow","width":18,"height":17,"deprecated":true};
 });
-__d(564 /* momiaios/ReactComponent/mine/myquestion.js */, function(global, require, module, exports) {'use script';var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/mine/myquestion.js';
+__d(565 /* momiaios/ReactComponent/mine/myquestion.js */, function(global, require, module, exports) {'use script';var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/mine/myquestion.js';
 
 
 
@@ -74849,7 +74849,7 @@ RNCommon.openUrl('myqadetail?qid='+question.id);}}}]);return MyQuestionComponent
 
 module.exports=MyQuestionComponent;
 });
-__d(565 /* momiaios/ReactComponent/setting/about.js */, function(global, require, module, exports) {'use strict';var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/setting/about.js';
+__d(566 /* momiaios/ReactComponent/setting/about.js */, function(global, require, module, exports) {'use strict';var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/setting/about.js';
 
 var SGStyles=require(547 /* ../SGStyles */);
 
@@ -74963,7 +74963,7 @@ Linking.openURL('duoladebug://web?url='+encodeURI('http://www.sogokids.com/agree
 
 module.exports=AboutComponent;
 });
-__d(566 /* momiaios/ReactComponent/setting/feedback.js */, function(global, require, module, exports) {'use strict';var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/setting/feedback.js';
+__d(567 /* momiaios/ReactComponent/setting/feedback.js */, function(global, require, module, exports) {'use strict';var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/setting/feedback.js';
 
 var React=require(13 /* react */);
 var ReactNative=require(43 /* react-native */);var
@@ -75097,7 +75097,7 @@ return;}};_this.state={comment:'',contact:''};return _this;}babelHelpers.createC
 
 module.exports=FeedBackComponent;
 });
-__d(567 /* momiaios/ReactComponent/wenda/wdaskexpert.js */, function(global, require, module, exports) {'use script';var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/wenda/wdaskexpert.js';
+__d(568 /* momiaios/ReactComponent/wenda/wdaskexpert.js */, function(global, require, module, exports) {'use script';var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/wenda/wdaskexpert.js';
 
 
 
@@ -75126,7 +75126,7 @@ var WendaPayManager=NativeModules.WendaPayManager;
 var RNStreamingKitManager=NativeModules.RNStreamingKitManager;
 
 var GlobalEventEmitter=require(551 /* react-native-global-event-emitter */);
-var Toast=require(568 /* ../toast.js */);
+var Toast=require(552 /* ../toast.js */);
 
 var ds=new ListView.DataSource({
 rowHasChanged:function rowHasChanged(r1,r2){return r1!==r2;}});
@@ -75274,9 +75274,9 @@ React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:168}},data.
 _renderSection:function _renderSection(data){
 var image='';
 if(data.image=='expert'){
-image=require(586 /* image!expert */);}else
+image=require(587 /* image!expert */);}else
 {
-image=require(587 /* image!course */);}
+image=require(586 /* image!course */);}
 
 return(
 React.createElement(View,{style:{paddingLeft:10,paddingRight:10,paddingTop:5,paddingBottom:5,backgroundColor:'white',marginTop:10},__source:{fileName:_jsxFileName,lineNumber:183}},
@@ -75364,9 +75364,9 @@ RNCommon.openUrl('wdcoursedetail?wid='+data.id);}});
 
 module.exports=AskExpertComponent;
 });
-__d(586 /* image!expert */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/expert.imageset/expert.png","uri":"expert","width":198,"height":200,"deprecated":true};
+__d(587 /* image!expert */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/expert.imageset/expert.png","uri":"expert","width":198,"height":200,"deprecated":true};
 });
-__d(587 /* image!course */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/course.imageset/course.png","uri":"course","width":196,"height":192,"deprecated":true};
+__d(586 /* image!course */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/course.imageset/course.png","uri":"course","width":196,"height":192,"deprecated":true};
 });
 __d(569 /* momiaios/ReactComponent/wenda/wdcoursedetail.js */, function(global, require, module, exports) {'use script';var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/wenda/wdcoursedetail.js';
 
@@ -75398,7 +75398,7 @@ var WendaPayManager=NativeModules.WendaPayManager;
 
 var RNStreamingKitManager=NativeModules.RNStreamingKitManager;
 var GlobalEventEmitter=require(551 /* react-native-global-event-emitter */);
-var Toast=require(568 /* ../toast.js */);
+var Toast=require(552 /* ../toast.js */);
 
 var styles=ReactNative.StyleSheet.create({
 separator:{
@@ -75637,7 +75637,7 @@ React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:266}},
 React.createElement(Image,{style:{width:50,height:50,alignItems:'center',justifyContent:'center'},
 source:{uri:data.cover},__source:{fileName:_jsxFileName,lineNumber:267}},
 React.createElement(Image,{style:{width:30,height:30},
-source:require(577 /* image!play */),__source:{fileName:_jsxFileName,lineNumber:269}})))),
+source:require(574 /* image!play */),__source:{fileName:_jsxFileName,lineNumber:269}})))),
 
 
 
@@ -75645,7 +75645,7 @@ React.createElement(View,{style:{marginLeft:10,flex:1},__source:{fileName:_jsxFi
 React.createElement(Text,{style:{fontSize:13},__source:{fileName:_jsxFileName,lineNumber:275}},data.title),
 React.createElement(View,{style:{flexDirection:'row',alignItems:'center',marginTop:5},__source:{fileName:_jsxFileName,lineNumber:276}},
 React.createElement(Image,{style:{width:15,height:15},
-source:require(574 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:277}}),
+source:require(576 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:277}}),
 React.createElement(Text,{style:{fontSize:11,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:279}},data.count,'次'),
 React.createElement(Image,{style:{width:15,height:15,marginLeft:10},
 source:require(575 /* image!time */),__source:{fileName:_jsxFileName,lineNumber:280}}),
@@ -75666,11 +75666,11 @@ _renderSection:function _renderSection(data){
 
 var image='';
 if(data.image=='expert'){
-image=require(586 /* image!expert */);}else
+image=require(587 /* image!expert */);}else
 if(data.image=='question'){
 image=require(580 /* image!question */);}else
 {
-image=require(587 /* image!course */);}
+image=require(586 /* image!course */);}
 
 return(
 React.createElement(View,{style:{paddingLeft:10,paddingRight:10,paddingTop:5,paddingBottom:5,backgroundColor:'white',marginTop:10},__source:{fileName:_jsxFileName,lineNumber:306}},
@@ -75870,6 +75870,8 @@ rowHasChanged:function rowHasChanged(r1,r2){return r1!==r2;}});
 
 var RNStreamingKitManager=NativeModules.RNStreamingKitManager;
 
+var GlobalEventEmitter=require(551 /* react-native-global-event-emitter */);
+
 var WendaCourseIntroComponent=React.createClass({displayName:'WendaCourseIntroComponent',
 
 componentDidMount:function componentDidMount(){var _this=this;
@@ -75885,7 +75887,13 @@ _this.setState({
 isLoading:false});}
 
 
-console.log(resp.data);});},
+console.log(resp.data);});
+
+
+GlobalEventEmitter.addListener('stopAudio',function(data){
+
+console.log("收到通知，停止语音");
+RNStreamingKitManager.stop();});},
 
 
 
@@ -75905,10 +75913,10 @@ if(this.state.isLoading){
 return Common.loading();}
 
 return(
-React.createElement(View,{style:{backgroundColor:'#f1f1f1',flex:1},__source:{fileName:_jsxFileName,lineNumber:67}},
+React.createElement(View,{style:{backgroundColor:'#f1f1f1',flex:1},__source:{fileName:_jsxFileName,lineNumber:75}},
 React.createElement(ListView,{
 dataSource:this.state.dataSource,
-renderRow:this._renderRow,__source:{fileName:_jsxFileName,lineNumber:68}})));},
+renderRow:this._renderRow,__source:{fileName:_jsxFileName,lineNumber:76}})));},
 
 
 
@@ -75979,31 +75987,31 @@ _renderCourse:function _renderCourse(){var _this3=this;
 data=this.state.wdcourse;
 return(
 React.createElement(TouchableHighlight,{
-underlayColor:'#f1f1f1',__source:{fileName:_jsxFileName,lineNumber:140}},
-React.createElement(View,{style:{padding:10,marginTop:10,backgroundColor:'white'},__source:{fileName:_jsxFileName,lineNumber:142}},
-React.createElement(View,{style:{flexDirection:'row',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:143}},
-React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:144}},
+underlayColor:'#f1f1f1',__source:{fileName:_jsxFileName,lineNumber:148}},
+React.createElement(View,{style:{padding:10,marginTop:10,backgroundColor:'white'},__source:{fileName:_jsxFileName,lineNumber:150}},
+React.createElement(View,{style:{flexDirection:'row',alignItems:'center'},__source:{fileName:_jsxFileName,lineNumber:151}},
+React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:152}},
 React.createElement(TouchableHighlight,{
 onPress:function onPress(){return _this3._playCourse(data);},
-underlayColor:'#f1f1f1',__source:{fileName:_jsxFileName,lineNumber:145}},
+underlayColor:'#f1f1f1',__source:{fileName:_jsxFileName,lineNumber:153}},
 React.createElement(Image,{style:{width:50,height:50,alignItems:'center',justifyContent:'center'},
-source:{uri:data.cover},__source:{fileName:_jsxFileName,lineNumber:148}},
+source:{uri:data.cover},__source:{fileName:_jsxFileName,lineNumber:156}},
 React.createElement(Image,{style:{width:30,height:30},
-source:require(577 /* image!play */),__source:{fileName:_jsxFileName,lineNumber:150}})))),
+source:require(574 /* image!play */),__source:{fileName:_jsxFileName,lineNumber:158}})))),
 
 
 
-React.createElement(View,{style:{marginLeft:10,flex:1},__source:{fileName:_jsxFileName,lineNumber:155}},
-React.createElement(Text,{style:{fontSize:13},__source:{fileName:_jsxFileName,lineNumber:156}},data.title),
-React.createElement(View,{style:{flexDirection:'row',alignItems:'center',marginTop:5},__source:{fileName:_jsxFileName,lineNumber:157}},
+React.createElement(View,{style:{marginLeft:10,flex:1},__source:{fileName:_jsxFileName,lineNumber:163}},
+React.createElement(Text,{style:{fontSize:13},__source:{fileName:_jsxFileName,lineNumber:164}},data.title),
+React.createElement(View,{style:{flexDirection:'row',alignItems:'center',marginTop:5},__source:{fileName:_jsxFileName,lineNumber:165}},
 React.createElement(Image,{style:{width:15,height:15},
-source:require(574 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:158}}),
-React.createElement(Text,{style:{fontSize:11,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:160}},data.count,'次'),
+source:require(576 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:166}}),
+React.createElement(Text,{style:{fontSize:11,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:168}},data.count,'次'),
 React.createElement(Image,{style:{width:15,height:15,marginLeft:10},
-source:require(575 /* image!time */),__source:{fileName:_jsxFileName,lineNumber:161}}),
-React.createElement(Text,{style:{fontSize:11,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:163}},' ',data.mins,'分钟')),
+source:require(575 /* image!time */),__source:{fileName:_jsxFileName,lineNumber:169}}),
+React.createElement(Text,{style:{fontSize:11,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:171}},' ',data.mins,'分钟')),
 
-React.createElement(Text,{style:{fontSize:11,color:'#999999',marginTop:5},__source:{fileName:_jsxFileName,lineNumber:165}},data.startTime))))));},
+React.createElement(Text,{style:{fontSize:11,color:'#999999',marginTop:5},__source:{fileName:_jsxFileName,lineNumber:173}},data.startTime))))));},
 
 
 
@@ -76015,9 +76023,9 @@ _renderImage:function _renderImage(){
 
 data=this.state.wdcourse;
 return(
-React.createElement(View,{style:{padding:10},__source:{fileName:_jsxFileName,lineNumber:177}},
+React.createElement(View,{style:{padding:10},__source:{fileName:_jsxFileName,lineNumber:185}},
 React.createElement(Image,{style:{height:120},
-source:{uri:data.cover},__source:{fileName:_jsxFileName,lineNumber:178}})));},
+source:{uri:data.cover},__source:{fileName:_jsxFileName,lineNumber:186}})));},
 
 
 
@@ -76026,8 +76034,8 @@ _renderText:function _renderText(){
 
 data=this.state.wdcourse;
 return(
-React.createElement(View,{style:{padding:10},__source:{fileName:_jsxFileName,lineNumber:188}},
-React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:189}},data.desc)));},
+React.createElement(View,{style:{padding:10},__source:{fileName:_jsxFileName,lineNumber:196}},
+React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:197}},data.desc)));},
 
 
 
@@ -76242,7 +76250,7 @@ React.createElement(Text,{style:{fontSize:13,color:'#999999',marginRight:10,marg
 React.createElement(View,{style:{flexDirection:'row',paddingLeft:20,alignItems:'center',justifyContent:'center'},__source:{fileName:_jsxFileName,lineNumber:182}},
 React.createElement(Text,{style:{fontSize:13,color:'#333333'},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:183}},data.expert.name),
 React.createElement(View,{style:{flexDirection:'row',flex:1},__source:{fileName:_jsxFileName,lineNumber:184}},
-React.createElement(Image,{style:{width:15,height:15,marginLeft:20},source:require(574 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:185}}),
+React.createElement(Image,{style:{width:15,height:15,marginLeft:20},source:require(576 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:185}}),
 React.createElement(Text,{style:{fontSize:13,color:'#999999',marginLeft:4},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:186}},data.count,'次'),
 React.createElement(Image,{style:{width:15,height:15,marginLeft:10},source:require(575 /* image!time */),__source:{fileName:_jsxFileName,lineNumber:187}}),
 React.createElement(Text,{style:{fontSize:13,color:'#999999',marginLeft:4},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:188}},data.mins,'分钟')))),

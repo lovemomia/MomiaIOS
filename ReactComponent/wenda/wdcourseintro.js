@@ -29,6 +29,8 @@ var ds = new ListView.DataSource({
 
 const RNStreamingKitManager = NativeModules.RNStreamingKitManager;
 
+var GlobalEventEmitter = require('react-native-global-event-emitter');
+
 var WendaCourseIntroComponent = React.createClass({
 
 	componentDidMount: function() {
@@ -45,6 +47,12 @@ var WendaCourseIntroComponent = React.createClass({
         	});
      	}
       		console.log(resp.data);
+    	});
+
+		 GlobalEventEmitter.addListener('stopAudio', (data) => {
+
+      		console.log("收到通知，停止语音");
+      		RNStreamingKitManager.stop();
     	});
 	},
 

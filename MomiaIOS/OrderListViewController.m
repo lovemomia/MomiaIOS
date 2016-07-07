@@ -120,13 +120,13 @@
                                                          } else {
                                                              [self.view showEmptyView:@"订单列表为空"];
                                                          }
-                                                         return;
                                                      }
                                                      [self.view removeLoadingBee];
                                                      [self.tableView reloadData];
                                                  }
                                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                      [self showDialogWithTitle:nil message:error.message];
+                                                      [self.view removeLoadingBee];
                                                      self.isLoading = NO;
                                                  }];
 }
@@ -155,6 +155,10 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    
+    if ( self.orderList.count == 0 )
+        return 0;
     return 1;
 }
 

@@ -43,20 +43,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"TitleMsg"] style:UIBarButtonItemStylePlain target:self action:@selector(onTitleBtnClick)];
     
     [[AccountService defaultService] addListener:self];
-    
-    
-    //登录状态
-    if ([[AccountService defaultService] isLogin]){
-        //获取我的问题，未回答问题，我的问题的个数
-        
-        self.account = [AccountService defaultService].account;
-        
-        self.utoken = self.account.token;
-        self.role = self.account.role;
-        
-        [self fetchMyData];
-    }
-    
+
      NSLog(@"=_=");
 }
 
@@ -81,7 +68,18 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.tableView reloadData];
+    
+    //登录状态
+    if ([[AccountService defaultService] isLogin]){
+        //获取我的问题，未回答问题，我的问题的个数
+        
+        self.account = [AccountService defaultService].account;
+        
+        self.utoken = self.account.token;
+        self.role = self.account.role;
+        
+        [self fetchMyData];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -120,6 +118,8 @@
     if(self.utoken != nil) {
         [self fetchMyData];
     }
+    
+    [self.tableView reloadData];
 }
 
 // 单击设置
@@ -310,7 +310,7 @@
                     commonCell.titleLabel.text = @"我的账户";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconBooked"];
                     
-                    if (self.wendaData) {
+                    if (self.wendaData && self.utoken == nil) {
                         commonCell.subTitleLabel.textColor = [UIColor redColor];
                         commonCell.subTitleLabel.text = [NSString stringWithFormat:@"%@",self.wendaData.data.assetNumber];
                     }
