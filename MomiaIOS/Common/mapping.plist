@@ -596,5 +596,14 @@
 		<key>controller</key>
 		<string>WaitExpertViewController</string>
 	</dict>
+	<key>overtime</key>
+	<dict>
+		<key>desc</key>
+		<string>等待页</string>
+		<key>needlogin</key>
+		<false/>
+		<key>controller</key>
+		<string>OverTimeViewController</string>
+	</dict>
 </dict>
 </plist>

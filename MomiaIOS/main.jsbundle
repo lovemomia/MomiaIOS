@@ -1676,9 +1676,9 @@ React.createElement(Text,{style:{fontSize:13,color:'#999999',marginRight:10,marg
 React.createElement(View,{style:{flexDirection:'row',paddingLeft:20,alignItems:'center',justifyContent:'center'},__source:{fileName:_jsxFileName,lineNumber:294}},
 React.createElement(Text,{style:{fontSize:13,color:'#333333'},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:295}},data.expert.name),
 React.createElement(View,{style:{flexDirection:'row',flex:1},__source:{fileName:_jsxFileName,lineNumber:296}},
-React.createElement(Image,{style:{width:15,height:15,marginLeft:20},source:require(576 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:297}}),
+React.createElement(Image,{style:{width:15,height:15,marginLeft:20},source:require(577 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:297}}),
 React.createElement(Text,{style:{fontSize:13,color:'#999999',marginLeft:4},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:298}},data.count,'次'),
-React.createElement(Image,{style:{width:15,height:15,marginLeft:10},source:require(575 /* image!time */),__source:{fileName:_jsxFileName,lineNumber:299}}),
+React.createElement(Image,{style:{width:15,height:15,marginLeft:10},source:require(576 /* image!time */),__source:{fileName:_jsxFileName,lineNumber:299}}),
 React.createElement(Text,{style:{fontSize:13,color:'#999999',marginLeft:4},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:300}},data.mins,'分钟')))),
 
 
@@ -1870,17 +1870,17 @@ _react2.default.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:6
 _react2.default.createElement(Image,{style:{width:50,height:50,alignItems:'center',justifyContent:'center'},
 source:{uri:data.cover},__source:{fileName:_jsxFileName,lineNumber:62}},
 _react2.default.createElement(Image,{style:{width:30,height:30},
-source:require(574 /* image!play */),__source:{fileName:_jsxFileName,lineNumber:64}}))),
+source:require(575 /* image!play */),__source:{fileName:_jsxFileName,lineNumber:64}}))),
 
 
 _react2.default.createElement(View,{style:{marginLeft:10,flex:1},__source:{fileName:_jsxFileName,lineNumber:68}},
 _react2.default.createElement(Text,{style:{fontSize:13},__source:{fileName:_jsxFileName,lineNumber:69}},data.title),
 _react2.default.createElement(View,{style:{flexDirection:'row',alignItems:'center',marginTop:5},__source:{fileName:_jsxFileName,lineNumber:70}},
 _react2.default.createElement(Image,{style:{width:15,height:15},
-source:require(576 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:71}}),
+source:require(577 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:71}}),
 _react2.default.createElement(Text,{style:{fontSize:11,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:73}},data.count,'次'),
 _react2.default.createElement(Image,{style:{width:15,height:15,marginLeft:10},
-source:require(575 /* image!time */),__source:{fileName:_jsxFileName,lineNumber:74}}),
+source:require(576 /* image!time */),__source:{fileName:_jsxFileName,lineNumber:74}}),
 _react2.default.createElement(Text,{style:{fontSize:11,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:76}},' ',data.mins,'分钟')),
 
 _react2.default.createElement(Text,{style:{fontSize:11,color:'#999999',marginTop:5},__source:{fileName:_jsxFileName,lineNumber:78}},data.startTime))))));}}]);return Common;}(_react2.default.Component);
@@ -66751,7 +66751,7 @@ ReactNative.Image;var Platform=ReactNative.Platform;var StyleSheet=ReactNative.S
 
 var NavigationHeaderBackButton=function NavigationHeaderBackButton(props){return(
 React.createElement(TouchableOpacity,{style:styles.buttonContainer,onPress:function onPress(){return props.onNavigate(NavigationRootContainer.getBackAction());},__source:{fileName:_jsxFileName,lineNumber:36}},
-React.createElement(Image,{style:styles.button,source:require(577 /* ./assets/back-icon.png */),__source:{fileName:_jsxFileName,lineNumber:37}})));};
+React.createElement(Image,{style:styles.button,source:require(574 /* ./assets/back-icon.png */),__source:{fileName:_jsxFileName,lineNumber:37}})));};
 
 
 
@@ -66776,7 +66776,7 @@ resizeMode:'contain'}});
 
 module.exports=NavigationContainer.create(NavigationHeaderBackButton);
 });
-__d(577 /* react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon.png */, function(global, require, module, exports) {module.exports = require(351 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"fileSystemLocation":"/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets","httpServerLocation":"/assets/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets","width":24,"height":24,"scales":[1,1.5,2,3,4],"files":["/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon@1x.ios.png","/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon@1.5x.ios.png","/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon@2x.ios.png","/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon@3x.ios.png","/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon@4x.ios.png"],"hash":"5d76747e8e143454cb02b011a071adc3","name":"back-icon","type":"png"});
+__d(574 /* react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon.png */, function(global, require, module, exports) {module.exports = require(351 /* react-native/Libraries/Image/AssetRegistry */).registerAsset({"__packager_asset":true,"fileSystemLocation":"/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets","httpServerLocation":"/assets/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets","width":24,"height":24,"scales":[1,1.5,2,3,4],"files":["/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon@1x.ios.png","/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon@1.5x.ios.png","/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon@2x.ios.png","/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon@3x.ios.png","/Users/mosl/Code/MomiaIOS/node_modules/react-native/Libraries/CustomComponents/NavigationExperimental/assets/back-icon@4x.ios.png"],"hash":"5d76747e8e143454cb02b011a071adc3","name":"back-icon","type":"png"});
 });
 __d(520 /* NavigationHeaderStyleInterpolator */, function(global, require, module, exports) {'use strict';
 
@@ -70197,11 +70197,11 @@ backgroundColor:'#f1f1f1'}});
 
 module.exports=SGStyles;
 });
-__d(574 /* image!play */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/play.imageset/play.png","uri":"play","width":128,"height":112,"deprecated":true};
+__d(575 /* image!play */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/play.imageset/play.png","uri":"play","width":128,"height":112,"deprecated":true};
 });
-__d(576 /* image!count */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/count.imageset/count.png","uri":"count","width":128,"height":112,"deprecated":true};
+__d(577 /* image!count */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/count.imageset/count.png","uri":"count","width":128,"height":112,"deprecated":true};
 });
-__d(575 /* image!time */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/time.imageset/time.png","uri":"time","width":122,"height":108,"deprecated":true};
+__d(576 /* image!time */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/time.imageset/time.png","uri":"time","width":122,"height":108,"deprecated":true};
 });
 __d(548 /* momiaios/ReactComponent/HttpService.js */, function(global, require, module, exports) {'use strict';
 
@@ -72967,15 +72967,15 @@ React.createElement(Text,{style:{marginLeft:10},__source:{fileName:_jsxFileName,
 
 React.createElement(View,{style:styles.rightContainer,__source:{fileName:_jsxFileName,lineNumber:341}},
 React.createElement(Text,{style:styles.money,__source:{fileName:_jsxFileName,lineNumber:342}},'￥',data.price),
-React.createElement(Text,{style:styles.status,__source:{fileName:_jsxFileName,lineNumber:343}},status))),
+React.createElement(Text,{style:{marginLeft:10,fontSize:12,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:343}},status))),
 
 
 React.createElement(View,{style:styles.middleContainer,__source:{fileName:_jsxFileName,lineNumber:346}},
 React.createElement(Text,{style:{flex:1},__source:{fileName:_jsxFileName,lineNumber:347}},data.content)),
 
 React.createElement(View,{style:styles.tailContainer,__source:{fileName:_jsxFileName,lineNumber:349}},
-React.createElement(Text,{style:styles.time,__source:{fileName:_jsxFileName,lineNumber:350}},data.addTime),
-React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:351}},rowData.count,'个人偷偷听'))))));},
+React.createElement(Text,{style:{fontSize:12,color:'#999999',flex:1},__source:{fileName:_jsxFileName,lineNumber:350}},data.addTime),
+React.createElement(Text,{style:{fontSize:12,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:351}},rowData.count,'个人偷偷听'))))));},
 
 
 
@@ -74818,15 +74818,15 @@ React.createElement(Text,{style:{marginLeft:10},__source:{fileName:_jsxFileName,
 
 React.createElement(View,{style:styles.rightContainer,__source:{fileName:_jsxFileName,lineNumber:191}},
 React.createElement(Text,{style:styles.money,__source:{fileName:_jsxFileName,lineNumber:192}},'￥',rowData.price),
-React.createElement(Text,{style:styles.status,__source:{fileName:_jsxFileName,lineNumber:193}},rowData.status==3?'已回答':'未回答'))),
+React.createElement(Text,{style:{marginLeft:10,fontSize:12,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:193}},rowData.status==3?'已回答':'未回答'))),
 
 
 React.createElement(View,{style:styles.middleContainer,__source:{fileName:_jsxFileName,lineNumber:196}},
 React.createElement(Text,{numberOfLines:3,style:{flex:1},__source:{fileName:_jsxFileName,lineNumber:197}},rowData.content)),
 
 React.createElement(View,{style:styles.tailContainer,__source:{fileName:_jsxFileName,lineNumber:199}},
-React.createElement(Text,{style:styles.time,__source:{fileName:_jsxFileName,lineNumber:200}},rowData.addTime),
-React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:201}},rowData.count,'个人偷偷听'))))));}},{key:'onPressRowItem',value:function onPressRowItem(
+React.createElement(Text,{style:{fontSize:12,color:'#999999',flex:1},__source:{fileName:_jsxFileName,lineNumber:200}},rowData.addTime),
+React.createElement(Text,{style:{fontSize:12,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:201}},rowData.count,'个人偷偷听'))))));}},{key:'onPressRowItem',value:function onPressRowItem(
 
 
 
@@ -75274,9 +75274,9 @@ React.createElement(Text,{__source:{fileName:_jsxFileName,lineNumber:168}},data.
 _renderSection:function _renderSection(data){
 var image='';
 if(data.image=='expert'){
-image=require(587 /* image!expert */);}else
+image=require(586 /* image!expert */);}else
 {
-image=require(586 /* image!course */);}
+image=require(587 /* image!course */);}
 
 return(
 React.createElement(View,{style:{paddingLeft:10,paddingRight:10,paddingTop:5,paddingBottom:5,backgroundColor:'white',marginTop:10},__source:{fileName:_jsxFileName,lineNumber:183}},
@@ -75364,9 +75364,9 @@ RNCommon.openUrl('wdcoursedetail?wid='+data.id);}});
 
 module.exports=AskExpertComponent;
 });
-__d(587 /* image!expert */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/expert.imageset/expert.png","uri":"expert","width":198,"height":200,"deprecated":true};
+__d(586 /* image!expert */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/expert.imageset/expert.png","uri":"expert","width":198,"height":200,"deprecated":true};
 });
-__d(586 /* image!course */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/course.imageset/course.png","uri":"course","width":196,"height":192,"deprecated":true};
+__d(587 /* image!course */, function(global, require, module, exports) {module.exports={"__packager_asset":true,"path":"/Users/mosl/Code/MomiaIOS/MomiaIOS/Images.xcassets/image/course.imageset/course.png","uri":"course","width":196,"height":192,"deprecated":true};
 });
 __d(569 /* momiaios/ReactComponent/wenda/wdcoursedetail.js */, function(global, require, module, exports) {'use script';var _jsxFileName='/Users/mosl/Code/MomiaIOS/ReactComponent/wenda/wdcoursedetail.js';
 
@@ -75637,7 +75637,7 @@ React.createElement(View,{__source:{fileName:_jsxFileName,lineNumber:266}},
 React.createElement(Image,{style:{width:50,height:50,alignItems:'center',justifyContent:'center'},
 source:{uri:data.cover},__source:{fileName:_jsxFileName,lineNumber:267}},
 React.createElement(Image,{style:{width:30,height:30},
-source:require(574 /* image!play */),__source:{fileName:_jsxFileName,lineNumber:269}})))),
+source:require(575 /* image!play */),__source:{fileName:_jsxFileName,lineNumber:269}})))),
 
 
 
@@ -75645,10 +75645,10 @@ React.createElement(View,{style:{marginLeft:10,flex:1},__source:{fileName:_jsxFi
 React.createElement(Text,{style:{fontSize:13},__source:{fileName:_jsxFileName,lineNumber:275}},data.title),
 React.createElement(View,{style:{flexDirection:'row',alignItems:'center',marginTop:5},__source:{fileName:_jsxFileName,lineNumber:276}},
 React.createElement(Image,{style:{width:15,height:15},
-source:require(576 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:277}}),
+source:require(577 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:277}}),
 React.createElement(Text,{style:{fontSize:11,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:279}},data.count,'次'),
 React.createElement(Image,{style:{width:15,height:15,marginLeft:10},
-source:require(575 /* image!time */),__source:{fileName:_jsxFileName,lineNumber:280}}),
+source:require(576 /* image!time */),__source:{fileName:_jsxFileName,lineNumber:280}}),
 React.createElement(Text,{style:{fontSize:11,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:282}},' ',data.mins,'分钟')),
 
 React.createElement(Text,{style:{fontSize:11,color:'#999999',marginTop:5},__source:{fileName:_jsxFileName,lineNumber:284}},data.startTime)),
@@ -75666,11 +75666,11 @@ _renderSection:function _renderSection(data){
 
 var image='';
 if(data.image=='expert'){
-image=require(587 /* image!expert */);}else
+image=require(586 /* image!expert */);}else
 if(data.image=='question'){
 image=require(580 /* image!question */);}else
 {
-image=require(586 /* image!course */);}
+image=require(587 /* image!course */);}
 
 return(
 React.createElement(View,{style:{paddingLeft:10,paddingRight:10,paddingTop:5,paddingBottom:5,backgroundColor:'white',marginTop:10},__source:{fileName:_jsxFileName,lineNumber:306}},
@@ -75997,7 +75997,7 @@ underlayColor:'#f1f1f1',__source:{fileName:_jsxFileName,lineNumber:153}},
 React.createElement(Image,{style:{width:50,height:50,alignItems:'center',justifyContent:'center'},
 source:{uri:data.cover},__source:{fileName:_jsxFileName,lineNumber:156}},
 React.createElement(Image,{style:{width:30,height:30},
-source:require(574 /* image!play */),__source:{fileName:_jsxFileName,lineNumber:158}})))),
+source:require(575 /* image!play */),__source:{fileName:_jsxFileName,lineNumber:158}})))),
 
 
 
@@ -76005,10 +76005,10 @@ React.createElement(View,{style:{marginLeft:10,flex:1},__source:{fileName:_jsxFi
 React.createElement(Text,{style:{fontSize:13},__source:{fileName:_jsxFileName,lineNumber:164}},data.title),
 React.createElement(View,{style:{flexDirection:'row',alignItems:'center',marginTop:5},__source:{fileName:_jsxFileName,lineNumber:165}},
 React.createElement(Image,{style:{width:15,height:15},
-source:require(576 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:166}}),
+source:require(577 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:166}}),
 React.createElement(Text,{style:{fontSize:11,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:168}},data.count,'次'),
 React.createElement(Image,{style:{width:15,height:15,marginLeft:10},
-source:require(575 /* image!time */),__source:{fileName:_jsxFileName,lineNumber:169}}),
+source:require(576 /* image!time */),__source:{fileName:_jsxFileName,lineNumber:169}}),
 React.createElement(Text,{style:{fontSize:11,color:'#999999'},__source:{fileName:_jsxFileName,lineNumber:171}},' ',data.mins,'分钟')),
 
 React.createElement(Text,{style:{fontSize:11,color:'#999999',marginTop:5},__source:{fileName:_jsxFileName,lineNumber:173}},data.startTime))))));},
@@ -76250,9 +76250,9 @@ React.createElement(Text,{style:{fontSize:13,color:'#999999',marginRight:10,marg
 React.createElement(View,{style:{flexDirection:'row',paddingLeft:20,alignItems:'center',justifyContent:'center'},__source:{fileName:_jsxFileName,lineNumber:182}},
 React.createElement(Text,{style:{fontSize:13,color:'#333333'},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:183}},data.expert.name),
 React.createElement(View,{style:{flexDirection:'row',flex:1},__source:{fileName:_jsxFileName,lineNumber:184}},
-React.createElement(Image,{style:{width:15,height:15,marginLeft:20},source:require(576 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:185}}),
+React.createElement(Image,{style:{width:15,height:15,marginLeft:20},source:require(577 /* image!count */),__source:{fileName:_jsxFileName,lineNumber:185}}),
 React.createElement(Text,{style:{fontSize:13,color:'#999999',marginLeft:4},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:186}},data.count,'次'),
-React.createElement(Image,{style:{width:15,height:15,marginLeft:10},source:require(575 /* image!time */),__source:{fileName:_jsxFileName,lineNumber:187}}),
+React.createElement(Image,{style:{width:15,height:15,marginLeft:10},source:require(576 /* image!time */),__source:{fileName:_jsxFileName,lineNumber:187}}),
 React.createElement(Text,{style:{fontSize:13,color:'#999999',marginLeft:4},numberOfLines:1,__source:{fileName:_jsxFileName,lineNumber:188}},data.mins,'分钟')))),
 
 
@@ -76407,7 +76407,7 @@ console.log(resp);});}},{key:'_handlerResponse',value:function _handlerResponse(
 
 
 data){
-var typeList=new Array(this.state.dataSource);
+var typeList=new Array();
 var hasNextPage=false;
 var nextStart=0;
 if(this.state.hasNextPage){

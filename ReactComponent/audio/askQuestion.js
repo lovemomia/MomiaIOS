@@ -134,8 +134,7 @@ var AskQuestionComponent = React.createClass({
 		} else if (rowID == 2 ) {
 			return (
 				<View style={{padding: 10,flexDirection:'row',alignItems: 'center'}}>
-					<Image source={require('image!check')} style={{width: 30,height: 30}}/>
-					<Text style={{flex: 1,color: 'gray', fontSize: 13}}>公开提问，答案每被人偷听一次，你将从中分成0.5元</Text>
+					<Text style={{flex: 1,color: 'gray', fontSize: 13}}>这是公开提问，答案每被人偷听一次，你将从中分成0.5元</Text>
 				</View>
 			);
 		} else if (rowID == 3) {

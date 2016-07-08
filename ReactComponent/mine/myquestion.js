@@ -174,6 +174,16 @@ class MyQuestionComponent extends React.Component {
 
 	//渲染rowItem View
 	renderRow(rowData, sectionID, rowID) {
+
+		let status = '';
+		if (rowData.status == 1) {
+			status = '未回答';
+		} else if( rowData.status == 3) {
+			status = '已回答';
+		} else if (rowData.status == 4) {
+			status = '已过期';
+		}
+
 		return (
 			<TouchableHighlight 
 				onPress={() => {
@@ -190,15 +200,15 @@ class MyQuestionComponent extends React.Component {
 						</View>
 						<View style={styles.rightContainer}>
 							<Text style={styles.money}>￥{rowData.price}</Text>
-							<Text style={styles.status}>{rowData.status == 3 ? '已回答' : '未回答'}</Text>
+							<Text style={{marginLeft: 10,fontSize: 12,color: '#999999'}}>{status}</Text>
 						</View>
 					</View>
 					<View style={styles.middleContainer}>
 						<Text numberOfLines={3} style={{flex: 1}}>{rowData.content}</Text>
 					</View>
 					<View style={styles.tailContainer}>
-						<Text style={styles.time}>{rowData.addTime}</Text>
-						<Text>{rowData.count}个人偷偷听</Text>
+						<Text style={{fontSize: 12,color: '#999999',flex: 1}}>{rowData.addTime}</Text>
+						<Text style={{fontSize: 12,color: '#999999'}}>{rowData.count}个人偷偷听</Text>
 					</View>
 				</View>
 			</View>
@@ -209,11 +219,13 @@ class MyQuestionComponent extends React.Component {
 	onPressRowItem(question) {
 
 		//判断问题是否已回答  问题的状态，1: 未回答  3: 已回答  4: 已过期
-
+		console.log(question);
 		if (question.status == 1) {
 			RNCommon.openUrl('waitanswer');
 		} else if (question.status == 3) {
 			RNCommon.openUrl('myqadetail?qid=' + question.id);
+		} else if (question.status == 4) {
+			RNCommon.openUrl('overtime');
 		}
 	}
 }

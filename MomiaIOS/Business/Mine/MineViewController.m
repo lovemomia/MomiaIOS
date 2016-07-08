@@ -135,7 +135,6 @@
 #pragma mark - tableview delegate & datasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"%@-----%@",self.utoken,self.role);
     if (section == 1 && self.utoken == nil) { //未登录
         return 3;
     }else if (section == 1 && self.role.integerValue == 9) { //专家
@@ -310,7 +309,7 @@
                     commonCell.titleLabel.text = @"我的账户";
                     commonCell.iconIv.image = [UIImage imageNamed:@"IconBooked"];
                     
-                    if (self.wendaData && self.utoken == nil) {
+                    if (self.wendaData && self.utoken) {
                         commonCell.subTitleLabel.textColor = [UIColor redColor];
                         commonCell.subTitleLabel.text = [NSString stringWithFormat:@"%@",self.wendaData.data.assetNumber];
                     }

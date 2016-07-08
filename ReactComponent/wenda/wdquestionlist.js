@@ -136,7 +136,7 @@ class WDQuestionListComponent extends React.Component {
 
   //将网络请求数据解析成列表数据
   _handlerResponse(data) {
-    var typeList = new Array(this.state.dataSource);
+    var typeList = new Array();
     var hasNextPage = false;
     var nextStart = 0;
     if (this.state.hasNextPage) {
@@ -161,7 +161,7 @@ class WDQuestionListComponent extends React.Component {
         type: 2,
       });
     }
-
+    
     this.setState({
       isLoading: false,
       dataSource: this.state.dataSource.cloneWithRows(typeList),

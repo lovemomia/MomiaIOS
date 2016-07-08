@@ -340,15 +340,15 @@ var MyAnswerComponent = React.createClass({
 						</View>
 						<View style={styles.rightContainer}>
 							<Text style={styles.money}>￥{data.price}</Text>
-							<Text style={styles.status}>{status}</Text>
+							<Text style={{marginLeft: 10,fontSize: 12,color: '#999999'}}>{status}</Text>
 						</View>
 					</View>
 					<View style={styles.middleContainer}>
 						<Text style={{flex: 1}}>{data.content}</Text>
 					</View>
 					<View style={styles.tailContainer}>
-						<Text style={styles.time}>{data.addTime}</Text>
-						<Text>{rowData.count}个人偷偷听</Text>
+						<Text style={{fontSize: 12,color: '#999999',flex: 1}}>{data.addTime}</Text>
+						<Text style={{fontSize: 12,color: '#999999'}}>{rowData.count}个人偷偷听</Text>
 					</View>
 				</View>
 			</View>

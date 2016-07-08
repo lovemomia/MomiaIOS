@@ -19,6 +19,7 @@ const Common = require('./Common.js');
 const SGStyles = require('./SGStyles.js');
 const HttpService = require('./HttpService.js');
 
+const OverTimeComponent = require('./mine/overtime.js');
 const WaitExpertComponent = require('./wenda/waitexpert.js');
 
 const ReactNative = require('react-native');
@@ -50,3 +51,5 @@ ReactNative.AppRegistry.registerComponent('WDCourseListComponent', () => WDCours
 ReactNative.AppRegistry.registerComponent('WDQuestionListComponent', () => WDQuestionListComponent);
 
 ReactNative.AppRegistry.registerComponent('WaitExpertComponent', () => WaitExpertComponent);
+
+ReactNative.AppRegistry.registerComponent('OverTimeComponent', () => OverTimeComponent);
